@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 0;
+            font: 14px/1.4 Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+        h1 {
+            margin: 0 0 15px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        h2 {
+            font-weight: normal;
+            color: #666;
+            font-size: 12px;
+            margin: 0 0 22px 0;
+        }
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.3;
+            color: #808080;
+        }
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { opacity: 0.7; }
+        
+        /* graph */
+        .chart { position: relative; }
+        .axis {
+            font-size: 12px;
+            color: #666;
+        }
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #666;
+            shape-rendering: crispEdges;
+        }
+        .axis.y path { display: none; }
+        .axis.y .tick line { display: none; }
+        .grid path { display: none; }
+        .grid .tick {
+            stroke: #ccc;
+            stroke-dasharray: 1px 3px;
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+        .bars rect { 
+            fill: #ECA395;
+            shape-rendering: crispEdges;
+        }
+        .value text {
+            font-size: 10px;
+            fill: #fff;
+        }
+        .value text.no-opinion { display: none; }
+
+        .labels {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            border: none;
+        }
+        .labels li {
+            position: absolute;
+            text-align: right;
+            font-size: 12px;
+            line-height: 1.4;
+            color: #555;
+            display: table;
+        }
+        .labels li span {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .labels li.all { 
+            font-weight: bold;
+            color: #111;
+        }
+
+        .key {
+            margin: 0 0 15px 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .key .key-item { 
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+            height: 15px;
+        }
+        .key .key-item b { 
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+        }
+        .key .key-item label { 
+            white-space: nowrap;
+            color: #333;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 15px;
+        }
+
+        @media screen and (max-width: 550px) {
+            .value { display: none; }
+        }
+    </style>
+
+</head>
+<body>
+    <h1>&ldquo;Do you approve or disapprove of the way Barack Obama is handling his job as President?&rdquo;</h1>
+    
+    <ul class="key">
+        <li class="key-item key-0 strongly-approve"><b style="background-color: rgb(40, 85, 111); margin-right: 1px;"></b><b style="background-color: rgb(61, 127, 166);"></b><label>Approve (strongly/somewhat)</label></li>
+        <li class="key-item key-2 no-opinion"><b style="background-color: rgb(221, 221, 221);"></b><label>No opinion</label></li>
+        <li class="key-item key-3 somewhat-disapprove"><b style="background-color: rgb(162, 53, 32); margin-right: 1px;"></b><b style="background-color: rgb(226, 117, 96);"></b><label>Disapprove (strongly/somewhat)</label></li>
+    </ul>
+
+    <div id="graphic"><img src="fallback.png" alt="[chart]" /></div>
+    
+    
+
+    <div class="footer">
+        
+        
+    </div>
+
+    <script src="js/lib/jquery.js" type="text/javascript"></script>
+    <script src="js/lib/d3.v3.min.js" type="text/javascript"></script>
+    <script src="js/lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script src="js/graphic.js" type="text/javascript"></script>
+</body>
+</html>
