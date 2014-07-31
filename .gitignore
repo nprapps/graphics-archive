@@ -1,0 +1,10 @@
+*.py[co]
+*.sw[op]
+.DS_Store
+.gzip
+
+dailygraphics.submlime-*
+graphics.sublime-*
+
+*/index.html
+*/graphic_config.pyc
