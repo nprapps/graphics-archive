@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <!-- Fonts -->
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js"></script>
+    <script>
+        WebFont.load({
+             custom: {
+                 families: [
+                     'Gotham SSm:n4,n7',
+                     'Gotham:n4,n7'
+                 ],
+                 urls: [
+                     'http://s.npr.org/templates/css/fonts/GothamSSm.css',
+                     'http://s.npr.org/templates/css/fonts/Gotham.css'
+                 ]
+             },
+             timeout: 10000
+         });
+    </script>
+    
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            margin: 0 0 6px 0;
+            font-size: 16px;
+            color: #111;
+        }
+        h2 {
+            font-weight: normal;
+            color: #666;
+            font-size: 12px;
+            line-height: 1.4;
+            margin: 0 0 11px 0;
+        }
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.3;
+            color: #808080;
+        }
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { opacity: 0.7; }
+
+        table {
+            border-collapse: collapse;
+            padding: 0;
+            margin: 0 0 11px 0;
+            width: 100%;
+            font-size: 14px;
+        }
+        
+        table th {
+            text-align: left;
+            border-bottom: 2px solid #eee;
+            vertical-align: bottom;
+        }
+        
+        table th.share {
+            border-bottom: 0;
+            text-align: center;
+            padding: 0;
+        }
+        
+        table td {
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+        
+        table th,
+        table td {
+            padding: 10px;
+            color: #333;
+            text-align: center;
+        }
+        
+        table th:first-child,
+        table td:first-child {
+            text-align: left;
+        }
+
+        table td.obama {
+            background-color: #3D7FA6;
+        }
+        
+        table td.obama.strong {
+            background-color: #28556F;
+        }
+        
+        table td.romney {
+            background-color: #A23520;
+        }
+
+        table td.romney.strong {
+            background-color: #6C2315;
+        }
+        
+        table td.margin {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        table td.margin,
+        table td.visits {
+            width: 33%;
+        }
+
+
+        /* responsive table */
+        @media screen and (max-width: 480px) {
+            table { font-size: 12px; }
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>Presidential Visits By The Numbers</h1>
+    <h2>This chart shows the number of days during Obama's presidency he has spent in a state with at least one public appearance, be that at a fundraiser, a campaign rally or local ice cream stand. If it made news or is in the public papers of the President, it's here. He tends to most visit states where he is popular (fundraising, speeches) and swing states (campaigning).</h2>
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th>State</th>
+                    <th class="visits">Visits</th>
+                    <th class="margin">2012 vote margin<br />(percentage points)</th>
+                </tr>
+            </thead>
+
+            
+            <tr class="va">
+                <td data-title="State" class="state">Virginia</td>
+                <td data-title="Visits" class="visits">79</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">4</td>
+            </tr>
+            
+            <tr class="ny">
+                <td data-title="State" class="state">New York</td>
+                <td data-title="Visits" class="visits">55</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama strong">28</td>
+            </tr>
+            
+            <tr class="ca">
+                <td data-title="State" class="state">California</td>
+                <td data-title="Visits" class="visits">42</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">23</td>
+            </tr>
+            
+            <tr class="oh">
+                <td data-title="State" class="state">Ohio</td>
+                <td data-title="Visits" class="visits">41</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">3</td>
+            </tr>
+            
+            <tr class="fl">
+                <td data-title="State" class="state">Florida</td>
+                <td data-title="Visits" class="visits">39</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">1</td>
+            </tr>
+            
+            <tr class="md">
+                <td data-title="State" class="state">Maryland</td>
+                <td data-title="Visits" class="visits">38</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama strong">26</td>
+            </tr>
+            
+            <tr class="il">
+                <td data-title="State" class="state">Illinois</td>
+                <td data-title="Visits" class="visits">26</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">17</td>
+            </tr>
+            
+            <tr class="pa">
+                <td data-title="State" class="state">Pennsylvania</td>
+                <td data-title="Visits" class="visits">24</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">5</td>
+            </tr>
+            
+            <tr class="nv">
+                <td data-title="State" class="state">Nevada</td>
+                <td data-title="Visits" class="visits">23</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">7</td>
+            </tr>
+            
+            <tr class="co">
+                <td data-title="State" class="state">Colorado</td>
+                <td data-title="Visits" class="visits">22</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">5</td>
+            </tr>
+            
+            <tr class="ia">
+                <td data-title="State" class="state">Iowa</td>
+                <td data-title="Visits" class="visits">21</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">6</td>
+            </tr>
+            
+            <tr class="ma">
+                <td data-title="State" class="state">Massachusetts</td>
+                <td data-title="Visits" class="visits">19</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">23</td>
+            </tr>
+            
+            <tr class="nc">
+                <td data-title="State" class="state">North Carolina</td>
+                <td data-title="Visits" class="visits">17</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-2</td>
+            </tr>
+            
+            <tr class="tx">
+                <td data-title="State" class="state">Texas</td>
+                <td data-title="Visits" class="visits">15</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-16</td>
+            </tr>
+            
+            <tr class="mi">
+                <td data-title="State" class="state">Michigan</td>
+                <td data-title="Visits" class="visits">14</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">10</td>
+            </tr>
+            
+            <tr class="wi">
+                <td data-title="State" class="state">Wisconsin</td>
+                <td data-title="Visits" class="visits">14</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">7</td>
+            </tr>
+            
+            <tr class="hi">
+                <td data-title="State" class="state">Hawaii</td>
+                <td data-title="Visits" class="visits">10</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama strong">43</td>
+            </tr>
+            
+            <tr class="mo">
+                <td data-title="State" class="state">Missouri</td>
+                <td data-title="Visits" class="visits">10</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-9</td>
+            </tr>
+            
+            <tr class="nh">
+                <td data-title="State" class="state">New Hampshire</td>
+                <td data-title="Visits" class="visits">10</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">6</td>
+            </tr>
+            
+            <tr class="ct">
+                <td data-title="State" class="state">Connecticut</td>
+                <td data-title="Visits" class="visits">8</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">17</td>
+            </tr>
+            
+            <tr class="la">
+                <td data-title="State" class="state">Louisiana</td>
+                <td data-title="Visits" class="visits">8</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-17</td>
+            </tr>
+            
+            <tr class="nj">
+                <td data-title="State" class="state">New Jersey</td>
+                <td data-title="Visits" class="visits">8</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">18</td>
+            </tr>
+            
+            <tr class="wa">
+                <td data-title="State" class="state">Washington</td>
+                <td data-title="Visits" class="visits">8</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">15</td>
+            </tr>
+            
+            <tr class="az">
+                <td data-title="State" class="state">Arizona</td>
+                <td data-title="Visits" class="visits">7</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-9</td>
+            </tr>
+            
+            <tr class="ga">
+                <td data-title="State" class="state">Georgia</td>
+                <td data-title="Visits" class="visits">7</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-8</td>
+            </tr>
+            
+            <tr class="mn">
+                <td data-title="State" class="state">Minnesota</td>
+                <td data-title="Visits" class="visits">7</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">8</td>
+            </tr>
+            
+            <tr class="in">
+                <td data-title="State" class="state">Indiana</td>
+                <td data-title="Visits" class="visits">5</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-10</td>
+            </tr>
+            
+            <tr class="de">
+                <td data-title="State" class="state">Delaware</td>
+                <td data-title="Visits" class="visits">4</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">19</td>
+            </tr>
+            
+            <tr class="nm">
+                <td data-title="State" class="state">New Mexico</td>
+                <td data-title="Visits" class="visits">3</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">10</td>
+            </tr>
+            
+            <tr class="or">
+                <td data-title="State" class="state">Oregon</td>
+                <td data-title="Visits" class="visits">3</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">12</td>
+            </tr>
+            
+            <tr class="tn">
+                <td data-title="State" class="state">Tennessee</td>
+                <td data-title="Visits" class="visits">3</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-20</td>
+            </tr>
+            
+            <tr class="al">
+                <td data-title="State" class="state">Alabama</td>
+                <td data-title="Visits" class="visits">2</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-22</td>
+            </tr>
+            
+            <tr class="me">
+                <td data-title="State" class="state">Maine</td>
+                <td data-title="Visits" class="visits">2</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama">15</td>
+            </tr>
+            
+            <tr class="ok">
+                <td data-title="State" class="state">Oklahoma</td>
+                <td data-title="Visits" class="visits">2</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney strong">-34</td>
+            </tr>
+            
+            <tr class="wv">
+                <td data-title="State" class="state">West Virginia</td>
+                <td data-title="Visits" class="visits">2</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney strong">-27</td>
+            </tr>
+            
+            <tr class="ak">
+                <td data-title="State" class="state">Alaska</td>
+                <td data-title="Visits" class="visits">1</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-14</td>
+            </tr>
+            
+            <tr class="ar">
+                <td data-title="State" class="state">Arkansas</td>
+                <td data-title="Visits" class="visits">1</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-24</td>
+            </tr>
+            
+            <tr class="ks">
+                <td data-title="State" class="state">Kansas</td>
+                <td data-title="Visits" class="visits">1</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-22</td>
+            </tr>
+            
+            <tr class="ky">
+                <td data-title="State" class="state">Kentucky</td>
+                <td data-title="Visits" class="visits">1</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-23</td>
+            </tr>
+            
+            <tr class="ms">
+                <td data-title="State" class="state">Mississippi</td>
+                <td data-title="Visits" class="visits">1</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-12</td>
+            </tr>
+            
+            <tr class="mt">
+                <td data-title="State" class="state">Montana</td>
+                <td data-title="Visits" class="visits">1</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-14</td>
+            </tr>
+            
+            <tr class="ne">
+                <td data-title="State" class="state">Nebraska</td>
+                <td data-title="Visits" class="visits">1</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-22</td>
+            </tr>
+            
+            <tr class="ri">
+                <td data-title="State" class="state">Rhode Island</td>
+                <td data-title="Visits" class="visits">1</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama strong">28</td>
+            </tr>
+            
+            <tr class="vt">
+                <td data-title="State" class="state">Vermont</td>
+                <td data-title="Visits" class="visits">1</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin obama strong">36</td>
+            </tr>
+            
+            <tr class="wy">
+                <td data-title="State" class="state">Wyoming</td>
+                <td data-title="Visits" class="visits">1</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney strong">-41</td>
+            </tr>
+            
+            <tr class="nd">
+                <td data-title="State" class="state">North Dakota</td>
+                <td data-title="Visits" class="visits">1</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-20</td>
+            </tr>
+            
+            <tr class="id">
+                <td data-title="State" class="state">Idaho</td>
+                <td data-title="Visits" class="visits">0</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney strong">-32</td>
+            </tr>
+            
+            <tr class="sc">
+                <td data-title="State" class="state">South Carolina</td>
+                <td data-title="Visits" class="visits">0</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-11</td>
+            </tr>
+            
+            <tr class="sd">
+                <td data-title="State" class="state">South Dakota</td>
+                <td data-title="Visits" class="visits">0</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney">-18</td>
+            </tr>
+            
+            <tr class="ut">
+                <td data-title="State" class="state">Utah</td>
+                <td data-title="Visits" class="visits">0</td>
+                <td data-title="2012 vote margin<br />(percentage points)" class="margin romney strong">-48</td>
+            </tr>
+            
+        </table>
+    </div>
+    
+    <div class="footnotes">
+        <h4>Note</h4>
+        <p>A visit is a day on which the President held one or more public events. The District of Columbia is excluded from the data.</p>
+    </div>
+
+    <div class="footer">
+        <p>Source: Professor Brendan Doherty/U.S. Naval Academy via public papers of the president and other public documents, Federal Election Commission, NPR analysis</p>
+    </div>
+
+    <script src="js/lib/jquery.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script src="js/graphic.js" type="text/javascript"></script>
+</body>
+</html>
