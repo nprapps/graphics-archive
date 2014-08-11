@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 0;
+            font: 14px/1.4 Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+        h1 {
+            margin: 0 0 22px 0;
+            font-size: 16px;
+            color: #333;
+        }
+        h2 {
+            font-weight: normal;
+            color: #666;
+            font-size: 12px;
+            margin: 0 0 22px 0;
+        }
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.3;
+            color: #808080;
+        }
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { opacity: 0.7; }
+
+        table {
+            border-collapse: collapse;
+            padding: 0;
+            margin: 0 0 11px 0;
+            width: 100%;
+        }
+        
+        table th {
+            text-align: left;
+            border-bottom: 2px solid #eee;
+            vertical-align: bottom;
+        }
+        
+        table th.share {
+            border-bottom: 0;
+            text-align: center;
+            padding: 0;
+        }
+        
+        table td {
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+        
+        table th,
+        table td {
+            padding: 10px;
+            color: #333;
+            text-align: right;
+            width: 20%;
+        }
+        
+        table th:first-child,
+        table td:first-child {
+            text-align: left;
+        }
+        
+        table tr.united-states {
+            font-weight: bold;
+            background-color: #f1f1f1;
+        }
+        
+        .above-avg { background-color: #F1C696; border: 1px solid #fff; }
+        .below-avg { background-color: #F8E2CA; border: 1px solid #fff; }
+        .avg { background-color: #f1f1f1; border: 1px solid #fff; }
+        
+        .key {
+            margin: 0 0 15px 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .key .key-item { 
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+            height: 15px;
+        }
+        .key .key-item b { 
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+        }
+        .key .key-item label { 
+            white-space: nowrap;
+            color: #333;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 15px;
+        }
+
+        /* responsive table */
+        @media screen and (max-width: 600px) {
+            table, tbody { font-size: 12px; }
+        }
+        @media screen and (max-width: 500px) {
+            table,
+            tbody {
+                display: block;
+                width: 100%;
+                font-size: 12px;
+            }
+            thead { display: none; }
+            table tr,
+            table th,
+            table td {
+                display: block;
+                padding: 0;
+                text-align: left;
+                white-space: normal;
+                width: auto;
+            }
+            table td { 
+                border: none;
+                margin-bottom: 6px;
+                color: #444;
+            }
+            table td:empty { display: none; }
+
+            table tr {
+                padding: 11px;
+                border-top: 1px solid #eee;
+            }
+            table th[data-title]:before,
+            table td[data-title]:before {
+                content: attr(data-title) ":\00A0";
+                font-weight: bold;
+            }
+
+            table tr td:first-child { 
+                font-size: 14px;
+                font-weight: bold;
+                margin-bottom: 6px;
+                color: #333;
+            }
+            table tr td:first-child:before {
+                content: '';
+            }
+
+            .above-avg,
+            .below-avg,
+            .avg { 
+                border: none;
+                padding: 3px 5px;
+            }
+            .united-states .avg { padding: 0; }
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Prescribing rates per 100 people, by state and drug type (2012)</h1>
+    
+    <ul class="key"><li class="key-item key-0"><b class="above-avg"></b><label>Above the national average</label></li><li class="key-item key-2"><b class="avg"></b><label>Same as the national average</label></li><li class="key-item key-3"><b class="below-avg"></b><label>Below the national average</label></li></ul>
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th>State</th>
+                    <th>Opioid pain relievers</th>
+                    <th>Long-acting/extended-release opioid pain relievers</th>
+                    <th>High-dose opioid pain relievers</th>
+                    <th>Benzodiazepines</th>
+                </tr>
+            </thead>
+
+            
+            
+            
+            
+            
+            
+            <tr class="united-states">
+                <td data-title="State" class="state">United States</td>
+                <td data-title="Opioid pain relievers" class="avg">82.5</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="avg">10.3</td>
+                <td data-title="High-dose opioid pain relievers" class="avg">4.2</td>
+                <td data-title="Benzodiazepines" class="avg">37.6</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="alabama">
+                <td data-title="State" class="state">Alabama</td>
+                <td data-title="Opioid pain relievers" class="above-avg">142.9</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">12.4</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">6.8</td>
+                <td data-title="Benzodiazepines" class="above-avg">61.9</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="alaska">
+                <td data-title="State" class="state">Alaska</td>
+                <td data-title="Opioid pain relievers" class="below-avg">65.1</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">10.7</td>
+                <td data-title="High-dose opioid pain relievers" class="avg">4.2</td>
+                <td data-title="Benzodiazepines" class="below-avg">24.0</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="arizona">
+                <td data-title="State" class="state">Arizona</td>
+                <td data-title="Opioid pain relievers" class="below-avg">82.4</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">14.5</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">5.5</td>
+                <td data-title="Benzodiazepines" class="below-avg">34.3</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="arkansas">
+                <td data-title="State" class="state">Arkansas</td>
+                <td data-title="Opioid pain relievers" class="above-avg">115.8</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="below-avg">9.6</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">4.1</td>
+                <td data-title="Benzodiazepines" class="above-avg">50.8</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="california">
+                <td data-title="State" class="state">California</td>
+                <td data-title="Opioid pain relievers" class="below-avg">57.0</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="below-avg">5.8</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">3.0</td>
+                <td data-title="Benzodiazepines" class="below-avg">25.4</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="colorado">
+                <td data-title="State" class="state">Colorado</td>
+                <td data-title="Opioid pain relievers" class="below-avg">71.2</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">11.8</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">4.1</td>
+                <td data-title="Benzodiazepines" class="below-avg">28.0</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="connecticut">
+                <td data-title="State" class="state">Connecticut</td>
+                <td data-title="Opioid pain relievers" class="below-avg">72.4</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">14.1</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">5.4</td>
+                <td data-title="Benzodiazepines" class="above-avg">46.2</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="delaware">
+                <td data-title="State" class="state">Delaware</td>
+                <td data-title="Opioid pain relievers" class="above-avg">90.8</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">21.7</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">8.8</td>
+                <td data-title="Benzodiazepines" class="above-avg">41.5</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="district-of-columbia">
+                <td data-title="State" class="state">District of Columbia</td>
+                <td data-title="Opioid pain relievers" class="above-avg">85.7</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">13.7</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">5.7</td>
+                <td data-title="Benzodiazepines" class="above-avg">38.4</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="florida">
+                <td data-title="State" class="state">Florida</td>
+                <td data-title="Opioid pain relievers" class="below-avg">72.7</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">11.3</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">6.6</td>
+                <td data-title="Benzodiazepines" class="above-avg">46.9</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="georgia">
+                <td data-title="State" class="state">Georgia</td>
+                <td data-title="Opioid pain relievers" class="above-avg">90.7</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="below-avg">8.6</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">4.1</td>
+                <td data-title="Benzodiazepines" class="below-avg">37.0</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="hawaii">
+                <td data-title="State" class="state">Hawaii</td>
+                <td data-title="Opioid pain relievers" class="below-avg">52.0</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="below-avg">8.8</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">3.9</td>
+                <td data-title="Benzodiazepines" class="below-avg">19.3</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="idaho">
+                <td data-title="State" class="state">Idaho</td>
+                <td data-title="Opioid pain relievers" class="above-avg">85.6</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="avg">10.3</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">3.9</td>
+                <td data-title="Benzodiazepines" class="below-avg">29.1</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="illinois">
+                <td data-title="State" class="state">Illinois</td>
+                <td data-title="Opioid pain relievers" class="below-avg">67.9</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="below-avg">5.2</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">2.0</td>
+                <td data-title="Benzodiazepines" class="below-avg">34.2</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="indiana">
+                <td data-title="State" class="state">Indiana</td>
+                <td data-title="Opioid pain relievers" class="above-avg">109.1</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">10.7</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">4.9</td>
+                <td data-title="Benzodiazepines" class="above-avg">42.9</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="iowa">
+                <td data-title="State" class="state">Iowa</td>
+                <td data-title="Opioid pain relievers" class="below-avg">72.8</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="below-avg">7.3</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">2.2</td>
+                <td data-title="Benzodiazepines" class="below-avg">37.3</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="kansas">
+                <td data-title="State" class="state">Kansas</td>
+                <td data-title="Opioid pain relievers" class="above-avg">93.8</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="avg">10.3</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">4.0</td>
+                <td data-title="Benzodiazepines" class="above-avg">38.9</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="kentucky">
+                <td data-title="State" class="state">Kentucky</td>
+                <td data-title="Opioid pain relievers" class="above-avg">128.4</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">11.6</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">5.0</td>
+                <td data-title="Benzodiazepines" class="above-avg">57.4</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="louisiana">
+                <td data-title="State" class="state">Louisiana</td>
+                <td data-title="Opioid pain relievers" class="above-avg">118.0</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="below-avg">7.8</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">3.6</td>
+                <td data-title="Benzodiazepines" class="above-avg">51.5</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="maine">
+                <td data-title="State" class="state">Maine</td>
+                <td data-title="Opioid pain relievers" class="above-avg">85.1</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">21.8</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">5.6</td>
+                <td data-title="Benzodiazepines" class="above-avg">40.7</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="maryland">
+                <td data-title="State" class="state">Maryland</td>
+                <td data-title="Opioid pain relievers" class="below-avg">74.3</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">16.0</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">5.0</td>
+                <td data-title="Benzodiazepines" class="below-avg">29.9</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="massachusetts">
+                <td data-title="State" class="state">Massachusetts</td>
+                <td data-title="Opioid pain relievers" class="below-avg">70.8</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">14.9</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">3.5</td>
+                <td data-title="Benzodiazepines" class="above-avg">48.8</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="michigan">
+                <td data-title="State" class="state">Michigan</td>
+                <td data-title="Opioid pain relievers" class="above-avg">107.0</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="below-avg">9.1</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">4.5</td>
+                <td data-title="Benzodiazepines" class="above-avg">45.5</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="minnesota">
+                <td data-title="State" class="state">Minnesota</td>
+                <td data-title="Opioid pain relievers" class="below-avg">61.6</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="below-avg">10.2</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">2.2</td>
+                <td data-title="Benzodiazepines" class="below-avg">24.9</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="mississippi">
+                <td data-title="State" class="state">Mississippi</td>
+                <td data-title="Opioid pain relievers" class="above-avg">120.3</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="below-avg">7.2</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">2.9</td>
+                <td data-title="Benzodiazepines" class="above-avg">46.2</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="missouri">
+                <td data-title="State" class="state">Missouri</td>
+                <td data-title="Opioid pain relievers" class="above-avg">94.8</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="below-avg">9.5</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">3.5</td>
+                <td data-title="Benzodiazepines" class="above-avg">42.6</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="montana">
+                <td data-title="State" class="state">Montana</td>
+                <td data-title="Opioid pain relievers" class="below-avg">82.0</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">14.0</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">4.4</td>
+                <td data-title="Benzodiazepines" class="below-avg">33.7</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="nebraska">
+                <td data-title="State" class="state">Nebraska</td>
+                <td data-title="Opioid pain relievers" class="below-avg">79.4</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="below-avg">7.8</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">2.3</td>
+                <td data-title="Benzodiazepines" class="below-avg">35.0</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="nevada">
+                <td data-title="State" class="state">Nevada</td>
+                <td data-title="Opioid pain relievers" class="above-avg">94.1</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">14.8</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">8.2</td>
+                <td data-title="Benzodiazepines" class="below-avg">37.5</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="new-hampshire">
+                <td data-title="State" class="state">New Hampshire</td>
+                <td data-title="Opioid pain relievers" class="below-avg">71.7</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">19.6</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">6.1</td>
+                <td data-title="Benzodiazepines" class="above-avg">41.2</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="new-jersey">
+                <td data-title="State" class="state">New Jersey</td>
+                <td data-title="Opioid pain relievers" class="below-avg">62.9</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">11.3</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">5.8</td>
+                <td data-title="Benzodiazepines" class="below-avg">36.5</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="new-mexico">
+                <td data-title="State" class="state">New Mexico</td>
+                <td data-title="Opioid pain relievers" class="below-avg">73.8</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">12.7</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">3.8</td>
+                <td data-title="Benzodiazepines" class="below-avg">31.5</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="new-york">
+                <td data-title="State" class="state">New York</td>
+                <td data-title="Opioid pain relievers" class="below-avg">59.5</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="below-avg">9.5</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">4.3</td>
+                <td data-title="Benzodiazepines" class="below-avg">27.3</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="north-carolina">
+                <td data-title="State" class="state">North Carolina</td>
+                <td data-title="Opioid pain relievers" class="above-avg">96.6</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">13.7</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">4.3</td>
+                <td data-title="Benzodiazepines" class="above-avg">45.3</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="north-dakota">
+                <td data-title="State" class="state">North Dakota</td>
+                <td data-title="Opioid pain relievers" class="below-avg">74.7</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">10.5</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">2.3</td>
+                <td data-title="Benzodiazepines" class="below-avg">31.1</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="ohio">
+                <td data-title="State" class="state">Ohio</td>
+                <td data-title="Opioid pain relievers" class="above-avg">100.1</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">11.2</td>
+                <td data-title="High-dose opioid pain relievers" class="avg">4.2</td>
+                <td data-title="Benzodiazepines" class="above-avg">41.3</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="oklahoma">
+                <td data-title="State" class="state">Oklahoma</td>
+                <td data-title="Opioid pain relievers" class="above-avg">127.8</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">12.8</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">6.0</td>
+                <td data-title="Benzodiazepines" class="above-avg">44.5</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="oregon">
+                <td data-title="State" class="state">Oregon</td>
+                <td data-title="Opioid pain relievers" class="above-avg">89.2</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">18.8</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">5.2</td>
+                <td data-title="Benzodiazepines" class="below-avg">31.4</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="pennsylvania">
+                <td data-title="State" class="state">Pennsylvania</td>
+                <td data-title="Opioid pain relievers" class="above-avg">88.2</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">14.9</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">5.4</td>
+                <td data-title="Benzodiazepines" class="above-avg">46.1</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="rhode-island">
+                <td data-title="State" class="state">Rhode Island</td>
+                <td data-title="Opioid pain relievers" class="above-avg">89.6</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">14.0</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">5.2</td>
+                <td data-title="Benzodiazepines" class="above-avg">60.2</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="south-carolina">
+                <td data-title="State" class="state">South Carolina</td>
+                <td data-title="Opioid pain relievers" class="above-avg">101.8</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">11.0</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">3.9</td>
+                <td data-title="Benzodiazepines" class="above-avg">52.6</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="south-dakota">
+                <td data-title="State" class="state">South Dakota</td>
+                <td data-title="Opioid pain relievers" class="below-avg">66.5</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="below-avg">9.0</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">2.5</td>
+                <td data-title="Benzodiazepines" class="below-avg">28.0</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="tennessee">
+                <td data-title="State" class="state">Tennessee</td>
+                <td data-title="Opioid pain relievers" class="above-avg">142.8</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">18.2</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">8.7</td>
+                <td data-title="Benzodiazepines" class="above-avg">61.4</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="texas">
+                <td data-title="State" class="state">Texas</td>
+                <td data-title="Opioid pain relievers" class="below-avg">74.3</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="below-avg">4.2</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">1.9</td>
+                <td data-title="Benzodiazepines" class="below-avg">29.8</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="utah">
+                <td data-title="State" class="state">Utah</td>
+                <td data-title="Opioid pain relievers" class="above-avg">85.8</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">12.1</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">5.3</td>
+                <td data-title="Benzodiazepines" class="below-avg">35.9</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="vermont">
+                <td data-title="State" class="state">Vermont</td>
+                <td data-title="Opioid pain relievers" class="below-avg">67.4</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">13.9</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">4.7</td>
+                <td data-title="Benzodiazepines" class="below-avg">35.5</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="virginia">
+                <td data-title="State" class="state">Virginia</td>
+                <td data-title="Opioid pain relievers" class="below-avg">77.5</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="below-avg">9.9</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">3.8</td>
+                <td data-title="Benzodiazepines" class="below-avg">36.4</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="washington">
+                <td data-title="State" class="state">Washington</td>
+                <td data-title="Opioid pain relievers" class="below-avg">77.3</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">14.6</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">4.1</td>
+                <td data-title="Benzodiazepines" class="below-avg">27.1</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="west-virginia">
+                <td data-title="State" class="state">West Virginia</td>
+                <td data-title="Opioid pain relievers" class="above-avg">137.6</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">15.7</td>
+                <td data-title="High-dose opioid pain relievers" class="above-avg">6.2</td>
+                <td data-title="Benzodiazepines" class="above-avg">71.9</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="wisconsin">
+                <td data-title="State" class="state">Wisconsin</td>
+                <td data-title="Opioid pain relievers" class="below-avg">76.1</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="above-avg">13.1</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">3.9</td>
+                <td data-title="Benzodiazepines" class="below-avg">33.4</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr class="wyoming">
+                <td data-title="State" class="state">Wyoming</td>
+                <td data-title="Opioid pain relievers" class="below-avg">69.6</td>
+                <td data-title="Long-acting/extended-release opioid pain relievers" class="below-avg">8.0</td>
+                <td data-title="High-dose opioid pain relievers" class="below-avg">2.7</td>
+                <td data-title="Benzodiazepines" class="below-avg">24.1</td>
+            </tr>
+            
+        </table>
+    </div>
+    
+    
+
+    <div class="footer">
+        <p>Source: Centers for Disease Control and Prevention</p>
+    </div>
+
+    <script src="js/lib/jquery.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script src="js/graphic.js" type="text/javascript"></script>
+</body>
+</html>
