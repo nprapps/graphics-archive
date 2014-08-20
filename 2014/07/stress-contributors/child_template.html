@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 0;
+            font: 14px/1.4 Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+        h1 {
+            margin: 0 0 6px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        h2 {
+            font-weight: normal;
+            color: #666;
+            font-size: 12px;
+            margin: 0 0 22px 0;
+        }
+        h3 {
+            margin: 0 0 11px 0;
+            font-size: 13px;
+            color: #666;
+            font-weight: normal;
+        }
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.3;
+            color: #808080;
+        }
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { opacity: 0.7; }
+        
+
+        table {
+            border-collapse: collapse;
+            padding: 0;
+            margin: 0 0 22px 0;
+            width: 100%;
+            font-size: 12px;
+        }
+        
+        table th {
+            text-align: left;
+            border-bottom: 2px solid #eee;
+            vertical-align: bottom;
+            color: #000;
+        }
+        
+        table td {
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+            color: #555;
+        }
+        
+        table th,
+        table td {
+            padding: 10px;
+            color: #333;
+            text-align: center;
+        }
+        
+        table.gender td.band { width: 12%; }
+        table.health td.band { width: 15%; }
+        table.age td.band { width: 10%; }
+        
+        table th:first-child,
+        table td:first-child {
+            text-align: left;
+            padding-left: 0;
+            width: 25%;
+        }
+        
+        .band   { font-size: 11px; background-color: #f1f1f1; border: 1px solid #fff; }
+        .band-1 { background-color: #6C2315; color: #fff; }
+        .band-2 { background-color: #A23520; color: #fff; }
+        .band-3 { background-color: #D8472B; color: #fff; }
+        .band-4 { background-color: #E27560; color: #fff; }
+        .band-5 { background-color: #ECA395; }
+        .band-6 { background-color: #F5D1CA; }
+        .band-7 { background-color: #fff1ee; }
+
+        /* responsive table */
+        @media screen and (max-width: 480px) {
+            table,
+            tbody {
+                display: block;
+                width: 100%;
+                margin-bottom: 22px;
+            }
+            thead { display: none; }
+            table tr,
+            table th,
+            table td {
+                display: block;
+                padding: 0;
+                text-align: left;
+                white-space: normal;
+                width: auto;
+            }
+            table td { 
+                border: none;
+                margin-bottom: 1px;
+                color: #444;
+            }
+            table td:empty { display: none; }
+
+            table.gender td.band,
+            table.health td.band,
+            table.age td.band,
+            table th:first-child,
+            table td:first-child { width: auto; }
+
+            table tr {
+                padding: 11px 0;
+                border-top: 1px solid #eee;
+            }
+            table td[data-title]:before {
+                content: attr(data-title) ":";
+                font-weight: bold;
+                width: 48%;
+                text-align: right;
+                padding-right: 11px;
+                display: inline-block;
+            }
+
+            table tr td:first-child { 
+                font-size: 12px;
+                font-weight: normal;
+                margin-bottom: 11px;
+                text-align: center;
+            }
+            table tr td:first-child:before {
+                content: '';
+                width: auto;
+                padding-right: 0;
+            }
+
+            .band { 
+                border: none;
+                padding: 3px 5px;
+                font-size: inherit;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    {% if COPY.contributors.headline %}<h1>{{ COPY.contributors.headline }}</h1>{% endif %}
+    {% if COPY.contributors.subhed %}<h2>{{ COPY.contributors.subhed }}</h2>{% endif %}
+
+    <div id="graphic">
+    
+        <table class="gender">
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>{{ COPY.contributors.hdr_overall }}</th>
+                    <th>{{ COPY.contributors.hdr_men }}</th>
+                    <th>{{ COPY.contributors.hdr_women }}</th>
+                    <th>{{ COPY.contributors.hdr_low_income }}</th>
+                    <th>{{ COPY.contributors.hdr_high_income }}</th>
+                </tr>
+            </thead>
+            {% for row in COPY.contributors_data %}
+            <tr>
+                <td data-title="{{ COPY.contributors.hdr_causes }}" class="causes">{{ row.causes }}</td>
+                <td data-title="{{ COPY.contributors.hdr_overall }}" class="band band-{{ row.overall_band }}">{{ row.overall|int }}%</td>
+                <td data-title="{{ COPY.contributors.hdr_men }}" class="band band-{{ row.men_band|int }}">{{ row.men|int }}%</td>
+                <td data-title="{{ COPY.contributors.hdr_women }}" class="band band-{{ row.women_band|int }}">{{ row.women|int }}%</td>
+                <td data-title="{{ COPY.contributors.hdr_low_income }}" class="band band-{{ row.low_band|int }}">{{ row.low_income|int }}%</td>
+                <td data-title="{{ COPY.contributors.hdr_high_income }}" class="band band-{{ row.high_band|int }}">{{ row.high_income|int }}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+    
+        <table class="age">
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>{{ COPY.contributors.hdr_overall }}</th>
+                    <th>Age <nobr>{{ COPY.contributors.hdr_age_18 }}</nobr></th>
+                    <th>Age <nobr>{{ COPY.contributors.hdr_age_30 }}</nobr></th>
+                    <th>Age <nobr>{{ COPY.contributors.hdr_age_40 }}</nobr></th>
+                    <th>Age <nobr>{{ COPY.contributors.hdr_age_50 }}</nobr></th>
+                    <th>Age <nobr>{{ COPY.contributors.hdr_age_65 }}</nobr></th>
+                </tr>
+            </thead>
+            {% for row in COPY.contributors_data %}
+            {% if row.causes != 'Work problems*' %}
+            <tr>
+                <td data-title="{{ COPY.contributors.hdr_causes }}">{{ row.causes }}</td>
+                <td data-title="{{ COPY.contributors.hdr_overall }}" class="band band-{{ row.overall_band }}">{{ row.overall|int }}%</td>
+                <td data-title="Age {{ COPY.contributors.hdr_age_18 }}" class="band band-{{ row.age_18_band|int }}">{{ row.age_18|int }}%</td>
+                <td data-title="Age {{ COPY.contributors.hdr_age_30 }}" class="band band-{{ row.age_30_band|int }}">{{ row.age_30|int }}%</td>
+                <td data-title="Age {{ COPY.contributors.hdr_age_40 }}" class="band band-{{ row.age_40_band|int }}">{{ row.age_40|int }}%</td>
+                <td data-title="Age {{ COPY.contributors.hdr_age_50 }}" class="band band-{{ row.age_50_band|int }}">{{ row.age_50|int }}%</td>
+                <td data-title="Age {{ COPY.contributors.hdr_age_65 }}" class="band band-{{ row.age_65_band|int }}">{{ row.age_65|int }}%</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+
+        <table class="health">
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>{{ COPY.contributors.hdr_overall }}</th>
+                    <th>{{ COPY.contributors.hdr_chronic }}</th>
+                    <th>{{ COPY.contributors.hdr_disabled }}</th>
+                    <th>{{ COPY.contributors.hdr_poor_health }}</th>
+                </tr>
+            </thead>
+            {% for row in COPY.contributors_data %}
+            <tr>
+                <td data-title="{{ COPY.contributors.hdr_causes }}">{{ row.causes }}</td>
+                <td data-title="{{ COPY.contributors.hdr_overall }}" class="band band-{{ row.overall_band }}">{{ row.overall|int }}%</td>
+                <td data-title="{{ COPY.contributors.hdr_chronic }}" class="band band-{{ row.chronic_band|int }}">{% if row.chronic != 'n/a' %}{{ row.chronic|int }}%{% else %}n/a{% endif %}</td>
+                <td data-title="{{ COPY.contributors.hdr_disabled }}" class="band band-{{ row.disabled_band|int }}">{% if row.disabled != 'n/a' %}{{ row.disabled|int }}%{% else %}n/a{% endif %}</td>
+                <td data-title="{{ COPY.contributors.hdr_poor_health }}" class="band band-{{ row.poor_band|int }}">{% if row.poor_health != 'n/a' %}{{ row.poor_health|int }}%{% else %}n/a{% endif %}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    
+    {% if COPY.contributors.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.contributors.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.contributors.source %}<p>Source: {{ COPY.contributors.source }}</p>{% endif %}
+        {% if COPY.contributors.credit %}<p>Credit: {{ COPY.contributors.credit }}</p>{% endif %}
+    </div>
+
+    <script src="js/lib/jquery.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script src="js/graphic.js" type="text/javascript"></script>
+</body>
+</html>
