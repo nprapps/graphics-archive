@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 0;
+            font: 14px/1.4 Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+        h1 {
+            margin: 0 0 11px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        h2 {
+            font-weight: normal;
+            color: #666;
+            font-size: 12px;
+            margin: 0 0 22px 0;
+        }
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.3;
+            color: #808080;
+        }
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { opacity: 0.7; }
+
+        /* graph */
+        #graphic { margin: 0 0 11px 0; }
+        #graphic img.fallback {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .chart { position: relative; }
+        .axis {
+            font-size: 12px;
+            fill: #666;
+        }
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #666;
+            shape-rendering: crispEdges;
+        }
+        .axis.y path { display: none; }
+        .axis.y .tick line { display: none; }
+        .grid path { display: none; }
+        .grid .tick {
+            stroke: #ccc;
+            stroke-dasharray: 1px 3px;
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+        .grid.y .tick:first-child { display: none; }
+
+        .bars rect { 
+            fill: #ECA395;
+            shape-rendering: crispEdges;
+        }
+        .value text {
+            font-size: 10px;
+            fill: #fff;
+        }
+        .value text.no-opinion { display: none; }
+
+        .labels {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            border: none;
+        }
+        .labels li {
+            position: absolute;
+            text-align: right;
+            font-size: 12px;
+            line-height: 1.4;
+            color: #555;
+            display: table;
+        }
+        .labels li span {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .labels li.all { 
+            font-weight: bold;
+            color: #111;
+        }
+
+        .key {
+            margin: 0 0 15px 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .key .key-item { 
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+            height: 15px;
+        }
+        .key .key-item b { 
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+        }
+        .key .key-item label { 
+            white-space: nowrap;
+            color: #333;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 15px;
+        }
+
+        @media screen and (max-width: 550px) {
+            .value { display: none; }
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Ebola Cases Per Year (1976-2014)</h1>
+    
+
+    <div id="graphic"><img src="fallback.png" alt="[Chart]" class="fallback" /></div>
+    
+    
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>- Figures for 2014: Data as of August 31 for the west Africa outbreak and August 18 for the Congo outbreak.<br />- Figures for 2001 include outbreaks in Congo and Gabon that began in 2001 and continued into 2002. Separate figures for 2001 and 2002 were not available.</p>
+    </div>
+    
+
+    <div class="footer">
+        <p>Source: World Health Organization (<a href="http://www.who.int/mediacentre/factsheets/fs103/en/" target="_blank">historic data</a>, <a href="http://www.who.int/csr/don/archive/disease/ebola/en/" target="_blank">currrent data</a>)</p>
+        <p>Credit: Alyson Hurt/NPR</p>
+    </div>
+
+    <script src="js/lib/jquery.js" type="text/javascript"></script>
+    <script src="js/lib/d3.v3.min.js" type="text/javascript"></script>
+    <script src="js/lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script src="js/graphic.js" type="text/javascript"></script>
+</body>
+</html>

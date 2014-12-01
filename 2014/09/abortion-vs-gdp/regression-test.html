@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+	google.setOnLoadCallback(drawChart);
+	function drawChart() {
+	  var data = google.visualization.arrayToDataTable([
+		['gdp', 'Rate'],
+		[6990, 39], [7930, 29], [546, 38], [6975, 28], [10669, 43], [1450, 36], [3191, 18],
+		[47836, 19], [47523, 17], [34530, 17], [7740, 32], [1273, 26], [2668, 36],
+		[5183, 15], [30898, 18], [1113, 28], [11150, 26], [46116, 12]
+	]);
+
+	  var options = {
+		hAxis: {title: 'gdp'},
+		vAxis: {title: 'rate'},
+		legend: 'none',
+		trendlines: { 0: {} }    // Draw a trendline for data series 0.
+	  };
+
+	  var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+	  chart.draw(data, options);
+	}
+
+    </script>
+  </head>
+
+  <body>
+<!--Div that will hold the pie chart-->
+    <div id="chart_div" style="width:600; height:600"></div>
+  </body>
+</html>
