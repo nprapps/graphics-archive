@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 22px 0;
+            font: 14px/1.4 Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+        h1 {
+            margin: 0 0 11px 0;
+            font-size: 16px;
+            color: #333;
+        }
+        h2 {
+            font-weight: normal;
+            color: #666;
+            font-size: 14px;
+            margin: -11px 0 22px 0;
+        }
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.3;
+            color: #808080;
+        }
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { opacity: 0.7; }
+        
+        /* table */
+        table {
+            border-collapse: collapse;
+            padding: 0;
+            margin: 0 0 22px 0;
+            width: 100%;
+            font-size: 12px;
+            color: #333;
+        }
+        table th {
+            text-align: left;
+            vertical-align: bottom;
+            color: #333;
+            border-bottom: 2px solid #ccc;
+        }
+        table td {
+            vertical-align: top;
+            border-bottom: 1px solid #eee;
+        }
+        
+        table strong { font-weight: normal; }
+        
+        table sup {
+        	color: #999;
+        	font-size: 8px;
+        	vertical-align: text-top;
+        }
+
+		.companies,
+		.oldest { 
+			color: #787878;
+			display: block;
+			margin-top: 3px;
+			font-size: 11px;
+		}
+
+        /* responsive table */
+        @media screen and (min-width: 481px) {
+			table th,
+			table td {
+				padding: 10px;
+				width: 33%;
+			}
+
+			table th:first-child,
+			table td:first-child {
+				padding-left: 0;
+			}
+
+			table th:nth-child(3),
+			table td:nth-child(3) {
+				padding-right: 0;
+			}
+
+			table strong { font-size: 14px; }
+		
+			.injury-number,
+			.violations {
+				display: block;
+			}
+			.and { display: none; }
+        }
+
+        @media screen and (max-width: 480px) {
+        	table { margin-bottom: 0; }
+            table,
+            tbody {
+                display: block;
+                width: 100%;
+            }
+            thead { display: none; }
+            table tr,
+            table th,
+            table td {
+                display: block;
+                padding: 0;
+                text-align: left;
+                white-space: normal;
+            }
+            table td { 
+                border: none;
+                color: #444;
+            }
+            table td:empty { display: none; }
+
+            table tr {
+            	padding-top: 15px;
+            	padding-bottom: 15px;
+            	border-top: 1px solid #eee;
+            }
+
+			table tr:before,
+			table tr:after {
+				content: " ";
+				display: table;
+			}
+			table tr:after { clear: both; }
+
+            table th[data-title]:before,
+            table td[data-title]:before {
+                content: attr(data-title) ":\00A0";
+                display: block;
+                margin-bottom: 2px;
+                color: #787878;
+            }
+            
+            table tr td.controller { margin-bottom: 11px; }
+            table tr td.controller strong { 
+            	font-size: 16px;
+            	line-height: 1.2;
+            }
+            
+            table tr td.penalty-amt {
+            	width: 48%;
+            	float: left;
+            }
+            table tr td.injuries {
+            	width: 48%;
+            	float: right;
+            }
+            
+            .companies { font-style: italic; }
+            
+            .penalty-amt strong { font-size: 14px; }
+            
+			.injury-number,
+			.and,
+			.violations {
+				display: inline;
+				font-size: 14px;
+			}
+			
+			.oldest { color: #787878; }
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Top 10 Mining Companies With Outstanding Fines</h1>
+    
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th class="controller">Controller/Owner</th>
+                    <th class="penalty-amt">Delinquent Fines</th>
+                    <th class="injuries">Injuries And Violations</th>
+                </tr>
+            </thead>
+
+            
+            <tr class="horace-garrison-hill">
+                <td class="controller">
+                	<strong>Horace Garrison Hill</strong>
+                	<span class="companies">D&C Mining Corp.</span>
+                </td>
+                <td data-title="Delinquent Fines" class="penalty-amt"><strong>$4,354,975</strong></td>
+                <td class="injuries">
+                	<span class="injury-number">4&nbsp;injuries</span>
+                	<span class="and">and</span>
+                	<span class="violations">1,498&nbsp;violations</span>
+                	<span class="oldest">
+                		at 1 delinquent 
+                		mine since&nbsp;2007</span>
+                </td>
+            </tr>
+            
+            <tr class="ralph-napier-sr.,-et-al">
+                <td class="controller">
+                	<strong>Ralph Napier Sr., et al</strong>
+                	<span class="companies">Kentucky Darby, Harlan Fuel, Orion Resources, Mill Branch Mining, L&E Mining, K&D Mining and Neco Energy</span>
+                </td>
+                <td data-title="Delinquent Fines" class="penalty-amt"><strong>$2,957,258</strong></td>
+                <td class="injuries">
+                	<span class="injury-number">20&nbsp;injuries</span>
+                	<span class="and">and</span>
+                	<span class="violations">1,295&nbsp;violations</span>
+                	<span class="oldest">
+                		at 9 delinquent 
+                		mines since&nbsp;2006</span>
+                </td>
+            </tr>
+            
+            <tr class="darrell-wagner">
+                <td class="controller">
+                	<strong>Darrell Wagner</strong>
+                	<span class="companies">Wilcoal Mining, Solid Fuel and Roses Creek Mining</span>
+                </td>
+                <td data-title="Delinquent Fines" class="penalty-amt"><strong>$2,112,836</strong></td>
+                <td class="injuries">
+                	<span class="injury-number">0&nbsp;injuries</span>
+                	<span class="and">and</span>
+                	<span class="violations">166&nbsp;violations</span>
+                	<span class="oldest">
+                		at 4 delinquent 
+                		mines since&nbsp;2003</span>
+                </td>
+            </tr>
+            
+            <tr class="james-c.-justice-ii-<sup>1</sup>">
+                <td class="controller">
+                	<strong>James C. Justice II <sup>1</sup></strong>
+                	<span class="companies">Southern Coal Corp. (multiple subsidiary companies)</span>
+                </td>
+                <td data-title="Delinquent Fines" class="penalty-amt"><strong>$1,995,327</strong></td>
+                <td class="injuries">
+                	<span class="injury-number">136&nbsp;injuries</span>
+                	<span class="and">and</span>
+                	<span class="violations">3,856&nbsp;violations</span>
+                	<span class="oldest">
+                		at 71 delinquent 
+                		mines since&nbsp;2007</span>
+                </td>
+            </tr>
+            
+            <tr class="alexander-walker-iii/hidden-splendor-resources">
+                <td class="controller">
+                	<strong>Alexander Walker III/Hidden Splendor Resources</strong>
+                	<span class="companies">Hidden Splendor Resources/America West Resources</span>
+                </td>
+                <td data-title="Delinquent Fines" class="penalty-amt"><strong>$1,869,377</strong></td>
+                <td class="injuries">
+                	<span class="injury-number">36&nbsp;injuries</span>
+                	<span class="and">and</span>
+                	<span class="violations">1,005&nbsp;violations</span>
+                	<span class="oldest">
+                		at 2 delinquent 
+                		mines since&nbsp;2008</span>
+                </td>
+            </tr>
+            
+            <tr class="george-chris-waugh">
+                <td class="controller">
+                	<strong>George Chris Waugh</strong>
+                	<span class="companies">Inner Mountain Mining, Black Thunder Mining, Coal Creek Mining and Daystar Coal</span>
+                </td>
+                <td data-title="Delinquent Fines" class="penalty-amt"><strong>$1,467,322</strong></td>
+                <td class="injuries">
+                	<span class="injury-number">2&nbsp;injuries</span>
+                	<span class="and">and</span>
+                	<span class="violations">933&nbsp;violations</span>
+                	<span class="oldest">
+                		at 8 delinquent 
+                		mines since&nbsp;2008</span>
+                </td>
+            </tr>
+            
+            <tr class="brandy-m.-horvath-<sup>2</sup>">
+                <td class="controller">
+                	<strong>Brandy M. Horvath <sup>2</sup></strong>
+                	<span class="companies">The New West Virginia Mining Co.</span>
+                </td>
+                <td data-title="Delinquent Fines" class="penalty-amt"><strong>$1,369,224</strong></td>
+                <td class="injuries">
+                	<span class="injury-number">10&nbsp;injuries</span>
+                	<span class="and">and</span>
+                	<span class="violations">286&nbsp;violations</span>
+                	<span class="oldest">
+                		at 2 delinquent 
+                		mines since&nbsp;2008</span>
+                </td>
+            </tr>
+            
+            <tr class="rowland-goble;-charles-a.-ratliff">
+                <td class="controller">
+                	<strong>Rowland Goble; Charles A. Ratliff</strong>
+                	<span class="companies">C&D Mining; Murriel Don Coal Co. and B&C Coal</span>
+                </td>
+                <td data-title="Delinquent Fines" class="penalty-amt"><strong>$1,232,254</strong></td>
+                <td class="injuries">
+                	<span class="injury-number">6&nbsp;injuries</span>
+                	<span class="and">and</span>
+                	<span class="violations">676&nbsp;violations</span>
+                	<span class="oldest">
+                		at 5 delinquent 
+                		mines since&nbsp;2007</span>
+                </td>
+            </tr>
+            
+            <tr class="david-s.-himmelberger">
+                <td class="controller">
+                	<strong>David S. Himmelberger</strong>
+                	<span class="companies">R&D Coal</span>
+                </td>
+                <td data-title="Delinquent Fines" class="penalty-amt"><strong>$1,221,465</strong></td>
+                <td class="injuries">
+                	<span class="injury-number">0&nbsp;injuries</span>
+                	<span class="and">and</span>
+                	<span class="violations">14&nbsp;violations</span>
+                	<span class="oldest">
+                		at 1 delinquent 
+                		mine since&nbsp;2006</span>
+                </td>
+            </tr>
+            
+            <tr class="richard-h.-abraham">
+                <td class="controller">
+                	<strong>Richard H. Abraham</strong>
+                	<span class="companies">Rio Group</span>
+                </td>
+                <td data-title="Delinquent Fines" class="penalty-amt"><strong>$982,352</strong></td>
+                <td class="injuries">
+                	<span class="injury-number">57&nbsp;injuries</span>
+                	<span class="and">and</span>
+                	<span class="violations">1,115&nbsp;violations</span>
+                	<span class="oldest">
+                		at 3 delinquent 
+                		mines since&nbsp;2003</span>
+                </td>
+            </tr>
+            
+
+        </table>
+    </div>
+    
+    
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>1. James C. Justice II: After contact with NPR, Justice began paying the debt at a rate of $100,000 a month.<br />
+2. Brandy M. Horvath: A federal criminal case for tax evasion ended with a 2013 plea agreement that includes a prison sentence.<br /></p>
+    </div>
+    
+
+    <div class="footer">
+        <p>Source: Mine Safety and Health Administration (MSHA) Debt By Age report, March 31, 2014; MSHA Mine Data Retrieval System; Department of Labor violations and injuries data; Department of Labor Solicitor; U.S. District Court and U.S. Federal Appeals Court records. (<a href="http://www.npr.org/templates/story/story.php?storyId=363511746" target="_blank">About these data</a>)</p>
+        <p>Credit: Analysis by Robert Benincasa, Howard Berkes and Anna Boiko-Weyrauch / NPR. Design by Alyson Hurt / NPR</p>
+    </div>
+
+
+    <script src="js/lib/jquery.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        var pymChild = new pym.Child({ });
+    })
+    </script>
+
+</body>
+</html>
