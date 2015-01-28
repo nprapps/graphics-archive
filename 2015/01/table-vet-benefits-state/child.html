@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+    <link rel="stylesheet" href="stateface.css" type="text/css" />
+
+    <style type="text/css">
+        /* stateface */
+        @font-face {
+             font-family: 'StateFaceRegular';
+             src: url('webfont/stateface-regular-webfont.eot');
+             src: url('webfont/stateface-regular-webfont.eot?#iefix') format('embedded-opentype'),
+                  url('webfont/stateface-regular-webfont.woff') format('woff'),
+                  url('webfont/stateface-regular-webfont.ttf') format('truetype'),
+                  url('webfont/stateface-regular-webfont.svg#StateFaceRegular') format('svg');
+             font-weight: normal;
+             font-style: normal;
+         }
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 0;
+            font: 14px/1.4 Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+        h1 {
+            margin: 0 0 6px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        h2 {
+            font-weight: normal;
+            color: #666;
+            font-size: 12px;
+            margin: 0 0 22px 0;
+        }
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.3;
+            color: #808080;
+        }
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { opacity: 0.7; }
+        
+        /* table */
+        .stateface {
+            white-space: nowrap;
+        }
+        .stateface:before {
+            width: 2em;
+            text-align: center;
+            display: inline-block;
+        }
+
+        table {
+            border-collapse: collapse;
+            padding: 0;
+            margin: 0 0 22px 0;
+            width: 100%;
+            font-size: 12px;
+        }
+        table th {
+            text-align: left;
+            border-bottom: 2px solid #eee;
+            vertical-align: bottom;
+        }
+        table td {
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+        table th,
+        table td {
+            padding: 5px;
+            color: #333;
+            text-align: right;
+            width: 25%;
+        }
+        table th:nth-child(1),
+        table td:nth-child(1) {
+            text-align: left;
+            font-weight: bold;
+            width: 50%;
+        }
+        
+        table tr.us { background-color: #f1f1f1; }
+        
+
+        /* responsive table */
+        @media screen and (max-width: 400px) {
+            table { font-size: 11px; }
+/*            table,
+            tbody {
+                display: block;
+                width: 100%;
+            }
+            thead { display: none; }
+            table tr,
+            table th,
+            table td {
+                display: block;
+                padding: 0;
+                text-align: left;
+                white-space: normal;
+            }
+            table td { 
+                border: none;
+                margin-bottom: 6px;
+                color: #444;
+            }
+            table td:empty { display: none; }
+
+            table tr {
+                border-bottom: 1px solid #eee;
+                padding-bottom: 11px;
+                margin-bottom: 11px;
+            }
+            table th[data-title]:before,
+            table td[data-title]:before {
+                content: attr(data-title) ":\00A0";
+                font-weight: bold;
+            }
+
+            table tr td:first-child { 
+                font-size: 14px;
+                font-weight: bold;
+                margin-bottom: 6px;
+                color: #333;
+            }
+            table tr td:first-child:before {
+                content: '';
+            } */
+        }
+    </style>
+
+</head>
+<body>
+    
+    
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th>State</th>
+                    <th>Spending per veteran</th>
+                    <th>Veterans as a share of the population</th>
+                </tr>
+            </thead>
+
+            
+            <tr class="wv">
+                <td data-title="State">
+                    <span class="stateface stateface-wv">West Virginia</span>
+                </td>
+                <td data-title="Spending per veteran">$7,689</td>
+                <td data-title="Veterans as a share of the population">10%</td>
+            </tr>
+            
+            <tr class="ar">
+                <td data-title="State">
+                    <span class="stateface stateface-ar">Arkansas</span>
+                </td>
+                <td data-title="Spending per veteran">$7,626</td>
+                <td data-title="Veterans as a share of the population">10%</td>
+            </tr>
+            
+            <tr class="nm">
+                <td data-title="State">
+                    <span class="stateface stateface-nm">New Mexico</span>
+                </td>
+                <td data-title="Spending per veteran">$7,462</td>
+                <td data-title="Veterans as a share of the population">10%</td>
+            </tr>
+            
+            <tr class="sd">
+                <td data-title="State">
+                    <span class="stateface stateface-sd">South Dakota</span>
+                </td>
+                <td data-title="Spending per veteran">$7,295</td>
+                <td data-title="Veterans as a share of the population">10%</td>
+            </tr>
+            
+            <tr class="ok">
+                <td data-title="State">
+                    <span class="stateface stateface-ok">Oklahoma</span>
+                </td>
+                <td data-title="Spending per veteran">$7,172</td>
+                <td data-title="Veterans as a share of the population">10%</td>
+            </tr>
+            
+            <tr class="ne">
+                <td data-title="State">
+                    <span class="stateface stateface-ne">Nebraska</span>
+                </td>
+                <td data-title="Spending per veteran">$7,044</td>
+                <td data-title="Veterans as a share of the population">9%</td>
+            </tr>
+            
+            <tr class="ca">
+                <td data-title="State">
+                    <span class="stateface stateface-ca">California</span>
+                </td>
+                <td data-title="Spending per veteran">$6,890</td>
+                <td data-title="Veterans as a share of the population">6%</td>
+            </tr>
+            
+            <tr class="or">
+                <td data-title="State">
+                    <span class="stateface stateface-or">Oregon</span>
+                </td>
+                <td data-title="Spending per veteran">$6,859</td>
+                <td data-title="Veterans as a share of the population">10%</td>
+            </tr>
+            
+            <tr class="nv">
+                <td data-title="State">
+                    <span class="stateface stateface-nv">Nevada</span>
+                </td>
+                <td data-title="Spending per veteran">$6,816</td>
+                <td data-title="Veterans as a share of the population">10%</td>
+            </tr>
+            
+            <tr class="tx">
+                <td data-title="State">
+                    <span class="stateface stateface-tx">Texas</span>
+                </td>
+                <td data-title="Spending per veteran">$6,780</td>
+                <td data-title="Veterans as a share of the population">8%</td>
+            </tr>
+            
+            <tr class="al">
+                <td data-title="State">
+                    <span class="stateface stateface-al">Alabama</span>
+                </td>
+                <td data-title="Spending per veteran">$6,719</td>
+                <td data-title="Veterans as a share of the population">10%</td>
+            </tr>
+            
+            <tr class="me">
+                <td data-title="State">
+                    <span class="stateface stateface-me">Maine</span>
+                </td>
+                <td data-title="Spending per veteran">$6,694</td>
+                <td data-title="Veterans as a share of the population">11%</td>
+            </tr>
+            
+            <tr class="fl">
+                <td data-title="State">
+                    <span class="stateface stateface-fl">Florida</span>
+                </td>
+                <td data-title="Spending per veteran">$6,677</td>
+                <td data-title="Veterans as a share of the population">9%</td>
+            </tr>
+            
+            <tr class="sc">
+                <td data-title="State">
+                    <span class="stateface stateface-sc">South Carolina</span>
+                </td>
+                <td data-title="Spending per veteran">$6,676</td>
+                <td data-title="Veterans as a share of the population">10%</td>
+            </tr>
+            
+            <tr class="ak">
+                <td data-title="State">
+                    <span class="stateface stateface-ak">Alaska</span>
+                </td>
+                <td data-title="Spending per veteran">$6,620</td>
+                <td data-title="Veterans as a share of the population">12%</td>
+            </tr>
+            
+            <tr class="ri">
+                <td data-title="State">
+                    <span class="stateface stateface-ri">Rhode Island</span>
+                </td>
+                <td data-title="Spending per veteran">$6,531</td>
+                <td data-title="Veterans as a share of the population">8%</td>
+            </tr>
+            
+            <tr class="nc">
+                <td data-title="State">
+                    <span class="stateface stateface-nc">North Carolina</span>
+                </td>
+                <td data-title="Spending per veteran">$6,440</td>
+                <td data-title="Veterans as a share of the population">9%</td>
+            </tr>
+            
+            <tr class="ky">
+                <td data-title="State">
+                    <span class="stateface stateface-ky">Kentucky</span>
+                </td>
+                <td data-title="Spending per veteran">$6,438</td>
+                <td data-title="Veterans as a share of the population">9%</td>
+            </tr>
+            
+            <tr class="ms">
+                <td data-title="State">
+                    <span class="stateface stateface-ms">Mississippi</span>
+                </td>
+                <td data-title="Spending per veteran">$6,340</td>
+                <td data-title="Veterans as a share of the population">8%</td>
+            </tr>
+            
+            <tr class="hi">
+                <td data-title="State">
+                    <span class="stateface stateface-hi">Hawaii</span>
+                </td>
+                <td data-title="Spending per veteran">$6,302</td>
+                <td data-title="Veterans as a share of the population">10%</td>
+            </tr>
+            
+            <tr class="mt">
+                <td data-title="State">
+                    <span class="stateface stateface-mt">Montana</span>
+                </td>
+                <td data-title="Spending per veteran">$6,287</td>
+                <td data-title="Veterans as a share of the population">10%</td>
+            </tr>
+            
+            <tr class="la">
+                <td data-title="State">
+                    <span class="stateface stateface-la">Louisiana</span>
+                </td>
+                <td data-title="Spending per veteran">$6,257</td>
+                <td data-title="Veterans as a share of the population">8%</td>
+            </tr>
+            
+            <tr class="tn">
+                <td data-title="State">
+                    <span class="stateface stateface-tn">Tennessee</span>
+                </td>
+                <td data-title="Spending per veteran">$6,237</td>
+                <td data-title="Veterans as a share of the population">9%</td>
+            </tr>
+            
+            <tr class="mn">
+                <td data-title="State">
+                    <span class="stateface stateface-mn">Minnesota</span>
+                </td>
+                <td data-title="Spending per veteran">$6,207</td>
+                <td data-title="Veterans as a share of the population">8%</td>
+            </tr>
+            
+            <tr class="ny">
+                <td data-title="State">
+                    <span class="stateface stateface-ny">New York</span>
+                </td>
+                <td data-title="Spending per veteran">$6,191</td>
+                <td data-title="Veterans as a share of the population">5%</td>
+            </tr>
+            
+            <tr class="co">
+                <td data-title="State">
+                    <span class="stateface stateface-co">Colorado</span>
+                </td>
+                <td data-title="Spending per veteran">$6,190</td>
+                <td data-title="Veterans as a share of the population">10%</td>
+            </tr>
+            
+            <tr class="ma">
+                <td data-title="State">
+                    <span class="stateface stateface-ma">Massachusetts</span>
+                </td>
+                <td data-title="Spending per veteran">$6,186</td>
+                <td data-title="Veterans as a share of the population">6%</td>
+            </tr>
+            
+            <tr class="us">
+                <td data-title="State">
+                    <span class="stateface stateface-us">U.S. average</span>
+                </td>
+                <td data-title="Spending per veteran">$6,088</td>
+                <td data-title="Veterans as a share of the population">8%</td>
+            </tr>
+            
+            <tr class="wy">
+                <td data-title="State">
+                    <span class="stateface stateface-wy">Wyoming</span>
+                </td>
+                <td data-title="Spending per veteran">$5,925</td>
+                <td data-title="Veterans as a share of the population">11%</td>
+            </tr>
+            
+            <tr class="ga">
+                <td data-title="State">
+                    <span class="stateface stateface-ga">Georgia</span>
+                </td>
+                <td data-title="Spending per veteran">$5,885</td>
+                <td data-title="Veterans as a share of the population">9%</td>
+            </tr>
+            
+            <tr class="az">
+                <td data-title="State">
+                    <span class="stateface stateface-az">Arizona</span>
+                </td>
+                <td data-title="Spending per veteran">$5,860</td>
+                <td data-title="Veterans as a share of the population">10%</td>
+            </tr>
+            
+            <tr class="nd">
+                <td data-title="State">
+                    <span class="stateface stateface-nd">North Dakota</span>
+                </td>
+                <td data-title="Spending per veteran">$5,793</td>
+                <td data-title="Veterans as a share of the population">9%</td>
+            </tr>
+            
+            <tr class="mo">
+                <td data-title="State">
+                    <span class="stateface stateface-mo">Missouri</span>
+                </td>
+                <td data-title="Spending per veteran">$5,715</td>
+                <td data-title="Veterans as a share of the population">9%</td>
+            </tr>
+            
+            <tr class="wi">
+                <td data-title="State">
+                    <span class="stateface stateface-wi">Wisconsin</span>
+                </td>
+                <td data-title="Spending per veteran">$5,715</td>
+                <td data-title="Veterans as a share of the population">8%</td>
+            </tr>
+            
+            <tr class="vt">
+                <td data-title="State">
+                    <span class="stateface stateface-vt">Vermont</span>
+                </td>
+                <td data-title="Spending per veteran">$5,508</td>
+                <td data-title="Veterans as a share of the population">8%</td>
+            </tr>
+            
+            <tr class="ut">
+                <td data-title="State">
+                    <span class="stateface stateface-ut">Utah</span>
+                </td>
+                <td data-title="Spending per veteran">$5,493</td>
+                <td data-title="Veterans as a share of the population">7%</td>
+            </tr>
+            
+            <tr class="nh">
+                <td data-title="State">
+                    <span class="stateface stateface-nh">New Hampshire</span>
+                </td>
+                <td data-title="Spending per veteran">$5,474</td>
+                <td data-title="Veterans as a share of the population">10%</td>
+            </tr>
+            
+            <tr class="md">
+                <td data-title="State">
+                    <span class="stateface stateface-md">Maryland</span>
+                </td>
+                <td data-title="Spending per veteran">$5,465</td>
+                <td data-title="Veterans as a share of the population">9%</td>
+            </tr>
+            
+            <tr class="va">
+                <td data-title="State">
+                    <span class="stateface stateface-va">Virginia</span>
+                </td>
+                <td data-title="Spending per veteran">$5,437</td>
+                <td data-title="Veterans as a share of the population">11%</td>
+            </tr>
+            
+            <tr class="wa">
+                <td data-title="State">
+                    <span class="stateface stateface-wa">Washington</span>
+                </td>
+                <td data-title="Spending per veteran">$5,414</td>
+                <td data-title="Veterans as a share of the population">10%</td>
+            </tr>
+            
+            <tr class="ks">
+                <td data-title="State">
+                    <span class="stateface stateface-ks">Kansas</span>
+                </td>
+                <td data-title="Spending per veteran">$5,409</td>
+                <td data-title="Veterans as a share of the population">9%</td>
+            </tr>
+            
+            <tr class="id">
+                <td data-title="State">
+                    <span class="stateface stateface-id">Idaho</span>
+                </td>
+                <td data-title="Spending per veteran">$5,261</td>
+                <td data-title="Veterans as a share of the population">10%</td>
+            </tr>
+            
+            <tr class="ct">
+                <td data-title="State">
+                    <span class="stateface stateface-ct">Connecticut</span>
+                </td>
+                <td data-title="Spending per veteran">$5,085</td>
+                <td data-title="Veterans as a share of the population">7%</td>
+            </tr>
+            
+            <tr class="il">
+                <td data-title="State">
+                    <span class="stateface stateface-il">Illinois</span>
+                </td>
+                <td data-title="Spending per veteran">$5,082</td>
+                <td data-title="Veterans as a share of the population">7%</td>
+            </tr>
+            
+            <tr class="ia">
+                <td data-title="State">
+                    <span class="stateface stateface-ia">Iowa</span>
+                </td>
+                <td data-title="Spending per veteran">$5,056</td>
+                <td data-title="Veterans as a share of the population">9%</td>
+            </tr>
+            
+            <tr class="oh">
+                <td data-title="State">
+                    <span class="stateface stateface-oh">Ohio</span>
+                </td>
+                <td data-title="Spending per veteran">$5,019</td>
+                <td data-title="Veterans as a share of the population">9%</td>
+            </tr>
+            
+            <tr class="mi">
+                <td data-title="State">
+                    <span class="stateface stateface-mi">Michigan</span>
+                </td>
+                <td data-title="Spending per veteran">$5,001</td>
+                <td data-title="Veterans as a share of the population">8%</td>
+            </tr>
+            
+            <tr class="in">
+                <td data-title="State">
+                    <span class="stateface stateface-in">Indiana</span>
+                </td>
+                <td data-title="Spending per veteran">$4,935</td>
+                <td data-title="Veterans as a share of the population">8%</td>
+            </tr>
+            
+            <tr class="pa">
+                <td data-title="State">
+                    <span class="stateface stateface-pa">Pennsylvania</span>
+                </td>
+                <td data-title="Spending per veteran">$4,797</td>
+                <td data-title="Veterans as a share of the population">8%</td>
+            </tr>
+            
+            <tr class="de">
+                <td data-title="State">
+                    <span class="stateface stateface-de">Delaware</span>
+                </td>
+                <td data-title="Spending per veteran">$4,587</td>
+                <td data-title="Veterans as a share of the population">10%</td>
+            </tr>
+            
+            <tr class="nj">
+                <td data-title="State">
+                    <span class="stateface stateface-nj">New Jersey</span>
+                </td>
+                <td data-title="Spending per veteran">$4,480</td>
+                <td data-title="Veterans as a share of the population">6%</td>
+            </tr>
+            
+
+        </table>
+    </div>
+    
+    
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>U.S. Department of Veterans Affairs spending figures include only categories that go directly to veterans (such as medical, compensation or education benefits) and exclude capital expenses (such as facilities and new construction).</p>
+    </div>
+    
+
+    <div class="footer">
+        <p>Source: NPR analysis of <a href="http://www.va.gov/vetdata/Expenditures.asp" target="_blank">VA data</a></p>
+        <p>Credit: Robert Benincasa and Alyson Hurt/NPR</p>
+    </div>
+
+
+    <script src="js/lib/jquery.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        var pymChild = new pym.Child({ });
+    })
+    </script>
+
+</body>
+</html>
