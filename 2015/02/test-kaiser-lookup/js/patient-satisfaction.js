@@ -60,7 +60,7 @@
                 selectHospital: function(t) {
                     t ? (this.hospitalsSelect.value = t, this.initHospitalDetails(this.currentStateData.Cities[this.citiesSelect.value][t])) : (this.hospitalsSelect.value = "", this.initHospitalDetails())
 
-                    if (pymChild) {
+                    if (typeof pymChild != 'undefined') {
                         pymChild.sendHeight();
                     }
                 },
