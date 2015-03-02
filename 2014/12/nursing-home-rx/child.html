@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 0;
+            font: 14px/1.4 Arial, Helvetica, sans-serif;
+            color: #333;
+            min-height: 250px;
+        }
+        h1 {
+            margin: 0 0 6px 0;
+            font-size: 16px;
+            color: #333;
+        }
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.3;
+            color: #808080;
+        }
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { opacity: 0.7; }
+
+        /* graphic */
+        #graphic { 
+        	margin: 0 0 11px 0;
+        	padding: 0 11px;
+        	position: relative;
+        }
+
+        #graphic:before,
+        #graphic:after {
+            content: " "; /* 1 */
+            display: table; /* 2 */
+        }
+        #graphic:after { clear: both; }
+
+        #graphic img.fallback {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .chart { position: relative; }
+
+        .key {
+            margin: 0 0 22px 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .key .key-item { 
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+        }
+        .key .key-item b { 
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+        }
+        .key .key-item label { 
+            white-space: nowrap;
+            font-size: 12px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        .axis {
+            font-size: 12px;
+            fill: #666;
+        }
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #666;
+            shape-rendering: crispEdges;
+        }
+        .axis.y path { display: none; }
+        .axis.y .tick line { display: none; }
+
+        .grid path { display: none; }
+        .grid .tick {
+            stroke: #ccc;
+            stroke-dasharray: 1px 3px;
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+        .grid.y .tick:first-child { display: none; }
+
+        .lines {
+            fill: none;
+            stroke-width: 3px;
+            stroke: #ccc;
+        }
+        .national .lines path {
+            stroke-width: 1px;
+            opacity: .1;
+        }
+        .national .lines .l-us {
+            stroke-width: 3px;
+            opacity: 1;
+            stroke: #11605E;
+        }
+        .national .lines path.active {
+            opacity: 1;
+        }
+        .national .lines path:hover { cursor: pointer; }
+        
+        .national .dots circle {
+            display: none;
+        }
+        .national .dots .d-us circle {
+            fill: #11605E;
+            display: block;
+        }
+        .national .dots .active circle {
+            display: block;
+        }
+
+        .voronoi path {
+            fill: none;
+/*            stroke: red; */
+            pointer-events: all;
+        }
+        
+        .vals text {
+            display: none;
+            fill: #999;
+            font-size: 11px;
+        }
+        .vals text.active {
+            display: block;
+        }
+        
+        #graphic h3 {
+            margin: 0 0 11px 0;
+            padding-bottom: 11px;
+            border-bottom: 2px solid #eee;
+            font-size: 16px;
+            line-height: 1.2;
+            font-weight: bold;
+        }
+        #graphic h4 {
+            margin: 0 0 15px 0;
+            font-size: 12px;
+        }
+        #graphic h4 span {
+            font-weight: normal;
+            color: #999;
+            padding-left: 5px;
+        }
+        #graphic h5 {
+            margin: 0 0 6px 0;
+            color: #999;
+            font-size: 11px;
+            font-weight: normal;
+        }
+        
+        .info:before,
+        .info:after {
+            content: " "; /* 1 */
+            display: table; /* 2 */
+        }
+        .info:after { clear: both; }
+ 
+        .info p {
+            font-size: 12px;
+            margin: 0 0 22px 0;
+        }
+        .info ul {
+            margin: 0 0 11px 0;
+            padding: 0;
+        }
+        .info ul li {
+            margin: 0 0 0 1.1em;
+            padding: 0;
+            font-size: 12px;
+        }
+        
+        .values { 
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .values.inactive { display: none; }
+        .values ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .values ul li {
+            font-size: 12px;
+            text-align: left;
+            padding: 0 6px;
+            margin: 0 0 11px 0;
+            font-weight: bold;
+        }
+        .values ul li.home,
+        .national .values ul li.us {
+            background-color: #f7f7f7;
+            padding: 6px;
+        }
+        .values strong {
+            font-size: 14px;
+            display: block;
+        }
+        .values i {
+            font-style: normal;
+            font-weight: normal;
+            color: #999;
+            font-size: 10px;
+            display: block;
+            margin-top: 1px;
+        }
+        
+        /* typeahead */
+        #search { 
+            background-color: #ebebeb;
+            padding: 11px;
+            margin-bottom: 22px;
+        }
+        
+        .twitter-typeahead { width: 100%; }
+        
+        .tt-input,
+        .tt-query,
+        .tt-hint {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            height: 14px;
+            padding: 11px;
+            font-size: 14px;
+            line-height: 30px;
+            border: 1px solid #fff;
+            -webkit-border-radius: 0px;
+               -moz-border-radius: 0px;
+                    border-radius: 0px;
+            outline: none;
+            background-color: #fff;
+            width: 50%;
+            min-width: 200px;
+        }
+        
+        .tt-input {
+            border: 1px solid #ccc;
+            background-color: #fff;
+            font-size: 14px;
+        }
+        .tt-input:focus { border-bottom: 1px solid #71768a; }
+        
+        .tt-query {
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+               -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+
+        .tt-dropdown-menu {
+            width: 50%;
+            min-width: 150px;
+            max-height: 150px;
+            overflow-y: auto;
+            margin-top: 2px;
+            padding: 7px 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border: 1px solid rgba(0, 0, 0, .2);
+            *border-right-width: 2px;
+            *border-bottom-width: 2px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+            -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+            -webkit-background-clip: padding-box;
+            -moz-background-clip: padding;
+            background-clip: padding-box;
+            cursor: pointer;
+        }
+        .tt-dropdown-menu p { 
+            margin: 0;
+            padding: 5px 10px;
+            font-size: 12px;
+            line-height: 1.2;
+            color: #666;
+        }
+        .tt-dropdown-menu strong { color: #000; }
+
+        .tt-suggestion { }
+        .tt-suggestion.tt-is-under-cursor,
+        .tt-suggestion.tt-cursor { 
+            background-color: #D3EAF7;
+        }
+        
+        @media screen and (max-width: 540px) {
+            .info .address {
+                width: 50%;
+                float: left;
+            }
+            .info .about {
+                width: 50%;
+                float: right;
+            }
+            .values ul li {
+                font-size: 11px;
+                line-height: 1.2;
+                margin-bottom: 6px;
+            }
+            .values strong { font-size: 11px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="search">
+        <h1>Look Up Antipsychotic Medication Rates By Facility</h1>
+        <input class="typeahead" type="text" placeholder="Enter a name, city, state or zip code">
+    </div>
+
+    <div id="graphic">
+        <div class="loading"><img src="assets/ajax-loader.gif" alt="" /> Loading</div>
+    </div>
+    
+    
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>Data not available for all facilities for all time periods.</p>
+    </div>
+    
+
+    <div class="footer">
+        <p>Source: Centers for Medicare and Medicaid Services (Data through June 2014)</p>
+        <p>Credit: Robert Benincasa and Alyson Hurt/NPR</p>
+    </div>
+    
+    <script type="text/javascript">
+        var HED_GRAPH = "Share of long-stay residents who received an antipsychotic&nbsp;medication";
+        var HED_GRAPH_DESC = "(lower numbers are&nbsp;better)";
+        var HED_ADDRESS = "Address";
+        var HED_ABOUT = "About this facility";
+        var HED_MEDICARE = "Medicare.gov profile";
+    </script>
+
+    <script src="js/lib/jquery.js" type="text/javascript"></script>
+    <script src="js/lib/typeahead.jquery.js" type="text/javascript"></script>
+    <script src="js/lib/d3.v3.min.js" type="text/javascript"></script>
+    <script src="js/lib/queue.v1.min.js" type="text/javascript"></script>
+    <script src="js/lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script src="js/graphic.js" type="text/javascript"></script>
+</body>
+</html>
