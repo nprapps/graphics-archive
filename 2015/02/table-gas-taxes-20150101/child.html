@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 0;
+            font: 14px/1.4 Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+        h1 {
+            margin: 0 0 15px 0;
+            font-size: 16px;
+            color: #333;
+        }
+        h1 span {
+            font-weight: normal;
+            color: #999;
+        }
+        h2 {
+            font-weight: normal;
+            color: #666;
+            font-size: 14px;
+            margin: -7px 0 22px 0;
+        }
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.3;
+            color: #808080;
+        }
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { opacity: 0.7; }
+        
+        /* table */
+        .stateface {
+            white-space: nowrap;
+        }
+        .stateface:before {
+            width: 2em;
+            text-align: center;
+            display: inline-block;
+        }
+
+        table {
+            border-collapse: collapse;
+            padding: 0;
+            margin: 0 0 22px 0;
+            width: 100%;
+            font-size: 12px;
+        }
+        table th {
+            text-align: left;
+            border-bottom: 2px solid #eee;
+            vertical-align: bottom;
+            line-height: 1.3;
+        }
+        table th span {
+            display: block;
+            font-weight: normal;
+            color: #999;
+        }
+        table td {
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+            width: 33%;
+        }
+        table th,
+        table td {
+            padding: 10px;
+            color: #333;
+            text-align: center;
+        }
+        table th:nth-child(1),
+        table td:nth-child(1) {
+            text-align: left;
+        }
+        
+        table .us td {
+            background-color: #f1f1f1;
+            font-weight: bold;
+        }
+        
+        table td.value {
+            border-color: #fff;
+            border-right: 1px solid #fff;
+        }
+
+        table td.v0,
+        table td.v1,
+        table td.v2,
+        table td.v3,
+        table td.v4,
+        table td.v5,
+        table td.v6,
+        table td.v7,
+        table td.v8,
+        table td.v9 {
+            background-color: #c5dfdf;
+            color: #333;
+        }
+
+        table td.v10,
+        table td.v11,
+        table td.v12,
+        table td.v13,
+        table td.v14,
+        table td.v15,
+        table td.v16,
+        table td.v17,
+        table td.v18,
+        table td.v19 {
+            background-color: #9dc4c4;
+            color: #fff;
+        }
+
+        table td.v20,
+        table td.v21,
+        table td.v22,
+        table td.v23,
+        table td.v24,
+        table td.v25,
+        table td.v26,
+        table td.v27,
+        table td.v28,
+        table td.v29 {
+            background-color: #76aaa8;
+            color: #fff;
+        }
+
+        table td.v30,
+        table td.v31,
+        table td.v32,
+        table td.v33,
+        table td.v34,
+        table td.v35,
+        table td.v36,
+        table td.v37,
+        table td.v38,
+        table td.v39 {
+            background-color: #538f8d;
+            color: #fff;
+        }
+
+        table td.v40,
+        table td.v41,
+        table td.v42,
+        table td.v43,
+        table td.v44,
+        table td.v45,
+        table td.v46,
+        table td.v47,
+        table td.v48,
+        table td.v49 {
+            background-color: #347573;
+            color: #fff;
+        }
+
+        table td.v50,
+        table td.v51,
+        table td.v52,
+        table td.v53,
+        table td.v54,
+        table td.v55,
+        table td.v56,
+        table td.v57,
+        table td.v58,
+        table td.v59 {
+            background-color: #1a5a58;
+            color: #fff;
+        }
+
+        table td.v60,
+        table td.v61,
+        table td.v62,
+        table td.v63,
+        table td.v64,
+        table td.v65,
+        table td.v66,
+        table td.v67,
+        table td.v68,
+        table td.v69 {
+            background-color: #0b403f;
+            color: #fff;
+        }
+
+        /* responsive table */
+        @media screen and (max-width: 480px) {
+            table { font-size: 11px; }
+        /*
+            table,
+            tbody {
+                display: block;
+                width: 100%;
+            }
+            thead { display: none; }
+            table tr,
+            table th,
+            table td {
+                display: block;
+                padding: 0;
+                text-align: left;
+                white-space: normal;
+            }
+            table td { 
+                border: none;
+                margin-bottom: 6px;
+                color: #444;
+            }
+            table td:empty { display: none; }
+
+            table tr {
+                border-bottom: 1px solid #eee;
+                padding-bottom: 11px;
+                margin-bottom: 11px;
+            }
+            table th[data-title]:before,
+            table td[data-title]:before {
+                content: attr(data-title) ":\00A0";
+                font-weight: bold;
+            }
+
+            table tr td:first-child { 
+                font-size: 14px;
+                font-weight: bold;
+                margin-bottom: 6px;
+                color: #333;
+            }
+            table tr td:first-child:before {
+                content: '';
+            }
+        */
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Gasoline Taxes, By State <span>(As Of Jan. 1, 2015)</span></h1>
+    
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th>State</th>
+                    <th>State taxes and&nbsp;fees <span>(cents per gallon)</span></th>
+                    <th>Total taxes and&nbsp;fees <span>(cents per gallon)</span></th>
+                </tr>
+            </thead>
+
+            
+            <tr class="us">
+                <td data-title="State"><span class="stateface stateface-us">U.S. average</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v29">29.89&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v48">48.29&cent;</td>
+            </tr>
+            
+            <tr class="al">
+                <td data-title="State"><span class="stateface stateface-al">Alabama</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v20">20.87&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v39">39.27&cent;</td>
+            </tr>
+            
+            <tr class="ak">
+                <td data-title="State"><span class="stateface stateface-ak">Alaska</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v11">11.30&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v29">29.70&cent;</td>
+            </tr>
+            
+            <tr class="az">
+                <td data-title="State"><span class="stateface stateface-az">Arizona</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v19">19.00&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v37">37.40&cent;</td>
+            </tr>
+            
+            <tr class="ar">
+                <td data-title="State"><span class="stateface stateface-ar">Arkansas</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v21">21.80&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v40">40.20&cent;</td>
+            </tr>
+            
+            <tr class="ca">
+                <td data-title="State"><span class="stateface stateface-ca">California</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v45">45.39&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v63">63.79&cent;</td>
+            </tr>
+            
+            <tr class="co">
+                <td data-title="State"><span class="stateface stateface-co">Colorado</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v22">22.00&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v40">40.40&cent;</td>
+            </tr>
+            
+            <tr class="ct">
+                <td data-title="State"><span class="stateface stateface-ct">Connecticut</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v43">43.22&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v61">61.62&cent;</td>
+            </tr>
+            
+            <tr class="de">
+                <td data-title="State"><span class="stateface stateface-de">Delaware</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v23">23.00&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v41">41.40&cent;</td>
+            </tr>
+            
+            <tr class="dc">
+                <td data-title="State"><span class="stateface stateface-dc">District of Columbia</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v23">23.50&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v41">41.90&cent;</td>
+            </tr>
+            
+            <tr class="fl">
+                <td data-title="State"><span class="stateface stateface-fl">Florida</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v36">36.42&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v54">54.82&cent;</td>
+            </tr>
+            
+            <tr class="ga">
+                <td data-title="State"><span class="stateface stateface-ga">Georgia</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v26">26.53&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v44">44.93&cent;</td>
+            </tr>
+            
+            <tr class="hi">
+                <td data-title="State"><span class="stateface stateface-hi">Hawaii</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v45">45.00&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v63">63.40&cent;</td>
+            </tr>
+            
+            <tr class="id">
+                <td data-title="State"><span class="stateface stateface-id">Idaho</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v25">25.00&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v43">43.40&cent;</td>
+            </tr>
+            
+            <tr class="il">
+                <td data-title="State"><span class="stateface stateface-il">Illinois</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v30">30.72&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v49">49.12&cent;</td>
+            </tr>
+            
+            <tr class="in">
+                <td data-title="State"><span class="stateface stateface-in">Indiana</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v29">29.85&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v48">48.25&cent;</td>
+            </tr>
+            
+            <tr class="ia">
+                <td data-title="State"><span class="stateface stateface-ia">Iowa</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v22">22.00&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v40">40.40&cent;</td>
+            </tr>
+            
+            <tr class="ks">
+                <td data-title="State"><span class="stateface stateface-ks">Kansas</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v24">24.03&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v42">42.43&cent;</td>
+            </tr>
+            
+            <tr class="ky">
+                <td data-title="State"><span class="stateface stateface-ky">Kentucky</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v27">27.60&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v46">46.00&cent;</td>
+            </tr>
+            
+            <tr class="la">
+                <td data-title="State"><span class="stateface stateface-la">Louisiana</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v20">20.01&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v38">38.41&cent;</td>
+            </tr>
+            
+            <tr class="me">
+                <td data-title="State"><span class="stateface stateface-me">Maine</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v30">30.01&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v48">48.41&cent;</td>
+            </tr>
+            
+            <tr class="md">
+                <td data-title="State"><span class="stateface stateface-md">Maryland</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v30">30.30&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v48">48.70&cent;</td>
+            </tr>
+            
+            <tr class="ma">
+                <td data-title="State"><span class="stateface stateface-ma">Massachusetts</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v26">26.54&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v44">44.94&cent;</td>
+            </tr>
+            
+            <tr class="mi">
+                <td data-title="State"><span class="stateface stateface-mi">Michigan</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v30">30.26&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v48">48.66&cent;</td>
+            </tr>
+            
+            <tr class="mn">
+                <td data-title="State"><span class="stateface stateface-mn">Minnesota</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v28">28.60&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v47">47.00&cent;</td>
+            </tr>
+            
+            <tr class="ms">
+                <td data-title="State"><span class="stateface stateface-ms">Mississippi</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v18">18.78&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v37">37.18&cent;</td>
+            </tr>
+            
+            <tr class="mo">
+                <td data-title="State"><span class="stateface stateface-mo">Missouri</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v17">17.30&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v35">35.70&cent;</td>
+            </tr>
+            
+            <tr class="mt">
+                <td data-title="State"><span class="stateface stateface-mt">Montana</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v27">27.75&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v46">46.15&cent;</td>
+            </tr>
+            
+            <tr class="ne">
+                <td data-title="State"><span class="stateface stateface-ne">Nebraska</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v26">26.50&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v44">44.90&cent;</td>
+            </tr>
+            
+            <tr class="nv">
+                <td data-title="State"><span class="stateface stateface-nv">Nevada</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v33">33.15&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v51">51.55&cent;</td>
+            </tr>
+            
+            <tr class="nh">
+                <td data-title="State"><span class="stateface stateface-nh">New Hampshire</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v23">23.83&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v42">42.23&cent;</td>
+            </tr>
+            
+            <tr class="nj">
+                <td data-title="State"><span class="stateface stateface-nj">New Jersey</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v14">14.50&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v32">32.90&cent;</td>
+            </tr>
+            
+            <tr class="nm">
+                <td data-title="State"><span class="stateface stateface-nm">New Mexico</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v18">18.88&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v37">37.28&cent;</td>
+            </tr>
+            
+            <tr class="ny">
+                <td data-title="State"><span class="stateface stateface-ny">New York</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v45">45.09&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v63">63.49&cent;</td>
+            </tr>
+            
+            <tr class="nc">
+                <td data-title="State"><span class="stateface stateface-nc">North Carolina</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v37">37.75&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v56">56.15&cent;</td>
+            </tr>
+            
+            <tr class="nd">
+                <td data-title="State"><span class="stateface stateface-nd">North Dakota</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v23">23.00&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v41">41.40&cent;</td>
+            </tr>
+            
+            <tr class="oh">
+                <td data-title="State"><span class="stateface stateface-oh">Ohio</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v28">28.00&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v46">46.40&cent;</td>
+            </tr>
+            
+            <tr class="ok">
+                <td data-title="State"><span class="stateface stateface-ok">Oklahoma</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v17">17.00&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v35">35.40&cent;</td>
+            </tr>
+            
+            <tr class="or">
+                <td data-title="State"><span class="stateface stateface-or">Oregon</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v31">31.07&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v49">49.47&cent;</td>
+            </tr>
+            
+            <tr class="pa">
+                <td data-title="State"><span class="stateface stateface-pa">Pennsylvania</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v50">50.50&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v68">68.90&cent;</td>
+            </tr>
+            
+            <tr class="ri">
+                <td data-title="State"><span class="stateface stateface-ri">Rhode Island</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v33">33.00&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v51">51.40&cent;</td>
+            </tr>
+            
+            <tr class="sc">
+                <td data-title="State"><span class="stateface stateface-sc">South Carolina</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v16">16.75&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v35">35.15&cent;</td>
+            </tr>
+            
+            <tr class="sd">
+                <td data-title="State"><span class="stateface stateface-sd">South Dakota</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v22">22.00&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v40">40.40&cent;</td>
+            </tr>
+            
+            <tr class="tn">
+                <td data-title="State"><span class="stateface stateface-tn">Tennessee</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v21">21.40&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v39">39.80&cent;</td>
+            </tr>
+            
+            <tr class="tx">
+                <td data-title="State"><span class="stateface stateface-tx">Texas</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v20">20.00&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v38">38.40&cent;</td>
+            </tr>
+            
+            <tr class="ut">
+                <td data-title="State"><span class="stateface stateface-ut">Utah</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v24">24.50&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v42">42.90&cent;</td>
+            </tr>
+            
+            <tr class="vt">
+                <td data-title="State"><span class="stateface stateface-vt">Vermont</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v31">31.97&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v50">50.37&cent;</td>
+            </tr>
+            
+            <tr class="va">
+                <td data-title="State"><span class="stateface stateface-va">Virginia</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v22">22.38&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v40">40.78&cent;</td>
+            </tr>
+            
+            <tr class="wa">
+                <td data-title="State"><span class="stateface stateface-wa">Washington</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v37">37.50&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v55">55.90&cent;</td>
+            </tr>
+            
+            <tr class="wv">
+                <td data-title="State"><span class="stateface stateface-wv">West Virginia</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v34">34.60&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v53">53.00&cent;</td>
+            </tr>
+            
+            <tr class="wi">
+                <td data-title="State"><span class="stateface stateface-wi">Wisconsin</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v32">32.90&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v51">51.30&cent;</td>
+            </tr>
+            
+            <tr class="wy">
+                <td data-title="State"><span class="stateface stateface-wy">Wyoming</span></td>
+                <td data-title="State taxes and&nbsp;fees (cents per gallon)" class="value v24">24.00&cent;</td>
+                <td data-title="Total taxes and&nbsp;fees (cents per gallon)" class="value v42">42.40&cent;</td>
+            </tr>
+            
+
+        </table>
+    </div>
+    
+    
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>- &ldquo;State taxes and fees&rdquo; include state gas taxes, inspection fees, environmental taxes and other charges.<br />
+- &ldquo;Total taxes and fees&rdquo; include state excise taxes, additional state taxes and fees, and 18.4 cents per gallon in federal taxes.</p>
+    </div>
+    
+
+    <div class="footer">
+        <p>Source: <a href="http://www.api.org/~/media/files/statistics/statemotorfuel-onepagers-jan-2015.pdf" target="_blank">American Petroleum Institute</a> (PDF)</p>
+        
+    </div>
+
+
+    <script src="js/lib/jquery.min.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        var pymChild = new pym.Child({ });
+    })
+    </script>
+
+</body>
+</html>

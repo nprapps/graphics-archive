@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 11px 0 0 0;
+            font: 14px/1.4 Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+        h1 {
+            margin: 0 0 6px 0;
+            font-size: 16px;
+            color: #333;
+        }
+        h2 {
+            font-weight: normal;
+            color: #666;
+            font-size: 14px;
+            margin: 0 0 18px 0;
+        }
+        
+        h4 {
+            margin: 0 0 22px 0;
+            font-size: 14px;
+        }
+        
+        h5 {
+            margin: 0 0 11px 0;
+            font-size: 12px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        ul > li {
+            margin: 0 0 1em 0;
+            padding: 0;
+        }
+        
+        .highlights {
+            padding: 0 11px;
+        }
+        
+        .featured {
+            display: table;
+            margin-bottom: 22px;
+            width: 100%;
+        }
+        .declines,
+        .increases {
+            display: table-cell;
+            vertical-align: top;
+            width: 50%;
+        }
+        .declines { padding-right: 22px; }
+        .increases { padding-left: 22px; }
+        .declines ul > li,
+        .increases ul > li {
+            font-size: 12px;
+            margin-bottom: 6px;
+            padding-top: 6px;
+            border-top: 2px solid #eee;
+            color: #4774CC;
+        }
+        .declines ul > li:hover,
+        .increases ul > li:hover {
+            color: #BCCAE5;
+            cursor: pointer;
+        }
+        
+        .footnotes { margin-bottom: 20px; }
+        #graphic .footnotes { padding-top: 11px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.3;
+            color: #808080;
+        }
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { opacity: 0.7; }
+
+        /* graphic */
+        #graphic { margin: 0 0 11px 0; }
+        #graphic img.fallback {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        #graphic h3 {
+            font-size: 14px;
+            margin: 0 0 11px 0;
+        }
+        #graphic h3 span {
+            font-weight: normal;
+            color: #999;
+        }
+
+        .key {
+            margin: 0 0 22px 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .key .key-item { 
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+        }
+        .key .key-item b { 
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+        }
+        .key .key-item label { 
+            white-space: nowrap;
+            font-size: 12px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        .axis {
+            font-size: 12px;
+            fill: #666;
+        }
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #666;
+            shape-rendering: crispEdges;
+        }
+        .axis.y path { display: none; }
+        .axis.y .tick line { display: none; }
+
+        .grid path { display: none; }
+        .grid .tick {
+            stroke: #ccc;
+            stroke-dasharray: 1px 3px;
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+        .grid.y .tick:first-child { display: none; }
+
+        .lines {
+            fill: none;
+            stroke-width: 3px;
+            stroke: #ccc;
+        }
+        
+        .graph { 
+            margin-bottom: 22px;
+            padding: 0 11px;
+        }
+        
+        rect.bar { shape-rendering: crispEdges; }
+        
+        /* typeahead */
+        #search { 
+            background-color: #ebebeb;
+            padding: 11px;
+            margin-bottom: 22px;
+        }
+        
+        .twitter-typeahead { width: 100%; }
+        
+        .tt-input,
+        .tt-query,
+        .tt-hint {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            height: 14px;
+            padding: 11px;
+            font-size: 14px;
+            line-height: 30px;
+            border: 1px solid #fff;
+            -webkit-border-radius: 0px;
+               -moz-border-radius: 0px;
+                    border-radius: 0px;
+            outline: none;
+            background-color: #fff;
+            width: 50%;
+            min-width: 200px;
+        }
+        
+        .tt-input {
+            border: 1px solid #ccc;
+            background-color: #fff;
+            font-size: 14px;
+        }
+        .tt-input:focus { border-bottom: 1px solid #71768a; }
+        
+        .tt-query {
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+               -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+
+        .tt-dropdown-menu {
+            width: 50%;
+            min-width: 150px;
+            max-height: 150px;
+            overflow-y: auto;
+            margin-top: 2px;
+            padding: 7px 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border: 1px solid rgba(0, 0, 0, .2);
+            *border-right-width: 2px;
+            *border-bottom-width: 2px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+            -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+            -webkit-background-clip: padding-box;
+            -moz-background-clip: padding;
+            background-clip: padding-box;
+            cursor: pointer;
+        }
+        .tt-dropdown-menu p { 
+            margin: 0;
+            padding: 5px 10px;
+            font-size: 12px;
+            line-height: 1.2;
+            color: #666;
+        }
+        .tt-dropdown-menu strong { color: #000; }
+
+        .tt-suggestion { }
+        .tt-suggestion.tt-is-under-cursor,
+        .tt-suggestion.tt-cursor { 
+            background-color: #D3EAF7;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="search">
+        <h1>Search for annual NIH grant totals by institution</h1>
+        <input class="typeahead" type="text" placeholder="Enter a name, city or state">
+    </div>
+
+    <div id="graphic"></div>
+    
+    <div class="highlights">
+        <h4>A sampling of institutions that have seen substantial changes in funding over the past&nbsp;decade:</h4>
+        <div class="featured">
+            
+            <div class="declines">
+                <h5>Notable Declines</h5>
+                <ul>
+                
+                    <li>Thomas Jefferson University</li>
+                
+                    <li>University of Tennessee Health Sciences</li>
+                
+                    <li>University of Cincinnati</li>
+                
+                    <li>University of Arizona</li>
+                
+                    <li>Baylor College of Medicine</li>
+                
+                    <li>University of Virginia</li>
+                
+                    <li>Wayne State University</li>
+                
+                    <li>Georgetown University</li>
+                
+                    <li>Loyola University of Chicago</li>
+                
+                    <li>Duke University</li>
+                
+                </ul>
+            </div>
+            
+            
+            <div class="increases">
+                <h5>Notable Increases</h5>
+                <ul>
+                
+                    <li>Research Triangle Institute</li>
+                
+                    <li>Northeastern University</li>
+                
+                    <li>Arizona State University</li>
+                
+                    <li>University of Mississippi Medical Center</li>
+                
+                    <li>University of California, Santa Cruz</li>
+                
+                    <li>Georgia State University</li>
+                
+                    <li>New York University</li>
+                
+                    <li>University of South Carolina</li>
+                
+                    <li>University of Maryland, College Park</li>
+                
+                    <li>California Institute of Technology</li>
+                
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+
+    
+    <div class="footnotes">
+        <p><strong>Notes:</strong> All figures are in 2014 dollars, adjusted for inflation using the <a href="http://officeofbudget.od.nih.gov/gbiPriceIndexes.html" target="_blank">Biomedical Research and Development Price Index</a>. Figures for 2009 and 2010 include grants awarded with federal stimulus funds from the American Recovery and Reinvestment Act of 2009.</p>
+        <p><strong>Comments:</strong> If you have questions or feedback about this data, email <a href="mailto:biomedfunding@npr.org">biomedfunding@npr.org</a>.
+    </div>
+    
+
+    <div class="footer">
+        <p>Source: NPR analysis of NIH data</p>
+        <p>Credit: Robert Benincasa, Richard Harris and Alyson Hurt/NPR</p>
+    </div>
+
+    <script src="js/lib/jquery.js" type="text/javascript"></script>
+    <script src="js/lib/typeahead.jquery.js" type="text/javascript"></script>
+    <script src="js/lib/d3.v3.min.js" type="text/javascript"></script>
+    <script src="js/lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script src="js/graphic.js" type="text/javascript"></script>
+</body>
+</html>

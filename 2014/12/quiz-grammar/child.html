@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 0;
+            font: 14px/1.4 Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+        h1 {
+            margin: 0 0 15px 0;
+            font-size: 16px;
+            color: #333;
+        }
+        h2 {
+            font-weight: normal;
+            color: #666;
+            font-size: 14px;
+            margin: -7px 0 15px 0;
+        }
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.3;
+            color: #808080;
+        }
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { opacity: 0.7; }
+        
+        #graphic {
+            margin-bottom: 22px;
+        }
+        
+        #graphic p {
+            font-size: 16px;
+            line-height: 1.5;
+            padding: 11px;
+            background-color: #f1f1f1;
+            margin: 0 0 2px 0;
+        }
+        
+        .answer {
+            padding: 3px 10px;
+            background-color: #6d8ac4;
+            color: #fff;
+            display: inline-block;
+            font-size: 90%;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .answer:hover {
+            opacity: 0.7;
+            cursor: pointer;
+        }
+        
+        .answered .answer {
+            background-color: #fff;
+            color: #ccc;
+        }
+        .answered.right .answer.correct {
+            background-color: #E38D2C;
+            color: #fff;
+        }
+        .answered.wrong .answer.correct {
+            border-color: #E38D2C;
+            color: #E38D2C;
+        }
+        .answered .answer:hover {
+            opacity: 1;
+            cursor: default;
+        }
+        
+        h3.result {
+            color: #E38D2C;
+            font-size: 18px;
+            margin: 22px 0 11px 0;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>I Or Me? Which Is Correct?</h1>
+    <h2>Do you know when to use those words? Here are five sentences. See if you can choose correctly:</h2>
+
+    <div id="graphic">
+        
+        <div class="question">
+            <p>
+                Kim, her sister and
+                <span class="answer">me</span>
+                <span class="answer correct ">I</span>
+                went shopping on Black Friday.
+            </p>
+        </div>
+        
+        <div class="question">
+            <p>
+                Here's a picture of my son and
+                <span class="answer correct ">me</span>
+                <span class="answer">I</span>
+                at the museum.
+            </p>
+        </div>
+        
+        <div class="question">
+            <p>
+                Between you and
+                <span class="answer correct ">me</span>
+                <span class="answer">I</span>
+                , I think he's crazy.
+            </p>
+        </div>
+        
+        <div class="question">
+            <p>
+                Julie, Lisa, Michele and
+                <span class="answer">me</span>
+                <span class="answer correct ">I</span>
+                are meeting up at the ballpark.
+            </p>
+        </div>
+        
+        <div class="question">
+            <p>
+                The lawyer told my husband and
+                <span class="answer correct ">me</span>
+                <span class="answer">I</span>
+                that while we would win the case if we filed, the return wouldn't be worth it.
+            </p>
+        </div>
+        
+    </div>
+    
+    
+
+    <div class="footer">
+        
+        <p>Credit: Alyson Hurt and Susan Vavrick/NPR</p>
+    </div>
+
+    <script src="js/lib/jquery.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script src="js/graphic.js" type="text/javascript"></script>
+</body>
+</html>

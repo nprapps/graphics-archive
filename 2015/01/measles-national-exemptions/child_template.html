@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 33px 0;
+            font: 14px/1.4 Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+        h1 {
+            margin: 0 0 6px 0;
+            font-size: 16px;
+            color: #333;
+        }
+        h2 {
+            font-weight: normal;
+            color: #666;
+            font-size: 12px;
+            margin: 0 0 22px 0;
+        }
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.3;
+            color: #808080;
+        }
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { opacity: 0.7; }
+        
+        #graphic {
+            position: relative;
+            margin-bottom: 11px;
+        }
+        #graphic:before,
+        #graphic:after {
+            content: ' ';
+            display: table;
+        }
+        #graphic:after { clear: both; }
+
+        #graphic img.fallback {
+            max-width: 100%;
+            height: auto;
+        }
+        
+/*        #graphic svg { background-color: #dcebf4; } */
+        
+        #graphic .states path { stroke-width: 0.5; }
+
+        .key {
+            margin: 0 0 15px 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .key .key-item { 
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+            height: 15px;
+        }
+        .key .key-item b { 
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+        }
+        .key .key-item label { 
+            white-space: nowrap;
+            color: #333;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 15px;
+        }
+        
+        #dataTables {
+            position: relative;
+            margin-bottom: 11px;
+        }
+        #dataTables:before,
+        #dataTables:after {
+            content: ' ';
+            display: table;
+        }
+        #dataTables:after { clear: both; }
+
+        #dataTables table {
+            border-collapse: collapse;
+            width: 100%;
+            color: #666;
+        }
+        #dataTables table:nth-child(1) {
+            width: 48%;
+            float: left;
+        }
+        #dataTables table:nth-child(2) {
+            width: 48%;
+            float: right;
+        }
+        #dataTables tr {
+            vertical-align: top;
+        }
+        #dataTables td {
+            font-size: 12px;
+            padding: 5px;
+            border-top: 1px solid #eee;
+        }
+        #dataTables .amt { text-align: right; }
+        
+        #dataTables .us {
+            background-color: #f1f1f1;
+            font-weight: bold;
+            color: #333;
+        }
+
+        @media screen and (max-width: 480px) {
+            #dataTables td { font-size: 11px; }
+        }
+    </style>
+
+</head>
+<body>
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ COPY.labels.subhed }}</h2>{% endif %}
+
+    <div id="graphic"><img src="fallback.png" alt="[Map]" class="fallback" /></div>
+    
+    <div id="dataTables">
+        <table>
+        {% for row in COPY.data %}
+            {% if row.column == '1' %}
+                <tr class="{{ row.state_abbr|lower|replace(' ', '-') }}">
+                    <td>{{ row.state }}</td>
+                    <td class="amt">{% if row.amt == '' %}n/a{% else %}{{ row.amt }}%{% endif %}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </table>
+
+        <table>
+        {% for row in COPY.data %}
+            {% if row.column == '2' %}
+                <tr class="{{ row.state_abbr|lower|replace(' ', '-') }}">
+                    <td>{{ row.state }}</td>
+                    <td class="amt">{% if row.amt == '' %}n/a{% else %}{{ row.amt }}%{% endif %}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </table>
+    </div>
+    
+    
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var GRAPHIC_DATA = {{ COPY.data.json() }};
+    </script>
+
+    <script src="js/lib/jquery.min.js" type="text/javascript"></script>
+    <script src="js/lib/d3.min.js" type="text/javascript"></script>
+    <script src="js/lib/queue.v1.min.js" type="text/javascript"></script>
+    <script src="js/lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script src="js/graphic.js" type="text/javascript"></script>
+</body>
+</html>

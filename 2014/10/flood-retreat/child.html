@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <!-- Fonts -->
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js"></script>
+    <script>
+        WebFont.load({
+             custom: {
+                 families: [
+                     'Gotham SSm:n4,n7',
+                     'Gotham:n4,n7'
+                 ],
+                 urls: [
+                     'http://s.npr.org/templates/css/fonts/GothamSSm.css',
+                     'http://s.npr.org/templates/css/fonts/Gotham.css'
+                 ]
+             },
+             timeout: 10000
+         });
+    </script>
+    
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 0;
+            font: 14px/1.4 Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+        h1 {
+            margin: 0 0 6px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        h2 {
+            font-weight: normal;
+            color: #666;
+            font-size: 12px;
+            margin: 0 0 22px 0;
+        }
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 12px;
+            line-height: 1.3;
+            color: #808080;
+        }
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { opacity: 0.7; }
+
+        #graphic img { max-width:100%; }
+
+        .key {
+            margin: 0 0 15px 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .key .key-item { 
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+            height: 15px;
+        }
+        .key .key-item b { 
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+        }
+        .key .key-item label { 
+            white-space: nowrap;
+            color: #333;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 15px;
+        }
+
+        .key .key-item.key-0 b {
+            border: 1px solid #aaa;
+        }
+
+        #graphic h1 {
+            margin-top:1em;
+        }
+
+        /* table */
+        table {
+            border-collapse: collapse;
+            padding: 0;
+            margin: 0 0 22px 0;
+            width: 100%;
+            font-size: 12px;
+        }
+        table th {
+            text-align: left;
+            border-bottom: 2px solid #eee;
+            vertical-align: bottom;
+        }
+        table td {
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+        table th,
+        table td {
+            padding: 10px;
+            color: #333;
+            text-align: right;
+        }
+        table th:nth-child(1),
+        table td:nth-child(1) {
+            text-align: left;
+            font-weight: bold;
+        }
+        table th:nth-child(2),
+        table td:nth-child(2) {
+            text-align: left;
+        }
+
+        /* responsive table */
+        @media screen and (max-width: 480px) {
+            table,
+            tbody {
+                display: block;
+                width: 100%;
+            }
+            thead { display: none; }
+            table tr,
+            table th,
+            table td {
+                display: block;
+                padding: 0;
+                text-align: left;
+                white-space: normal;
+            }
+            table td { 
+                border: none;
+                margin-bottom: 6px;
+                color: #444;
+            }
+            table td:empty { display: none; }
+
+            table tr {
+                border-bottom: 1px solid #eee;
+                padding-bottom: 11px;
+                margin-bottom: 11px;
+            }
+            table th[data-title]:before,
+            table td[data-title]:before {
+                content: attr(data-title) ":\00A0";
+                font-weight: bold;
+            }
+
+            table tr td:first-child { 
+                font-size: 14px;
+                font-weight: bold;
+                margin-bottom: 6px;
+                color: #333;
+            }
+            table tr td:first-child:before {
+                content: '';
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1>FEMA-funded property buyouts have topped $417 million</h1>
+    <h2>Amount paid to property owners, by county, since 2003</h2>
+
+    <div id="graphic">
+        <ul class="key">
+            <li class="key-item key-0"><b style="background-color: white;"></b><label>None</label></li>
+            <li class="key-item key-1"><b style="background-color: #fecc5c;"></b><label>Less than $750,000</label></li>
+            <li class="key-item key-2"><b style="background-color: #fd8d3c;"></b><label>$750,000 - $4,000,000</label></li>
+            <li class="key-item key-3"><b style="background-color: #e31a1c;"></b><label>Greater than $4,000,000</label></li>
+        </ul>
+        <img src="assets/flood-retreat.png" />
+
+        <h1>Of the ten biggest disaster buyout totals, only three are in coastal states</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>State</th>
+                    <th>Incident</th>
+                    <th>Year</th>
+                    <th>Total Amount Paid</th>
+                </tr>
+            </thead>
+
+            
+            <tr class="north-carolina">
+                <td data-title="State">North Carolina</td>
+                <td data-title="Incident">Hurricanes Floyd & Irene</td>
+                <td data-title="Year">1999</td>
+                <td data-title="Total Amount Paid">$62,821,759</td>
+            </tr>
+            
+            <tr class="iowa">
+                <td data-title="State">Iowa</td>
+                <td data-title="Incident">Severe Storms, Tornadoes, and Flooding</td>
+                <td data-title="Year">2008</td>
+                <td data-title="Total Amount Paid">$36,992,883</td>
+            </tr>
+            
+            <tr class="pennsylvania">
+                <td data-title="State">Pennsylvania</td>
+                <td data-title="Incident">Tropical Depression Ivan</td>
+                <td data-title="Year">2004</td>
+                <td data-title="Total Amount Paid">$9,938,600</td>
+            </tr>
+            
+            <tr class="new-jersey">
+                <td data-title="State">New Jersey</td>
+                <td data-title="Incident">Hurricane Floyd</td>
+                <td data-title="Year">1999</td>
+                <td data-title="Total Amount Paid">$9,613,895</td>
+            </tr>
+            
+            <tr class="oklahoma">
+                <td data-title="State">Oklahoma</td>
+                <td data-title="Incident">Severe Winter Storm</td>
+                <td data-title="Year">2001</td>
+                <td data-title="Total Amount Paid">$9,012,121</td>
+            </tr>
+            
+            <tr class="west-virginia">
+                <td data-title="State">West Virginia</td>
+                <td data-title="Incident">Severe Storms & Flooding</td>
+                <td data-title="Year">2001</td>
+                <td data-title="Total Amount Paid">$8,069,938</td>
+            </tr>
+            
+            <tr class="wisconsin">
+                <td data-title="State">Wisconsin</td>
+                <td data-title="Incident">Severe Storms, Tornadoes, and Flooding</td>
+                <td data-title="Year">2008</td>
+                <td data-title="Total Amount Paid">$7,388,676</td>
+            </tr>
+            
+            <tr class="alabama">
+                <td data-title="State">Alabama</td>
+                <td data-title="Incident">Hurricane Ivan</td>
+                <td data-title="Year">2004</td>
+                <td data-title="Total Amount Paid">$6,824,555</td>
+            </tr>
+            
+            <tr class="new-york">
+                <td data-title="State">New York</td>
+                <td data-title="Incident">Severe Storms and Flooding</td>
+                <td data-title="Year">2006</td>
+                <td data-title="Total Amount Paid">$6,390,868</td>
+            </tr>
+            
+
+        </table>
+    </div>
+    
+    
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>The map shows areas where property owners have been bought out with funds from the Federal Emergency Management Agency’s Hazard Mitigation Grant Program. The program’s grants go to state and local governments to compensate property owners whose properties have lost value in major disasters. The buyouts are 75 percent funded by FEMA. Under federal law, the future use of the bought-out land is restricted to open space, recreational, and wetlands management. NPR analyzed records of more than 7,000 property acquisitions, worth more than $400 million, since 2003.</p>
+    </div>
+    
+
+    <div class="footer">
+        <p>Source: NPR analysis of Federal Emergency Management Agency data, <a href="http://www.fema.gov/hazard-mitigation-grant-program">Hazard Mitigation Grant Program</a></p>
+        <p>Credit: Robert Benincasa and Brian Boyer/NPR</p>
+    </div>
+
+    <script src="js/lib/jquery.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script src="js/graphic.js" type="text/javascript"></script>
+</body>
+</html>
