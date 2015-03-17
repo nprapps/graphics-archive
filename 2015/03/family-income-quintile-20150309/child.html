@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <!-- Fonts -->
+    <script src="http://apps.npr.org/dailygraphics/graphics/fonts/js/lib/webfont.js"></script>
+    <script>
+        WebFont.load({
+             custom: {
+                 families: [ 'Gotham SSm:n4,n7' ],
+                 urls: [ 'http://s.npr.org/templates/css/fonts/GothamSSm.css' ]
+             },
+             timeout: 10000
+         });
+    </script>
+        
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 33px 0;
+            font: 14px/1.4 Helvetica, Arial, sans-serif;
+            color: #555;
+        }
+        h1 {
+            margin: 0 0 33px 0;
+            font-size: 20px;
+            color: #666;
+            font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+            font-weight: normal;
+            line-height: 1.3;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+        h2 {
+            font-weight: normal;
+            color: #777;
+            font-size: 12px;
+            margin: -22px 0 22px 0;
+            line-height: 1.6;
+        }
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.7;
+            color: #999;
+        }
+        .footer p { font-style: italic; }
+        .footer p em { font-style: normal; }
+        .footer p strong { color: #666; }
+
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { color: #bccae5; }
+
+
+        /* key */
+        .key {
+            margin: -11px 0 33px 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .key .key-item { 
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+        }
+        .key .key-item b { 
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+        }
+        .key .key-item label { 
+            white-space: nowrap;
+            font-size: 12px;
+            color: #666;
+            font-weight: normal;
+            -webkit-font-smoothing: antialiased;
+        }
+
+
+        /* graphic */
+        #graphic {
+            position: relative;
+            margin-bottom: 11px;
+        }
+        #graphic:before,
+        #graphic:after {
+            content: ' ';
+            display: table;
+        }
+        #graphic:after { clear: both; }
+        #graphic img {
+        	max-width: 100%;
+        	height: auto;
+        }
+
+        #graphic h3 {
+            font-size: 12px;
+            line-height: 1.2;
+            margin: 0 0 15px 0;
+            font-family: Helvetica,Arial,sans-serif;
+            color: #666;
+            -webkit-font-smoothing: antialiased;
+        }        
+        
+        /* chart */
+        .axis {
+            font-size: 11px;
+            -webkit-font-smoothing: antialiased;
+            fill: #999;
+        }
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #ccc;
+            shape-rendering: crispEdges;
+        }
+        .axis.y path { display: none; }
+        .axis.y .tick line { display: none; }
+        .grid.y g:first-child line { display: none; }
+        .grid path { display: none; }
+        .grid .tick {
+            stroke: #eee;
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+
+        .lines {
+            fill: none;
+            stroke-width: 3px;
+            stroke: #ccc;
+        }
+
+        @media screen and (max-width: 480px) {
+            .key .key-item { width: 43%; }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Median Family Income, By Quintile (1960-2010)</h1>
+    
+
+    <div id="graphic"><img src="fallback.png" alt="[Chart]" class="fallback" /></div>
+    
+    
+    <div class="footnotes">
+        <p><strong>Note:</strong> Income figures are in 2014 dollars.</p>
+    </div>
+    
+
+    <div class="footer">
+        <p>Source: <a href="https://carsey.unh.edu/policy/gaps-in-youth-opportunity-by-state/national" target="_blank">Analysis of IPUMS-USA data</a> by the Carsey School of Public Policy at the University of New Hampshire</p>
+        <p>Credit: Alyson Hurt/NPR</p>
+    </div>
+    
+    <script type="text/javascript">
+        var GRAPHIC_TITLE_MA = "Massachusetts";
+        var GRAPHIC_TITLE_OK = "Oklahoma";
+        var GRAPHIC_TITLE_US = "United States";
+
+        var GRAPHIC_DATA_MA = [{"date": "1960", "Top 20%": "92000", "Fourth 20%": "64400", "Middle 20%": "50800", "Second 20%": "40400", "Bottom 20%": "24400"}, {"date": "1970", "Top 20%": "126575", "Fourth 20%": "85705", "Middle 20%": "66795", "Second 20%": "52155", "Bottom 20%": "28975"}, {"date": "1980", "Top 20%": "120562", "Fourth 20%": "80389", "Middle 20%": "60299", "Second 20%": "41859", "Bottom 20%": "16373"}, {"date": "1990", "Top 20%": "162900", "Fourth 20%": "106066", "Middle 20%": "77830", "Second 20%": "53757", "Bottom 20%": "18100"}, {"date": "2000", "Top 20%": "192745", "Fourth 20%": "116450", "Middle 20%": "82200", "Second 20%": "52060", "Bottom 20%": "18906"}, {"date": "2010", "Top 20%": "218673", "Fourth 20%": "130862", "Middle 20%": "89919", "Second 20%": "54439", "Bottom 20%": "18844"}];
+        var GRAPHIC_DATA_OK = [{"date": "1960", "Top 20%": "84000", "Fourth 20%": "52400", "Middle 20%": "40400", "Second 20%": "26800", "Bottom 20%": "11600"}, {"date": "1970", "Top 20%": "98515", "Fourth 20%": "67405", "Middle 20%": "50325", "Second 20%": "36905", "Bottom 20%": "16775"}, {"date": "1980", "Top 20%": "105638", "Fourth 20%": "70365", "Middle 20%": "51703", "Second 20%": "34469", "Bottom 20%": "15082"}, {"date": "1990", "Top 20%": "108600", "Fourth 20%": "69187", "Middle 20%": "48535", "Second 20%": "30408", "Bottom 20%": "10918"}, {"date": "2000", "Top 20%": "115971", "Fourth 20%": "72062", "Middle 20%": "49594", "Second 20%": "31921", "Bottom 20%": "12878"}, {"date": "2010", "Top 20%": "124314", "Fourth 20%": "76220", "Middle 20%": "50788", "Second 20%": "30884", "Bottom 20%": "11775"}];
+        var GRAPHIC_DATA_US = [{"date": "1960", "Top 20%": "92000", "Fourth 20%": "60400", "Middle 20%": "46800", "Second 20%": "34000", "Bottom 20%": "14800"}, {"date": "1970", "Top 20%": "116205", "Fourth 20%": "78995", "Middle 20%": "60695", "Second 20%": "43615", "Bottom 20%": "19825"}, {"date": "1980", "Top 20%": "115087", "Fourth 20%": "76945", "Middle 20%": "57414", "Second 20%": "37626", "Bottom 20%": "15068"}, {"date": "1990", "Top 20%": "135124", "Fourth 20%": "86156", "Middle 20%": "60749", "Second 20%": "38510", "Bottom 20%": "14161"}, {"date": "2000", "Top 20%": "152755", "Fourth 20%": "91790", "Middle 20%": "63020", "Second 20%": "39593", "Bottom 20%": "15207"}, {"date": "2010", "Top 20%": "163770", "Fourth 20%": "96051", "Middle 20%": "63128", "Second 20%": "37270", "Bottom 20%": "13820"}];
+    </script>
+
+    <script src="js/lib/jquery.min.js" type="text/javascript"></script>
+    <script src="js/lib/d3.min.js" type="text/javascript"></script>
+    <script src="js/lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script src="js/graphic.js" type="text/javascript"></script>
+</body>
+</html>
