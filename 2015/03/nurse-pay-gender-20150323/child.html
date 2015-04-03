@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <!-- Fonts -->
+    <script src="http://apps.npr.org/dailygraphics/graphics/fonts/js/lib/webfont.js"></script>
+    <script>
+        WebFont.load({
+             custom: {
+                 families: [ 'Gotham SSm:n4,n7' ],
+                 urls: [ 'http://s.npr.org/templates/css/fonts/GothamSSm.css' ]
+             },
+             timeout: 10000
+         });
+    </script>
+
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 33px 0;
+            font: 14px/1.4 Helvetica, Arial, sans-serif;
+            color: #555;
+        }
+        h1 {
+            margin: 0 0 33px 0;
+            font-size: 20px;
+            color: #666;
+            font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+            font-weight: normal;
+            line-height: 1.3;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+        h2 {
+            font-weight: normal;
+            color: #777;
+            font-size: 12px;
+            margin: -22px 0 22px 0;
+            line-height: 1.6;
+        }
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.7;
+            color: #999;
+        }
+        .footer p { font-style: italic; }
+        .footer p em { font-style: normal; }
+
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { color: #bccae5; }
+        
+
+        /* graph */
+        #graphic {
+            position: relative;
+            margin-bottom: 11px;
+        }
+        #graphic:before,
+        #graphic:after {
+            content: ' ';
+            display: table;
+        }
+        #graphic:after { clear: both; }
+        #graphic img.fallback {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .chart { position: relative; }
+
+        .axis {
+            font-size: 11px;
+            -webkit-font-smoothing: antialiased;
+            fill: #999;
+        }
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #ccc;
+            shape-rendering: crispEdges;
+        }
+        .axis.y path { display: none; }
+        .axis.y .tick line { display: none; }
+        .grid.y g:first-child line { display: none; }
+        .grid path { display: none; }
+        .grid .tick {
+            stroke: #eee;
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+        
+        .grid line.zero {
+            stroke: #aaa;
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+
+        .bars rect { shape-rendering: crispEdges; }
+        
+        .dots circle {
+            stroke: #fff;
+            stroke-width: 1px;
+        }
+        
+        .value text { 
+            font-size: 11px;
+            -webkit-font-smoothing: antialiased;
+        }
+        .value .in { fill: #fff; }
+        .value .out { fill: #454545; }
+        
+        .labels {
+        	position: absolute;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            border: none;
+        }
+        .labels li {
+            position: absolute;
+            text-align: right;
+            font-size: 12px;
+            line-height: 1.3;
+            color: #666;
+            display: table;
+            -webkit-font-smoothing: antialiased;
+        }
+        .labels li span {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .labels li.hospital span,
+        .labels li.medical-surgical span,
+        .labels li.staff-nurse span {
+            border-top: 1px solid #eee;
+        }
+        
+        .label.top {
+            font-size: 12px;
+            fill: #787878;
+            font-style: italic;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* key */
+        .key {
+            margin: -11px 0 22px 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .key .key-item { 
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+        }
+        .key .key-item b { 
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+        }
+        .key .key-item label { 
+            white-space: nowrap;
+            font-size: 12px;
+            color: #666;
+            font-weight: normal;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Salary Gaps Between Male And Female Registered&nbsp;Nurses</h1>
+    
+
+    <div id="graphic"><img src="fallback.png" alt="[Chart]" class="fallback" /></div>
+    
+    
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>Figures are in 2013 dollars. Lighter bars indicate margin of error (at a 95 percent confidence interval).</p>
+    </div>
+    
+
+    <div class="footer">
+        <p>Source: <a href="http://jama.jamanetwork.com/article.aspx?doi=10.1001/jama.2015.1487" target="_blank">Analysis</a> of data from the National Sample Survey of Registered Nurses (1988-2008) by Dr. Ulrike Muench, et al. Published in the <em>Journal of the American Medical Association</em></p>
+        <p>Credit: Alyson Hurt/NPR</p>
+    </div>
+
+    <script type="text/javascript">
+        var GRAPHIC_DATA = [{"type": "By work setting", "job": "Hospital", "ci_low": "3144.311", "gap": "3872.513", "ci_high": "4600.715"}, {"type": "By work setting", "job": "Ambulatory", "ci_low": "5319.360", "gap": "7678.391", "ci_high": "10037.422"}, {"type": "By clinical specialty", "job": "Medical/surgical", "ci_low": "3936.188", "gap": "5279.839", "ci_high": "6623.490"}, {"type": "By clinical specialty", "job": "Neurology", "ci_low": "1615.642", "gap": "5146.455", "ci_high": "8677.268"}, {"type": "By clinical specialty", "job": "Newborn/ pediatrics", "ci_low": "1155.504", "gap": "3807.342", "ci_high": "6459.180"}, {"type": "By clinical specialty", "job": "Chronic care", "ci_low": "801.995", "gap": "3791.690", "ci_high": "6781.385"}, {"type": "By clinical specialty", "job": "Orthopedics", "ci_low": "-1735.348", "gap": "2085.986", "ci_high": "5907.320"}, {"type": "By clinical specialty", "job": "Psychiatry", "ci_low": "2755.104", "gap": "5057.914", "ci_high": "7360.724"}, {"type": "By clinical specialty", "job": "Cardiology", "ci_low": "4174.761", "gap": "6033.686", "ci_high": "7892.611"}, {"type": "By clinical specialty", "job": "Other", "ci_low": "4415.656", "gap": "5285.112", "ci_high": "6154.568"}, {"type": "By job position", "job": "Staff nurse", "ci_low": "4464.953", "gap": "5277.351", "ci_high": "6089.749"}, {"type": "By job position", "job": "Advanced clinical", "ci_low": "3008.816", "gap": "4238.368", "ci_high": "5467.920"}, {"type": "By job position", "job": "Advanced practice", "ci_low": "1950.627", "gap": "5786.927", "ci_high": "9623.227"}, {"type": "By job position", "job": "Nurse anesthetists", "ci_low": "11689.510", "gap": "17290.280", "ci_high": "22891.050"}, {"type": "By job position", "job": "Education/ research", "ci_low": "626.024", "gap": "5307.533", "ci_high": "9989.042"}, {"type": "By job position", "job": "Senior academic", "ci_low": "-11331.470", "gap": "-1731.568", "ci_high": "7868.334"}, {"type": "By job position", "job": "Middle management", "ci_low": "2173.733", "gap": "3955.518", "ci_high": "5737.303"}, {"type": "By job position", "job": "Senior administrator", "ci_low": "3252.762", "gap": "6917.836", "ci_high": "10582.910"}, {"type": "By job position", "job": "Other", "ci_low": "3727.968", "gap": "5838.943", "ci_high": "7949.918"}];
+    </script>
+
+    <script src="js/lib/jquery.min.js" type="text/javascript"></script>
+    <script src="js/lib/d3.min.js" type="text/javascript"></script>
+    <script src="js/lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script src="js/graphic.js" type="text/javascript"></script>
+</body>
+</html>
