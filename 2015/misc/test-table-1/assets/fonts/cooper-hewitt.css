@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url('../assets/fonts/cooperhewitt-thin-webfont.eot');
+    src: url('../assets/fonts/cooperhewitt-thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/cooperhewitt-thin-webfont.woff2') format('woff2'),
+         url('../assets/fonts/cooperhewitt-thin-webfont.woff') format('woff'),
+         url('../assets/fonts/cooperhewitt-thin-webfont.ttf') format('truetype'),
+         url('../assets/fonts/cooperhewitt-thin-webfont.svg#cooper_hewittthin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url('../assets/fonts/cooperhewitt-light-webfont.eot');
+    src: url('../assets/fonts/cooperhewitt-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/cooperhewitt-light-webfont.woff2') format('woff2'),
+         url('../assets/fonts/cooperhewitt-light-webfont.woff') format('woff'),
+         url('../assets/fonts/cooperhewitt-light-webfont.ttf') format('truetype'),
+         url('../assets/fonts/cooperhewitt-light-webfont.svg#cooper_hewittlight') format('svg');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url('../assets/fonts/cooperhewitt-book-webfont.eot');
+    src: url('../assets/fonts/cooperhewitt-book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/cooperhewitt-book-webfont.woff2') format('woff2'),
+         url('../assets/fonts/cooperhewitt-book-webfont.woff') format('woff'),
+         url('../assets/fonts/cooperhewitt-book-webfont.ttf') format('truetype'),
+         url('../assets/fonts/cooperhewitt-book-webfont.svg#cooper_hewittbook') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url('../assets/fonts/cooperhewitt-medium-webfont.eot');
+    src: url('../assets/fonts/cooperhewitt-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/cooperhewitt-medium-webfont.woff2') format('woff2'),
+         url('../assets/fonts/cooperhewitt-medium-webfont.woff') format('woff'),
+         url('../assets/fonts/cooperhewitt-medium-webfont.ttf') format('truetype'),
+         url('../assets/fonts/cooperhewitt-medium-webfont.svg#cooper_hewittmedium') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url('../assets/fonts/cooperhewitt-semibold-webfont.eot');
+    src: url('../assets/fonts/cooperhewitt-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/cooperhewitt-semibold-webfont.woff2') format('woff2'),
+         url('../assets/fonts/cooperhewitt-semibold-webfont.woff') format('woff'),
+         url('../assets/fonts/cooperhewitt-semibold-webfont.ttf') format('truetype'),
+         url('../assets/fonts/cooperhewitt-semibold-webfont.svg#cooper_hewittsemibold') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url('../assets/fonts/cooperhewitt-bold-webfont.eot');
+    src: url('../assets/fonts/cooperhewitt-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/cooperhewitt-bold-webfont.woff2') format('woff2'),
+         url('../assets/fonts/cooperhewitt-bold-webfont.woff') format('woff'),
+         url('../assets/fonts/cooperhewitt-bold-webfont.ttf') format('truetype'),
+         url('../assets/fonts/cooperhewitt-bold-webfont.svg#cooper_hewittbold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url('../assets/fonts/cooperhewitt-heavy-webfont.eot');
+    src: url('../assets/fonts/cooperhewitt-heavy-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/cooperhewitt-heavy-webfont.woff2') format('woff2'),
+         url('../assets/fonts/cooperhewitt-heavy-webfont.woff') format('woff'),
+         url('../assets/fonts/cooperhewitt-heavy-webfont.ttf') format('truetype'),
+         url('../assets/fonts/cooperhewitt-heavy-webfont.svg#cooper_hewittheavy') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}
