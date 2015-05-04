@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <!-- Fonts -->
+    <script src="http://apps.npr.org/dailygraphics/graphics/fonts/js/lib/webfont.js"></script>
+    <script>
+        WebFont.load({
+             custom: {
+                 families: [ 
+                    'Gotham SSm:n4,n7',
+                    'Knockout 31 4r:n4'
+                 ],
+                 urls: [ 
+                    'http://s.npr.org/templates/css/fonts/GothamSSm.css',
+                    'http://s.npr.org/templates/css/fonts/Knockout.css'
+                 ]
+             },
+             timeout: 10000
+         });
+    </script>
+        
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 33px 0;
+            font: 14px/1.4 Helvetica, Arial, sans-serif;
+            color: #555;
+        }
+        h1 {
+            margin: 0 0 33px 0;
+            font-size: 20px;
+            color: #666;
+            font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+            font-weight: normal;
+            line-height: 1.3;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+        h2 {
+            font-weight: normal;
+            color: #777;
+            font-size: 12px;
+            margin: -22px 0 22px 0;
+            line-height: 1.6;
+        }
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.7;
+            color: #999;
+        }
+        .footer p { font-style: italic; }
+        .footer p em { font-style: normal; }
+
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { color: #bccae5; }
+
+        /* key */
+        .key {
+            margin: 0 0 18px 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .key .key-item { 
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+        }
+        .key .key-item b { 
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+        }
+        .key .key-item label { 
+            white-space: nowrap;
+            font-size: 12px;
+            color: #666;
+            font-weight: normal;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Grid Map */
+
+        .tile-grid-map {
+            margin-bottom: 33px;
+        }
+
+        .state {
+            fill: #eee;
+        }
+
+        .label {
+            font-family: 'Knockout 31 4r';
+            font-size: 12px;
+            fill: #979797;
+        }
+
+        .label-active {
+            fill: #fff;
+        }
+
+        @media screen and (max-width: 300px){
+            .label {
+                font-size: 15px;
+            }
+        }
+
+        @media screen and (min-width: 480px){
+            .label {
+                font-size: 8px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <h1>States With Non-Discrimination Laws</h1>
+    <h2>Shaded states prohibit discrimination in employment, housing and public accommodations based on sexual orientation, gender identity and gender expression</h2>
+
+    <div id="graphic"></div>
+    <div id="graphic-2"></div>
+
+    
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>– Massachussets law does not protect gender expression/identity from discrimination in public accomodations. <br>
+– Utah law does not protect sexual orientation or gender identity/expression from discrimination in public accommodations.<br>
+– New Hampshire, New York and Wisconsin law do not protect gender identity/expression from discrimination in employment, housing or public accommodations.<br>
+– Delaware law does not protect gender identity from discrimination in private-sector employment.</p>
+    </div>
+    
+
+    <div class="footer">
+        <p>Source: Movement Advancement Project, American Civil Liberties Union, National Conference of State Legislatures</p>
+        <p>Credit: Danny DeBelius/NPR</p>
+    </div>
+
+
+    <div id="map-template-river" style="display: none;">
+        <ul class="key"></ul>
+
+        <?xml version="1.0" encoding="utf-8"?>
+        <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+        <svg version="1.1" class="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 436 254"
+             enable-background="new 0 0 436 254" xml:space="preserve">
+        <title>map</title>
+        <desc>Created with Sketch.</desc>
+        <g class="River" sketch:type="MSPage">
+            <g class="map" transform="translate(1.000000, 2.000000)" sketch:type="MSLayerGroup">
+                <g class="states" sketch:type="MSShapeGroup">
+                    <path class="state-alaska" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M35.5,0l17.3,10v20L35.5,40L18.2,30V10L35.5,0z"/>
+                    <path class="state-maine" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M416.6,0l17.3,10v20l-17.3,10l-17.3-10V10L416.6,0z"
+                        />
+                    <path class="state-vermont" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M364.6,30l17.3,10v20l-17.3,10l-17.3-10V40
+                        L364.6,30z"/>
+                    <path class="state-new-hampshire" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M399.3,30l17.3,10v20l-17.3,10l-17.3-10V40
+                        L399.3,30z"/>
+                    <path class="state-washington" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M70.2,60l17.3,10v20l-17.3,10L52.8,90V70
+                        L70.2,60z"/>
+                    <path class="state-montana" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M104.8,60l17.3,10v20l-17.3,10L87.5,90V70
+                        L104.8,60z"/>
+                    <path class="state-north-dakota" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M139.4,60l17.3,10v20l-17.3,10l-17.3-10V70
+                        L139.4,60z"/>
+                    <path class="state-minnesota" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M174.1,60l17.3,10v20l-17.3,10l-17.3-10V70
+                        L174.1,60z"/>
+                    <path class="state-wisconsin" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M208.7,60l17.3,10v20l-17.3,10l-17.3-10V70
+                        L208.7,60z"/>
+                    <path class="state-michigan" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M278,60l17.3,10v20L278,100l-17.3-10V70L278,60z"
+                        />
+                    <path class="state-new-york" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M347.3,60l17.3,10v20l-17.3,10L330,90V70
+                        L347.3,60z"/>
+                    <path class="state-massachusetts" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M381.9,60l17.3,10v20l-17.3,10l-17.3-10V70
+                        L381.9,60z"/>
+                    <path class="state-rhode-island" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M416.6,60l17.3,10v20l-17.3,10l-17.3-10V70
+                        L416.6,60z"/>
+                    <path class="state-idaho" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M87.5,90l17.3,10v20l-17.3,10l-17.3-10v-20L87.5,90z
+                        "/>
+                    <path class="state-wyoming" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M122.1,90l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L122.1,90z"/>
+                    <path class="state-south-dakota" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M156.8,90l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L156.8,90z"/>
+                    <path class="state-iowa" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M191.4,90l17.3,10v20l-17.3,10l-17.3-10v-20L191.4,90
+                        z"/>
+                    <path class="state-illinois" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M226.1,90l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L226.1,90z"/>
+                    <path class="state-indiana" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M260.7,90l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L260.7,90z"/>
+                    <path class="state-ohio" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M295.3,90l17.3,10v20l-17.3,10L278,120v-20L295.3,90z
+                        "/>
+                    <path class="state-pennsylvania" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M330,90l17.3,10v20L330,130l-17.3-10v-20
+                        L330,90z"/>
+                    <path class="state-new-jersey" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M364.6,90l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L364.6,90z"/>
+                    <path class="state-connecticut" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M399.3,90l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L399.3,90z"/>
+                    <path class="state-oregon" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M70.2,120l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L70.2,120z"/>
+                    <path class="state-nevada" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M104.8,120l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L104.8,120z"/>
+                    <path class="state-colorado" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M139.4,120l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L139.4,120z"/>
+                    <path class="state-nebraska" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M174.1,120l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L174.1,120z"/>
+                    <path class="state-missouri" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M208.7,120l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L208.7,120z"/>
+                    <path class="state-kentucky" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M243.4,120l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L243.4,120z"/>
+                    <path class="state-west-virginia" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M278,120l17.3,10v20L278,160l-17.3-10v-20
+                        L278,120z"/>
+                    <path class="state-virginia" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M312.7,120l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L312.7,120z"/>
+                    <path class="state-maryland" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M347.3,120l17.3,10v20l-17.3,10L330,150v-20
+                        L347.3,120z"/>
+                    <path class="state-delaware" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M381.9,120l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L381.9,120z"/>
+                    <path class="state-california" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M87.5,150l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L87.5,150z"/>
+                    <path class="state-utah" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M122.1,150l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L122.1,150z"/>
+                    <path class="state-new-mexico" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M156.8,150l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L156.8,150z"/>
+                    <path class="state-kansas" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M191.4,150l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L191.4,150z"/>
+                    <path class="state-arkansas" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M226.1,150l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L226.1,150z"/>
+                    <path class="state-tennessee" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M260.7,150l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L260.7,150z"/>
+                    <path class="state-north-carolina" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M295.3,150l17.3,10v20l-17.3,10L278,180
+                        v-20L295.3,150z"/>
+                    <path class="state-south-carolina" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M330,150l17.3,10v20L330,190l-17.3-10v-20
+                        L330,150z"/>
+                    <path class="state-district-of-columbia" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M364.6,150l17.3,10v20l-17.3,10
+                        l-17.3-10v-20L364.6,150z"/>
+                    <path class="state-arizona" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M139.4,180l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L139.4,180z"/>
+                    <path class="state-oklahoma" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M174.1,180l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L174.1,180z"/>
+                    <path class="state-oklahoma-copy" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M174.1,180l17.3,10v20l-17.3,10l-17.3-10
+                        v-20L174.1,180z"/>
+                    <path class="state-louisiana" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M208.7,180l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L208.7,180z"/>
+                    <path class="state-mississippi" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M243.4,180l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L243.4,180z"/>
+                    <path class="state-alabama" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M278,180l17.3,10v20L278,220l-17.3-10v-20L278,180
+                        z"/>
+                    <path class="state-georgia" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M312.7,180l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L312.7,180z"/>
+                    <path class="state-hawaii" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M18.2,210l17.3,10v20l-17.3,10L0.9,240v-20
+                        L18.2,210z"/>
+                    <path class="state-texas" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M191.4,210l17.3,10v20l-17.3,10l-17.3-10v-20
+                        L191.4,210z"/>
+                    <path class="state-florida" fill="#DDDDDD" stroke="#FFFFFF" stroke-width="2" d="M295.3,210l17.3,10v20l-17.3,10L278,240v-20
+                        L295.3,210z"/>
+                </g>
+                <g class="river" transform="translate(191.000000, 70.000000)" sketch:type="MSShapeGroup">
+                    <g>
+                        <polygon fill="#427BBD" points="33,140.5 33,119.1 50.3,108.9 50.3,91 33.1,81.2 33.1,61.2 15.7,51.1 15.7,31.2 -1.6,21.2 
+                            -1.6,-0.4 2.4,-0.4 2.4,18.8 19.7,28.8 19.7,48.8 37.1,58.8 37.1,78.8 54.3,88.6 54.3,111.1 37,121.3 37,140.5              "/>
+                        <path fill="#FFFFFF" d="M1.4,0.6v18.8l17.3,10v20l17.4,10v20l17.2,9.8v21.4L36,120.8v18.7h-2v-19.9l17.3-10.2v-19l-17.2-9.8v-20
+                            l-17.4-10v-20l-17.3-10v-20H1.4 M3.4-1.4h-2h-2h-2v2v20v1.2l1,0.6l16.3,9.4v18.8v1.2l1,0.6l16.4,9.5v18.8v1.2l1,0.6l16.2,9.2
+                            v16.7L33,117.9l-1,0.6v1.1v19.9v2h2h2h2v-2v-17.6l16.3-9.6l1-0.6v-1.1V89.2v-1.2l-1-0.6l-16.2-9.2V59.4v-1.2l-1-0.6l-16.4-9.5
+                            V29.4v-1.2l-1-0.6L3.4,18.3V0.6V-1.4L3.4-1.4z"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        </svg>
+    </div>
+
+    <div id="map-template" style="display: none;">
+            <ul class="key"></ul>
+
+            <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+            <svg viewBox="0 0 436 254" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+                <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+                <title>map</title>
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g class="No-River" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                    <g class="map" sketch:type="MSLayerGroup" transform="translate(1.000000, 2.000000)" stroke-width="2" stroke="#FFFFFF" fill="#DDDDDD">
+                        <g class="states" sketch:type="MSShapeGroup">
+                            <path d="M35.5255888,0 L52.8460969,10 L52.8460969,30 L35.5255888,40 L18.2050808,30 L18.2050808,10 L35.5255888,0 Z" class="state-alaska"></path>
+                            <path d="M416.576766,0 L433.897275,10 L433.897275,30 L416.576766,40 L399.256258,30 L399.256258,10 L416.576766,0 Z" class="state-maine"></path>
+                            <path d="M364.615242,30 L381.93575,40 L381.93575,60 L364.615242,70 L347.294734,60 L347.294734,40 L364.615242,30 Z" class="state-vermont"></path>
+                            <path d="M399.256258,30 L416.576766,40 L416.576766,60 L399.256258,70 L381.93575,60 L381.93575,40 L399.256258,30 Z" class="state-new-hampshire"></path>
+                            <path d="M70.166605,60 L87.4871131,70 L87.4871131,90 L70.166605,100 L52.8460969,90 L52.8460969,70 L70.166605,60 Z" class="state-washington"></path>
+                            <path d="M104.807621,60 L122.128129,70 L122.128129,90 L104.807621,100 L87.4871131,90 L87.4871131,70 L104.807621,60 Z" class="state-montana"></path>
+                            <path d="M139.448637,60 L156.769145,70 L156.769145,90 L139.448637,100 L122.128129,90 L122.128129,70 L139.448637,60 Z" class="state-north-dakota"></path>
+                            <path d="M174.089653,60 L191.410162,70 L191.410162,90 L174.089653,100 L156.769145,90 L156.769145,70 L174.089653,60 Z" class="state-minnesota"></path>
+                            <path d="M208.73067,60 L226.051178,70 L226.051178,90 L208.73067,100 L191.410162,90 L191.410162,70 L208.73067,60 Z" class="state-wisconsin"></path>
+                            <path d="M278.012702,60 L295.33321,70 L295.33321,90 L278.012702,100 L260.692194,90 L260.692194,70 L278.012702,60 Z" class="state-michigan"></path>
+                            <path d="M347.294734,60 L364.615242,70 L364.615242,90 L347.294734,100 L329.974226,90 L329.974226,70 L347.294734,60 Z" class="state-new-york"></path>
+                            <path d="M381.93575,60 L399.256258,70 L399.256258,90 L381.93575,100 L364.615242,90 L364.615242,70 L381.93575,60 Z" class="state-massachusetts"></path>
+                            <path d="M416.576766,60 L433.897275,70 L433.897275,90 L416.576766,100 L399.256258,90 L399.256258,70 L416.576766,60 Z" class="state-rhode-island"></path>
+                            <path d="M87.4871131,90 L104.807621,100 L104.807621,120 L87.4871131,130 L70.166605,120 L70.166605,100 L87.4871131,90 Z" class="state-idaho"></path>
+                            <path d="M122.128129,90 L139.448637,100 L139.448637,120 L122.128129,130 L104.807621,120 L104.807621,100 L122.128129,90 Z" class="state-wyoming"></path>
+                            <path d="M156.769145,90 L174.089653,100 L174.089653,120 L156.769145,130 L139.448637,120 L139.448637,100 L156.769145,90 Z" class="state-south-dakota"></path>
+                            <path d="M191.410162,90 L208.73067,100 L208.73067,120 L191.410162,130 L174.089653,120 L174.089653,100 L191.410162,90 Z" class="state-iowa"></path>
+                            <path d="M226.051178,90 L243.371686,100 L243.371686,120 L226.051178,130 L208.73067,120 L208.73067,100 L226.051178,90 Z" class="state-illinois"></path>
+                            <path d="M260.692194,90 L278.012702,100 L278.012702,120 L260.692194,130 L243.371686,120 L243.371686,100 L260.692194,90 Z" class="state-indiana"></path>
+                            <path d="M295.33321,90 L312.653718,100 L312.653718,120 L295.33321,130 L278.012702,120 L278.012702,100 L295.33321,90 Z" class="state-ohio"></path>
+                            <path d="M329.974226,90 L347.294734,100 L347.294734,120 L329.974226,130 L312.653718,120 L312.653718,100 L329.974226,90 Z" class="state-pennsylvania"></path>
+                            <path d="M364.615242,90 L381.93575,100 L381.93575,120 L364.615242,130 L347.294734,120 L347.294734,100 L364.615242,90 Z" class="state-new-jersey"></path>
+                            <path d="M399.256258,90 L416.576766,100 L416.576766,120 L399.256258,130 L381.93575,120 L381.93575,100 L399.256258,90 Z" class="state-connecticut"></path>
+                            <path d="M70.166605,120 L87.4871131,130 L87.4871131,150 L70.166605,160 L52.8460969,150 L52.8460969,130 L70.166605,120 Z" class="state-oregon"></path>
+                            <path d="M104.807621,120 L122.128129,130 L122.128129,150 L104.807621,160 L87.4871131,150 L87.4871131,130 L104.807621,120 Z" class="state-nevada"></path>
+                            <path d="M139.448637,120 L156.769145,130 L156.769145,150 L139.448637,160 L122.128129,150 L122.128129,130 L139.448637,120 Z" class="state-colorado"></path>
+                            <path d="M174.089653,120 L191.410162,130 L191.410162,150 L174.089653,160 L156.769145,150 L156.769145,130 L174.089653,120 Z" class="state-nebraska"></path>
+                            <path d="M208.73067,120 L226.051178,130 L226.051178,150 L208.73067,160 L191.410162,150 L191.410162,130 L208.73067,120 Z" class="state-missouri"></path>
+                            <path d="M243.371686,120 L260.692194,130 L260.692194,150 L243.371686,160 L226.051178,150 L226.051178,130 L243.371686,120 Z" class="state-kentucky"></path>
+                            <path d="M278.012702,120 L295.33321,130 L295.33321,150 L278.012702,160 L260.692194,150 L260.692194,130 L278.012702,120 Z" class="state-west-virginia"></path>
+                            <path d="M312.653718,120 L329.974226,130 L329.974226,150 L312.653718,160 L295.33321,150 L295.33321,130 L312.653718,120 Z" class="state-virginia"></path>
+                            <path d="M347.294734,120 L364.615242,130 L364.615242,150 L347.294734,160 L329.974226,150 L329.974226,130 L347.294734,120 Z" class="state-maryland"></path>
+                            <path d="M381.93575,120 L399.256258,130 L399.256258,150 L381.93575,160 L364.615242,150 L364.615242,130 L381.93575,120 Z" class="state-delaware"></path>
+                            <path d="M87.4871131,150 L104.807621,160 L104.807621,180 L87.4871131,190 L70.166605,180 L70.166605,160 L87.4871131,150 Z" class="state-california"></path>
+                            <path d="M122.128129,150 L139.448637,160 L139.448637,180 L122.128129,190 L104.807621,180 L104.807621,160 L122.128129,150 Z" class="state-utah"></path>
+                            <path d="M156.769145,150 L174.089653,160 L174.089653,180 L156.769145,190 L139.448637,180 L139.448637,160 L156.769145,150 Z" class="state-new-mexico"></path>
+                            <path d="M191.410162,150 L208.73067,160 L208.73067,180 L191.410162,190 L174.089653,180 L174.089653,160 L191.410162,150 Z" class="state-kansas"></path>
+                            <path d="M226.051178,150 L243.371686,160 L243.371686,180 L226.051178,190 L208.73067,180 L208.73067,160 L226.051178,150 Z" class="state-arkansas"></path>
+                            <path d="M260.692194,150 L278.012702,160 L278.012702,180 L260.692194,190 L243.371686,180 L243.371686,160 L260.692194,150 Z" class="state-tennessee"></path>
+                            <path d="M295.33321,150 L312.653718,160 L312.653718,180 L295.33321,190 L278.012702,180 L278.012702,160 L295.33321,150 Z" class="state-north-carolina"></path>
+                            <path d="M329.974226,150 L347.294734,160 L347.294734,180 L329.974226,190 L312.653718,180 L312.653718,160 L329.974226,150 Z" class="state-south-carolina"></path>
+                            <path d="M364.615242,150 L381.93575,160 L381.93575,180 L364.615242,190 L347.294734,180 L347.294734,160 L364.615242,150 Z" class="state-district-of-columbia"></path>
+                            <path d="M139.448637,180 L156.769145,190 L156.769145,210 L139.448637,220 L122.128129,210 L122.128129,190 L139.448637,180 Z" class="state-arizona"></path>
+                            <path d="M174.089653,180 L191.410162,190 L191.410162,210 L174.089653,220 L156.769145,210 L156.769145,190 L174.089653,180 Z" class="state-oklahoma"></path>
+                            <path d="M174.089653,180 L191.410162,190 L191.410162,210 L174.089653,220 L156.769145,210 L156.769145,190 L174.089653,180 Z" class="state-oklahoma-copy"></path>
+                            <path d="M208.73067,180 L226.051178,190 L226.051178,210 L208.73067,220 L191.410162,210 L191.410162,190 L208.73067,180 Z" class="state-louisiana"></path>
+                            <path d="M243.371686,180 L260.692194,190 L260.692194,210 L243.371686,220 L226.051178,210 L226.051178,190 L243.371686,180 Z" class="state-mississippi"></path>
+                            <path d="M278.012702,180 L295.33321,190 L295.33321,210 L278.012702,220 L260.692194,210 L260.692194,190 L278.012702,180 Z" class="state-alabama"></path>
+                            <path d="M312.653718,180 L329.974226,190 L329.974226,210 L312.653718,220 L295.33321,210 L295.33321,190 L312.653718,180 Z" class="state-georgia"></path>
+                            <path d="M18.2050808,210 L35.5255888,220 L35.5255888,240 L18.2050808,250 L0.884572681,240 L0.884572681,220 L18.2050808,210 Z" class="state-hawaii"></path>
+                            <path d="M191.410162,210 L208.73067,220 L208.73067,240 L191.410162,250 L174.089653,240 L174.089653,220 L191.410162,210 Z" class="state-texas"></path>
+                            <path d="M295.33321,210 L312.653718,220 L312.653718,240 L295.33321,250 L278.012702,240 L278.012702,220 L295.33321,210 Z" class="state-florida"></path>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </div>
+
+    <script>
+        var CATEGORIES =   {"No": "#ddd", "Yes, with exceptions": "#8BC0BF", "Yes": "#17807E"};
+        var MAP_DATA =   [{"state_name": "Alabama", "category": null}, {"state_name": "Alaska", "category": null}, {"state_name": "Arizona", "category": null}, {"state_name": "Arkansas", "category": null}, {"state_name": "California", "category": "Yes"}, {"state_name": "Colorado", "category": "Yes"}, {"state_name": "Connecticut", "category": "Yes"}, {"state_name": "Delaware", "category": "Yes, with exceptions"}, {"state_name": "District of Columbia", "category": "Yes"}, {"state_name": "Florida", "category": null}, {"state_name": "Georgia", "category": null}, {"state_name": "Hawaii", "category": "Yes"}, {"state_name": "Idaho", "category": null}, {"state_name": "Illinois", "category": "Yes"}, {"state_name": "Indiana", "category": null}, {"state_name": "Iowa", "category": "Yes"}, {"state_name": "Kansas", "category": null}, {"state_name": "Kentucky", "category": null}, {"state_name": "Louisiana", "category": null}, {"state_name": "Maine", "category": "Yes"}, {"state_name": "Maryland", "category": "Yes"}, {"state_name": "Massachusetts", "category": "Yes, with exceptions"}, {"state_name": "Michigan", "category": null}, {"state_name": "Minnesota", "category": "Yes"}, {"state_name": "Mississippi", "category": null}, {"state_name": "Missouri", "category": null}, {"state_name": "Montana", "category": null}, {"state_name": "Nebraska", "category": null}, {"state_name": "Nevada", "category": "Yes"}, {"state_name": "New Hampshire", "category": "Yes, with exceptions"}, {"state_name": "New Jersey", "category": "Yes"}, {"state_name": "New Mexico", "category": "Yes"}, {"state_name": "New York", "category": "Yes, with exceptions"}, {"state_name": "North Carolina", "category": null}, {"state_name": "North Dakota", "category": null}, {"state_name": "Ohio", "category": null}, {"state_name": "Oklahoma", "category": null}, {"state_name": "Oregon", "category": "Yes"}, {"state_name": "Pennsylvania", "category": null}, {"state_name": "Rhode Island", "category": "Yes"}, {"state_name": "South Carolina", "category": null}, {"state_name": "South Dakota", "category": null}, {"state_name": "Tennessee", "category": null}, {"state_name": "Texas", "category": null}, {"state_name": "Utah", "category": "Yes, with exceptions"}, {"state_name": "Vermont", "category": "Yes"}, {"state_name": "Virginia", "category": null}, {"state_name": "Washington", "category": "Yes"}, {"state_name": "West Virginia", "category": null}, {"state_name": "Wisconsin", "category": "Yes, with exceptions"}, {"state_name": "Wyoming", "category": null}];
+        var STATE_NAMES = [{"name": "Alabama", "usps": "AL", "ap": "Ala."}, {"name": "Alaska", "usps": "AK", "ap": "Alaska"}, {"name": "Arizona", "usps": "AZ", "ap": "Ariz."}, {"name": "Arkansas", "usps": "AR", "ap": "Ark."}, {"name": "California", "usps": "CA", "ap": "Calif."}, {"name": "Colorado", "usps": "CO", "ap": "Colo."}, {"name": "Connecticut", "usps": "CT", "ap": "Conn."}, {"name": "Delaware", "usps": "DE", "ap": "Del."}, {"name": "District of Columbia", "usps": "DC", "ap": "D.C."}, {"name": "Florida", "usps": "FL", "ap": "Fla."}, {"name": "Georgia", "usps": "GA", "ap": "Ga."}, {"name": "Hawaii", "usps": "HI", "ap": "Hawaii"}, {"name": "Idaho", "usps": "ID", "ap": "Idaho"}, {"name": "Illinois", "usps": "IL", "ap": "Ill."}, {"name": "Indiana", "usps": "IN", "ap": "Ind."}, {"name": "Iowa", "usps": "IA", "ap": "Iowa"}, {"name": "Kansas", "usps": "KS", "ap": "Kan."}, {"name": "Kentucky", "usps": "KY", "ap": "Ky."}, {"name": "Louisiana", "usps": "LA", "ap": "La."}, {"name": "Maine", "usps": "ME", "ap": "Maine"}, {"name": "Maryland", "usps": "MD", "ap": "Md."}, {"name": "Massachusetts", "usps": "MA", "ap": "Mass."}, {"name": "Michigan", "usps": "MI", "ap": "Mich."}, {"name": "Minnesota", "usps": "MN", "ap": "Minn."}, {"name": "Mississippi", "usps": "MS", "ap": "Miss."}, {"name": "Missouri", "usps": "MO", "ap": "Mo."}, {"name": "Montana", "usps": "MT", "ap": "Mont."}, {"name": "Nebraska", "usps": "NE", "ap": "Neb."}, {"name": "Nevada", "usps": "NV", "ap": "Nev."}, {"name": "New Hampshire", "usps": "NH", "ap": "N.H."}, {"name": "New Jersey", "usps": "NJ", "ap": "N.J."}, {"name": "New Mexico", "usps": "NM", "ap": "N.M."}, {"name": "New York", "usps": "NY", "ap": "N.Y."}, {"name": "North Carolina", "usps": "NC", "ap": "N.C."}, {"name": "North Dakota", "usps": "ND", "ap": "N.D."}, {"name": "Ohio", "usps": "OH", "ap": "Ohio"}, {"name": "Oklahoma", "usps": "OK", "ap": "Okla."}, {"name": "Oregon", "usps": "OR", "ap": "Ore."}, {"name": "Pennsylvania", "usps": "PA", "ap": "Pa."}, {"name": "Rhode Island", "usps": "RI", "ap": "R.I."}, {"name": "South Carolina", "usps": "SC", "ap": "S.C."}, {"name": "South Dakota", "usps": "SD", "ap": "S.D."}, {"name": "Tennessee", "usps": "TN", "ap": "Tenn."}, {"name": "Texas", "usps": "TX", "ap": "Texas"}, {"name": "Utah", "usps": "UT", "ap": "Utah"}, {"name": "Vermont", "usps": "VT", "ap": "Vt."}, {"name": "Virginia", "usps": "VA", "ap": "Va."}, {"name": "Washington", "usps": "WA", "ap": "Wash."}, {"name": "West Virginia", "usps": "WV", "ap": "W.Va."}, {"name": "Wisconsin", "usps": "WI", "ap": "Wis."}, {"name": "Wyoming", "usps": "WY", "ap": "Wyo."}];
+    </script>
+
+    <script src="js/lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="js/lib/jquery.min.js" type="text/javascript"></script>
+    <script src="js/lib/d3.min.js" type="text/javascript"></script>
+    <script src="js/lib/underscore.min.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script src="js/graphic.js" type="text/javascript"></script>
+</body>
+</html>
