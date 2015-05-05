@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Graphic Embed : NPR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../../css/dailygraphics.css" type="text/css">
+</head>
+<body>
+
+    <header class="parent-header">
+        <h1>Preview</h1>
+        
+        <button><a href="https://docs.google.com/spreadsheets/d/1eQHZhV2n4zQDX7bR5DE4SSWGZrBPs7h8IL5OIi9XOHY/edit" target="_blank">Edit spreadsheet</a></button>
+        
+    </header>
+
+    <div id='preview'>
+    </div>
+
+    <h2>Production embed code</h2>
+
+<!-- textarea contents -->
+    <textarea readonly="readonly" rows="10" cols="50">
+<div id="responsive-embed-nola-violent-murder-20150415">
+</div>
+<script src="http://apps.npr.org/dailygraphics/graphics/nola-violent-murder-20150415/js/lib/pym.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+    var pymParent = new pym.Parent(
+        'responsive-embed-nola-violent-murder-20150415',
+        'http://apps.npr.org/dailygraphics/graphics/nola-violent-murder-20150415/child.html',
+        {}
+    );
+});
+</script>
+    </textarea>
+<!-- end textarea contents -->
+
+    <h2>Localhost embed code</h2>
+
+<!-- textarea contents -->
+    <textarea readonly="readonly" rows="10" cols="50">
+<div id="responsive-embed-nola-violent-murder-20150415">
+</div>
+<script src="http://127.0.0.1:8000/graphics/nola-violent-murder-20150415/js/lib/pym.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+    var pymParent = new pym.Parent(
+        'responsive-embed-nola-violent-murder-20150415',
+        'http://127.0.0.1:8000/graphics/nola-violent-murder-20150415/child.html',
+        {}
+    );
+});
+</script>
+    </textarea>
+<!-- end textarea contents -->
+
+    <script src="js/lib/jquery.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var pymParent = new pym.Parent('preview', 'child.html', {});
+    </script>
+</body>
+</html>

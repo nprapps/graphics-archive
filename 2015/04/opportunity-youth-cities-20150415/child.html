@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <!-- Fonts -->
+    <script src="http://apps.npr.org/dailygraphics/graphics/fonts/js/lib/webfont.js"></script>
+    <script>
+        WebFont.load({
+             custom: {
+                 families: [ 'Gotham SSm:n4,n7' ],
+                 urls: [ 'http://s.npr.org/templates/css/fonts/GothamSSm.css' ]
+             },
+             timeout: 10000
+         });
+    </script>
+
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 33px 0;
+            font: 14px/1.4 Helvetica, Arial, sans-serif;
+            color: #555;
+        }
+        h1 {
+            margin: 0 0 33px 0;
+            font-size: 20px;
+            color: #666;
+            font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+            font-weight: normal;
+            line-height: 1.3;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+        h2 {
+            font-weight: normal;
+            color: #777;
+            font-size: 12px;
+            margin: -22px 0 22px 0;
+            line-height: 1.6;
+        }
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.7;
+            color: #999;
+        }
+        .footer p { font-style: italic; }
+        .footer p em { font-style: normal; }
+        .footnotes p strong { color: #666; }
+
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { color: #bccae5; }
+        
+
+        /* graph */
+        #graphic {
+            position: relative;
+            margin-bottom: 11px;
+        }
+        #graphic:before,
+        #graphic:after {
+            content: ' ';
+            display: table;
+        }
+        #graphic:after { clear: both; }
+        #graphic img.fallback {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .axis {
+            font-size: 11px;
+            -webkit-font-smoothing: antialiased;
+            fill: #999;
+        }
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #ccc;
+            shape-rendering: crispEdges;
+        }
+        .axis.y path { display: none; }
+        .axis.y .tick line { display: none; }
+        .grid.y g:first-child line { display: none; }
+        .grid path { display: none; }
+        .grid .tick {
+            stroke: #eee;
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+
+        .bars rect { shape-rendering: crispEdges; }
+ 
+        .dots circle {
+            stroke: #fff;
+            stroke-width: 1px;
+        }
+       
+        .value text { 
+            font-size: 11px;
+            -webkit-font-smoothing: antialiased;
+            fill: #666;
+        }
+        
+        .labels text {
+            font-size: 13px;
+            -webkit-font-smoothing: antialiased;
+            fill: #787878;            
+        }
+        .labels .new-orleans {
+            font-weight: bold;
+            fill: #333;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>New Orleans Has Third-Highest Rate Of &lsquo;Opportunity&nbsp;Youth&rsquo;</h1>
+    <h2>In the New Orleans metropolitan statistical area, an estimated 18.2 percent of 16- to 24-year-olds are neither working nor in&nbsp;school.</h2>
+
+    <div id="graphic"><img src="fallback.png" alt="[Chart]" class="fallback" /></div>
+    
+    
+    <div class="footnotes">
+        <p><strong>Notes:</strong> Lighter bars indicate margin of error. Analysis based on 2013 American Community Survey Public Use Microdata Sample data.</p>
+    </div>
+    
+
+    <div class="footer">
+        <p>Source: Cowen Institute for Public Education Initiatives: &ldquo;<a href="http://www.coweninstitute.com/wp-content/uploads/2015/03/Cowen_OY_Data_Guide_2015.pdf" target="_blank">Reconnecting Opportunity Youth</a>&rdquo; (PDF)</p>
+        <p>Credit: Alyson Hurt/NPR</p>
+    </div>
+
+    <script type="text/javascript">
+        var GRAPHIC_DATA = [{"city": "Memphis", "state": "TN", "label": "Memphis, Tenn.", "amt": "21.61", "margin_start": "18.901495", "margin_end": "24.318505", "margin": "2.708505"}, {"city": "Las Vegas", "state": "NV", "label": "Las Vegas", "amt": "19.63", "margin_start": "17.274755", "margin_end": "21.985245", "margin": "2.355245"}, {"city": "New Orleans", "state": "LA", "label": "New Orleans", "amt": "18.23", "margin_start": "15.54359", "margin_end": "20.91641", "margin": "2.68641"}, {"city": "Riverside", "state": "CA", "label": "Riverside, Calif.", "amt": "17.5", "margin_start": "16.32152", "margin_end": "18.67848", "margin": "1.17848"}, {"city": "Phoenix", "state": "AZ", "label": "Phoenix", "amt": "17.33", "margin_start": "16.098395", "margin_end": "18.561605", "margin": "1.231605"}, {"city": "Jacksonville", "state": "FL", "label": "Jacksonville, Fla.", "amt": "16.89", "margin_start": "14.373435", "margin_end": "19.406565", "margin": "2.516565"}, {"city": "Birmingham", "state": "AL", "label": "Birmingham, Ala.", "amt": "16.77", "margin_start": "14.280135", "margin_end": "19.259865", "margin": "2.489865"}, {"city": "Portland", "state": "OR", "label": "Portland, Ore.", "amt": "16.05", "margin_start": "14.35863", "margin_end": "17.74137", "margin": "1.69137"}, {"city": "Indianapolis", "state": "IN", "label": "Indianapolis", "amt": "15.75", "margin_start": "13.7541", "margin_end": "17.7459", "margin": "1.9959"}, {"city": "Richmond", "state": "VA", "label": "Richmond, Va.", "amt": "15.41", "margin_start": "13.059065", "margin_end": "17.760935", "margin": "2.350935"}];
+    </script>
+
+    <script src="js/lib/jquery.min.js" type="text/javascript"></script>
+    <script src="js/lib/d3.min.js" type="text/javascript"></script>
+    <script src="js/lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script src="js/graphic.js" type="text/javascript"></script>
+</body>
+</html>
