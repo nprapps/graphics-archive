@@ -1,0 +1,53 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ COPY.labels.subhed }}</h2>{% endif %}
+	
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th class="region"> </th>
+                    <th class="amt">{{ COPY.labels.hdr_year_men }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_year_women }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_year_both }}</th>
+				</tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="{{ row.class }}">
+                <td class="{{ row.class }}" data-title="{{ COPY.labels.hdr_region }}">{{ row.Region }}</td>
+                <td class="amt ymen-{{ row.ymen }}" data-title="{{ COPY.labels.hdr_year_men }}" >{{ row.year_men }}%</td>
+				<td class="amt ywomen-{{ row.ywomen }}" data-title="{{ COPY.labels.hdr_year_women }}" >{{ row.year_women }}%</td>
+                <td class="amt yboth-{{ row.yboth }}" data-title="{{ COPY.labels.hdr_year_both }}">{{ row.year_both }}%</td>				
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

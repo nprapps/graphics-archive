@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <!-- Fonts -->
+    <script src="http://apps.npr.org/dailygraphics/graphics/fonts/js/lib/webfont.js"></script>
+    <script>
+        WebFont.load({
+             custom: {
+                 families: [ 
+                    'Gotham SSm:n4,n7',
+                    'Knockout 31 4r:n4'
+                 ],
+                 urls: [ 
+                    'http://s.npr.org/templates/css/fonts/GothamSSm.css',
+                    'http://s.npr.org/templates/css/fonts/Knockout.css'
+                 ]
+             },
+             timeout: 10000
+         });
+    </script>
+        
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 33px 0;
+            font: 14px/1.4 Helvetica, Arial, sans-serif;
+            color: #555;
+        }
+        h1 {
+            margin: 0 0 33px 0;
+            font-size: 20px;
+            color: #666;
+            font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+            font-weight: normal;
+            line-height: 1.3;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+        h2 {
+            font-weight: normal;
+            color: #777;
+            font-size: 12px;
+            margin: -22px 0 22px 0;
+            line-height: 1.6;
+        }
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.7;
+            color: #999;
+        }
+        .footer p {
+            font-style: italic;
+        }
+        .footnotes p strong { color: #666; }
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { color: #bccae5; }
+        
+        /* table */
+        #graphic { margin-bottom: 33px; }
+        table {
+            border-collapse: collapse;
+            padding: 0;
+            width: 100%;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        table:first-child { margin-bottom: 33px; }
+        
+        table th,
+        table td {
+            padding: 10px;
+            text-align: left;
+        }
+        table th {
+            border-bottom: 2px solid #eee;
+            vertical-align: bottom;
+            font-family: 'Knockout 31 4r';
+            font-weight: normal;
+            text-transform: uppercase;
+            padding-top: 0;
+            line-height: 1.2;
+            letter-spacing: 0.05em;
+            -webkit-font-smoothing: antialiased;
+        }
+        table td {
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+        
+        table th.amt,
+        table td.amt {
+            text-align: center;
+            width: 10%;
+            min-width: 90px;
+        }
+
+        table tr.shadedrow { 
+            background-color: #f1f1f1; 
+            color: #333;
+            font-weight: bold;
+        }
+        
+        table td.amt { 
+            border-color: #fff;
+            border-left: 1px solid #fff;
+            vertical-align: middle;
+            color: #666;
+        }
+        
+        table td.val21, table td.val22, table td.val23, table td.val24, table td.val25,
+        table td.val26, table td.val27, table td.val28, table td.val29, table td.val30 {
+            background-color: #ccc;
+        }
+
+        table td.val11, table td.val12, table td.val13, table td.val14, table td.val15,
+        table td.val16, table td.val17, table td.val18, table td.val19, table td.val20 {
+            background-color: #ddd;
+        }
+
+        table td.val1, table td.val2, table td.val3, table td.val4, table td.val5,
+        table td.val6, table td.val7, table td.val8, table td.val9, table td.val10 {
+            background-color: #eee;
+        }
+
+        table td.val0 {
+            background-color: #f1f1f1;
+        }
+
+        table td.val-1, table td.val-2, table td.val-3, table td.val-4, table td.val-5,
+        table td.val-6, table td.val-7, table td.val-8, table td.val-9, table td.val-10 {
+            background-color: #fdf5f4;
+        }
+
+        table td.val-11, table td.val-12, table td.val-13, table td.val-14, table td.val-15,
+        table td.val-16, table td.val-17, table td.val-18, table td.val-19, table td.val-20 {
+            background-color: #f8dcd7;
+        }
+
+        table td.val-21, table td.val-22, table td.val-23, table td.val-24, table td.val-25,
+        table td.val-26, table td.val-27, table td.val-28, table td.val-29, table td.val-30 {
+            color: #fff;
+            background-color: #f2c3ba;
+        }
+
+        table td.val-41, table td.val-42, table td.val-43, table td.val-44, table td.val-45,
+        table td.val-46, table td.val-47, table td.val-48, table td.val-49, table td.val-40 {
+            color: #fff;
+            background-color: #edab9e;
+        }
+
+        table td.val-51, table td.val-52, table td.val-53, table td.val-54, table td.val-55,
+        table td.val-56, table td.val-57, table td.val-58, table td.val-59, table td.val-60 {
+            color: #fff;
+            background-color: #e89281;
+        }
+
+        table caption { display: none; }
+        
+        table tr.total td,
+        table tr.hdr td {
+            font-weight: bold;
+        }
+
+        table tr.total td:first-child,
+        table tr.hdr td:first-child {
+            padding-left: 0;
+        }
+        
+        table tr.total td { color: #333; }
+
+        /* responsive table */
+        @media screen and (max-width: 480px) {
+            table th.amt,
+            table td.amt {
+                width: auto;
+                min-width: 10px;
+            }
+
+            table th,
+            table td {
+                padding: 5px;
+                text-align: left;
+                font-size: 11px;
+            }
+
+/* 
+            table,
+            tbody {
+                display: block;
+                width: 100%;
+            }
+            table:first-child { margin-bottom: 44px; }
+
+            thead { display: none; }
+            table tr,
+            table th,
+            table td,
+            table td.amt {
+                display: block;
+                padding: 0;
+                text-align: left;
+                white-space: normal;
+            }
+            table td,
+            table td.amt { 
+                border: none;
+                margin-bottom: 1px;
+                width: auto;
+                padding: 6px;
+            }
+            table td:empty { display: none; }
+
+            table tr { padding: 22px 0 0 0; }
+            table tr:first-child { padding-top: 0; }
+
+            table th[data-title]:before,
+            table td[data-title]:before {
+                content: attr(data-title) ":\00A0";
+                display: inline-block;
+                width: 75%;
+                min-width: 220px;
+                width: 220px;
+                text-align: right;
+            }
+            
+            table td[data-title='Overall'] { font-weight: bold; }
+
+            table tr td:first-child { 
+                margin-bottom: 6px;
+                color: #666;
+                font: 400 12px 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+                letter-spacing: 0.02em;
+                text-transform: uppercase;
+                text-align: center;
+                -webkit-font-smoothing: antialiased;
+            }
+            table tr td:first-child:before {
+                content: '';
+                display: none;
+            }
+
+            table caption { 
+                display: block;
+                margin: 0 0 15px 0;
+                font: 400 14px 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                -webkit-font-smoothing: antialiased;
+                color: #333;
+            }
+ */
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Cancer Screening Rates Among Selected Groups</h1>
+    <h2>Share of Americans reporting they were up to date with certain cancer screenings in 2013. Values in red highlight groups with lower-than-average screening rates.</h2>
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="amt">Breast*</th>
+                    <th class="amt">Cervical*</th>
+                    <th class="amt">Colorectal*</th>
+                </tr>
+            </thead>
+
+            
+            <tr class="total total">
+                
+                <td>Total</td>
+                <td data-title="Breast*" class="amt val0">72.5%</td>
+                <td data-title="Cervical*" class="amt val0">80.5%</td>
+                <td data-title="Colorectal*" class="amt val0">58.2%</td>
+                
+            </tr>
+            
+            <tr class="race hdr">
+                
+                <td colspan="4">Race</td>
+                
+            </tr>
+            
+            <tr class="white ">
+                
+                <td>White</td>
+                <td data-title="Breast*" class="amt val0">72.6%</td>
+                <td data-title="Cervical*" class="amt val1">81.2%</td>
+                <td data-title="Colorectal*" class="amt val0">58.4%</td>
+                
+            </tr>
+            
+            <tr class="black ">
+                
+                <td>Black</td>
+                <td data-title="Breast*" class="amt val0">72.6%</td>
+                <td data-title="Cervical*" class="amt val2">82.2%</td>
+                <td data-title="Colorectal*" class="amt val-1">57.9%</td>
+                
+            </tr>
+            
+            <tr class="asian ">
+                
+                <td>Asian</td>
+                <td data-title="Breast*" class="amt val-1">72.0%</td>
+                <td data-title="Cervical*" class="amt val-13">70.1%</td>
+                <td data-title="Colorectal*" class="amt val-15">49.5%</td>
+                
+            </tr>
+            
+            <tr class="ethnicity hdr">
+                
+                <td colspan="4">Ethnicity</td>
+                
+            </tr>
+            
+            <tr class="non-hispanic ">
+                
+                <td>Non-Hispanic</td>
+                <td data-title="Breast*" class="amt val1">73.2%</td>
+                <td data-title="Cervical*" class="amt val1">81.3%</td>
+                <td data-title="Colorectal*" class="amt val2">59.6%</td>
+                
+            </tr>
+            
+            <tr class="hispanic ">
+                
+                <td>Hispanic</td>
+                <td data-title="Breast*" class="amt val-8">66.5%</td>
+                <td data-title="Cervical*" class="amt val-4">76.9%</td>
+                <td data-title="Colorectal*" class="amt val-29">41.5%</td>
+                
+            </tr>
+            
+            <tr class="share-of-federal-poverty-threshold hdr">
+                
+                <td colspan="4">Share of federal poverty threshold</td>
+                
+            </tr>
+            
+            <tr class="<139% ">
+                
+                <td><139%</td>
+                <td data-title="Breast*" class="amt val-22">56.3%</td>
+                <td data-title="Cervical*" class="amt val-13">69.7%</td>
+                <td data-title="Colorectal*" class="amt val-24">44.2%</td>
+                
+            </tr>
+            
+            <tr class="139-250% ">
+                
+                <td>139-250%</td>
+                <td data-title="Breast*" class="amt val-12">64.0%</td>
+                <td data-title="Cervical*" class="amt val-5">76.8%</td>
+                <td data-title="Colorectal*" class="amt val-10">52.6%</td>
+                
+            </tr>
+            
+            <tr class="251-400% ">
+                
+                <td>251-400%</td>
+                <td data-title="Breast*" class="amt val2">73.9%</td>
+                <td data-title="Cervical*" class="amt val3">83.0%</td>
+                <td data-title="Colorectal*" class="amt val-4">56.0%</td>
+                
+            </tr>
+            
+            <tr class=">400% ">
+                
+                <td>>400%</td>
+                <td data-title="Breast*" class="amt val13">81.8%</td>
+                <td data-title="Cervical*" class="amt val9">87.7%</td>
+                <td data-title="Colorectal*" class="amt val13">65.6%</td>
+                
+            </tr>
+            
+            <tr class="health-care-coverage hdr">
+                
+                <td colspan="4">Health care coverage</td>
+                
+            </tr>
+            
+            <tr class="private/military ">
+                
+                <td>Private/military</td>
+                <td data-title="Breast*" class="amt val10">79.9%</td>
+                <td data-title="Cervical*" class="amt val7">86.3%</td>
+                <td data-title="Colorectal*" class="amt val8">63.0%</td>
+                
+            </tr>
+            
+            <tr class="public-only ">
+                
+                <td>Public only</td>
+                <td data-title="Breast*" class="amt val-8">66.4%</td>
+                <td data-title="Cervical*" class="amt val-2">78.8%</td>
+                <td data-title="Colorectal*" class="amt val1">58.7%</td>
+                
+            </tr>
+            
+            <tr class="uninsured ">
+                
+                <td>Uninsured</td>
+                <td data-title="Breast*" class="amt val-47">38.5%</td>
+                <td data-title="Cervical*" class="amt val-23">62.0%</td>
+                <td data-title="Colorectal*" class="amt val-60">23.5%</td>
+                
+            </tr>
+            
+
+        </table>
+    </div>
+    
+    
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>&mdash; Breast cancer screening rates among women ages&nbsp;<nobr>50-74</nobr><br />
+&mdash; Cervical cancer screening rates among women ages&nbsp;<nobr>21-65</nobr><br />
+&mdash; Colorectal cancer screening rates among men and women ages&nbsp;<nobr>50-75</nobr></p>
+    </div>
+    
+
+    <div class="footer">
+        <p>Source: Centers for Disease Control and Prevention</p>
+        <p>Credit: Alyson Hurt/NPR</p>
+    </div>
+
+
+    <script src="js/lib/jquery.min.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        var pymChild = new pym.Child({ });
+    })
+    </script>
+
+</body>
+</html>

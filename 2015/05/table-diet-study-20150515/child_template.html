@@ -1,0 +1,49 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+        <table>
+
+            {% for row in COPY.data %}
+            <tr>
+                <th data-title="{{ COPY.labels.hdr_meal }}" colspan="2">{{ row.meal }}</th>
+            </tr>
+            <tr class="hdr">
+                <td>{{ COPY.labels.hdr_aa }}</td>
+                <td>{{ COPY.labels.hdr_african }}</td>
+            </tr>
+            <tr class="meal">
+                <td data-title="{{ COPY.labels.hdr_aa }}">{{ row.aa }}</td>
+                <td data-title="{{ COPY.labels.hdr_african }}">{{ row.african }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

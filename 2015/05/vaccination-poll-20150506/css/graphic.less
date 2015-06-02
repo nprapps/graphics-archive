@@ -1,0 +1,52 @@
+.labels {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: none;
+}
+.labels li {
+    position: absolute;
+    text-align: right;
+    font-size: 12px;
+    line-height: 1.3;
+    color: #666;
+    display: table;
+    -webkit-font-smoothing: antialiased;
+}
+.labels li span {
+    display: table-cell;
+    vertical-align: middle;
+}
+.labels li.total {
+    font-weight: bold;
+    color: #111;
+}
+
+.labels li.total,
+.labels li.age,
+.labels li.education,
+.labels li.generation {
+    border-bottom: 1px solid #eee;
+}
+
+.guidelines line {
+    stroke: #eee;
+    stroke-width: 1px;
+    stroke-dasharray: 2px 2px;
+}
+
+.bars rect { fill: #e0e0e0; }
+.dots circle {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.value text { 
+    font-size: 11px;
+    text-shadow: 1px 1px 5px #FFF,1px 1px 5px #FFF,1px 1px 5px #FFF;
+}
+
+@media screen and (max-width: 500px) {
+/*    .value { display: none; } */
+}

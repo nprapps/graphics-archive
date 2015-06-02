@@ -1,0 +1,47 @@
+.map {
+    h3 {
+      font-size: 12px;
+      color: #333;
+      font-weight: normal;
+      font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin: 0 0 11px 0;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 481px) {
+    #graphic {
+        display: table;
+    }
+
+    .source-maps {
+        display: table-cell;
+        width: 30%;
+        padding-right: 22px;
+
+        #vision { margin-bottom: 22px; }
+    }
+
+    #both { display: table-cell; }
+}
+
+@media screen and (max-width: 480px) {
+    .source-maps {
+        display: table;
+        margin-bottom: 22px;
+
+        .map {
+            display: table-cell;
+            width: 50%;
+            vertical-align: bottom;
+        }
+        #vision { padding-right: 11px; }
+        #poverty { padding-left: 11px; }
+    }
+}

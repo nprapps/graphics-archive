@@ -1,0 +1,80 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels_growth.headline %}<h1>{{ COPY.labels_growth.headline }}</h1>{% endif %}
+    {% if COPY.labels_growth.subhed %}<h2>{{ render(COPY.labels_growth.subhed) }}</h2>{% endif %}
+    
+    <div id="graphic">
+        <h3>{{ COPY.labels_growth.hdr_decline }}</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>{{ COPY.labels_growth.hdr_country }}</th>
+                    <th>{{ COPY.labels_growth.hdr_region }}</th>
+                    <th class="amt">{{ COPY.labels_growth.hdr_capita }}</th>
+                    <th class="amt">{{ COPY.labels_growth.hdr_growth }}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data_growth_asc %}
+            {% if loop.index <= 5 %}
+            <tr class="{{ row.country|lower|replace(' ', '-') }}">
+                <td data-title="{{ COPY.labels_growth.hdr_country }}">{{ row.country }}</td>
+                <td data-title="{{ COPY.labels_growth.hdr_region }}">{{ row.continent }}</td>
+                <td data-title="{{ COPY.labels_growth.hdr_capita }}" class="amt">{{ row.per_capita_2014 }}</td>
+                <td data-title="{{ COPY.labels_growth.hdr_growth }}" class="amt">{{ row.growth_historic }}%</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+
+        </table>
+
+
+        <h3>{{ COPY.labels_growth.hdr_growing }}</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>{{ COPY.labels_growth.hdr_country }}</th>
+                    <th>{{ COPY.labels_growth.hdr_region }}</th>
+                    <th class="amt">{{ COPY.labels_growth.hdr_capita }}</th>
+                    <th class="amt">{{ COPY.labels_growth.hdr_growth }}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data_growth_desc %}
+            {% if loop.index <= 5 %}
+            <tr class="{{ row.country|lower|replace(' ', '-') }}">
+                <td data-title="{{ COPY.labels_growth.hdr_country }}">{{ row.country }}</td>
+                <td data-title="{{ COPY.labels_growth.hdr_region }}">{{ row.continent }}</td>
+                <td data-title="{{ COPY.labels_growth.hdr_capita }}" class="amt">{{ row.per_capita_2014 }}</td>
+                <td data-title="{{ COPY.labels_growth.hdr_growth }}" class="amt">{{ row.growth_historic }}%</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels_growth.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels_growth.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels_growth.source %}<p>Source: {{ COPY.labels_growth.source }}</p>{% endif %}
+        {% if COPY.labels_growth.credit %}<p>Credit: {{ COPY.labels_growth.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}
