@@ -1,0 +1,379 @@
+@import 'bootstrap/bootstrap';
+@import 'font-awesome/font-awesome';
+
+// Colors
+// -------------------------
+
+@red1       : #6C2315;
+@red2       : #A23520;
+@red3       : #D8472B;
+@red4       : #E27560;
+@red5       : #ECA395;
+@red6       : #F5D1CA;
+
+@orange1    : #714616;
+@orange2    : #AA6A21;
+@orange3    : #E38D2C;
+@orange4    : #EAAA61;
+@orange5    : #F1C696;
+@orange6    : #F8E2CA;
+
+@yellow1    : #77631B;
+@yellow2    : #B39429;
+@yellow3    : #EFC637;
+@yellow4    : #F3D469;
+@yellow5    : #F7E39B;
+@yellow6    : #FBF1CD;
+
+@teal1      : #0B403F;
+@teal2      : #11605E;
+@teal3      : #17807E;
+@teal4      : #51A09E;
+@teal5      : #8BC0BF;
+@teal6      : #C5DFDF;
+
+@blue1      : #28556F;
+@blue2      : #3D7FA6;
+@blue3      : #51AADE;
+@blue4      : #7DBFE6;
+@blue5      : #A8D5EF;
+@blue6      : #D3EAF7;
+
+@buttonColor: #568FCB;
+@buttonHoverColor: #6FAFF9;
+
+@gotham     : 'Gotham SSm', Helvetica, Arial, sans-serif;
+@knockout   : 'Knockout 31 4r', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+
+/* base styles */
+html { -webkit-text-size-adjust: none; }
+body {
+    margin: 0;
+    padding: 33px 0;
+    font: 14px/1.4 @gotham;
+    color: #555;
+}
+
+h1 {
+    margin: 0 0 33px 0;
+    font-size: 20px;
+    color: #666;
+    font-weight: normal;
+    line-height: 1.3;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+
+h2 {
+    font-weight: normal;
+    color: #777;
+    font-size: 12px;
+    margin: -22px 0 22px 0;
+    line-height: 1.6;
+    font-family: Helvetica,Arial,sans-serif;
+}
+
+.row {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.question-wrapper {
+    margin-bottom: 30px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.question-header { background-color: #DDD; }
+.question-title {
+    padding: 0 15px;
+    margin: 0;
+    height: 44px;
+    font: normal 14px/44px @knockout;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: #666;
+}
+
+.question {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.info {
+    margin-bottom: 25px;
+    img {
+        width: 100%;
+        height: auto;
+    }
+    .song-info { margin: 10px 0 0; }
+    .artist {
+        font-family: @knockout;
+        text-transform: uppercase;
+        letter-spacing: .1rem;
+        font-size: 16px;
+        margin-bottom: 0;
+        color: #333;
+        font-weight: normal;
+    }
+    .song-title {
+        margin: 0;
+        font-size: 16px;
+        font-weight: normal;
+    }
+}
+
+.answers {
+    padding-bottom: 20px;
+    .pick {
+        font-family: @knockout;
+        text-transform: uppercase;
+        letter-spacing: .1rem;
+        font-size: 11px;
+        line-height: 1.2;
+        text-align: center;
+        margin: 0 0 5px auto;
+        width: 44px;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: table;
+            width: 100%;
+
+            & > div {
+                display: table-cell;
+                vertical-align: top;
+
+                &.btn-wrap { width: 44px; }
+                &.pick-wrap {
+                    width: 44px;
+                    padding-left: 20px;
+                }
+            }
+        }
+    }
+}
+
+.checkbox,
+.letter,
+.btn {
+    display: inline-block;
+    min-width: 44px;
+    height: 44px;
+    font-size: 24px;
+    text-align: center;
+    vertical-align: top;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: @buttonColor;
+
+    &:not(.selected):hover {
+        cursor: pointer;
+        background-color: @buttonHoverColor;
+        transition: background-color 0.1s ease-out, border-color 0.1s ease-out;
+    }
+
+    &.correct {
+        background-color: @brand-success;
+        border: none;
+
+        &:before {
+            content: "\f00c";
+            font-family: "FontAwesome";
+            font-size: 22px;
+            color: white;
+            vertical-align: top;
+        }
+    }
+}
+
+.letter { margin-right: 6px; }
+
+.checkbox {
+    border: @buttonColor 2px solid;
+    background-color: transparent;
+
+    &:not(.selected):hover {
+        cursor: pointer;
+        border-color: @buttonHoverColor;
+        transition: background-color 0.1s ease-out, border-color 0.1s ease-out;
+
+        &:before {
+            content: "\f00c";
+            font-family: "FontAwesome";
+            font-size: 15px;
+            color: #fff;
+            vertical-align: top;
+            line-height: 28px;
+        }
+    }
+
+    &.selected { border-color: #ddd; }
+
+    &.incorrect {
+        background-color: @brand-danger;
+        border: none;
+        &:before {
+            content: "\f00d";
+            font-family: "FontAwesome";
+            font-size: 22px;
+            color: white;
+            vertical-align: top;
+        }
+    }
+}
+
+.btn {
+    &:before {
+        font-family: "FontAwesome";
+        font-size: 20px;
+        color: white;
+    }
+    border-radius: 0;
+}
+
+.btn.play:before {
+    content: "\f04b";
+    vertical-align: text-top;
+}
+.btn.stop:before {
+    content: "\f04d";
+    vertical-align: text-top;
+}
+
+.player {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    background-color: #e0e0e0;
+    height: 44px;
+    z-index: 0;
+    &:hover {
+        cursor: pointer;
+    }
+    .progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 44px;
+        width: 0%;
+        background-color: #bbb;
+        z-index: 1;
+        -webkit-transition: width 0.25s linear;
+        -moz-transition: width 0.25s linear;
+        transition: width 0.25s linear;
+    }
+
+    .txt {
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: right;
+        height: 44px;
+        width: 150px;
+        margin: 14px 10px 0 0;
+        z-index: 2;
+        color: #787878;
+        font-size: 12px;
+    }
+
+}
+
+.bonus {
+    display: none;
+
+    h3 { margin: 0 0 22px 0; }
+    .answers {
+        li {
+            display: block;
+            margin-bottom: 5px;
+            p {
+                margin: 10px 0 0 0;
+            }
+        }
+        .answer {
+            line-height: 44px;
+        }
+    }
+}
+
+.result,
+.fact {
+    display: none;
+    background: rgba(68, 77, 88, 0.9);
+    padding: 10px 20px;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+.try-again {
+    margin: 20px 0;
+    .reset-btn {
+        background-color: @buttonColor;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        font-size: 18px;
+
+        &:hover {
+            background-color: @buttonHoverColor;
+            transition: background-color 0.1s ease-out, border-color 0.1s ease-out;
+            text-decoration: none;
+        }
+
+        &:before {
+            font-family: FontAwesome;
+            font-size: 18px;
+            content: '\f021';
+            color: white;
+            margin-right: 7px;
+        }
+    }
+}
+
+/* responsive tweaks */
+@media screen and (max-width: 480px) {
+    .question-number,
+    .bonus-q {
+        font-size: 12px;
+    }
+
+    .info {
+        margin-bottom: 0;
+
+        .artist,
+        .song-title {
+            font-size: 14px;
+        }
+    }
+
+    .bonus .answers li {
+        .clearfix();
+        margin-bottom: 11px;
+
+        .letter {
+            display: block;
+            float: left;
+            width: 44px;
+        }
+        .answer {
+            display: block;
+            min-height: 44px;
+            vertical-align: top;
+            margin-left: 50px;
+            line-height: 1.4;
+        }
+    }
+}
+
+.footer p {
+    color: #999;
+    font-size: 12px;
+}

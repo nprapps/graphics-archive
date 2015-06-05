@@ -1,0 +1,182 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <h3>{{ COPY.labels.quiz_prompt }}</h3>
+
+    <div id="quiz">
+    </div>
+
+    <div class="bonus">
+        <div class="question-header row">
+            <div class="question-title col-xs-12">
+                {{ COPY.labels.bonus_question }}
+            </div>
+        </div>
+
+        <div class="question row">
+            <div class="answers col-xs-12">
+                <h3>How did you listen to this quiz?</h3>
+                <ul>
+                    <li>
+                        <span class="letter" data-answer="a">A</span>
+                        <span class="answer">Headphones plugged into your phone or computer</span>
+                    </li>
+                    <li>
+                        <span class="letter" data-answer="b">B</span>
+                        <span class="answer">Headphones plugged into amplifier or DAC</span>
+                    </li>
+                    <li>
+                        <span class="letter" data-answer="c">C</span>
+                        <span class="answer">Phone, tablet, or built-in computer speakers</span>
+                    </li>
+                    <li>
+                        <span class="letter" data-answer="d">D</span>
+                        <span class="answer">External speakers plugged into your phone or computer</span>
+                    </li>
+                    <li>
+                        <span class="letter" data-answer="e">E</span>
+                        <span class="answer">External speakers plugged into amplifier or DAC</span>
+                    </li>
+                    <li>
+                        <span class="letter" data-answer="f">F</span>
+                        <span class="answer">Bluetooth headphones or speakers</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="result row"></div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer row">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+</div>
+
+    <div id="audio"></div>
+
+    <script id="question-template" type="text/template">
+        <div class="question-wrapper">
+            <div class="question-header row">
+                <div class="question-title col-xs-12">
+                    Question <%= index + 1 %>/6
+                </div>
+            </div>
+            <div class="question row" data-index="<%= index %>">
+                <div class="info col-sm-4 col-xs-12">
+                    <div class="art">
+                        <img src="http://media.npr.org/news/graphics/2015/05/streaming-quiz/<%= question['art'] %>" onload='sendHeight()'>
+                    </div>
+                    <div class="song-info">
+                        <h3 class="artist"><%= question['artist'] %></h3>
+                        <% if (question['song'] === 'Mozart: Piano Concerto No. 17, K. 453 (II. Andante)') { %>
+                            <h3 class="song-title"><%= question['song'] %></h3>
+                        <% } else { %>
+                            <h3 class="song-title">&lsquo;<%= question['song'] %>&rsquo;</h3>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="answers col-sm-8 col-xs-12">
+                    <div class="pick">Your<br />Pick</div>
+                    <ul>
+                        <li class="answer">
+                            <div class="btn-wrap">
+                                <div class="btn play"></div>
+                            </div>
+                            <div class="player-wrap">
+                                <div class="player" data-answer="a">
+                                    <div class="progress"></div>
+                                    <div class="txt">Sample 1</div>
+                                </div>
+                            </div>
+                            <div class="pick-wrap">
+                                <span class="checkbox"></span>
+                            </div>
+                        </li>
+                        <li class="answer">
+                            <div class="btn-wrap">
+                                <div class="btn play"></div>
+                            </div>
+                            <div class="player-wrap">
+                                <div class="player" data-answer="b">
+                                    <div class="progress"></div>
+                                    <div class="txt">Sample 2</div>
+                                </div>
+                            </div>
+                            <div class="pick-wrap">
+                                <span class="checkbox"></span>
+                            </div>
+                        </li>
+                        <% if (Modernizr.audio.wav) { %>
+                            <li class="answer">
+                                <div class="btn-wrap">
+                                    <div class="btn play"></div>
+                                </div>
+                                <div class="player-wrap">
+                                    <div class="player" data-answer="c">
+                                        <div class="progress"></div>
+                                        <div class="txt">Sample 3</div>
+                                    </div>
+                                </div>
+                                <div class="pick-wrap">
+                                    <span class="checkbox"></span>
+                                </div>
+                            </li>
+                        <% } else { %>
+                            <li>
+                                <p>Lossless audio is not supported in your browser. To hear the uncompressed WAV sample, visit this page Google Chrome, Mozilla Firefox or Apple Safari.</p>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+            <div class="fact row">
+                <div class="col-xs-12">
+                    <p><%= question['fact'] %></p>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="result-template" type="text/template">
+        <div class="col-xs-12">
+            <div class="score">
+                <h3>You got <%= score %> out of 6 correct!</h3>
+            </div>
+            <div class="explanation">
+                <%= explanation %>
+            </div>
+            <div class="try-again">
+                <a class="reset-btn" href="#">Try Again</a>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/javascript">
+        window.QUIZ = {{ COPY.questions.json() }};
+        window.RESULTS = {{ COPY.results.json() }};
+    </script>
+
+{% endblock content %}
+
+{% block js %}
+    {{ JS.push('js/lib/modernizr.js') }}
+    {{ JS.push('js/lib/jquery.js') }}
+    {{ JS.push('js/lib/underscore.js') }}
+    {{ JS.push('js/lib/jquery.jplayer.min.js') }}
+    {{ JS.push('js/lib/velocity.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}
