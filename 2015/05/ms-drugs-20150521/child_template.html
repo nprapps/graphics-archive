@@ -1,0 +1,54 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th>{{ COPY.labels.hdr_drug }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_date }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_cost_orig_infl }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_cost_2013 }}</th>
+                    <th class="amt"><strong>{{ COPY.labels.hdr_pct_increase }}</strong></th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr>
+                <td data-title="{{ COPY.labels.drug }}">{{ row.drug }}</td>
+                <td data-title="{{ COPY.labels.hdr_date }}" class="amt">{{ row.approval_date }}</td>
+                <td data-title="{{ COPY.labels.label_cost_orig_infl }}" class="amt">${{ row.cost_orig_infl }}</td>
+                <td data-title="{{ COPY.labels.hdr_cost_2013 }}" class="amt">${{ row.cost_2013 }}</td>
+                <td data-title="{{ COPY.labels.hdr_pct_increase }}" class="amt"><strong>{{ row.pct_increase }}%</strong></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

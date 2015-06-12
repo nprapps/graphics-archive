@@ -1,0 +1,33 @@
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.zero-line {
+    fill: none;
+    stroke-width: 1px;
+    stroke: #666;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 480px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .key {
+        display: none;
+    }
+}

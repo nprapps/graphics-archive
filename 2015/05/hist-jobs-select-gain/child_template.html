@@ -1,0 +1,47 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div>
+        <ul class = 'key'> 
+            select a job: 
+            <select class = "dropdown" id = "occupation2"> 
+                <option value = "accountants"> accountants</option>
+                <option value = "actors, artists, musicians and designers"> actors, artists, musicians and designers </option>
+                <option value = "barbers, beauticians and manicurists"> barbers, beauticians and manicurists</option>
+                <option value = "cashiers"> cashiers</option>
+                <option value = "cooks and bakers"> cooks and bakers</option>
+                <option value = "doctors"> doctors</option>
+                <option value = "engineers"> engineers</option>
+                <option value = "firemen and policemen"> firemen and policemen</option>
+                <option value = "guards, watchmen and doorkeepers"> guards, watchmen and doorkeepers</option>
+                <option value = "lawyers and judges"> lawyers and judges</option>
+                <option value = "nurses"> nurses</option>
+                <option value = "professors"> professors</option>
+                <option value = "social and welfare workers"> social and welfare workers</option>
+                <option value = "waiters and waitresses"> waiters and waitresses</option>
+            </select>
+        </ul>
+    </div>
+
+    <div id="graphic"><img src="fallback.png" alt="[Chart]" class="fallback" /></div>
+
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+    <script src="js/typeahead.js" type="text/javascript"></script>
+
+
+{% endblock content %}

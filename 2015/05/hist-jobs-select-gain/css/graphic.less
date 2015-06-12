@@ -1,0 +1,188 @@
+#graphic {
+    position: relative;
+    margin-bottom: 11px;
+}
+#graphic:before,
+#graphic:after {
+    content: ' ';
+    display: table;
+}
+#graphic:after { clear: both; }
+#graphic img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* chart */
+.axis {
+    font-size: 11px;
+    -webkit-font-smoothing: antialiased;
+    fill: #999;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #ccc;
+    shape-rendering: crispEdges;
+}
+.axis.y path { display: none; }
+.axis.y .tick line { display: none; }
+.grid.y g:first-child line { display: none; }
+.grid path { display: none; }
+.grid .tick {
+    stroke: #eee;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+}
+
+
+#lines-thin {
+  fill: none;
+  stroke-width: 1px;
+  stroke: #ccc;
+  opacity: 1;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+
+}
+
+.lines {
+    fill: none;
+    stroke-width: 2px;
+    stroke: #3D7FA6;
+}
+.area {
+    fill: #A8D5EF;
+    /*stroke:#3D7FA6;*/
+    stroke-width: 2px;
+    opacity: .8;    
+}
+
+.selected {
+    stroke: black;
+    stroke-width: 1.5;
+    opacity: .4;
+}
+
+
+.occupation-hover {
+    stroke: black ;
+    opacity: .6;
+    stroke-width: 1.2;
+    cursor: pointer;
+}
+
+.voronoi path {
+    fill: none;
+    /*stroke: red;*/
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.focus, .focus-first, .focus-last, .focus-data, .focus-date text {
+  font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+  font-size: 11px;
+  text-anchor: middle;
+  color: #7F7F7F;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+}      
+
+.focus text {
+  font-size: 12px;
+}
+
+.focus-box {
+  stroke: #7F7F7F;
+  color: #7F7F7F;
+  fill: #fff;
+}
+
+.focus-dot {
+  stroke: #000;
+  stroke-width: 1px;
+  fill: none;
+}
+
+.focus-first-dot, .focus-last-dot {
+  fill: #3D7FA6;
+}
+
+.key {
+  display: table-row;
+  margin-left: 0;
+  font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;  
+  font-weight: bold;
+  font-size: 12px;
+  color: #ccc;
+  margin: 6px;
+  margin-right: 12px;
+  -webkit-font-smoothing: antialiased;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.dropdown {
+  font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;  
+  font-weight: bold;
+  color: #47A2E3;
+  font-size: 12px;
+  // text-transform: uppercase;
+  fill: none;
+  background-color: white;
+  stroke-width: 3px;
+  left: 0;
+  margin-left: 6px;
+  margin-bottom: 10px;
+  height: 30px;
+  border: solid 1px #47A2E3;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+
+}
+
+  .dropdown:hover {
+    color: #3D7FA6;
+    border: solid 1.25px #3D7FA6;
+  }
+
+
+#occupation {
+   background-color: #fff;
+}
+
+#occupation2 {
+   background-color: #fff;
+}
+
+.annote-day-text {
+  font-size: 12px;
+  fill: black;        
+  opacity: .7;
+  text-anchor: middle;
+}
+
+.annote-day-text2 {
+  font-size: 12px;
+  stroke: #ccc;        
+  stroke-width: .2;
+  stroke-dasharray: 8, 5;
+  text-anchor: start;
+}
+
+
+#graphic .arrow { stroke: #555; fill: #ccc; }
+
+line.arrow {
+    stroke: #666;
+    stroke-width: 1px;
+}
+marker#arrow {
+    fill: #666;
+}       
+
+.workday {
+    fill: #F1F1F1;
+}        
+
+

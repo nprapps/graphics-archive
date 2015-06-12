@@ -1,0 +1,35 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div>
+        <ul class = 'key'> 
+            Select A Job: 
+            <select class = "dropdown" id = "occupation2"> 
+                   <option selected = "carpenters">carpenters</option>
+                   <option value = "blacksmiths" > blacksmiths </option>
+                   <option value = "cabinetmakers" > cabinetmakers </option>
+                   <option value = "sailors and deckhands" > sailors and deckhands </option>
+                   <option value = "shoemakers and repairers, except factory" > shoemakers and repairers, except factory </option>
+            </select>
+        </ul>
+    </div>
+
+    <div id="graphic"><img src="fallback.png" alt="[Chart]" class="fallback" /></div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
