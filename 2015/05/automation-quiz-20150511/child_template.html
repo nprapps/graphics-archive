@@ -1,0 +1,266 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+<!--     <form id="quiz">
+        {% for question in COPY.questions %}
+            <div class="question" data-category="{{ question.category }}">
+                <h3>What level of {{ question.name }} is needed to perform your current job?</h3>
+                {% for i in range(1, 8) %}
+                <input type="radio" name="{{ question.category }}" value="{{ i }}" {% if i == 1 %}checked="checked"{% endif %}>{{ i }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+
+        <button type="submit">Score me</button>
+    </form> -->
+
+    <form id="quiz">
+        
+            <div class="question" data-category="Assisting and caring for others">
+                <h3>What level of Assisting and Caring for Others is needed to perform your current job?</h3>
+                <h4>2 = Help a coworker complete and assignement, 4 = assist a stranded traveler find lodging, 6 = Care for seriously injusted person in an emergency room</h4>
+                
+                <input type="radio" name="Assisting and caring for others" value="1" >1</a>
+                
+                <input type="radio" name="Assisting and caring for others" value="2" >2</a>
+                
+                <input type="radio" name="Assisting and caring for others" value="3" >3</a>
+                
+                <input type="radio" name="Assisting and caring for others" value="4" checked="checked">4</a>
+                
+                <input type="radio" name="Assisting and caring for others" value="5" >5</a>
+                
+                <input type="radio" name="Assisting and caring for others" value="6" >6</a>
+                
+                <input type="radio" name="Assisting and caring for others" value="7" >7</a>
+                
+            </div>
+        </div>
+        
+            <div class="question" data-category="Persuasion">
+                <h3>What level of Persuasion is needed to perform your current job?</h3>
+                <h4>2 = Solicit donations for charity, 4 = Convince a supervisor to buy a new copy machine, 6 = Change the opinion of a jury</h4>
+
+
+                <input type="radio" name="Persuasion" value="1" >1</a>
+                
+                <input type="radio" name="Persuasion" value="2" >2</a>
+                
+                <input type="radio" name="Persuasion" value="3" >3</a>
+                
+                <input type="radio" name="Persuasion" value="4" checked="checked">4</a>
+                
+                <input type="radio" name="Persuasion" value="5" >5</a>
+                
+                <input type="radio" name="Persuasion" value="6" >6</a>
+                
+                <input type="radio" name="Persuasion" value="7" >7</a>
+                
+            </div>
+        </div>
+        
+            <div class="question" data-category="Negotiation">
+                <h3>What level of Negotiation is needed to perform your current job?</h3>
+                <h4>2 = Apologize to a customer who complains about waiting too long, 4 = Get two subordinates to agree about vacation schedules, 7 = Negotiate a major labor-management contract</h4>
+                
+                <input type="radio" name="Negotiation" value="1" >1</a>
+                
+                <input type="radio" name="Negotiation" value="2" >2</a>
+                
+                <input type="radio" name="Negotiation" value="3" >3</a>
+                
+                <input type="radio" name="Negotiation" value="4" checked="checked">4</a>
+                
+                <input type="radio" name="Negotiation" value="5" >5</a>
+                
+                <input type="radio" name="Negotiation" value="6" >6</a>
+                
+                <input type="radio" name="Negotiation" value="7" >7</a>
+                
+            </div>
+        </div>
+        
+            <div class="question" data-category="Social perceptiveness">
+                <h3>What level of Selling Or Influencing Others is needed to perform your current job?</h3>
+                <h4>1 = Convince an coworker to help with assignement, 4 = Deliver standard arguments or sales pitches to convince others to buy a popular product, 6 = Deliver major sales campaign to a new market </h4>
+                
+                <input type="radio" name="Social perceptiveness" value="1" >1</a>
+                
+                <input type="radio" name="Social perceptiveness" value="2" >2</a>
+                
+                <input type="radio" name="Social perceptiveness" value="3" >3</a>
+                
+                <input type="radio" name="Social perceptiveness" value="4" checked="checked">4</a>
+                
+                <input type="radio" name="Social perceptiveness" value="5" >5</a>
+                
+                <input type="radio" name="Social perceptiveness" value="6" >6</a>
+                
+                <input type="radio" name="Social perceptiveness" value="7" >7</a>
+                
+            </div>
+        </div>
+        
+            <div class="question" data-category="Fine arts">
+                <h3>What level of Fine Arts is needed to perform your current job?</h3>
+                <h4>1 = Attend a pop concert, 4 = play a minor part in a local play, 6 = Design an artistic display for a major trade show</h4>
+                
+                <input type="radio" name="Fine arts" value="1" >1</a>
+                
+                <input type="radio" name="Fine arts" value="2" >2</a>
+                
+                <input type="radio" name="Fine arts" value="3" >3</a>
+                
+                <input type="radio" name="Fine arts" value="4" checked="checked">4</a>
+                
+                <input type="radio" name="Fine arts" value="5" >5</a>
+                
+                <input type="radio" name="Fine arts" value="6" >6</a>
+                
+                <input type="radio" name="Fine arts" value="7" >7</a>
+                
+            </div>
+        </div>
+        
+            <div class="question" data-category="Originality">
+                <h3>What level of Originality is needed to perform your current job?</h3>
+                <h4>2 = Use a credit card to open a locked door, 4 = Redesign job taks to be interesting for employees, 6 = Invent a new man-made fiber</h4>
+                
+                <input type="radio" name="Originality" value="1" >1</a>
+                
+                <input type="radio" name="Originality" value="2" >2</a>
+                
+                <input type="radio" name="Originality" value="3" >3</a>
+                
+                <input type="radio" name="Originality" value="4" checked="checked">4</a>
+                
+                <input type="radio" name="Originality" value="5" >5</a>
+                
+                <input type="radio" name="Originality" value="6" >6</a>
+                
+                <input type="radio" name="Originality" value="7" >7</a>
+                
+            </div>
+        </div>
+        
+            <div class="question" data-category="Manual dexterity">
+                <h3>What level of Manual Dexterity is needed to perform your current job?</h3>
+                <h4>2 = Screw in a lightbulb, 4 = Pack oranges into crates as fast as possible, 7 = Perform open heart surgery with surgical instruments</h4>
+                
+                <input type="radio" name="Manual dexterity" value="1" >1</a>
+                
+                <input type="radio" name="Manual dexterity" value="2" >2</a>
+                
+                <input type="radio" name="Manual dexterity" value="3" >3</a>
+                
+                <input type="radio" name="Manual dexterity" value="4" checked="checked">4</a>
+                
+                <input type="radio" name="Manual dexterity" value="5" >5</a>
+                
+                <input type="radio" name="Manual dexterity" value="6" >6</a>
+                
+                <input type="radio" name="Manual dexterity" value="7" >7</a>
+                
+            </div>
+        </div>
+        
+            <div class="question" data-category="Finger dexterity">
+                <h3>What level of Finger Dexterity is needed to perform your current job?</h3>
+                <h4>2 = Putting coins in a parking meter, 4 = Attach small knobs to stereo equipment on an assembly line, 6 = Put together the inner workings of a small wrist</h4>
+                
+                <input type="radio" name="Finger dexterity" value="1" >1</a>
+                
+                <input type="radio" name="Finger dexterity" value="2" >2</a>
+                
+                <input type="radio" name="Finger dexterity" value="3" >3</a>
+                
+                <input type="radio" name="Finger dexterity" value="4" checked="checked">4</a>
+                
+                <input type="radio" name="Finger dexterity" value="5" >5</a>
+                
+                <input type="radio" name="Finger dexterity" value="6" >6</a>
+                
+                <input type="radio" name="Finger dexterity" value="7" >7</a>
+                
+            </div>
+        </div>
+        
+            <div class="question" data-category="Cramped work space">
+                <h3>What level of Cramped work space is needed to perform your current job?</h3>
+                
+                <input type="radio" name="Cramped work space" value="1" >1</a>
+                
+                <input type="radio" name="Cramped work space" value="2" >2</a>
+                
+                <input type="radio" name="Cramped work space" value="3" >3</a>
+                
+                <input type="radio" name="Cramped work space" value="4" checked="checked">4</a>
+                
+                <input type="radio" name="Cramped work space" value="5" >5</a>
+                
+                <input type="radio" name="Cramped work space" value="6" >6</a>
+                
+                <input type="radio" name="Cramped work space" value="7" >7</a>
+                
+            </div>
+        </div>
+        
+
+        <button type="submit">Score me</button>
+    </form>
+
+    <div id="results">
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var QUESTION_DATA = {{ COPY.questions2.json() }};
+        console.log('QUESTION_DATA', QUESTION_DATA)
+        var JOB_DATA = {{ COPY.jobs.json() }};
+        console.log('JOB_DATA', JOB_DATA)
+    </script>
+
+    <script id="results-template" type="text/template">
+        <h2>Results</h2>
+        <p>Probability That Your Job Will Be Automated</p>
+        <ul>
+            <% var job = JOB_DATA[0] %>
+            <li><%= Math.round(job['Probability of Computerisation'] * 100, 2) + "%" %>  ( Probability derived from this job: <%= job['Occupation Name']  %>)</li>
+        </ul>
+        // <p>Five Next Best Matching Probabilities (Won't be included in the quiz. Just a gut check) </p>
+        <ul>
+            <% for (var i = 1; i < 6; i++) { %>
+                <% var job = JOB_DATA[i] %>
+            <li><%= Math.round(job['Probability of Computerisation'] * 100, 2) + "%" %>  ( Probability derived from this job: <%= job['Occupation Name']  %>)</li>
+            <% } %>
+        </ul>
+    </script>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery.js') }}
+    {{ JS.push('js/lib/underscore.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/base.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

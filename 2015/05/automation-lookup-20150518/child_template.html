@@ -1,0 +1,76 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <!-- <div class = "select-directions"> -->
+        <!-- <label class="select-group">Pick A Job Category</label> -->
+        <!-- <label class="select-job">Pick A Job Category</label> -->
+    <!-- <div> -->
+
+    <select id="category">
+        {% for category in COPY.categories %}
+        <option value="{{ category['bls_code'] }}" {% if category['name'] == 'Office and Administrative Support' %}selected="selected"{% endif %}>{{ category['name'] }}</option>
+        {% endfor %}
+    </select>
+
+    <select id="job">
+    </select>
+
+    <div id='output-container' style="display: none;">
+        <div id='imageContainer'>
+            <img class="human-1" style="display:none;" src="assets/human-1.gif">
+            <img class="human-2" style="display:none;" src="assets/human-2.gif">
+            <img class="human-3" style="display:none;" src="assets/human-3.gif">
+            <img class="human-4" style="display:none;" src="assets/human-4.gif">
+        </div>
+        <div id="output"></div>
+    </div>
+
+    {% for trait in COPY.traits %}
+    <div class="chart-wrapper {% if loop.index % 2 == 1 %}wrap{% endif %}">
+        <h3>{{ trait.longname }}</h3>
+        <div id="{{ trait.slug }}-chart"></div>
+    </div>
+    {% endfor %}
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var JOBS = {{ COPY.jobs.json() }};
+        var TRAITS = {{ COPY.traits.json() }};
+        var DISTRIBUTIONS = {{ COPY.distribution_buckets.json() }};
+    </script>
+
+    <script id="output-template" type="text/template">
+
+        <p class="output-text"><%= job['Occupation Name'] %> have a </p>
+        <p class="output-probability"><%= (job['Probability of Computerisation'] * 100).toFixed(1) %>%</p>
+        <p class="output-text">chance of being automated.</p>
+        <p>How do we know this? Some aspects of a job are easier to automate than others. It all depends on the tasks. Look at the orange bars to see how <%= job['Occupation Name'] %> compare with other professions...</p>
+    </script>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery.js') }}
+    {{ JS.push('js/lib/underscore.js') }}
+    {{ JS.push('js/lib/d3.min.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}
