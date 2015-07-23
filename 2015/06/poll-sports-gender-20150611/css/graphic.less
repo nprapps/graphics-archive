@@ -1,0 +1,115 @@
+h3 {
+    margin: 0 0 6px 0;
+    font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    color: #333;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+    
+.group {
+    ul {
+        list-style-type: none;
+        margin: 0 0 15px 0;
+        padding: 0;
+        
+        > li {
+            display: table;
+            width: 100%;
+            background-color: #f1f1f1;
+            margin: 0 0 2px 0;
+            font-size: 12px;
+            
+            &.hed {
+                font-weight: bold;
+                background: none;
+                padding: 0 0 5px 0;
+                font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+                -webkit-font-smoothing: antialiased;
+                text-transform: uppercase;
+                font-weight: 400;
+                font-size: 13px;
+                color: #666;
+            }
+            
+            &.active {
+                background-color: #7DBFE6;
+                color: #fff;
+                cursor: pointer;
+                transition: background-color 0.2s ease-out;
+            }
+
+/*
+            &.baseball-softball { background-color: #7dbfe6; } // 6
+            &.basketball { background-color: #97c9e8; } // 5
+            &.golf { background-color: #97c9e8; } // 5
+            &.running-track { background-color: #97c9e8; } // 5
+            &.tennis { background-color: #afd3eb; } // 4
+            &.biking { background-color: #c5dded; } // 3
+            &.soccer { background-color: #c5dded; } // 3
+            &.walking { background-color: #c5dded; } // 3
+            &.swimming { background-color: #dbe7ef; } // 2
+            &.volleyball { background-color: #dbe7ef; } // 2
+            &.bowling { background-color: #f1f1f1; } // 1
+            &.dance { background-color: #f1f1f1; } // 1
+            &.fishing { background-color: #f1f1f1; } // 1
+            &.football { background-color: #f1f1f1; } // 1 
+*/
+
+            span {
+                display: table-cell;
+                vertical-align: top;
+                padding: 5px;
+                
+                &.rank { 
+                    width: 20px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+
+/* responsive table */
+@media screen and (min-width: 501px) {
+    .group {
+        display: table;
+        width: 100%;
+        margin-bottom: 11px;
+        
+        ul {
+            display: table-cell;
+            width: 25%;
+            padding: 0 5px 0 0;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .group {
+        &:before,
+        &:after {
+            content: ' ';
+            display: table;
+        }
+        &:after { clear: both; }
+        
+        ul {
+            display: block;
+            
+            &.age18,
+            &.age50 {
+                width: 48%;
+                float: left;
+            }
+
+            &.age30,
+            &.age65 {
+                width: 48%;
+                float: right;
+            }
+        }
+    }
+}

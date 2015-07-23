@@ -1,0 +1,61 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+    
+        {% for group in COPY.final %}
+        <div class="activity cal-{{ group.calories }} {% if group.image %}illo{% else %}no-illo{% endif %}">
+            
+            {% if group.image %}
+            <div class="illustration">
+                <img src="assets/{{ group.image }}" alt="Illustration" />
+            </div>
+            {% endif %}
+            
+            <div class="description">
+                <div class="title">
+                    <h3>{{ group.group_title }}</h3>
+                    <h4>{{ group.calories }} calories</h4>
+                </div>
+                <ul>
+                    <li>
+                        {{ group.activity_1 }}
+                        {% if group.activity_1_sub %}<i>{{ group.activity_1_sub }}</i>{% endif %}
+                    </li>
+                    <li>
+                        {{ group.activity_2 }}
+                        {% if group.activity_2_sub %}<i>{{ group.activity_2_sub }}</i>{% endif %}
+                    </li>
+                    <li>
+                        {{ group.activity_3 }}
+                        {% if group.activity_3_sub %}<i>{{ group.activity_3_sub }}</i>{% endif %}
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        {% endfor %}
+    
+    </div>
+    
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+    {% if COPY.labels.download_link %}
+    <div class="download">{{ COPY.labels.download_link }}</div>
+    {% endif %}
+
+{% endblock content %}

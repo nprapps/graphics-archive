@@ -1,0 +1,63 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <ul class="key">
+        <li class="key-item key-0 below }}"><b></b><label>Below basic</label></li>
+        <li class="key-item key-1 basic"><b></b><label>Basic</label></li>
+        <li class="key-item key-2 proficient"><b></b><label>Proficient</label></li>
+    </ul>
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">{{ COPY.labels.hdr_state }}</th>
+                    <th colspan="2" class="amt grade">{{ COPY.labels.hdr_4th }}</th>
+                    <th colspan="2" class="amt grade">{{ COPY.labels.hdr_8th }}</th>
+                </tr>
+                <tr>
+                    <th class="amt">{{ COPY.labels.hdr_reading }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_math }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_reading }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_math }}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="{{ row.usps|lower }}">
+                <td data-title="{{ COPY.labels.hdr_state }}">{{ row.state }}</td>
+                <td data-title="{{ COPY.labels.hdr_4th }}: {{ COPY.labels.hdr_reading }}" class="amt reading4 {{ row.read_4_score }}">{{ row.read_4|int }}</td>
+                <td data-title="{{ COPY.labels.hdr_4th }}: {{ COPY.labels.hdr_math }}" class="amt math4 {{ row.math_4_score }}">{{ row.math_4|int }}</td>
+                <td data-title="{{ COPY.labels.hdr_8th }}: {{ COPY.labels.hdr_reading }}" class="amt reading8 {{ row.read_8_score }}">{{ row.read_8|int }}</td>
+                <td data-title="{{ COPY.labels.hdr_8th }}: {{ COPY.labels.hdr_math }}" class="amt math8 {{ row.math_8_score }}">{% if row.math_8 != 'n/a' %}{{ row.math_8|int }}{% else %}{{ row.math_8 }}{% endif %}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

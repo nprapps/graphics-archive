@@ -1,0 +1,45 @@
+.wrapper { position: relative; }
+
+.key .key-item b.d  { 
+    background-color: #51AADE;
+    margin-right: 1px;
+}
+.key .key-item b.r  { background-color: #D8472B; }
+.key .key-item b.us { background-color: #ddd; }
+
+.bars.us rect { fill: #ddd; }
+.bars.state rect { 
+    &.d { fill: #51AADE; }
+    &.r { fill: #D8472B; }
+}
+
+.labels {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: none;
+
+    li {
+        position: absolute;
+        text-align: right;
+        font-size: 12px;
+        line-height: 1.3;
+        color: #666;
+        display: table;
+        -webkit-font-smoothing: antialiased;
+        
+        span {
+            display: table-cell;
+            vertical-align: middle;
+            font-weight: bold;
+        }
+        i {
+            display: block;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 11px;
+            color: #999;
+        }
+    }
+}

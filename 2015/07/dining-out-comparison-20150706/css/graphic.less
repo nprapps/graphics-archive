@@ -1,0 +1,25 @@
+@import "base";
+
+.sodium .bars rect { fill: @orange3; }
+.sat-fat .bars rect { fill: @yellow3; }
+
+#graphic h3 {
+  font-size: 12px;
+  color: #333;
+  font-weight: normal;
+  font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0 0 11px 0;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+}
+
+.axis.x text { fill: #333; }
+
+@media screen and (min-width: 501px) {
+    .graphic-wrapper { float: left; }
+}
+@media screen and (max-width: 500px) {
+    .graphic-wrapper { margin-bottom: 22px; }
+}

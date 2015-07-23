@@ -1,0 +1,36 @@
+bbox: '-75.4156 16.5358 -67.9637 20.5763'
+layers:
+    countries:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip'
+        id-property: 'NAME'
+        properties:
+            - 'country=NAME'
+    cities:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_populated_places_simple.zip'
+        id-property: 'name'
+        properties:
+            - 'featurecla'
+            - 'city=name'
+            - 'scalerank'
+        where: adm0name = 'Haiti' AND scalerank < 8
+
+    neighbors:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_populated_places_simple.zip'
+        id-property: 'name'
+        properties:
+            - 'featurecla'
+            - 'city=name'
+            - 'scalerank'
+        where: adm0name != 'Haiti' AND scalerank <= 2
+
+    lakes:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/physical/ne_10m_lakes.zip'
+
+    rivers:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/physical/ne_10m_rivers_lake_centerlines.zip'
+        where: featurecla = 'River'

@@ -1,0 +1,82 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2">{{ COPY.labels.hdr_candidate }}</th>
+                    <th class="rating">{{ COPY.labels.hdr_moody}}</th>
+                    <th class="rating">{{ COPY.labels.hdr_sp }}</th>
+                    <th class="rating">{{ COPY.labels.hdr_fitch }}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="{{ row.name|lower|replace(' ', '-') }}">
+                <td class="icon">
+                    <span class="stateface stateface-{{ row.state_postal|lower }}"></span>
+                </td>
+                <td data-title="{{ COPY.labels.hdr_candidate }}" class="candidate">
+                    <strong>
+                        {{ row.name }}<br />
+                        {{ row.state }}
+                    </strong>
+                    {{ row.term }}
+                </td>
+                <td data-title="{{ COPY.labels.hdr_moody }}" class="rating {% if row.moody|float > 0 %}upgrade{% elif row.moody|float < 0 %}downgrade{% endif %}">
+                    <strong>{{ row.moody_verbose }}</strong>
+                    {% if row.moody|float != 0 %}
+                        {{ row.moody_start }} to&nbsp;{{ row.moody_end }}
+                    {% else %}
+                        {{ row.moody_end }}
+                    {% endif %}
+                </td>
+                <td data-title="{{ COPY.labels.hdr_sp }}" class="rating {% if row.sp|float > 0 %}upgrade{% elif row.sp|float < 0 %}downgrade{% endif %}">
+                    <strong>{{ row.sp_verbose }}</strong>
+                    {% if row.sp|float != 0 %}
+                        {{ row.sp_start }} to&nbsp;{{ row.sp_end }}
+                    {% else %}
+                        {{ row.sp_end }}
+                    {% endif %}
+                </td>
+                <td data-title="{{ COPY.labels.hdr_fitch }}" class="rating {% if row.fitch|float > 0 %}upgrade{% elif row.fitch|float < 0 %}downgrade{% endif %}">
+                    <strong>{{ row.fitch_verbose }}</strong>
+                    {% if row.fitch|float != 0 %}
+                        {{ row.fitch_start }} to&nbsp;{{ row.fitch_end }}
+                    {% else %}
+                        {{ row.fitch_end }}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

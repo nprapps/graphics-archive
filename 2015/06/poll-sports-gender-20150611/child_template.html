@@ -1,0 +1,136 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+    
+        <h3>Among Men</h3>
+        <div id="men" class="group">
+            <ul class="age18">
+                <li class="hed">Age 18-29</li>
+                {% for row in COPY.data %}
+                {% if row.group == '18-29' and row.gender == 'Men' %}
+                    <li class="activity {{ row.sport|lower|replace(' ', '-')|replace('/', '-') }}">
+                        <span class="rank">{{ row.rank }}</span>
+                        <span class="sport">{{ row.sport }}</span>
+                    </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+            <ul class="age30">
+                <li class="hed">Age 30-49</li>
+                {% for row in COPY.data %}
+                {% if row.group == '30-49' and row.gender == 'Men' %}
+                    <li class="activity {{ row.sport|lower|replace(' ', '-')|replace('/', '-') }}">
+                        <span class="rank">{{ row.rank }}</span>
+                        <span class="sport">{{ row.sport }}</span>
+                    </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+            <ul class="age50">
+                <li class="hed">Age 50-64</li>
+                {% for row in COPY.data %}
+                {% if row.group == '50-64' and row.gender == 'Men' %}
+                    <li class="activity {{ row.sport|lower|replace(' ', '-')|replace('/', '-') }}">
+                        <span class="rank">{{ row.rank }}</span>
+                        <span class="sport">{{ row.sport }}</span>
+                    </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+            <ul class="age65">
+                <li class="hed">Age 65+</li>
+                {% for row in COPY.data %}
+                {% if row.group == '65+' and row.gender == 'Men' %}
+                    <li class="activity {{ row.sport|lower|replace(' ', '-')|replace('/', '-') }}">
+                        <span class="rank">{{ row.rank }}</span>
+                        <span class="sport">{{ row.sport }}</span>
+                    </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+
+
+        <h3>Among Women</h3>
+        <div id="women" class="group">
+            <ul class="age18">
+                <li class="hed">Age 18-29</li>
+                {% for row in COPY.data %}
+                {% if row.group == '18-29' and row.gender == 'Women' %}
+                    <li class="activity {{ row.sport|lower|replace(' ', '-')|replace('/', '-') }}">
+                        <span class="rank">{{ row.rank }}</span>
+                        <span class="sport">{{ row.sport }}</span>
+                    </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+            <ul class="age30">
+                <li class="hed">Age 30-49</li>
+                {% for row in COPY.data %}
+                {% if row.group == '30-49' and row.gender == 'Women' %}
+                    <li class="activity {{ row.sport|lower|replace(' ', '-')|replace('/', '-') }}">
+                        <span class="rank">{{ row.rank }}</span>
+                        <span class="sport">{{ row.sport }}</span>
+                    </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+            <ul class="age50">
+                <li class="hed">Age 50-64</li>
+                {% for row in COPY.data %}
+                {% if row.group == '50-64' and row.gender == 'Women' %}
+                    <li class="activity {{ row.sport|lower|replace(' ', '-')|replace('/', '-') }}">
+                        <span class="rank">{{ row.rank }}</span>
+                        <span class="sport">{{ row.sport }}</span>
+                    </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+            <ul class="age65">
+                <li class="hed">Age 65+</li>
+                {% for row in COPY.data %}
+                {% if row.group == '65+' and row.gender == 'Women' %}
+                    <li class="activity {{ row.sport|lower|replace(' ', '-')|replace('/', '-') }}">
+                        <span class="rank">{{ row.rank }}</span>
+                        <span class="sport">{{ row.sport }}</span>
+                    </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/lib/d3.min.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

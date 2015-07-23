@@ -1,0 +1,46 @@
+svg { 
+    font-size: 20px;
+}
+
+.countries path {
+    &.primary {
+        stroke: #fff;
+        stroke-width: .5px;
+    }
+}
+
+.country-labels text {
+    fill: #787878;
+    font-size: 80%;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    text-anchor: middle;
+    font-family: 'Gotham SSm', Helvetica, Arial,sans-serif;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+
+    &.primary {
+        fill: #555;
+        font-weight: 700;
+        font-size: 90%;
+    }
+    &.bhutan { display: none; }
+}
+
+.scale-bar {
+    line {
+        stroke: #666;
+        stroke-width: 5px;
+    }
+    text {
+        font-family: Helvetica, Arial,sans-serif;
+        fill: #666;
+        font-size: 60%;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+// responsive styles
+@media screen and (max-width: 480px) {
+    svg { font-size: 12px; }
+}

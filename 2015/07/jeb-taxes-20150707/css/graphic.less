@@ -1,0 +1,24 @@
+@import "base";
+
+.bars rect { 
+    fill: @red5;
+    
+    &.active { fill: @red3; }
+}
+
+.thirty-six-percent {
+    line {
+        stroke-width: 2px;
+        stroke: #333;
+    }
+    text {
+        fill: #333;
+        font-weight: bold;
+        font-size: 11px;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value { display: none; }
+}

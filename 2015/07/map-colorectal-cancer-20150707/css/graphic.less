@@ -1,0 +1,62 @@
+@import "base";
+
+svg { font-size: 20px; }
+
+.landmass path {
+    fill: #ddd;
+    stroke: none;
+}
+
+.states path {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.counties path {
+//    fill: #ddd;
+//    stroke: none;
+    
+//    &.active {
+        fill: @red3;
+        stroke: @red5;
+        stroke-width: .5px;
+//    }
+}
+
+.scale-bar {
+    line {
+        stroke: #666;
+        stroke-width: 5px;
+    }
+    text {
+        font-family: Helvetica, Arial,sans-serif;
+        fill: #666;
+        font-size: 60%;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+// responsive styles
+@media screen and (max-width: 500px) {
+    svg { font-size: 12px; }
+    .countries path { stroke-width: 2px; }
+    .country-labels text {
+        &.bangladesh,
+        &.bhutan {
+            display: none;
+        }
+    }
+    .city-labels text { letter-spacing: .5px; }
+    .city-labels.shadow { display: none; }
+    .city-labels text,
+    .cities path {
+        &.scalerank-4,
+        &.scalerank-5,
+        &.scalerank-6,
+        &.scalerank-7,
+        &.scalerank-8 {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,52 @@
+body {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+h3 {
+    text-transform: uppercase;
+    font-family: 'Knockout 31 4r',Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    margin: 10px 0 20px 0;
+    color: #333;
+}
+
+.chart-wrapper.left {
+    h3 {
+        margin-left: 40px;
+    }
+}
+
+.chart-wrapper.right {
+    h3 {
+        margin-left: 10px;
+    }
+}
+
+.bars rect { fill: #17807E; }
+
+.value text {
+    font-size: 11px;
+}
+
+.chart-wrapper {
+    float: left;
+
+    margin-bottom: 22px;
+}
+
+.footnotes {
+    clear: both;
+}
+
+@media screen and (max-width: 500px) {
+    h3 {
+        font-size: 12px;
+    }
+
+    .value text {
+        display: none;
+    }
+}

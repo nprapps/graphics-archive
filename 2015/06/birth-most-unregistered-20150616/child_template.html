@@ -1,0 +1,41 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div class="chart-wrapper">
+        <h3>{{ COPY.labels.count_hed }}</h3>
+
+        <div id="count-chart" class="chart"><img src="fallback.png" alt="[Chart]" class="fallback" /></div>
+    </div>
+
+    <div class="spacer">
+        &nbsp;
+    </div>
+
+    <div class="chart-wrapper">
+        <h3>{{ COPY.labels.percent_hed }}</h3>
+
+        <div id="percent-chart" class="chart"><img src="fallback.png" alt="[Chart]" class="fallback" /></div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var BY_COUNT_DATA = {{ COPY.by_count.json() }};
+        var BY_PERCENT_DATA = {{ COPY.by_percent.json() }};
+    </script>
+
+{% endblock content %}

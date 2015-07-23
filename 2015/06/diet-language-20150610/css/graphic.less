@@ -1,0 +1,80 @@
+#graphic {
+    font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+    line-height: 1.6;
+    border-top: 1px solid #ebebeb;
+    background-color: #f1f1f1;
+    padding: 44px 11px 22px 11px;
+    margin-bottom: 22px;
+    
+    h3 {
+        font-size: 24px;
+        margin: 0 0 11px 0;
+        text-align: center;
+        font-weight: 700;
+        color: #333;
+    }
+    
+    h4 {
+        font-size: 14px;
+        text-align: center;
+        color: #666;
+        font-weight: normal;
+        line-height: 1.6;
+        margin: 0 0 22px 0;
+    }
+    
+    h5 {
+        text-align: center;
+        font-weight: normal;
+        font-style: italic;
+        margin: 0 0 22px 0;
+    }
+    
+    p { font-size: 13px; }
+    
+    a {
+        text-decoration: underline;
+        color: #666;
+        
+        &:hover { color: #999; }
+    }
+    
+    cite {
+        background-color: #4774CC;
+        font-style: normal;
+        padding: 0 5px;
+        color: #fff;
+        
+        sup { padding-left: 5px; }
+        + span { display: none; }
+        
+        &:hover,
+        &.active {
+            background-color: #bccae5;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        &.active + span {
+            display: block;
+            font-style: italic;
+            margin: 11px 0;
+            font-size: 12px;
+            background-color: #fff;
+            padding: 11px;
+        }
+    }
+}
+
+@media screen and (min-width: 501px) {
+    #graphic {
+        padding: 44px 22px 22px 22px;
+        
+        h3 { font-size: 28px; }
+        h4 { font-size: 18px; }
+        h5 { margin-bottom: 44px; }
+        p { font-size: 14px; }
+        cite.active + span { margin: 22px 33px; }
+
+    }
+}

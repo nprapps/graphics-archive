@@ -1,0 +1,29 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels_change.headline %}<h1>{{ COPY.labels_change.headline }}</h1>{% endif %}
+    {% if COPY.labels_change.subhed %}<h2>{{ render(COPY.labels_change.subhed) }}</h2>{% endif %}
+
+    <div id="graphic"><img src="fallback.png" alt="[Chart]" class="fallback" /></div>
+
+    {% if COPY.labels_change.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels_change.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels_change.source %}<p>Source: {{ COPY.labels_change.source }}</p>{% endif %}
+        {% if COPY.labels_change.credit %}<p>Credit: {{ COPY.labels_change.credit }}</p>{% endif %}
+    </div>
+
+<script type="text/javascript">
+        var GRAPHIC_DATA = {{ COPY['rates'].json() }};
+        var STATE_NAMES = {{ COPY['states'].json() }};
+        var LBL_IMPROVED = "{{ COPY.labels_change.lbl_improved }}";
+        var LBL_DECLINED = "{{ COPY.labels_change.lbl_declined }}";
+    </script>
+
+{% endblock content %}

@@ -1,0 +1,239 @@
+UniqueID,Gi_Bin,FID_1,STATEFP10,COUNTYFP10,GEOID10,NAME10,NAMELSAD10,county,fips_text,HotspotNum,GEOID10_1,StateName
+2,3,0,28,107,28107,Panola,Panola County,Panola,28107,1,28,Mississippi
+4,3,2,28,027,28027,Coahoma,Coahoma County,Coahoma,28027,1,28,Mississippi
+5,3,3,22,065,22065,Madison,Madison Parish,Madison Parish,22065,1,22,Louisiana
+75,2,70,29,093,29093,Iron,Iron County,Iron,29093,1,29,Missouri
+84,2,79,17,065,17065,Hamilton,Hamilton County,Hamilton,17065,1,17,Illinois
+88,3,83,17,181,17181,Union,Union County,Union,17181,1,17,Illinois
+96,2,91,17,047,17047,Edwards,Edwards County,Edwards,17047,1,17,Illinois
+173,3,165,28,053,28053,Humphreys,Humphreys County,Humphreys,28053,1,28,Mississippi
+185,2,177,22,029,22029,Concordia,Concordia Parish,Concordia Parish,22029,1,22,Louisiana
+345,3,326,28,049,28049,Hinds,Hinds County,Hinds,28049,1,28,Mississippi
+455,2,422,17,127,17127,Massac,Massac County,Massac,17127,1,17,Illinois
+457,2,424,17,069,17069,Hardin,Hardin County,Hardin,17069,1,17,Illinois
+607,3,564,05,107,05107,Phillips,Phillips County,Phillips,05107,1,05,Arkansas
+608,3,565,05,111,05111,Poinsett,Poinsett County,Poinsett,05111,1,05,Arkansas
+618,2,575,05,085,05085,Lonoke,Lonoke County,Lonoke,05085,1,05,Arkansas
+621,3,578,05,031,05031,Craighead,Craighead County,Craighead,05031,1,05,Arkansas
+622,3,579,05,079,05079,Lincoln,Lincoln County,Lincoln,05079,1,05,Arkansas
+623,3,580,05,123,05123,St. Francis,St. Francis County,St. Francis,05123,1,05,Arkansas
+625,3,582,05,017,05017,Chicot,Chicot County,Chicot,05017,1,05,Arkansas
+727,2,665,17,157,17157,Randolph,Randolph County,Randolph,17157,1,17,Illinois
+730,3,668,17,153,17153,Pulaski,Pulaski County,Pulaski,17153,1,17,Illinois
+732,2,670,17,055,17055,Franklin,Franklin County,Franklin,17055,1,17,Illinois
+791,3,727,28,011,28011,Bolivar,Bolivar County,Bolivar,28011,1,28,Mississippi
+796,3,732,28,007,28007,Attala,Attala County,Attala,28007,1,28,Mississippi
+797,3,733,28,093,28093,Marshall,Marshall County,Marshall,28093,1,28,Mississippi
+798,3,734,28,043,28043,Grenada,Grenada County,Grenada,28043,1,28,Mississippi
+803,2,739,28,001,28001,Adams,Adams County,Adams,28001,1,28,Mississippi
+806,3,742,22,123,22123,West Carroll,West Carroll Parish,West Carroll Parish,22123,1,22,Louisiana
+826,3,761,05,001,05001,Arkansas,Arkansas County,Arkansas,05001,1,05,Arkansas
+831,3,766,05,035,05035,Crittenden,Crittenden County,Crittenden,05035,1,05,Arkansas
+834,3,769,05,041,05041,Desha,Desha County,Desha,05041,1,05,Arkansas
+842,3,777,05,095,05095,Monroe,Monroe County,Monroe,05095,1,05,Arkansas
+980,3,895,17,077,17077,Jackson,Jackson County,Jackson,17077,1,17,Illinois
+1124,2,1036,28,071,28071,Lafayette,Lafayette County,Lafayette,28071,1,28,Mississippi
+1129,3,1041,28,051,28051,Holmes,Holmes County,Holmes,28051,1,28,Mississippi
+1144,3,1055,05,117,05117,Prairie,Prairie County,Prairie,05117,1,05,Arkansas
+1146,3,1057,05,077,05077,Lee,Lee County,Lee,05077,1,05,Arkansas
+1149,3,1060,05,043,05043,Drew,Drew County,Drew,05043,1,05,Arkansas
+1150,3,1061,05,037,05037,Cross,Cross County,Cross,05037,1,05,Arkansas
+1156,2,1067,05,093,05093,Mississippi,Mississippi County,Mississippi,05093,1,05,Arkansas
+1282,3,1185,17,087,17087,Johnson,Johnson County,Johnson,17087,1,17,Illinois
+1284,2,1187,17,193,17193,White,White County,White,17193,1,17,Illinois
+1394,3,1291,28,083,28083,Leflore,Leflore County,Leflore,28083,1,28,Mississippi
+1397,3,1294,28,149,28149,Warren,Warren County,Warren,28149,1,28,Mississippi
+1400,3,1297,28,143,28143,Tunica,Tunica County,Tunica,28143,1,28,Mississippi
+1404,3,1301,28,133,28133,Sunflower,Sunflower County,Sunflower,28133,1,28,Mississippi
+1405,3,1302,28,125,28125,Sharkey,Sharkey County,Sharkey,28125,1,28,Mississippi
+1442,3,1335,05,147,05147,Woodruff,Woodruff County,Woodruff,05147,1,05,Arkansas
+1550,2,1433,17,199,17199,Williamson,Williamson County,Williamson,17199,1,17,Illinois
+1640,3,1518,21,075,21075,Fulton,Fulton County,Fulton,21075,1,21,Kentucky
+1651,2,1529,21,007,21007,Ballard,Ballard County,Ballard,21007,1,21,Kentucky
+1669,2,1547,21,145,21145,McCracken,McCracken County,McCracken,21145,1,21,Kentucky
+1776,3,1651,28,097,28097,Montgomery,Montgomery County,Montgomery,28097,1,28,Mississippi
+1779,2,1654,28,157,28157,Wilkinson,Wilkinson County,Wilkinson,28157,1,28,Mississippi
+1781,3,1656,28,119,28119,Quitman,Quitman County,Quitman,28119,1,28,Mississippi
+1968,3,1807,29,207,29207,Stoddard,Stoddard County,Stoddard,29207,1,29,Missouri
+1975,2,1813,29,133,29133,Mississippi,Mississippi County,Mississippi,29133,1,29,Missouri
+1976,2,1814,29,187,29187,St. Francois,St. Francois County,St. Francois,29187,1,29,Missouri
+1986,3,1824,29,155,29155,Pemiscot,Pemiscot County,Pemiscot,29155,1,29,Missouri
+1996,3,1834,29,017,29017,Bollinger,Bollinger County,Bollinger,29017,1,29,Missouri
+2239,3,2074,28,161,28161,Yalobusha,Yalobusha County,Yalobusha,28161,1,28,Mississippi
+2241,3,2076,28,033,28033,DeSoto,DeSoto County,DeSoto,28033,1,28,Mississippi
+2245,3,2080,28,135,28135,Tallahatchie,Tallahatchie County,Tallahatchie,28135,1,28,Mississippi
+2246,3,2081,28,089,28089,Madison,Madison County,Madison,28089,1,28,Mississippi
+2249,3,2084,28,137,28137,Tate,Tate County,Tate,28137,1,28,Mississippi
+2256,2,2091,22,107,22107,Tensas,Tensas Parish,Tensas Parish,22107,1,22,Louisiana
+2352,3,2169,29,035,29035,Carter,Carter County,Carter,29035,1,29,Missouri
+2357,3,2174,29,031,29031,Cape Girardeau,Cape Girardeau County,Cape Girardeau,29031,1,29,Missouri
+2366,3,2183,29,069,29069,Dunklin,Dunklin County,Dunklin,29069,1,29,Missouri
+2375,3,2192,17,003,17003,Alexander,Alexander County,Alexander,17003,1,17,Illinois
+2378,2,2195,17,025,17025,Clay,Clay County,Clay,17025,1,17,Illinois
+2398,3,2215,47,045,47045,Dyer,Dyer County,Dyer,47045,1,47,Tennessee
+2405,3,2222,47,131,47131,Obion,Obion County,Obion,47131,1,47,Tennessee
+2411,3,2228,47,167,47167,Tipton,Tipton County,Tipton,47167,1,47,Tennessee
+2461,2,2278,47,033,47033,Crockett,Crockett County,Crockett,47033,1,47,Tennessee
+2467,2,2284,47,053,47053,Gibson,Gibson County,Gibson,47053,1,47,Tennessee
+2483,2,2300,47,047,47047,Fayette,Fayette County,Fayette,47047,1,47,Tennessee
+2582,3,2398,28,163,28163,Yazoo,Yazoo County,Yazoo,28163,1,28,Mississippi
+2583,3,2399,28,015,28015,Carroll,Carroll County,Carroll,28015,1,28,Mississippi
+2588,3,2404,28,151,28151,Washington,Washington County,Washington,28151,1,28,Mississippi
+2592,2,2408,22,041,22041,Franklin,Franklin Parish,Franklin Parish,22041,1,22,Louisiana
+2682,3,2485,29,223,29223,Wayne,Wayne County,Wayne,29223,1,29,Missouri
+2771,3,2571,47,095,47095,Lake,Lake County,Lake,47095,1,47,Tennessee
+2798,3,2598,47,075,47075,Haywood,Haywood County,Haywood,47075,1,47,Tennessee
+2812,3,2612,47,097,47097,Lauderdale,Lauderdale County,Lauderdale,47097,1,47,Tennessee
+2827,3,2627,47,157,47157,Shelby,Shelby County,Shelby,47157,1,47,Tennessee
+2836,3,2636,22,035,22035,East Carroll,East Carroll Parish,East Carroll Parish,22035,1,22,Louisiana
+2947,3,2738,29,123,29123,Madison,Madison County,Madison,29123,1,29,Missouri
+2951,3,2742,29,023,29023,Butler,Butler County,Butler,29023,1,29,Missouri
+2957,3,2748,29,201,29201,Scott,Scott County,Scott,29201,1,29,Missouri
+2959,3,2750,29,143,29143,New Madrid,New Madrid County,New Madrid,29143,1,29,Missouri
+2961,3,2752,29,157,29157,Perry,Perry County,Perry,29157,1,29,Missouri
+2982,2,2772,17,151,17151,Pope,Pope County,Pope,17151,1,17,Illinois
+2988,3,2778,17,145,17145,Perry,Perry County,Perry,17145,1,17,Illinois
+331,3,312,39,145,39145,Scioto,Scioto County,Scioto,39145,2,39,Ohio
+794,3,730,39,165,39165,Warren,Warren County,Warren,39165,2,39,Ohio
+868,3,802,54,005,54005,Boone,Boone County,Boone,54005,2,54,West Virginia
+875,2,809,54,105,54105,Wirt,Wirt County,Wirt,54105,2,54,West Virginia
+878,3,812,54,043,54043,Lincoln,Lincoln County,Lincoln,54043,2,54,West Virginia
+886,3,819,54,059,54059,Mingo,Mingo County,Mingo,54059,2,54,West Virginia
+889,3,822,54,053,54053,Mason,Mason County,Mason,54053,2,54,West Virginia
+1197,2,1105,54,011,54011,Cabell,Cabell County,Cabell,54011,2,54,West Virginia
+1200,3,1108,54,039,54039,Kanawha,Kanawha County,Kanawha,54039,2,54,West Virginia
+1202,2,1110,54,013,54013,Calhoun,Calhoun County,Calhoun,54013,2,54,West Virginia
+1203,2,1111,54,107,54107,Wood,Wood County,Wood,54107,2,54,West Virginia
+1204,2,1112,54,073,54073,Pleasants,Pleasants County,Pleasants,54073,2,54,West Virginia
+1205,2,1113,54,017,54017,Doddridge,Doddridge County,Doddridge,54017,2,54,West Virginia
+1206,2,1114,54,081,54081,Raleigh,Raleigh County,Raleigh,54081,2,54,West Virginia
+1213,2,1121,54,099,54099,Wayne,Wayne County,Wayne,54099,2,54,West Virginia
+1215,2,1123,54,045,54045,Logan,Logan County,Logan,54045,2,54,West Virginia
+1216,2,1124,54,035,54035,Jackson,Jackson County,Jackson,54035,2,54,West Virginia
+1220,3,1128,54,079,54079,Putnam,Putnam County,Putnam,54079,2,54,West Virginia
+1225,2,1133,54,085,54085,Ritchie,Ritchie County,Ritchie,54085,2,54,West Virginia
+1226,2,1134,54,103,54103,Wetzel,Wetzel County,Wetzel,54103,2,54,West Virginia
+1228,2,1136,54,087,54087,Roane,Roane County,Roane,54087,2,54,West Virginia
+1337,2,1236,39,027,39027,Clinton,Clinton County,Clinton,39027,2,39,Ohio
+1342,2,1241,39,105,39105,Meigs,Meigs County,Meigs,39105,2,39,Ohio
+1346,3,1245,39,015,39015,Brown,Brown County,Brown,39015,2,39,Ohio
+1351,3,1250,39,053,39053,Gallia,Gallia County,Gallia,39053,2,39,Ohio
+1356,3,1255,39,061,39061,Hamilton,Hamilton County,Hamilton,39061,2,39,Ohio
+1361,2,1260,39,087,39087,Lawrence,Lawrence County,Lawrence,39087,2,39,Ohio
+1366,2,1265,39,073,39073,Hocking,Hocking County,Hocking,39073,2,39,Ohio
+1367,2,1266,39,115,39115,Morgan,Morgan County,Morgan,39115,2,39,Ohio
+1383,2,1282,39,045,39045,Fairfield,Fairfield County,Fairfield,39045,2,39,Ohio
+1571,2,1450,21,121,21121,Knox,Knox County,Knox,21121,2,21,Kentucky
+1573,3,1452,21,071,21071,Floyd,Floyd County,Floyd,21071,2,21,Kentucky
+1582,3,1461,21,005,21005,Anderson,Anderson County,Anderson,21005,2,21,Kentucky
+1583,3,1462,21,097,21097,Harrison,Harrison County,Harrison,21097,2,21,Kentucky
+1584,3,1463,21,103,21103,Henry,Henry County,Henry,21103,2,21,Kentucky
+1599,3,1478,21,111,21111,Jefferson,Jefferson County,Jefferson,21111,2,21,Kentucky
+1608,3,1487,21,117,21117,Kenton,Kenton County,Kenton,21117,2,21,Kentucky
+1613,3,1492,21,015,21015,Boone,Boone County,Boone,21015,2,21,Kentucky
+1617,3,1496,21,063,21063,Elliott,Elliott County,Elliott,21063,2,21,Kentucky
+1619,3,1498,21,019,21019,Boyd,Boyd County,Boyd,21019,2,21,Kentucky
+1621,3,1500,21,073,21073,Franklin,Franklin County,Franklin,21073,2,21,Kentucky
+1623,2,1502,21,051,21051,Clay,Clay County,Clay,21051,2,21,Kentucky
+1624,3,1503,21,129,21129,Lee,Lee County,Lee,21129,2,21,Kentucky
+1630,3,1509,21,191,21191,Pendleton,Pendleton County,Pendleton,21191,2,21,Kentucky
+1632,3,1511,21,135,21135,Lewis,Lewis County,Lewis,21135,2,21,Kentucky
+1638,2,1516,21,079,21079,Garrard,Garrard County,Garrard,21079,2,21,Kentucky
+1641,3,1519,21,237,21237,Wolfe,Wolfe County,Wolfe,21237,2,21,Kentucky
+1642,2,1520,21,109,21109,Jackson,Jackson County,Jackson,21109,2,21,Kentucky
+1643,3,1521,21,205,21205,Rowan,Rowan County,Rowan,21205,2,21,Kentucky
+1644,3,1522,21,127,21127,Lawrence,Lawrence County,Lawrence,21127,2,21,Kentucky
+1645,3,1523,21,181,21181,Nicholas,Nicholas County,Nicholas,21181,2,21,Kentucky
+1647,3,1525,21,187,21187,Owen,Owen County,Owen,21187,2,21,Kentucky
+1648,3,1526,21,185,21185,Oldham,Oldham County,Oldham,21185,2,21,Kentucky
+1649,3,1527,21,215,21215,Spencer,Spencer County,Spencer,21215,2,21,Kentucky
+1650,3,1528,21,153,21153,Magoffin,Magoffin County,Magoffin,21153,2,21,Kentucky
+1652,3,1530,21,115,21115,Johnson,Johnson County,Johnson,21115,2,21,Kentucky
+1653,3,1531,21,089,21089,Greenup,Greenup County,Greenup,21089,2,21,Kentucky
+1655,3,1533,21,151,21151,Madison,Madison County,Madison,21151,2,21,Kentucky
+1663,3,1541,21,017,21017,Bourbon,Bourbon County,Bourbon,21017,2,21,Kentucky
+1666,2,1544,21,173,21173,Montgomery,Montgomery County,Montgomery,21173,2,21,Kentucky
+1667,3,1545,21,161,21161,Mason,Mason County,Mason,21161,2,21,Kentucky
+1670,2,1548,21,229,21229,Washington,Washington County,Washington,21229,2,21,Kentucky
+1673,3,1551,21,043,21043,Carter,Carter County,Carter,21043,2,21,Kentucky
+1676,2,1554,21,011,21011,Bath,Bath County,Bath,21011,2,21,Kentucky
+1677,3,1555,21,049,21049,Clark,Clark County,Clark,21049,2,21,Kentucky
+1697,3,1573,21,223,21223,Trimble,Trimble County,Trimble,21223,2,21,Kentucky
+1698,2,1574,21,029,21029,Bullitt,Bullitt County,Bullitt,21029,2,21,Kentucky
+1700,3,1576,21,065,21065,Estill,Estill County,Estill,21065,2,21,Kentucky
+1702,2,1578,21,167,21167,Mercer,Mercer County,Mercer,21167,2,21,Kentucky
+1708,3,1583,21,067,21067,Fayette,Fayette County,Fayette,21067,2,21,Kentucky
+1712,3,1587,21,069,21069,Fleming,Fleming County,Fleming,21069,2,21,Kentucky
+1713,3,1588,21,077,21077,Gallatin,Gallatin County,Gallatin,21077,2,21,Kentucky
+1715,3,1590,39,131,39131,Pike,Pike County,Pike,39131,2,39,Ohio
+1725,2,1600,39,141,39141,Ross,Ross County,Ross,39141,2,39,Ohio
+1729,2,1604,39,017,39017,Butler,Butler County,Butler,39017,2,39,Ohio
+1735,3,1610,39,009,39009,Athens,Athens County,Athens,39009,2,39,Ohio
+1740,2,1615,39,167,39167,Washington,Washington County,Washington,39167,2,39,Ohio
+1752,3,1627,39,025,39025,Clermont,Clermont County,Clermont,39025,2,39,Ohio
+1753,3,1628,39,071,39071,Highland,Highland County,Highland,39071,2,39,Ohio
+1756,2,1631,39,121,39121,Noble,Noble County,Noble,39121,2,39,Ohio
+1764,3,1639,39,001,39001,Adams,Adams County,Adams,39001,2,39,Ohio
+1767,3,1642,39,079,39079,Jackson,Jackson County,Jackson,39079,2,39,Ohio
+1769,3,1644,39,163,39163,Vinton,Vinton County,Vinton,39163,2,39,Ohio
+2039,3,1877,21,037,21037,Campbell,Campbell County,Campbell,21037,2,21,Kentucky
+2042,3,1879,21,239,21239,Woodford,Woodford County,Woodford,21239,2,21,Kentucky
+2043,2,1880,21,195,21195,Pike,Pike County,Pike,21195,2,21,Kentucky
+2045,2,1882,21,119,21119,Knott,Knott County,Knott,21119,2,21,Kentucky
+2049,3,1885,21,197,21197,Powell,Powell County,Powell,21197,2,21,Kentucky
+2050,3,1886,21,165,21165,Menifee,Menifee County,Menifee,21165,2,21,Kentucky
+2077,2,1913,21,131,21131,Leslie,Leslie County,Leslie,21131,2,21,Kentucky
+2085,3,1921,21,025,21025,Breathitt,Breathitt County,Breathitt,21025,2,21,Kentucky
+2090,3,1926,21,211,21211,Shelby,Shelby County,Shelby,21211,2,21,Kentucky
+2101,2,1937,21,021,21021,Boyle,Boyle County,Boyle,21021,2,21,Kentucky
+2102,3,1938,21,113,21113,Jessamine,Jessamine County,Jessamine,21113,2,21,Kentucky
+2107,3,1943,21,041,21041,Carroll,Carroll County,Carroll,21041,2,21,Kentucky
+2110,2,1946,21,189,21189,Owsley,Owsley County,Owsley,21189,2,21,Kentucky
+2130,3,1966,21,081,21081,Grant,Grant County,Grant,21081,2,21,Kentucky
+2133,3,1969,21,209,21209,Scott,Scott County,Scott,21209,2,21,Kentucky
+2139,3,1975,21,175,21175,Morgan,Morgan County,Morgan,21175,2,21,Kentucky
+2143,3,1979,21,023,21023,Bracken,Bracken County,Bracken,21023,2,21,Kentucky
+2157,3,1993,21,159,21159,Martin,Martin County,Martin,21159,2,21,Kentucky
+2475,2,2292,18,019,18019,Clark,Clark County,Clark,18019,2,18,Indiana
+2762,2,2562,18,029,18029,Dearborn,Dearborn County,Dearborn,18029,2,18,Indiana
+2790,3,2590,18,155,18155,Switzerland,Switzerland County,Switzerland,18155,2,18,Indiana
+2793,2,2593,18,043,18043,Floyd,Floyd County,Floyd,18043,2,18,Indiana
+2806,2,2606,18,061,18061,Harrison,Harrison County,Harrison,18061,2,18,Indiana
+2819,2,2619,18,115,18115,Ohio,Ohio County,Ohio,18115,2,18,Indiana
+131,2,126,37,143,37143,Perquimans,Perquimans County,Perquimans,37143,3,37,North Carolina
+132,3,127,37,083,37083,Halifax,Halifax County,Halifax,37083,3,37,North Carolina
+191,3,183,51,183,51183,Sussex,Sussex County,Sussex,51183,3,51,Virginia
+1417,3,1314,51,595,51595,Emporia,Emporia city,Emporia City,51595,3,51,Virginia
+1795,3,1670,51,620,51620,Franklin,Franklin city,Franklin City,51620,3,51,Virginia
+1797,3,1672,51,181,51181,Surry,Surry County,Surry,51181,3,51,Virginia
+1799,3,1674,51,053,51053,Dinwiddie,Dinwiddie County,Dinwiddie,51053,3,51,Virginia
+1804,2,1679,51,570,51570,Colonial Heights,Colonial Heights city,Colonial Heights City,51570,3,51,Virginia
+1806,2,1681,51,147,51147,Prince Edward,Prince Edward County,Prince Edward,51147,3,51,Virginia
+1811,3,1686,51,149,51149,Prince George,Prince George County,Prince George,51149,3,51,Virginia
+1817,3,1692,51,175,51175,Southampton,Southampton County,Southampton,51175,3,51,Virginia
+1818,2,1693,51,127,51127,New Kent,New Kent County,New Kent,51127,3,51,Virginia
+1819,3,1694,51,111,51111,Lunenburg,Lunenburg County,Lunenburg,51111,3,51,Virginia
+1824,2,1699,51,041,51041,Chesterfield,Chesterfield County,Chesterfield,51041,3,51,Virginia
+2261,3,2096,51,025,51025,Brunswick,Brunswick County,Brunswick,51025,3,51,Virginia
+2266,2,2101,51,730,51730,Petersburg,Petersburg city,Petersburg City,51730,3,51,Virginia
+2271,2,2106,51,700,51700,Newport News,Newport News city,Newport News City,51700,3,51,Virginia
+2273,2,2108,51,095,51095,James City,James City County,James City,51095,3,51,Virginia
+2275,2,2110,51,037,51037,Charlotte,Charlotte County,Charlotte,51037,3,51,Virginia
+2600,3,2416,51,081,51081,Greensville,Greensville County,Greensville,51081,3,51,Virginia
+2602,2,2418,51,740,51740,Portsmouth,Portsmouth city,Portsmouth City,51740,3,51,Virginia
+2603,2,2419,51,093,51093,Isle of Wight,Isle of Wight County,Isle of Wight,51093,3,51,Virginia
+2608,2,2424,51,036,51036,Charles City,Charles City County,Charles City,51036,3,51,Virginia
+2844,3,2643,51,135,51135,Nottoway,Nottoway County,Nottoway,51135,3,51,Virginia
+2847,2,2646,51,007,51007,Amelia,Amelia County,Amelia,51007,3,51,Virginia
+2850,2,2649,51,550,51550,Chesapeake,Chesapeake city,Chesapeake City,51550,3,51,Virginia
+2851,2,2650,51,670,51670,Hopewell,Hopewell city,Hopewell City,51670,3,51,Virginia
+2852,3,2651,51,800,51800,Suffolk,Suffolk city,Suffolk City,51800,3,51,Virginia
+3004,2,2794,37,185,37185,Warren,Warren County,Warren,37185,3,37,North Carolina
+3019,2,2809,37,139,37139,Pasquotank,Pasquotank County,Pasquotank,37139,3,37,North Carolina
+3021,3,2811,37,131,37131,Northampton,Northampton County,Northampton,37131,3,37,North Carolina
+3032,2,2822,37,053,37053,Currituck,Currituck County,Currituck,37053,3,37,North Carolina
+3050,2,2840,37,041,37041,Chowan,Chowan County,Chowan,37041,3,37,North Carolina
+3063,3,2852,37,091,37091,Hertford,Hertford County,Hertford,37091,3,37,North Carolina
+3066,3,2855,37,015,37015,Bertie,Bertie County,Bertie,37015,3,37,North Carolina
+3080,3,2869,37,073,37073,Gates,Gates County,Gates,37073,3,37,North Carolina
+3099,2,2888,37,029,37029,Camden,Camden County,Camden,37029,3,37,North Carolina

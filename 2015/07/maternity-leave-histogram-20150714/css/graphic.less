@@ -1,0 +1,41 @@
+@import "base";
+
+.bar {
+    &.bin-0 rect { fill: #a23520; }
+    &.bin-1 rect { fill: #a94422; }
+    &.bin-2 rect { fill: #b15124; }
+    &.bin-3 rect { fill: #b85f27; }
+    &.bin-4 rect { fill: #bf6c29; }
+    &.bin-5 rect { fill: #c6792b; }
+    &.bin-6 rect { fill: #ce852d; }
+    &.bin-7 rect { fill: #d5922f; }
+    &.bin-8 rect { fill: #dba031; }
+    &.bin-9 rect { fill: #e2ac33; }
+    &.bin-10 rect { fill: #e9b935; }
+    &.bin-11 rect { fill: #efc637; }
+    &.bin-12 rect { fill: #efc637; }
+}  
+
+// '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'
+.value text {
+    fill: #fff;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Knockout 31 4r',Helvetica,Arial,sans-serif;
+}
+
+.label-top {
+    font-style: italic;
+    fill: #999;
+    font-size: 11px;
+    -webkit-font-smoothing: antialiased;
+}
+
+line.axis-0 {
+    stroke: #999;
+}
+
+
+@media screen and (max-width: 480px) {
+    .value text { font-size: 10px; }
+}

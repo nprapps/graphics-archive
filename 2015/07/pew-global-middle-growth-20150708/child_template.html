@@ -1,0 +1,26 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.growth_labels.headline %}<h1>{{ COPY.growth_labels.headline }}</h1>{% endif %}
+    {% if COPY.growth_labels.subhed %}<h2>{{ render(COPY.growth_labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic"><img src="fallback.png" alt="[Chart]" class="fallback" /></div>
+
+    {% if COPY.growth_labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.growth_labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.growth_labels.source %}<p>Source: {{ COPY.growth_labels.source }}</p>{% endif %}
+        {% if COPY.growth_labels.credit %}<p>Credit: {{ COPY.growth_labels.credit }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var GRAPHIC_DATA = {{ COPY.growth_data.json() }};
+    </script>
+
+{% endblock content %}

@@ -1,0 +1,58 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+        {% for day in COPY.data|groupby('day') %}
+        <section class="day day-{{ day.grouper }}">
+            {% set day_title = COPY.labels['hdr_day' + day.grouper] %}
+            {% set day_link = COPY.labels['archive_day' + day.grouper] %}
+            
+            <h3>{{ day_title }}{% if day_link %} &mdash; <a href="{{ day_link }}">Highlights</a>{% endif %}</h3>
+            
+            {% for type in day.list|groupby('type')|sort(reverse=true) %}
+                <div class="type {{ type.grouper }}">
+                    <h4>{{ type.grouper }}s</h4>
+                    {% for person in type.list %}
+                    <div class="person person-{{ loop.index }}">
+                        {% if person.photo %}<a href="http://twitter.com/{{ person.twitter }}"><img src="assets/{{ person.photo }}" alt="Photo of {{ person.name }}" /></a>{% endif %}
+                        <h5><a href="http://twitter.com/{{ person.twitter }}">{{ person.name }}</a></h5>
+                        <p>
+                            {% if person.link %}<a href="{{ person.link }}">{% endif %}
+                            {{ person.specialty }}
+                            {% if person.link %}</a>{% endif %}
+                        </p>
+                        <p>Twitter: <a href="http://twitter.com/{{ person.twitter }}">{{ person.twitter }}</a></p>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+        </section>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Photos: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}
