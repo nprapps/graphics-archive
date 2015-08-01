@@ -1,0 +1,35 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+    
+        <div class="group">
+            {% for decade in COPY.data|groupby('decade') %}
+            <ul class="d{{ decade.grouper }}">
+                <li class="hed">{{ decade.grouper }}</li>
+                {% for play in decade.list %}
+                    <li class="activity {{ play.play|lower|replace(' ', '-')|replace('*', '')|replace('\'', '')|replace('.', '')|replace(',', '')|replace('/', '-')|replace('!', '')|replace('?', '') }}">
+                        <span class="sport">{{ play.play }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

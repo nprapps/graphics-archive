@@ -1,0 +1,26 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline_musicals %}<h1>{{ COPY.labels.headline_musicals }}</h1>{% endif %}
+    {% if COPY.labels.subhed_musicals %}<h2>{{ render(COPY.labels.subhed_musicals) }}</h2>{% endif %}
+
+    <div id="graphic"></div>
+
+    {% if COPY.labels.footnote_musicals %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote_musicals }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var GRAPHIC_DATA = {{ COPY.musicals_data.json() }};
+    </script>
+
+{% endblock content %}

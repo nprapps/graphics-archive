@@ -1,0 +1,134 @@
+@import "base";
+
+h1 { margin-bottom: 22px; }
+.key { margin-bottom: 22px; }
+
+h3 {
+    margin: 0 0 6px 0;
+    font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    color: #333;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.key-item {
+    &.hed label {
+        color: #444;
+    }
+    &.year-1930 b { background-color: #f7e39b; }
+    &.year-1960 b { background-color: #c6d2ae; }
+    &.year-1990 b { background-color: #8bc0bf; }
+}
+    
+.group {
+    &:before,
+    &:after {
+        content: ' ';
+        display: table;
+    }
+    &:after { clear: both; }
+
+    ul {
+        list-style-type: none;
+        margin: 0 0 15px 0;
+        padding: 0;
+        
+        > li {
+            display: table;
+            width: 100%;
+            background-color: #f1f1f1;
+            margin: 0 0 2px 0;
+            font-size: 12px;
+            color: #444;
+            
+            &.active {
+                color: #fff;
+                cursor: pointer;
+                opacity: 1;
+                transition: color 0.2s ease-out, 
+                            background-color 0.2s ease-out, 
+                            border-color 0.2s ease-out;
+            }
+
+            &.year-1930,
+            &.year-1940,
+            &.year-1950 { 
+                background-color: #f7e39b;
+                opacity: 0.9;
+                
+                &.active { background-color: #EFC637; }
+            }
+            &.year-1960,
+            &.year-1970,
+            &.year-1980 { 
+                background-color: #c6d2ae;
+                opacity: 0.9;
+                
+                &.active { background-color: #99a363; }
+            }
+            &.year-1990,
+            &.year-2000,
+            &.year-2010 { 
+                background-color: #8bc0bf;
+                opacity: 0.9;
+                
+                &.active { background-color: #17807e; }
+            }
+            
+            &.hed {
+                font-weight: bold;
+                background: none;
+                padding: 0 0 5px 0;
+                font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+                -webkit-font-smoothing: antialiased;
+                font-weight: 400;
+                font-size: 13px;
+                color: #666;
+                border-color: transparent;
+            }
+            
+            span {
+                display: table-cell;
+                vertical-align: top;
+                padding: 5px;
+                
+                &.rank { 
+                    width: 20px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+
+/* responsive table */
+@media screen and (min-width: 501px) {
+    .group {
+        margin-bottom: 11px;
+        
+        ul {
+            display: block;
+            width: 32%;
+            margin-right: 1%;
+            float: left;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .key .key-item.hed { 
+        display: block;
+        margin-bottom: 6px;
+    }
+    .group {
+        ul {
+            display: block;
+            width: 48%;
+            margin-right: 2%;
+            float: left;
+        }
+    }
+}

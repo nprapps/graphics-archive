@@ -1,0 +1,45 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.top6_labels.headline_plays %}<h1>{{ COPY.top6_labels.headline_plays }}</h1>{% endif %}
+    {% if COPY.top6_labels.subhed_plays %}<h2>{{ render(COPY.top6_labels.subhed_plays) }}</h2>{% endif %}
+
+    <div id="graphic">
+
+        <ul class="key">
+            <li class="key-item hed"><label>Year written or first produced:</label></li>
+            <li class="key-item key-0 year-1600"><b></b><label>Prior to 1930</label></li>
+            <li class="key-item key-1 year-1930"><b></b><label>1930s-1950s</label></li>
+            <li class="key-item key-2 year-1960"><b></b><label>1960s-1980s</label></li>
+            <li class="key-item key-3 year-1990"><b></b><label>1990s-2014</label></li></ul>
+    
+        <div class="group">
+            {% for decade in COPY.top6_data|groupby('decade') %}
+            <ul class="d{{ decade.grouper }}">
+                <li class="hed">{{ decade.grouper }}</li>
+                {% for play in decade.list %}
+                {% if play.type == 'play' %}
+                    <li class="play year-{{ play.decade_written }} {{ play.play|classify }}">
+                        <span class="rank">{{ play.rank }}</span>
+                        <span class="play-name">{{ play.play }}</span>
+                    </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% endfor %}
+    </div>
+
+    {% if COPY.top6_labels.footnote_plays %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.top6_labels.footnote_plays }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.top6_labels.source %}<p>Source: {{ COPY.top6_labels.source }}</p>{% endif %}
+        {% if COPY.top6_labels.credit %}<p>Credit: {{ COPY.top6_labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
