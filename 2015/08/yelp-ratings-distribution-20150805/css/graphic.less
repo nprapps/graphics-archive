@@ -1,0 +1,32 @@
+@import "base";
+
+.bars rect { fill: @red5; }
+
+.zero-line  {
+    stroke: #666;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+}
+
+path.overall {
+    fill: none;
+    stroke: @red1;
+    stroke-width: 2px;
+    shape-rendering: crispEdges;
+    stroke-dasharray: 6px 2px;
+}
+
+.annotations {
+    line {
+        stroke: #999;
+        stroke-width: 1px;
+        shape-rendering: crispEdges;
+    }
+    text {
+        text-anchor: end;
+        font-size: 12px;
+        -webkit-font-smoothing: antialiased;
+        fill: #999;
+        font-style: italic;
+    }
+}

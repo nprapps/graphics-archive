@@ -1,0 +1,71 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+        <table class="categories">
+            <caption>{{ COPY.labels.headline_categories }}</caption>
+            <thead>
+                <tr>
+                    <th>{{ COPY.labels.hdr_categories }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_reviews }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_ratings }}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.categories %}
+            <tr class="state-{{ row.name|classify }}">
+                <td data-title="{{ COPY.labels.hdr_categories }}">{{ row.name }}</td>
+                <td data-title="{{ COPY.labels.hdr_reviews }}" class="amt">{{ row.reviews }}</td>
+                <td data-title="{{ COPY.labels.hdr_ratings }}" class="amt">{{ row.ratings }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+
+        <table class="providers">
+            <caption>{{ COPY.labels.headline_providers }}</caption>
+            <thead>
+                <tr>
+                    <th>{{ COPY.labels.hdr_providers }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_reviews }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_ratings }}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.reviews %}
+            <tr class="state-{{ row.name|classify }}">
+                <td data-title="{{ COPY.labels.hdr_providers }}">{{ row.name }}</td>
+                <td data-title="{{ COPY.labels.hdr_reviews }}" class="amt">{{ row.reviews }}</td>
+                <td data-title="{{ COPY.labels.hdr_ratings }}" class="amt">{{ row.ratings }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}
