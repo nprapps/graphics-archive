@@ -1,0 +1,91 @@
+h1 {
+}
+
+h2 {
+    margin-bottom: 0;
+}
+
+h3 {
+    text-transform: uppercase;
+    font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    margin: 30px 0 10px 0;
+    color: #333;
+}
+
+.map-wrapper {
+    float: left;
+    width: 49%;
+}
+
+.map-spacer {
+    float: left;
+    width: 2%;
+}
+
+.footer {
+    clear: both;
+    padding-top: 20px;
+}
+
+@media screen and (max-width: 500px) {
+    .map-wrapper {
+        width: 100%;
+        float: none;
+    }
+
+    .map-scaper {
+        display: none;
+    }
+}
+
+/* Key
+========================================*/
+.key {
+    margin: 0 0 18px 0;
+    padding: 0;
+    list-style-type: none;
+}
+.key .key-item {
+    display: inline-block;
+    margin: 0 18px 0 0;
+    padding: 0;
+    line-height: 15px;
+}
+.key .key-item b {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
+    float: left;
+}
+.key .key-item label {
+    white-space: nowrap;
+    font-size: 12px;
+    color: #666;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Grid Map
+========================================*/
+
+.tile-grid-map {
+    margin-bottom: 33px;
+}
+
+.state {
+    fill: #eee;
+}
+
+.label {
+    font-family: 'Knockout 31 4r';
+    font-size: 12px;
+    fill: #979797;
+}
+
+.label-active {
+    fill: #fff;
+}
