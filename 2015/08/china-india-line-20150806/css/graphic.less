@@ -1,0 +1,53 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+
+    .china,
+    .india {
+        stroke-dasharray: 5px 5px;
+    }
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    // fill: #999;
+
+    // &.china-past,
+    // &.india-past {
+    //     display: none;
+    // }
+}
+
+.dots {
+    circle {
+        &.china,
+        &.india {
+            display: none;
+        }
+    }
+}
+
+.key {
+    li {
+        &.china-past,
+        &.india-past {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}
