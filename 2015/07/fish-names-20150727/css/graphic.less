@@ -1,0 +1,94 @@
+@import "base";
+
+.fish {
+    margin-bottom: 33px;
+    padding-bottom: 26px;
+    border-bottom: 1px solid #eee;
+
+    &:before,
+    &:after {
+        content: ' ';
+        display: table;
+    }
+    &:after { clear: both; }
+    
+    &.sole {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    h3 {
+        font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #666;
+        font-size: 14px;
+        margin: 0 0 11px 0;
+        line-height: 1.6;
+    }
+    
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    
+    p { 
+        margin: 0 0 15px 0;
+        color: #777;
+        font-size: 12px;
+        line-height: 1.6;
+        
+        &.caption {
+            margin-top: 11px;
+            margin-bottom: 0;
+        
+            .credit {
+                display: block;
+                color: #AAA;
+                font-size: 10px;
+                font-style: italic;
+            }
+        }
+    }
+    
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        
+        > li {
+            margin: 0 0 6px 0;
+            font-weight: bold;
+            color: #666;
+            font-size: 13px;
+
+            em { 
+                color: #999;
+                font-weight: normal;
+                font-size: 11px;
+            }
+            
+            .concern {
+                font-weight: normal;
+                font-style: italic;
+                font-size: 11px;
+                color: @red4;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 501px) {
+    .fish .photo {
+        width: 33%;
+        margin-left: 22px;
+        float: right;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .fish .photo {
+        margin-bottom: 22px;
+    }
+}

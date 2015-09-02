@@ -1,0 +1,73 @@
+@import "base";
+
+h1 { margin-bottom: 22px; }
+#graphic { margin-bottom: 22px; }
+
+.group rect {
+    &.favorable,
+    &.unfavorable {
+        fill: #e2e2e2;
+    }
+    
+    &.net { fill: @red5; }
+    .total&.net { fill: @red2; }
+}
+
+.label-top {
+    font-style: italic;
+    font-weight: bold;
+    fill: #787878;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.value div {
+    font-size: 11px;
+    color: #787878;
+    -webkit-font-smoothing: antialiased;
+    
+    strong { 
+        color: #666;
+        font-weight: bold;
+    }
+}
+
+.zero-line  {
+    stroke: #666;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+}
+
+.labels {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: none;
+
+    li {
+        position: absolute;
+        text-align: right;
+        font-size: 12px;
+        line-height: 1.3;
+        color: #666;
+        display: table;
+        -webkit-font-smoothing: antialiased;
+
+        &.total {
+            font-weight: bold;
+            color: #111;
+        }
+
+        &.total,
+        &.women,
+        &.moderateliberal { 
+            border-bottom: 1px solid #eee;
+        }
+
+        span {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+}

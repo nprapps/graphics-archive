@@ -1,0 +1,39 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    {% for slug, question in QUESTIONS.items() %}
+    <div id="{{ slug }}" class="question-wrapper">
+        <h3>{{ question }}</h3>
+        <div class="graphic"></div>
+    </div>
+
+    {% if loop.index % 2 == 1 %}
+    <div class="spacer">&nbsp;</div>
+    {% endif %}
+    {% endfor %}
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var GRAPHIC_DATA = {};
+
+        {% for slug, question in QUESTIONS.items() %}
+        GRAPHIC_DATA['{{ slug }}'] = {{ COPY[slug].json() }};
+        {% endfor %}
+    </script>
+
+{% endblock content %}

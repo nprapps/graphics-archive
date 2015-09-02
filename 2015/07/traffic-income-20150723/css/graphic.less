@@ -1,0 +1,46 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.label text {
+    font-size: 12px;
+    fill: #666;
+}
+
+.shadow text {
+    font-size: 12px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 2px;
+    opacity: .7;
+}
+
+circle {
+    opacity: 0.5;
+
+    &.highlight {
+        opacity: 1.0;
+    }
+}
+
+.x-label,
+.y-label {
+    font-size: 14px;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

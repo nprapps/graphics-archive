@@ -1,0 +1,44 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    {% for row in COPY.descriptions %}
+    <div class="fish {{ row.fish_type|classify }}">
+        {% if row.img %}
+        <div class="photo">
+            <img src="assets/{{ row.img }}" alt="Photo" />
+            <p class="caption">{{ row.img_caption }} <span class="credit">{{ row.img_credit }}</span></p>
+        </div>
+        {% endif %}
+        <h3>&ldquo;{{ row.fish_type }}&rdquo;</h3>
+        <p>{{ row.description }}</p>
+        
+        {% for aliases in COPY.data|groupby('fish_type') %}
+        {% if aliases.grouper == row.fish_type %}
+            <ul>
+            {% for fish in aliases.list %}
+                <li>{{ fish.common_name }} <em>({{ fish.scientific_name }})</em>{% if fish.concern == 'True' %}<span class="concern"> &mdash; species of concern</span>{% endif %}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endfor %}
+
+    </div>
+    {% endfor %}
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

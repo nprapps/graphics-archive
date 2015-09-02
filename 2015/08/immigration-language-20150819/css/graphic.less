@@ -1,0 +1,44 @@
+@import "base";
+
+h3 {
+    font-size: 12px;
+    color: #454545;
+    font-weight: normal;
+    font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 15px 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+#graphic { margin-bottom: 22px; }
+
+.lines {
+    fill: none;
+    stroke-width: 1px;
+    stroke: #ccc;
+}
+
+.area {
+    fill-opacity: 0.4;
+}
+
+.annotations text {
+    font-size: 11px;
+    text-anchor: middle;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 501px) {
+    .key {
+        display: none;
+    }
+
+    #time-early { float: left; }
+    #time-late  { float: right; }
+}

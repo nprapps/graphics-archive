@@ -1,0 +1,45 @@
+@import "base";
+
+.bar text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.development-wrapper {
+    float: left;
+    width: 49%;
+    margin: 0 0 20px 0;
+}
+
+.spacer {
+    float: left;
+    width: 2px;
+}
+
+.bar text {
+    font-size: 11px;
+}
+
+h3 {
+    font-size: 12px;
+    color: #454545;
+    font-weight: normal;
+    font-family: 'Knockout 31 4r',Helvetica,Arial,sans-serif;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    margin: 0 0 22px 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+@media (max-width: 501px) {
+    .development-wrapper {
+        float: none;
+        width: 100%;
+    }
+    .spacer {
+        display: none;
+    }
+}

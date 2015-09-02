@@ -1,0 +1,60 @@
+@import "base";
+
+.tracking-bars line {
+    fill: none;
+    stroke-width: 1px;
+    stroke: #ddd;
+    stroke-dasharray: 3px 3px;
+}
+
+.bars line {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #F5D1CA;
+}
+
+.dots circle {
+    stroke-width: 1px;
+    stroke: #fff;
+    fill: #D8472B;
+}
+
+.value text {
+    font-size: 11px;
+    fill: #999;
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 3px;
+}
+
+line.y.grid-10 {
+    stroke: #111;
+    stroke-width: 1px;
+}
+
+.labels {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: none;
+
+    li {
+        position: absolute;
+        text-align: left;
+        font-size: 12px;
+        line-height: 1.3;
+        color: #666;
+        display: table;
+        -webkit-font-smoothing: antialiased;
+
+        span {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+}

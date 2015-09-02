@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 0;
+            font: 14px/1.4 Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+        h1 {
+            margin: 0 0 11px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        h2 {
+            font-weight: normal;
+            color: #666;
+            font-size: 12px;
+            margin: 0 0 22px 0;
+        }
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.3;
+            color: #808080;
+        }
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { opacity: 0.7; }
+
+
+        /* key */
+        .key {
+            margin: 0 0 1em 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .key .key-item { 
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+        }
+        .key .key-0 { margin-right: 6px; }
+        .key .key-item b { 
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+        }
+        .key .key-item label { 
+            white-space: nowrap;
+            font-size: 12px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        .key .key-1 b,
+        td.change-1 { background: rgba(248, 226, 202, .8); }
+        .key .key-2 b,
+        td.change-2 { background: rgba(241, 198, 150, .8); }
+        .key .key-3 b,
+        td.change-3 { background: rgba(234, 170, 97, .8); }
+        .key .key-4 b,
+        td.change-4 { background: rgba(227, 141, 44, .8); }
+
+
+        /* table */
+        table {
+            border-collapse: collapse;
+            padding: 0;
+            margin: 0 0 11px 0;
+            width: 100%;
+            font-size: 12px;
+        }
+        
+        table th {
+            text-align: left;
+            border-bottom: 2px solid #eee;
+            vertical-align: bottom;
+        }
+        
+        table td {
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+        
+        table th,
+        table td {
+            padding: 10px;
+            color: #333;
+            text-align: right;
+        }
+        
+        table th:nth-child(1),
+        table td:nth-child(1) {
+            text-align: left;
+            font-weight: bold;
+            padding-left: 0;
+        }
+
+
+        /* responsive table */
+        @media screen and (max-width: 400px) {
+            table,
+            tbody {
+                display: block;
+                width: 100%:
+                color: #121212;
+            }
+            thead { display: none; }
+            table tr,
+            table th,
+            table td {
+                display: block;
+                padding: 0;
+                text-align: left;
+                white-space: normal;
+            }
+            table td { 
+                border: none;
+                margin-bottom: 6px;
+                background: none;
+            }
+            table td:empty { display: none; }
+
+            table td.change-1,
+            table td.change-2,
+            table td.change-3,
+            table td.change-4 { background: none; }
+
+            table tr {
+                border-bottom: 2px solid #fff;
+                padding: 11px;
+            }
+            table th[data-title]:before,
+            table td[data-title]:before {
+                content: attr(data-title) ":\00A0";
+                font-weight: bold;
+            }
+
+            table tr td:first-child { 
+                font-size: 14px;
+                font-weight: bold;
+                margin-bottom: 6px;
+                color: #333;
+            }
+            table tr td:first-child:before {
+                content: '';
+            }
+            
+            table tr.change-1 { background: rgba(248, 226, 202, .8); }
+            table tr.change-2 { background: rgba(241, 198, 150, .8); }
+            table tr.change-3 { background: rgba(234, 170, 97, .8); }
+            table tr.change-4 { background: rgba(227, 141, 44, .8); }
+
+            .key { margin-bottom: 22px; }
+            .key .key-item { 
+                display: block;
+                margin-bottom: 3px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <h1>{{ COPY.labels.headline }}</h1>
+
+    <ul class="key">
+        <li class="key-item key-1"><b></b> <label>20% or less</label></li>
+        <li class="key-item key-2"><b></b> <label>20.1 to 30%</label></li>
+        <li class="key-item key-3"><b></b> <label>30.1 to 40%</label></li>
+        <li class="key-item key-4"><b></b> <label>More than 40%</label></li>
+    </ul>
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th>{{ COPY.labels.hdr_state }}</th>
+                    <th>{{ COPY.labels.hdr_emission_rate_2012 }} ({{ COPY.labels.units_emission_rate_2012 }})</th>
+                    <th>{{ COPY.labels.hdr_goal_2030 }} ({{ COPY.labels.units_goal_2030 }})</th>
+                    <th>{{ COPY.labels.hdr_pct_change }}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+
+            {% if row.pct_change <= '20' %}
+                {% set c = 'change-1' %}
+            {% elif row.pct_change > '20' and row.pct_change <= '30' %}
+                {% set c = 'change-2' %}
+            {% elif row.pct_change > '30' and row.pct_change <= '40' %}
+                {% set c = 'change-3' %}
+            {% elif row.pct_change > '40' %}
+                {% set c = 'change-4' %}
+            {% endif %}
+            
+            <tr class="{{ row.state_abbr|lower }} {{ c }}">
+                <td data-title="{{ COPY.labels.hdr_state }}">{{ row.state }}</td>
+                <td data-title="{{ COPY.labels.hdr_emission_rate_2012 }} ({{ COPY.labels.units_emission_rate_2012 }})">{{ row.emission_rate_2012 }}</td>
+                <td data-title="{{ COPY.labels.hdr_goal_2030 }} ({{ COPY.labels.units_goal_2030 }})">{{ row.goal_2030 }}</td>
+                <td data-title="{{ COPY.labels.hdr_pct_change }}" class="{{ c }}">{{ row.pct_change }}%</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+    
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        <p>Source: {{ COPY.labels.source }}</p>
+        <p>Credit: {{ COPY.labels.credit }}</p>
+    </div>
+
+    <script src="js/lib/jquery.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script src="js/graphic.js" type="text/javascript"></script>
+</body>
+</html>

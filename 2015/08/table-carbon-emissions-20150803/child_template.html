@@ -1,0 +1,60 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+    {% if COPY.labels.units %}<h3>{{ render(COPY.labels.units) }}</h3>{% endif %}
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th>{{ COPY.labels.hdr_name }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_emission_rate_2012 }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_projection_2020 }}</th>
+<!-- 
+                    <th class="amt color">{{ COPY.labels.hdr_pct_change_2020 }}</th>
+ -->
+                    <th class="amt">{{ COPY.labels.hdr_goal_2030 }}</th>
+                    <th class="amt color">{{ COPY.labels.hdr_pct_change_2030 }}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="state-{{ row.usps|classify }}">
+                <td data-title="{{ COPY.labels.hdr_name }}">{{ row.name }}</td>
+                <td data-title="{{ COPY.labels.hdr_emission_rate_2012 }}" class="amt">{{ row.emission_rate_2012 }}</td>
+                <td data-title="{{ COPY.labels.label_projection_2020 }}" class="amt">{{ row.projection_2020 }}</td>
+<!-- 
+                <td data-title="{{ COPY.labels.label_pct_change_2020 }}" class="amt color c{{ row.color_2020 }}">{{ row.pct_change_2020 }}</td>
+ -->
+                <td data-title="{{ COPY.labels.label_goal_2030 }}" class="amt">{{ row.goal_2030 }}</td>
+                <td data-title="{{ COPY.labels.label_pct_change_2030 }}" class="amt color c{{ row.color_2030 }}">{{ row.pct_change_2030 }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

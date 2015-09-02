@@ -1,0 +1,58 @@
+@import "base";
+
+#graphic {
+    margin-bottom: 22px;
+}
+
+.axis {
+    fill: #666;
+    font-weight: bold;
+    font-size: 12px;
+
+    path { display: none; }
+}
+
+.lines line {
+    stroke-width: 3px;
+    stroke: #ddd;
+    shape-rendering: auto;
+}
+
+.dots circle {
+    fill: #ddd;
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.value text {
+    font-size: 11px;
+    fill: #333;
+}
+
+.label text {
+    font-size: 11px;
+    fill: #333;
+}
+
+#graphic h3 {
+    margin: 0 0 15px 0;
+    font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    color: #333;
+    font-size: 13px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-align: center;
+    height: 30px;
+}
+
+
+@media screen and (max-width: 500px) {
+    #graphic h3 { margin-bottom: 0; }
+    .graphic {
+        margin-bottom: 22px;
+        
+        &.poverty { margin-bottom: 0; }
+    }
+}
