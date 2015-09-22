@@ -1,0 +1,42 @@
+@import "base";
+
+body { padding-bottom: 0; }
+
+svg { background-color: #f7f7f7; }
+
+rect.bg { fill: #ebebeb; }
+
+.tick text {
+    color: #999;
+    font-weight: normal;
+    font-size: 10px;
+}
+
+.axis {
+    fill: #666;
+    font-weight: bold;
+    font-size: 12px;
+
+    path { display: none; }
+}
+
+.lines line {
+    stroke-width: 3px;
+    stroke: #ddd;
+    shape-rendering: auto;
+}
+
+.dots circle {
+    fill: #ddd;
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.value text,
+.label text {
+    font-size: 11px;
+    fill: #333;
+    -webkit-font-smoothing: antialiased;
+}
+
+.value.start text.natural-gas { display: none; }

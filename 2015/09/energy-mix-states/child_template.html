@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 0;
+            font: 14px/1.4 Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+        h1 {
+            margin: 0 0 11px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        h2 {
+            font-weight: normal;
+            color: #666;
+            font-size: 12px;
+            margin: 0 0 22px 0;
+        }
+        
+        h3 {
+            margin: 0 0 3px 0;
+            font-size: 12px;
+            color: #333;
+        }
+        
+        h4 {
+            margin: 0 0 3px 0;
+            font-weight: normal;
+            color: #999;
+            font-size: 10px;
+            height: 10px;
+            position: relative;
+        }
+        h4 span {
+            position: absolute;
+            top: 0;
+        }
+        
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.3;
+            color: #808080;
+        }
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { opacity: 0.7; }
+
+
+        /* chart */
+        #graphic { margin-bottom: 1em; }
+        #graphic:before,
+        #graphic:after {
+            content: " "; /* 1 */
+            display: table; /* 2 */
+        }
+        #graphic:after { clear: both; }
+        
+        rect.bg { fill: #ebebeb; }
+        
+        .all-fuels { display: none; }
+        .val-a0.val-b0,
+        .val-a0.val-b-0,
+        .val-a-0.val-b0,
+        .val-a-0.val-b-0,
+        .val-a1.val-b0,
+        .val-a0.val-b1,
+        .val-a1.val-b1 { display: none; }
+
+        .line {
+            fill: none;
+            stroke-width: 2px;
+            stroke: #ccc;
+        }
+        .line.coal { 
+            stroke: #D8472B;
+            stroke-width: 2px;
+        }
+        .line.natural-gas { stroke: #EAAA61; }
+        .line.nuclear { stroke: #F3D469; }
+        .line.renewables { stroke: #51A09E; }
+        .line.hydro { stroke: #7DBFE6; }
+        .line.petroleum { stroke: #777; }
+        .line.other { stroke: #ccc; }
+        
+        text {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: normal;
+            text-align: right;
+            fill: #aaa;
+        }
+        text.coal { fill: #D8472B; }
+        
+        .value text { text-align: right; }
+
+        .chart {
+            float: left;
+            margin: 0 11px 11px 0;
+            background-color: #f7f7f7;
+            padding: 14px 0 6px 0;
+        }
+        
+        .chart.california .value.begin text.hydro
+        .chart.connecticut .value.begin text.other,
+        .chart.georgia .value.begin text.hydro,
+        .chart.minnesota .value.begin text.renewables,
+        .chart.montana .value.begin text.natural-gas,
+        .chart.new-york .value.begin text.hydro,
+        .chart.pennsylvania .value.begin text.petroleum,
+        .chart.utah .value.begin text.renewables { display: none; }
+    </style>
+
+</head>
+<body>
+    <h1>{{ COPY.labels.headline }}</h1>
+
+    <div id="graphic"><img src="fallback.png" alt="[chart]" /></div>
+    
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        <p>Source: {{ COPY.labels.source }}</p>
+        <p>Credit: {{ COPY.labels.credit }}</p>
+    </div>
+    
+    <script type="text/javascript">
+/*        data = [
+            {   'name': 'Connecticut',
+                'fuels': [
+                    { 'name': 'Coal', '2003': 0.144, '2013': 0.020 },
+                    { 'name': 'Petroleum', '2003': 0.068, '2013': 0.009 },
+                    { 'name': 'Natural gas', '2003': 0.165, '2013': 0.165 },
+                    { 'name': 'Nuclear', '2003': 0.550, '2013': 0.491 },
+                    { 'name': 'Hydroelectric', '2003': 0.019, '2013': 0.012 },
+                    { 'name': 'Other renewables', '2003': 0.027, '2013': 0.019 },
+                    { 'name': 'Other', '2003': 0.027, '2013': 0.021 }
+            ]},
+            {   'name': 'Maine',
+                'fuels': [
+                    { 'name': 'Coal', '2003': 0.017, '2013': 0.004 },
+                    { 'name': 'Petroleum', '2003': 0.094, '2013': 0.021 },
+                    { 'name': 'Natural gas', '2003': 0.593, '2013': 0.304 },
+                    { 'name': 'Nuclear', '2003': 0.000, '2013': 0.000 },
+                    { 'name': 'Hydroelectric', '2003': 0.161, '2013': 0.375 },
+                    { 'name': 'Other renewables', '2003': 0.123, '2013': 0.275 },
+                    { 'name': 'Other', '2003': 0.012, '2013': 0.021 }
+            ]}
+        ]; */
+        /*data = [
+            {   'name': 'Connecticut',
+                'fuels': {
+                    'Coal': [{ 'year': '2003', 'amt': '0.144' }, { 'year': '2013', 'amt': '0.020' }],
+                    'Petroleum': [{ 'year': '2003', 'amt': '0.068' }, { 'year': '2013', 'amt': '0.009' }],
+                    'Natural gas': [{ 'year': '2003', 'amt': '0.165' }, { 'year': '2013', 'amt': '0.165' }],
+                    'Nuclear': [{ 'year': '2003', 'amt': '0.550' }, { 'year': '2013', 'amt': '0.491' }],
+                    'Hydroelectric': [{ 'year': '2003', 'amt': '0.019' }, { 'year': '2013', 'amt': '0.012' }],
+                    'Other renewables': [{ 'year': '2003', 'amt': '0.027' }, { 'year': '2013', 'amt': '0.019' }],
+                    'Other': [{ 'year': '2003', 'amt': '0.027' }, { 'year': '2013', 'amt': '0.021' }]
+            }},
+            {   'name': 'Maine',
+                'fuels': {
+                    'Coal': [{ 'year': '2003', 'amt': '0.017' }, { 'year': '2013', 'amt': '0.004' }],
+                    'Petroleum': [{ 'year': '2003', 'amt': '0.094' }, { 'year': '2013', 'amt': '0.021' }],
+                    'Natural gas': [{ 'year': '2003', 'amt': '0.593' }, { 'year': '2013', 'amt': '0.304' }],
+                    'Nuclear': [{ 'year': '2003', 'amt': '0.000' }, { 'year': '2013', 'amt': '0.000' }],
+                    'Hydroelectric': [{ 'year': '2003', 'amt': '0.161' }, { 'year': '2013', 'amt': '0.375' }],
+                    'Other renewables': [{ 'year': '2003', 'amt': '0.123' }, { 'year': '2013', 'amt': '0.275' }],
+                    'Other': [{ 'year': '2003', 'amt': '0.012' }, { 'year': '2013', 'amt': '0.021' }]
+            }}
+        ];*/
+
+        data = {{ DATA }};
+    </script>
+
+    <script src="js/lib/jquery.js" type="text/javascript"></script>
+    <script src="js/lib/d3.v3.min.js" type="text/javascript"></script>
+    <script src="js/lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script src="js/graphic.js" type="text/javascript"></script>
+</body>
+</html>
