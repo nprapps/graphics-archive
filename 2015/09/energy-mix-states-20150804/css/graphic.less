@@ -1,0 +1,91 @@
+@import "base";
+
+#graphic {
+    h3 {
+        font-size: 12px;
+        color: #333;
+        font-weight: normal;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin: 0 0 6px 0;
+        -webkit-font-smoothing: antialiased;
+    }
+    h4 {
+        margin: 0 0 3px 0;
+        font-weight: normal;
+        color: #999;
+        font-size: 10px;
+        height: 10px;
+        position: relative;
+
+        span {
+            position: absolute;
+            top: 0;
+        }
+    }
+}
+
+.bg { fill: #ebebeb; }
+
+.dots circle {
+    fill: #ddd;
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: right;
+    fill: #aaa;
+    -webkit-font-smoothing: antialiased;
+    
+    .value & { fill: #333; }
+    .label & { fill: #333; }
+
+    &.coal { fill: #D8472B; }
+}
+
+.all-fuels { display: none; }
+
+.line {
+    fill: none;
+    stroke-width: 2px;
+}
+
+.chart {
+    float: left;
+    margin: 0 11px 11px 0;
+    background-color: #f7f7f7;
+    padding: 14px 0 6px 0;
+
+    &.arizona .value.begin text.nuclear,
+    &.california .value.begin text.hydro
+    &.connecticut .value.begin text.other,
+    &.illinois .value.begin text.nuclear,
+    &.iowa .value.begin text.hydro,
+    &.kansas .value.begin text.petroleum,
+    &.kentucky .value.begin text.petroleum,
+    &.minnesota .value.begin text.renewables,
+    &.minnesota .value.begin text.petroleum,
+    &.montana .value.begin text.natural-gas,
+    &.new-york .value.begin text.hydro,
+    &.pennsylvania .value.begin text.petroleum,
+    &.south-dakota .value.begin text.hydro,
+    &.wyoming .value.begin text.hydro { 
+        display: none;
+    }
+}
+
+
+/*
+.val-a0.val-b0,
+.val-a0.val-b-0,
+.val-a-0.val-b0,
+.val-a-0.val-b-0,
+.val-a1.val-b0,
+.val-a0.val-b1,
+.val-a1.val-b1 { display: none; }
+*/
