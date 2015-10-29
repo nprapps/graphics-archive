@@ -1,0 +1,385 @@
+@import "base";
+
+@right-column-indent: 75px;
+
+@white: @blue3;
+@black: @teal4;
+@hispanic: @yellow3;
+@asian: @red3;
+
+.graphic-wrapper {
+    max-width: 730px;
+    margin: 0 auto;
+}
+
+h2 {
+    margin: 66px 0 30px 0;
+    font-size: 20px;
+    color: #666;
+    font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+    font-weight: normal;
+    line-height: 1.3;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+
+h3 {
+    text-transform: uppercase;
+    font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    margin: 20px 0 10px 0;
+    color: #333;
+}
+
+h4 {
+    font-size: 12px;
+    color: #666;
+    font-weight: normal;
+    font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0px;
+}
+
+p {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    line-height: 29px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.graphic-wrapper p:first-child {
+    margin-top: 0;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.chart-pair {
+    width: 100%;
+
+    &:after {
+        content: ' ';
+        display: table;
+        clear: both;
+    }
+}
+
+.left-column {
+    float: left;
+    width: 25%;
+    position: relative;
+
+    .mobile-key {
+        display: none;
+        margin: -11px 0 15px 0;
+        padding: 0;
+        list-style-type: none;
+
+        .key-item {
+            display: inline-block;
+            margin: 20px 15px 0 0;
+            padding: 0;
+            line-height: 15px;
+
+            b {
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                margin-right: 6px;
+                float: left;
+            }
+
+            &.white b { background-color: @white; }
+            &.black b { background-color: @black; }
+            &.hispanic b { background-color: @hispanic; }
+            &.asian b { background-color: @asian; }
+
+            label {
+                white-space: nowrap;
+                font-size: 12px;
+                color: #666;
+                font-weight: normal;
+                -webkit-font-smoothing: antialiased;
+            }
+        }
+    }
+
+    .totals-wrapper {
+        margin-top: 20px;
+
+        .bar {
+            rect {
+                &.white { fill: @white; }
+                &.black { fill: @black; }
+                &.hispanic { fill: @hispanic; }
+                &.asian { fill: @asian; }
+            }
+
+            text {
+                font-size: 12px;
+                fill: #fff;
+
+                &.hidden {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.right-column {
+    float: left;
+    width: 75%;
+
+    .change-wrapper {
+        width: 100%;
+        padding-left: 12px;
+
+        .scale, .scale2 {
+            float: left;
+            margin-top: 20px;
+        }
+
+        .scale2 {
+            margin-top: 40px;
+        }
+
+        .change {
+            float: left;
+
+            &.hispanic,
+            &.asian {
+                margin-top: 20px;
+            }
+
+            &.white h4 { color: @white; }
+            &.black h4 { color: @black; }
+            &.hispanic h4 { color: @hispanic; }
+            &.asian h4 { color: @asian; }
+
+            .key {
+                height: 20px;
+                padding-left: 14px;
+
+                b {
+                    display: inline-block;
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 6px;
+                    float: left;
+                }
+
+                label {
+                    white-space: nowrap;
+                    font-size: 12px;
+                    color: #666;
+                    font-weight: normal;
+                    -webkit-font-smoothing: antialiased;
+                }
+            }
+        }
+
+        .zero-line  {
+            stroke: #666;
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+
+        .katrina-line  {
+            stroke: #ccc;
+            stroke-width: 2px;
+            shape-rendering: crispEdges;
+        }
+
+        .lines {
+            fill: none;
+            stroke-width: 3px;
+            stroke: #ccc;
+
+            .line {
+                &.white, &.pre-katrina-white { stroke: @white; }
+                &.black, &.pre-katrina-black { stroke: @black; }
+                &.hispanic, &.pre-katrina-hispanic { stroke: @hispanic; }
+                &.asian, &.pre-katrina-asian { stroke: @asian; }
+
+                &.pre-katrina-white,
+                &.pre-katrina-black,
+                &.pre-katrina-hispanic,
+                &.pre-katrina-asian {
+                    stroke-opacity: 0.5;
+                    stroke-dasharray: 5px, 5px;
+                }
+            }
+        }
+
+        .value text {
+            font-size: 12px;
+            font-weight: bold;
+            fill: #999;
+
+            &.pre-katrina-white,
+            &.pre-katrina-black,
+            &.pre-katrina-hispanic,
+            &.pre-katrina-asian {
+                display: none;
+            }
+
+            &.white { fill: @white; }
+            &.black { fill: @black; }
+            &.hispanic { fill: @hispanic; }
+            &.asian { fill: @asian; }
+        }
+
+        &:after {
+            clear: both;
+        }
+    }
+
+    .projections {
+        float: left;
+        margin: 20px 0 20px @right-column-indent;
+        font-size: 12px;
+        color: #666;
+        font-weight: normal;
+        -webkit-font-smoothing: antialiased;
+
+        b {
+            display: inline-block;
+            width: 5px;
+            height: 3px;
+            margin-top: 6px;
+            margin-right: 5px;
+            float: left;
+            background-color: #ccc;
+        }
+    }
+}
+
+/* Maps */
+@landFill: #ccc;
+//@landFill: #222;
+@landStroke: #999;
+//@waterFill: #d3eaf7;
+//@waterFill: #777;
+@waterFill: @blue6;
+// @waterStroke: #a8d5ef;
+@waterStroke: @blue6;
+//@primaryColor: #f1f1f1;
+@primaryColor: #666;
+
+img.inset {
+    position: absolute;
+    width: 50px;
+    height: auto;
+}
+
+.map svg {
+    margin-top: 5px;
+    background-color: @waterFill;
+    border: 1px solid #ccc;
+
+    .countries path { fill: @landFill; }
+
+    .counties path {
+        fill: none;
+        stroke: none;
+        stroke-width: 1px;
+
+        &.primary {
+            fill: @primaryColor;
+            stroke: none;
+        }
+    }
+
+    .lakes path {
+        fill: @waterFill;
+        stroke: none;
+    }
+
+    .rivers path {
+        fill: none;
+        stroke: @waterFill;
+        stroke-width: 1px;
+        display: none;
+    }
+
+    .scale-bar {
+        line {
+            stroke: #666;
+            stroke-width: 5px;
+        }
+
+        text {
+            font-family: Helvetica, Arial,sans-serif;
+            fill: #666;
+            font-size: 60%;
+            -webkit-font-smoothing: antialiased;
+        }
+    }
+}
+
+.annotation {
+    line { stroke: #999; }
+    text {
+        font-size: 10px;
+        fill: #999;
+        font-style: italic;
+    }
+}
+
+
+/* Responsive */
+
+@media screen and (max-width: 500px) {
+    .left-column {
+        float: inherit;
+        width: 100%;
+
+        .mobile-key {
+            display: block;
+        }
+
+        .totals-wrapper {
+            margin-bottom: 20px;
+        }
+    }
+
+    .right-column {
+        float: inherit;
+        width: 100%;
+
+        .change-wrapper {
+            padding-left: 0px;
+            margin-bottom: 20px;
+
+            .scale, .scale2 {
+                margin-top: 15px;
+            }
+
+            .change {
+                .key {
+                    height: 15px;
+                    padding-left: 8px;
+
+                    h4 {
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+
+        .projections {
+            margin-left: 0;
+        }
+    }
+
+    .value text {
+        font-size: 10px;
+    }
+}

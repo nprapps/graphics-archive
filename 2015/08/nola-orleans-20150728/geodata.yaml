@@ -1,0 +1,21 @@
+bbox: '-87.04 28.88 -92.23 31.08'
+layers:
+    countries:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip'
+        id-property: 'NAME'
+
+    counties:
+        type: 'shp'
+        path: 'data/parishes_no_water'
+        id-property: 'COUNTYFP10'
+        where: COUNTYFP10 in ('071', '051', '087', '103', '095', '089', '075')
+
+    lakes:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/physical/ne_10m_lakes.zip'
+
+    rivers:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/physical/ne_10m_rivers_lake_centerlines.zip'
+        where: featurecla = 'River' AND scalerank < 8

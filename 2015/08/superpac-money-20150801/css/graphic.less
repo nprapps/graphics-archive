@@ -1,0 +1,96 @@
+@import "base";
+
+.value text {
+     fill: #666;
+     
+    &.obama-2012,
+    &.romney-2012 {
+        font-weight: bold;
+        fill: #333;
+    }
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.key .super-pacs {
+    b.republican { background-color: @red2; margin-right: 2px; }
+    b.democrat { background-color: @blue2; margin-right: 2px; }
+}
+.key .campaigns {
+    b.republican { background-color: @red5; margin-right: 2px; }
+    b.democrat { background-color: @blue5; margin-right: 2px; }
+}
+
+.zero-line  {
+    stroke: #666;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+}
+
+.group.republican {
+    .campaigns {
+        fill: @red5;
+    }
+    .super-pacs {
+        fill: @red2;
+    }
+}
+
+.group.democrat {
+    .campaigns {
+        fill: @blue5;
+    }
+    .super-pacs {
+        fill: @blue2;
+    }
+}
+
+/*
+.group.obama-2012 {
+    .campaigns {
+        fill: @blue6
+    }
+    .super-pacs {
+        fill: @blue4
+    }
+}
+
+.group.romney-2012 {
+    .campaigns {
+        fill: @red6
+    }
+    .super-pacs {
+        fill: @red4
+    }
+} */
+
+.labels {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: none;
+
+    li {
+        position: absolute;
+        text-align: right;
+        font-size: 12px;
+        line-height: 1.3;
+        color: #666;
+        display: table;
+        -webkit-font-smoothing: antialiased;
+
+        &.obama-2012,
+        &.romney-2012 {
+            font-weight: bold;
+            color: #333;
+        }
+
+        span {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+}

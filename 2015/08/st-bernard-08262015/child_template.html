@@ -1,0 +1,85 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+<div class="graphic-wrapper">
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="st-bernard">
+        <div class="chart-pair">
+            <div class="left-column">
+                <h4>{{ COPY.labels.map_title }}</h4>
+                <div class="map"></div>
+                <img src="nola-inset.png" alt="inset map" class="inset" />
+
+                <div class="totals-wrapper">
+                    <h4>{{ COPY.labels.population_chart }}</h3>
+                    <ul class="mobile-key">
+                        <li class="key-item white">
+                            <b></b>
+                            <label>White</label>
+                        </li>
+                        <li class="key-item black">
+                            <b></b>
+                            <label>Black</label>
+                        </li>
+                        <li class="key-item hispanic">
+                            <b></b>
+                            <label>Hispanic</label>
+                        </li>
+                        <li class="key-item asian">
+                            <b></b>
+                            <label>Asian</label>
+                        </li>
+                    </ul>
+
+                    <div class="totals"></div>
+                </div>
+            </div>
+            <div class="right-column">
+                <div class="change-wrapper">
+                    <div class="scale"></div>
+                    {% for race in ['White', 'Black'] %}
+                        {% include '_change_graphic.html' %}
+                    {% endfor %}
+                    <div class="scale2"></div>
+                    {% for race in ['Hispanic', 'Asian'] %}
+                        {% include '_change_graphic.html' %}
+                    {% endfor %}
+                </div>
+
+                <div class="projections">
+                    <b class="white"></b>
+                    <b class="black"></b>
+                    <b class="hispanic"></b>
+                    <b class="asian"></b>
+                    {{ COPY.labels.projections }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var TOTALS = {
+            'st-bernard': {{ COPY['st-bernard-totals'].json() }}
+        };
+
+        var CHANGE = {
+            'st-bernard': {{ COPY['st-bernard-change'].json() }}
+        };
+    </script>
+
+</div>
+{% endblock content %}

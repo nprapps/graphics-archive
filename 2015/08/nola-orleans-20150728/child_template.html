@@ -1,0 +1,86 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+<div class="graphic-wrapper">
+    {{ COPY.topper.body }}
+
+    {% for parish in PARISHES %}
+        <div id="{{ parish }}" class="section">
+            <h2>{{ COPY[parish].headline }}</h2>
+
+            {% if parish != 'metro' %}
+            <div class="chart-pair">
+                <div class="left-column">
+                    <h4>{{ COPY[parish].map_title }}</h4>
+                    <div class="map"></div>
+                    <img src="nola-inset.png" alt="inset map" class="inset" />
+
+                    <div class="totals-wrapper">
+                        <h4>{{ COPY.topper.population_chart }}</h3>
+                        <ul class="mobile-key">
+                            <li class="key-item white">
+                                <b></b>
+                                <label>White</label>
+                            </li>
+                            <li class="key-item black">
+                                <b></b>
+                                <label>Black</label>
+                            </li>
+                            <li class="key-item hispanic">
+                                <b></b>
+                                <label>Hispanic</label>
+                            </li>
+                            <li class="key-item asian">
+                                <b></b>
+                                <label>Asian</label>
+                            </li>
+                        </ul>
+
+                        <div class="totals"></div>
+                    </div>
+                </div>
+                <div class="right-column">
+                    <div class="change-wrapper">
+                        <div class="scale"></div>
+                        {% for race in ['White', 'Black'] %}
+                            {% include '_change_graphic.html' %}
+                        {% endfor %}
+                        <div class="scale2"></div>
+                        {% for race in ['Hispanic', 'Asian'] %}
+                            {% include '_change_graphic.html' %}
+                        {% endfor %}
+                    </div>
+
+                    <div class="projections">
+                        <b class="white"></b>
+                        <b class="black"></b>
+                        <b class="hispanic"></b>
+                        <b class="asian"></b>
+                        {{ COPY.topper.projections }}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {{ COPY[parish].body }}
+        </div>
+    {% endfor %}
+
+    <script type="text/javascript">
+        var TOTALS = {
+            {% for parish in PARISHES %}
+            {% set sheet_name = parish + '-totals' %}
+            '{{ parish }}': {{ COPY[sheet_name].json() }},
+            {% endfor %}
+        };
+
+        var CHANGE = {
+            {% for parish in PARISHES %}
+            {% set sheet_name = parish + '-change' %}
+            '{{ parish }}': {{ COPY[sheet_name].json() }},
+            {% endfor %}
+        };
+    </script>
+
+</div>
+{% endblock content %}
