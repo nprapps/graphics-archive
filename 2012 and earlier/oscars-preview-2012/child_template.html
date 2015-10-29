@@ -1,0 +1,464 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+
+        <div id="oscars2012">
+
+        	<div id="oscarContent">
+
+            	<div class="oscarPanel" id="panel0">
+            		<ul>
+            			<li id="movie1"><img src="http://npr.org/news/graphics/2012/02/oscars/thumbnails/img-theartist-138.jpg" alt="Photo: The Artist" /> <strong>The Artist</strong></li>
+            			<li id="movie2"><img src="http://npr.org/news/graphics/2012/02/oscars/thumbnails/img-thedescendants-138.jpg" alt="Photo: The Descendants" /> <strong>The Descendants</strong></li>
+            			<li id="movie3"><img src="http://npr.org/news/graphics/2012/02/oscars/thumbnails/img-moneyball-138.jpg" alt="Photo: Moneyball" /> <strong>Moneyball</strong></li>
+            			<li id="movie4"><img src="http://npr.org/news/graphics/2012/02/oscars/thumbnails/img-midnightinparis-138.jpg" alt="Photo: Midnight In Paris" /> <strong>Midnight In Paris</strong></li>
+            			<li id="movie5"><img src="http://npr.org/news/graphics/2012/02/oscars/thumbnails/img-treeoflife-138.jpg" alt="Photo: The Tree Of Life" /> <strong>The Tree Of Life</strong></li>
+            			<li id="movie6"><img src="http://npr.org/news/graphics/2012/02/oscars/thumbnails/img-warhorse-138.jpg" alt="Photo: War Horse" /> <strong>War Horse</strong></li>
+            			<li id="movie7"><img src="http://npr.org/news/graphics/2012/02/oscars/thumbnails/img-extremelyloud-138.jpg" alt="Photo: Extremely Loud &amp; Incredibly Close" /> <strong>Extremely Loud &amp; Incredibly Close</strong></li>
+            			<li id="movie8"><img src="http://npr.org/news/graphics/2012/02/oscars/thumbnails/img-thehelp-138.jpg" alt="Photo: The Help" /> <strong>The Help</strong></li>
+            			<li id="movie9"><img src="http://npr.org/news/graphics/2012/02/oscars/thumbnails/img-hugo-138.jpg" alt="Photo: Hugo" /> <strong>Hugo</strong></li>
+            		</ul>
+            	</div>
+
+                <!-- THE ARTIST -->
+            	<div class="oscarPanel" id="panel1">
+            		<div class="oscarHeader">
+            			<h2>The Artist</h2>
+            			<h5>&laquo; Back</h5>
+            		</div>
+            		<div class="oscarTabs">
+            			<ul>
+            				<li>About The Movie</li>
+            				<li>Watch Clips</li>
+            				<li>Related Stories</li>
+            			</ul>
+            		</div>
+            		<div class="oscarAbout">
+            			<h3>Who made it?</h3>
+        				<p>Written and directed by Michel Hazanavicius (the director behind the <em>OSS 117</em> parodies); starring Jean Dujardin, Berenice Bejo, John Goodman, and James Cromwell.</p>
+            			<h3>What is it?</h3>
+        				<p>A black-and-white silent movie celebrating 1920s Hollywood, about a silent star (Jean Dujardin) who struggles for relevance with the introduction of talkies.</p>
+            			<h3>Can I still see it?</h3>
+        				<p>Yes, it&#39;s still in theaters, though it's not screening as widely as some on this list. <a href="http://www.imdb.com/showtimes/title/tt1655442/" target="_blank">Find a showtime</a>.</p>
+            			<h3>Our critics:</h3>
+        				<p><strong>Bob Mondello:</strong> &#34;What will lift this movie way above most of what&#39;s at the multiplex right now, even for folks who aren't silent-movie buffs, is the way the director makes you a willing, even an excited fan of this crazy, old-fashioned thing he's doing &#133; Silent black-and-white movies are not coming back, but this one is such a rewarding labor of love by all of the artists involved that it just might make you wish they could.&#34; </p>
+            		</div>
+            		<div class="oscarClips">
+            			<h3>&#39;Taking Bows&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=142504629" frameborder="0" scrolling="no"></iframe>
+            			<h3>&#39;Breakfast Table&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=142504629&mediaId=147301560" frameborder="0" scrolling="no"></iframe>
+            			<h3>&#39;Dance Partners&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=142504629&mediaId=147301575" frameborder="0" scrolling="no"></iframe>
+            		</div>
+            		<div class="oscarStories">
+            			<h3>Related Stories</h3>
+            			<ul>
+            				<li><a href="http://www.npr.org/2011/11/25/142504629/in-glorious-black-and-white-an-artist-falls-silent" target="_blank">In Glorious Black And White, An &#39;Artist&#39; Falls Silent</a> <span class="date">Nov. 25, 2011</span></li>
+            				<li><a href="http://www.npr.org/blogs/monkeysee/2011/11/22/142601838/in-the-artist-a-silent-look-at-old-hollywood" target="_blank">In &#39;The Artist&#39;, A Silent Look At Old Hollywood</a> <span class="date">Nov. 22, 2011</span></li>
+            			</ul>
+            		</div>
+            	</div>
+
+                <!-- THE DESCENDENTS -->
+            	<div class="oscarPanel" id="panel2">
+            		<div class="oscarHeader">
+            			<h2>The Descendants</h2>
+            			<h5>&laquo; Back</h5>
+            		</div>
+            		<div class="oscarTabs">
+            			<ul>
+            				<li>About The Movie</li>
+            				<li>Watch Clips</li>
+            				<li>Related Stories</li>
+            			</ul>
+            		</div>
+            		<div class="oscarAbout">
+            			<h3>Who made it?</h3>
+            				<p>Directed by Alexander Payne (<em>Sideways, Election</em>); screenplay by Payne, Nat Faxon, and Jim Rash from Kaui Hart Hemmings&#39; novel; starring George Clooney, Shailene Woodley, and Amara Miller.</p>
+            			<h3>What is it?</h3>
+            				<p>A family drama punctuated by moments of sharp comedy, it follows wealthy workaholic and father Matt King (George Clooney), whose life begins to fall apart when he learns that his wife -- comatose after an accident -- had been having an affair.</p>
+            			<h3>Can I still see it?</h3>
+            				<p>Yes, it&#39;s still in theaters. <a href="http://www.imdb.com/showtimes/title/tt1033575" target="_blank">Find a showtime</a>.
+            			<h3>Our critics:</h3>
+            				<p><Strong>David Edelstein:</strong> &#34;<em>The Descendants</em> gets to you by mixing devastating sadness with sick humor &#150; and showing how they&#39;re karmically connected &#133; Just when you think a character is too much of a cartoon, there&#39;ll be a moment of revelation, a window through the fa&#231;ade &#133; <em>The Descendants</em> is a great movie.&#34;</p>
+            		</div>
+            		<div class="oscarClips">
+            			<h3>&#39;The Good Father&#39;</h3>
+            				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=142249204" frameborder="0" scrolling="no"></iframe>
+            			<h3>&#39;Shaking Off The Loser Boyfriend&#39;</h3>
+            				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=142249204&mediaId=142404487" frameborder="0" scrolling="no"></iframe>
+            			<h3>&#39;You Probably Know My Husband&#39;</h3>
+            				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=142249204&mediaId=142403818" frameborder="0" scrolling="no"></iframe>
+            		</div>
+            		<div class="oscarStories">
+            			<h3>Related Stories</h3>
+            			<ul>
+            				<li><a href="http://www.npr.org/2011/11/18/142249204/the-descendants-in-paradise-a-stranger-to-himself" target="_blank">&#39;The Descendants&#39;&#58; In Paradise, A Stranger To Himself</a> <span class="date">Nov. 18, 2011</span></li>
+            				<li><a href="http://www.npr.org/blogs/therecord/2012/01/08/144804932/soundtracking-the-descendants-with-real-hawaiian-music" target="_blank">Soundtracking &#39;The Descendants&#39; With &#39;Real&#39; Hawaiian Music</a> <span class="date">Jan. 8, 2012</span></li>
+            				<li><a href="http://www.npr.org/2011/11/17/142309905/troubled-tropical-paradise-in-paynes-descendents" target="_blank">In Payne&#39;s &#39;Descendants,&#39; Trouble In The Tropics</a> <span class="date">Nov. 17, 2011</span></li>
+            				<li><a href="http://www.npr.org/blogs/monkeysee/2012/02/09/146643092/george-clooney-on-acting-fame-and-putting-down-your-cell-phone-camera" target="_blank">George Clooney On Acting, Fame, And Putting Down Your Cellphone Camera</a> <span class="date">Feb. 9, 2012</span></li>
+            			</ul>
+            		</div>
+            	</div>
+
+                <!-- MONEYBALL -->
+            	<div class="oscarPanel" id="panel3">
+            		<div class="oscarHeader">
+            			<h2>Moneyball</h2>
+            			<h5>&laquo; Back</h5>
+            		</div>
+            		<div class="oscarTabs">
+            			<ul>
+            				<li>About The Movie</li>
+            				<li>Watch Clips</li>
+            				<li>Related Stories</li>
+            			</ul>
+            		</div>
+            		<div class="oscarAbout">
+            			<h3>Who made it?</h3>
+        				<p>Directed by Bennett Miller (<em>Capote</em>); screenplay by Steven Zaillian (<em>Schindler&#39;s List</em>) and Aaron Sorkin (<em>The Social Network</em>); starring Brad Pitt, Jonah Hill, and Philip Seymour Hoffman.</p>
+            			<h3>What is it?</h3>
+        				<p>The true story behind the small-market Oakland A&#39;s remarkable 2002 season when General Manager Billy Beane (Brad Pitt) and his assistant GM (Jonah Hill) used sophisticated math to attempt to make the small-market A&#39;s competitive against wealthier baseball franchises.</p>
+            			<h3>Can I still see it?</h3>
+        				<p>Yes. It&#39;s out on home video and can be viewed on iTunes, Amazon, and Netflix.</p>
+            			<h3>Our critics:</h3>
+        				<p><strong>Kenneth Turan:</strong> &#34;<em>Moneyball</em> is a rare sports movie that deals with more than wins and losses.&#34;</p>
+        				<p><strong>David Edelstein:</strong> &#34;<em>Moneyball</em> doesn&#39;t come together, but it&#39;s very entertaining as a sports-underdog story, a kind of Bad News Bears for MBAs. And Pitt has never had more star presence.&#34;</p>
+            		</div>
+            		<div class="oscarClips">
+            			<h3>&#39;Go-Getter&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=140531204" frameborder="0" scrolling="no"></iframe>
+            			<h3>&#39;Your Lineup&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=140531204&mediaId=147361251" frameborder="0" scrolling="no"></iframe>
+            			<h3>&#39;Closing&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=140531204&mediaId=147361309" frameborder="0" scrolling="no"></iframe>
+            		</div>
+            		<div class="oscarStories">
+            			<h3>Related Stories</h3>
+            			<ul>
+            				<li><a href="http://www.npr.org/2011/09/23/140531204/moneyball-a-bad-news-bears-for-mbas" target="_blank">&#39;Moneyball&#39;: A &#39;Bad News Bears&#39; For MBAs</a> <span class="date">Sep. 23, 2011</span></li>
+            				<li><a href="http://www.npr.org/2011/09/22/140629778/brad-pitt-moneyball-life-and-the-stalkerazzi" target="_blank">Brad Pitt: &#39;Moneyball,&#39; Life And &#39;The Stalkerazzi&#39;</a> <span class="date">Sep. 22, 2011</span></li>
+            				<li><a href="http://www.npr.org/2011/09/23/140703403/moneyball-tracking-down-how-stats-win-games" target="_blank">&#39;Moneyball&#39;: Tracking Down How Stats Win Games</a> <span class="date">Sep. 23, 2011</span></li>
+            				<li><a href="http://www.npr.org/2011/09/22/140694874/moneyball-is-more-than-just-baseball-stats" target="_blank">&#39;Moneyball&#39; Is About More Than Just Baseball Stats</a> <span class="date">Sep. 22, 2011</span></li>
+            				<li><a href="http://www.npr.org/2012/02/13/146576144/brad-pitt-making-moneyball-and-being-billy-beane" target="_blank">Brad Pitt: Making &#39;Moneyball&#39; And Being Billy Beane</a> <span class="date">Feb. 13, 2012</span></li>
+            				<li><a href="http://www.npr.org/2011/09/26/140813409/the-man-behind-the-moneyball-sabermetrics" target="_blank">The Man Behind The &#39;Moneyball&#39; Sabermetrics</a> <span class="date">Sep. 26, 2011</span></li>
+            				<li><a href="http://www.npr.org/2011/09/24/140767460/moneyball-how-the-oakland-as-gamed-baseball" target="_blank">&#39;Moneyball&#39;: How The Oakland A&#39;s Gamed Baseball</a> <span class="date">Sep. 24, 2011</span></li>
+            				<li><a href="http://www.npr.org/2011/09/23/140730707/moneyball-revolutionizes-how-baseball-is-played" target="_blank">&#39;Moneyball&#39; Revolutionizes How Baseball Is Played</a> <span class="date">Sep. 23, 2011</span></li>
+            			</ul>
+            		</div>
+            	</div>
+
+                <!-- MIDNIGHT IN PARIS -->
+            	<div class="oscarPanel" id="panel4">
+            		<div class="oscarHeader">
+            			<h2>Midnight In Paris</h2>
+            			<h5>&laquo; Back</h5>
+            		</div>
+            		<div class="oscarTabs">
+            			<ul>
+            				<li>About The Movie</li>
+            				<li>Watch Clips</li>
+            				<li>Related Stories</li>
+            			</ul>
+            		</div>
+            		<div class="oscarAbout">
+            			<h3>Who made it?</h3>
+        				<p>Written and directed by Woody Allen; starring Owen Wilson, Rachel McAdams, Michael Sheen, and Marion Cotillard.</p>
+            			<h3>What is it?</h3>
+        				<p>A sweet and supernatural nostalgia trip to the Parisian past, <em>Midnight</em> follows yet another Woody Allen stand&#45;in &#151; a struggling screenwriter (Owen Wilson) who, on a visit with his fianc&#233;e, is somehow transported back to 1920s Paris.</p>
+            			<h3>Can I still see it?</h3>
+        				<p>Yes. It&#39;s out on home video and can be viewed on iTunes, Amazon, and Netflix.</p>
+            			<h3>Our critics:</h3>
+        				<p><strong>David Edelstein:</strong> &#34;It&#39;s a romantic fantasy that&#39;s also a sly act of self&#45;criticism &#133; <em>Midnight in Paris</em> is a doodle, but it&#39;s easy and graceful, and its ambivalent view of nostalgia has all kinds of resonance.&#34;</p>
+        				<p><strong>Ella Taylor:</strong> &#34;&#133; a sweet and lively story, and a nicely packaged new outing from a past master who has done little more than repeat himself for at least two decades.&#34;<p>
+            		</div>
+            		<div class="oscarClips">
+            			<h3>&#39;All Dressed Up&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=136460594" frameborder="0" scrolling="no"></iframe>
+            			<h3>&#39;He's a Pseudo Intellectual&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=136460594&mediaId=136482638" frameborder="0" scrolling="no"></iframe>
+            			<h3>&#39;I'm Not A Big Francophile&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=136460594&mediaId=136482640" frameborder="0" scrolling="no"></iframe>
+            		</div>
+            		<div class="oscarStories">
+            			<h3>Related Stories</h3>
+            			<ul>
+            				<li><a href="http://www.npr.org/2011/05/20/136460594/midnight-in-paris-woody-allens-best-in-a-decade" target="_blank">A &#39;Paris&#39; Review: Woody Allen, In Fine Form</a> <span class="date">May. 20, 2011</span></li>
+            				<li><a href="http://www.npr.org/2011/05/20/136287239/for-inspiration-allen-always-has-paris" target="_blank">For Inspiration, Allen Always Has &#39;Paris&#39;</a> <span class="date">May 19, 2011</span></li>
+            				<li><a href="http://www.npr.org/2012/01/27/145760095/woody-allen-blending-real-life-with-fiction" target="_blank">Woody Allen: Blending Real Life With Fiction</a> <span class="date">Jan. 27, 2012</span></li>
+            				<li><a href="http://www.npr.org/2011/05/20/136506984/corey-stoll-takes-on-literary-voice-of-hemingway" target="_blank">Corey Stoll Takes On Literary Voice Of Hemingway</a> <span class="date">May 20, 2011</span></li>
+            				<li><a href="http://www.npr.org/blogs/monkeysee/2011/06/22/137321262/the-golden-age-of-parisian-nostalgia-has-arrived-and-so-have-the-books " target="_blank">The Golden Age Of Parisian Nostalgia Has Arrived, And So Have The Books</a> <span class="date">June 22, 2011</span></li>
+            			</ul>
+            		</div>
+            	</div>
+
+                <!-- TREE OF LIFE -->
+            	<div class="oscarPanel" id="panel5">
+            		<div class="oscarHeader">
+            			<h2>The Tree Of Life</h2>
+            			<h5>&laquo; Back</h5>
+            		</div>
+            		<div class="oscarTabs">
+            			<ul>
+            				<li>About The Movie</li>
+            				<li>Watch Clips</li>
+            				<li>Related Stories</li>
+            			</ul>
+            		</div>
+            		<div class="oscarAbout">
+            			<h3>Who made it?</h3>
+        				<p>Written and directed by Terrence Malick (<em>The New World, Days of Heaven, Badlands</em>); starring Hunter McCracken, Brad Pitt, Sean Penn, and Jessica Chastain.</p>
+            			<h3>What is it?</h3>
+        				<p>A metaphysical and often experimental meditation on the meaning of life that explores a middle-aged man&#39;s (Sean Penn) reflections on his childhood in 1950s Texas, his relationships with his graceful mother (Jessica Chastain) and authoritative father (Brad Pitt), and the beginning of the universe and life on earth. (Complete with dinosaurs.)</p>
+            			<h3>Can I still see it?</h3>
+        				<p>Yes. It&#39;s out on home video and can be viewed on iTunes, Amazon, and Netflix.</p>
+            			<h3>Our critics:</h3>
+        				<p><strong>Bob Mondello:</strong> &#34;There&#39;s not a frame of <em>The Tree of Life</eM> &#150; not one &#150; that I wouldn't love to have hanging on a wall in my home. And there are relatively few frames of <em>The Tree of Life</em> that I&#39;m sure I entirely understand. The film is gorgeous and abstract, leaping around in time and space, structured in movements and more like a symphony than a conventional narrative.&#34;</p>
+        				<p><strong>David Edelstein:</strong> &#34;<em>The Tree of Life</em> doesn&#39;t jell, but I recommend the experience unreservedly. You might find it ridiculously sublime or sublimely ridiculous &#150; or, like me, both. But it&#39;s a hell of a trip.&#34;</p>
+            		</div>
+            		<div class="oscarClips">
+            			<h3>&#39;Where's Dad?&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=136646293" frameborder="0" scrolling="no"></iframe>
+            			<h3>&#39;Hit Me&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=136646293&mediaId=136692613" frameborder="0" scrolling="no"></iframe>
+            		</div>
+            		<div class="oscarStories">
+            			<h3>Related Stories</h3>
+            			<ul>
+            				<li><a href="http://www.npr.org/2011/05/27/136646293/the-tree-of-life-a-creation-trip-worth-taking" target="_blank">&#39;The Tree Of Life&#39;: A Creation Trip Worth Taking</a> <span class="date">May 27, 2011</span></li>
+            				<li><a href="http://www.npr.org/blogs/thetwo-way/2011/06/30/137533978/love-it-or-hate-it-few-are-in-between-about-tree-of-life" target="_blank">Love It Or Hate It: Few Are In Between About &#39;Tree Of Life&#39;</a> <span class="date">June 30, 2011</span></li>
+            				<li><a href="http://www.npr.org/2011/05/29/136690764/pitt-plays-the-american-patriarch-in-tree-of-life" target="_blank">Pitt Plays The American Patriarch In &#39;Tree Of Life&#39;</a> <span class="date">May 29, 2011</span></li>
+            				<li><a href=" http://www.npr.org/2011/05/27/136723377/review-tree-of-life" target="_blank">Symphonic Style Roots Malick&#39;s &#39;Tree Of Life&#39;</a> <span class="date">May 27, 2011</span></li>
+            			</ul>
+            		</div>
+            	</div>
+
+                <!-- WAR HORSE -->
+            	<div class="oscarPanel" id="panel6">
+            		<div class="oscarHeader">
+            			<h2>War Horse</h2>
+            			<h5>&laquo; Back</h5>
+            		</div>
+            		<div class="oscarTabs">
+            			<ul>
+            				<li>About The Movie</li>
+            				<li>Watch Clips</li>
+            				<li>Related Stories</li>
+            			</ul>
+            		</div>
+            		<div class="oscarAbout">
+            			<h3>Who made it?</h3>
+        				<p>Directed by Steven Spielberg; screenplay by Lee Hall and Richard Curtis from Michael Morpurgo&#39;s novel; starring Jeremy Irvine, Emily Watson, David Thewlis, and 14 equine actors as Joey the war horse.</p>
+            			<h3>What is it?</h3>
+        				<p>A tear&#45;jerking family film and sweeping war epic, it follows Joey, a stallion born in pre&#45;World War I England, who&#39;s transferred from owner to owner and then to the battlefields of Europe.</p>
+            			<h3>Can I still see it?</h3>
+        				<p> Possibly; it&#39;s still in theaters, though not widely. <a href="http://www.imdb.com/showtimes/title/tt1568911" target="_blank">Find a showtime</a>.<p>
+            			<h3>Our critics:</h3>
+        				<p><strong>Ian Buckwalter:</strong> &#34;The kid&#45;friendly storybook tone, heightened by weirdly artificial lighting choices from longtime Spielberg cinematographer Janusz Kaminski, feels particularly discordant given the dark and surprisingly violent turn the film takes once Joey makes good on the film&#39;s title.&#34;</p>
+            		</div>
+            		<div class="oscarClips">
+            			<h3>&#39;Never Give Up&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=143843345" frameborder="0" scrolling="no"></iframe>
+            			<h3>&#39;How To Fly&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=143843345&mediaId=144088550" frameborder="0" scrolling="no"></iframe>
+            			<h3>&#39;On Target&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=143843345&mediaId=144088772" frameborder="0" scrolling="no"></iframe>
+            		</div>
+            		<div class="oscarStories">
+            			<h3>Related Stories</h3>
+            			<ul>
+            				<li><a href="http://www.npr.org/2011/12/22/143843345/spielbergs-war-horse-an-epic-battlefield-ride" target="_blank">Spielberg&#39;s &#39;War Horse&#39;: An Epic Battlefield Ride</a> <span class="date">Dec. 22, 2011</span></li>
+            				<li><a href="http://www.npr.org/2011/12/18/143513144/war-what-is-good-for-movies-it-seems" target="_blank">War, What Is It Good For? Movies, It Seems.</a> <span class="date">Dec. 18, 2011</span></li>
+            				<li><a href="http://www.npr.org/templates/story/story.php?storyId=125348552" target="_blank">In London, A Stirring &#39;War Horse&#39; Of A Drama</a> <span class="date">May 3, 2011</span></li>
+            			</ul>
+            		</div>
+            	</div>
+
+                <!-- EXTREMELY LOUD -->
+            	<div class="oscarPanel" id="panel7">
+            		<div class="oscarHeader">
+            			<h2>Extremely Loud &amp; Incredibly Close</h2>
+            			<h5>&laquo; Back</h5>
+            		</div>
+            		<div class="oscarTabs">
+            			<ul>
+            				<li>About The Movie</li>
+            				<li>Watch Clips</li>
+            				<li>Related Stories</li>
+            			</ul>
+            		</div>
+            		<div class="oscarAbout">
+            			<h3>Who made it?</h3>
+        				<p>Directed by Stephen Daldry (<em>The Reader, The Hours, Billy Elliot</em>); written by Eric Roth (<em>Benjamin Button</em>) based on the novel by Jonathan Safran Foer; starring Thomas Horn, Tom Hanks, Sandra Bullock, and Max von Sydow.</p>
+            			<h3>What is it?</h3>
+        				<p>A tug&#45;at&#45;your&#45;heartstrings drama about an 11&#45;year&#45;old boy (Thomas Horn) who searches for meaning after his father (Tom Hanks) dies in the World Trade Center attacks.</p>
+            			<h3>Can I still see it?</h3>
+        				<p>Yes, it&#39;s still in theaters, though with limited availability. <a href="http://www.imdb.com/title/tt0477302/" target="_blank">Find a showtime</a>.</p>
+            			<h3>Our critics:</h3>
+        				<p><strong>David Edelstein:</strong> &#34;The problem &#133; is that once the filmmakers strip away the novel&#39;s postmodern pastiche and tack on an inspirational Hollywood ending, what&#39;s left &#150; this story of a boy&#39;s search for a lost father &#150; doesn&#39;t fully mesh with Sept. 11, and doesn&#39;t fully earn the right to use such terrible images from our recent past.&#34;</p>
+        				<p><strong>Ella Taylor:</strong> &#34;What many interpreted as a severe case of whimsy in a book clearly meant for adults translates into a dark but warm and captivating movie for kids &#133; For the most part, Extremely Loud and Incredibly Close unfolds as a tough&#45;minded but tender tale of suffering, confusion and redemption for children old enough to remember or know about the attack on the twin towers.&#34;</p>
+                    </div>
+            		<div class="oscarClips">
+        				<h3>&#39;Something Worth Finding&#39;</h3>
+        				<iframe width="450" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=143842789" frameborder="0" scrolling="no"></iframe>
+        				<h3>&#39;Did You Know My Father?&#39;</h3>
+        				<iframe width="450" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=143842789&mediaId=147266276" frameborder="0" scrolling="no"></iframe>
+        				<h3>&#39;Questions&#39;</h3>
+        				<iframe width="450" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=143842789&mediaId=147266318" frameborder="0" scrolling="no"></iframe>
+        			</div>
+            		<div class="oscarStories">
+            			<h3>Related Stories</h3>
+            			<ul>
+            				<li><a href="http://www.npr.org/2012/01/06/144781074/extremely-loud-and-incredibly-manipulative" target="_blank">&#39;Extremely Loud&#39; And Incredibly Manipulative</a> <span class="date">Jan. 6, 2012</span></li>
+            				<li><a href="http://www.npr.org/2011/12/22/143842789/incredibly-close-mapping-a-life-after-a-loss" target="_blank">&#39;Incredibly Close&#39;: Mapping A Life, After A Loss</a> <span class="date">Dec. 22, 2011</span></li>
+            				<li><a href="http://www.npr.org/templates/story/story.php?storyId=4715588" target="_blank">Excerpt: &#39;Extremely Loud and Incredibly Close&#39;</a> <span class="date">July 6, 2005</span></li>
+            				<li><a href="http://www.npr.org/2011/12/20/144029796/stephen-daldry-discusses-new-movie" target="_blank">Stephen Daldry Discusses New Movie</a> <span class="date">Dec. 20, 2011</span></li>
+            			</ul>
+            		</div>
+            	</div>
+
+                <!-- THE HELP -->
+            	<div class="oscarPanel" id="panel8">
+            		<div class="oscarHeader">
+            			<h2>The Help</h2>
+            			<h5>&laquo; Back</h5>
+            		</div>
+            		<div class="oscarTabs">
+            			<ul>
+            				<li>About The Movie</li>
+            				<li>Watch Clips</li>
+            				<li>Related Stories</li>
+            			</ul>
+            		</div>
+            		<div class="oscarAbout">
+            			<h3>Who made it?</h3>
+        				<p>Tate Taylor wrote and directed the film, from the novel by Kathryn Stockett; starring Emma Stone, Viola Davis, Octavia Spencer, and Bryce Dallas Howard.</p>
+            			<h3>What is it?</h3>
+        				<p>A drama about race and class in the civil rights&#45;era 1960s, it follows a white aspiring journalist (Stone) who embarks on the risky project of interviewing the black maids of wealthy white families with the goal of writing a book from their point&#45;of&#45;view.</p>
+            			<h3>Can I still see it?</h3>
+        				<p>Yes. It&#39;s out on home video and can be viewed on iTunes, Amazon, and Netflix.</p>
+            			<h3>Our critics:</h3>
+        				<p><strong>Ella Taylor:</strong> &#34;<em>The Help</em> trots stolidly after the book, replicating its basic structure while ironing out the verve with which its nested stories unfold. Taylor has none of Stockett&#39;s feel for the seething impulses of character, and he has a clunky way with some serious acting talent.&#34;</p>
+        				<p><strong>David Edelstein:</strong> &#34;The center of <em>The Help</em> is Davis, who has eyes unlike other actress&#39;s. They&#39;re hard, unyielding, with no giveback, softening only for the neglected little girl in her care. It&#39;s a tough, beautifully judged performance.&#34;</p>
+            		</div>
+            		<div class="oscarClips">
+            			<h3>&#39;Skeeter Needs Help&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=139086532" frameborder="0" scrolling="no"></iframe>
+            			<h3>&#39;Minnie Works for Celia&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=139086532&mediaId=139152271" frameborder="0" scrolling="no"></iframe>
+            			<h3>&#39;Shinolater&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=139086532&mediaId=139152691" frameborder="0" scrolling="no"></iframe>
+            		</div>
+            		<div class="oscarStories">
+            			<h3>Related Stories</h3>
+            			<ul>
+            				<li><a href="http://www.npr.org/2011/08/10/139086532/heavy-handed-help-saved-by-great-acting" target="_blank">Heavy-Handed &#39;Help&#39; Saved By Great Acting</a> <span class="date">Aug. 10, 2011</span></li>
+            				<li><a href="http://www.npr.org/2011/08/09/139084261/life-in-the-south-through-the-eyes-of-the-help?ps=rs" target="_blank">Life In The South, Through The Eyes Of &#39;The Help&#39;</a> <span class="date">Aug. 9, 2011</span></li>
+            				<li><a href="http://www.npr.org/2011/08/10/139385256/despite-criticism-oscar-nominee-prides-the-help?ps=rs" target="_blank">Despite Criticism, Oscar Nominee Proud Of &#39;The Help&#39;</a> <span class="date">Aug. 10, 2011</span></li>
+            				<li><a href="http://www.npr.org/2012/02/13/146708601/viola-davis-the-fresh-air-interview" target="_blank">Viola Davis: The Fresh Air Interview</a> <span class="date">Feb. 13, 2012</span></li>
+            				<li><a href="http://www.npr.org/2011/08/18/139755308/the-help-draws-audiences-and-ire" target="_blank">&#39;The Help&#39; Draws Audiences, And Ire</a> <span class="date">Aug. 18, 2011</span></li>
+            				<li><a href="http://www.npr.org/2011/07/29/105920680/a-nuanced-novel-of-race-in-the-deep-south" target="_blank">A Nuanced Novel Of Race In The Deep South</a> <span class="date">July 1, 2009</span></li>
+            				<li><a href="http://www.npr.org/blogs/monkeysee/2011/02/24/134022783/the-help-spawns-a-lawsuit-and-a-question-how-much-borrowing-is-fair" target="_blank">&#39;The Help&#39; Spawns A Lawsuit And A Question: How Much Borrowing Is Fair?</a> <span class="date">Feb. 24, 2011</span></li>
+            				<li><a href="http://www.npr.org/2011/08/12/139578287/octavia-spencer-you-cant-help-but-feel-this-film?ps=rs" target="_blank">Octavia Spencer: You Can&#39;t &#39;Help&#39; But Feel This Film</a> <span class="date">Aug. 12, 2011</span></li>
+            				<li><a href="http://www.npr.org/blogs/monkeysee/2011/08/16/139669564/actor-wendell-pierce-takes-to-twitter-to-talk-about-the-help?ps=rs" target="_blank">Actor Wendell Pierce Takes To Twitter To Talk About &#39;The Help&#39;</a> <span class="date">Aug. 16, 2011</span></li>
+            				<li><a href="http://www.npr.org/2011/08/22/139669124/-the-help-needs-assistance-from-a-realistic-voice" target="_blank">Eudora Welty&#39;s Jackson: &#39;The Help&#39; In Context</a> <span class="date">Aug. 22, 2011</span></li>
+            			</ul>
+            		</div>
+            	</div>
+
+                <!-- HUGO -->
+            	<div class="oscarPanel" id="panel9">
+            		<div class="oscarHeader">
+            			<h2>Hugo</h2>
+            			<h5>&laquo; Back</h5>
+            		</div>
+            		<div class="oscarTabs">
+            			<ul>
+            				<li>About The Movie</li>
+            				<li>Watch Clips</li>
+            				<li>Related Stories</li>
+            			</ul>
+            		</div>
+            		<div class="oscarAbout">
+            			<h3>Who made it?</h3>
+        				<p>Directed by Martin Scorsese; screenplay by John Logan (<em>Rango, The Aviator</em>) from Brian Selznick&#39;s novel; starring Asa Butterfield, Chloe Moretz, Ben Kingsley, and Sacha Baron Cohen.</p>
+            			<h3>What is it?</h3>
+        				<p>A love letter to early cinema wrapped in a family&#45;friendly mystery, it follows a boy (Butterfield) living in a Paris train station who tries to discover the secrets of the only item left by his late father &#151; and of the cantankerous owner of the station&#39;s toy shop (Kingsley).</p>
+            			<h3>Can I still see it?</h3>
+        				<p>Yes, it&#39;s still in theaters (and in 3-D), though not as widely as some others on this list. <a href="http://www.imdb.com/showtimes/title/tt0970179/" target="_blank">Find a showtime</a>.</p>
+            			<h3>Our critics:</h3>
+        				<p><strong>Andrew Lapin:</strong> &#34;<em>Hugo</em> is a marvel of spectacle, a sensory feast steeped in cinematic lore that proves pure joy is attainable in three dimensions. Martin Scorsese, a director who has risen to living&#45;legend status primarily via gory crime sagas, here makes the endearing confession that he, too, was once a shy kid awestruck by the idea of images flickering on a screen.&#34;</p>
+        				<p><strong>David Edelstein:</strong> &#34;For all the wizardry on display, <em>Hugo</em> often feels like a film about magic instead of, well, a magical film.&#34;</p>
+        				<p><strong>Kenneth Turan:</strong> &#34;Melies says films have the power to capture dreams. They&#39;ve captured Scorsese&#39;s, but he doesn&#39;t completely capture ours.&#34;</p>
+            		</div>
+            		<div class="oscarClips">
+            			<h3>&#39;Someone is in Trouble&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=142505507" frameborder="0" scrolling="no"></iframe>
+            			<h3>&#39;Can We Find Him?&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=142505507&mediaId=142598121" frameborder="0" scrolling="no"></iframe>
+            			<h3>&#39;One Big Machine&#39;</h3>
+        				<iframe width="100%" height="255" src="http://www.npr.org/templates/event/embeddedVideo.php?storyId=142505507&mediaId=142598260" frameborder="0" scrolling="no"></iframe>
+        			</div>
+            		<div class="oscarStories">
+            			<h3>Related Stories</h3>
+            			<ul>
+            				<li><a href="http://www.npr.org/2011/11/23/142505507/hugo-a-dazzling-3-d-display-of-movie-magic" target="_blank">&#39;Hugo:&#39; A Dazzling 3-D Display Of Movie Magic</a> <span class="date">Nov. 23, 2011</span></li>
+            				<li><a href="http://www.npr.org/2012/02/05/146424977/how-hugo-turned-from-book-to-film" target="_blank">How 'Hugo' Turned From Book To Film</a> <span class="date">Feb. 5, 2012</span></li>
+            				<li><a href="http://www.npr.org/2012/01/30/146077592/doberman-in-hugo-snubbed-for-golden-collar-award" target="_blank">Doberman In &#39;Hugo&#39; Snubbed For Dog Movie Award</a> <span class="date">Jan. 30, 2012</span></li>
+            				<li><a href="http://www.npr.org/2011/11/18/142508464/cabret" target="_blank">In &#39;Hugo,&#39; Scorsese Salutes A Movie Magician</a> <span class="date">Nov. 18, 2011</span></li>
+            				<li><a href="http://www.npr.org/2007/02/09/7114977/the-intricate-cinematic-world-of-hugo-cabret?ps=rs" target="_blank">The Intricate, Cinematic World of &#39;Hugo Cabret&#39;</a> <span class="date">Feb. 9, 2007</span></li>
+            				<li><a href="http://www.npr.org/2011/11/22/142652996/hugo-from-a-master-a-love-letter-to-his-medium" target="_blank">&#39;Hugo&#39;: From A Master, A Love Letter To His Medium</a> <span class="date">Nov. 22, 2011</span></li>
+            				<li><a href="http://www.npr.org/blogs/thetwo-way/2012/02/14/146875854/westminster-set-to-name-top-dog-out-west-a-dogs-star-rises" target="_blank">Pekingese Named Best In Show At Westminster; Out West, A Dog&#39;s Star Rises</a> <span class="date">Feb. 14, 2012</span></li>
+            				<li><a href="http://www.npr.org/2012/01/01/144546063/screenwriter-john-logans-very-good-year" target="_blank">Screenwriter John Logan&#39;s Very Good Year</a> <span class="date">Jan. 1, 2012</span></li>
+            				<li><a href="http://www.npr.org/2011/11/22/142641758/scorsese-brings-hugo-to-the-big-screen" target="_blank">Scorsese Brings 'Hugo' To The Big Screen</a> <span class="date">Nov. 22, 2011</span></li>
+            			</ul>
+            		</div>
+            	</div>
+        	</div>
+
+        	<div id="oscarFooter">
+        		<b>The Artist </b> &#8226;
+        		<b>The Descendants</b> &#8226;
+        		<b>Moneyball</b> &#8226;
+        		<b>Midnight in Paris</b> &#8226;
+        		<b>The Tree of Life</b> &#8226;
+        		<b>War Horse</b>&#8226;
+        		<b>Extremely Loud & Incredibly Close</b> &#8226;
+        		<b>The Help</b> &#8226;
+        		<b>Hugo</b>
+        	</div>
+
+        </div>
+
+
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery.js') }}
+    {{ JS.push('js/lib/underscore.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

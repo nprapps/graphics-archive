@@ -1,0 +1,7891 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2009-12-16T15:35:35">
+<center>
+<state>AK</state>
+<city>Anchorage</city>
+<name>Alaska Regional Hospital</name>
+<add>2801 DeBarr Road</add>
+<zip>99514</zip>
+<phone>(907) 264-2332</phone>
+<NPR>HC-10207</NPR>
+</center>
+<center>
+<state>AK</state>
+<city>Anchorage</city>
+<name>Providence Alaska Medical Center</name>
+<add>3200 Providence Drive</add>
+<zip>99508</zip>
+<phone>(907) 261-3675</phone>
+<NPR>HC-10208</NPR>
+</center>
+<center>
+<state>AL</state>
+<city>Birmingham</city>
+<name>Trinity Medical Center</name>
+<add>800 MONTCLAIR RD</add>
+<zip>35213</zip>
+<phone>(205) 592-1000</phone>
+<NPR>AMH-3</NPR>
+</center>
+<center>
+<state>AL</state>
+<city>Cullman</city>
+<name>Cullman Regional Medical Center</name>
+<add>1912 ALABAMA HIGHWAY 157</add>
+<zip>35058</zip>
+<phone>(256) 737-2000</phone>
+<NPR>AMH-1</NPR>
+</center>
+<center>
+<state>AL</state>
+<city>Decatur</city>
+<name>Decatur General Hospital</name>
+<add>1201 7TH STREET SE</add>
+<zip>35609</zip>
+<phone>(256) 341-2000</phone>
+<NPR>HC-7955</NPR>
+</center>
+<center>
+<state>AL</state>
+<city>Huntsville</city>
+<name>Huntsville Hospital</name>
+<add>101 SIVLEY RD</add>
+<zip>35801</zip>
+<phone>(256) 265-1000</phone>
+<NPR>HC-7978</NPR>
+</center>
+<center>
+<state>AR</state>
+<city>Fort Smith</city>
+<name>Sparks Health System</name>
+<add>1001 Towson Avenue
+Fort Smith</add>
+<zip>72901</zip>
+<phone>(479) 441-4300</phone>
+<NPR>AMH-4</NPR>
+</center>
+<center>
+<state>AR</state>
+<city>Fort Smith</city>
+<name>Sparks Regional Medical Center</name>
+<add>1311 SOUTH I STREET</add>
+<zip>72901</zip>
+<phone>(501) 441-4000</phone>
+<NPR>HC-8642</NPR>
+</center>
+<center>
+<state>AR</state>
+<city>Little Rock</city>
+<name>Baptist Health Medical Center - Little Rock</name>
+<add>9601 INTERSTATE 630, EXIT 7</add>
+<zip>72205</zip>
+<phone>(501) 202-2000</phone>
+<NPR>HC-8656</NPR>
+</center>
+<center>
+<state>AZ</state>
+<city>Glendale</city>
+<name>Arrowhead Hospital</name>
+<add>18701 North 67th Avenue</add>
+<zip>85308</zip>
+<phone>(623) 561-1000</phone>
+<NPR>AZ-1</NPR>
+</center>
+<center>
+<state>AZ</state>
+<city>Glendale</city>
+<name>Banner Thunderbird Medical Center</name>
+<add>555 W. Thunderbird Road</add>
+<zip>85306</zip>
+<phone>(602) 865-5555</phone>
+<NPR>AZ-9</NPR>
+</center>
+<center>
+<state>AZ</state>
+<city>Mesa</city>
+<name>Banner Baywood Medical Center</name>
+<add>6644 E. Baywood Avenue</add>
+<zip>85206</zip>
+<phone>(480) 321-2000</phone>
+<NPR>AZ-2</NPR>
+</center>
+<center>
+<state>AZ</state>
+<city>Phoenix</city>
+<name>Banner Good Samaritan Medical Center</name>
+<add>1111 East McDowell Road</add>
+<zip>85006</zip>
+<phone>(602) 239-2000</phone>
+<NPR>AZ-3</NPR>
+</center>
+<center>
+<state>AZ</state>
+<city>Phoenix</city>
+<name>John C. Lincoln North Mountain</name>
+<add>250 EAST DUNLAP AVENUE</add>
+<zip>85020</zip>
+<phone>(602) 870-6060</phone>
+<NPR>HC-440895</NPR>
+</center>
+<center>
+<state>AZ</state>
+<city>Phoenix</city>
+<name>Mayo Clinic Hospital</name>
+<add>5777 East Mayo Blvd.</add>
+<zip>85054</zip>
+<phone>(480) 515-6296</phone>
+<NPR>AZ-5</NPR>
+</center>
+<center>
+<state>AZ</state>
+<city>Phoenix</city>
+<name>St. Joseph&apos;s Hospital and Medical Center</name>
+<add>350 West Thomas Road</add>
+<zip>85001</zip>
+<phone>(602) 406-3000</phone>
+<NPR>HC-9494</NPR>
+</center>
+<center>
+<state>AZ</state>
+<city>Scottsdale</city>
+<name>Scottsdale Healthcare Osborn</name>
+<add>7400 East Osborn Road</add>
+<zip>85251</zip>
+<phone>(480) 882-4000</phone>
+<NPR>AZ-6</NPR>
+</center>
+<center>
+<state>AZ</state>
+<city>Sun City</city>
+<name>Sun Health Walter O. Boswell Memorial Hospital</name>
+<add>10401 W. Thunderbird Blvd.</add>
+<zip>85351</zip>
+<phone>(623) 977-7211</phone>
+<NPR>AZ-7</NPR>
+</center>
+<center>
+<state>AZ</state>
+<city>Sun City West</city>
+<name>Sun Health Del E. Webb Memorial Hospital</name>
+<add>14502 West Meeker Blvd</add>
+<zip>85375</zip>
+<phone>(623) 214-4000</phone>
+<NPR>AZ-8</NPR>
+</center>
+<center>
+<state>AZ</state>
+<city>Tucson</city>
+<name>Carondelet St. Joseph&apos;s  Hospital Health Care Center</name>
+<add>350 NORTH WILMOT ROAD</add>
+<zip>85711</zip>
+<phone>(520) 873-3000</phone>
+<NPR>HC-9509</NPR>
+</center>
+<center>
+<state>AZ</state>
+<city>Tucson</city>
+<name>University Medical Center Corporation</name>
+<add>1501 NORTH CAMPBELL AVENUE</add>
+<zip>85724</zip>
+<phone>(520) 694-0111</phone>
+<NPR>HC-9514</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Bakersfield</city>
+<name>Bakersfield Memorial Hospital</name>
+<add>420 34TH ST BOX 1888</add>
+<zip>93301</zip>
+<phone>(661) 327-1792</phone>
+<NPR>HC-9747</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Bakersfield</city>
+<name>San Joaquin Community Hospital</name>
+<add>2615 Chester Avenue </add>
+<zip>93303</zip>
+<phone>(661) 395-3000</phone>
+<NPR>HC-9750</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Burbank</city>
+<name>Providence Saint Joseph Medical Center</name>
+<add>501 SOUTH BUENA VISTA</add>
+<zip>91505</zip>
+<phone>(818) 843-5111</phone>
+<NPR>HC-4546</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Burlingame</city>
+<name>Mills-Peninsula Health  Services</name>
+<add>1501 TROUSDALE DRIVE</add>
+<zip>94010</zip>
+<phone>(650) 696-5400</phone>
+<NPR>HC-9770</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Carmichael</city>
+<name>Mercy San Juan Medical Center</name>
+<add>6501 COYLE AVE</add>
+<zip>95608</zip>
+<phone>(916) 537-5000</phone>
+<NPR>HC-5052</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Chico</city>
+<name>Enloe Medical Center</name>
+<add>1531 ESPLANADE</add>
+<zip>95926</zip>
+<phone>(530) 332-7300</phone>
+<NPR>AMH-10</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Concord</city>
+<name>John Muir Medical Center - Concord Campus</name>
+<add>2540 EAST ST</add>
+<zip>94520</zip>
+<phone>(925) 674-2002</phone>
+<NPR>AMH-13</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Daly City</city>
+<name>Seton Medical Center</name>
+<add>1900 SULLIVAN AVENUE</add>
+<zip>94015</zip>
+<phone>(650) 992-4000</phone>
+<NPR>HC-10087</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Encinitas</city>
+<name>Scripps Memorial Hospital - Encinitas</name>
+<add>354 SANTA FE DRIVE</add>
+<zip>92024</zip>
+<phone>(760) 753-6501</phone>
+<NPR>HC-4758</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Escondido</city>
+<name>Palomar Medical Center</name>
+<add>555 E VALLEY PARKWAY</add>
+<zip>92025</zip>
+<phone>(760) 739-3000</phone>
+<NPR>HC-4648</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Fountain Valley</city>
+<name>Fountain Valley Regional Hospital and Medical Center, Inc.</name>
+<add>17100 EUCLID STREET</add>
+<zip>92708</zip>
+<phone>(714) 966-7200</phone>
+<NPR>HC-9830</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Fremont</city>
+<name>Washington Hospital Healthcare System</name>
+<add>2000 MOWRY AVE</add>
+<zip>94538</zip>
+<phone>(510) 797-1111</phone>
+<NPR>HC-9981</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Glendale</city>
+<name>Glendale Adventist Medical Center</name>
+<add>1509 E WILSON AVE</add>
+<zip>91206</zip>
+<phone>(818) 409-8202</phone>
+<NPR>AMH-11</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Grass Valley</city>
+<name>Sierra Nevada Memorial Hospital</name>
+<add>155 GLASSON WAY</add>
+<zip>95945</zip>
+<phone>(530) 274-6000</phone>
+<NPR>HC-9851</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>La Jolla</city>
+<name>Scripps Green Hospital</name>
+<add>10666 NORTH TORREY PINES ROAD</add>
+<zip>92037</zip>
+<phone>(858) 554-3600</phone>
+<NPR>HC-9882</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>La Jolla</city>
+<name>Scripps Memorial Hospital - La Jolla</name>
+<add>9888 GENESEE AVENUE</add>
+<zip>92037</zip>
+<phone>(858) 626-4123</phone>
+<NPR>HC-9880</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>La Mesa</city>
+<name>Sharp Grossmont Hospital</name>
+<add>5555 GROSSMONT CENTER DRIVE BOX 58</add>
+<zip>91942</zip>
+<phone>(619) 465-0711</phone>
+<NPR>HC-9853</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Long Beach</city>
+<name>Long Beach Memorial Medical Center</name>
+<add>2801 ATLANTIC AVE</add>
+<zip>90806</zip>
+<phone>(562) 933-2000</phone>
+<NPR>HC-9908</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Los Alamitos</city>
+<name>Los Alamitos Medical Center,Inc.</name>
+<add>3751 KATELLA AVENUE</add>
+<zip>90720</zip>
+<phone>(562) 799-3220</phone>
+<NPR>HC-9912</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Los Angeles</city>
+<name>Cedars-Sinai Medical Center</name>
+<add>8700 BEVERLY BLVD</add>
+<zip>90048</zip>
+<phone>(310) 423-5000</phone>
+<NPR>HC-9792</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Los Angeles</city>
+<name>Ronald Reagan UCLA Medical Center</name>
+<add>757 WESTWOOD PLAZA</add>
+<zip>90095</zip>
+<phone>(310) 825-6301</phone>
+<NPR>HC-9944</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Los Angeles</city>
+<name>UCLA Medical Center</name>
+<add>710 Westwood Plaza, Suite 1-145</add>
+<zip>90095</zip>
+<phone>(310) 825-0703</phone>
+<NPR>AMH-21</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Mission Viejo</city>
+<name>Mission Hospital Regional Medical Center</name>
+<add>27700 MEDICAL CENTER RD</add>
+<zip>92691</zip>
+<phone>(949) 364-1400</phone>
+<NPR>HC-9962</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Mountain View</city>
+<name>El Camino Hospital</name>
+<add>2500 GRANT ROAD</add>
+<zip>94040</zip>
+<phone>(650) 940-7000</phone>
+<NPR>HC-9911</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Newport Beach</city>
+<name>Hoag Memorial Hospital Presbyterian</name>
+<add>One Hoag Drive</add>
+<zip>92658</zip>
+<phone>(949) 764-4624</phone>
+<NPR>HC-9980</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Northridge</city>
+<name>Northridge Hospital Medical Center</name>
+<add>18300 Roscoe Boulevard</add>
+<zip>91328</zip>
+<phone>(818) 885-8500</phone>
+<NPR>HC-9983</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Oakland</city>
+<name>Alta Bates Summit Medical Center</name>
+<add>350 Hawthorne Avenue</add>
+<zip>94609</zip>
+<phone>(510) 655-4000‎</phone>
+<NPR>AMH-7</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Oceanside</city>
+<name>Tri-City Medical Center</name>
+<add>4002 VISTA WAY</add>
+<zip>92056</zip>
+<phone>(760) 724-8411</phone>
+<NPR>HC-9995</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Orange</city>
+<name>St. Joseph Hospital</name>
+<add>1100 West Stewart Drive</add>
+<zip>92863</zip>
+<phone>(714) 633-3627</phone>
+<NPR>HC-10001</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Orange</city>
+<name>University of California, Irvine Medical Center</name>
+<add>101 CITY DRIVE SOUTH</add>
+<zip>92868</zip>
+<phone>(714) 456-6112</phone>
+<NPR>HC-10000</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Poway</city>
+<name>Pomerado Hospital</name>
+<add>15615 POMERADO ROAD</add>
+<zip>92064</zip>
+<phone>(858) 485-6511</phone>
+<NPR>HC-2866</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Rancho Mirage</city>
+<name>Eisenhower Medical Center</name>
+<add>39-000 BOB HOPE DRIVE</add>
+<zip>92270</zip>
+<phone>(760) 340-3911</phone>
+<NPR>HC-10008</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Redding</city>
+<name>Prime Healthcare Services-Shasta, LLC</name>
+<add>1100 Butte Street</add>
+<zip>96001</zip>
+<phone>(909) 394-2773</phone>
+<NPR>HC-476727</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Redwood City</city>
+<name>Kaiser Foundation Hospital - Redwood City</name>
+<add>1150 VETERANS BLVD</add>
+<zip>94063</zip>
+<phone>(650) 299-2000</phone>
+<NPR>HC-10038</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Redwood City</city>
+<name>Kaiser Permanente Redwood City Medical Center</name>
+<add>910 Marshall Street</add>
+<zip>94063</zip>
+<phone>(650) 299-2125‎</phone>
+<NPR>AMH-17</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Redwood City</city>
+<name>Sequoia Health Services</name>
+<add>170 ALAMEDA DE LAS PULGAS</add>
+<zip>94062</zip>
+<phone>(650) 367-5551</phone>
+<NPR>HC-10039</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Roseville</city>
+<name>Kaiser Foundation Hospital - Sacramento/Roseville</name>
+<add>1001 Riverside Avenue</add>
+<zip>95661</zip>
+<phone>(916) 973-7152‎</phone>
+<NPR>HC-10052</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Sacramento</city>
+<name>Kaiser Foundation Hospital - South Sacramento</name>
+<add>6600 BRUCEVILLE ROAD</add>
+<zip>95823</zip>
+<phone>(916) 688-2000</phone>
+<NPR>HC-5283</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Sacramento</city>
+<name>Mercy General Hospital</name>
+<add>4001 J ST</add>
+<zip>95819</zip>
+<phone>(916) 453-4545</phone>
+<NPR>HC-10053</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Sacramento</city>
+<name>University of California, Davis Health System (UCDHS)</name>
+<add>2315 STOCKTON BLVD</add>
+<zip>95817</zip>
+<phone>(916) 734-3667</phone>
+<NPR>HC-10055</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Diego</city>
+<name>Alvarado Hospital LLC</name>
+<add>6655 Alvarado Road</add>
+<zip>92120</zip>
+<phone>(619) 287-3270</phone>
+<NPR>AMH-8</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Diego</city>
+<name>Scripps Mercy Hospital</name>
+<add>4077 5TH AVE</add>
+<zip>92103</zip>
+<phone>(619) 294-8111</phone>
+<NPR>HC-10070</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Diego</city>
+<name>Sharp Memorial Hospital</name>
+<add>7901 FROST ST</add>
+<zip>92123</zip>
+<phone>(858) 969-3400</phone>
+<NPR>HC-3910</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Diego</city>
+<name>University of California San Diego Medical Center</name>
+<add>200 WEST ARBOR DRIVE</add>
+<zip>92103</zip>
+<phone>(619) 543-6737</phone>
+<NPR>HC-10071</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Francisco</city>
+<name>California Pacific Medical Center</name>
+<add>45 Castro Street</add>
+<zip>94120</zip>
+<phone>(415) 600-6000</phone>
+<NPR>HC-5152</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Francisco</city>
+<name>California Pacific Medical Center</name>
+<add>2333 Buchanan St</add>
+<zip>94115</zip>
+<phone>(415) 923-3299</phone>
+<NPR>AMH-9</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Francisco</city>
+<name>Kaiser Foundation Hospital - San Francisco</name>
+<add>2425 GEARY BLVD</add>
+<zip>94115</zip>
+<phone>(415) 833-2646</phone>
+<NPR>HC-10084</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Francisco</city>
+<name>Saint Francis Memorial Hospital</name>
+<add>900 HYDE ST</add>
+<zip>94109</zip>
+<phone>(415) 775-4321</phone>
+<NPR>HC-10088</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Francisco</city>
+<name>San Francisco General Hospital and Trauma Center</name>
+<add>1001 POTRERO AVENUE</add>
+<zip>94110</zip>
+<phone>(415) 206-8000</phone>
+<NPR>HC-10092</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Francisco</city>
+<name>St. Mary&apos;s Medical Center</name>
+<add>450 STANYAN ST</add>
+<zip>94117</zip>
+<phone>(415) 668-1000</phone>
+<NPR>HC-10091</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Francisco</city>
+<name>UCSF Medical Center</name>
+<add>505 PARNASSUS AVE</add>
+<zip>94143</zip>
+<phone>(415) 353-2733</phone>
+<NPR>HC-10095</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Jose</city>
+<name>Good Samaritan Hospital LP</name>
+<add>2425 SAMARITAN DRIVE</add>
+<zip>95124</zip>
+<phone>(408) 559-2011</phone>
+<NPR>HC-10101</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Jose</city>
+<name>Kaiser Foundation Hospital - San Jose</name>
+<add>250 HOSPITAL PARKWAY</add>
+<zip>95119</zip>
+<phone>(408) 972-7000</phone>
+<NPR>HC-10104</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Jose</city>
+<name>Kaiser Foundation Hospitals - San Jose</name>
+<add>900 Kiely Boulevard</add>
+<zip>95051</zip>
+<phone>(408) 871-9440‎</phone>
+<NPR>AMH-15</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Jose</city>
+<name>O&apos;Connor Hospital</name>
+<add>2105 FOREST AVENUE</add>
+<zip>95128</zip>
+<phone>(408) 947-2500</phone>
+<NPR>HC-10102</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Jose</city>
+<name>Regional Medical Center of San Jose</name>
+<add>225 N JACKSON AVENUE</add>
+<zip>95116</zip>
+<phone>(408) 259-5000</phone>
+<NPR>HC-10100</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Jose</city>
+<name>Santa Clara Valley Medical Center</name>
+<add>751 SOUTH BASCOM AVENUE</add>
+<zip>95128</zip>
+<phone>(408) 885-5000</phone>
+<NPR>HC-4779</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Pedro</city>
+<name>Providence Little Company of Mary Medical Center San Pedro</name>
+<add>1300 W 7TH ST</add>
+<zip>90732</zip>
+<phone>(310) 832-3311</phone>
+<NPR>HC-2720</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>San Rafael</city>
+<name>Kaiser Foundation Hospital - San Rafael</name>
+<add>99 MONTECILLO RD</add>
+<zip>94903</zip>
+<phone>(415) 444-2000</phone>
+<NPR>HC-10115</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Santa Barbara</city>
+<name>Santa Barbara Cottage Hospital</name>
+<add>Bath Street &amp; W Pueblo Street</add>
+<zip>93102</zip>
+<phone>(805) 682-7111</phone>
+<NPR>HC-2505</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Santa Clara</city>
+<name>Kaiser Foundation Hospital - Santa Clara</name>
+<add>700 LAWRENCE EXPRESSWAY</add>
+<zip>95051</zip>
+<phone>(408) 236-6400</phone>
+<NPR>HC-10123</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Santa Cruz</city>
+<name>CHW Dominican Hospital</name>
+<add>1555 SOQUEL DRIVE</add>
+<zip>95065</zip>
+<phone>(831) 462-7700</phone>
+<NPR>HC-5144</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>South Sacramento</city>
+<name>Kaiser Permanente South Sacramento</name>
+<add>6800 Bruceville Rd</add>
+<zip>95823</zip>
+<phone>(916) 688-2106‎</phone>
+<NPR>AMH-149</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>South San Francisco</city>
+<name>Kaiser Foundation Hospital - South San Francisco</name>
+<add>1200 EL CAMINO REAL</add>
+<zip>94080</zip>
+<phone>(650) 742-3200</phone>
+<NPR>HC-10148</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Stanford</city>
+<name>Stanford Hospital and Clinics</name>
+<add>300 PASTEUR DRIVE</add>
+<zip>94305</zip>
+<phone>(650) 723-5708</phone>
+<NPR>HC-10010</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Torrance</city>
+<name>Torrance Memorial Medical Center</name>
+<add>3330 Lomita Boulevard</add>
+<zip>90505</zip>
+<phone>(310) 325-9110</phone>
+<NPR>HC-10161</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Walnut Creek</city>
+<name>John Muir Medical Center - Walnut Creek Campus</name>
+<add>1601 YGNACIO VALLEY RD</add>
+<zip>94598</zip>
+<phone>(925) 939-3000</phone>
+<NPR>AMH-14</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Walnut Creek</city>
+<name>Kaiser Foundation Hospital - Walnut Creek</name>
+<add>1425 S MAIN ST</add>
+<zip>94596</zip>
+<phone>(925) 295-4000</phone>
+<NPR>HC-10183</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Whittier</city>
+<name>Presbyterian Intercommunity Hospital</name>
+<add>12401 E WASHINGTON BLVD</add>
+<zip>90602</zip>
+<phone>(526) 698-0811</phone>
+<NPR>HC-10191</NPR>
+</center>
+<center>
+<state>CA</state>
+<city>Woodland</city>
+<name>Woodland Memorial Hospital</name>
+<add>1325 COTTONWOOD STREET</add>
+<zip>95695</zip>
+<phone>(530) 662-3961</phone>
+<NPR>HC-10197</NPR>
+</center>
+<center>
+<state>CO</state>
+<city>Aurora</city>
+<name>University of Colorado Hospital Authority</name>
+<add>12605 EAST 16TH AVENUE</add>
+<zip>80045</zip>
+<phone>(720) 848-7800</phone>
+<NPR>HC-9384</NPR>
+</center>
+<center>
+<state>CO</state>
+<city>Denver</city>
+<name>St. Anthony Central Hospital</name>
+<add>4231 W 16th Avenue</add>
+<zip>80204</zip>
+<phone>(303) 629-3511</phone>
+<NPR>HC-4265</NPR>
+</center>
+<center>
+<state>CO</state>
+<city>Englewood</city>
+<name>Swedish Medical Center</name>
+<add>501 E. Hampden Ave.</add>
+<zip>80113</zip>
+<phone>(303) 788-5000</phone>
+<NPR>AMH-24</NPR>
+</center>
+<center>
+<state>CO</state>
+<city>Littleton</city>
+<name>Littleton Adventist Hospital - Centura Health</name>
+<add>7700 S BROADWAY</add>
+<zip>80122</zip>
+<phone>(303) 730-8900</phone>
+<NPR>HC-392540</NPR>
+</center>
+<center>
+<state>CO</state>
+<city>Pueblo</city>
+<name>Parkview Medical Center</name>
+<add>400 W 16TH STREET</add>
+<zip>81003</zip>
+<phone>(719) 584-4000</phone>
+<NPR>HC-9407</NPR>
+</center>
+<center>
+<state>CO</state>
+<city>Pueblo</city>
+<name>St. Mary Corwin Medical  Center</name>
+<add>1008 MINNEQUA AVE</add>
+<zip>81004</zip>
+<phone>(719) 557-4000</phone>
+<NPR>HC-9406</NPR>
+</center>
+<center>
+<state>CO</state>
+<city>Wheat Ridge</city>
+<name>Exempla Lutheran Medical Center</name>
+<add>8300 W 38TH AVE</add>
+<zip>80033</zip>
+<phone>(303) 425-4500</phone>
+<NPR>HC-9418</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>Bridgeport</city>
+<name>Bridgeport Hospital</name>
+<add>267 Grant Street</add>
+<zip>06610</zip>
+<phone>(203) 384-3000</phone>
+<NPR>CT-1</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>Bridgeport</city>
+<name>Saint Vincent’s Medical Center</name>
+<add>2800 Main Street</add>
+<zip>06606</zip>
+<phone>(203) 576-6000</phone>
+<NPR>CT-14</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>Bristol</city>
+<name>Bristol Hospital</name>
+<add>41 Brewster Road</add>
+<zip>06011</zip>
+<phone>(860) 585-3000</phone>
+<NPR>CT-2</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>Danbury</city>
+<name>Danbury Hospital</name>
+<add>24 Hospital Avenue</add>
+<zip>06810</zip>
+<phone>(203) 739-7000</phone>
+<NPR>CT-3</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>Greenwich</city>
+<name>Greenwich Hospital</name>
+<add>5 Perryridge Road</add>
+<zip>06830</zip>
+<phone>(203) 863-3000</phone>
+<NPR>CT-4</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>Hartford</city>
+<name>Hartford Hospital</name>
+<add>80 Seymour Street</add>
+<zip>06102</zip>
+<phone>(860) 545-5000</phone>
+<NPR>CT-5</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>Hartford</city>
+<name>Saint Francis Hospital</name>
+<add>114 Woodland Street</add>
+<zip>06105</zip>
+<phone>(860) 714-4000</phone>
+<NPR>CT-12</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>Meriden</city>
+<name>MidState Medical Center</name>
+<add>435 Lewis Avenue </add>
+<zip>06451</zip>
+<phone>(203) 694-8200</phone>
+<NPR>HC-5671</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>Middletown</city>
+<name>Middlesex Hospital</name>
+<add>28 Crescent Street</add>
+<zip>06457</zip>
+<phone>(860) 358-6000</phone>
+<NPR>CT-7</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>New</city>
+<name>New Milford Hospital</name>
+<add>21 Elm Street</add>
+<zip>06776</zip>
+<phone>(860) 355-2611</phone>
+<NPR>CT-10</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>New Haven</city>
+<name>Yale - New Haven Hospital</name>
+<add>20 York Street</add>
+<zip>06510</zip>
+<phone>(203) 688-4242</phone>
+<NPR>HC-5677</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>New Haven</city>
+<name>Yale-New Haven Hospital</name>
+<add>800 Howard Avenue</add>
+<zip>06519</zip>
+<phone>(203) 737-1057</phone>
+<NPR>CT-18</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>New London</city>
+<name>Lawrence &amp; Memorial Hospital</name>
+<add>365 Montauk Avenue</add>
+<zip>06320</zip>
+<phone>(888) 777-9539</phone>
+<NPR>CT-6</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>Norwalk</city>
+<name>Norwalk Hospital</name>
+<add>34 Maple Street</add>
+<zip>06856</zip>
+<phone>(203) 852-2000</phone>
+<NPR>CT-11</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>Norwalk</city>
+<name>Norwalk Hospital</name>
+<add>24 STEVENS STREET</add>
+<zip>06856</zip>
+<phone>(203) 852-2000</phone>
+<NPR>HC-5685</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>Norwich</city>
+<name>William W. Backus Hospital</name>
+<add>326 Washington Street</add>
+<zip>06360</zip>
+<phone>(860) 889-8331</phone>
+<NPR>CT-17</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>Sharon</city>
+<name>Sharon Hospital</name>
+<add>50 Hospital Hill Road</add>
+<zip>06069</zip>
+<phone>(860) 364-4141</phone>
+<NPR>CT-15</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>Waterbury</city>
+<name>Saint Mary&apos;s Hospital</name>
+<add>56 Franklin Street</add>
+<zip>06706</zip>
+<phone>(203) 709-6000</phone>
+<NPR>CT-13</NPR>
+</center>
+<center>
+<state>CT</state>
+<city>Waterbury</city>
+<name>Waterbury Hospital</name>
+<add>64 Robbins Street</add>
+<zip>06708</zip>
+<phone>(203) 573-6000</phone>
+<NPR>CT-16</NPR>
+</center>
+<center>
+<state>DC</state>
+<city>Washington</city>
+<name>MedStar Georgetown University Medical Center</name>
+<add>3800 RESERVOIR RD</add>
+<zip>20007</zip>
+<phone>(202) 784-3000</phone>
+<NPR>HC-6309</NPR>
+</center>
+<center>
+<state>DC</state>
+<city>Washington</city>
+<name>The George Washington University Hospital</name>
+<add>900 23RD ST NW</add>
+<zip>20037</zip>
+<phone>(202) 716-4605</phone>
+<NPR>HC-6310</NPR>
+</center>
+<center>
+<state>DC</state>
+<city>Washington</city>
+<name>Washington Hospital Center</name>
+<add>110 IRVING ST NW</add>
+<zip>20010</zip>
+<phone>(202) 877-7000</phone>
+<NPR>HC-6308</NPR>
+</center>
+<center>
+<state>DE</state>
+<city>Seaford</city>
+<name>Nanticoke Memorial Hospital</name>
+<add>801 MIDDLEFORD RD</add>
+<zip>19973</zip>
+<phone>(302) 629-6611</phone>
+<NPR>HC-6235</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>ALTAMONTE SPRINGS</city>
+<name>FLORIDA HOSPITAL ALTAMONTE</name>
+<add>601 EAST ALTAMONTE DRIVE</add>
+<zip>32701</zip>
+<phone>(407) 303-2230</phone>
+<NPR>FL-31</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>ATLANTIS</city>
+<name>JFK MEDICAL CENTER</name>
+<add>5301 SOUTH CONGRESS AVENUE</add>
+<zip>33462</zip>
+<phone>(561) 965-7300</phone>
+<NPR>FL-55</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Aventura</city>
+<name>Aventura Hospital and Medical Center</name>
+<add>20900 BISCAYNE BLVD</add>
+<zip>33180</zip>
+<phone>(305) 682-7000</phone>
+<NPR>HC-6803</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>BAY PINES</city>
+<name>BAY PINES VA HEALTHCARE SYSTEM</name>
+<add>10000 BAY PINES BLVD</add>
+<zip>33744</zip>
+<phone>(727) 398-9300</phone>
+<NPR>FL-6</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Boca Raton</city>
+<name>Boca Raton Community Hospital, Inc.</name>
+<add>800 MEADOWS RD</add>
+<zip>33486</zip>
+<phone>(561) 362-5002</phone>
+<NPR>HC-6760</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>BOCA RATON</city>
+<name>WEST BOCA MEDICAL CENTER</name>
+<add>21644 STATE ROAD 7</add>
+<zip>33428</zip>
+<phone>(561) 488-8000</phone>
+<NPR>FL-129</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Boynton Beach</city>
+<name>Bethesda Memorial Hospital, Inc.</name>
+<add>2815 SOUTH SEACREST BLVD</add>
+<zip>33435</zip>
+<phone>(561) 737-7733</phone>
+<NPR>HC-6762</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Bradenton</city>
+<name>Blake Medical Center</name>
+<add>2020 59TH ST W</add>
+<zip>34209</zip>
+<phone>(941) 792-6611</phone>
+<NPR>HC-6763</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>BRADENTON</city>
+<name>LAKEWOOD RANCH MEDICAL CENTER</name>
+<add>8330 LAKEWOOD RANCH BLVD</add>
+<zip>34202</zip>
+<phone>(941) 782-2100</phone>
+<NPR>FL-59</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Bradenton</city>
+<name>Manatee Memorial Hospital</name>
+<add>206 2ND ST E</add>
+<zip>34208</zip>
+<phone>(941) 746-5111</phone>
+<NPR>HC-6764</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>BRANDON</city>
+<name>BRANDON REGIONAL HOSPITAL</name>
+<add>119 OAKFIELD DRIVE</add>
+<zip>33511</zip>
+<phone>(813) 681-5551</phone>
+<NPR>FL-11</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>BROOKSVILLE</city>
+<name>BROOKSVILLE REGIONAL HOSPITAL</name>
+<add>17240 CORTEZ BLVD</add>
+<zip>34601</zip>
+<phone>(352) 544-6027</phone>
+<NPR>FL-12</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>BROOKSVILLE</city>
+<name>OAK HILL HOSPITAL</name>
+<add>11375 CORTEZ BLVD.</add>
+<zip>34613</zip>
+<phone>(352) 596-6632</phone>
+<NPR>FL-89</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Clearwater</city>
+<name>Morton Plant Hospital Association</name>
+<add>300 Pinellas Street</add>
+<zip>33757</zip>
+<phone>(727) 462-7062</phone>
+<NPR>HC-2776</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Cocoa Beach</city>
+<name>Cape Canaveral Hospital, Inc.</name>
+<add>701 W COCOA BEACH CAUSEWAY</add>
+<zip>32932</zip>
+<phone>(321) 799-7111</phone>
+<NPR>HC-6775</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>CORAL SPRINGS</city>
+<name>CORAL SPRINGS MEDICAL CENTER</name>
+<add>3000 CORAL HILLS DRIVE</add>
+<zip>33065</zip>
+<phone>(954) 344-3121</phone>
+<NPR>FL-22</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Crystal River</city>
+<name>Seven Rivers Regional Medical Center</name>
+<add>6201 N SUNCOAST BLVD</add>
+<zip>34428</zip>
+<phone>(352) 795-6560</phone>
+<NPR>HC-6779</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>DAVENPORT</city>
+<name>HEART OF FLORIDA REGIONAL MEDICAL CENTER</name>
+<add>40100 U. S. HIGHWAY 27 NORTH</add>
+<zip>33837</zip>
+<phone>(863) 422-4971</phone>
+<NPR>FL-44</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>DAYTONA BEACH</city>
+<name>FLORIDA HOSPITAL MEMORIAL MEDICAL CENTER</name>
+<add>301 MEMORIAL MEDICAL PARKWAY</add>
+<zip>32117</zip>
+<phone>(386) 676-6000</phone>
+<NPR>FL-35</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Daytona Beach</city>
+<name>Halifax Health</name>
+<add>303 N. Clyde Morris Boulevard</add>
+<zip>32120</zip>
+<phone>(386) 254-4000</phone>
+<NPR>HC-6782</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Deerfield Beach</city>
+<name>North Broward Medical Center</name>
+<add>303SE 17th Street</add>
+<zip>33316</zip>
+<phone>(954) 759-7400</phone>
+<NPR>AMH-35</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>DELAND</city>
+<name>FLORIDA HOSPITAL DELAND</name>
+<add>701 W. PLYMOUTH AVENUE</add>
+<zip>32721</zip>
+<phone>(386) 943-4870</phone>
+<NPR>FL-32</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Delray Beach</city>
+<name>Delray Medical Center, Inc.</name>
+<add>5352 LINTON BLVD</add>
+<zip>33484</zip>
+<phone>(561) 498-4440</phone>
+<NPR>HC-5215</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Dunedin</city>
+<name>Mease Health Care</name>
+<add>601 MAIN STREET</add>
+<zip>34698</zip>
+<phone>(727) 733-1111</phone>
+<NPR>HC-6787</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>East Bradenton</city>
+<name>Manatee Memorial Hospital</name>
+<add>206 2nd Street East</add>
+<zip>34208</zip>
+<phone>(941) 746-5111‎</phone>
+<NPR>AMH-34</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Fort Lauderdale</city>
+<name>Broward General Medical Center</name>
+<add>1600 S ANDREWS AVE</add>
+<zip>33316</zip>
+<phone>(954) 355-4400</phone>
+<NPR>HC-6791</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Fort Lauderdale</city>
+<name>Holy Cross Hospital, Inc</name>
+<add>4725 N FEDERAL HWY</add>
+<zip>33308</zip>
+<phone>(954) 771-8000</phone>
+<NPR>HC-6794</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>FORT LAUDERDALE</city>
+<name>IMPERIAL POINT MEDICAL CENTER</name>
+<add>6401 N. FEDERAL HIGHWAY</add>
+<zip>33308</zip>
+<phone>(954) 776-8674</phone>
+<NPR>FL-49</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Fort Lauderdale</city>
+<name>North Shore Medical Center - FMC Campus</name>
+<add>5000 W Oakland Park Blvd 
+</add>
+<zip>33313</zip>
+<phone>(954) 735-6000</phone>
+<NPR>AMH-36</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>FORT MYERS</city>
+<name>GULF COAST MEDICAL CENTER LEE MEMORIAL H</name>
+<add>13681 DOCTOR&apos;S WAY</add>
+<zip>33912</zip>
+<phone>(239) 939-1147</phone>
+<NPR>FL-41</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Fort Myers</city>
+<name>Lee Memorial Health System</name>
+<add>2776 CLEVELAND AVE</add>
+<zip>33901</zip>
+<phone>(239) 332-1111</phone>
+<NPR>HC-6796</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Fort Pierce</city>
+<name>Lawnwood Regional Medical Center &amp; Heart Institute</name>
+<add>1700 S 23RD STREET</add>
+<zip>34950</zip>
+<phone>(772) 461-4000</phone>
+<NPR>HC-6797</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Fort Walton Beach</city>
+<name>Fort Walton Beach Medical Center, Inc</name>
+<add>1000 MAR WALT DR</add>
+<zip>32547</zip>
+<phone>(850) 862-1111</phone>
+<NPR>HC-6798</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Gainesville</city>
+<name>North Florida Regional Medical Center</name>
+<add>6500 W Newberry</add>
+<zip>32606</zip>
+<phone>(352) 333-4000</phone>
+<NPR>HC-6802</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>GAINESVILLE</city>
+<name>SHANDS HOSPITAL AT UNIV. OF FLORIDA</name>
+<add>1600 S.W. ARCHER ROAD</add>
+<zip>32610</zip>
+<phone>(352) 265-0111</phone>
+<NPR>FL-109</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Hollywood</city>
+<name>Memorial Regional Hospital</name>
+<add>3501 JOHNSON ST</add>
+<zip>33021</zip>
+<phone>(954) 987-2000</phone>
+<NPR>HC-6811</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>HUDSON</city>
+<name>REGIONAL MEDICAL CENTER BAYONET POINT</name>
+<add>14000 FIVAY ROAD</add>
+<zip>34667</zip>
+<phone>(727) 869-5400</phone>
+<NPR>FL-100</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>INVERNESS</city>
+<name>CITRUS MEMORIAL HOSPITAL</name>
+<add>502 HIGHLAND BLVD</add>
+<zip>34452</zip>
+<phone>(352) 726-1551</phone>
+<NPR>FL-18</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>JACKSONVILLE</city>
+<name>BAPTIST MEDICAL CENTER SOUTH</name>
+<add>14550 ST. AUGUSTINE RD</add>
+<zip>32258</zip>
+<phone>(904) 821-6100</phone>
+<NPR>FL-4</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Jacksonville</city>
+<name>Baptist Medical Center/ Wolfson Children&apos;s Hospital</name>
+<add>800 PRUDENTIAL DR</add>
+<zip>32207</zip>
+<phone>(904) 202-2000</phone>
+<NPR>HC-6816</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Jacksonville</city>
+<name>Mayo Clinic</name>
+<add>4500 SAN PABLO ROAD</add>
+<zip>32224</zip>
+<phone>(904) 953-2000</phone>
+<NPR>HC-369946</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Jacksonville</city>
+<name>Memorial Hospital Jacksonville</name>
+<add>3625 UNIVERSITY BLVD SOUTH</add>
+<zip>32216</zip>
+<phone>(904) 399-6111</phone>
+<NPR>HC-6824</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Jacksonville</city>
+<name>Shands Jacksonville Medical Center</name>
+<add>655 W 8TH ST</add>
+<zip>32209</zip>
+<phone>(904) 244-0411</phone>
+<NPR>HC-6819</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Jupiter</city>
+<name>Jupiter Medical Center</name>
+<add>1210 S OLD DIXIE HIGHWAY</add>
+<zip>33458</zip>
+<phone>(561) 747-2234</phone>
+<NPR>HC-6951</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Kissimmee</city>
+<name>Osceola Regional Medical   Center</name>
+<add>700 W Oak Street</add>
+<zip>34745</zip>
+<phone>(407) 846-2266</phone>
+<NPR>HC-6830</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Lakeland</city>
+<name>Lakeland Regional Medical Center</name>
+<add>1324 Lakeland Hills Boulevard</add>
+<zip>33804</zip>
+<phone>(863) 687-1100</phone>
+<NPR>HC-6834</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Largo</city>
+<name>Largo Medical Center</name>
+<add>201 14TH ST SW</add>
+<zip>33770</zip>
+<phone>(727) 588-5200</phone>
+<NPR>HC-6838</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>LARGO</city>
+<name>SUN COAST HOSPITAL</name>
+<add>2025 INDIAN ROCKS RD</add>
+<zip>33774</zip>
+<phone>(727) 586-7100</phone>
+<NPR>FL-121</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Leesburg</city>
+<name>Leesburg Regional Medical Center, Inc.</name>
+<add>600 E DIXIE AVENUE</add>
+<zip>34748</zip>
+<phone>(352) 323-5762</phone>
+<NPR>HC-4768</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>LONGWOOD</city>
+<name>SOUTH SEMINOLE HOSPITAL</name>
+<add>555 W STATE ROAD 434</add>
+<zip>32750</zip>
+<phone>(407) 767-5800</phone>
+<NPR>FL-115</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Margate</city>
+<name>Northwest Medical Center</name>
+<add>2801 N STATE RD 7</add>
+<zip>33063</zip>
+<phone>(954) 974-0400</phone>
+<NPR>HC-6844</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Melbourne</city>
+<name>Holmes Regional Medical Center, Inc.</name>
+<add>1350 S HICKORY ST</add>
+<zip>32901</zip>
+<phone>(321) 434-7000</phone>
+<NPR>HC-6847</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>MELBOURNE</city>
+<name>PALM BAY COMMUNITY HOSPITAL</name>
+<add>1425 MALABAR ROAD, NORTHEAST</add>
+<zip>32907</zip>
+<phone>(321) 434-8020</phone>
+<NPR>FL-94</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Melbourne</city>
+<name>Wuesthoff Medical Center - Melbourne</name>
+<add>250 NORTH WICKHAM ROAD</add>
+<zip>32935</zip>
+<phone>(321) 752-1200</phone>
+<NPR>HC-379413</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Miami</city>
+<name>Jackson Memorial Hospital</name>
+<add>1611 NW 12 AVE</add>
+<zip>33136</zip>
+<phone>(305) 585-5313</phone>
+<NPR>HC-6850</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Miami</city>
+<name>Kendall Regional Medical Center</name>
+<add>11750 BIRD ROAD</add>
+<zip>33175</zip>
+<phone>(305) 223-3000</phone>
+<NPR>HC-6846</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>MIAMI</city>
+<name>MERCY HOSPITAL</name>
+<add>3663 SOUTH MIAMI AVE</add>
+<zip>33133</zip>
+<phone>(305) 285-2121</phone>
+<NPR>FL-75</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>MIAMI</city>
+<name>MIAMI VA HEALTHCARE SYSTEM</name>
+<add>1201 NW 16TH STREET</add>
+<zip>33125</zip>
+<phone>(305) 575-3203</phone>
+<NPR>FL-76</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Miami Beach</city>
+<name>Mount Sinai Medical Center of Florida Inc.</name>
+<add>4300 ALTON RD</add>
+<zip>33140</zip>
+<phone>(305) 674-2121</phone>
+<NPR>HC-6860</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>New Port Richey</city>
+<name>Community Hospital</name>
+<add>5637 Marine Parkway</add>
+<zip>34656</zip>
+<phone>(727) 848-1733</phone>
+<NPR>HC-6955</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>New Port Richey</city>
+<name>Morton Plant North Bay Hospital</name>
+<add>6600 MADISON STREET</add>
+<zip>34652</zip>
+<phone>(727) 842-8468</phone>
+<NPR>HC-6870</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>NORTH MIAMI BEACH</city>
+<name>JACKSON NORTH MEDICAL CENTER</name>
+<add>160 NW 170TH STREET</add>
+<zip>33169</zip>
+<phone>(305) 654-5050</phone>
+<NPR>FL-53</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Ocala</city>
+<name>Munroe Regional Medical Center</name>
+<add>1500 S.W. 1st Avenue</add>
+<zip>34471</zip>
+<phone>(352) 351-7200</phone>
+<NPR>HC-6867</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>OCALA</city>
+<name>OCALA REGIONAL MEDICAL CENTER</name>
+<add>1431 SOUTHWEST FIRST AVENUE</add>
+<zip>34474</zip>
+<phone>(352) 401-1000</phone>
+<NPR>FL-90</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>OCALA</city>
+<name>WEST MARION COMMUNITY HOSPITAL</name>
+<add>4600 SW 46TH COURT</add>
+<zip>34474</zip>
+<phone>(352) 291-3000</phone>
+<NPR>FL-131</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>ORANGE CITY</city>
+<name>FLORIDA HOSPITAL FISH MEMORIAL</name>
+<add>1055 SAXON BLVD.</add>
+<zip>32763</zip>
+<phone>(386) 917-5017</phone>
+<NPR>FL-33</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Orange Park</city>
+<name>Orange Park Medical Center</name>
+<add>2001 KINGSLEY AVE</add>
+<zip>32073</zip>
+<phone>(904) 276-8500</phone>
+<NPR>HC-6874</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>ORLANDO</city>
+<name>DR P PHILLIPS HOSPITAL</name>
+<add>9400 TURKEY LAKE ROAD</add>
+<zip>32819</zip>
+<phone>(407) 351-8500</phone>
+<NPR>FL-26</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>ORLANDO</city>
+<name>FLORIDA HOSPITAL</name>
+<add>601 EAST ROLLINS STREET</add>
+<zip>32803</zip>
+<phone>(407) 303-1941</phone>
+<NPR>FL-30</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>ORLANDO</city>
+<name>ORLANDO REGIONAL MEDICAL CENTER</name>
+<add>1414 KUHL AVENUE</add>
+<zip>32806</zip>
+<phone>(321) 841-5111</phone>
+<NPR>FL-92</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>ORMOND BEACH</city>
+<name>FLORIDA HOSPITAL OCEANSIDE</name>
+<add>264 SOUTH ATLANTIC AVENUE</add>
+<zip>32176</zip>
+<phone>(386) 672-4161</phone>
+<NPR>FL-36</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Palm Beach Gardens</city>
+<name>Palm Beach Gardens Medical Center</name>
+<add>3360 BURNS RD</add>
+<zip>33410</zip>
+<phone>(561) 622-1411</phone>
+<NPR>HC-6884</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>PALM COAST</city>
+<name>FLORIDA HOSPITAL FLAGLER</name>
+<add>60 MEMORIAL MEDICAL PARKWAY</add>
+<zip>32164</zip>
+<phone>(386) 586-4200</phone>
+<NPR>FL-34</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>PANAMA CITY</city>
+<name>BAY MEDICAL CENTER</name>
+<add>615 N BONITA AVE</add>
+<zip>32401</zip>
+<phone>(850) 769-1511</phone>
+<NPR>FL-5</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Panama City</city>
+<name>Gulf Coast Medical Center</name>
+<add>449 W 23rd Street</add>
+<zip>32406</zip>
+<phone>(850) 387-1012</phone>
+<NPR>HC-6885</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Pembroke Pines</city>
+<name>Memorial Hospital West</name>
+<add>703 N FLAMINGO ROAD</add>
+<zip>33028</zip>
+<phone>(954) 436-5000</phone>
+<NPR>HC-5091</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Pensacola</city>
+<name>Baptist Hospital, Inc.</name>
+<add>1000 West Moreno Street</add>
+<zip>32522</zip>
+<phone>(850) 434-4011</phone>
+<NPR>HC-6888</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Pensacola</city>
+<name>Sacred Heart Health System</name>
+<add>5151 N. Ninth Avenue </add>
+<zip>32504</zip>
+<phone>(850) 416-7000</phone>
+<NPR>AMH-38</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Pensacola</city>
+<name>West Florida Regional Medical Center, Inc.</name>
+<add>8383 N DAVIS HIGHWAY</add>
+<zip>32514</zip>
+<phone>(850) 494-4000</phone>
+<NPR>HC-6892</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>PLANT CITY</city>
+<name>SOUTH FLORIDA BAPTIST HOSPITAL</name>
+<add>301 N ALEXANDER ST</add>
+<zip>33563</zip>
+<phone>(813) 757-8205</phone>
+<NPR>FL-114</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>PLANTATION</city>
+<name>PLANTATION GENERAL HOSPITAL</name>
+<add>401 N W 42ND AVENUE</add>
+<zip>33317</zip>
+<phone>(954) 587-5010</phone>
+<NPR>FL-99</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Plantation</city>
+<name>Westside Regional Medical Center</name>
+<add>8201 W BROWARD BLVD</add>
+<zip>33324</zip>
+<phone>(954) 473-6600</phone>
+<NPR>HC-4832</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Port Charlotte</city>
+<name>Fawcett Memorial Hospital</name>
+<add>21298 Olean Boulevard</add>
+<zip>33949</zip>
+<phone>(941) 629-1181</phone>
+<NPR>HC-4839</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>PORT CHARLOTTE</city>
+<name>PEACE RIVER REGIONAL MEDICAL CENTER</name>
+<add>2500 HARBOUR BLVD</add>
+<zip>33952</zip>
+<phone>(941) 766-4122</phone>
+<NPR>FL-98</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Port Saint Lucie</city>
+<name>St. Lucie Medical Center</name>
+<add>1800 SE TIFFANY AVENUE</add>
+<zip>34952</zip>
+<phone>(772) 335-4000</phone>
+<NPR>HC-6897</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Punta Gorda</city>
+<name>Charlotte Regional Medical Center</name>
+<add>809 E MARION AVE</add>
+<zip>33950</zip>
+<phone>(941) 639-3131</phone>
+<NPR>HC-6899</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Rockledge</city>
+<name>Wuesthoff Medical Center - Rockledge</name>
+<add>110 Longwood Avenue</add>
+<zip>32956</zip>
+<phone>(321) 636-2211</phone>
+<NPR>HC-6904</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>SAFETY HARBOR</city>
+<name>MEASE COUNTRYSIDE HOSPITAL</name>
+<add>3231 MCMULLEN BOOTH RD</add>
+<zip>34695</zip>
+<phone>(727) 461-8577</phone>
+<NPR>FL-69</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>SAINT AUGUSTINE</city>
+<name>FLAGLER HOSPITAL</name>
+<add>400 HEALTH PARK BLVD.</add>
+<zip>32086</zip>
+<phone>(904) 819-4400</phone>
+<NPR>FL-29</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Saint Petersburg</city>
+<name>Edward White Hospital</name>
+<add>2323 9TH AVE N</add>
+<zip>33713</zip>
+<phone>(727) 323-1111</phone>
+<NPR>HC-6911</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>SAINT PETERSBURG</city>
+<name>ST ANTHONY&apos;S HOSPITAL</name>
+<add>1200 SEVENTH AVE N</add>
+<zip>33705</zip>
+<phone>(727) 461-8577</phone>
+<NPR>FL-117</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Saint Petersburg</city>
+<name>St. Anthony&apos;s Hospital</name>
+<add>1200 7TH AVENUE NORTH</add>
+<zip>33705</zip>
+<phone>(727) 825-1100</phone>
+<NPR>HC-6915</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Saint Petersburg</city>
+<name>St. Petersburg General Hospital</name>
+<add>6500 38TH AVE N</add>
+<zip>33710</zip>
+<phone>(727) 384-1414</phone>
+<NPR>HC-6916</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>SANFORD</city>
+<name>CENTRAL FLORIDA REGIONAL HOSPITAL</name>
+<add>1401 W SEMINOLE BLVD</add>
+<zip>32771</zip>
+<phone>(407) 321-4500</phone>
+<NPR>FL-16</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Sarasota</city>
+<name>Doctors Hospital of Sarasota</name>
+<add>5731 BEE RIDGE ROAD</add>
+<zip>34233</zip>
+<phone>(941) 342-1100</phone>
+<NPR>HC-6918</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Sarasota</city>
+<name>Sarasota Memorial Hospital</name>
+<add>1700 S TAMIAMI TRAIL</add>
+<zip>34239</zip>
+<phone>(941) 917-9000</phone>
+<NPR>HC-6920</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>SEBASTIAN</city>
+<name>SEBASTIAN RIVER MEDICAL CENTER</name>
+<add>13695 U.S. HWY 1</add>
+<zip>32978</zip>
+<phone>(772) 581-2040</phone>
+<NPR>FL-107</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>South Pasadena</city>
+<name>Palms of Pasadena Hospital</name>
+<add>1501 PASADENA AVE SOUTH</add>
+<zip>33707</zip>
+<phone>(727) 381-1000</phone>
+<NPR>HC-6914</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>SPRING HILL</city>
+<name>SPRING HILL REGIONAL HOSPITAL</name>
+<add>10461 QUALITY DRIVE</add>
+<zip>34609</zip>
+<phone>(352) 688-8200</phone>
+<NPR>FL-116</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>St. Petersburg</city>
+<name>Bayfront Medical Center</name>
+<add>701 6th St. S.</add>
+<zip>33701</zip>
+<phone>(727) 823-1234</phone>
+<NPR>AMH-27</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>St. Petersburg</city>
+<name>Northside Hospital and Tampa Bay Heart Institute</name>
+<add>6000 49th St N</add>
+<zip>33709</zip>
+<phone>(727) 521-5510‎</phone>
+<NPR>AMH-37</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>STUART</city>
+<name>MARTIN MEMORIAL HOSPITAL SOUTH</name>
+<add>2100 SE SALERNO ROAD</add>
+<zip>34997</zip>
+<phone>(772) 223-2300</phone>
+<NPR>FL-65</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Stuart</city>
+<name>Martin Memorial Medical Center, Inc.</name>
+<add>200 SE HOSPITAL AVE</add>
+<zip>34995</zip>
+<phone>(772) 287-5200</phone>
+<NPR>HC-6926</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>SUN CITY CENTER</city>
+<name>SOUTH BAY HOSPITAL</name>
+<add>4016 SUN CITY CENTER BLVD</add>
+<zip>33573</zip>
+<phone>(813) 634-0386</phone>
+<NPR>FL-113</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>TALLAHASSEE</city>
+<name>CAPITAL REGIONAL MEDICAL CENTER</name>
+<add>2626 CAPITAL MEDICAL BLVD.</add>
+<zip>32308</zip>
+<phone>(850) 325-5000</phone>
+<NPR>FL-15</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Tallahassee</city>
+<name>Tallahassee Memorial HealthCare</name>
+<add>1300 MICCOSUKEE RD</add>
+<zip>32308</zip>
+<phone>(850) 431-1155</phone>
+<NPR>AMH-39</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>TAMARAC</city>
+<name>UNIVERSITY HOSPITAL AND MEDICAL CENTER</name>
+<add>7201 N UNIVERSITY DRIVE</add>
+<zip>33321</zip>
+<phone>(954) 721-2200</phone>
+<NPR>FL-126</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>TAMPA</city>
+<name>ST JOSEPHS HOSPITAL</name>
+<add>3001 W MARTIN LUTHER KING BLVD</add>
+<zip>33607</zip>
+<phone>(813) 870-4266</phone>
+<NPR>FL-118</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Tampa</city>
+<name>Tampa General Hospital</name>
+<add>1 TAMPA GENERAL CIRCLE</add>
+<zip>33606</zip>
+<phone>(813) 844-7000</phone>
+<NPR>AMH-40</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>TAMPA</city>
+<name>UNIVERSITY COMMUNITY HOSPITAL</name>
+<add>3100 E FLETCHER AVE</add>
+<zip>33613</zip>
+<phone>(813) 615-7203</phone>
+<NPR>FL-125</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>TARPON SPRINGS</city>
+<name>HELEN ELLIS MEMORIAL HOSPITAL</name>
+<add>1395 SOUTH PINELLAS AVENUE</add>
+<zip>34689</zip>
+<phone>(727) 942-5107</phone>
+<NPR>FL-45</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>TAVARES</city>
+<name>FLORIDA HOSPITAL WATERMAN</name>
+<add>1000 WATERMAN WAY</add>
+<zip>32778</zip>
+<phone>(352) 253-3300</phone>
+<NPR>FL-37</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>TITUSVILLE</city>
+<name>PARRISH MEDICAL CENTER</name>
+<add>951 N WASHINGTON AVENUE</add>
+<zip>32796</zip>
+<phone>(321) 268-6111</phone>
+<NPR>FL-97</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Venice</city>
+<name>Venice HMA, Inc.</name>
+<add>1201 Jacaranda Boulevard</add>
+<zip>34285</zip>
+<phone>(941) 497-7800</phone>
+<NPR>HC-2175</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>VENICE</city>
+<name>VENICE REGIONAL MEDICAL CENTER</name>
+<add>540 THE RIALTO</add>
+<zip>34285</zip>
+<phone>(941) 483-7773</phone>
+<NPR>FL-127</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Vero Beach</city>
+<name>Indian River Memorial Hospital, Inc.</name>
+<add>1000 36TH ST</add>
+<zip>32960</zip>
+<phone>(772) 567-4311</phone>
+<NPR>HC-6942</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>WELLINGTON</city>
+<name>WELLINGTON REGIONAL MEDICAL CENTER</name>
+<add>10101 FOREST HILL BLVD.</add>
+<zip>33414</zip>
+<phone>(561) 798-8500</phone>
+<NPR>FL-128</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>WEST PALM BEACH</city>
+<name>COLUMBIA HOSPITAL</name>
+<add>2201 45TH STREET</add>
+<zip>33407</zip>
+<phone>(561) 881-2606</phone>
+<NPR>FL-20</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>WEST PALM BEACH</city>
+<name>GOOD SAMARITAN MEDICAL CENTER</name>
+<add>1309 NORTH FLAGLER DRIVE</add>
+<zip>33401</zip>
+<phone>(561) 650-6126</phone>
+<NPR>FL-39</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>WEST PALM BEACH</city>
+<name>SAINT MARY&apos;S MEDICAL CENTER</name>
+<add>901 45TH STREET</add>
+<zip>33407</zip>
+<phone>(561) 844-6300</phone>
+<NPR>FL-104</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Weston</city>
+<name>Cleveland Clinic Florida</name>
+<add>3100 Weston Road</add>
+<zip>33331</zip>
+<phone>(954) 659-000‎</phone>
+<NPR>AMH-28</NPR>
+</center>
+<center>
+<state>FL</state>
+<city>Winter Haven</city>
+<name>Winter Haven Hospital, Inc.</name>
+<add>200 AVENUE F NE</add>
+<zip>33881</zip>
+<phone>(863) 293-1121</phone>
+<NPR>HC-4682</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Athens</city>
+<name>St. Mary&apos;s Health Care System, Inc.</name>
+<add>1230 BAXTER STREET</add>
+<zip>30606</zip>
+<phone>(706) 389-3930</phone>
+<NPR>HC-2138</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Atlanta</city>
+<name>Emory University Hospital</name>
+<add>1364 CLIFTON ROAD, NE</add>
+<zip>30322</zip>
+<phone>(404) 686-8500</phone>
+<NPR>HC-6689</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Atlanta</city>
+<name>Grady Memorial Hospital</name>
+<add>80 JESSE HILL, JR DRIVE SE</add>
+<zip>30303</zip>
+<phone>(404) 589-4252</phone>
+<NPR>AMH-42</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Atlanta</city>
+<name>Northside Hospital, Inc.</name>
+<add>1000 JOHNSON FERRY ROAD, NE</add>
+<zip>30342</zip>
+<phone>(404) 851-8000</phone>
+<NPR>HC-6649</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Atlanta</city>
+<name>Piedmont Hospital</name>
+<add>1968 PEACHTREE RD NW</add>
+<zip>30309</zip>
+<phone>(404) 605-3775</phone>
+<NPR>AMH-44</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Augusta</city>
+<name>Doctors Hospital of Augusta</name>
+<add>3651 WHEELER ROAD</add>
+<zip>30909</zip>
+<phone>(706) 651-6008</phone>
+<NPR>HC-6658</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Augusta</city>
+<name>MCG Health, Inc.</name>
+<add>1120 15TH STREET</add>
+<zip>30912</zip>
+<phone>(706) 721-6569</phone>
+<NPR>HC-6656</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Columbus</city>
+<name>St. Francis Hospital, Inc.</name>
+<add>2122 Manchester Expressway</add>
+<zip>31908</zip>
+<phone>(706) 596-4000</phone>
+<NPR>HC-6673</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Columbus</city>
+<name>The Medical Center, Inc.</name>
+<add>710 Center Street</add>
+<zip>31902</zip>
+<phone>(706) 571-1000</phone>
+<NPR>HC-2070</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Dalton</city>
+<name>Hamilton Medical Center</name>
+<add>1200 Memorial Drive</add>
+<zip>30722</zip>
+<phone>(706) 226-2848</phone>
+<NPR>HC-6679</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Demorest</city>
+<name>The Hospital Authority of Habersham County</name>
+<add>541 HISTORIC HIGHWAY 441 NORTH</add>
+<zip>30535</zip>
+<phone>(706) 778-3259</phone>
+<NPR>HC-4278</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Lawrenceville</city>
+<name>Gwinnett Hospital System</name>
+<add>1000 Medical Center Boulevard</add>
+<zip>30045</zip>
+<phone>(678) 312-1000</phone>
+<NPR>AMH-43</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Lawrenceville</city>
+<name>Gwinnett Hospital System, Inc.</name>
+<add>650 Professional </add>
+<zip>30046</zip>
+<phone>(678) 312-3000‎</phone>
+<NPR>HC-6705</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Macon</city>
+<name>Coliseum Medical Centers</name>
+<add>350 HOSPITAL DRIVE</add>
+<zip>31217</zip>
+<phone>(478) 765-4100</phone>
+<NPR>HC-6706</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Macon</city>
+<name>The Medical Center of Central Georgia, Inc.</name>
+<add>777 Hemlock Street</add>
+<zip>31208</zip>
+<phone>(478) 633-1000</phone>
+<NPR>HC-6707</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Marietta</city>
+<name>WellStar Cobb Hospital</name>
+<add>2000 S Park Place SE</add>
+<zip>30066</zip>
+<phone>(770) 956-7827</phone>
+<NPR>HC-6660</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Riverdale</city>
+<name>Southern Regional Medical Center</name>
+<add>11 UPPER RIVERDALE ROAD, SW</add>
+<zip>30274</zip>
+<phone>(770) 991-8160</phone>
+<NPR>HC-6719</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Rome</city>
+<name>Floyd Healthcare Management, Inc</name>
+<add>304 TURNER MCCALL BLVD P O BOX 233</add>
+<zip>30162</zip>
+<phone>(706) 509-6900</phone>
+<NPR>HC-6720</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Rome</city>
+<name>Redmond Regional Medical Center</name>
+<add>501 Redmond Rd NW</add>
+<zip>30161</zip>
+<phone>(706) 290-6003</phone>
+<NPR>HC-6721</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Roswell</city>
+<name>North Fulton Regional Medical Center, Inc</name>
+<add>3000 HOSPITAL BOULEVARD</add>
+<zip>30076</zip>
+<phone>(770) 751-2500</phone>
+<NPR>HC-5248</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Savannah</city>
+<name>Memorial Health University Medical Center, Inc.</name>
+<add>4700 WATERS AVENUE</add>
+<zip>31403</zip>
+<phone>(912) 350-8000</phone>
+<NPR>HC-6724</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Savannah</city>
+<name>St. Joseph&apos;s/ Candler Health System</name>
+<add>11705 MERCY BOULEVARD</add>
+<zip>31419</zip>
+<phone>(912) 819-4100</phone>
+<NPR>HC-393643</NPR>
+</center>
+<center>
+<state>GA</state>
+<city>Snellville</city>
+<name>Emory Eastside Medical Center</name>
+<add>1700 MEDICAL WAY</add>
+<zip>30078</zip>
+<phone>(770) 736-2498</phone>
+<NPR>HC-4811</NPR>
+</center>
+<center>
+<state>HI</state>
+<city>Honolulu</city>
+<name>Kaiser Foundation Hospital Hawaii</name>
+<add>3288 Moanalua Road</add>
+<zip>96819</zip>
+<phone>(808) 432-0000</phone>
+<NPR>AMH-45</NPR>
+</center>
+<center>
+<state>HI</state>
+<city>Honolulu</city>
+<name>The Queen&apos;s Medical Center</name>
+<add>1301 Punchbowl Street</add>
+<zip>96813</zip>
+<phone>(808) 547-4397</phone>
+<NPR>AMH-46</NPR>
+</center>
+<center>
+<state>HI</state>
+<city>Lihue</city>
+<name>Wilcox Memorial Hospital</name>
+<add>3-3420 KUHIO HIGHWAY</add>
+<zip>96766</zip>
+<phone>(808) 245-1103</phone>
+<NPR>AMH-47</NPR>
+</center>
+<center>
+<state>IA</state>
+<city>Cedar Rapids</city>
+<name>Mercy Medical Center</name>
+<add>701 10TH STREET SE</add>
+<zip>52403</zip>
+<phone>(319) 398-6011</phone>
+<NPR>HC-4282</NPR>
+</center>
+<center>
+<state>IA</state>
+<city>Cedar Rapids</city>
+<name>St. Luke&apos;s Methodist Hospital</name>
+<add>1026 A AVE NE</add>
+<zip>52402</zip>
+<phone>(319) 369-7211</phone>
+<NPR>HC-8227</NPR>
+</center>
+<center>
+<state>IA</state>
+<city>Council Bluffs</city>
+<name>Alegent Health Mercy Hospital</name>
+<add>800 MERCY DRIVE</add>
+<zip>51503</zip>
+<phone>(712) 328-5000</phone>
+<NPR>HC-8237</NPR>
+</center>
+<center>
+<state>IA</state>
+<city>Davenport</city>
+<name>Genesis Medical Center, Davenport</name>
+<add>1227 EAST RUSHOLME STREET</add>
+<zip>52803</zip>
+<phone>(563) 421-1000</phone>
+<NPR>HC-56709</NPR>
+</center>
+<center>
+<state>IA</state>
+<city>Des Moines</city>
+<name>Mercy Medical Center</name>
+<add>1111 6TH AVE</add>
+<zip>50314</zip>
+<phone>(515) 247-3121</phone>
+<NPR>HC-8248</NPR>
+</center>
+<center>
+<state>IA</state>
+<city>Iowa City</city>
+<name>The University of Iowa Hospitals and Clinics</name>
+<add>200 HAWKINS DRIVE</add>
+<zip>52242</zip>
+<phone>(319) 356-1616</phone>
+<NPR>HC-8266</NPR>
+</center>
+<center>
+<state>IA</state>
+<city>Mason City</city>
+<name>Mercy Medical Center - North Iowa</name>
+<add>1000 FOURTH STREET SW</add>
+<zip>50401</zip>
+<phone>(641) 422-7000</phone>
+<NPR>HC-8278</NPR>
+</center>
+<center>
+<state>IA</state>
+<city>Sioux City</city>
+<name>Mercy Medical Center</name>
+<add>801 5th Street</add>
+<zip>51101</zip>
+<phone>(712) 279-5879‎</phone>
+<NPR>AMH-49</NPR>
+</center>
+<center>
+<state>IA</state>
+<city>Sioux City</city>
+<name>St. Luke&apos;s Regional Medical Center</name>
+<add>2720 Stone Park Boulevard</add>
+<zip>51104</zip>
+<phone>(712) 279-3500</phone>
+<NPR>AMH-50</NPR>
+</center>
+<center>
+<state>IA</state>
+<city>West Burlington</city>
+<name>Great River Medical Center</name>
+<add>1221 SOUTH GEAR AVENUE</add>
+<zip>52655</zip>
+<phone>(319) 768-1000</phone>
+<NPR>HC-3677</NPR>
+</center>
+<center>
+<state>ID</state>
+<city>Boise</city>
+<name>Saint Alphonsus Regional Medical Center</name>
+<add>1055 NORTH CURTIS ROAD</add>
+<zip>83706</zip>
+<phone>(208) 367-2000</phone>
+<NPR>HC-9313</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Arlington Heights</city>
+<name>Northwest Community Hospital</name>
+<add>800 W CENTRAL ROAD</add>
+<zip>60005</zip>
+<phone>(847) 618-1000</phone>
+<NPR>HC-4656</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Aurora</city>
+<name>Rush-Copley Medical Center</name>
+<add>2000 OGDEN AVENUE</add>
+<zip>60504</zip>
+<phone>(630) 978-6200</phone>
+<NPR>HC-7239</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Berwyn</city>
+<name>MacNeal Hospital</name>
+<add>3249 SOUTH OAK PARK AVENUE</add>
+<zip>60402</zip>
+<phone>(708) 783-9100</phone>
+<NPR>HC-7246</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Bloomington</city>
+<name>BroMenn Healthcare Hospitals</name>
+<add>1304 Franklin Avenue</add>
+<zip>61702</zip>
+<phone>(309) 268-5918</phone>
+<NPR>HC-4482</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Bloomington</city>
+<name>OSF St. Joseph Medical Center</name>
+<add>2200 E WASHINGTON</add>
+<zip>61701</zip>
+<phone>(309) 662-3311</phone>
+<NPR>HC-7248</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Chicago</city>
+<name>Northwestern Memorial Hospital</name>
+<add>251 E HURON ST</add>
+<zip>60611</zip>
+<phone>(312) 926-2000</phone>
+<NPR>HC-7267</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Chicago</city>
+<name>Our Lady of the Resurrection Medical Center</name>
+<add>5645 W ADDISON</add>
+<zip>60634</zip>
+<phone>(773) 282-7000</phone>
+<NPR>HC-7295</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Chicago</city>
+<name>Resurrection Medical Center</name>
+<add>7435 W TALCOTT AVENUE</add>
+<zip>60631</zip>
+<phone>(773) 774-8000</phone>
+<NPR>HC-3836</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Chicago</city>
+<name>Rush University Medical Center</name>
+<add>1653 WEST CONGRESS PARKWAY</add>
+<zip>60612</zip>
+<phone>(312) 942-5000</phone>
+<NPR>AMH-55</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Chicago</city>
+<name>Saint Joseph Hospital</name>
+<add>2900 NORTH LAKE SHORE DRIVE</add>
+<zip>60657</zip>
+<phone>(773) 665-3000</phone>
+<NPR>HC-7307</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Chicago</city>
+<name>Saints Mary and Elizabeth Medical Center</name>
+<add>1431 N CLAREMONT AVE</add>
+<zip>60622</zip>
+<phone>(312) 633-5896</phone>
+<NPR>HC-7308</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Chicago</city>
+<name>University of Chicago Medical Center</name>
+<add>5841 SOUTH MARYLAND</add>
+<zip>60637</zip>
+<phone>(773) 702-1000</phone>
+<NPR>HC-7315</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Chicago</city>
+<name>University of Illinois Medical Center at Chicago</name>
+<add>1740 WEST TAYLOR ST SUITE 1400</add>
+<zip>60612</zip>
+<phone>(312) 996-3900</phone>
+<NPR>HC-7282</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Decatur</city>
+<name>Decatur Memorial Hospital</name>
+<add>2300 NORTH EDWARD STREET</add>
+<zip>62526</zip>
+<phone>(217) 877-8121</phone>
+<NPR>HC-4632</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Decatur</city>
+<name>St. Mary&apos;s Hospital</name>
+<add>1800 E LAKE SHORE DR</add>
+<zip>62521</zip>
+<phone>(217) 464-7000</phone>
+<NPR>HC-4605</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Downers Grove</city>
+<name>Advocate Good Samaritan Hospital</name>
+<add>3815 HIGHLAND AVENUE</add>
+<zip>60515</zip>
+<phone>(630) 275-5900</phone>
+<NPR>HC-7329</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Elk Grove Village</city>
+<name>Alexian Brothers Medical Center</name>
+<add>800 W BIESTERFIELD RD</add>
+<zip>60007</zip>
+<phone>(847) 437-5500</phone>
+<NPR>AMH-51</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Evanston</city>
+<name>NorthShore University HealthSystem</name>
+<add>2650 Ridge Avenue</add>
+<zip>60201</zip>
+<phone>(847) 570-2000</phone>
+<NPR>HC-7343</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Evanston</city>
+<name>Saint Francis Hospital</name>
+<add>355 RIDGE AVE</add>
+<zip>60202</zip>
+<phone>(847) 316-4000</phone>
+<NPR>HC-4176</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Harvey</city>
+<name>Ingalls Memorial Hospital</name>
+<add>ONE INGALLS DRIVE</add>
+<zip>60426</zip>
+<phone>(708) 333-2300</phone>
+<NPR>HC-7354</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Hinsdale</city>
+<name>Adventist Hinsdale Hospital</name>
+<add>120 NORTH OAK ST</add>
+<zip>60521</zip>
+<phone>(630) 856-9000</phone>
+<NPR>HC-7359</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Hoffman Estates</city>
+<name>St. Alexius Medical Center</name>
+<add>1555 Barrington Road</add>
+<zip>60169</zip>
+<phone>(847) 843-2000</phone>
+<NPR>HC-5173</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Joliet</city>
+<name>Provena Saint Joseph Medical Center</name>
+<add>333 N MADISON</add>
+<zip>60435</zip>
+<phone>(815) 725-7133</phone>
+<NPR>HC-7364</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Kankakee</city>
+<name>Riverside Medical Center</name>
+<add>350 N WALL ST</add>
+<zip>60901</zip>
+<phone>(815) 933-1671</phone>
+<NPR>HC-7366</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Maywood</city>
+<name>Loyola University Medical Center</name>
+<add>2160 S 1ST AVENUE</add>
+<zip>60153</zip>
+<phone>(708) 216-9000</phone>
+<NPR>HC-7288</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Melrose Park</city>
+<name>Westlake Hospital</name>
+<add>1225 LAKE ST</add>
+<zip>60160</zip>
+<phone>(708) 938-4000</phone>
+<NPR>HC-7382</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Naperville</city>
+<name>Edward Health Services Corporation</name>
+<add>801 SOUTH WASHINGTON</add>
+<zip>60540</zip>
+<phone>(630) 527-3000</phone>
+<NPR>HC-7394</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Oak Lawn</city>
+<name>Advocate Christ Medical Center</name>
+<add>4440 W 95TH STREET</add>
+<zip>60453</zip>
+<phone>(708) 684-8000</phone>
+<NPR>HC-7397</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Oak Park</city>
+<name>West Suburban Hospital Medical Center</name>
+<add>ERIE AT AUSTIN BOULEVARD</add>
+<zip>60302</zip>
+<phone>(708) 383-6200</phone>
+<NPR>HC-7399</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Park Ridge</city>
+<name>Advocate Lutheran General Hospital</name>
+<add>1775 DEMPSTER ST</add>
+<zip>60068</zip>
+<phone>(847) 723-2210</phone>
+<NPR>HC-7405</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Peoria</city>
+<name>OSF Saint Francis Medical Center</name>
+<add>530 NE GLEN OAK AVE</add>
+<zip>61637</zip>
+<phone>(309) 655-2000</phone>
+<NPR>HC-7410</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Peoria</city>
+<name>The Methodist Medical Center of Illinois</name>
+<add>221 N E GLEN OAK AVE</add>
+<zip>61636</zip>
+<phone>(309) 672-5522</phone>
+<NPR>HC-7408</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Rockford</city>
+<name>OSF Saint Anthony Medical  Center</name>
+<add>5666 EAST STATE STREET</add>
+<zip>61108</zip>
+<phone>(815) 226-2000</phone>
+<NPR>HC-7419</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Rockford</city>
+<name>Rockford Memorial Hospital</name>
+<add>2400 NORTH ROCKTON AVENUE</add>
+<zip>61103</zip>
+<phone>(815) 968-6861</phone>
+<NPR>HC-7418</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Rockford</city>
+<name>SwedishAmerican Hospital</name>
+<add>1401 EAST STATE STREET</add>
+<zip>61104</zip>
+<phone>(815) 968-4400</phone>
+<NPR>HC-7420</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Springfield</city>
+<name>St. John&apos;s Hospital</name>
+<add>800 E CARPENTER ST</add>
+<zip>62769</zip>
+<phone>(217) 544-6464</phone>
+<NPR>HC-7432</NPR>
+</center>
+<center>
+<state>IL</state>
+<city>Winfield</city>
+<name>Central Dupage Hospital</name>
+<add>25 NORTH WINFIELD ROAD</add>
+<zip>60190</zip>
+<phone>(630) 682-1600</phone>
+<NPR>AMH-52</NPR>
+</center>
+<center>
+<state>IN</state>
+<city>Bloomington</city>
+<name>Bloomington Hospital</name>
+<add>601 W SECOND ST</add>
+<zip>47402</zip>
+<phone>(812) 353-9555</phone>
+<NPR>HC-7137</NPR>
+</center>
+<center>
+<state>IN</state>
+<city>Bluffton</city>
+<name>Bluffton Regional Medical  Center</name>
+<add>303 S MAIN ST</add>
+<zip>46714</zip>
+<phone>(260) 824-3210</phone>
+<NPR>HC-7138</NPR>
+</center>
+<center>
+<state>IN</state>
+<city>Columbus</city>
+<name>Columbus Regional Hospital</name>
+<add>2400 E 17TH ST</add>
+<zip>47201</zip>
+<phone>(812) 379-4441</phone>
+<NPR>HC-7144</NPR>
+</center>
+<center>
+<state>IN</state>
+<city>Evansville</city>
+<name>Deaconess Hospital</name>
+<add>600 MARY ST</add>
+<zip>47747</zip>
+<phone>(812) 450-2252</phone>
+<NPR>HC-7153</NPR>
+</center>
+<center>
+<state>IN</state>
+<city>Fort Wayne</city>
+<name>Lutheran Hospital of Indiana</name>
+<add>7950 W JEFFERSON BLVD</add>
+<zip>46804</zip>
+<phone>(260) 435-7001</phone>
+<NPR>HC-7157</NPR>
+</center>
+<center>
+<state>IN</state>
+<city>Fort Wayne</city>
+<name>Parkview Hospital</name>
+<add>2200 RANDALIA DR</add>
+<zip>46805</zip>
+<phone>(260) 373-4000</phone>
+<NPR>HC-7158</NPR>
+</center>
+<center>
+<state>IN</state>
+<city>Indianapolis</city>
+<name>Clarian Health Partners, Inc.</name>
+<add>1701 N Senate Boulevard</add>
+<zip>46202</zip>
+<phone>(317) 962-5900</phone>
+<NPR>HC-188549</NPR>
+</center>
+<center>
+<state>IN</state>
+<city>Indianapolis</city>
+<name>Community Hospital East</name>
+<add>1500 N RITTER AVE</add>
+<zip>46219</zip>
+<phone>(317) 355-1411</phone>
+<NPR>HC-7172</NPR>
+</center>
+<center>
+<state>IN</state>
+<city>Indianapolis</city>
+<name>St. Vincent Hospital and Health Care Services, Inc.</name>
+<add>2001 W 86TH ST</add>
+<zip>46260</zip>
+<phone>(317) 338-7000</phone>
+<NPR>HC-7178</NPR>
+</center>
+<center>
+<state>IN</state>
+<city>Kokomo</city>
+<name>St. Joseph Hospital &amp; Health Center, Inc.</name>
+<add>1907 W SYCAMORE ST</add>
+<zip>46901</zip>
+<phone>(765) 456-5300</phone>
+<NPR>HC-7183</NPR>
+</center>
+<center>
+<state>IN</state>
+<city>La Porte</city>
+<name>La Porte Regional Health System, Inc.</name>
+<add>1007 LINCOLNWAY</add>
+<zip>46350</zip>
+<phone>(219) 326-1234</phone>
+<NPR>HC-4707</NPR>
+</center>
+<center>
+<state>IN</state>
+<city>Muncie</city>
+<name>Ball Memorial Hospital</name>
+<add>2401 West University Avenue</add>
+<zip>47302</zip>
+<phone>(765) 747-4335</phone>
+<NPR>AMH-57</NPR>
+</center>
+<center>
+<state>IN</state>
+<city>South Bend</city>
+<name>Saint Joseph Regional Medical Center  South Bend Campus</name>
+<add>801 E LASALLE AVE</add>
+<zip>46617</zip>
+<phone>(574) 237-7111</phone>
+<NPR>HC-7221</NPR>
+</center>
+<center>
+<state>KS</state>
+<city>Kansas City</city>
+<name>The University of Kansas Hospital</name>
+<add>3901 Rainbow Boulevard</add>
+<zip>66160</zip>
+<phone>(913) 588-1227‎</phone>
+<NPR>AMH-58</NPR>
+</center>
+<center>
+<state>KS</state>
+<city>Overland Park</city>
+<name>Menorah Medical Center</name>
+<add>5721 WEST 119TH STREET</add>
+<zip>66209</zip>
+<phone>(913) 498-6773</phone>
+<NPR>HC-8348</NPR>
+</center>
+<center>
+<state>KS</state>
+<city>Wichita</city>
+<name>Via Christi Regional Medical Center</name>
+<add>929 N ST FRANCIS ST</add>
+<zip>67214</zip>
+<phone>(316) 268-5108</phone>
+<NPR>HC-8609</NPR>
+</center>
+<center>
+<state>KS</state>
+<city>Wichita</city>
+<name>Wesley Medical Center,LLC</name>
+<add>550 N HILLSIDE ST</add>
+<zip>67214</zip>
+<phone>(316) 962-2040</phone>
+<NPR>HC-8612</NPR>
+</center>
+<center>
+<state>KY</state>
+<city>Bowling Green</city>
+<name>The Medical Center</name>
+<add>250 Park Street </add>
+<zip>42102</zip>
+<phone>(270) 745-1000</phone>
+<NPR>HC-7729</NPR>
+</center>
+<center>
+<state>KY</state>
+<city>Edgewood</city>
+<name>St. Elizabeth Healthcare</name>
+<add>1 Medical Village Drive</add>
+<zip>41017</zip>
+<phone>(859) 301-2000</phone>
+<NPR>HC-7735</NPR>
+</center>
+<center>
+<state>KY</state>
+<city>Fort Thomas</city>
+<name>St. Elizabeth Fort Thomas</name>
+<add>85 N Grand Avenue </add>
+<zip>41075</zip>
+<phone>(859) 572-3100</phone>
+<NPR>HC-7742</NPR>
+</center>
+<center>
+<state>KY</state>
+<city>Lexington</city>
+<name>Central Baptist Hospital</name>
+<add>1740 NICHOLASVILLE ROAD</add>
+<zip>40503</zip>
+<phone>(859) 260-6100</phone>
+<NPR>HC-7756</NPR>
+</center>
+<center>
+<state>KY</state>
+<city>Lexington</city>
+<name>University of Kentucky HealthCare Chandler Hospital</name>
+<add>HOSPITAL ADMINISTRATION</add>
+<zip>40536</zip>
+<phone>(859) 323-5470</phone>
+<NPR>HC-7760</NPR>
+</center>
+<center>
+<state>KY</state>
+<city>Louisville</city>
+<name>Baptist Hospital East</name>
+<add>4000 KRESGE WAY</add>
+<zip>40207</zip>
+<phone>(502) 897-8100</phone>
+<NPR>HC-7766</NPR>
+</center>
+<center>
+<state>KY</state>
+<city>Louisville</city>
+<name>Jewish Hospital</name>
+<add>200 Abraham Flexner Way</add>
+<zip>40202</zip>
+<phone>(502) 587-4011</phone>
+<NPR>AMH-60</NPR>
+</center>
+<center>
+<state>KY</state>
+<city>Louisville</city>
+<name>Sts. Mary and Elizabeth Hospital</name>
+<add>1850 Bluegrass Avenue</add>
+<zip>40215</zip>
+<phone>(502) 361-6000</phone>
+<NPR>AMH-61</NPR>
+</center>
+<center>
+<state>KY</state>
+<city>Louisville</city>
+<name>University of Louisville Hospital</name>
+<add>530 SOUTH JACKSON STREET</add>
+<zip>40202</zip>
+<phone>(502) 562-3000</phone>
+<NPR>AMH-62</NPR>
+</center>
+<center>
+<state>LA</state>
+<city>Alexandria</city>
+<name>Rapides Regional Medical Center</name>
+<add>211 4TH STREET</add>
+<zip>71301</zip>
+<phone>(318) 473-3150</phone>
+<NPR>HC-8691</NPR>
+</center>
+<center>
+<state>LA</state>
+<city>Lafayette</city>
+<name>Our Lady of Lourdes Regional Medical Center</name>
+<add>611 St. Landry Street </add>
+<zip>70502</zip>
+<phone>(337) 289-2000</phone>
+<NPR>HC-8740</NPR>
+</center>
+<center>
+<state>LA</state>
+<city>Marrero</city>
+<name>West Jefferson Medical Center</name>
+<add>1101 MEDICAL CENTER BLVD</add>
+<zip>70072</zip>
+<phone>(504) 347-5511</phone>
+<NPR>HC-8754</NPR>
+</center>
+<center>
+<state>LA</state>
+<city>New Orleans</city>
+<name>Ochsner Clinic Foundation</name>
+<add>1516 JEFFERSON HWY</add>
+<zip>70121</zip>
+<phone>(504) 842-5898</phone>
+<NPR>HC-8777</NPR>
+</center>
+<center>
+<state>LA</state>
+<city>New Orleans</city>
+<name>Ochsner Medical Center - New Orleans</name>
+<add>3401 Behrman Place</add>
+<zip>70114</zip>
+<phone>(504) 371-9323</phone>
+<NPR>AMH-63</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Athol</city>
+<name>Athol Memorial Hospital</name>
+<add>2033 MAIN STREET</add>
+<zip>01331</zip>
+<phone>(978) 249-3511</phone>
+<NPR>MA-2</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Attleboro</city>
+<name>Sturdy Memorial Hospital</name>
+<add>211 PARK STREET</add>
+<zip>02703</zip>
+<phone>(508) 222-5200</phone>
+<NPR>MA-65</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Ayer</city>
+<name>Nashoba Valley Medical Center</name>
+<add>200 GROTON ROAD</add>
+<zip>01432</zip>
+<phone>(978) 784-9000</phone>
+<NPR>MA-51</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Beverly</city>
+<name>Beverly Hospital - Beverly </name>
+<add>85 HERRICK STREET</add>
+<zip>01915</zip>
+<phone>(978) 922-3000</phone>
+<NPR>MA-7</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Boston</city>
+<name>BIDMC - Boston (West Campus)</name>
+<add>330 BROOKLINE AVENUE</add>
+<zip>02215</zip>
+<phone>(617) 667-7000</phone>
+<NPR>MA-9</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Boston</city>
+<name>Boston Medical Center</name>
+<add>720 Harrison Avenue</add>
+<zip>02118</zip>
+<phone>(617) 638-8456</phone>
+<NPR>AMH-66</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Boston</city>
+<name>Boston Medical Center  (Menino Campus)</name>
+<add>767 Albany Street</add>
+<zip>02118</zip>
+<phone>(617) 414-4883</phone>
+<NPR>MA-11</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Boston</city>
+<name>Brigham and Women&apos;s Hospital</name>
+<add>75 Francis Street</add>
+<zip>02115</zip>
+<phone>(617) 732-5500</phone>
+<NPR>AMH-67</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Boston</city>
+<name>Caritas Carney Hospital</name>
+<add>2100 DORCHESTER AVENUE</add>
+<zip>02124</zip>
+<phone>(617) 296-4000</phone>
+<NPR>MA-18</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Boston</city>
+<name>Faulkner Hospital</name>
+<add>1153 CENTRE STREET</add>
+<zip>02130</zip>
+<phone>(617) 983-7000</phone>
+<NPR>MA-28</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Boston</city>
+<name>Massachusetts General Hospital</name>
+<add>55 FRUIT STREET</add>
+<zip>02114</zip>
+<phone>(617) 726-2000</phone>
+<NPR>AMH-72</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Boston</city>
+<name>Tufts Medical Center</name>
+<add>800 WASHINGTON STREET</add>
+<zip>02111</zip>
+<phone>(617) 636-5000</phone>
+<NPR>MA-66</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Brighton</city>
+<name>Caritas St. Elizabeth&apos;s Medical Center</name>
+<add>736 CAMBRIDGE STREET</add>
+<zip>02135</zip>
+<phone>(617) 789-3000</phone>
+<NPR>MA-22</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Brockton</city>
+<name>Brockton Hospital</name>
+<add>680 CENTER STREET</add>
+<zip>02302</zip>
+<phone>(508) 941-7000</phone>
+<NPR>MA-13</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Brockton</city>
+<name>Caritas Good Samaritan</name>
+<add>235 NORTH PEARL STREET</add>
+<zip>02301</zip>
+<phone>(508) 427-3000</phone>
+<NPR>MA-19</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Burlington</city>
+<name>Lahey Clinic</name>
+<add>41 Mall Rd</add>
+<zip>01803</zip>
+<phone>(781) 744-5100</phone>
+<NPR>AMH-71</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Cambridge</city>
+<name>Cambridge Health Alliance/Cambridge</name>
+<add>1493 CAMBRIDGE STREET</add>
+<zip>02138</zip>
+<phone>(617) 665-2300</phone>
+<NPR>MA-14</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Cambridge</city>
+<name>Mount Auburn Hospital</name>
+<add>330 MOUNT AUBURN STREET</add>
+<zip>02138</zip>
+<phone>(617) 492-3500</phone>
+<NPR>MA-50</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Clinton</city>
+<name>Clinton Hospital </name>
+<add>201 HIGHLAND STREET</add>
+<zip>01510</zip>
+<phone>(978) 368-3000</phone>
+<NPR>MA-23</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Everett</city>
+<name>Cambridge Health Alliance/Whidden</name>
+<add>103 Garland St</add>
+<zip>02149</zip>
+<phone>(617) 665-1000</phone>
+<NPR>MA-16</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Fall River</city>
+<name>Southcoast Hospitals Group/Charlton</name>
+<add>363 HIGHLAND AVENUE</add>
+<zip>02720</zip>
+<phone>(508) 679-3131</phone>
+<NPR>MA-60</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Fall River</city>
+<name>St. Anne&apos;s Hospital</name>
+<add>795 MIDDLE STREET</add>
+<zip>02721</zip>
+<phone>(508) 674-5600</phone>
+<NPR>MA-63</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Falmouth</city>
+<name>Falmouth Hospital </name>
+<add>67 &amp; 100 TER HEUN DRIVE</add>
+<zip>02540</zip>
+<phone>(508) 548-5300</phone>
+<NPR>MA-27</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Framingham</city>
+<name>MetroWest Medical Center - Framingham Campus</name>
+<add>115 LINCOLN STREET</add>
+<zip>01701</zip>
+<phone>(508) 383-1000</phone>
+<NPR>MA-45</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Framingham</city>
+<name>MetroWest Medical Center Framingham Union Hospital</name>
+<add>115 Lincoln Street</add>
+<zip>01702</zip>
+<phone>(508) 383-1000</phone>
+<NPR>AMH-73</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Gardner</city>
+<name>Heywood Hospital </name>
+<add>242 GREEN STREET</add>
+<zip>01440</zip>
+<phone>(978) 632-3420</phone>
+<NPR>MA-34</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Gloucester</city>
+<name>Beverly Hospital (Addison Gilbert Hospital)</name>
+<add>298 Washington Street</add>
+<zip>01930</zip>
+<phone>(978) 283-4000</phone>
+<NPR>MA-8</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Great Barrington</city>
+<name>Fairview Hospital</name>
+<add>29 LEWIS AVENUE</add>
+<zip>01230</zip>
+<phone>(413) 528-0790</phone>
+<NPR>MA-26</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Greenfield</city>
+<name>Baystate Franklin Medical Center</name>
+<add>164 HIGH STREET</add>
+<zip>01301</zip>
+<phone>(413) 773-0211</phone>
+<NPR>MA-3</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Haverhill</city>
+<name>Merrimack Valley  Hospital </name>
+<add>140 LINCOLN AVENUE</add>
+<zip>01830</zip>
+<phone>(978) 374-2000</phone>
+<NPR>MA-44</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Holyoke</city>
+<name>Holyoke Medical Center</name>
+<add>575 BEECH STREET</add>
+<zip>01040</zip>
+<phone>(413) 534-2500</phone>
+<NPR>AMH-69</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Hyannis</city>
+<name>Cape Cod Hospital</name>
+<add>27 PARK STREET</add>
+<zip>02601</zip>
+<phone>(508) 771-1800</phone>
+<NPR>MA-17</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Lawrence</city>
+<name>Lawrence General Hospital</name>
+<add>ONE GENERAL STREET</add>
+<zip>01842</zip>
+<phone>(978) 683-4000</phone>
+<NPR>MA-38</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Leominster</city>
+<name>Health Alliance Hospital</name>
+<add>60 HOSPITAL ROAD</add>
+<zip>01453</zip>
+<phone>(978) 466-2000</phone>
+<NPR>MA-33</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Lowell</city>
+<name>Lowell General Hospital </name>
+<add>295 VARNUM AVENUE</add>
+<zip>01854</zip>
+<phone>(978) 937-6000</phone>
+<NPR>MA-39</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Lowell</city>
+<name>Saints Memorial Medical Center</name>
+<add>1 HOSPITAL DRIVE</add>
+<zip>01852</zip>
+<phone>(978) 458-1411</phone>
+<NPR>MA-58</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Lynn</city>
+<name>North Shore Medical Center-Union Hospital</name>
+<add>500 Lynnfield Street</add>
+<zip>01904</zip>
+<phone>(781) 581-9200</phone>
+<NPR>MA-56</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Marlborough</city>
+<name>Marlborough Hospital</name>
+<add>157 UNION STREET</add>
+<zip>01752</zip>
+<phone>(508) 481-5000</phone>
+<NPR>MA-40</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Medford</city>
+<name>Hallmark Health System - Lawrence Memorial</name>
+<add>170 Governors Ave</add>
+<zip>01255</zip>
+<phone>(781) 306-6000</phone>
+<NPR>MA-29</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Melrose</city>
+<name>Hallmark Health System - Melrose/Wakefield</name>
+<add>585 LEBANON STREET</add>
+<zip>02176</zip>
+<phone>(781) 979-3000</phone>
+<NPR>MA-30</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Methuen</city>
+<name>Caritas Holy Family Hospital</name>
+<add>70 EAST STREET</add>
+<zip>01844</zip>
+<phone>(978) 687-0156</phone>
+<NPR>MA-20</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Milford</city>
+<name>Milford Regional Medical Center</name>
+<add>14 PROSPECT STREET</add>
+<zip>01757</zip>
+<phone>(508) 473-1190</phone>
+<NPR>MA-47</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Milton</city>
+<name>Milton Hospital</name>
+<add>199 REEDSDALE ROAD</add>
+<zip>02186</zip>
+<phone>(617) 696-4600</phone>
+<NPR>MA-48</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Natick</city>
+<name>MetroWest Medical Center - Natick</name>
+<add>67 Union Street</add>
+<zip>01760</zip>
+<phone>(508) 650-7000</phone>
+<NPR>MA-46</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Needham</city>
+<name>BIDMC - Needham    </name>
+<add>148 CHESTNUT STREET</add>
+<zip>02494</zip>
+<phone>(781) 453-3000</phone>
+<NPR>MA-10</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>New Bedford</city>
+<name>Southcoast Hospitals Group/St. Luke&apos;s</name>
+<add>101 Page Street</add>
+<zip>02740</zip>
+<phone>(508) 961-5358</phone>
+<NPR>MA-61</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Newburyport</city>
+<name>Anna Jaques Hospital</name>
+<add>25 HIGHLAND AVENUE</add>
+<zip>01950</zip>
+<phone>(978) 463-1000</phone>
+<NPR>MA-1</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Newton</city>
+<name>Newton-Wellesley Hospital</name>
+<add>2014 WASHINGTON STREET</add>
+<zip>02462</zip>
+<phone>(617) 243-6000</phone>
+<NPR>AMH-76</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>North Adams</city>
+<name>North Adams Regional Hospital</name>
+<add>71 HOSPITAL AVENUE</add>
+<zip>01247</zip>
+<phone>(413) 664-5000</phone>
+<NPR>MA-54</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Northampton</city>
+<name>Cooley Dickinson Hospital</name>
+<add>30 LOCUST STREET</add>
+<zip>01060</zip>
+<phone>(413) 582-2000</phone>
+<NPR>MA-24</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Oak Bluffs</city>
+<name>Martha&apos;s Vineyard Hospital</name>
+<add>ONE HOSPITAL ROAD PO BOX 1477</add>
+<zip>02557</zip>
+<phone>(508) 693-0410</phone>
+<NPR>MA-41</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Palmer</city>
+<name>Wing Memorial Hospital </name>
+<add>40 WRIGHT STREET</add>
+<zip>01069</zip>
+<phone>(413) 283-7651</phone>
+<NPR>MA-69</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Pittsfield</city>
+<name>Berkshire Medical Center</name>
+<add>725 North Street</add>
+<zip>01201</zip>
+<phone>(413) 447-2000</phone>
+<NPR>AMH-64</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Plymouth</city>
+<name>Jordan Hospital</name>
+<add>275 Sandwich St.</add>
+<zip>02360</zip>
+<phone>(508) 746-2000‎</phone>
+<NPR>AMH-70</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Quincy</city>
+<name>Quincy Medical Center</name>
+<add>114 WHITWELL STREET</add>
+<zip>02169</zip>
+<phone>(617) 773-6100</phone>
+<NPR>MA-57</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Salem</city>
+<name>North Shore Medical Center-Salem Hospital</name>
+<add>81 HIGHLAND AVENUE</add>
+<zip>01970</zip>
+<phone>(978) 741-1215</phone>
+<NPR>MA-55</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Somerville</city>
+<name>Cambridge Health Alliance/Somerville</name>
+<add>230 Highland Ave.</add>
+<zip>02143</zip>
+<phone>(617) 591-4500</phone>
+<NPR>MA-15</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>South Weymouth</city>
+<name>South Shore Hospital</name>
+<add>55 FOGG ROAD</add>
+<zip>02190</zip>
+<phone>(781) 340-8000</phone>
+<NPR>MA-59</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Southbridge</city>
+<name>Harrington Memorial Hospital</name>
+<add>100 SOUTH STREET</add>
+<zip>01550</zip>
+<phone>(508) 765-9771</phone>
+<NPR>MA-31</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Springfield</city>
+<name>Baystate Medical Center</name>
+<add>759 CHESTNUT STREET</add>
+<zip>01199</zip>
+<phone>(413) 794-0000</phone>
+<NPR>MA-5</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Springfield</city>
+<name>Mercy Hospital</name>
+<add>271 CAREW STREET</add>
+<zip>01104</zip>
+<phone>(413) 748-9000</phone>
+<NPR>MA-43</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Taunton</city>
+<name>Morton Hospital</name>
+<add>88 WASHINGTON STREET</add>
+<zip>02780</zip>
+<phone>(508) 828-7000</phone>
+<NPR>MA-49</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>W. Concord</city>
+<name>Emerson Hospital</name>
+<add>OLD ROAD TO 9 ACRE CORNER</add>
+<zip>01742</zip>
+<phone>(978) 369-1400</phone>
+<NPR>MA-25</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Ware </city>
+<name>Baystate Mary Lane Hospital</name>
+<add>85 SOUTH STREET</add>
+<zip>01082</zip>
+<phone>(413) 967-6211</phone>
+<NPR>MA-4</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Wareham</city>
+<name>Southcoast Hospitals Group/Tobey</name>
+<add>43 High Street</add>
+<zip>02571</zip>
+<phone>(508) 295-0880</phone>
+<NPR>MA-62</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Webster</city>
+<name>Harrington Memorial -Webster Campus</name>
+<add>340 Thompson Road</add>
+<zip>01570</zip>
+<phone>(508) 943-2600</phone>
+<NPR>MA-32</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Westfield</city>
+<name>Noble Hospital</name>
+<add>115 WEST SILVER STREET</add>
+<zip>01085</zip>
+<phone>(413) 568-2811</phone>
+<NPR>AMH-77</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Winchester</city>
+<name>Winchester Hospital</name>
+<add>41 HIGHLAND AVENUE</add>
+<zip>01890</zip>
+<phone>(781) 729-9000</phone>
+<NPR>MA-68</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Worcester</city>
+<name>St. Vincent Hospital</name>
+<add>123 SUMMER STREET</add>
+<zip>01608</zip>
+<phone>(508) 363-5000</phone>
+<NPR>MA-64</NPR>
+</center>
+<center>
+<state>MA</state>
+<city>Worcester</city>
+<name>UMass Memorial Medical Center - University Campus</name>
+<add>55 LAKE AVENUE NORTH</add>
+<zip>01655</zip>
+<phone>(508) 334-1000</phone>
+<NPR>MA-67</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>Annapolis</city>
+<name>Anne Arundel Medical Center</name>
+<add>2001 MEDICAL PARKWAY</add>
+<zip>21401</zip>
+<phone>(443) 481-3000</phone>
+<NPR>HC-6241</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>BALTIMORE                     </city>
+<name>Franklin Square Hospital Center</name>
+<add>9000 FRANKLIN SQUARE DR</add>
+<zip>21237</zip>
+<phone>(443) 777-7000</phone>
+<NPR>MD-6</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>BALTIMORE                     </city>
+<name>Good Samaritan Hospital</name>
+<add>5601 LOCH RAVEN BLVD</add>
+<zip>21239</zip>
+<phone>(410) 532-8000</phone>
+<NPR>MD-7</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>BALTIMORE                     </city>
+<name>Greater Baltimore Medical Center</name>
+<add>6701 N CHARLES ST</add>
+<zip>21204</zip>
+<phone>(443) 849-2121</phone>
+<NPR>MD-8</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>Baltimore</city>
+<name>Harbor Hospital</name>
+<add>3001 S HANOVER STREET</add>
+<zip>21225</zip>
+<phone>(410) 350-3200</phone>
+<NPR>HC-6261</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>BALTIMORE                     </city>
+<name>Maryland General Hospital</name>
+<add>827 LINDEN AVE</add>
+<zip>21201</zip>
+<phone>(410) 225-8000</phone>
+<NPR>MD-15</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>Baltimore</city>
+<name>Mercy Medical Center, Inc.</name>
+<add>301 ST PAUL PLACE</add>
+<zip>21202</zip>
+<phone>(410) 332-9000</phone>
+<NPR>HC-6255</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>BALTIMORE                     </city>
+<name>Sinai Hospital of Baltimore</name>
+<add>2401 WEST BELVEDERE AVE</add>
+<zip>21215</zip>
+<phone>(410) 601-9000</phone>
+<NPR>MD-21</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>BALTIMORE                     </city>
+<name>St. Agnes Hospital</name>
+<add>WILKENS &amp; CATON AVENUES</add>
+<zip>21229</zip>
+<phone>(410) 368-6000</phone>
+<NPR>MD-23</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>BALTIMORE                     </city>
+<name>The Johns Hopkins Bayview Medical Center</name>
+<add>4940 EASTERN AVENUE</add>
+<zip>21224</zip>
+<phone>(410) 550-0100</phone>
+<NPR>MD-13</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>Baltimore</city>
+<name>The Johns Hopkins Hospital</name>
+<add>600 NORTH  WOLFE STREET</add>
+<zip>21287</zip>
+<phone>(410) 955-5000</phone>
+<NPR>HC-6252</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>Baltimore</city>
+<name>The Union Memorial Hospital</name>
+<add>201 E UNIVERSITY PKY</add>
+<zip>21218</zip>
+<phone>(410) 554-2000</phone>
+<NPR>HC-6262</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>Baltimore</city>
+<name>University of Maryland Medical Center</name>
+<add>22 S GREENE ST</add>
+<zip>21201</zip>
+<phone>(410) 328-8667</phone>
+<NPR>HC-6264</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>BEL AIR                       </city>
+<name>Upper Chesapeake Medical Center</name>
+<add>500 UPPER CHESAPEAKE DRIVE</add>
+<zip>21014</zip>
+<phone>(443) 643-1000</phone>
+<NPR>MD-29</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>BERLIN                        </city>
+<name>Atlantic General Hospital</name>
+<add>9733 HEALTHWAY DRIVE</add>
+<zip>21811</zip>
+<phone>(410) 641-1100</phone>
+<NPR>MD-2</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>BETHESDA                      </city>
+<name>Suburban Hospital</name>
+<add>8600 OLD GEORGETOWN RD</add>
+<zip>20814</zip>
+<phone>(301) 896-3100</phone>
+<NPR>MD-26</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>CLINTON                       </city>
+<name>Southern Maryland Hospital Center</name>
+<add>7503 SURRATTS RD</add>
+<zip>20735</zip>
+<phone>(201) 868-8000</phone>
+<NPR>MD-22</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>COLUMBIA                      </city>
+<name>Howard County General Hospital</name>
+<add>5755 CEDAR LANE</add>
+<zip>21044</zip>
+<phone>(410) 740-7890</phone>
+<NPR>MD-12</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>Cumberland</city>
+<name>Western Maryland Health System Memorial Campus</name>
+<add>600 Memorial Avenue</add>
+<zip>21502</zip>
+<phone>(301) 723-4000</phone>
+<NPR>MD-31</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>EASTON                        </city>
+<name>Memorial Hospital at Easton</name>
+<add>219 S WASHINGTON ST</add>
+<zip>21601</zip>
+<phone>(410) 822-1000</phone>
+<NPR>MD-16</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>Elkton</city>
+<name>Union Hospital of Cecil County</name>
+<add>106 Bow Street, Elkton</add>
+<zip>21921</zip>
+<phone>(410) 398-4000</phone>
+<NPR>ADD-1</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>Frederick</city>
+<name>Frederick Memorial Hospital</name>
+<add>400 West Seventh Street</add>
+<zip>21701</zip>
+<phone>(240) 566-3300</phone>
+<NPR>ADD-2</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>GLEN BURNIE                   </city>
+<name>Baltimore-Washington Medical Center</name>
+<add>301 HOSPITAL DR</add>
+<zip>21061</zip>
+<phone>(410) 787-4000</phone>
+<NPR>MD-3</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>HAGERSTOWN                    </city>
+<name>Washington County Health System</name>
+<add>251 EAST ANTIETAM ST</add>
+<zip>21740</zip>
+<phone>(301) 790-8000</phone>
+<NPR>MD-30</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>HAVRE DE GRACE                </city>
+<name>Harford Memorial Hospital</name>
+<add>501 S UNION AVE</add>
+<zip>21078</zip>
+<phone>(443) 843-5000</phone>
+<NPR>MD-10</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>LA PLATA                      </city>
+<name>Civista Medical Center</name>
+<add>701 E CHARLES STREET</add>
+<zip>20646</zip>
+<phone>(301) 609-4000</phone>
+<NPR>MD-5</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>LEONARDTOWN                   </city>
+<name>St. Mary&apos;s Hospital</name>
+<add>PO BOX 527</add>
+<zip>20650</zip>
+<phone>(301) 475-8981</phone>
+<NPR>MD-25</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>OLNEY                         </city>
+<name>Montgomery General Hospital</name>
+<add>18101 PRINCE PHILIP DRIVE</add>
+<zip>20832</zip>
+<phone>(301) 774-8882</phone>
+<NPR>MD-18</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>PRINCE FREDERICK              </city>
+<name>Calvert Memorial Hospital</name>
+<add>100 HOSPITAL ROAD</add>
+<zip>20678</zip>
+<phone>(410) 535-4000</phone>
+<NPR>MD-4</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>Randallstown</city>
+<name>Northwest Hospital</name>
+<add>5401 Old Court Road</add>
+<zip>21133</zip>
+<phone>(410) 521-2200</phone>
+<NPR>ADD-3</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>ROCKVILLE                     </city>
+<name>Shady Grove Adventist Hospital</name>
+<add>9901 MEDICAL CTR DR</add>
+<zip>20850</zip>
+<phone>(301) 279-6000</phone>
+<NPR>MD-20</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>SALISBURY                     </city>
+<name>Peninsula Regional Medical Center</name>
+<add>100 E CARROLL AVE</add>
+<zip>21801</zip>
+<phone>(410) 546-6400</phone>
+<NPR>MD-19</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>Silver Spring</city>
+<name>Holy Cross Hospital of Silver Spring, Inc.</name>
+<add>1500 FOREST GLEN ROAD</add>
+<zip>20910</zip>
+<phone>(301) 754-7000</phone>
+<NPR>HC-6300</NPR>
+</center>
+<center>
+<state>MD</state>
+<city>TOWSON                        </city>
+<name>St. Joseph Medical Center</name>
+<add>7601 OSLER DRIVE</add>
+<zip>21204</zip>
+<phone>(410) 337-1000</phone>
+<NPR>MD-24</NPR>
+</center>
+<center>
+<state>ME</state>
+<city>Bangor</city>
+<name>Eastern Maine Medical Center</name>
+<add>489 STATE ST</add>
+<zip>04401</zip>
+<phone>(207) 973-7000</phone>
+<NPR>HC-5417</NPR>
+</center>
+<center>
+<state>ME</state>
+<city>Portland</city>
+<name>Maine Medical Center</name>
+<add>22 BRAMHALL ST</add>
+<zip>04102</zip>
+<phone>(207) 871-0111</phone>
+<NPR>HC-5445</NPR>
+</center>
+<center>
+<state>ME</state>
+<city>Rockport</city>
+<name>Penobscot Bay Medical Center</name>
+<add>6 GLEN COVE DRIVE</add>
+<zip>04856</zip>
+<phone>(207) 596-8000</phone>
+<NPR>HC-5448</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Adrian</city>
+<name>Bixby Medical Center</name>
+<add>818 RIVERSIDE AVENUE</add>
+<zip>49221</zip>
+<phone>(517) 265-0900</phone>
+<NPR>HC-7449</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Ann Arbor</city>
+<name>St. Joseph Mercy Hospital</name>
+<add>5301 E HURON RIVER DR</add>
+<zip>48106</zip>
+<phone>(734) 712-3791</phone>
+<NPR>HC-7455</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Ann Arbor</city>
+<name>University of Michigan Health System</name>
+<add>1500 E MEDICAL CENTER DRIVE, SPC 5474</add>
+<zip>48109</zip>
+<phone>(734) 764-1505</phone>
+<NPR>AMH-85</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Bay City</city>
+<name>Bay Regional Medical Center</name>
+<add>1900 COLUMBUS AVE</add>
+<zip>48708</zip>
+<phone>(989) 894-3000</phone>
+<NPR>HC-7462</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Clinton Township</city>
+<name>Henry Ford Macomb Hospital</name>
+<add>15855 NINETEEN MILE RD</add>
+<zip>48038</zip>
+<phone>(586) 263-2300</phone>
+<NPR>HC-7559</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Commerce Township</city>
+<name>Huron Valley - Sinai Hospital</name>
+<add>ONE WILLIAM CARLS DRIVE</add>
+<zip>48382</zip>
+<phone>(248) 937-3370</phone>
+<NPR>HC-5290</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Dearborn</city>
+<name>Oakwood Hospital and Medical Center</name>
+<add>18101 Oakwood Boulevard</add>
+<zip>48123</zip>
+<phone>(313) 593-7000</phone>
+<NPR>HC-7475</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Detroit</city>
+<name>Detroit Receiving Hospital / University Health Center</name>
+<add>4201 ST ANTOINE ST - 3M</add>
+<zip>48201</zip>
+<phone>(313) 745-3104</phone>
+<NPR>HC-7495</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Detroit</city>
+<name>Henry Ford Health System</name>
+<add>2799 W GRAND BLVD</add>
+<zip>48202</zip>
+<phone>(313) 916-2600</phone>
+<NPR>HC-7485</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Detroit</city>
+<name>St. John Hospital and Medical Center</name>
+<add>22101 MOROSS RD</add>
+<zip>48236</zip>
+<phone>(313) 343-4000</phone>
+<NPR>HC-7498</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Grand Blanc</city>
+<name>Genesys Regional Medical Center</name>
+<add>ONE GENESYS PARKWAY</add>
+<zip>48439</zip>
+<phone>(810) 606-5000</phone>
+<NPR>HC-159137</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Grand Rapids</city>
+<name>Metro Health Hospital</name>
+<add>5900 BYRON CENTER AVENUE, SW</add>
+<zip>49519</zip>
+<phone>(616) 252-4761</phone>
+<NPR>HC-415597</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Grand Rapids</city>
+<name>Saint Mary&apos;s Health Care</name>
+<add>200 JEFFERSON AVENUE SE</add>
+<zip>49503</zip>
+<phone>(616) 685-5000</phone>
+<NPR>HC-7521</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Grand Rapids</city>
+<name>Spectrum Health</name>
+<add>100 MICHIGAN ST NE</add>
+<zip>49503</zip>
+<phone>(866) 989-7999</phone>
+<NPR>HC-277668</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Howell</city>
+<name>Saint Joseph Mercy Livingston Hospital</name>
+<add>620 BYRON RD</add>
+<zip>48843</zip>
+<phone>(517) 545-6000</phone>
+<NPR>HC-7529</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Jackson</city>
+<name>Allegiance Health</name>
+<add>205 N EAST AVE</add>
+<zip>49201</zip>
+<phone>(517) 788-4800</phone>
+<NPR>HC-7536</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Kalamazoo</city>
+<name>Borgess Medical Center</name>
+<add>1521 GULL ROAD</add>
+<zip>49048</zip>
+<phone>(269) 226-7000</phone>
+<NPR>HC-7538</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Kalamazoo</city>
+<name>Bronson Methodist Hospital</name>
+<add>601 JOHN STREET</add>
+<zip>49007</zip>
+<phone>(269) 341-6000</phone>
+<NPR>HC-7539</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Lansing</city>
+<name>Sparrow Health System</name>
+<add>1215 E MICHIGAN AVENUE</add>
+<zip>48912</zip>
+<phone>(517) 364-5000</phone>
+<NPR>HC-7540</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Petoskey</city>
+<name>Northern Michigan Regional Hospital</name>
+<add>416 CONNABLE AVE</add>
+<zip>49770</zip>
+<phone>(231) 487-4000</phone>
+<NPR>AMH-84</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Pontiac</city>
+<name>St. Joseph Mercy Oakland</name>
+<add>44405 WOODWARD AVE</add>
+<zip>48341</zip>
+<phone>(248) 858-3000</phone>
+<NPR>HC-7575</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Royal Oak</city>
+<name>William Beaumont Hospital</name>
+<add>3601 W THIRTEEN MILE RD</add>
+<zip>48073</zip>
+<phone>(248) 898-5000</phone>
+<NPR>HC-7580</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Saginaw</city>
+<name>St. Mary&apos;s of Michigan Medical Center</name>
+<add>800 S WASHINGTON AVENU</add>
+<zip>48601</zip>
+<phone>(989) 776-8000</phone>
+<NPR>HC-7583</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Saint Joseph</city>
+<name>Lakeland Regional Health System</name>
+<add>1234 NAPIER AVENUE</add>
+<zip>49085</zip>
+<phone>(269) 983-8300</phone>
+<NPR>HC-7587</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Southfield</city>
+<name>Providence Hospital and Medical Centers</name>
+<add>16001 W NINE MILE RD</add>
+<zip>48075</zip>
+<phone>(248) 849-3011</phone>
+<NPR>HC-7494</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Tecumseh</city>
+<name>Herrick Medical Center</name>
+<add>500 E POTTAWATAMIE STREET</add>
+<zip>49286</zip>
+<phone>(517) 424-3000</phone>
+<NPR>HC-7595</NPR>
+</center>
+<center>
+<state>MI</state>
+<city>Warren</city>
+<name>St. John Macomb-Oakland Hospital</name>
+<add>11800 EAST TWELVE MILE ROAD</add>
+<zip>48093</zip>
+<phone>(586) 573-5000</phone>
+<NPR>HC-7481</NPR>
+</center>
+<center>
+<state>MN</state>
+<city>Edina</city>
+<name>Fairview Southdale Hospital</name>
+<add>6401 FRANCE AVENUE SOUTH</add>
+<zip>55435</zip>
+<phone>(952) 924-5000</phone>
+<NPR>HC-8156</NPR>
+</center>
+<center>
+<state>MN</state>
+<city>Maplewood</city>
+<name>St. John&apos;s Hospital</name>
+<add>1575 BEAM AVENUE</add>
+<zip>55109</zip>
+<phone>(651) 232-7000</phone>
+<NPR>HC-298611</NPR>
+</center>
+<center>
+<state>MN</state>
+<city>Minneapolis</city>
+<name>Abbott Northwestern Hospital</name>
+<add>800 EAST 28TH STREET</add>
+<zip>55407</zip>
+<phone>(612) 863-4000</phone>
+<NPR>HC-8149</NPR>
+</center>
+<center>
+<state>MN</state>
+<city>Minneapolis</city>
+<name>Park Nicollet Health Services</name>
+<add>6500 Excelsior Boulevard</add>
+<zip>55440</zip>
+<phone>(952) 993-5000</phone>
+<NPR>HC-8151</NPR>
+</center>
+<center>
+<state>MN</state>
+<city>Minneapolis</city>
+<name>University of Minnesota Medical Center, Fairview</name>
+<add>2450 Riverside Avenue</add>
+<zip>55455</zip>
+<phone>(612) 273-6000</phone>
+<NPR>HC-2908</NPR>
+</center>
+<center>
+<state>MN</state>
+<city>Robbinsdale</city>
+<name>North Memorial Health Care</name>
+<add>3300 OAKDALE NORTH</add>
+<zip>55422</zip>
+<phone>(763) 520-5200</phone>
+<NPR>HC-8177</NPR>
+</center>
+<center>
+<state>MN</state>
+<city>Rochester</city>
+<name>Mayo Clinic - Saint Marys Hospital</name>
+<add>1216 2nd Street</add>
+<zip>55905</zip>
+<phone>(507) 255-5123</phone>
+<NPR>HC-8181</NPR>
+</center>
+<center>
+<state>MN</state>
+<city>Saint Paul</city>
+<name>Regions Hospital</name>
+<add>640 JACKSON STREET</add>
+<zip>55101</zip>
+<phone>(651) 254-0975</phone>
+<NPR>HC-8185</NPR>
+</center>
+<center>
+<state>MN</state>
+<city>Saint Paul</city>
+<name>St. Joseph&apos;s Hospital</name>
+<add>45 WEST 10TH STREET</add>
+<zip>55102</zip>
+<phone>(651) 232-3000</phone>
+<NPR>HC-298616</NPR>
+</center>
+<center>
+<state>MN</state>
+<city>Saint Paul</city>
+<name>United Hospital</name>
+<add>333 NORTH SMITH</add>
+<zip>55102</zip>
+<phone>(612) 298-8888</phone>
+<NPR>HC-8186</NPR>
+</center>
+<center>
+<state>MN</state>
+<city>Woodbury</city>
+<name>Woodwinds Health Campus</name>
+<add>1925 WOODWINDS DRIVE</add>
+<zip>55125</zip>
+<phone>(651) 232-0100</phone>
+<NPR>HC-309747</NPR>
+</center>
+<center>
+<state>MO</state>
+<city>Bridgeton</city>
+<name>SSM DePaul Health Center</name>
+<add>12303 DEPAUL DRIVE</add>
+<zip>63044</zip>
+<phone>(314) 344-6000</phone>
+<NPR>HC-4760</NPR>
+</center>
+<center>
+<state>MO</state>
+<city>Cape Girardeau</city>
+<name>Saint Francis Medical Center</name>
+<add>211 ST FRANCIS DR</add>
+<zip>63703</zip>
+<phone>(573) 331-3000</phone>
+<NPR>HC-8321</NPR>
+</center>
+<center>
+<state>MO</state>
+<city>Cape Girardeau</city>
+<name>Southeast Missouri Hospital Association</name>
+<add>1701 LACEY ST</add>
+<zip>63701</zip>
+<phone>(573) 334-4822</phone>
+<NPR>HC-8323</NPR>
+</center>
+<center>
+<state>MO</state>
+<city>Columbia</city>
+<name>Boone Hospital Center</name>
+<add>1600 E BROADWAY</add>
+<zip>65201</zip>
+<phone>(573) 815-8000</phone>
+<NPR>HC-8327</NPR>
+</center>
+<center>
+<state>MO</state>
+<city>Kansas City</city>
+<name>Research Medical Center</name>
+<add>2316 E MEYER BLVD</add>
+<zip>64132</zip>
+<phone>(816) 276-4000</phone>
+<NPR>AMH-86</NPR>
+</center>
+<center>
+<state>MO</state>
+<city>Kansas City</city>
+<name>Saint Luke&apos;s Hospital</name>
+<add>4401 WORNALL ROAD</add>
+<zip>64111</zip>
+<phone>(816) 932-2000</phone>
+<NPR>HC-8351</NPR>
+</center>
+<center>
+<state>MO</state>
+<city>Lees Summit</city>
+<name>Lee&apos;s Summit Medical Center</name>
+<add>2100 SE BLUE PARKWAY</add>
+<zip>64063</zip>
+<phone>(816) 282-5000</phone>
+<NPR>HC-5170</NPR>
+</center>
+<center>
+<state>MO</state>
+<city>Saint Louis</city>
+<name>Barnes-Jewish Hospital</name>
+<add>One Barnes-Jewish Hospital Plaza</add>
+<zip>63108</zip>
+<phone>(866) 867-3627</phone>
+<NPR>HC-8387</NPR>
+</center>
+<center>
+<state>MO</state>
+<city>Saint Louis</city>
+<name>Des Peres Hospital</name>
+<add>2345 DOUGHERTY FERRY ROAD</add>
+<zip>63122</zip>
+<phone>(314) 966-9100</phone>
+<NPR>HC-471694</NPR>
+</center>
+<center>
+<state>MO</state>
+<city>Saint Louis</city>
+<name>Saint Louis University Hospital</name>
+<add>3635 Vista Avenue</add>
+<zip>63110</zip>
+<phone>(314) 268-5039</phone>
+<NPR>AMH-87</NPR>
+</center>
+<center>
+<state>MO</state>
+<city>Saint Louis</city>
+<name>St. Anthony&apos;s Medical Center</name>
+<add>10010 KENNERLY ROAD</add>
+<zip>63128</zip>
+<phone>(314) 525-1000</phone>
+<NPR>HC-8393</NPR>
+</center>
+<center>
+<state>MO</state>
+<city>Springfield</city>
+<name>Lester E. Cox Medical Centers</name>
+<add>S National Avenue</add>
+<zip>65802</zip>
+<phone>(417) 885-2000</phone>
+<NPR>HC-8404</NPR>
+</center>
+<center>
+<state>MO</state>
+<city>Springfield</city>
+<name>St. John&apos;s Regional Health Center</name>
+<add>1235 E CHEROKEE</add>
+<zip>65804</zip>
+<phone>(417) 820-2000</phone>
+<NPR>HC-4234</NPR>
+</center>
+<center>
+<state>MO</state>
+<city>St. Charles</city>
+<name>SSM St. Joseph Health Center</name>
+<add>300 First Capitol Drive</add>
+<zip>63301</zip>
+<phone>(636) 947-5000</phone>
+<NPR>AMH-88</NPR>
+</center>
+<center>
+<state>MS</state>
+<city>Gulfport</city>
+<name>Memorial Hospital at Gulfport</name>
+<add>4500 13TH ST-P O BOX 1810</add>
+<zip>39502</zip>
+<phone>(228) 867-4000</phone>
+<NPR>HC-8054</NPR>
+</center>
+<center>
+<state>MS</state>
+<city>Gulfport</city>
+<name>Memorial Stroke Center</name>
+<add>4500 Thirteenth Street </add>
+<zip>39501</zip>
+<phone>(228) 867-4000</phone>
+<NPR>AMH-89</NPR>
+</center>
+<center>
+<state>MS</state>
+<city>Hattiesburg</city>
+<name>Forrest General Hospital</name>
+<add>6051 US Highway 49</add>
+<zip>39401</zip>
+<phone>(601) 288-7000</phone>
+<NPR>HC-8055</NPR>
+</center>
+<center>
+<state>MT</state>
+<city>Billings</city>
+<name>Billings Clinic</name>
+<add>2800 10th Avenue North
+</add>
+<zip>59101</zip>
+<phone>(406) 238-2500</phone>
+<NPR>AMH-90</NPR>
+</center>
+<center>
+<state>MT</state>
+<city>Great Falls</city>
+<name>Benefis Hospitals, Inc.</name>
+<add>1101 26TH ST S</add>
+<zip>59405</zip>
+<phone>(406) 455-5000</phone>
+<NPR>HC-3538</NPR>
+</center>
+<center>
+<state>MT</state>
+<city>Missoula</city>
+<name>Community Medical Center, Inc.</name>
+<add>2827 FORT MISSOULA RD</add>
+<zip>59804</zip>
+<phone>(406) 728-4100</phone>
+<NPR>HC-9304</NPR>
+</center>
+<center>
+<state>MT</state>
+<city>Missoula</city>
+<name>St. Patrick Hospital and  Health Sciences Center</name>
+<add>500 W BROADWAY</add>
+<zip>59806</zip>
+<phone>(406) 543-7271</phone>
+<NPR>HC-9306</NPR>
+</center>
+<center>
+<state>NC</state>
+<city>Albemarle</city>
+<name>Stanly Regional Medical Center</name>
+<add>301 Yadkin Street</add>
+<zip>28002</zip>
+<phone>(704) 984-4000</phone>
+<NPR>HC-6465</NPR>
+</center>
+<center>
+<state>NC</state>
+<city>Asheville</city>
+<name>Mission Hospital</name>
+<add>509 Biltmore Avenue</add>
+<zip>28801</zip>
+<phone>(828) 213-1111</phone>
+<NPR>AMH-94</NPR>
+</center>
+<center>
+<state>NC</state>
+<city>Chapel Hill</city>
+<name>University of North Carolina Hospitals</name>
+<add>101 MANNING DRIVE</add>
+<zip>27514</zip>
+<phone>(919) 966-4131</phone>
+<NPR>HC-6478</NPR>
+</center>
+<center>
+<state>NC</state>
+<city>Charlotte</city>
+<name>Carolinas Medical Center</name>
+<add>1000 Blythe Boulevard</add>
+<zip>28232</zip>
+<phone>(704) 355-2000</phone>
+<NPR>HC-6480</NPR>
+</center>
+<center>
+<state>NC</state>
+<city>Charlotte</city>
+<name>Novant Health, Inc/Southern Piedmont Region/Presbyterian Hea</name>
+<add>200 HAWTHORNE LANE BOX 33549</add>
+<zip>28233</zip>
+<phone>(704) 384-4000</phone>
+<NPR>HC-6483</NPR>
+</center>
+<center>
+<state>NC</state>
+<city>Concord</city>
+<name>Carolinas Medical Center- North East Inc.</name>
+<add>920 Church Street North</add>
+<zip>28025</zip>
+<phone>(704) 403-1331‎</phone>
+<NPR>AMH-92</NPR>
+</center>
+<center>
+<state>NC</state>
+<city>Durham</city>
+<name>Duke University Hospital</name>
+<add>2301 Erwin Road</add>
+<zip>27710</zip>
+<phone>(919) 684-8111</phone>
+<NPR>HC-6490</NPR>
+</center>
+<center>
+<state>NC</state>
+<city>Gastonia</city>
+<name>Gaston Memorial Hospital</name>
+<add>2525 Court Drive</add>
+<zip>28053</zip>
+<phone>(704) 834-2000</phone>
+<NPR>HC-6500</NPR>
+</center>
+<center>
+<state>NC</state>
+<city>Greensboro</city>
+<name>Moses Cone Health System</name>
+<add>1200 N ELM ST</add>
+<zip>27401</zip>
+<phone>(336) 832-7000</phone>
+<NPR>HC-6504</NPR>
+</center>
+<center>
+<state>NC</state>
+<city>Greenville</city>
+<name>Pitt County Memorial Hospital</name>
+<add>2100 STANTONSBURG RD, PO BOX 6028</add>
+<zip>27835</zip>
+<phone>(252) 847-4100</phone>
+<NPR>HC-6506</NPR>
+</center>
+<center>
+<state>NC</state>
+<city>Hickory</city>
+<name>Frye Regional Medical Center, Inc.</name>
+<add>420 N CENTER ST</add>
+<zip>28601</zip>
+<phone>(828) 322-6070</phone>
+<NPR>HC-6511</NPR>
+</center>
+<center>
+<state>NC</state>
+<city>High Point</city>
+<name>High Point Regional Health System</name>
+<add>601 N ELM ST  PO BOX HP-5</add>
+<zip>27261</zip>
+<phone>(336) 878-6000</phone>
+<NPR>HC-6513</NPR>
+</center>
+<center>
+<state>NC</state>
+<city>Pinehurst</city>
+<name>FirstHealth Moore Regional Hospital</name>
+<add>155 MEMORIAL DRIVE</add>
+<zip>28374</zip>
+<phone>(910) 715-1000</phone>
+<NPR>HC-6534</NPR>
+</center>
+<center>
+<state>NC</state>
+<city>Raleigh</city>
+<name>WakeMed Health and Hospitals</name>
+<add>3000 NEW BERN AVE</add>
+<zip>27610</zip>
+<phone>(919) 350-8000</phone>
+<NPR>HC-6537</NPR>
+</center>
+<center>
+<state>NC</state>
+<city>Salisbury</city>
+<name>Rowan Regional Medical Center</name>
+<add>612 MOCKSVILLE AVE</add>
+<zip>28144</zip>
+<phone>(704) 210-5000</phone>
+<NPR>HC-6544</NPR>
+</center>
+<center>
+<state>NC</state>
+<city>Statesville</city>
+<name>Iredell Memorial Hospital, Incorporated</name>
+<add>557 Brookdale Drive</add>
+<zip>28687</zip>
+<phone>(704) 873-5661</phone>
+<NPR>HC-6554</NPR>
+</center>
+<center>
+<state>NC</state>
+<city>Winston Salem</city>
+<name>North Carolina Baptist Hospital</name>
+<add>MEDICAL CENTER BOULEVARD</add>
+<zip>27157</zip>
+<phone>(336) 716-2011</phone>
+<NPR>HC-6571</NPR>
+</center>
+<center>
+<state>NC</state>
+<city>Winston-Salem</city>
+<name>Forsyth Medical Center</name>
+<add>3333 Silas Creek Parkway</add>
+<zip>27103</zip>
+<phone>(336) 718-5000</phone>
+<NPR>AMH-93</NPR>
+</center>
+<center>
+<state>ND</state>
+<city>Bismarck</city>
+<name>Saint Alexius Medical Center</name>
+<add>900 East Broadway Avenue</add>
+<zip>58502</zip>
+<phone>(701) 530-7691</phone>
+<NPR>HC-8420</NPR>
+</center>
+<center>
+<state>NE</state>
+<city>Lincoln</city>
+<name>BryanLGH Medical Center</name>
+<add>1600 SOUTH 48TH ST</add>
+<zip>68506</zip>
+<phone>(402) 489-0200</phone>
+<NPR>HC-244330</NPR>
+</center>
+<center>
+<state>NE</state>
+<city>Lincoln</city>
+<name>Saint Elizabeth Regional Medical Center</name>
+<add>555 SOUTH 70TH ST</add>
+<zip>68510</zip>
+<phone>(402) 219-7700</phone>
+<NPR>HC-8502</NPR>
+</center>
+<center>
+<state>NE</state>
+<city>Omaha</city>
+<name>The Nebraska Medical Center</name>
+<add>987400 NEBRASKA MEDICAL CENTER</add>
+<zip>68198</zip>
+<phone>(402) 552-2040</phone>
+<NPR>AMH-95</NPR>
+</center>
+<center>
+<state>NE</state>
+<city>Papillion</city>
+<name>Alegent Health Midlands Hospital</name>
+<add>11111 SOUTH 84TH ST</add>
+<zip>68046</zip>
+<phone>(402) 593-3000</phone>
+<NPR>HC-8516</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Atlantic City</city>
+<name>AtlantiCare Regional Medical Center</name>
+<add>1925 Pacific Avenue</add>
+<zip>08401</zip>
+<phone>(609) 344-4081</phone>
+<NPR>NJ-1</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>BELLEVILLE                    </city>
+<name>Clara Maas Medical Center</name>
+<add>ONE CLARA MAAS DRIVE</add>
+<zip>07109</zip>
+<phone>(973) 450-2002</phone>
+<NPR>NJ-8</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Berlin</city>
+<name>Virtua West Jersey Hospital - Berlin</name>
+<add>WHITEHORSE PIKE AND TOWNSEND AVENUE</add>
+<zip>08009</zip>
+<phone>(856) 322-3200</phone>
+<NPR>NJ-52</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Brick</city>
+<name>Ocean Medical Center</name>
+<add>425 JACK MARTIN BLVD</add>
+<zip>08724</zip>
+<phone>(732) 840-2200</phone>
+<NPR>AMH-99</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>CAMDEN                        </city>
+<name>Cooper University Hospital</name>
+<add>1 COOPER PLAZA</add>
+<zip>08103</zip>
+<phone>(856) 342-2000</phone>
+<NPR>NJ-10</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>CAMDEN                        </city>
+<name>Our Lady of Lourdes Medical Center</name>
+<add>1600 HADDON AVENUE</add>
+<zip>08103</zip>
+<phone>(856) 757-3500</phone>
+<NPR>NJ-29</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Cherry Hill</city>
+<name>Kennedy Memorial Hospital - Cherry Hill</name>
+<add>2201 Chapel Avenue West</add>
+<zip>08002</zip>
+<phone>(856) 488-6500</phone>
+<NPR>NJ-22</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Denville</city>
+<name>Saint Clare&apos;s Hospital</name>
+<add>25 POCONO ROAD</add>
+<zip>07834</zip>
+<phone>(973) 625-6000</phone>
+<NPR>HC-80401</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Dover</city>
+<name>Saint Clare’s Hospital</name>
+<add>400 West Blackwell Street</add>
+<zip>07801</zip>
+<phone>(973) 989-3121</phone>
+<NPR>NJ-38</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>EAST ORANGE                   </city>
+<name>East Orange General Hospital</name>
+<add>300 CENTRAL AVE</add>
+<zip>07018</zip>
+<phone>(973) 266-4401</phone>
+<NPR>NJ-11</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>EDISON                        </city>
+<name>JFK Medical Center</name>
+<add>65 JAMES STREET</add>
+<zip>08818</zip>
+<phone>(732) 321-7000</phone>
+<NPR>NJ-21</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>ELIZABETH                     </city>
+<name>Trinitas Hospital</name>
+<add>225 WILLIAMSON STREET</add>
+<zip>07207</zip>
+<phone>(908) 994-5000</phone>
+<NPR>NJ-47</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Elmer</city>
+<name>South Jersey Healthcare</name>
+<add>501 WEST FRONT STREET</add>
+<zip>08318</zip>
+<phone>(856) 363-1000</phone>
+<NPR>NJ-41</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>ENGLEWOOD                     </city>
+<name>Englewood Hospital</name>
+<add>350 ENGLE ST</add>
+<zip>07631</zip>
+<phone>(201) 894-3000</phone>
+<NPR>NJ-12</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>FLEMINGTON                    </city>
+<name>Hunterdon Medical Center</name>
+<add>2100 WESCOTT DRIVE</add>
+<zip>08822</zip>
+<phone>(908) 788-6100</phone>
+<NPR>NJ-19</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>FREEHOLD                      </city>
+<name>CentraState Health Care System</name>
+<add>901 WEST MAIN STREET</add>
+<zip>07728</zip>
+<phone>(732) 431-2000</phone>
+<NPR>NJ-6</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Galloway</city>
+<name>AtlantiCare Regional Medical Center</name>
+<add>CHRIS GAUPP DR &amp; W JIMMIE LEEDS RD</add>
+<zip>08205</zip>
+<phone>(609) 652-1000</phone>
+<NPR>NJ-2</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>HACKENSACK                    </city>
+<name>Hackensack University Medical Center</name>
+<add>30 PROSPECT AVE</add>
+<zip>07601</zip>
+<phone>(201) 996-2000</phone>
+<NPR>NJ-13</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>HACKETTSTOWN                  </city>
+<name>Hackettstown Regional Medical Center</name>
+<add>651 WILLOW GROVE ST</add>
+<zip>07840</zip>
+<phone>(908) 852-5100</phone>
+<NPR>NJ-14</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Hamilton</city>
+<name>Robert Wood Johnson Univ. Hospital at Hamilton</name>
+<add>1 Hamilton Health Place</add>
+<zip>08690</zip>
+<phone>(609) 586-7900</phone>
+<NPR>NJ-17</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Hamilton</city>
+<name>Robert Wood Johnson University Hospital at Hamilton</name>
+<add>ONE HAMILTON HEALTH PLACE</add>
+<zip>08690</zip>
+<phone>(609) 586-7900</phone>
+<NPR>HC-2224</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>HOBOKEN                       </city>
+<name>Hoboken University Medical Center</name>
+<add>308 WILLOW AVE</add>
+<zip>07030</zip>
+<phone>(201) 418-1004</phone>
+<NPR>NJ-15</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Holmdel</city>
+<name>Bayshore Community Hospital</name>
+<add>727 North Beers Street</add>
+<zip>07333</zip>
+<phone>(732) 739-5900</phone>
+<NPR>NJ-3</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>LAKEWOOD                      </city>
+<name>Kimball Medical Center</name>
+<add>600 RIVER AVE</add>
+<zip>08701</zip>
+<phone>(732) 363-1900</phone>
+<NPR>NJ-23</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Livingston</city>
+<name>Saint Barnabas Medical Center</name>
+<add>94 OLD SHORT HILLS ROAD</add>
+<zip>07039</zip>
+<phone>(973) 322-5000</phone>
+<NPR>HC-5964</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Long Branch</city>
+<name>Monmouth Medical Center</name>
+<add>300 SECOND AVENUE</add>
+<zip>07740</zip>
+<phone>(732) 222-5200</phone>
+<NPR>HC-5951</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>MANAHAWKIN                    </city>
+<name>Southern Ocean County Hospital</name>
+<add>1140 RT 72 W</add>
+<zip>08050</zip>
+<phone>(609) 597-6011</phone>
+<NPR>NJ-43</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Marlton</city>
+<name>Virtua Health, Inc.</name>
+<add>401 Route 73 No. 310</add>
+<zip>08053</zip>
+<phone>(856) 355-0001</phone>
+<NPR>HC-303295</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Marlton</city>
+<name>Virtua West Jersey Hospital - Marlton</name>
+<add>90 Brick Road</add>
+<zip>08053</zip>
+<phone>(856) 355-6000</phone>
+<NPR>NJ-53</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>MONTCLAIR                     </city>
+<name>The Mountainside Hospital</name>
+<add>BAY AND HIGHLAND AVE</add>
+<zip>07042</zip>
+<phone>(973) 429-6000</phone>
+<NPR>NJ-46</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Morristown</city>
+<name>Morristown Memorial Hospital</name>
+<add>100 MADISON AVE</add>
+<zip>07962</zip>
+<phone>(973) 971-5000</phone>
+<NPR>AMH-98</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Mount Holly</city>
+<name>Virtua Health, Inc. - Memorial Hospital Burlington County</name>
+<add>175 MADISON AVE</add>
+<zip>08060</zip>
+<phone>(609) 267-0700</phone>
+<NPR>HC-478602</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Neptune</city>
+<name>Jersey Shore University Medical Center</name>
+<add>1945 RTE 33</add>
+<zip>07754</zip>
+<phone>(732) 775-5500</phone>
+<NPR>HC-5960</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>New Brunswick</city>
+<name>Robert Wood Johnson University Hospital</name>
+<add>One Robert Wood Johnson Place</add>
+<zip>08903</zip>
+<phone>(732) 828-3000</phone>
+<NPR>HC-5969</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>NEW BRUNSWICK                 </city>
+<name>Saint Peters University Hospital</name>
+<add>254 EASTON AVE</add>
+<zip>08901</zip>
+<phone>(732) 745-7944</phone>
+<NPR>NJ-39</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>NEWARK                        </city>
+<name>UMDNJ University Hospital</name>
+<add>150 BERGEN ST</add>
+<zip>07103</zip>
+<phone>(973) 972-5658</phone>
+<NPR>NJ-48</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>NEWTON                        </city>
+<name>Newton Memorial Hospital</name>
+<add>175 HIGH ST</add>
+<zip>07860</zip>
+<phone>(973) 383-2121</phone>
+<NPR>NJ-27</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>NORTH BERGEN                  </city>
+<name>Palisades Medical Center</name>
+<add>7600 RIVER RD</add>
+<zip>07047</zip>
+<phone>(201) 854-5000</phone>
+<NPR>NJ-31</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Paterson</city>
+<name>St. Joseph&apos;s Regional Medical Center</name>
+<add>703 Main Street</add>
+<zip>07506</zip>
+<phone>(877) 757-7547</phone>
+<NPR>AMH-102</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Perth Amboy</city>
+<name>Raritan Bay Medical Center</name>
+<add>530 NEW BRUNSWICK AVE</add>
+<zip>08861</zip>
+<phone>(732) 442-3700</phone>
+<NPR>NJ-32</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>POMPTON PLAINS                </city>
+<name>Chilton Memorial Hospital</name>
+<add>97 WEST PARKWAY</add>
+<zip>07444</zip>
+<phone>(973) 831-5000</phone>
+<NPR>NJ-7</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Princeton</city>
+<name>University Medical Center at Princeton</name>
+<add>253 WITHERSPOON ST</add>
+<zip>08540</zip>
+<phone>(609) 497-4000</phone>
+<NPR>NJ-49</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Ridgewood</city>
+<name>Valley Health System</name>
+<add>223 N VAN DIEN AVENUE</add>
+<zip>07450</zip>
+<phone>(201) 447-8000</phone>
+<NPR>HC-5987</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Salem</city>
+<name>Memorial Hospital of Salem</name>
+<add>310 WOODSTOWN ROAD</add>
+<zip>08079</zip>
+<phone>(856) 935-1000</phone>
+<NPR>NJ-24</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Somers Point</city>
+<name>Shore Memorial Hospital</name>
+<add>1 EAST NEW YORK AVE</add>
+<zip>08244</zip>
+<phone>(609) 653-3545</phone>
+<NPR>HC-5991</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>SOMERVILLE                    </city>
+<name>Somerset Medical Center</name>
+<add>110 REHILL AVE</add>
+<zip>08876</zip>
+<phone>(908) 685-2200</phone>
+<NPR>NJ-40</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>TEANECK                       </city>
+<name>Holly Name Hospital</name>
+<add>718 TEANECK RD</add>
+<zip>07666</zip>
+<phone>(201) 833-3000</phone>
+<NPR>NJ-16</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>TOMS RIVER                    </city>
+<name>Community Medical Center</name>
+<add>99 RT 37 WEST</add>
+<zip>08755</zip>
+<phone>(732) 557-8000</phone>
+<NPR>NJ-9</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Trenton</city>
+<name>Capital Health System at Fuld</name>
+<add>750 Brunswick Avenue</add>
+<zip>08638</zip>
+<phone>(609) 394-6000</phone>
+<NPR>NJ-4</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Trenton</city>
+<name>Capital Health System at Mercer</name>
+<add>446 Bellevue Avenue</add>
+<zip>08618</zip>
+<phone>(609) 394-4000</phone>
+<NPR>NJ-5</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Trenton</city>
+<name>St. Francis Medical Center</name>
+<add>601 HAMILTON AVE</add>
+<zip>08629</zip>
+<phone>(609) 599-5000</phone>
+<NPR>HC-6001</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>VINELAND                      </city>
+<name>South Jersey Regional Medical Center</name>
+<add>1505 W SHERMAN AVE</add>
+<zip>08360</zip>
+<phone>(856) 641-8000</phone>
+<NPR>NJ-42</NPR>
+</center>
+<center>
+<state>NJ</state>
+<city>Voorhees</city>
+<name>Virtua West Jersey Hospital - Voorhees</name>
+<add>101 Carnie Blvd.</add>
+<zip>08043</zip>
+<phone>(856) 325-3000</phone>
+<NPR>NJ-54</NPR>
+</center>
+<center>
+<state>NM</state>
+<city>Albuquerque</city>
+<name>University of New Mexico Health Sciences Center</name>
+<add>2211 LOMAS BOULEVARD NE</add>
+<zip>87106</zip>
+<phone>(505) 272-2111</phone>
+<NPR>HC-9425</NPR>
+</center>
+<center>
+<state>NV</state>
+<city>Las Vegas</city>
+<name>Desert Springs Hospital</name>
+<add>2075 EAST FLAMINGO ROAD</add>
+<zip>89119</zip>
+<phone>(702) 369-7610</phone>
+<NPR>HC-9562</NPR>
+</center>
+<center>
+<state>NV</state>
+<city>Las Vegas</city>
+<name>Nevada Neurosciences Institute at Sunrise Hospital &amp; Medical Center</name>
+<add>3186 S Maryland Pkway</add>
+<zip>89109</zip>
+<phone>(702) 731-8000</phone>
+<NPR>AMH-104</NPR>
+</center>
+<center>
+<state>NV</state>
+<city>Las Vegas</city>
+<name>Spring Valley Hospital Medical Center</name>
+<add>5400 SOUTH RAINBOW BLVD</add>
+<zip>89118</zip>
+<phone>(702) 853-3000</phone>
+<NPR>HC-395162</NPR>
+</center>
+<center>
+<state>NV</state>
+<city>Las Vegas</city>
+<name>University Medical Center of Southern Nevada</name>
+<add>1800 WEST CHARLESTON BLVD</add>
+<zip>89102</zip>
+<phone>(702) 383-2000</phone>
+<NPR>HC-9559</NPR>
+</center>
+<center>
+<state>NV</state>
+<city>Las Vegas</city>
+<name>Valley Hospital Medical Center</name>
+<add>620 SHADOW LANE</add>
+<zip>89106</zip>
+<phone>(702) 388-4000</phone>
+<NPR>HC-9561</NPR>
+</center>
+<center>
+<state>NV</state>
+<city>Reno</city>
+<name>Renown Regional Medical Center</name>
+<add>1155 MILL STREET</add>
+<zip>89502</zip>
+<phone>(775) 982-4100</phone>
+<NPR>HC-9565</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Albany</city>
+<name>Albany Medical Center</name>
+<add>43 NEW SCOTLAND AVENUE</add>
+<zip>12208</zip>
+<phone>(518) 242-1461</phone>
+<NPR>HC-5705</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Albany</city>
+<name>Albany Memorial Hospital</name>
+<add>600 Northern Blvd</add>
+<zip>12204</zip>
+<phone>(518) 471-3221</phone>
+<NPR>NY-2</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Bronx</city>
+<name>Bronx-Lebanon Hospital Center - Concourse Division</name>
+<add>1650 Grand Concourse</add>
+<zip>10457</zip>
+<phone>(718) 901-8800</phone>
+<NPR>NY-8</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Brooklyn</city>
+<name>Beth Israel Med Center-Kings Hwy Div</name>
+<add>3201 Kings Highway</add>
+<zip>11234</zip>
+<phone>(718) 252-3000</phone>
+<NPR>NY-6</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Brooklyn</city>
+<name>Brookdale Hospital Medical Center</name>
+<add>Linden Boulevard at Brookdale Plaza</add>
+<zip>11212</zip>
+<phone>(718) 240-5000</phone>
+<NPR>NY-9</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Brooklyn</city>
+<name>Brooklyn Hospital Center - Downtown Campus</name>
+<add>121 Dekalb Avenue</add>
+<zip>11201</zip>
+<phone>(718) 250-8000</phone>
+<NPR>NY-11</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Brooklyn</city>
+<name>Coney Island Hospital</name>
+<add>2601 Ocean Parkway</add>
+<zip>11235</zip>
+<phone>(718) 616-3000</phone>
+<NPR>NY-13</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Brooklyn</city>
+<name>Lutheran Medical Center</name>
+<add>150 55TH STREET</add>
+<zip>11220</zip>
+<phone>(718) 630-8000</phone>
+<NPR>HC-5735</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Brooklyn</city>
+<name>Maimonides Medical Center</name>
+<add>4802 TENTH AVENUE</add>
+<zip>11219</zip>
+<phone>(718) 283-6000</phone>
+<NPR>HC-5734</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Buffalo</city>
+<name>Erie County Medical Center</name>
+<add>462 Grider Street</add>
+<zip>14215</zip>
+<phone>(716) 898-3000</phone>
+<NPR>NY-18</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Buffalo</city>
+<name>Kaleida Health</name>
+<add>100 HIGH STREET</add>
+<zip>14203</zip>
+<phone>(716) 859-5600</phone>
+<NPR>HC-234422</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Buffalo</city>
+<name>Millard Fillmore Gates Hospital</name>
+<add>3 Gates Circle </add>
+<zip>14209</zip>
+<phone>(716) 887-4600</phone>
+<NPR>AMH-111</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Canandaigua</city>
+<name>F F Thompson Hospital</name>
+<add>350 Parrish Street</add>
+<zip>14424</zip>
+<phone>(716) 396-6000</phone>
+<NPR>NY-19</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Cooperstown</city>
+<name>Bassett Healthcare</name>
+<add>One Atwell Road </add>
+<zip>13326</zip>
+<phone>(607) 547-3456</phone>
+<NPR>AMH-107</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Corning</city>
+<name>Corning Hospital</name>
+<add>176 Denison Parkway East</add>
+<zip>14830</zip>
+<phone>(607) 937-7200</phone>
+<NPR>NY-14</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Elmhurst</city>
+<name>Elmhurst Hospital Center</name>
+<add>79-01 Broadway</add>
+<zip>11373</zip>
+<phone>(718) 334-4000</phone>
+<NPR>NY-17</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Elmira</city>
+<name>Arnot Ogden Medical Center</name>
+<add>600 Roe Avenue</add>
+<zip>14905</zip>
+<phone>(607) 737-4100</phone>
+<NPR>NY-3</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Flushing</city>
+<name>Flushing Hospital Medical Center</name>
+<add>45th Avenue &amp; Parsons Blvd</add>
+<zip>11355</zip>
+<phone>(718) 670-5000</phone>
+<NPR>NY-21</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Forest Hills</city>
+<name>Forest Hills Hospital</name>
+<add>102-01 66th Road</add>
+<zip>11375</zip>
+<phone>(718) 830-4000</phone>
+<NPR>NY-22</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Geneva</city>
+<name>Geneva General Hospital</name>
+<add>196-198 North Street</add>
+<zip>14456</zip>
+<phone>(315) 787-4000</phone>
+<NPR>NY-24</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Ithaca</city>
+<name>Cayuga Medical Center at Ithaca</name>
+<add>101 Dates Drive</add>
+<zip>14850</zip>
+<phone>(607) 274-4011</phone>
+<NPR>NY-12</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Kingston</city>
+<name>Benedictine Hospital</name>
+<add>105 Marys Avenue</add>
+<zip>12401</zip>
+<phone>(845) 338-2500</phone>
+<NPR>NY-5</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Kingston</city>
+<name>The Kingston Hospital</name>
+<add>396 Broadway</add>
+<zip>12401</zip>
+<phone>(845) 331-3131</phone>
+<NPR>AMH-116</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Manhasset</city>
+<name>North Shore University Hospital</name>
+<add>300 COMMUNITY DRIVE</add>
+<zip>11030</zip>
+<phone>(516) 562-0100</phone>
+<NPR>AMH-113</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Mineola</city>
+<name>Winthrop University Hospital</name>
+<add>259 First Street</add>
+<zip>11501</zip>
+<phone>(516) 663-0333</phone>
+<NPR>AMH-120</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Mt. Vernon</city>
+<name>Mount Vernon Hospital</name>
+<add>12 North 7th Avenue</add>
+<zip>10550</zip>
+<phone>(914) 664-8000</phone>
+<NPR>AMH-112</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>New Hyde Park</city>
+<name>Long Island Jewish Medical Center</name>
+<add>270 - 05 76TH AVENUE</add>
+<zip>11040</zip>
+<phone>(718) 470-7000</phone>
+<NPR>AMH-110</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>New York</city>
+<name>Bellevue Hospital Center</name>
+<add>First Avenue at 27th Street</add>
+<zip>10016</zip>
+<phone>(212) 562-4141</phone>
+<NPR>NY-4</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>New York</city>
+<name>Beth Israel Medical Center/Petrie Campus</name>
+<add>First Ave at 16th Street</add>
+<zip>10003</zip>
+<phone>(212) 420-2000</phone>
+<NPR>NY-7</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>New York</city>
+<name>Lenox Hill Hospital</name>
+<add>100 EAST 77TH STREET</add>
+<zip>10021</zip>
+<phone>(212) 439-2345</phone>
+<NPR>AMH-109</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>New York</city>
+<name>The Mount Sinai Medical Center</name>
+<add>ONE GUSTAVE L LEVY PLACE</add>
+<zip>10029</zip>
+<phone>(212) 241-7981</phone>
+<NPR>HC-5829</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Patchogue</city>
+<name>Brookhaven Memorial Hospital Medical Center Inc</name>
+<add>101 Hospital Road</add>
+<zip>11772</zip>
+<phone>(631) 654-7100</phone>
+<NPR>NY-10</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Port Jefferson</city>
+<name>St. Charles Hospital</name>
+<add>200 BELLE TERRE ROAD</add>
+<zip>11777</zip>
+<phone>(631) 474-6000</phone>
+<NPR>HC-5852</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Poughkeepsie</city>
+<name>Saint Francis Hospital and Health Centers</name>
+<add>241 North Road</add>
+<zip>12601</zip>
+<phone>(845) 483-5000</phone>
+<NPR>AMH-115</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Rochester</city>
+<name>Rochester General Hospital</name>
+<add>1425 PORTLAND AVENUE</add>
+<zip>14621</zip>
+<phone>(585) 922-4000</phone>
+<NPR>HC-2145</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Rochester</city>
+<name>Strong Memorial Hospital</name>
+<add>601 ELMWOOD AVE</add>
+<zip>14642</zip>
+<phone>(585) 275-2121</phone>
+<NPR>HC-5856</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Schenectady</city>
+<name>Ellis Hospital</name>
+<add>1101 Nott Street</add>
+<zip>12308</zip>
+<phone>(518) 243-4000</phone>
+<NPR>NY-16</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Stony Brook</city>
+<name>Stony Brook University Hospital Medical Center</name>
+<add>HEALTH SCIENCES CENTER SUNY</add>
+<zip>11794</zip>
+<phone>(631) 444-4000</phone>
+<NPR>HC-5188</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Suffern</city>
+<name>Good Samaritan Hospital</name>
+<add>255 LAFAYETTE AVENUE</add>
+<zip>10901</zip>
+<phone>(914) 368-5000</phone>
+<NPR>HC-5876</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Syracuse</city>
+<name>Crouse Hospital</name>
+<add>736 Irving Avenue</add>
+<zip>13210</zip>
+<phone>(315) 470-7111</phone>
+<NPR>NY-15</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Utica</city>
+<name>Faxton-St Lukes Healthcare St Lukes Division</name>
+<add>1656 Champlin Avenue</add>
+<zip>13502</zip>
+<phone>(315) 624-6000</phone>
+<NPR>NY-20</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Valhalla</city>
+<name>Westchester Medical Center</name>
+<add>GRASSLANDS RESERVATION</add>
+<zip>10595</zip>
+<phone>(914) 285-7017</phone>
+<NPR>AMH-118</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>Valley Stream</city>
+<name>Franklin Hospital</name>
+<add>900 Franklin Avenue</add>
+<zip>11580</zip>
+<phone>(516) 256-6000</phone>
+<NPR>NY-23</NPR>
+</center>
+<center>
+<state>NY</state>
+<city>White Plains</city>
+<name>White Plains Hospital Center</name>
+<add>41 EAST POST R0AD</add>
+<zip>10601</zip>
+<phone>(914) 681-0600</phone>
+<NPR>AMH-119</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Akron</city>
+<name>Akron General Medical Center</name>
+<add>400 WABASH AVENUE</add>
+<zip>44307</zip>
+<phone>(330) 344-6000</phone>
+<NPR>HC-6961</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Akron</city>
+<name>Summa Health System Hospitals</name>
+<add>525 EAST MARKET STREET</add>
+<zip>44309</zip>
+<phone>(330) 375-3000</phone>
+<NPR>HC-6964</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Canton</city>
+<name>Aultman Hospital</name>
+<add>2600 SIXTH STREET SW</add>
+<zip>44710</zip>
+<phone>(330) 452-9911</phone>
+<NPR>HC-6981</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Canton</city>
+<name>CSAHS/UHHS-Canton, Inc</name>
+<add>1320 Mercy Dr., NW</add>
+<zip>44708</zip>
+<phone>(330) 489-1000</phone>
+<NPR>HC-6982</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Cincinnati</city>
+<name>The University Hospital</name>
+<add>234 Goodman Street</add>
+<zip>45219</zip>
+<phone>(513) 584-3200</phone>
+<NPR>HC-6988</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Cleveland</city>
+<name>Cleveland Clinic</name>
+<add>9500 Euclid Avenue</add>
+<zip>44195</zip>
+<phone>(216) 444-0261</phone>
+<NPR>AMH-122</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Cleveland</city>
+<name>MetroHealth Medical Center</name>
+<add>2500 MetroHealth Drive</add>
+<zip>44109</zip>
+<phone>(216) 778-7800</phone>
+<NPR>AMH-125</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Cleveland</city>
+<name>St. Vincent Charity Hospital/Saint Luke&apos;s Medical Center</name>
+<add>2351 EAST 22ND STREET</add>
+<zip>44115</zip>
+<phone>(216) 861-6200</phone>
+<NPR>HC-265110</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Cleveland</city>
+<name>University Hospitals-Case Medical Center</name>
+<add>11100 EUCLID AVENUE</add>
+<zip>44106</zip>
+<phone>(216) 844-5775</phone>
+<NPR>HC-7017</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Columbus</city>
+<name>Grant Medical Center</name>
+<add>111 SOUTH GRANT AVENUE</add>
+<zip>43215</zip>
+<phone>(614) 566-9978</phone>
+<NPR>HC-7023</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Columbus</city>
+<name>Mount Carmel Health</name>
+<add>793 WEST STATE STREET</add>
+<zip>43222</zip>
+<phone>(614) 546-4533</phone>
+<NPR>HC-7025</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Columbus</city>
+<name>Riverside Methodist Hospital</name>
+<add>3535 OLENTANGY RIVER RD</add>
+<zip>43214</zip>
+<phone>(614) 566-5000</phone>
+<NPR>HC-7030</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Columbus</city>
+<name>The Ohio State University Hospital</name>
+<add>410 WEST 10TH AVENUE</add>
+<zip>43210</zip>
+<phone>(614) 293-9700</phone>
+<NPR>HC-7029</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Dayton</city>
+<name>Good Samaritan Hospital</name>
+<add>2222 PHILADELPHIA DRIVE</add>
+<zip>45406</zip>
+<phone>(937) 278-2612</phone>
+<NPR>HC-7034</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Dayton</city>
+<name>Miami Valley Hospital</name>
+<add>ONE WYOMING STREET</add>
+<zip>45409</zip>
+<phone>(937) 208-2701</phone>
+<NPR>HC-7035</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Franklin</city>
+<name>Atrium Medical Center</name>
+<add>ONE MEDICAL CENTER DRIVE</add>
+<zip>45005</zip>
+<phone>(513) 420-5700</phone>
+<NPR>HC-7075</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Garfield Heights</city>
+<name>Marymount Hospital</name>
+<add>12300 MCCRACKEN ROAD</add>
+<zip>44125</zip>
+<phone>(216) 581-0500</phone>
+<NPR>HC-7049</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Kettering</city>
+<name>Kettering Medical Center</name>
+<add>3535 SOUTHERN BOULEVARD</add>
+<zip>45429</zip>
+<phone>(937) 395-8311</phone>
+<NPR>HC-7058</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Kettering</city>
+<name>Kettering Medical Center/Sycamore Medical Center</name>
+<add>4000  Miamisburg Centerville Road</add>
+<zip>45342</zip>
+<phone>(937) 384-8706</phone>
+<NPR>AMH-124</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Lakewood</city>
+<name>Lakewood Hospital Association</name>
+<add>14519 DETROIT AVENUE</add>
+<zip>44107</zip>
+<phone>(216) 529-7134</phone>
+<NPR>HC-2180</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Lorain</city>
+<name>Community Health Partners Regional Medical Center</name>
+<add>3700 KOLBE ROAD</add>
+<zip>44053</zip>
+<phone>(440) 960-4000</phone>
+<NPR>HC-76676</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Middleburg Heights</city>
+<name>Southwest General Health Center</name>
+<add>18697 BAGLEY ROAD</add>
+<zip>44130</zip>
+<phone>(440) 816-8000</phone>
+<NPR>HC-6975</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Norwalk</city>
+<name>Fisher-Titus Medical Center</name>
+<add>272 BENEDICT AVENUE</add>
+<zip>44857</zip>
+<phone>(419) 668-8101</phone>
+<NPR>HC-4405</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Painesville</city>
+<name>Lake Health</name>
+<add>10 E Washington Street</add>
+<zip>44077</zip>
+<phone>(440) 354-2400</phone>
+<NPR>HC-7088</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Sandusky</city>
+<name>Firelands Regional Medical Center</name>
+<add>1111 HAYES AVENUE</add>
+<zip>44870</zip>
+<phone>(419) 557-5510</phone>
+<NPR>HC-5281</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Toledo</city>
+<name>The University of Toledo Medical Center</name>
+<add>3000 Arlington Avenue</add>
+<zip>43614</zip>
+<phone>(419) 383-3760</phone>
+<NPR>HC-7105</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Westlake</city>
+<name>St. John West Shore Hospital</name>
+<add>29000 CENTER RIDGE ROAD</add>
+<zip>44145</zip>
+<phone>(440) 827-5075</phone>
+<NPR>HC-5199</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Youngstown</city>
+<name>HMHP - St. Elizabeth Health Center</name>
+<add>1044 BELMONT AVENUE</add>
+<zip>44501</zip>
+<phone>(330) 746-7211</phone>
+<NPR>HC-7127</NPR>
+</center>
+<center>
+<state>OH</state>
+<city>Youngstown</city>
+<name>Western Reserve Care System</name>
+<add>500 Gypsy Lane</add>
+<zip>44501</zip>
+<phone>(330) 884-2150</phone>
+<NPR>HC-7128</NPR>
+</center>
+<center>
+<state>OK</state>
+<city>Lawton</city>
+<name>Southwestern Medical Center</name>
+<add>5602 SOUTHWEST LEE BOULEVARD</add>
+<zip>73505</zip>
+<phone>(580) 531-4700</phone>
+<NPR>HC-8859</NPR>
+</center>
+<center>
+<state>OK</state>
+<city>Norman</city>
+<name>Norman Regional Health System</name>
+<add>901 NORTH PORTER</add>
+<zip>73070</zip>
+<phone>(405) 321-1700</phone>
+<NPR>HC-8868</NPR>
+</center>
+<center>
+<state>OK</state>
+<city>Oklahoma City</city>
+<name>Integris Baptist Medical Center</name>
+<add>3300 NORTHWEST EXPRESSWAY</add>
+<zip>73112</zip>
+<phone>(405) 949-3011</phone>
+<NPR>HC-8872</NPR>
+</center>
+<center>
+<state>OK</state>
+<city>Oklahoma City</city>
+<name>INTEGRIS Southwest Medical Center</name>
+<add>4401 SOUTH WESTERN AVENUE</add>
+<zip>73109</zip>
+<phone>(405) 636-7777</phone>
+<NPR>HC-8880</NPR>
+</center>
+<center>
+<state>OK</state>
+<city>Oklahoma City</city>
+<name>Mercy Health Center</name>
+<add>4300 WEST MEMORIAL ROAD</add>
+<zip>73120</zip>
+<phone>(405) 755-1515</phone>
+<NPR>HC-8877</NPR>
+</center>
+<center>
+<state>OK</state>
+<city>Oklahoma City</city>
+<name>OU MEDICAL CENTER</name>
+<add>700 NE 13th Street</add>
+<zip>73104</zip>
+<phone>(405) 271-5000</phone>
+<NPR>HC-201590</NPR>
+</center>
+<center>
+<state>OK</state>
+<city>Oklahoma City</city>
+<name>St. Anthony Hospital</name>
+<add>1000 NORTH LEE AVENUE</add>
+<zip>73101</zip>
+<phone>(405) 272-7000</phone>
+<NPR>HC-8879</NPR>
+</center>
+<center>
+<state>OK</state>
+<city>Tulsa</city>
+<name>St. John Medical Center, Inc.</name>
+<add>1923 SOUTH UTICA AVENUE</add>
+<zip>74104</zip>
+<phone>(918) 744-2345</phone>
+<NPR>HC-8909</NPR>
+</center>
+<center>
+<state>OR</state>
+<city>Eugene</city>
+<name>Sacred Heart Medical Center</name>
+<add>677 E 12th Avenue</add>
+<zip>97440</zip>
+<phone>(541) 686-7368</phone>
+<NPR>HC-9671</NPR>
+</center>
+<center>
+<state>OR</state>
+<city>Medford</city>
+<name>Providence Medford Medical  Center</name>
+<add>1111 CRATER LAKE AVENUE</add>
+<zip>97504</zip>
+<phone>(541) 732-5000</phone>
+<NPR>HC-9687</NPR>
+</center>
+<center>
+<state>OR</state>
+<city>Medford</city>
+<name>Rogue Valley Medical Center</name>
+<add>2825 E BARNETT ROAD</add>
+<zip>97504</zip>
+<phone>(541) 789-5240</phone>
+<NPR>HC-9686</NPR>
+</center>
+<center>
+<state>OR</state>
+<city>Portland</city>
+<name>Legacy Emanuel Hospital and Health Center</name>
+<add>2801 North Gantenbein Avenue</add>
+<zip>97227</zip>
+<phone>(503) 413-2200</phone>
+<NPR>AMH-127</NPR>
+</center>
+<center>
+<state>OR</state>
+<city>Portland</city>
+<name>Legacy Portland Hospitals</name>
+<add>2801 N. Gantenbein</add>
+<zip>97227</zip>
+<phone>(503) 335-3500</phone>
+<NPR>HC-81336</NPR>
+</center>
+<center>
+<state>OR</state>
+<city>Portland</city>
+<name>Oregon Health &amp; Science University</name>
+<add>3181 S.W. Sam Jackson Park Rd.</add>
+<zip>97239</zip>
+<phone>(503) 494-8311</phone>
+<NPR>AMH-128</NPR>
+</center>
+<center>
+<state>OR</state>
+<city>Portland</city>
+<name>Providence Portland Medical Center</name>
+<add>4805 NE GLISAN STREET</add>
+<zip>97213</zip>
+<phone>(503) 215-6360</phone>
+<NPR>HC-9704</NPR>
+</center>
+<center>
+<state>OR</state>
+<city>Portland</city>
+<name>Providence St. Vincent Medical Center</name>
+<add>9205 SW BARNES ROAD</add>
+<zip>97225</zip>
+<phone>(503) 216-1234</phone>
+<NPR>HC-9705</NPR>
+</center>
+<center>
+<state>OR</state>
+<city>Tualatin</city>
+<name>Legacy Meridian Park Hospital</name>
+<add>19300 SW 65TH AVENUE</add>
+<zip>97062</zip>
+<phone>(503) 692-1212</phone>
+<NPR>HC-9722</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Abington</city>
+<name>Abington Memorial Hospital</name>
+<add>1200 OLD YORK ROAD</add>
+<zip>19001</zip>
+<phone>(215) 481-2000</phone>
+<NPR>AMH-129</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Allentown</city>
+<name>Lehigh Valley Health Network - Cedar Crest</name>
+<add>1200 South Cedar Crest Boulevard</add>
+<zip>18103</zip>
+<phone>(610) 402-8000</phone>
+<NPR>AMH-138</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Allentown</city>
+<name>Lehigh Valley Health Network - Muhlenberg</name>
+<add>2024 Lehigh Street</add>
+<zip>18103</zip>
+<phone>(610) 402-8062</phone>
+<NPR>AMH-139</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Allentown</city>
+<name>Lehigh Valley Hospital</name>
+<add>1627 W Chew Street</add>
+<zip>18105</zip>
+<phone>(610) 969-2226</phone>
+<NPR>HC-4880</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Altoona</city>
+<name>Altoona Regional Health System</name>
+<add>620 HOWARD AVENUE</add>
+<zip>16601</zip>
+<phone>(814) 889-2011</phone>
+<NPR>HC-6019</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Bethlehem</city>
+<name>Lehigh Valley Hospital - Muhlenberg</name>
+<add>2545 SCHOENERSVILLE ROAD</add>
+<zip>18017</zip>
+<phone>(610) 402-2273</phone>
+<NPR>HC-6017</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Bethlehem</city>
+<name>St. Luke&apos;s Hospital &amp; Health Network</name>
+<add>801 Ostrum St.</add>
+<zip>18015</zip>
+<phone>(610) 954-4000</phone>
+<NPR>AMH-142</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Danville</city>
+<name>Geisinger Medical Center</name>
+<add>100 NORTH ACADEMY AVENUE</add>
+<zip>17822</zip>
+<phone>(570) 271-6211</phone>
+<NPR>HC-6048</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Doylestown</city>
+<name>Doylestown Hospital</name>
+<add>595 W STATE ST</add>
+<zip>18901</zip>
+<phone>(215) 345-2200</phone>
+<NPR>HC-4565</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Drexel Hill</city>
+<name>Delaware County Memorial Hospital</name>
+<add>501 NORTH LANSDOWNE AVE</add>
+<zip>19026</zip>
+<phone>(215) 284-8100</phone>
+<NPR>HC-6050</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Ephrata</city>
+<name>Ephrata Community Hospital</name>
+<add>169 MARTIN AVENUE</add>
+<zip>17522</zip>
+<phone>(717) 733-0311</phone>
+<NPR>HC-6059</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Erie</city>
+<name>Hamot Medical Center</name>
+<add>201 STATE STREET</add>
+<zip>16550</zip>
+<phone>(814) 877-6000</phone>
+<NPR>HC-6060</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Erie</city>
+<name>Saint Vincent Health Center</name>
+<add>232 WEST 25TH STREET</add>
+<zip>16544</zip>
+<phone>(814) 452-5000</phone>
+<NPR>HC-6061</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Geisinger Health System</city>
+<name>Geisinger Heart Institute</name>
+<add>1000 East Mountain Drive</add>
+<zip>18711</zip>
+<phone>(570) 826-7300‎</phone>
+<NPR>AMH-133</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Greensburg</city>
+<name>Excela Health Westmoreland Hospital</name>
+<add>532 West Pittsburgh Stree</add>
+<zip>15601</zip>
+<phone>(877) 771-1234</phone>
+<NPR>AMH-132</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Harrisburg</city>
+<name>Pinnacle Health Hospitals</name>
+<add>111 South Front Street</add>
+<zip>17104</zip>
+<phone>(717) 782-3131</phone>
+<NPR>HC-188325</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Hershey</city>
+<name>Penn State Milton S. Hershey Medical Center</name>
+<add>500 University Drive</add>
+<zip>17033</zip>
+<phone>(717) 531-8521</phone>
+<NPR>HC-6075</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Lancaster</city>
+<name>Lancaster General Hospital</name>
+<add>555 NORTH DUKE STREET</add>
+<zip>17604</zip>
+<phone>(717) 299-5511</phone>
+<NPR>HC-6086</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Langhorne</city>
+<name>St. Mary Medical Center</name>
+<add>LANGHORNE-NEWTOWN RD</add>
+<zip>19047</zip>
+<phone>(215) 750-2003</phone>
+<NPR>HC-6087</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Latrobe</city>
+<name>Excela Health Latrobe Hospital</name>
+<add>ONE MELLON WAY</add>
+<zip>15650</zip>
+<phone>(724) 537-1000</phone>
+<NPR>AMH-131</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Meadowbrook</city>
+<name>Holy Redeemer Hospital and Medical Center</name>
+<add>1648 HUNTINGDON PIKE</add>
+<zip>19046</zip>
+<phone>(215) 947-3000</phone>
+<NPR>AMH-136</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Philadelphia</city>
+<name>Albert Einstein Medical Center</name>
+<add>5501 OLD YORK ROAD</add>
+<zip>19141</zip>
+<phone>(215) 456-6090</phone>
+<NPR>HC-6118</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Philadelphia</city>
+<name>Hahnemann University Hospital</name>
+<add>230 NORTH BROAD STREET</add>
+<zip>19102</zip>
+<phone>(215) 762-7000</phone>
+<NPR>HC-252452</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Philadelphia</city>
+<name>Hospital of the University of Pennsylvania</name>
+<add>34TH &amp; SPRUCE STS</add>
+<zip>19104</zip>
+<phone>(215) 662-3227</phone>
+<NPR>HC-6129</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Philadelphia</city>
+<name>Jeanes Hospital</name>
+<add>7600 CENTRAL AVE</add>
+<zip>19111</zip>
+<phone>(888) 369-2427</phone>
+<NPR>HC-6131</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Philadelphia</city>
+<name>Jeanes Hospital - Temple University Health Systems</name>
+<add>7602 Central Avenue
+Stapeley Building, Suite 203</add>
+<zip>19111</zip>
+<phone>(215) 728-2273</phone>
+<NPR>AMH-137</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Philadelphia</city>
+<name>Nazareth Hospital</name>
+<add>2601 HOLME AVE</add>
+<zip>19152</zip>
+<phone>(215) 335-6000</phone>
+<NPR>HC-6139</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Philadelphia</city>
+<name>The Hospital of the University of Pennsylvania</name>
+<add>3400 Spruce St # 680</add>
+<zip>19104</zip>
+<phone>(215) 662-4000‎</phone>
+<NPR>AMH-143</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Philadelphia</city>
+<name>Thomas Jefferson University Hospitals, Inc.</name>
+<add>111 SOUTH 11TH STREET</add>
+<zip>19107</zip>
+<phone>(215) 955-6000</phone>
+<NPR>HC-6132</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Pittsburgh</city>
+<name>Allegheny General Hospital</name>
+<add>320 EAST NORTH AVENUE</add>
+<zip>15212</zip>
+<phone>(412) 359-3131</phone>
+<NPR>HC-6158</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Pittsburgh</city>
+<name>UPMC Mercy</name>
+<add>1400 LOCUST STREET</add>
+<zip>15219</zip>
+<phone>(412) 232-8111</phone>
+<NPR>HC-6166</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Pittsburgh</city>
+<name>UPMC Presbyterian - Stroke Institute</name>
+<add>3471 Fifth Avenue, Suite 810 </add>
+<zip>15213</zip>
+<phone>(412) 692-4920</phone>
+<NPR>AMH-147</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Reading</city>
+<name>The Reading Hospital and Medical Center</name>
+<add>Sixth Avenue and Spruce Street,</add>
+<zip>19611</zip>
+<phone>(610) 988-4357</phone>
+<NPR>AMH-144</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Sellersville</city>
+<name>Grand View Hospital</name>
+<add>700 LAWN AVENUE</add>
+<zip>18960</zip>
+<phone>(215) 453-4615</phone>
+<NPR>AMH-134</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Seneca</city>
+<name>UPMC Northwest</name>
+<add>100 FAIRFIELD DRIVE</add>
+<zip>16346</zip>
+<phone>(814) 676-7600</phone>
+<NPR>AMH-146</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Upland</city>
+<name>Crozer-Chester Medical Center</name>
+<add>ONE MEDICAL CENTER BOULEVARD</add>
+<zip>19013</zip>
+<phone>(610) 447-2000</phone>
+<NPR>HC-6039</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>West Chester</city>
+<name>The Chester County Hospital</name>
+<add>701 EAST MARSHALL ST</add>
+<zip>19380</zip>
+<phone>(610) 431-5000</phone>
+<NPR>HC-6217</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Wilkes Barre</city>
+<name>Wilkes-Barre General Hospital</name>
+<add>575 NORTH RIVER STREET</add>
+<zip>18764</zip>
+<phone>(570) 829-8111</phone>
+<NPR>HC-6222</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Williamsport</city>
+<name>The Williamsport Hospital and Medical Center</name>
+<add>777 RURAL AVE</add>
+<zip>17701</zip>
+<phone>(570) 321-1000</phone>
+<NPR>HC-6226</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>Wynnewood</city>
+<name>Lankenau Hospital</name>
+<add>100 LANCASTER AVE</add>
+<zip>19096</zip>
+<phone>(610) 645-2000</phone>
+<NPR>HC-439412</NPR>
+</center>
+<center>
+<state>PA</state>
+<city>York</city>
+<name>York Hospital</name>
+<add>1001 South George Street </add>
+<zip>17405</zip>
+<phone>(717) 851-2345</phone>
+<NPR>HC-6228</NPR>
+</center>
+<center>
+<state>RI</state>
+<city>Pawtucket</city>
+<name>Memorial Hospital of Rhode Island</name>
+<add>111 BREWSTER STREET</add>
+<zip>02860</zip>
+<phone>(401) 729-2000</phone>
+<NPR>HC-5648</NPR>
+</center>
+<center>
+<state>RI</state>
+<city>Providence</city>
+<name>The Miriam Hospital</name>
+<add>164 Summit Avenue </add>
+<zip>02906</zip>
+<phone>(401) 793-5533</phone>
+<NPR>AMH-148</NPR>
+</center>
+<center>
+<state>RI</state>
+<city>Warwick</city>
+<name>Kent County Memorial  Hospital, Inc.</name>
+<add>455 TOLL GATE RD</add>
+<zip>02886</zip>
+<phone>(401) 737-7000</phone>
+<NPR>HC-5655</NPR>
+</center>
+<center>
+<state>SC</state>
+<city>Anderson</city>
+<name>AnMed Health</name>
+<add>800 N FANT ST</add>
+<zip>29621</zip>
+<phone>(864) 261-1109</phone>
+<NPR>HC-6576</NPR>
+</center>
+<center>
+<state>SC</state>
+<city>Charleston</city>
+<name>Medical University of South Carolina Medical Center</name>
+<add>169 ASHLEY AVE</add>
+<zip>29425</zip>
+<phone>(843) 792-2300</phone>
+<NPR>HC-6584</NPR>
+</center>
+<center>
+<state>SC</state>
+<city>Charleston</city>
+<name>Roper Hospital</name>
+<add>316 CALHOUN ST</add>
+<zip>29401</zip>
+<phone>(843) 724-2800</phone>
+<NPR>HC-6585</NPR>
+</center>
+<center>
+<state>SC</state>
+<city>Mount Pleasant</city>
+<name>East Cooper Regional Medical  Center</name>
+<add>1200 JOHNNIE DODDS BLVD</add>
+<zip>29464</zip>
+<phone>(843) 881-4311</phone>
+<NPR>HC-71400</NPR>
+</center>
+<center>
+<state>SD</state>
+<city>Rapid City</city>
+<name>Rapid City Regional Hospital</name>
+<add>353 Fairmont Boulevard</add>
+<zip>57709</zip>
+<phone>(605) 719-1000</phone>
+<NPR>HC-8463</NPR>
+</center>
+<center>
+<state>SD</state>
+<city>Sioux Falls</city>
+<name>Avera McKennan Hospital &amp; University Health Center</name>
+<add>800 E 21ST ST</add>
+<zip>57117</zip>
+<phone>(605) 322-8000</phone>
+<NPR>HC-8470</NPR>
+</center>
+<center>
+<state>SD</state>
+<city>Sioux Falls</city>
+<name>Sanford USD Medical Center</name>
+<add>1305 W 18TH ST  PO BOX 5039</add>
+<zip>57117</zip>
+<phone>(605) 333-1000</phone>
+<NPR>HC-8471</NPR>
+</center>
+<center>
+<state>TN</state>
+<city>Bristol</city>
+<name>Wellmont Bristol Regional Medical Center</name>
+<add>ONE MEDICAL PARK BLVD</add>
+<zip>37620</zip>
+<phone>(423) 844-1121</phone>
+<NPR>HC-7805</NPR>
+</center>
+<center>
+<state>TN</state>
+<city>Chattanooga</city>
+<name>Erlanger Health System</name>
+<add>975 E 3RD ST</add>
+<zip>37403</zip>
+<phone>(423) 778-7000</phone>
+<NPR>HC-7809</NPR>
+</center>
+<center>
+<state>TN</state>
+<city>Johnson City</city>
+<name>Johnson City Medical Center</name>
+<add>400 N STATE OF FRANKLIN RD</add>
+<zip>37604</zip>
+<phone>(423) 431-6111</phone>
+<NPR>HC-7844</NPR>
+</center>
+<center>
+<state>TN</state>
+<city>Knoxville</city>
+<name>Fort Sanders Regional Medical Center</name>
+<add>1901 W CLINCH AVE</add>
+<zip>37916</zip>
+<phone>(865) 541-1101</phone>
+<NPR>HC-7850</NPR>
+</center>
+<center>
+<state>TN</state>
+<city>Knoxville</city>
+<name>St. Mary&apos;s Health System</name>
+<add>900 EAST OAK HILL AVENUE</add>
+<zip>37917</zip>
+<phone>(865) 545-8000</phone>
+<NPR>HC-7852</NPR>
+</center>
+<center>
+<state>TN</state>
+<city>Knoxville</city>
+<name>The University of Tennessee Memorial Hospital</name>
+<add>1924 ALCOA HIGHWAY</add>
+<zip>37920</zip>
+<phone>(865) 544-9000</phone>
+<NPR>HC-7853</NPR>
+</center>
+<center>
+<state>TN</state>
+<city>Memphis</city>
+<name>Methodist Healthcare Memphis Hospitals</name>
+<add>1265 UNION AVE SUITE 700</add>
+<zip>38104</zip>
+<phone>(901) 516-8274</phone>
+<NPR>HC-7874</NPR>
+</center>
+<center>
+<state>TN</state>
+<city>Murfreesboro</city>
+<name>Middle Tennessee Medical Center</name>
+<add>400 North Highland Avenue</add>
+<zip>37130</zip>
+<phone>(615) 396-4100</phone>
+<NPR>AMH-150</NPR>
+</center>
+<center>
+<state>TN</state>
+<city>Nashville</city>
+<name>Baptist Hospital</name>
+<add>2000 CHURCH ST</add>
+<zip>37236</zip>
+<phone>(615) 284-5555</phone>
+<NPR>HC-7884</NPR>
+</center>
+<center>
+<state>TN</state>
+<city>Nashville</city>
+<name>Saint Thomas Hospital / Saint Thomas Health Services</name>
+<add>4220 Harding Pike</add>
+<zip>37202</zip>
+<phone>(615) 222-2111</phone>
+<NPR>HC-7891</NPR>
+</center>
+<center>
+<state>TN</state>
+<city>Nashville</city>
+<name>Skyline Medical Center</name>
+<add>3441 DICKERSON PIKE</add>
+<zip>37207</zip>
+<phone>(615) 769-2000</phone>
+<NPR>HC-7887</NPR>
+</center>
+<center>
+<state>TN</state>
+<city>Nashville</city>
+<name>Vanderbilt University Hospital and The Vanderbilt Clinic</name>
+<add>1161 21ST AVENUE SOUTH</add>
+<zip>37232</zip>
+<phone>(615) 322-3454</phone>
+<NPR>HC-7892</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Arlington</city>
+<name>Arlington Memorial Hospital</name>
+<add>800 W RANDOL MILL RD</add>
+<zip>76012</zip>
+<phone>(817) 960-6100</phone>
+<NPR>HC-8930</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Arlington</city>
+<name>Medical Center of Arlington</name>
+<add>3301 MATLOCK ROAD</add>
+<zip>76015</zip>
+<phone>(817) 465-3241</phone>
+<NPR>HC-8933</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Austin</city>
+<name>Seton Medical Center Austin</name>
+<add>1201 W 38TH ST</add>
+<zip>78705</zip>
+<phone>(512) 324-1000</phone>
+<NPR>HC-8939</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Austin</city>
+<name>St. David&apos;s Hospital</name>
+<add>919 E 32ND ST</add>
+<zip>78705</zip>
+<phone>(512) 476-7111</phone>
+<NPR>HC-8938</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Austin</city>
+<name>St. David&apos;s North Austin Medical Center</name>
+<add>12221 Mopac Expressway North</add>
+<zip>78758</zip>
+<phone>(512) 901-2500</phone>
+<NPR>AMH-159</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Austin</city>
+<name>University Medical Center at Brackenridge</name>
+<add>601 E 15TH STREET</add>
+<zip>78701</zip>
+<phone>(512) 324-7000</phone>
+<NPR>HC-8936</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Baytown</city>
+<name>San Jacinto Methodist Hospital</name>
+<add>4401 GARTH ROAD</add>
+<zip>77521</zip>
+<phone>(281) 420-8600</phone>
+<NPR>HC-2890</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Beaumont</city>
+<name>Baptist Beaumont Hospital</name>
+<add>3080 College Street</add>
+<zip>77704</zip>
+<phone>(409) 212-5000</phone>
+<NPR>HC-8946</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Bedford</city>
+<name>Texas Health Harris Methodist Hospital HEB</name>
+<add>1600 HOSPITAL PARKWAY</add>
+<zip>76022</zip>
+<phone>(817) 685-4000</phone>
+<NPR>HC-8948</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Brownsville</city>
+<name>Valley Baptist Medical Center - Brownsville</name>
+<add>1040 W JEFFERSON ST</add>
+<zip>78520</zip>
+<phone>(956) 544-1400</phone>
+<NPR>AMH-163</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Bryan</city>
+<name>St. Joseph Regional Health Center</name>
+<add>2801 FRANCISCAN DR</add>
+<zip>77802</zip>
+<phone>(979) 776-3912</phone>
+<NPR>HC-8962</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Corpus Christi</city>
+<name>CHRISTUS Spohn Hospital Corpus Christi</name>
+<add>2606 Hospital Boulevard</add>
+<zip>78405</zip>
+<phone>(361) 902-4000</phone>
+<NPR>HC-8985</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Dallas</city>
+<name>Baylor University Medical Center (BUMC)</name>
+<add>3500 GASTON AVE</add>
+<zip>75246</zip>
+<phone>(214) 820-0111</phone>
+<NPR>HC-8993</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Dallas</city>
+<name>Medical City Dallas Hospital</name>
+<add>7777 FOREST LANE</add>
+<zip>75230</zip>
+<phone>(972) 566-6222</phone>
+<NPR>HC-9008</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Dallas</city>
+<name>Parkland Health &amp; Hospital System</name>
+<add>5201 HARRY HINES BLVD</add>
+<zip>75235</zip>
+<phone>(214) 590-8000</phone>
+<NPR>HC-8997</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Denison</city>
+<name>Texoma Medical Center</name>
+<add>1000 MEMORIAL DRIVE</add>
+<zip>75020</zip>
+<phone>(903) 416-4000</phone>
+<NPR>HC-9018</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>El Paso</city>
+<name>Las Palmas Medical Center</name>
+<add>1801 NORTH OREGON STREET</add>
+<zip>79902</zip>
+<phone>(915) 521-1200</phone>
+<NPR>HC-9033</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>El Paso</city>
+<name>Providence Memorial Hospital</name>
+<add>2001 N OREGON ST</add>
+<zip>79902</zip>
+<phone>(915) 577-6011</phone>
+<NPR>HC-9030</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>El Paso</city>
+<name>Sierra Medical Center</name>
+<add>1625 MEDICAL CENTER DR</add>
+<zip>79902</zip>
+<phone>(915) 747-4000</phone>
+<NPR>HC-9029</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Fort Worth</city>
+<name>Harris Methodist Fort Worth Hospital</name>
+<add>1301 Pennsylvania Avenue</add>
+<zip>76104</zip>
+<phone>(462) 882-2000</phone>
+<NPR>HC-9044</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Fort Worth</city>
+<name>Plaza Medical Center of Fort  Worth</name>
+<add>900 EIGHTH AVENUE</add>
+<zip>76104</zip>
+<phone>(817) 926-2544</phone>
+<NPR>HC-9045</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Fort Worth</city>
+<name>Tarrant County Hospital District</name>
+<add>1500 S Main Street</add>
+<zip>76104</zip>
+<phone>(817) 921-3431</phone>
+<NPR>HC-9048</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Harlingen</city>
+<name>Valley Baptist Medical Center</name>
+<add>2101 PEASE ST</add>
+<zip>78550</zip>
+<phone>(956) 389-1100</phone>
+<NPR>HC-9072</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Houston</city>
+<name>Cypress Fairbanks Medical Center Hospital</name>
+<add>10655 STEEPLETOP DRIVE</add>
+<zip>77065</zip>
+<phone>(281) 890-4285</phone>
+<NPR>HC-5234</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Houston</city>
+<name>Memorial Hermann Hospital</name>
+<add>6411 FANNIN</add>
+<zip>77030</zip>
+<phone>(713) 704-3700</phone>
+<NPR>HC-9081</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Houston</city>
+<name>Memorial Hermann Memorial City Hospital</name>
+<add>921 GESSNER</add>
+<zip>77024</zip>
+<phone>(713) 242-3000</phone>
+<NPR>HC-9092</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Houston</city>
+<name>Memorial Hermann Southwest Hospital</name>
+<add>11800 Astoria Boulevard</add>
+<zip>77074</zip>
+<phone>(281) 929-6100</phone>
+<NPR>HC-5264</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Houston</city>
+<name>Methodist Willowbrook Hospital</name>
+<add>18220 STATE HIGHWAY 249</add>
+<zip>77070</zip>
+<phone>(281) 477-1000</phone>
+<NPR>HC-331905</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Houston</city>
+<name>St. Luke&apos;s Episcopal Hospital</name>
+<add>6720 Bertner Avenue</add>
+<zip>77225</zip>
+<phone>(832) 355-1000</phone>
+<NPR>HC-9098</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Houston</city>
+<name>The Methodist Hospital</name>
+<add>6565 FANNIN</add>
+<zip>77030</zip>
+<phone>(713) 790-2221</phone>
+<NPR>HC-9090</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Houston</city>
+<name>The Methodist Hospital - Medical Center</name>
+<add>6501 Fannin Street</add>
+<zip>77030</zip>
+<phone>(713) 790-3311‎</phone>
+<NPR>AMH-160</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Houston</city>
+<name>West Houston Medical Center</name>
+<add>12141 RICHMOND AVE</add>
+<zip>77082</zip>
+<phone>(281) 588-8080</phone>
+<NPR>HC-9104</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>McKinney</city>
+<name>Medical Center of McKinney</name>
+<add>4500 MEDICAL CENTER DRIVE</add>
+<zip>75069</zip>
+<phone>(972) 547-8000</phone>
+<NPR>AMH-155</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Nacogdoches</city>
+<name>Nacogdoches Memorial Hospital</name>
+<add>4920 NE STALLINGS DRIVE</add>
+<zip>75961</zip>
+<phone>(936) 568-3800</phone>
+<NPR>HC-9172</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Plano</city>
+<name>Medical Center of Plano</name>
+<add>3901 W 15TH ST</add>
+<zip>75075</zip>
+<phone>(972) 596-6800</phone>
+<NPR>AMH-156</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Richardson</city>
+<name>Richardson Regional Medical Center</name>
+<add>401 W CAMPBELL RD</add>
+<zip>75080</zip>
+<phone>(972) 498-4700</phone>
+<NPR>AMH-158</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Richmond</city>
+<name>Oakbend Medical Center</name>
+<add>1705 JACKSON ST</add>
+<zip>77469</zip>
+<phone>(281) 341-3000</phone>
+<NPR>HC-4765</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Round Rock</city>
+<name>Scott &amp; White Community Hospital Corporation</name>
+<add>300 UNIVERSITY BLVD</add>
+<zip>78664</zip>
+<phone>(512) 509-0401</phone>
+<NPR>HC-448901</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>San Antonio</city>
+<name>Baptist Health System</name>
+<add>215 E Quincy Street, Suite 200</add>
+<zip>78215</zip>
+<phone>(210) 297-1000‎</phone>
+<NPR>HC-9209</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>San Antonio</city>
+<name>Methodist Hospital</name>
+<add>7700 FLOYD CURL DR</add>
+<zip>78229</zip>
+<phone>(210) 575-4000</phone>
+<NPR>HC-9219</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Sherman</city>
+<name>Wilson N. Jones Medical Center</name>
+<add>500 N. Highland</add>
+<zip>75092</zip>
+<phone>(903) 870-4611</phone>
+<NPR>AMH-165</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Texarkana</city>
+<name>Wadley Regional Medical Center</name>
+<add>1000 PINE STREET</add>
+<zip>75501</zip>
+<phone>(903) 798-8000</phone>
+<NPR>HC-9245</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>The Woodlands</city>
+<name>Memorial Hermann The Woodlands Hospital</name>
+<add>9250 Pinecroft Drive</add>
+<zip>77380</zip>
+<phone>(713) 797-5942</phone>
+<NPR>HC-8986</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Tomball</city>
+<name>Tomball Hospital Authority</name>
+<add>605 HOLDERRIETH</add>
+<zip>77375</zip>
+<phone>(281) 351-1623</phone>
+<NPR>HC-9247</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Tyler</city>
+<name>East Texas Medical Center Tyler</name>
+<add>4101 University Boulevard</add>
+<zip>75711</zip>
+<phone>(903) 597-0351‎</phone>
+<NPR>HC-9250</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Tyler</city>
+<name>Trinity Mother Frances Hospitals and Clinics</name>
+<add>800 E. Dawson</add>
+<zip>75701</zip>
+<phone>(903) 593-8441</phone>
+<NPR>AMH-161</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Victoria</city>
+<name>DeTar Healthcare System</name>
+<add>506 E. San Antonio St.</add>
+<zip>77901</zip>
+<phone>(361) 575-7441</phone>
+<NPR>AMH-152</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Waco</city>
+<name>Hillcrest Baptist Medical Center</name>
+<add>100 Hillcrest Medical Boulevard</add>
+<zip>76702</zip>
+<phone>(254) 202-2000</phone>
+<NPR>HC-9256</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Waco</city>
+<name>Providence Health Network</name>
+<add>6901 Medical Parkway  </add>
+<zip>76702</zip>
+<phone>(254) 751-4020‎</phone>
+<NPR>HC-2147</NPR>
+</center>
+<center>
+<state>TX</state>
+<city>Wichita Falls</city>
+<name>United Regional Health Care System</name>
+<add>1600 11TH STREET</add>
+<zip>76301</zip>
+<phone>(940) 764-3055</phone>
+<NPR>HC-190900</NPR>
+</center>
+<center>
+<state>UT</state>
+<city>American Fork</city>
+<name>American Fork Hospital</name>
+<add>170 North 1100 East</add>
+<zip>84003</zip>
+<phone>(801) 855-3300</phone>
+<NPR>UT-2</NPR>
+</center>
+<center>
+<state>UT</state>
+<city>Beaver</city>
+<name>Beaver Valley Hospital</name>
+<add>1109 North 100 West</add>
+<zip>84713</zip>
+<phone>(435) 438-7100</phone>
+<NPR>UT-3</NPR>
+</center>
+<center>
+<state>UT</state>
+<city>Monticello</city>
+<name>San Juan Hospital</name>
+<add>364 West 100 North</add>
+<zip>84535</zip>
+<phone>(435) 587-2116</phone>
+<NPR>UT-9</NPR>
+</center>
+<center>
+<state>UT</state>
+<city>Murray</city>
+<name>Intermountain Medical Center</name>
+<add>5121 SOUTH COTTONWOOD STREET</add>
+<zip>84157</zip>
+<phone>(801) 507-7000</phone>
+<NPR>HC-9540</NPR>
+</center>
+<center>
+<state>UT</state>
+<city>Nephi</city>
+<name>Central Valley Hospital</name>
+<add>48 West 1500 North</add>
+<zip>84648</zip>
+<phone>(435) 623-3000</phone>
+<NPR>UT-4</NPR>
+</center>
+<center>
+<state>UT</state>
+<city>Ogden</city>
+<name>McKay Dee Hospital</name>
+<add>4401 Harrison Blvd.</add>
+<zip>84403</zip>
+<phone>(801) 387-2800</phone>
+<NPR>UT-7</NPR>
+</center>
+<center>
+<state>UT</state>
+<city>Provo</city>
+<name>Utah Valley Regional Medical Center</name>
+<add>1034 North 500 West</add>
+<zip>84604</zip>
+<phone>(801) 357-7850</phone>
+<NPR>UT-12</NPR>
+</center>
+<center>
+<state>UT</state>
+<city>Provo</city>
+<name>Utah Valley Regional Medical Center/Orem Community Hospital</name>
+<add>1034 N 500</add>
+<zip>84605</zip>
+<phone>(801) 357-7540</phone>
+<NPR>HC-9537</NPR>
+</center>
+<center>
+<state>UT</state>
+<city>Roosevelt</city>
+<name>Uintah Basin Medical Center</name>
+<add>250 West 300 North</add>
+<zip>84066</zip>
+<phone>(435) 722-4691</phone>
+<NPR>UT-10</NPR>
+</center>
+<center>
+<state>UT</state>
+<city>Salt Lake City</city>
+<name>LDS Hospital</name>
+<add>8th Avenue &amp; C Street</add>
+<zip>84143</zip>
+<phone>(801) 408-1100</phone>
+<NPR>UT-6</NPR>
+</center>
+<center>
+<state>UT</state>
+<city>Salt Lake City</city>
+<name>University Health Care/Hospitals and Clinics</name>
+<add>50 N Medical Drive</add>
+<zip>84102</zip>
+<phone>(801) 587-3422</phone>
+<NPR>HC-9544</NPR>
+</center>
+<center>
+<state>UT</state>
+<city>Salt Lake City</city>
+<name>University of Utah Healthcare</name>
+<add>1525 West 2100 South</add>
+<zip>84119</zip>
+<phone>(801) 213-9950</phone>
+<NPR>AMH-168</NPR>
+</center>
+<center>
+<state>UT</state>
+<city>Salt Lake City</city>
+<name>University Stroke Center</name>
+<add>50 North Medical Drive</add>
+<zip>84132</zip>
+<phone>(801) 587-9935</phone>
+<NPR>UT-11</NPR>
+</center>
+<center>
+<state>UT</state>
+<city>St. George</city>
+<name>Dixie Regional Medical Center</name>
+<add>1380 East Medical Center Drive</add>
+<zip>84790</zip>
+<phone>(435) 251-1000</phone>
+<NPR>UT-5</NPR>
+</center>
+<center>
+<state>UT</state>
+<city>St. George</city>
+<name>Dixie Regional Medical Center</name>
+<add>2601 Cornerstone</add>
+<zip>75090</zip>
+<phone>(435) 251-2480</phone>
+<NPR>AMH-166</NPR>
+</center>
+<center>
+<state>UT</state>
+<city>Tooele</city>
+<name>Mountain West Medical Center</name>
+<add>2055 North Main Street</add>
+<zip>84074</zip>
+<phone>(435) 843-3600</phone>
+<NPR>UT-8</NPR>
+</center>
+<center>
+<state>VA</state>
+<city>Alexandria</city>
+<name>Inova Alexandria Hospital</name>
+<add>4320 SEMINARY RD</add>
+<zip>22304</zip>
+<phone>(703) 504-3000</phone>
+<NPR>HC-6319</NPR>
+</center>
+<center>
+<state>VA</state>
+<city>Arlington</city>
+<name>Virginia Hospital Center</name>
+<add>1701 NORTH GEORGE MASON DRIVE</add>
+<zip>22205</zip>
+<phone>(703) 558-5000</phone>
+<NPR>HC-6323</NPR>
+</center>
+<center>
+<state>VA</state>
+<city>Charlottesville</city>
+<name>University of Virginia Health System</name>
+<add>JEFFERSON PARK AVE</add>
+<zip>22908</zip>
+<phone>(800) 251-3627</phone>
+<NPR>HC-6329</NPR>
+</center>
+<center>
+<state>VA</state>
+<city>Falls Church</city>
+<name>Inova Fairfax Hospital</name>
+<add>3300 GALLOWS RD</add>
+<zip>22042</zip>
+<phone>(703) 698-1110</phone>
+<NPR>HC-6351</NPR>
+</center>
+<center>
+<state>VA</state>
+<city>Fredericksburg</city>
+<name>Mary Washington Hospital, Inc</name>
+<add>1001 SAM PERRY BLVD</add>
+<zip>22401</zip>
+<phone>(540) 741-1100</phone>
+<NPR>HC-6340</NPR>
+</center>
+<center>
+<state>VA</state>
+<city>Leesburg</city>
+<name>Inova Loudoun Hospital</name>
+<add>44045 RIVERSIDE PARKWAY</add>
+<zip>20176</zip>
+<phone>(703) 858-6600</phone>
+<NPR>HC-6347</NPR>
+</center>
+<center>
+<state>VA</state>
+<city>Lynchburg</city>
+<name>Centra Lynchburg General Hospital</name>
+<add>1920 ATHERHOLT ROAD</add>
+<zip>24501</zip>
+<phone>(434) 947-4705</phone>
+<NPR>HC-3210</NPR>
+</center>
+<center>
+<state>VA</state>
+<city>Norfolk</city>
+<name>Sentara Hospitals Norfolk</name>
+<add>600 GRESHAM DR</add>
+<zip>23507</zip>
+<phone>(800) 736-8272</phone>
+<NPR>HC-6358</NPR>
+</center>
+<center>
+<state>VA</state>
+<city>Richmond</city>
+<name>Bon Secours-St. Mary&apos;s Hospital</name>
+<add>5801 BREMO RD</add>
+<zip>23226</zip>
+<phone>(804) 281-8206</phone>
+<NPR>HC-6387</NPR>
+</center>
+<center>
+<state>VA</state>
+<city>Richmond</city>
+<name>CJW Medical Center</name>
+<add>7101 Jahnke Road</add>
+<zip>23225</zip>
+<phone>(804) 320-3911</phone>
+<NPR>HC-124600</NPR>
+</center>
+<center>
+<state>VA</state>
+<city>Richmond</city>
+<name>Henrico Doctors&apos; Hospital</name>
+<add>1602 SKIPWITH ROAD</add>
+<zip>23229</zip>
+<phone>(804) 289-4500</phone>
+<NPR>HC-6379</NPR>
+</center>
+<center>
+<state>VA</state>
+<city>Richmond</city>
+<name>Virginia Commonwealth University Health System</name>
+<add>1250 EAST MARSHALL STREET</add>
+<zip>23298</zip>
+<phone>(804) 828-9000</phone>
+<NPR>HC-6381</NPR>
+</center>
+<center>
+<state>VA</state>
+<city>Virginia Beach</city>
+<name>Sentara Virginia Beach General Hospital</name>
+<add>1060 FIRST COLONIAL RD</add>
+<zip>23454</zip>
+<phone>(800) 736-8272</phone>
+<NPR>HC-6403</NPR>
+</center>
+<center>
+<state>VA</state>
+<city>Winchester</city>
+<name>Winchester Medical Center, Inc.</name>
+<add>1840 Amherst Street</add>
+<zip>22604</zip>
+<phone>(540) 536-8165</phone>
+<NPR>HC-6408</NPR>
+</center>
+<center>
+<state>VT</state>
+<city>Burlington</city>
+<name>Fletcher Allen Health Care</name>
+<add>111 COLCHESTER AVE</add>
+<zip>05401</zip>
+<phone>(802) 847-0000</phone>
+<NPR>HC-5483</NPR>
+</center>
+<center>
+<state>WA</state>
+<city>Auburn</city>
+<name>Auburn Regional Medical   Center, Inc.</name>
+<add>202 N DIVISION STREET PLAZA ONE</add>
+<zip>98001</zip>
+<phone>(253) 833-7711</phone>
+<NPR>HC-9572</NPR>
+</center>
+<center>
+<state>WA</state>
+<city>Bellevue</city>
+<name>Overlake Hospital Medical Center</name>
+<add>1035-116TH AVE NE</add>
+<zip>98004</zip>
+<phone>(425) 688-5000</phone>
+<NPR>AMH-171</NPR>
+</center>
+<center>
+<state>WA</state>
+<city>Everett</city>
+<name>Providence Regional Medical Center Everett</name>
+<add>1001 N. Broadway</add>
+<zip>98206</zip>
+<phone>(425) 317-0300</phone>
+<NPR>HC-9590</NPR>
+</center>
+<center>
+<state>WA</state>
+<city>Kirkland</city>
+<name>Evergreen Healthcare</name>
+<add>12040 NE 128th Street</add>
+<zip>98034</zip>
+<phone>(425) 899-1000</phone>
+<NPR>HC-9594</NPR>
+</center>
+<center>
+<state>WA</state>
+<city>Olympia</city>
+<name>Providence St. Peter Hospital</name>
+<add>413 LILLY ROAD NE</add>
+<zip>98506</zip>
+<phone>(360) 491-9480</phone>
+<NPR>HC-9601</NPR>
+</center>
+<center>
+<state>WA</state>
+<city>Renton</city>
+<name>Valley Medical Center</name>
+<add>400 S 43RD ST</add>
+<zip>98055</zip>
+<phone>(425) 228-3450</phone>
+<NPR>HC-9610</NPR>
+</center>
+<center>
+<state>WA</state>
+<city>Seattle</city>
+<name>Harborview Medical Center</name>
+<add>325 9TH AVENUE</add>
+<zip>98104</zip>
+<phone>(206) 731-3000</phone>
+<NPR>HC-9617</NPR>
+</center>
+<center>
+<state>WA</state>
+<city>Seattle</city>
+<name>Northwest Hospital and Medical Center</name>
+<add>1550 NORTH 115TH STREET</add>
+<zip>98133</zip>
+<phone>(206) 364-0500</phone>
+<NPR>HC-9621</NPR>
+</center>
+<center>
+<state>WA</state>
+<city>Seattle</city>
+<name>Swedish Medical Center</name>
+<add>747 BROADWAY</add>
+<zip>98122</zip>
+<phone>(206) 386-6000</phone>
+<NPR>HC-9625</NPR>
+</center>
+<center>
+<state>WA</state>
+<city>Seattle</city>
+<name>Swedish Medical Center/Cherry Hill</name>
+<add>500 17TH AVENUE</add>
+<zip>98122</zip>
+<phone>(206) 386-6000</phone>
+<NPR>HC-367367</NPR>
+</center>
+<center>
+<state>WA</state>
+<city>Seattle</city>
+<name>Virginia Mason Medical Center</name>
+<add>925 SENECA STREET</add>
+<zip>98101</zip>
+<phone>(206) 223-6600</phone>
+<NPR>AMH-174</NPR>
+</center>
+<center>
+<state>WA</state>
+<city>Spokane</city>
+<name>Providence Sacred Heart Medical Center &amp; Children&apos;s Hospital</name>
+<add>101 W 8th Avenue</add>
+<zip>99220</zip>
+<phone>(509) 474-3131</phone>
+<NPR>HC-9638</NPR>
+</center>
+<center>
+<state>WA</state>
+<city>Tacoma</city>
+<name>Madigan Army Medical Center</name>
+<add>9040 Fitzsimmons Drive,</add>
+<zip>98431</zip>
+<phone>(253) 968-1110‎</phone>
+<NPR>AMH-170</NPR>
+</center>
+<center>
+<state>WA</state>
+<city>Vancouver</city>
+<name>Legacy Salmon Creek Hospital</name>
+<add>2211 NE 139TH STREET</add>
+<zip>98686</zip>
+<phone>(360) 487-1000</phone>
+<NPR>HC-408593</NPR>
+</center>
+<center>
+<state>WA</state>
+<city>Vancouver</city>
+<name>Southwest Washington Medical Center</name>
+<add>400 N.E. Mother Joseph Place</add>
+<zip>98668</zip>
+<phone>(360) 514-3273</phone>
+<NPR>AMH-172</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Eau Claire</city>
+<name>Luther Hospital</name>
+<add>1221 Whipple Street</add>
+<zip>54702</zip>
+<phone>(715) 838-3311</phone>
+<NPR>HC-7632</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Eau Claire</city>
+<name>Sacred Heart Hospital</name>
+<add>900 W CLAIREMONT AVE</add>
+<zip>54701</zip>
+<phone>(715) 717-4131</phone>
+<NPR>HC-7633</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Fond Du Lac</city>
+<name>Agnesian HealthCare, Inc.</name>
+<add>430 E DIVISON ST</add>
+<zip>54935</zip>
+<phone>(920) 929-2300</phone>
+<NPR>HC-7635</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Green Bay</city>
+<name>Aurora BayCare Medical Center</name>
+<add>2845 Greenbrier Road</add>
+<zip>54307</zip>
+<phone>(920) 288-8000</phone>
+<NPR>HC-327288</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Green Bay</city>
+<name>Bellin Health</name>
+<add>744 S WEBSTER AVE</add>
+<zip>54305</zip>
+<phone>(920) 433-3500</phone>
+<NPR>HC-7638</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Green Bay</city>
+<name>St. Mary&apos;s Hospital Medical  Center</name>
+<add>1726 SHAWANO AVE</add>
+<zip>54303</zip>
+<phone>(920) 498-4200</phone>
+<NPR>HC-7639</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Kenosha</city>
+<name>Aurora Health Care Southern  Lakes, Inc.</name>
+<add>10400 75th Street</add>
+<zip>53142</zip>
+<phone>(262) 767-6514</phone>
+<NPR>HC-228428</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>La Crosse</city>
+<name>Gundersen Lutheran Medical Center</name>
+<add>1900 South Avenue</add>
+<zip>54601</zip>
+<phone>(608) 775-4747</phone>
+<NPR>AMH-178</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>La Crosse</city>
+<name>Gundersen Lutheran Medical Center, Inc.</name>
+<add>1910 SOUTH AVE</add>
+<zip>54601</zip>
+<phone>(608) 782-7300</phone>
+<NPR>HC-7649</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Madison</city>
+<name>Meriter Hospital, Inc</name>
+<add>202 S PARK ST</add>
+<zip>53715</zip>
+<phone>(608) 417-6210</phone>
+<NPR>HC-7653</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Madison</city>
+<name>St. Mary&apos;s Hospital</name>
+<add>700 SOUTH PARK ST</add>
+<zip>53715</zip>
+<phone>(608) 251-6100</phone>
+<NPR>HC-7655</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Madison</city>
+<name>University of Wisconsin Hospitals and Clinics Authority</name>
+<add>600 Highland Avenue</add>
+<zip>53792</zip>
+<phone>(608) 263-6400</phone>
+<NPR>HC-7656</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Menomonee Falls</city>
+<name>Community Memorial Hospital of Menomonee Falls, Inc.</name>
+<add>W180 N8085 TOWN HALL RD</add>
+<zip>53051</zip>
+<phone>(262) 251-1000</phone>
+<NPR>HC-7662</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Mequon</city>
+<name>St. Mary&apos;s Hospital Ozaukee, Inc.</name>
+<add>13111 N PORT WASHINGTON RD</add>
+<zip>53097</zip>
+<phone>(262) 243-7300</phone>
+<NPR>HC-7691</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Milwaukee</city>
+<name>Aurora Health Care Metro, Inc.</name>
+<add>2900 W Oklahoma </add>
+<zip>53201</zip>
+<phone>(414) 649-6000</phone>
+<NPR>HC-7675</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Milwaukee</city>
+<name>Aurora Sinai Medical Center</name>
+<add>945 N. 12th St.</add>
+<zip>53233</zip>
+<phone>(414) 647-3000</phone>
+<NPR>AMH-175</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Milwaukee</city>
+<name>Aurora St. Luke&apos;s Medical Center</name>
+<add>3000 W. Montana St.</add>
+<zip>53215</zip>
+<phone>(414) 647-3000</phone>
+<NPR>AMH-176</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Milwaukee</city>
+<name>Columbia St. Mary&apos;s Hospital Milwaukee, Inc</name>
+<add>2323 N. Lake Drive</add>
+<zip>53201</zip>
+<phone>(414) 291-1218</phone>
+<NPR>HC-7677</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Milwaukee</city>
+<name>Froedtert Memorial Lutheran Hospital</name>
+<add>9200 W WISCONSIN AVE</add>
+<zip>53226</zip>
+<phone>(414) 805-3000</phone>
+<NPR>HC-7718</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Neenah</city>
+<name>Theda Care Hospitals</name>
+<add>130 2ND ST</add>
+<zip>54956</zip>
+<phone>(920) 729-3100</phone>
+<NPR>HC-157387</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Oconomowoc</city>
+<name>Oconomowoc Memorial Hospital</name>
+<add>791 E SUMMIT AVE</add>
+<zip>53066</zip>
+<phone>(262) 569-9400</phone>
+<NPR>HC-7685</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Oshkosh</city>
+<name>Mercy Medical Center</name>
+<add>500 S OAKWOOD RD</add>
+<zip>54904</zip>
+<phone>(920) 236-2000</phone>
+<NPR>HC-7689</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Sheboygan</city>
+<name>Aurora Health Care Central Inc</name>
+<add>2629 N 7th Street</add>
+<zip>53083</zip>
+<phone>(920) 451-5000</phone>
+<NPR>HC-7704</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Two Rivers</city>
+<name>Aurora Medical Center of  Manitowoc County, Inc.</name>
+<add>5000 MEMORIAL DR</add>
+<zip>54241</zip>
+<phone>(920) 794-5000</phone>
+<NPR>HC-3840</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>Waukesha</city>
+<name>Waukesha Memorial Hospital</name>
+<add>725 AMERICAN AVE</add>
+<zip>53188</zip>
+<phone>(262) 928-1000</phone>
+<NPR>AMH-181</NPR>
+</center>
+<center>
+<state>WI</state>
+<city>West Allis</city>
+<name>Aurora West Allis Medical Center</name>
+<add>8901 W LINCOLN AVE</add>
+<zip>53227</zip>
+<phone>(414) 328-6000</phone>
+<NPR>HC-7719</NPR>
+</center>
+<center>
+<state>WV</state>
+<city>Charleston</city>
+<name>Charleston Area Medical Center, Inc.</name>
+<add>501 Morris Street</add>
+<zip>25326</zip>
+<phone>(304) 388-6203</phone>
+<NPR>HC-6420</NPR>
+</center>
+<center>
+<state>WV</state>
+<city>Huntington</city>
+<name>St. Mary&apos;s Medical Center</name>
+<add>2900 First Avenue</add>
+<zip>25702</zip>
+<phone>(304) 526-1234</phone>
+<NPR>HC-6434</NPR>
+</center>
+<center>
+<state>WV</state>
+<city>Morgantown</city>
+<name>West Virginia University Hospitals, Inc.</name>
+<add>MEDICAL CENTER DRIVE</add>
+<zip>26506</zip>
+<phone>(304) 598-4000</phone>
+<NPR>HC-6444</NPR>
+</center>
+<center>
+<state>WY</state>
+<city>Casper</city>
+<name>Wyoming Medical Center</name>
+<add>1233 EAST 2ND ST</add>
+<zip>82601</zip>
+<phone>(307) 577-7201</phone>
+<NPR>HC-9339</NPR>
+</center>
+</dataroot>

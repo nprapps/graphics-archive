@@ -1,0 +1,56 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+
+        <div id="res150055846" class="bucketwrap listtext">
+            <div class="bucket">
+                <ul class="edTag">
+                    <li>What's In The Air?</li>
+                    <li>What's In The Water?</li>
+                    <li>Health: Chemicals To Watch</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="res150055812" class="bucketwrap statichtml">
+            <iframe src="frack-air.html" frameborder="none" scrolling="none" style="width:961px; height:620px; border: none;"></iframe>
+        </div>
+
+        <div id="res150055818" class="bucketwrap statichtml">
+            <iframe src="frack-water.html" frameborder="none" scrolling="none" style="width:948px; height:620px; border: none;"></iframe>
+        </div>
+
+        <div id="res150055839" class="bucketwrap statichtml">
+            <iframe src="frack-health.html" frameborder="none" scrolling="none" style="width:948px; height:620px; border: none;"></iframe>
+        </div>
+
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery.js') }}
+    {{ JS.push('js/lib/underscore.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

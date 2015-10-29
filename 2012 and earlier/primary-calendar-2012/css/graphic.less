@@ -1,0 +1,259 @@
+@import "base";
+
+body {
+    width: 948px;
+    margin: 0 auto;
+}
+
+/* TABS */
+#pcTabs ul {
+    clear: both;
+    width: 948px;
+    margin: 0 0 24px 0;
+    padding: 0;
+    list-style-type: none;
+    height: 1%;
+    overflow: hidden;
+
+    li {
+        color: #000;
+        font-size: 12px;
+        font-weight: bold;
+        margin: 0;
+        padding: 21px 0 15px 0;
+        border: 1px solid #B2B2B4;
+        background: none;
+        background-color: #F1F1F1;
+        width: 472px;
+        float: left;
+        text-align: center;
+
+        &.selected { background-color: #FFF; border-bottom: 1px solid #FFF; }
+        &:first-child { border-right: none; }
+        &:hover { cursor: pointer; color: #36C; text-decoration: underline; }
+    }
+}
+
+
+/* PRIMARY CALENDAR */
+h1 {
+    &.pcMonth {
+    	font: bold 18px Georgia, serif;
+    	padding: 15px 0;
+    	margin:  6px 0 0 0;
+    	clear: both;
+    	border-top: 1px solid #e5e5e5;
+
+        &.first {
+        	padding-top: 0;
+        	border-top: none;
+        }
+    }
+}
+
+.pcPrimary {
+	clear: both;
+	height: 1%;
+    overflow: hidden;
+
+    &.last { padding-bottom: 18px; }
+}
+
+.pcDate {
+	width: 57px;
+	float: left;
+	margin: 0 24px 0 0;
+	padding: 3px 0 12px 0;
+	border-top: 5px solid #e5e5e5;
+	text-align: center;
+
+    h3 {
+    	color: #000;
+    	font: normal 24px Georgia, serif;
+    	margin: 0 0 12px 0;
+    }
+
+    p {
+    	color: #555;
+    	font-size: 11px;
+    	line-height: 1.35em;
+    	margin: 0;
+    }
+}
+
+.pcState {
+	border-top: 1px dotted #e5e5e5;
+	padding: 10px 0;
+	float: right; clear: right;
+	width: 867px;
+
+    &.first { border-top: 5px solid #e5e5e5; }
+
+    .wrap {
+    	background: url('http://media.npr.org/news/graphics/2011/12/bg-political-calendar.gif') repeat-y;
+    	float: left;
+    }
+
+    h4 {
+    	width: 138px;
+    	float: left;
+    	font: bold 16px Georgia, serif;
+    	margin: 0 24px 0 0;
+    }
+
+    h5 {
+    	font-size: 12px;
+    	font-weight: normal;
+    	margin: 0 0 6px 0;
+    	color: #999;
+    	text-transform: lowercase;
+    }
+
+    .pcInfo {
+    	width: 219px;
+    	float: left;
+    	margin: 0 24px 0 0;
+    	padding-top: 3px;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+
+            li {
+            	color: #555;
+            	font-size: 13px;
+                margin: 0 0 6px 0;
+            }
+        }
+    }
+
+    .resultsWrap {
+    	width: 462px;
+    	float: left;
+    	padding-top: 3px;
+    	position: relative;
+
+        p { margin: 0; }
+    }
+}
+
+
+/* RESULTS TABLES */
+.elexResultsTable {
+	width: 300px;
+    font: 12px/1.35em Arial, Helvetica, sans-serif;
+    color: #555;
+	float: left;
+    margin-bottom: 0;
+
+    ul,
+    ul li {
+    	margin: 0; padding: 0; list-style: none; text-indent: 0; background: none;
+    }
+
+    ul {
+    	margin-bottom: 3px; float: left; clear: both; position: relative; width: 100%;
+
+        li {
+        	width: 138px; padding: 2px 0;
+
+            &:after {
+            	content: '.'; display: block; height: 0; clear: both; visibility: hidden;
+            }
+
+            &.r4 { position: absolute; top: 0; right: 0; }
+            &.r5 { position: absolute; top: 20px; right: 0; }
+            &.r6 { position: absolute; top: 40px; right: 0; }
+
+            strong {
+            	font-weight: normal; width: 70%; display: block; float: left;
+            }
+            span {
+            	text-align: right; width: 28%; display: block; float: right;
+            }
+        }
+    }
+
+    &.iscalled ul li {
+        strong {
+        	padding-left: 12%;
+            width: 60%;
+        }
+
+        &.winner {
+        	background-color: #f1f1f1;
+
+            strong {
+            	padding-left: 12%;
+                width: 60%;
+            	background: url('http://hosted.ap.org/specials/elections/2006/check.gif') no-repeat left center;
+            }
+
+            strong,
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+
+    p.footnote { display: none; }
+
+    .live & {
+        p.footnote {
+        	color: #999; font-size: 11px; margin: 0 0 3px; clear: both;
+        	display: block;
+
+            .date {
+            	font-size: 11px;
+                font-style: normal;
+            }
+
+            .precincts {
+            	border-left: 1px solid #CCC;
+            	padding-left: 3px;
+            }
+        }
+    }
+}
+
+.resultsWrap {
+    p.tbd {
+    	width: 300px; float: left;
+    	font-style: italic;
+    }
+
+    p.more {
+    	font-size: 12px;
+    	width: 138px;
+    	float: right;
+    	font-weight: bold;
+    	color: #999;
+    	margin: -16px 0 0 0;
+
+        a {
+        	background-color: #e5e5e5;
+        	color: #ccc;
+        	padding: 5px;
+        	border-radius: 3px;
+        	margin-bottom: 3px;
+        	display: block;
+
+            &:link,
+            &:visited {
+            /*	background-color: #EAECF8; */
+            	background-color: #f1f1f1;
+            	color: #36C;
+            }
+
+            &:hover,
+            &:active {
+            	text-transform: underline;
+            }
+        }
+    }
+}
+
+#delegateTracker p {
+	margin: 0 12px 24px 12px;
+}

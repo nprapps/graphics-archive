@@ -1,0 +1,116 @@
+@import "base";
+
+body {
+    width: 948px;
+    margin: 0 auto;
+}
+
+#graphic { margin-bottom: 22px; }
+
+#strokeHeaders {
+	width: 100%;
+	float: left;
+	margin-bottom: 6px;
+}
+#strokeHeaders h4 {
+	padding-left: 16px;
+	width: 190px;
+	float: left;
+	margin: 0;
+	font: bold 14px Georgia, sans-serif;
+	color: #333;
+}
+#strokeCenters	{
+	clear: both;
+	position: relative;
+	width: 948px;
+	height: 404px;
+	background: url('../bg-panels.gif') repeat-y;
+	border-top: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+}
+
+#strokeCenters a:link, #strokeCenters a:visited {
+	color: #36C;
+	text-decoration: none;
+}
+#strokeCenters a:hover, #strokeCenters a:active {
+	color: #36C;
+	text-decoration: underline;
+}
+
+#strokeCenters ul {
+	width: 203px;
+	margin: 0;
+	padding: 2px;
+	list-style: none;
+	height: 400px;
+	overflow: auto;
+}
+
+#strokeCenters li {
+	font: 13px/18px Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 4px 11px;
+}
+#strokeCenters li.active {
+	background-color: #36C;
+	color: #FFF;
+}
+
+#strokeCenters li:hover {
+	color: #FFF;
+	background-color: #36C;
+	cursor: pointer;
+}
+#strokeCenters li.active:hover {
+	background-color: #36F;
+}
+
+#strokeCenters ul.scStates {
+	position:absolute;
+	top: 0;
+	left: 0;
+}
+
+#strokeCenters ul.scCities {
+	position: absolute;
+	top: 0;
+	left: 207px;
+	display: none;
+}
+
+#strokeCenters ul.scCenters {
+	position: absolute;
+	top: 0;
+	left: 414px;
+	display: none;
+}
+
+#strokeCenters .scInfo {
+	height: 386px;
+	width: 303px;
+	position: absolute;
+	top: 0;
+	left: 621px;
+	padding: 8px 12px;
+	display: none;
+}
+
+#strokeCenters .scInfo h4 {
+	margin: 0 0 6px 0;
+	font: bold 14px/14px Arial, Helvetica, sans-serif;
+	color: #000;
+}
+
+#strokeCenters .scInfo p {
+	margin: 0 0 12px 0;
+	font: 13px/18px Arial, Helvetica, sans-serif;
+	color: #333;
+}
+
+#strokeCenters .scInfo .scMap img {
+	width: 300px;
+	height: 250px;
+	border: 1px solid #F7F7F7;
+}

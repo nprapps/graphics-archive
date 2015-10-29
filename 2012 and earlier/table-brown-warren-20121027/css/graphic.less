@@ -1,0 +1,40 @@
+@import "base";
+
+// body { padding-top: 0; }
+
+dl, dt, dd { margin: 0; }
+
+#tblBrownWarren p {
+	font-size: 16px;
+	line-height: 1.5;
+	margin-bottom: 1.3em;
+	color: #111;
+}
+
+#tblBrownWarren dl { width: 100%; }
+#tblBrownWarren dl:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+
+#tblBrownWarren dt { width: 30%; font: bold 13px/1.5em arial, sans-serif; margin-right: 3%; float: left; clear: both; border-top: 1px solid #CCC; padding: 18px 0; text-align: right; }
+#tblBrownWarren dt.category { border-top: 3px solid #000; opacity: 1; color: #333; text-transform: none; }
+#tblBrownWarren dt.hdr { margin-top: -1px; }
+#tblBrownWarren dt strong { font: normal 18px georgia, serif; display: block; margin-bottom: 18px; color: #333; }
+
+#tblBrownWarren dd { width: 30%; float: left; font-size: 13px; line-height: 1.5em; border-top: 1px solid #f1f1f1; padding: 17px 0 18px 0; border-top: 1px solid #CCC; margin-top: 1px; color: #555; }
+#tblBrownWarren dt+dd { margin-right: 3%; }
+#tblBrownWarren dd.category { padding-top: 57px; color: #555; font-weight: normal; text-transform: none; opacity: 1; }
+#tblBrownWarren dd.hdr { border: none; padding-top: 0; margin-top: -1px; }
+#tblBrownWarren dd.hdr strong { display: block; padding-top: 6px; font-size: 13px; color: #333; }
+#tblBrownWarren dd.hdr img { display: block; width: 100%; float: none; }
+
+
+@media only screen and (min-width: 768px) {
+	#tblBrownWarren .category { margin-left: 0; margin-right: 0; }
+	#tblBrownWarren dt.category, #tblBrownWarren dt+dd.category { margin-right: 3%; }
+}
+
+@media only screen and (max-width: 480px) {
+	#tblBrownWarren dt { width: auto; margin-right: 0; float: none; text-align: left; padding-bottom: 0; }
+	#tblBrownWarren dd { width: 47%; border-top: 0; }
+	#tblBrownWarren dt+dd { margin-right: 6%; }
+	#tblBrownWarren dd.category { padding-top: 17px; }
+}

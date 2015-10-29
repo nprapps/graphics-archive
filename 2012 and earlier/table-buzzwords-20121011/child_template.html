@@ -1,0 +1,117 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+
+
+        <div id="debateComparison" class="chart">
+        	<!-- <div class="intro">
+        		<p>A few terms and figures became flash points for later discussion in the first presidential debate between President Obama and Republican challenger Mitt Romney. From Simpson-Bowles (which was mentioned at least eight times) to the much-discussed $716 billion cut in Medicare, the presidential debate and the wider campaign have featured a growing list of devilish details that could use a good footnote. Here's a closer look at a few of these disputed terms that are likely to come up in the vice-presidential debate.</p>
+        	</div> -->
+
+        	<dl>
+        		<dt class="issue">
+        			<h5>The Dispute</h5>
+        			<h3>Tax Cuts</h3>
+        			Romney's plan would amount to a $5 trillion tax cut.
+        		</dt>
+        		<dd class="obama">
+        			<h5>Obama's Take</h5>
+        			&quot;The fact is that if you are lowering the rates the way you describe, Governor, then it is not possible to come up with enough deductions and loopholes that only affect high-income individuals to avoid either raising the deficit or burdening the middle class. It's &mdash; it's math. It's arithmetic.&quot;
+        		</dd>
+        		<dd class="romney">
+        			<h5>Romney's Take</h5>
+        			&quot;I will not under any circumstances, raise taxes on middle-income families. I will lower taxes on middle income families. &hellip;  Let's get to the bottom line. That is, I want to bring down the rates, at the same time lower deductions and exemptions and credits &hellip; so we keep getting the revenue we need. &quot;
+        		</dd>
+        		<dd class="closer">
+        			<h5>A Closer Look</h5>
+        			<strong>$5 trillion:</strong> figure comes from the Obama campaign, which based the claim on an analysis by <a href="http://www.taxpolicycenter.org">The Tax Policy Center</a>. Romney's <a href="http://www.mittromney.com/node/117131">tax plan</a> would reduce marginal tax rates by 20 percent and eliminate other taxes such as the estate tax. Romney says the $5 trillion figure is wrong because tax cuts would be coupled with the elimination of tax exemptions. <br /><br/>
+        			As NPR's John Ydstie <a href="http://www.npr.org/2012/10/04/162320089/romneys-tax-policy-still-has-holes-after-debate">explains</a>, Romney &quot;hasn't said which loopholes and deductions would go away.&quot;<br /><br/>
+        			Fact checkers at PolitiFact call Obama's $5 trillion assertion <a href="http://www.politifact.com/truth-o-meter/statements/2012/oct/04/barack-obama/obama-says-romneys-plan-5-trillion-tax-cut/">half-true</a>, arguing that although Romney hasn't specified the tax deductions, he has always said he would include them in his tax cut plan.
+        		</dd>
+
+
+        		<dt class="issue">
+        			<h5>The Dispute</h5>
+        			<h3>Balanced Budget</h3>
+        			The deficit reduction ideas of the Simpson-Bowles commission should be used.
+        		</dt>
+        		<dd class="obama">
+        			<h5>Obama's Take</h5>
+        			&quot;That's how the &hellip; bipartisan commission that talked about how we should move forward suggested that we have to do it &mdash; in a balanced way with some revenue and some spending cuts. And this is a major difference that Gov. Romney and I have. &hellip; If you take such an unbalanced approach, then that means you are going to be gutting our investments in schools and education.&quot;
+        		</dd>
+        		<dd class="romney">
+        			<h5>Romney's Take</h5>
+        			&quot;What I do is I bring down the tax rates, lower deductions and exemptions   the same idea behind <strong>Bowles-Simpson</strong>, by the way. Get the rates down, lower deductions and exemptions &mdash; to create more jobs, because there's nothing better for getting us to a balanced budget than having more people working, earning more money, paying &mdash; more taxes. That's by far the most effective and efficient way to get this budget balanced.&quot;
+        		</dd>
+        		<dd class="closer">
+        			<h5>A Closer Look</h5>
+        			<strong>The Bowles-Simpson Commission</strong>, a group of Republican and Democratic lawmakers and budget specialists, was created by President Obama and met over many months in 2010.<br /><br/>
+        The commission's final proposal included a mix of spending cuts, tax reductions and big changes to entitlement programs, such as raising the age for Social Security. The commission itself was split on the plan. Rep. Paul Ryan was on the commission and voted against the final proposal.<br /><br/>
+        The authors of the commission <a href="http://www.npr.org/2012/10/07/162461953/as-fiscal-cliff-nears-simpson-bowles-reemerges">spoke with</a> NPR following the first debate.
+
+        		</dd>
+
+
+        		<dt class="issue">
+        			<h5>The Dispute</h5>
+        			<h3>Medicare</h3>
+        			Replacing Medicare with a "voucher" plan
+        		</dt>
+        		<dd class="obama">
+        			<h5>Obama's Take</h5>
+        			&quot;The problem is that because the voucher wouldn't necessarily keep up with health care inflation, it was estimated that this would cost the average senior about $6,000 a year.&quot;
+        		</dd>
+        		<dd class="romney">
+        			<h5>Romney's Take</h5>
+        			&quot;This is an idea that's been around a long time, which is saying, 'Hey, let's see if we can't get competition into the Medicare world so that people can get the choice of different plans at lower cost, better quality. I believe in competition.&quot;
+        		</dd>
+        		<dd class="closer">
+        			<h5>A Closer Look</h5>
+        			An essential part of Rep. Paul Ryan's budget plan is to change the Medicare system so future retirees would chose from the current Medicare system or a private health care provider. As NPR's Scott Horsley <a href="http://www.npr.org/2012/08/17/158966227/obama-romney-must-sell-seniors-on-medicare-plan">explains</a>, the $6,000 cited by Obama comes from a Congressional Budget Office estimate based on health care costs rising faster than what's allotted for private care. Republicans say competition would keep that price in check. Factcheck.org <a href="http://www.factcheck.org/2012/07/no-end-to-end-medicare-claim/">says</a> the $6,000 cost applies to an outdated Ryan budget plan.
+        		</dd>
+
+
+
+
+
+        		<dt class="issue">
+        			<h5>The Dispute</h5>
+        			<h3>Affordable Care Act</h3>
+        			Obama's health care plan cuts $716 billion from Medicare
+        		</dt>
+        		<dd class="obama">
+        			<h5>Obama's Take</h5>
+        			&quot;$716 billion we were able to save from the Medicare program by no longer overpaying insurance companies, by making sure that we weren't overpaying providers. And using that money, we were actually able to lower prescription drug costs for seniors by an average of $600.&quot;
+        		</dd>
+        		<dd class="romney">
+        			<h5>Romney's Take</h5>
+        			&quot;I want to take that $716 billion you've cut and put it back into Medicare. By the way, we can include a prescription program if we need to improve it, but the idea of cutting $716 billion from Medicare to be able to balance the additional cost of &ldquo;Obamacare&rdquo; is, in my opinion, a mistake.&quot;
+        		</dd>
+        		<dd class="closer">
+        			<h5>A Closer Look</h5>
+        			$716 billion is a term debated on both sides. As NPR's Liz Halloran <a href="http://www.npr.org/2012/08/20/159341491/medicare-and-medicaid-how-the-campaigns-differ">explains</a>, the number comes from the CBO, which said repealing Obama's health care plan would increase Medicare costs by $716 billion. So is that a cut to Medicare? It's definitely a reduction in spending. Obama says that's &ldquo;savings&rdquo; achieved by better managing payments to doctors and hospitals. Romney says it's a cut in payments that will drive doctors and hospitals away.
+        		</dd>
+        	</dl>
+
+        </div>
+
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

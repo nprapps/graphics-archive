@@ -1,0 +1,30 @@
+@import "base";
+
+#superdonors { line-height: 1.5; color: #333; }
+
+#superdonors .donor { padding: 30px 0 15px 0; border-top: 2px solid #ebebeb; }
+#superdonors .donor:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+
+#superdonors .pac { width: 138px; float: left; line-height: 1.3; }
+#superdonors .pac img { display: block; margin-bottom: 10px; }
+#superdonors .pac strong { font-size: 14px; display: block; margin-bottom: 5px; }
+#superdonors .pac i { color: #999; font-size: 12px; display: block; font-style: normal; }
+
+#superdonors .donorInfo { margin-left: 162px; }
+#superdonors .donorInfo p { margin: 0 0 20px 0; }
+#superdonors .donorInfo h4 { margin: 0 0 5px 0; text-transform: lowercase; color: #999; font-weight: normal; font-size: 14px; }
+#superdonors .donorInfo ul { margin: 0; padding: 0; list-style-type: none; }
+#superdonors .donorInfo ul li { border-top: 1px solid #ebebeb; padding: 15px 0; margin: 0; }
+#superdonors .donorInfo ul li:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+
+#superdonors .donorInfo ul strong { display: block; margin-bottom: 3px; width: 60%; float: left; }
+#superdonors .donorInfo ul b { display: block; width: 30%; float: right; text-align: right; font-weight: normal; }
+#superdonors .donorInfo ul i { clear: both; width: 100%; display: block; font-size: 12px; color: #999; font-style: normal; }
+
+
+@media only screen and (max-width: 480px) {
+	#superdonors .pac { width: auto; float: none; margin-bottom: 10px; }
+	#superdonors .pac:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+	#superdonors .donorInfo { margin-left: 0; }
+	#superdonors .pac img { float: left; margin-right: 10px; }
+}

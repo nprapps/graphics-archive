@@ -1,0 +1,151 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+
+
+        <div class="chart" id="tissue-prices-general-tissue-parts">
+            <table style="margin-bottom: 25px;">
+
+            	<tr>
+            		<td><img src="http://www.npr.org/news/graphics/2012/07/tissue-prices/skin.gif" width="120" height="100" alt="Photo" /></td>
+            		<td width = "354"><strong>Skin</strong>
+            		<br />Skin grafts are used to replace damaged or missing skin, most commonly to treat burn victims. It can also be used for reconstruction after the surgical removal of diseased organs or skin, such as after a mastectomy, or used for protection from surgical wounds or skin loss. Skin grafts can be used in cosmetic surgery too, plumping up lips or cheeks. The grafts are priced according to the size of the skin piece; prices can range from <span style="color: #11605E;">$90</span> to <span style="color: #11605E;">$16,000.</span></td>
+
+            		<td><img src="http://www.npr.org/news/graphics/2012/07/tissue-prices/bone.gif" width="120" height="100" alt="Photo" /></td>
+            		<td  width = "354"><strong>Bone</strong>
+            		<br />Bones can be used beyond the body part they were taken from. Fragments can repair bone defects or fractures caused by trauma, cancer or infection. They are used to reconstruct limbs, rebuild jaws and spines, or add support to dental procedures such as implants. Bone can also be processed into bone putty, paste or screws to add support or make connections. Bone grafts are priced according to the size and use, from <span style="color: #11605E;">$300</span> to <span style="color: #11605E;">$5,000.</span></td>
+
+
+            	</tr>
+
+            	<tr>
+            		<td><img src="http://www.npr.org/news/graphics/2012/07/tissue-prices/connective-tissue.gif" width="120" height="100" alt="Photo" /></td>
+            		<td width = "354"><strong>Connective Tissue</strong>
+            		<br />Tendons, cartilage and ligaments are among the common forms of connective tissue. Bone and skin are also included in this category. Connective tissue can be used to repair facial deformity and rebuild joints throughout the body. It can help to restore appearance and mobility, and decrease pain.</td>
+
+            		<td><img src="http://www.npr.org/news/graphics/2012/07/tissue-prices/veins.gif" width="120" height="100" alt="Photo" /></td>
+            		<td width = "354"><strong>Veins</strong>
+            		<br />Veins are often used in patients who require heart bypass surgery or have other ailments that cause a decrease in blood flow. A vein transplant can also often help a patient avoid amputation.</td>
+
+            	</tr>
+
+            </table>
+        </div>
+
+
+        <div id="info" style="text-align: center;">
+
+			<div id="title">Your Body For Sale</div>
+			<div id="illustration"><img src="http://www.npr.org/news/graphics/2012/07/tissue-prices/interactive-tissueprices-default-imagev4.gif" alt="default" / ></div>
+			<div id="description">While it is illegal to buy and sell human tissue, fees to recover, sterilize, process, store and transport the tissue can add up. The industry estimates it's worth more than $1 billion a year, and industry experts estimate one body can generate revenues of more than $80,000. Explore how much hospitals and medical facilities pay for individual body parts commonly used for tissue donation.</div>
+		</div>
+
+		<div id="coffin">
+
+			<div class="infoDot d1" onmouseover="onOver('d1')" onmouseout="onOut('d1')" onclick="showInfo('0')">
+
+				<div class="label">Head</div>
+
+			</div>
+
+			<div class="infoDot d2" onmouseover="onOver('d2')" onmouseout="onOut('d2')" onclick="showInfo('1')">
+
+				<div class="label">Neck</div>
+
+			</div>
+
+			<div class="infoDot d3" onmouseover="onOver('d3')" onmouseout="onOut('d3')" onclick="showInfo('2')">
+
+				<div class="label">Shoulder</div>
+
+			</div>
+
+			<div class="infoDot d4" onmouseover="onOver('d4')" onmouseout="onOut('d4')" onclick="showInfo('3')">
+
+				<div class="label"><span id="fixPericardiumText">Pericardium</span></div>
+
+			</div>
+
+			<div class="infoDot d5" onmouseover="onOver('d5')" onmouseout="onOut('d5')" onclick="showInfo('4')">
+
+				<div class="label">Heart valves</div>
+
+			</div>
+
+			<div class="infoDot d6" onmouseover="onOver('d6')" onmouseout="onOut('d6')" onclick="showInfo('5')">
+
+				<div class="label">Arm</div>
+
+			</div>
+
+			<div class="infoDot d7" onmouseover="onOver('d7')" onmouseout="onOut('d7')" onclick="showInfo('6')">
+
+				<div class="label">Chest</div>
+
+			</div>
+
+			<div class="infoDot d8" onmouseover="onOver('d8')" onmouseout="onOut('d8')" onclick="showInfo('7')">
+
+				<div class="label">Pelvis</div>
+
+			</div>
+
+			<div class="infoDot d9" onmouseover="onOver('d9')" onmouseout="onOut('d9')" onclick="showInfo('8')">
+
+				<div class="label">Thigh</div>
+
+			</div>
+
+			<div class="infoDot d10" onmouseover="onOver('d10')" onmouseout="onOut('d10')" onclick="showInfo('9')">
+
+				<div class="label">Knee</div>
+
+			</div>
+
+			<div class="infoDot d11" onmouseover="onOver('d11')" onmouseout="onOut('d11')" onclick="showInfo('10')">
+
+				<div class="label">Lower leg</div>
+
+			</div>
+
+			<div class="infoDot d12" onmouseover="onOver('d12')" onmouseout="onOut('d12')" onclick="showInfo('11')">
+
+				<div class="label">Ankle and foot</div>
+
+			</div>
+
+		</div>
+
+
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery-latest.js') }}
+    {{ JS.push('js/lib/underscore.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+    <script src="https://spreadsheets.google.com/feeds/list/0AviPr2FI0kkLdE42Y0xPLUxURUtyYXRrNDBXYWZZUGc/od6/public/values?alt=json-in-script&amp;callback=loadGSContent" type="text/javascript"></script>
+{% endblock js %}

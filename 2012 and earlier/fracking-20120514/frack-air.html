@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Science and The Shale Gas Conundrum</title>
+		<base target="_blank">
+		<script type="text/javascript" src="js/lib/jquery.js" language="javascript"></script>
+		<link rel="stylesheet" type="text/css" href="css/cssreset-min.css">
+		<link rel="stylesheet" href="css/fracking-air.css" type="text/css" />
+		<link rel="stylesheet" href="css/fracking.css" type="text/css" />
+
+		<script type="text/javascript">
+
+$(document).ready(function() {
+
+
+    //select all the a tag with name equal to modal
+    $('#p0').click(function() { $('#c0').fadeIn("slow");$(".hide").fadeOut("slow"); });
+    $('#p1').click(function() { $('#c1').fadeIn("slow");$(".hide").fadeOut("slow"); });
+    $('#p2').click(function() { $('#c2').fadeIn("slow");$(".hide").fadeOut("slow"); });
+	$('#p3').click(function() { $('#c3').fadeIn("slow");$(".hide").fadeOut("slow"); });
+	$('#p4').click(function() { $('#c4').fadeIn("slow");$(".hide").fadeOut("slow"); });
+	$('#p5').click(function() { $('#c5').fadeIn("slow");$(".hide").fadeOut("slow"); });
+	$('#p6').click(function() { $('#c6').fadeIn("slow");$(".hide").fadeOut("slow"); });
+
+
+    //if close button is clicked
+    $('.popContent .close').click(function (e) {
+        //Cancel the link behavior
+        e.preventDefault();
+        $('.popContent').fadeOut("slow");
+        $(".hide").fadeIn("slow");
+    });
+
+    $('.popContent').click(function () {
+        $(this).fadeOut("slow");
+        $('.popContent').fadeOut("slow");
+        $(".hide").fadeIn("slow");
+    });
+
+
+});
+
+</script>
+
+</head>
+<body>
+<div id="fracking">
+<div id="air"></div>
+	<div id="pins">
+				<div class="pin">
+					 <div id="p0" class="hide" style="width:200px">
+							<div class="pinPlus"></div>
+							<p class="pinTitle">Storing Wastewater</p>
+					</div>
+
+					<div id="c0" class="popContent" style="display:none;">
+						<div class="window">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/air/fracking_holding_pond.jpg"/>
+							<p class="credit">Julia Schmalz/Bloomberg via Getty Images</p>
+							<p>A water storage pond at a frack site in Camptown, Pa.</p></div>
+
+							<h2>Storing Wastewater</h2>
+							<h3>What's In That Pond?  </h3>
+							<p>Millions of gallons of liquid are sent down a well to break open the shale or sandstone and free the natural gas. Eventually, most of that liquid comes back up the well. About 30 percent comes up right away. Some drillers temporarily store that waste fluid in tanks, but some store it in man-made ponds. </p>
+							<p>Chemicals in the fluid include <a href="http://toxics.usgs.gov/definitions/vocs.html">volatile organic compounds</a> (VOCs), which can quickly become gases and escape into the atmosphere. And some VOCs can be toxic when you breathe them in.</p>
+							<p>Chemicals in the waste fluid can also react with each other or with chemicals in the air to create things like ozone, as well as unknown substances.</p>
+							<p>One of the big research questions is: What happens when all of these chemicals from the ponds mix together in the air? Could they make people living nearby sick?</p>
+
+						</div>
+					</div>
+
+				</div>
+
+				<div class="pin">
+					<div id="p1" class="hide" style="width:180px">
+						<div class="pinPlus"></div>
+						<p class="pinTitle">Gas Pipelines</p>
+					</div>
+
+					<div id="c1" class="popContent" style="display:none;">
+						<div class="window">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/air/FRACKING_EXTRAS_03.jpg"/>
+							<p class="credit">David Gilkey/NPR</p>
+							<p>A natural gas pipeline near a compressor station in Dish, Texas.</p></div>
+
+							<h2>Gas Pipelines</h2>
+							<h3>How Much Pollution? </h3>
+							<p>Natural gas has to be highly pressurized to travel through pipelines. So at regular intervals, pipelines enter compressors of various sizes to get a pressure boost.</p>
+							<p><a href="http://www.npr.org/2011/06/21/137197991/air-quality-concerns-threaten-natural-gas-image">Compressors</a> can be powered by diesel or natural gas generators, or hooked up to the electrical grid. They emit nitrogen oxides and volatile organic compounds, both of which contribute to smog.</p>
+							<p>Pollution controls can reduce some of those emissions, but no one is sure how much pollution is coming off of the equipment. There are estimates, but companies aren't required to take direct measurements.</p>
+							<p><a href="http://www.npr.org/2012/04/18/150891876/new-rules-to-curb-pollution-from-oil-gas-drilling">New EPA rules</a> will require controls for many new compressors, but not the thousands of existing machines.</p>
+						</div>
+					</div>
+				</div>
+
+				<!--<div class="pin">
+					<div id="p2" class="hide" style="width:160px">
+						<div class="pinPlus"></div>
+						<p class="pinTitle">Trucking</p>
+					</div>
+
+					<div id="c2" class="popContent" style="display:none;">
+						<div class="window">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/air/FRACKING_EXTRAS_03.jpg"/>
+							<p class="credit">David Gilkey/NPR</p>
+							<p>Natural gas pipeline near a compressor station in Dish, TX.</p></div>
+
+							<h3>Can the frack fluid cause long term damage to people and the environment? </h3>
+							<p>The ingredient list for frack fluid has been one of the most controversial issues surrounding shale gas. It makes people uneasy that the industry refuses to tell them what exactly is in the million gallons of fluid they use to create a well. Frack fluid is mix of water, sand and chemicals pumped at high pressure down a well shaft to open up cracks in the shale. The sand helps keep the cracks open so the gas can continue to flow out. The chemicals DO THINGS LIKE W. Frack fluid is 98 percent water. But in a couple million gallons of water used on a single well, that can add up to WHAT AMOUNT OF CHEMICALS.. Additives range from substances found in household chemicals, like the antifreeze ingredient ethylene glycol, to corrosive substances like sulfuric acid, to carcinogens like benzene. The industry is increasingly revealing what's in the frack fluid, but some ingredients remain protected by law as trade secrets. The concern is what damage?</p>
+						</div>
+					</div>
+				</div>-->
+
+				<div class="pin">
+					<div id="p3" class="hide" style="width:160px">
+						<div class="pinPlus"></div>
+						<p class="pinTitle">Flaring Gas</p>
+					</div>
+
+					<div id="c3" class="popContent" style="display:none;">
+						<div class="window">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/air/COLORADO_FRAC_28.jpg"/>
+							<p class="credit">David Gilkey/NPR</p>
+							<p>Near a pasture in Parachute, Colo., natural gas is burned off in a flare.</p></div>
+
+							<h2>Flaring Gas</h2>
+							<h3>What's In That Flare?  </h3>
+							<p>Once the well has been drilled and fractured, gas and fluids start rushing back up the well. Some companies capture the gas; others burn it off or vent it until they're ready to funnel the gas into a pipeline. During this phase, the potent greenhouse gas methane escapes into the air, as well as toxic compounds such as benzene. </p>
+							<p>The industry isn't required to monitor how much of these pollutants come out of wells. Studies suggest this could potentially be a big source of pollution, especially when all of the wells across the country are added up.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="pin">
+					<div id="p4" class="hide" style="width:170px">
+						<div class="pinPlus"></div>
+						<p class="pinTitle">Storage Tanks</p>
+					</div>
+
+					<div id="c4" class="popContent" style="display:none;">
+						<div class="window">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/air/DISH_TX_FRAC_101.jpg"/>
+							<p class="credit">David Gilkey/NPR</p>
+							<p>A tank holds gas and liquids at a well in Dish, Texas.</p></div>
+
+							<h2>Storage Tanks</h2>
+							<h3>Are There Leaks? </h3>
+							<p>After a well has been hooked up to the gas pipeline, liquids from the well are sent to a storage tank at the site. Methane gas and volatile organic compounds (VOCs) can leak out of the tank's hatch. </p>
+							<p>Some companies capture the escaping emissions or burn them to make them less harmful. But these pollution controls vary by state, even by county. VOCs and methane also escape through instruments on storage tanks. New EPA rules require companies to cut pollution at new tanks by 95 percent starting in 2013.</p>
+							<p>VOCs contribute to smog, which irritates lungs. Methane is a potent greenhouse gas. In most cases, companies are not required to measure pollution from these tanks, but special infrared video cameras are sometimes used to find leaks.</p>
+							<p><a href="http://fracfocus.org/regulations-state">List of State Regulations</a></p>
+						</div>
+					</div>
+				</div>
+
+				<div class="pin">
+					<div id="p5" class="hide" style="width:160px">
+						<div class="pinPlus"></div>
+						<p class="pinTitle">DIESEL EXHAUST</p>
+					</div>
+
+					<div id="c5" class="popContent" style="display:none;">
+						<div class="window">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/air/FRACKING_EXTRAS_07.jpg"/>
+							<p class="credit">David Gilkey/NPR</p>
+							<p>Diesel engines pump high-pressure water during fracking operations in Pennsylvania.</p></div>
+
+							<h2>Diesel Exhaust</h2>
+							<h3>How Much Diesel Exhaust Is There?</h3>
+							<p>Diesel engines are the main source of power during the construction and fracking of a well. They power the machines that drill the well, pump the frack fluid and compress the gas to shoot it through pipelines. </p>
+							<p>Fleets of diesel trucks also make hundreds of trips to haul equipment and frack water to and from the well pad.</p>
+							<p>Long-term exposure to <a href="http://cfpub.epa.gov/ncea/cfm/recordisplay.cfm?deid=29060">diesel exhaust</a> has been linked to cancer, asthma attacks and other health effects. Researchers don't yet know how much exhaust people working at the sites or living nearby are exposed to over time.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="pin">
+					<div id="p6" class="hide" style="width:160px">
+						<div class="pinPlus"></div>
+						<p class="pinTitle">Living Nearby </p>
+					</div>
+
+					<div id="c6" class="popContent" style="display:none;">
+						<div class="window">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/air/DISH_TX_FRAC_055.jpg"/>
+							<p class="credit">David Gilkey/NPR</p>
+							<p>A natural gas well outside a home in Dish, Texas.</p></div>
+
+							<h2>Living Nearby </h2>
+							<h3>What Are People Being Exposed To? </h3>
+							<p>Gas production emits a number of pollutants that can cause cancer -- things like diesel exhaust, nitrogen oxides, benzene and formaldehyde. It's a considerable list of potential health hazards. </p>
+							<p>But whether someone would get sick depends on how much and for how long a person is exposed to these emissions. Researchers know children, elderly people, and people with compromised immune systems or lung ailments are more vulnerable to air pollutants.</p>
+							<p>There <a href="http://ehp03.niehs.nih.gov/article/info%3Adoi%2F10.1289%2Fehp.1104594">aren't yet any conclusive studies</a> detailing what people living near gas infrastructure may be exposed to, or what the potential health effects could be.</p>
+
+						</div>
+					</div>
+				</div>
+		</div>
+</div>
+</body>
+</html>

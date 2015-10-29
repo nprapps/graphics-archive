@@ -1,0 +1,23 @@
+#water {background: url('http://media.npr.org/news/graphics/2012/04/fracking/images/water/water-panel.jpg') no-repeat;width: 100%; height: 600px; position: relative;}
+
+#p0{position:absolute;top: 229px; left: 66px;}
+#p1{position:absolute;top: 390px; left: 240px;}
+#p2{position:absolute;top: 299px; left: 240px;}
+#p3{position:absolute;top: 295px; left: 440px;}
+#p4{position:absolute;top: 310px; left: 665px;}
+#p5{position:absolute;top: 259px; left: 765px;}
+#inactive0{position:absolute; top: 500px; left: 100px;}
+#inactive1{position:absolute; top: 350px; left: 10px;}
+
+#inactive0, #inactive1{
+	padding:5px;
+	font:11px arial, sans-serif; 
+	font-weight:bold; 
+	text-transform:uppercase;
+	color:#ffffff;
+	float:left; 
+	position:absolute;
+	background:#333333;
+	opacity:.8;
+	text-align:right;
+	}

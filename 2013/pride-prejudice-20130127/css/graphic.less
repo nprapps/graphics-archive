@@ -1,0 +1,96 @@
+@import "base";
+
+#storytext { margin-bottom: 0; }
+
+#pride-prejudice:after,
+#pride-prejudice .pride-header:after,
+#pride-prejudice .pride-cast:after {
+	visibility: hidden; display: block; content: ""; clear: both; height: 0;
+}
+
+#pride-prejudice .pride-header {
+	padding-bottom: 11px;
+	width: 100%;
+}
+#pride-prejudice .pride-seal { width: 15%; float: left; }
+#pride-prejudice .pride-title { width: 60%; float: left; }
+#pride-prejudice .pride-credit { width: 20%; float: right; margin-top: 5%; }
+#pride-prejudice .pride-quote { width: 100%; clear: both; margin: 10px 0; }
+#pride-prejudice .pride-quote-small { width: 100%; clear: both; margin: 10px 0; display:none; }
+#pride-prejudice .pride-cast { margin-bottom:15px; }
+
+#pride-prejudice .pride-cast-member {
+	float: left;
+	width: 25%;
+	height: auto;
+}
+#pride-prejudice .pride-panel { float: left; width: 33%; }
+#pride-prejudice .pride-panel-4,
+#pride-prejudice .pride-panel-7,
+#pride-prejudice .pride-panel-10,
+#pride-prejudice .pride-panel-13,
+#pride-prejudice .pride-panel-16 { clear: both; }
+
+
+#pride-prejudice .pride-header img,
+#pride-prejudice .pride-cast-member img,
+#pride-prejudice .pride-panel img {
+	width: 100%;
+	height: auto;
+}
+
+@media (min-width: 768px) {
+}
+@media (min-width: 1025px) {
+	#supplementarycontent #con170259618 { width: 83.33333%; }
+}
+@media (min-width: 1201px) {
+}
+@media (min-width: 1494px) {
+	#pride-prejudice .pride-panel { width: 25%; }
+	#pride-prejudice .pride-panel-4,
+	#pride-prejudice .pride-panel-7,
+	#pride-prejudice .pride-panel-10,
+	#pride-prejudice .pride-panel-13,
+	#pride-prejudice .pride-panel-16 { clear: none; }
+	#pride-prejudice .pride-panel-5,
+	#pride-prejudice .pride-panel-9,
+	#pride-prejudice .pride-panel-13,
+	#pride-prejudice .pride-panel-17 { clear: left; }
+}
+
+
+@media (max-width: 979px) {
+}
+@media (max-width: 767px) {
+	#pride-prejudice .pride-seal { width: 17%; }
+	#pride-prejudice .pride-title { width: 83%; }
+	#pride-prejudice .pride-credit { width: 30%; float: none; clear: both; margin: 0; }
+	#pride-prejudice .pride-panel { width: 50%; }
+	#pride-prejudice .pride-panel-4,
+	#pride-prejudice .pride-panel-7,
+	#pride-prejudice .pride-panel-10,
+	#pride-prejudice .pride-panel-13,
+	#pride-prejudice .pride-panel-16 { clear: none; }
+	#pride-prejudice .pride-panel-3,
+	#pride-prejudice .pride-panel-5,
+	#pride-prejudice .pride-panel-7,
+	#pride-prejudice .pride-panel-9,
+	#pride-prejudice .pride-panel-11,
+	#pride-prejudice .pride-panel-13,
+	#pride-prejudice .pride-panel-15,
+	#pride-prejudice .pride-panel-17 { clear: left; }
+}
+@media (max-width: 690px) {
+	#pride-prejudice .pride-seal { width: 35%; float: none; margin: 0 auto; }
+	#pride-prejudice .pride-title { width: 100%; float: none; margin: 0 auto; }
+	#pride-prejudice .pride-credit { width: 190px; }
+	#pride-prejudice .pride-cast-member { width: 49%; }
+	#pride-prejudice .pride-cast-3 { clear: both; }
+    #pride-prejudice .pride-quote { display:none; }
+    #pride-prejudice .pride-quote-small { display:block; }
+
+}
+@media (max-width: 480px) {
+	#pride-prejudice .pride-panel { width: 100%; }
+}

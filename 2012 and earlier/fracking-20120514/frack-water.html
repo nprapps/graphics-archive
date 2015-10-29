@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Science and The Shale Gas Conundrum</title>
+		<base target="_blank">
+		<script type="text/javascript" src="js/lib/jquery.js" language="javascript"></script>
+		<link rel="stylesheet" type="text/css" href="css/cssreset-min.css">
+		<link rel="stylesheet" href="css/fracking-water.css" type="text/css" />
+		<link rel="stylesheet" href="css/fracking.css" type="text/css" />
+
+		<script type="text/javascript">
+
+$(document).ready(function() {
+
+
+    //select all the a tag with name equal to modal
+    $('#p0').click(function() { $('#c0').fadeIn("slow");$(".hide").fadeOut("slow"); });
+    $('#p1').click(function() { $('#c1').fadeIn("slow");$(".hide").fadeOut("slow"); });
+    $('#p2').click(function() { $('#c2').fadeIn("slow");$(".hide").fadeOut("slow"); });
+	$('#p3').click(function() { $('#c3').fadeIn("slow");$(".hide").fadeOut("slow"); });
+	$('#p4').click(function() { $('#c4').fadeIn("slow");$(".hide").fadeOut("slow"); });
+	$('#p5').click(function() { $('#c5').fadeIn("slow");$(".hide").fadeOut("slow"); });
+	$('#p6').click(function() { $('#c6').fadeIn("slow");$(".hide").fadeOut("slow"); });
+
+
+    //if close button is clicked
+    $('.popContent .close').click(function (e) {
+        //Cancel the link behavior
+        e.preventDefault();
+        $('.popContent').fadeOut("slow");
+        $(".hide").fadeIn("slow");
+    });
+
+    $('.popContent').click(function () {
+        $(this).fadeOut("slow");
+        $('.popContent').fadeOut("slow");
+        $(".hide").fadeIn("slow");
+    });
+
+
+});
+
+</script>
+
+</head>
+<body>
+<div id="fracking">
+	<div id="water"></div>
+	<div id="pins">
+				<div class="pin">
+					 <div id="p0" class="hide" style="width:160px">
+							<div class="pinPlus"></div>
+							<p class="pinTitle">Storing Waste</p>
+					</div>
+
+					<div id="c0" class="popContent" style="display:none;">
+						<div class="window">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/water/FRACKING_PA54.jpg"/>
+							<p class="credit">David Gilkey/NPR</p>
+							<p>A byproduct of fracking is a thick, muddy liquid called "flowback." It's a mix of water, chemicals and minerals.</p></div>
+
+							<h2>Storing Waste</h2>
+							<h3>What Do You Do With Polluted Wastewater?  </h3>
+							<p>Millions of gallons of water are held in a storage pond until they're mixed with sand and chemicals, and pumped down the well to burst open shale. About 30 percent of what's sent down a well comes back up within a month.  A good deal of the rest may come up over a period of years. But the fluid coming back up may have absorbed salts and heavy metals found deep underground, making it even dirtier.</p>
+							<p>Early on, a big question was what to do with all that leftover liquid. These days, much of it is temporarily stored in ponds or tanks, until it is shipped to other wells to be reused. Some of it may be pumped into underground <a href="http://water.epa.gov/type/groundwater/uic/class2/">disposal wells</a> -- which have been linked to <a href="http://www.npr.org/2012/04/12/150460029/scientists-link-rise-in-quakes-to-waste-water-wells">earthquakes</a>. </p>
+							<p>There are still unanswered questions. How many times can you reuse waste fluid before it becomes too corrosive for the well? And years down the road, when there are no more wells to be fracked, what do you do with all the waste liquid?</p>
+
+						</div>
+					</div>
+
+				</div>
+
+				<div class="pin">
+					<div id="p1" class="hide" style="width:160px">
+						<div class="pinPlus"></div>
+						<p class="pinTitle">Well Construction</p>
+					</div>
+
+					<div id="c1" class="popContent center" style="display:none;">
+						<div class="window narrow">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/water/shell-casing.png"/>
+							<p class="credit">Penn State Public Broadcasting</p>
+							<p>A cross-section of well casing shows layers of protective steel and concrete.</p></div>
+							<div class="popText">
+
+							<h2>Well Construction</h2>
+							<h3>Are Gas And Fluids Leaking From The Well Shaft? </h3>
+							<p>Wells are drilled with a number of <a href="http://www.api.org/policy-and-issues/policy-items/exploration/hydraulic-fracturing-well-construction.aspx">safety measures</a> to protect local water supplies. The steel pipe that lines the well shaft is much thicker near the surface than it is deep underground, and the outside of the pipe must be sealed with concrete both above and below the water table.</p>
+							<p>Nevertheless, flaws in construction do occur, and the layers around the well shaft can become damaged over time. A leak in these barriers could allow methane, frack fluid or salty brine from deep underground to contaminate the water table surrounding it.</p>
+							<p>Right now, there isn't a lot of monitoring of water tables or waterways that could spot potential pollution from leaks.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="pin">
+					<div id="p2" class="hide" style="width:160px">
+						<div class="pinPlus"></div>
+						<p class="pinTitle">Fracking a well</p>
+					</div>
+
+					<div id="c2" class="popContent" style="display:none;">
+						<div class="window">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/water/FRACKING_PA63.jpg"/>
+							<p class="credit">David Gilkey/NPR</p>
+							<p>Pipes channel water and chemicals into a shale gas well during a frack in Pennsylvania.</p></div>
+
+							<h2>Fracking a Well</h2>
+							<h3>What's In The Frack Fluid? </h3>
+							<p>The ingredient list for frack fluid has been one of the most controversial issues surrounding shale gas production. It makes people uneasy that the industry refuses to say what exactly is in it.</p>
+							<p>In general, it's a mix of water, sand and chemicals that's pumped at high pressure down a well shaft to open up cracks in sandstone or shale. The sand helps keep the cracks open so the gas can continue to flow out. The chemicals do things like lubricate the well or break down minerals.</p>
+							<p>Frack fluid is 98 percent water. But a single well requires a couple of million gallons of water -- and that can add up to tens of thousands of gallons of chemicals. <a href="http://www.propublica.org/special/what-the-frack-is-in-that-water">Additives</a> range from substances found in household chemicals, like the antifreeze ingredient ethylene glycol, to corrosive substances like sulfuric acid, to carcinogens like benzene. The industry is increasingly <a href="http://fracfocus.org/">revealing what's in the frack fluid</a>, but some ingredients remain protected by law as trade secrets.</p>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="pin">
+					<div id="p3" class="hide" style="width:160px">
+						<div class="pinPlus"></div>
+						<p class="pinTitle">Drinking Water</p>
+					</div>
+
+					<div id="c3" class="popContent" style="display:none;">
+						<div class="window">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket special"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/water/well-enlarge.jpg"/>
+							<p class="credit">Penn State Public Broadcasting</p>
+							<p>Shale is fractured deep underground, but water returning to the surface could escape through flaws in well construction.</p></div>
+
+							<h2>Drinking Water</h2>
+							<h3>Are Shale Gas Wells Contaminating Backyard Water Wells? </h3>
+							<p>Shale gas wells are sometimes as close as 150 feet to a house.</p>
+							<p>Especially around Pennsylvania's Marcellus Shale, people <a href="http://www.propublica.org/article/so-is-dimocks-water-really-safe-to-drink">claim</a> that the creation of these wells has somehow contaminated their backyard water wells. They say that when they turn on their kitchen sinks, their houses fill with a smell -- or that the water is so polluted they can ignite it with a match.</p>
+							<p>The fractures that release the natural gas are created a mile underground. Industry and the government think it's unlikely that gas or fluids are migrating a mile up through rock to contaminate water supplies. If there is contamination, it's more likely coming from flaws in the well shaft construction closer to the surface. </p>
+							<p>Well water contamination is <a href="http://www.npr.org/2011/08/02/138820966/worries-over-water-as-natural-gas-fracking-expands">difficult to prove</a>, however. One way to test the connection would be to compare the pollutants in water before and after drilling began. Right now, the industry isn't required to sample local water before work begins.</p>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="pin">
+					<div id="p4" class="hide" style="width:170px">
+						<div class="pinPlus"></div>
+						<p class="pinTitle">Sharing Water</p>
+					</div>
+
+					<div id="c4" class="popContent" style="display:none;">
+						<div class="window">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/water/COLORADO_FRAC_30.jpg"/>
+							<p class="credit">David Gilkey/NPR</p>
+							<p>A mass of blue containers store water at a fracking site near the town of Silt, Colo.</p></div>
+
+							<h2>Sharing Water</h2>
+							<h3>Is There Enough Water To Go Around? </h3>
+							<p>The amount of water used to frack a single well would fill about eight Olympic swimming pools. In states like Pennsylvania that are rich with rivers, streams and lakes, that's not a problem. </p>
+							<p>But it's another story in drought-prone places like Texas and Colorado. Hydraulic fracturing puts additional strain on a water supply already taxed by agriculture, other industries and residential use.</p>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="pin">
+					<div id="p5" class="hide" style="width:160px">
+						<div class="pinPlus"></div>
+						<p class="pinTitle">Trucking Water</p>
+					</div>
+
+					<div id="c5" class="popContent" style="display:none;">
+						<div class="window">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/water/COLORADO_FRAC_69.jpg"/>
+							<p class="credit">David Gilkey/NPR</p>
+							<p>A tanker truck carries water in Garfield County, Colo.</p></div>
+
+							<h2>Trucking Water</h2>
+							<h3>Collateral Damage? </h3>
+							<p>Sometimes pipelines are used to move water around, but usually it's a long line of trucks carrying water from the source, like a river, to the well pads or disposal sites.</p>
+							<p>Hundreds of trips may be required for each well, which are often located near homes in rural and suburban areas. All this traffic can damage roads, increase congestion and raise the risk of accidents &mdash; including spills of contaminated water.</p>
+						</div>
+					</div>
+
+			<div class="pin">
+					<div id="inactive0">
+						<p>Water Table</p>
+					</div>
+				</div>
+			<div class="pin">
+					<div id="inactive1">
+						<p><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/arrow.png"/> Shale Layer, 1 Mile Down <img src="http://media.npr.org/news/graphics/2012/04/fracking/images/arrow.png"/></p>
+					</div>
+			</div>
+
+				</div>
+		</div>
+</div>
+</body>
+</html>

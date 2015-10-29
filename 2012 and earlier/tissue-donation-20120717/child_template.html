@@ -1,0 +1,64 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+
+        <div id="nukeDailyNav">
+        	<div class="nukeNavButtons">
+        		<span id="nukeBack">back</span>
+        		<span id="nukeNext">next</span>
+        	</div>
+        	<h1>Differences Between Tissue And Organ Donation</h1>
+        </div>
+
+        <div id="nukeDaily">
+        	<div class="nukeWrapper">
+
+        		<div class="update">
+        			<img src="http://www.npr.org/news/graphics/2012/07/tissue-organ/gr-tissuebasics-624.gif" alt="tissue and organ donation intro" />
+        		</div>
+
+        		<div class="update">
+        			<img src="http://www.npr.org/news/graphics/2012/07/tissue-organ/gr-tissuedata-624.gif" alt="tissue and organ donation data" />
+        		</div>
+
+        		<div class="update">
+        			<img src="http://www.npr.org/news/graphics/2012/07/tissue-organ/gr-tissuedata2-624.gif" alt="transplant differences" />
+        		</div>
+
+        		<div class="update">
+        			<img src="http://www.npr.org/news/graphics/2012/07/tissue-organ/gr-tissueregs-624.gif" alt="regulation differences" />
+        		</div>
+
+        	</div>
+        </div>
+
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery.js') }}
+    {{ JS.push('js/lib/underscore.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

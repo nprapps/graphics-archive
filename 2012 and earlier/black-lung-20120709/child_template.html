@@ -1,0 +1,94 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+
+        <div id="blackLung">
+
+        	<p>An <a href="http://www.npr.org/templates/story/story.php?storyId=155978300">investigation</a> by NPR and the Center for Public Integrity found federal regulators and the mining industry are failing to protect miners from the excessive toxic coal mine dust that causes black lung. The disease is now being diagnosed in younger miners and evolving more quickly to complicated stages.</p>
+
+        	<div class="blackLungSection">
+        		<h3>Progression Of The Disease</h3>
+        		<div class="blackLungBlock">
+        			<div class="col1">
+        				<img src="http://media.npr.org/news/graphics/2012/07/black-lung/lung-healthy.jpg?s=1" alt="Photo of a healthy lung">
+        				<h4>Healthy lung</h4>
+        			</div>
+        			<div class="col2">
+        				<img src="http://media.npr.org/news/graphics/2012/07/black-lung/lung-early.jpg?s=1" alt="Photo of a lung in the early stages of 'black lung'">
+        				<h4>Early stages</h4>
+        			</div>
+        			<div class="col3">
+        				<img src="http://media.npr.org/news/graphics/2012/07/black-lung/lung-late.jpg?s=1" alt="Photo of a lung in in the late stages of 'black lung'">
+        				<h4>Late stages</h4>
+        			</div>
+        			<p>Coal workers' pneumoconiosis, or black lung, is a disease caused by inhaling coal mine dust. The advanced form, referred to as complicated, is also known as progressive massive fibrosis. The accumulation of the dust particles in the lungs causes breathing complications. Those diagnosed with the simple form of the disease may not notice any symptoms, but as the disease progresses, a cough and shortness of breath develops, as well as moderate to severe airway obstruction, decreasing quality of life. The disease is diagnosed through chest X-rays and breathing tests.</p>
+        			<p class="source"><em>Source: WebMd.com. Images: NIOSH</em></p>
+        		</div>
+        	</div>
+
+        	<div class="blackLungSection">
+        		<h3>Black Lung Costs Taxpayers Billions</h3>
+        		<div class="blackLungBlock collapse">
+        			<p>Miners diagnosed with coal workers' pneumoconiosis are eligible for compensation. Coal mining companies routinely challenge diagnoses, but since 1970, government and industry have paid out more than $45 billion in compensation (through FY 2011):</p>
+        			<div class="col1">
+        				<h4 class="blNum">$29 billion</h4>
+        				<p>Black lung benefits paid directly from the federal Treasury</p>
+        			</div>
+        			<div class="col2">
+        				<h4 class="blNum">$16 billion</h4>
+        				<p>Benefits from the Black Lung Disability Trust Fund, which is funded by excise taxes on coal</p>
+        			</div>
+        			<div class="col3">
+        				<h4 class="blNum">$97 million</h4>
+        				<p>Estimated benefits paid directly by coal companies or their insurers in just the last three years, not including medical benefits</p>
+        			</div>
+        			<p class="source"><em>Source: Mine Safety and Health Administration</em></p>
+        		</div>
+        	</div>
+
+
+        	<div class="blackLungSection">
+        		<h3>Why Is It Coming Back?</h3>
+        		<div class="blackLungBlock collapse">
+        			<div class="col1">
+        				<h4>Government And Industry Failures</h4>
+        				<p>Strict limits on coal dust exposure were set in 1969, but loopholes permit companies to expose miners to excessive dust. Compliance depends on the industry's self-policing, but enforcement is mixed and many miners report routine manipulation of sampling that fools federal inspectors.
+
+        </p>
+        			</div>
+        			<div class="col2">
+        				<h4>Increased Hours And Production Pressure</h4>
+        				<p>Greater demand and higher coal prices forced miners to work harder and longer. The average workweek grew 11 hours in the last 30 years. In 2010, production was triple what it was when new coal dust limits were put in place.</p>
+        			</div>
+        			<div class="col3">
+        				<h4>Efficient Technology</h4>
+        				<p><a href="http://www.iwatchnews.org/2012/07/06/9329/infographic-how-modern-mining-machines-work">Mining machines</a> are more powerful and efficient, cutting through coal seams laced with the more toxic silica-bearing quartz and sandstone.</p>
+
+        				<p class="sublink"><a href="http://www.iwatchnews.org/2012/07/06/9329/infographic-how-modern-mining-machines-work" class="infographic">GRAPHIC: How Mining Machines Work</a></p>
+
+        			</div>
+        		</div>
+        	</div>
+
+        </div>
+
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

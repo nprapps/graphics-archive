@@ -1,0 +1,46 @@
+
+.tl {
+    min-height: 100px;
+    outline: 1px solid black;
+    overflow: auto;
+    position: relative;
+}
+
+.tl-track {
+    min-height: 10px;
+}
+
+.tl-item {
+    font-size: 10px;
+    background: beige;
+    box-shadow: 0px -1px 1px white;
+    position: absolute;
+    left: 0;
+    width: 90%;
+    border-radius: 6px;
+    margin-left: 5px;
+    overflow: hidden;
+}
+.tl-time {
+    display: inline;
+    float: right;
+    padding-right: 8px
+}
+.tl-text {
+    display: inline;
+    padding-right: 8px
+}
+
+.tl-item:hover {
+    /*background: rgba(255, 255, 0, 0.2);*/
+    color: black;
+}
+.tl-item.active  {
+    background: rgba(255, 255, 0, 0.7);
+}
+.tl-item.active .tl-text {
+    color: black;
+}
+.tl-item.last {
+    background: rgba(255, 255, 0, 0.7);
+}

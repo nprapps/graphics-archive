@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Science and The Shale Gas Conundrum</title>
+		<base target="_blank">
+		<script type="text/javascript" src="js/lib/jquery.js" language="javascript"></script>
+		<link rel="stylesheet" type="text/css" href="css/cssreset-min.css">
+		<link rel="stylesheet" href="css/fracking-health.css" type="text/css" />
+		<link rel="stylesheet" href="css/fracking.css" type="text/css" />
+
+		<script type="text/javascript">
+
+$(document).ready(function() {
+
+
+    //select all the a tag with name equal to modal
+    $('#p0').click(function() { $('#c0').fadeIn("slow");$(".hide").fadeOut("slow"); });
+    $('#p1').click(function() { $('#c1').fadeIn("slow");$(".hide").fadeOut("slow"); });
+    $('#p2').click(function() { $('#c2').fadeIn("slow");$(".hide").fadeOut("slow"); });
+	$('#p3').click(function() { $('#c3').fadeIn("slow");$(".hide").fadeOut("slow"); });
+	$('#p4').click(function() { $('#c4').fadeIn("slow");$(".hide").fadeOut("slow"); });
+	$('#p5').click(function() { $('#c5').fadeIn("slow");$(".hide").fadeOut("slow"); });
+	$('#p6').click(function() { $('#c6').fadeIn("slow");$(".hide").fadeOut("slow"); });
+	$('#p7').click(function() {
+	$('#c7').fadeIn("slow");$(".hide").fadeOut("slow"); });
+
+
+    //if close button is clicked
+    $('.popContent .close').click(function (e) {
+        //Cancel the link behavior
+        e.preventDefault();
+        $('.popContent').fadeOut("slow");
+        $(".hide").fadeIn("slow");
+    });
+
+    $('.popContent').click(function () {
+        $(this).fadeOut("slow");
+        $('.popContent').fadeOut("slow");
+        $(".hide").fadeIn("slow");
+    });
+
+
+});
+
+</script>
+
+</head>
+<body>
+<div id="fracking">
+	<div id="health"></div>
+	<div id="pins">
+				<div class="pin">
+					 <div id="p0" class="hide" style="width:200px">
+							<div class="pinPlus"></div>
+							<p class="pinTitle">Nitrogen Oxides </p>
+					</div>
+
+					<div id="c0" class="popContent" style="display:none;">
+						<div class="window">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/health/DISH_TX_FRAC_114.jpg"/>
+							<p class="credit">David Gilkey/NPR</p>
+							<p>Pipelines usually run underground, but they periodically surface and connect to compressor stations, which repressurize the natural gas to keep it moving through the pipeline.</p></div>
+
+							<h2>Nitrogen Oxides </h2>
+							<h3>Are They Contributing To Lung Problems?</h3>
+							<p>Compressors pressurize and push gas through pipelines. In some places they're located inside buildings, which cuts down the noise but doesn't necessarily cut down on pollution.</p>
+							<p>The engines that power compressors and the trucks and heavy equipment used in gas production all release gases known as nitrogen oxides. These gases can irritate the lungs of healthy people and worsen breathing problems in people with asthma.</p>
+							<p>Nitrogen oxides can also react with other things in the air to form small particles that are dangerous for people with bronchitis, emphysema and heart disease.</p>
+							<p>Studies show that emergency room visits, hospital admissions, heart attacks and even deaths are more common when there are high levels of nitrogen oxides in the air.</p>
+
+						</div>
+					</div>
+
+				</div>
+
+				<!--<div class="pin">
+					<div id="p1" class="hide" style="width:160px">
+						<div class="pinPlus"></div>
+						<p class="pinTitle">Well Safety</p>
+					</div>
+
+					<div id="c1" class="popContent" style="display:none;">
+						<div class="window">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/water/shell-casing.jpg"/>
+							<p class="credit">David Gilkey/NPR</p>
+							<p>Pipes channel water and chemicals into a shale gas well during a frack in Pennsylvania.</p></div>
+
+							<h3>Are gas and fluids leaking from the well shaft?</h3>
+							<p>Wells are drilled with a number of safety measures to protect local water supplies. The steel pipe and cement that line the well shaft are much thicker near the surface than they are deep underground. The idea is to add more barriers between the gas and fluid traveling up and down the well and the water table surrounding the well. The gas industry admits that flaws in construction have occurred, and damage can accumulate over time. A leak in a well casing could allow frack fluid, gas or brine coming up from deep underground to contaminate groundwater.</p>
+
+						</div>
+					</div>
+				</div>-->
+
+				<div class="pin">
+					<div id="p2" class="hide" style="width:160px">
+						<div class="pinPlus"></div>
+						<p class="pinTitle">Ozone</p>
+					</div>
+
+					<div id="c2" class="popContent" style="display:none;">
+						<div class="window">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/health/COLORADO_FRAC_34.jpg"/>
+							<p class="credit">David Gilkey/NPR</p>
+							<p>A drilling rig sits in the Mamm Creek Field near Silt, Colo.</p></div>
+
+							<h2>Ozone</h2>
+							<h3>Is There Enough To Harm Vulnerable Lungs? </h3>
+							<p>We depend on ozone high in the atmosphere to help protect us from the sun's rays. But when lots of ozone forms near the ground, it can affect people's health -- especially people who already have asthma or other lung problems.</p>
+							<p>Studies show that in some areas, gas wells are a major contributor to ozone. That's because gas operations release both nitrogen oxides and chemicals known as volatile organic compounds (VOCs), which react in the presence of sunlight to create ozone.</p>
+							<p>At least one study found that in the Dallas-Fort Worth area -- home to nearly 16,000 gas wells -- natural gas production was more of a problem than motor vehicles when it came to emissions that form ozone.</p>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="pin">
+					<div id="p3" class="hide" style="width:225px">
+						<div class="pinPlus"></div>
+						<p class="pinTitle">Living In Gas Country</p>
+					</div>
+
+					<div id="c3" class="popContent" style="display:none;">
+						<div class="window">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/health/DISH_TX_FRAC_100.jpg"/>
+							<p class="credit">David Gilkey/NPR</p>
+							<p>Homes near a completed natural gas well in Dish, Texas.</p></div>
+
+							<h2>Living In Gas Country</h2>
+							<h3>Health And Fracking: A Big Question Without Good Answers</h3>
+							<p>There's no question that the tens of thousands of fracked gas wells in states like Colorado, Texas and Pennsylvania are putting potentially dangerous chemicals into the environment.</p>
+							<p>But scientists can't tell whether these chemicals are making people sick without answering some difficult questions for each chemical:</p>
+							<ul>
+								<li>How much have people been exposed to?  </li>
+								<li>How long has the exposure been going on?</li>
+								<li>How much of the exposure is the result of gas extraction?</li>
+								<li>Do exposed people have health problems known to be caused by a given chemical?</li>
+								<li>Did these health problems exist before the exposure began? </li>
+								<li>How frequent are these health problems in people who were not exposed?</li>
+							</ul>
+							<p>Getting answers to those questions will take millions of dollars and years of work.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="pin">
+					<div id="p4" class="hide" style="width:170px">
+						<div class="pinPlus"></div>
+						<p class="pinTitle">Methane</p>
+					</div>
+
+					<div id="c4" class="popContent" style="display:none;">
+						<div class="window">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/health/DISH_TX_FRAC_115.jpg"/>
+							<p class="credit">David Gilkey/NPR</p>
+							<p>A warning sign on a gas pipeline in a field near Dish, Texas.</p></div>
+
+							<h2>Methane</h2>
+							<h3>Safe To Breathe, But A Factor In Global Warming</h3>
+							<p>Methane is the main component of natural gas, and companies want to sell all they can. But before they can get the gas flow from a well into a pipeline, some companies vent methane gas directly into the air. Methane also leaks from pipes, valves, compressors and tanks involved in gas production and distribution.</p>
+							<p>Breathing small amounts of methane does not present a health hazard, according to the EPA. But people can suffocate if natural gas displaces oxygen in an enclosed space. And, of course, methane can burn or explode. </p>
+							<p>Scientists say the biggest problem with methane is that it is a potent greenhouse gas and a significant contributor to global warming.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="pin">
+					<div id="p7" class="hide" style="width:250px">
+						<div class="pinPlus"></div>
+						<p class="pinTitle">Volatile Organic Compounds</p>
+					</div>
+
+					<div id="c7" class="popContent" style="display:none;">
+						<div class="window">
+							<a href="#" class="close">x</a>
+							<div class="imgBucket"><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/health/COLORADO_FRAC_58.jpg"/>
+							<p class="credit">David Gilkey/NPR</p>
+							<p>A worker walks across a series of gas pipes coming off wellheads near Rifle, Colo. </p></div>
+
+							<h2>Volatile Organic Compounds</h2>
+							<h3>Hazardous Air Pollutants: How Much?  </h3>
+							<p>Wells produce gas for years -- hopefully decades. And they can continue to release toxic chemicals long after they're hooked up to a pipeline: volatile organic compounds such as benzene, ethylbenzene, toluene and n-hexane.</p>
+							<p>If you inhale enough of these, they can cause dizziness, nausea, headaches, or irritation of the eyes and throat. Long-term exposure, especially to benzene, can cause birth defects, neurological problems, blood disorders and even cancer. </p>
+							<p>Measurements of hazardous air pollutants near gas wells have generally found levels below the threshold the EPA considers dangerous. But there are tens of thousands of gas wells, and most aren't monitored for potential pollution.</p>
+
+
+						</div>
+					</div>
+				</div>
+
+				<!--<div class="pin">
+					<div id="inactive0">
+						<p>Compressor <br/> Station</p>
+					</div>
+				</div>-->
+
+				<!--<div class="pin">
+					<div id="inactive1">
+						<p>Well Pad</p>
+					</div>
+				</div>-->
+				<div class="pin">
+					<div id="inactive2">
+						<p><img src="http://media.npr.org/news/graphics/2012/04/fracking/images/arrow.png"/> Shale Layer, 1 Mile Down <img src="http://media.npr.org/news/graphics/2012/04/fracking/images/arrow.png"/></p>
+					</div>
+				</div>
+				<div class="pin">
+					<div id="inactive3">
+						<p>Water Table</p>
+					</div>
+				</div>
+		</div>
+</div>
+</body>
+</html>

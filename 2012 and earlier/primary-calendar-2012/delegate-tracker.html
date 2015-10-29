@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>NPR Delegate Tracker</title>
+		<script type="text/javascript" src="js/lib/jquery.js" language="javascript"></script>
+		<style type="text/css">
+			body { font: 13px/1.25em Arial, Helvetica, sans-serif; color: #555; margin: 0; padding: 0; }
+			h2 { font: bold 18px Georgia, serif; color: #000; margin: 0 0 3px 12px; }
+			p.updated { margin: 0 0 18px 12px; font-size: 11px; color: #999; }
+			#delTally { width: 948px; border: 0; margin: 0 0 18px 0; border-collapse: collapse; }
+			#delTally tr { vertical-align: top; }
+			#delTally tr th { padding: 0 12px 5px 12px; font: bold 13px Georgia, serif; color: #000; }
+			#delTally tr th.cand { width: 138px; text-align: center; }
+			#delTally tr td { padding: 5px 11px 5px 12px; border-bottom: 1px solid #fff; border-right: 1px solid #fff; }
+			#delTally tr th.last, #delTally tr td.last { padding-right: 0; border-right: 0; }
+			#delTally tr td.st { border-bottom: 1px dotted #CCC; }
+			#delTally tr td.st strong { font: bold 13px Georgia, serif; color: #333; }
+			#delTally tr td.amt { text-align: center; padding-top: 13px; background-color: #f1f1f1; color: #999; }
+			#delTally tr td.amt.dels { background-color: #F5D1CA; color: #666; }
+			#delTally tr.tot td, #delTally tr.tot td.amt { background-color: #D8472B; padding-top: 12px; padding-bottom: 12px; font: bold 13px Georgia, serif; color: #fff; }
+			#delTally .details { font-size: 11px; color: #999; display: block; }
+			#delTally .note { font-size: 11px; color: #555; position: absolute; border: 1px solid #999; background-color: #fff; padding: 6px; width: 219px; margin-top: 3px;}
+			#delTally .noted { padding-right: 18px; background: url('http://media.npr.org/news/specials/2010/elections/images/ico_about.gif') no-repeat right center; }
+			#delTally .noted:hover { cursor: help; color: #36C; }
+			p.delTallyNote { font-size: 11px; margin: 0 0 18px 12px; background: url('http://media.npr.org/news/specials/2010/elections/images/ico_about.gif') no-repeat left center; padding-left: 18px; color: #999; }
+
+			#delBars { margin: 0; padding: 0; list-style: none; width: 948px; }
+			#delBars li { border-top: 1px dotted #CCC; font: bold 13px/100% Georgia, serif; height: 37px; overflow: hidden; }
+			#delBars li.last { border-bottom: 1px dotted #CCC; }
+			#delBars li strong { display: block; width: 113px; float: left; margin-right: 24px; color: #000; padding: 12px 0 0 12px; }
+			#delBars li span { display: block; width: 786px; float: left; }
+			#delBars li span i { display: block; float: left; padding: 12px 0; color: #FFF; background-color: #D8472B; font-style: normal; overflow: hidden; width: 0; }
+			#delBars li span b { display: block; float: left; padding: 12px 0 12px 6px; color: #333; font-style: normal; }
+
+			#delLeaderboard { position: relative; margin-bottom: 48px; }
+			#delBarMarker { width: 1px; background-color: #666; overflow: hidden; position: absolute; top: 0; display: none; }
+			#delBarLabel { position: absolute; bottom: 0; font-size: 11px; color: #999; margin-top: 3px; display: none; }
+
+			#delBars .inactive strong { color: #999; }
+			#delTally th.inactive { text-decoration: none; color: #999; }
+			#delTally tr td.dels.inactive { background-color: #CCC; }
+			#delTally tr.tot td.inactive, #delBars li.inactive span i { background-color: #999; }
+			#delBars li.inactive span b { color: #999; }
+
+			.loading { font: italic normal 13px Arial, Helvetica, sans-serif; color: #999; background: url('http://media.npr.org/news/specials/2012/elections/loader.gif') no-repeat 0 center; padding: 9px 9px 9px 30px; margin: 9px 0 0 12px; }
+		</style>
+	</head>
+
+	<body>
+
+
+		<h2>Overall GOP Delegate Totals</h2>
+
+		<div id="delLeaderboard">
+			<div class="loading">Loading GOP Delegate Totals</div>
+			<ul id="delBars"></ul>
+			<div id="delBarMarker"></div>
+			<div id="delBarLabel">1,144 delegates needed to win the GOP nomination</div>
+		</div>
+
+		<h2>GOP Delegates Awarded By State</h2>
+		<p class="delTallyNote">Mouse over the question marks for more detailed notes about some states.</p>
+		<div class="loading">Loading GOP Delegate Totals</div>
+
+		<table id="delTally">
+			<tr>
+				<th>&nbsp;</th>
+				<th class="cand inactive">Gingrich</th>
+				<th class="cand">Paul</th>
+				<th class="cand">Romney</th>
+				<th class="cand inactive">Santorum</th>
+				<th class="cand inactive last">Unpledged</th>
+			</tr>
+		</table>
+
+
+		<script type="text/javascript">
+			var delTotals = [];
+			var dt = $('#delTally');
+			var db = $('#delBars');
+			function loadGSContent(gsData) {
+				$('.loading').hide();
+				var $len = gsData.feed.entry.length;
+				for (var i=0; i<$len; i++) {
+					var rowInfo = '';
+
+					// check if this is the "total" line, or a date
+					var d = gsData.feed.entry[i].gsx$date.$t;
+					if (d == "Total") {
+						delTotals['gingrich'] = gsData.feed.entry[i].gsx$gingrich.$t;
+						delTotals['paul'] = gsData.feed.entry[i].gsx$paul.$t;
+						delTotals['romney'] = gsData.feed.entry[i].gsx$romney.$t;
+						delTotals['santorum'] = gsData.feed.entry[i].gsx$santorum.$t;
+						delTotals['unpledged'] = gsData.feed.entry[i].gsx$unpledged.$t;
+						rowInfo += '<tr class="tot"><td><strong>Total<\/strong><\/td>';
+						rowInfo += '<td class="amt inactive">' + delTotals['gingrich'] + '<\/td>';
+						rowInfo += '<td class="amt">' + delTotals['paul'] + '<\/td>';
+						rowInfo += '<td class="amt">' + delTotals['romney'] + '<\/td>';
+						rowInfo += '<td class="amt inactive">' + delTotals['santorum'] + '<\/td>';
+						rowInfo += '<td class="amt inactive last">' + delTotals['unpledged'] + '<\/td>';
+						rowInfo += '<\/tr>';
+					} else {
+						rowInfo += '<tr>';
+						rowInfo += '<td id="' + gsData.feed.entry[i].gsx$stateabbr.$t + '" class="st"><strong>' + gsData.feed.entry[i].gsx$state.$t + '<\/strong> <span class="details">' + d + ' | Delegates: ' + gsData.feed.entry[i].gsx$dels.$t + '<\/span><\/td>';
+						rowInfo += '<td class="amt inactive ' + hasDels(gsData.feed.entry[i].gsx$gingrich.$t) + '">' + gsData.feed.entry[i].gsx$gingrich.$t + '<\/td>';
+						rowInfo += '<td class="amt ' + hasDels(gsData.feed.entry[i].gsx$paul.$t) + '">' + gsData.feed.entry[i].gsx$paul.$t + '<\/td>';
+						rowInfo += '<td class="amt ' + hasDels(gsData.feed.entry[i].gsx$romney.$t) + '">' + gsData.feed.entry[i].gsx$romney.$t + '<\/td>';
+						rowInfo += '<td class="amt inactive ' + hasDels(gsData.feed.entry[i].gsx$santorum.$t) + '">' + gsData.feed.entry[i].gsx$santorum.$t + '<\/td>';
+						rowInfo += '<td class="amt inactive ' + hasDels(gsData.feed.entry[i].gsx$unpledged.$t) + ' last">' + gsData.feed.entry[i].gsx$unpledged.$t + '<\/td>';
+						rowInfo += '<\/tr>';
+					}
+
+					dt.append(rowInfo);
+					addFootnotes(gsData.feed.entry[i].gsx$note.$t, d, gsData.feed.entry[i].gsx$stateabbr.$t);
+				}
+//				dt.show();
+//				$('.delTallyNote').show();
+				makeLeaderboard();
+			}
+			function hasDels(num) {
+				var delClass;
+				if (num > 0) {
+					delClass = 'dels';
+				} else {
+					delClass = '';
+				}
+				return delClass;
+			}
+			function addFootnotes(n, d, s) {
+				if (n.length > 0) {
+					if (d == "Total") {
+						db.before('<p class="updated">' + n + '<\/p>');
+					} else {
+						$('#' + s).append('<span class="note">' + n + '<\/span>');
+						$('#' + s).find('strong').addClass('noted');
+						$('#' + s).find('strong').hover(
+							function (e) {
+								$(this).siblings('.note').show();
+								$(this).siblings('.note').css('top', e.pageY + 10);
+								$(this).siblings('.note').css('left', e.pageX + 10);
+							}, function (e) {
+								$(this).siblings('.note').hide();
+							}
+						).siblings('.note').hide();
+					}
+				}
+			}
+			function makeLeaderboard() {
+				db.append('<li class="inactive"><strong>Newt Gingrich<\/strong> <span><i>&nbsp;<\/i> <b>' + delTotals['gingrich'] + '<\/b><\/span><\/li>');
+				db.append('<li><strong>Ron Paul<\/strong> <span><i>&nbsp;<\/i> <b>' + delTotals['paul'] + '<\/b><\/span><\/li>');
+				db.append('<li><strong>Mitt Romney<\/strong> <span><i>&nbsp;<\/i> <b>' + delTotals['romney'] + '<\/b><\/span><\/li>');
+				db.append('<li class="inactive"><strong>Rick Santorum<\/strong> <span><i>&nbsp;<\/i> <b>' + delTotals['santorum'] + '<\/b><\/span><\/li>');
+				db.append('<li class="inactive last"><strong>Jon Huntsman<\/strong> <span><i>&nbsp;<\/i> <b>2<\/b><\/span><\/li>');
+				var b = db.find('li:eq(0)').find('span');
+				var p = b.position();
+				var w = b.width();
+
+				$('#delBarMarker').css('top', '34px').css('left', p.left + (w/2)).css('height', db.height()).show();
+				$('#delBarLabel').css('top', (34 + $('#delBarMarker').height())).css('left', p.left + (w/2) - ($('#delBarLabel').width() / 2)).show();
+
+				var dbm = $('#delBarMarker').position();
+
+				db.find('li:eq(0)').find('i').animate( { width: ((delTotals['gingrich'] / 2286) * 100) + '%' }, { duration: 500, easing: 'swing' } );
+				db.find('li:eq(1)').find('i').animate( { width: ((delTotals['paul'] / 2286) * 100) + '%' }, { duration: 500, easing: 'swing' } );
+				db.find('li:eq(2)').find('i').animate( { width: ((delTotals['romney'] / 2286) * 100) + '%' }, { duration: 500, easing: 'swing' } );
+				db.find('li:eq(3)').find('i').animate( { width: ((delTotals['santorum'] / 2286) * 100) + '%' }, { duration: 500, easing: 'swing' } );
+				db.find('li:eq(4)').find('i').animate( { width: ((2 / 2286) * 100) + '%' }, { duration: 500, easing: 'swing' } );
+			}
+		</script>
+		<script src="https://spreadsheets.google.com/feeds/list/0Ala-N4Y4VPXIdE5rY3FVVllURk15QzlVRWxPWXp6Tnc/od6/public/values?alt=json-in-script&amp;callback=loadGSContent" type="text/javascript"></script>
+	</body>
+</html>

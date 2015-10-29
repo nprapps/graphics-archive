@@ -1,0 +1,30 @@
+#health{
+	background: url('http://media.npr.org/news/graphics/2012/04/fracking/images/health/health-panel.jpg') no-repeat;width: 100%; height: 600px; position: relative;}
+
+
+#p0 {position:absolute; top: 197px; left: 200px; }
+#p1 {position:absolute; top: 204px; left: 164px; }
+#p2 {position:absolute; top: 31px; left: 482px; }
+#p3 {position:absolute; top: 210px; left: 683px; }
+#p4 {position:absolute; top: 264px; left: 84px; }
+#p5 {position:absolute; top: 348px; left: 679px; }
+#p6 {position:absolute; top: 221px; left: 706px; }
+#p7 {position:absolute; top: 301px; left: 56px;}
+/*#inactive0{position:absolute; top: 199px; left: 856px;}*/
+/*#inactive1{position:absolute; top: 218px; left: 10px;}*/
+#inactive2{position:absolute; top: 342px; left: 330px;}
+#inactive3{position:absolute; top: 439px; left: 360px;}
+
+#inactive0,#inactive2,#inactive3{
+	padding:5px;
+	font:11px arial, sans-serif; 
+	font-weight:bold; 
+	text-transform:uppercase;
+	color:#ffffff;
+	float:left; 
+	position:absolute;
+	background:#333333;
+	opacity:.8;
+	text-align:right;
+	}
+

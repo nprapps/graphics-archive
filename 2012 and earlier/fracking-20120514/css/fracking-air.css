@@ -1,0 +1,12 @@
+#air {
+	background: url('http://media.npr.org/news/graphics/2012/04/fracking/images/air/air-panel-revised.jpg') no-repeat;width: 100%; height: 600px; position: relative;}
+
+
+#p0 {position:absolute; top: 233px; left: 166px; }
+#p1 {position:absolute; top: 132px; left: 231px; }
+#p2 {position:absolute; top: 160px; left: 385px; }
+#p3 {position:absolute; top: 240px; left: 520px; }
+#p4 {position:absolute; top: 315px; left: 791px; }
+#p5 {position:absolute; top: 348px; left: 679px; }
+#p6 {position:absolute; top: 221px; left: 706px; }
+

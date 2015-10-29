@@ -1,0 +1,115 @@
+@import "base";
+
+#graphic { margin-bottom: 22px; }
+
+#wellspring-nav {
+	border-bottom: 2px solid #eee;
+	border-top: 5px solid #eee;
+	padding-bottom: 11px;
+	padding-top: 11px;
+	margin-bottom: 22px;
+}
+#wellspring-nav:after {
+	content:' ';display:table;width:100%;overflow:hidden;clear:both;
+}
+
+#wellspring-nav h1 {
+	font: normal 22px/44px Arial, sans-serif;
+	margin: 0;
+	color: #333;
+	float: left;
+}
+
+#wellspring-nav .wellspringNavButtons {
+	width: 300px;
+	float: right;
+	text-align: right;
+}
+
+#wellspring-nav .wellspringNavButtons span {
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	user-select: none;
+}
+
+#wellspring-nav #wellspringBack,
+#wellspring-nav #wellspringNext {
+	cursor: pointer;
+	background-color: #7598c9;
+	color: #fff;
+	padding: 0 11px;
+	line-height: 44px;
+	text-transform: uppercase;
+	font-family: Arial, sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+	display: inline-block;
+}
+#wellspring-nav #wellspringNums {
+	width: 100px;
+	text-align: center;
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	color: #666;
+}
+#wellspring-nav #wellspringNums b {
+	display: inline-block;
+	padding: 0 11px;
+	line-height: 44px;
+	color: #999;
+	font-weight: normal;
+}
+#wellspring-nav #wellspringNums b.wellspringActive {
+	color: #999;
+	font-weight: bold;
+	border: 1px solid #CCC;
+}
+
+#wellspring-nav #wellspringBack {
+	margin-right: 6px;
+}
+
+#wellspring-nav #wellspringBack:hover,
+#wellspring-nav #wellspringNext:hover {
+	background-color: #999;
+}
+
+#wellspring-outer-wrapper {
+	color: #555;
+	border-bottom: 5px solid #eee;
+	padding-bottom: 22px;
+}
+
+#wellspring-outer-wrapper .update h1 {
+	font-size: 18px;
+	color: #666;
+	margin-bottom: 11px;
+}
+#wellspring-outer-wrapper .update p {
+	font-size: 14px;
+}
+
+#wellspring-outer-wrapper p.credits {
+	clear: both;
+	color: #999;
+	font-style: italic;
+	font-size: 11px;
+	margin:0px;
+	padding:0px;
+}
+
+#res243051102 .notes {
+	background: none;
+}
+
+@media only screen and (max-width: 481px) {
+	#wellspring-nav h1 {
+		margin-bottom: 11px;
+		float: none;
+	}
+	#wellspring-nav .wellspringNavButtons {
+		float: none;
+		text-align: left;
+		width: auto;
+	}
+}

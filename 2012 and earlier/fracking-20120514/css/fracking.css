@@ -1,0 +1,133 @@
+body {margin: 0; padding: 0; }
+#fracking {width:948px; padding-top:5px;}
+
+#p0,#p1,#p2,#p3,#p4,#p5,#p6,#p7 {cursor: pointer;}
+
+#pin{z-index:1000;}
+
+.pinPlus{width: 32px; height: 32px; background: url('http://media.npr.org/news/graphics/2012/04/fracking/images/pin.png') no-repeat; position:relative; z-index:3;}
+
+.pinPlus:hover{background:url('http://media.npr.org/news/graphics/2012/04/fracking/images/pin-hov.png') no-repeat;}
+
+.pinTitle{background:#ffffff;padding:5px 5px 5px 20px;margin:5px 0 0 15px;font:11px arial, sans-serif; font-weight:bold; text-transform:uppercase;color:#333333; position:absolute;z-index:1;opacity:.8;top:0px;}
+
+
+.popContent{
+	background:#ffffff;
+	/* Fallback for web browsers that doesn't support RGBa */
+	background: rgb(255, 255, 255);
+	/* RGBa with 0.6 opacity */
+	background: rgba(255, 255, 255, 0.90);
+	position:absolute;
+	top:15px;
+	left:10px;
+	z-index:999;
+	border:1px #999999 solid;
+	box-shadow: 3px 3px 5px #333;
+		-moz-box-shadow: 3px 3px 5px #333;
+		-webkit-box-shadow: 3px 3px 5px #333;
+
+}
+
+
+
+.window{
+	width:908px;
+	height:100%;
+	font-family:arial, sans-serif;
+	padding:10px;
+	color:#333333;
+}
+
+.window h3{
+	font-size:14px;
+	padding-bottom:5px;
+	/*text-transform:uppercase;*/
+	font-style:italic;
+	font-weight:bold;
+}
+
+.window p{
+	font-size:12px;
+	line-height:16px;
+	padding-bottom:10px;
+	width:880px;
+}
+
+.window ul {
+	font-size:12px;
+	line-height:16px;
+	padding-bottom:10px;
+	width:880px;
+	list-style-type:disc;
+	list-style-position:inside;
+}
+
+.window ul li{
+	padding-bottom:4px;
+}
+
+.window h2 {
+	font-size:16px;
+	color:#333;
+	padding-bottom:10px;
+}
+
+.window .imgBucket{
+	float:left;
+	padding:0 10px 10px 0;
+	max-width:624px;
+}
+
+.window .imgBucket.special{
+	max-width:501px;
+}
+
+.window .imgBucket.special p{
+	max-width:501px;
+}
+
+.window .imgBucket p{
+	color:#666666;
+	font-size:11px;
+	max-width:624px;
+}
+
+.window .imgBucket p.credit{
+	padding-bottom:0;
+	text-align:right;
+	font-size:10px;
+	color:#666666;
+	
+}
+
+.popContent.center {left:286px;}
+.window.narrow {width:624px;}
+.window.narrow .popText p {float:left; width:288px;}
+.window.narrow .imgBucket {max-width:300px;}
+.window.narrow .imgBucket p{width:300px;}
+
+
+.close {
+font-size: 12px;
+text-decoration: none;
+font-weight: bold;
+color:#333;
+background:#efefef;
+float:right;
+border:1px #999 solid;
+padding:2px 5px;
+margin:0 0 10px 10px;
+}
+
+.close:hover {
+	color:#333;
+	background:#ddd;
+}
+
+#inactive1, #inactive0{
+	padding:5px;
+}
+
+a {color: #36C;text-decoration:none;}
+a:hover{text-decoration:underline; }
