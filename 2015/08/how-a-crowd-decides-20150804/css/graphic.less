@@ -1,0 +1,57 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 2px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+.penelope {
+    font-size: 16px;
+    fill: #666;
+    font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;    
+    -webkit-font-smoothing: antialiased;
+
+}
+
+.chart-image {
+    border-radius: 2px;
+    border-color: black;
+}
+
+.area {
+    fill: @blue4;
+    stroke:@blue3;
+    // stroke-width: 2px;
+    opacity: .4;    
+    shape-rendering: crispEdges;
+
+}
+
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+
+    .lines {
+        fill: none;
+        stroke-width: 2px;
+        stroke: #ccc;
+    }
+    .key {
+        display: none;
+    }    
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

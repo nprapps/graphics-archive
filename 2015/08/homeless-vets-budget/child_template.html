@@ -1,0 +1,58 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+<div class="graphic-wrapper">
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="budget"></div>
+
+    <div class="left-wrapper">
+        <h1>{{ COPY.labels.headline2 }}</h1>
+        <h2>{{ COPY.labels.subhed2 }}</h2>
+
+        <div class="desktop-only">
+            {% if COPY.labels.footnote %}
+            <div class="footnotes">
+                <h4>Notes</h4>
+                <p>{{ COPY.labels.footnote }}</p>
+            </div>
+            {% endif %}
+
+            <div class="footer">
+                {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+                {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="right-wrapper">
+        <div id="count"></div>
+    </div>
+
+    <div class="mobile-only">
+        {% if COPY.labels.footnote %}
+        <div class="footnotes">
+            <h4>Notes</h4>
+            <p>{{ COPY.labels.footnote }}</p>
+        </div>
+        {% endif %}
+
+        <div class="footer">
+            {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+            {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+        </div>
+    </div>
+
+    <div style="clear: both;"></div>
+
+    <script type="text/javascript">
+        var GRAPHIC_DATA = {{ COPY.data.json() }};
+        var COUNT_DATA = {{ COPY.count.json() }};
+    </script>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,88 @@
+@import "base";
+
+#graphic { margin-bottom: 22px; }
+
+.lines path {
+    fill: none;
+    stroke-width: 1.5px;
+    stroke: #ddd;
+    stroke-opacity: .7;
+
+    &.selected-country { 
+        stroke: @teal2;
+        stroke-width: 2.5px;
+    }
+    
+    .initial-view &.selected-country {
+        &.south-korea { stroke: #17807e; }
+        &.united-states { stroke: #7b976c; }
+        &.france { stroke: #b7af57; }
+        &.germany { stroke: #efc637; }
+    }
+}
+
+.value text {
+    font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+    font-size: 11px;
+//    fill: @teal2;
+    fill: #555;
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 3px;
+    opacity: .7;
+}
+
+.dropdown-group {
+    font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+    font-size: 10px;
+    color: #666;
+    text-transform: uppercase;
+
+}
+.text-label { 
+    font-size: 10px;
+    -webkit-font-smoothing: antialiased;
+    opacity: 0;
+}
+
+.selected { opacity: 1; }
+
+.key { display: none; }
+
+.dropdown-group { display: table-row; }
+
+.dropdown {
+    font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;  
+    font-weight: bold;
+    color: #339791;
+    font-size: 12px;
+    // text-transform: uppercase;
+    fill: none;
+    background-color: white;
+    stroke-width: 3px;
+    left: 0;
+    margin-left: 6px;
+    margin-bottom: 10px;
+    height: 30px;
+    border: solid 1px #339791;
+    cursor: pointer;
+    -webkit-font-smoothing: antialiased;
+
+    &:hover {
+        color: #277870;
+        border: solid 1.25px #277870;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-family: 'Gotham Ssm', Helvetica,Arial,sans-serif;
+        font-size: 10px;
+
+    }
+}
+

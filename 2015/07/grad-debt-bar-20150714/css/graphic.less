@@ -1,0 +1,55 @@
+@import "base";
+
+.bars rect { fill: #D8472B; }
+
+.labels {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: none;
+
+    li {
+        font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+        position: absolute;
+        text-align: right;
+        font-size: 12px;
+        line-height: 1.1;
+        color: #666;
+        display: table;
+        -webkit-font-smoothing: antialiased;
+        opacity: .8;
+        span {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+}
+
+.average {
+    span {
+      opacity: 1;
+      font-weight: bold;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 9px;
+        -webkit-font-smoothing: antialiased;
+    }    
+
+    .labels {
+        li {
+            font-size: 9px;
+            color: #666;
+
+            span {
+                display: table-cell;
+                vertical-align: middle;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,148 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 2px;
+    stroke: #ccc;
+    display: none;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+#toggle { position: absolute; }
+#toggle:active { 
+    opacity: .7;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+#btn-pause,
+#btn-play {
+    padding: 10px 0;
+    font-size: 11px;
+    color: #777;
+    background-color: #eee;
+    border-radius: 4px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    cursor: pointer;
+    
+    .arrow { 
+        font-size: 16px;
+        line-height: 1.1;
+    }
+}
+#btn-pause:hover,
+#btn-play:hover {
+    background-color: #999;
+    color: #fff;
+}
+
+/*
+.axis .domain {
+  display: none;
+  stroke-linecap: round;
+}
+*/
+
+.area {
+    fill: @blue5;
+    opacity: 1;
+}
+.area-highlight {
+     fill: @blue3;
+    -webkit-transition: fill 500ms linear;
+    -moz-transition: fill 500ms linear;
+    -o-transition: fill 500ms linear;
+    -ms-transition: fill 500ms linear;
+    transition: fill 500ms linear;
+}
+
+.slider-axis {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+
+        text {
+            font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+            font-size: 10px;
+            stroke: none;
+            fill: #404040;
+            -webkit-font-smoothing: antialiased;
+
+        }
+
+        .domain {
+          display: none;
+          stroke-linecap: round;
+        }
+}
+
+#hour-label {
+        font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+        font-size: 12px;
+        stroke: none;
+        fill: #404040;
+        font-weight: bold;
+        -webkit-font-smoothing: antialiased;
+}
+
+.annote-label {
+        font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+        font-size: 12px;
+        fill: #404040;
+        opacity: 1;
+        -webkit-font-smoothing: antialiased;
+        position: absolute;
+}
+
+.slider .handle { cursor: pointer; }
+
+.slider-axis {
+    cursor: pointer;
+}
+
+.xbar {
+  stroke: #ccc;
+  stroke-width: 8px;
+  stroke-linecap: round;            
+  cursor: pointer;
+}
+.xbar-halo {
+  stroke: #fff;
+  stroke-width: 6px;
+  stroke-linecap: round;            
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 500px) {
+    .annote-label {
+        font-size: 10px;
+    }    
+    .value text {
+        font-size: 10px;
+    }
+    #btn-pause,
+    #btn-play {
+        padding: 6px 0;
+        font-size: 8px;
+        color: #777;
+        letter-spacing: 1.6px;
+        font-weight: 700;
+        
+        .arrow { font-size: 13px; }
+    }
+}
+
+    .key {
+        display: none;
+    }

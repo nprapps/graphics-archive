@@ -1,0 +1,69 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+    
+
+    <div>
+        <ul class = 'dropdown-group'> 
+            Pick A Country: 
+            <select class = "dropdown" id = "dropdown-country">
+                <option value"=Australia"> Australia</option>
+                <option value"=Austria"> Austria</option>
+                <option value"=Belgium"> Belgium</option>
+                <option value"=Canada"> Canada</option>
+                <option value"=Chile"> Chile</option>
+                <option value"=Denmark"> Denmark</option>
+                <option value"=Estonia"> Estonia</option>
+                <option value"=Finland"> Finland</option>
+                <option value"=France"> France</option>
+                <option value"=Germany"> Germany</option>
+                <option value"=Greece"> Greece</option>
+                <option value"=Hungary"> Hungary</option>
+                <option value"=Iceland"> Iceland</option>
+                <option value"=Ireland"> Ireland</option>
+                <option value"=Israel"> Israel</option>
+                <option value"=Italy"> Italy</option>
+                <option value"=Japan"> Japan</option>
+                <option value"=Latvia"> Latvia</option>
+                <option value"=Lithuania"> Lithuania</option>
+                <option value"=Luxembourg"> Luxembourg</option>
+                <option value"=Mexico"> Mexico</option>
+                <option value"=Netherlands"> Netherlands</option>
+                <option value"=New Zealand"> New Zealand</option>
+                <option value"=Norway"> Norway</option>
+                <option value"=Poland"> Poland</option>
+                <option value"=Portugal"> Portugal</option>
+                <option value"=Russia"> Russia</option>
+                <option value"=South Korea"> South Korea</option>
+                <option value"=Spain"> Spain</option>
+                <option value"=Sweden"> Sweden</option>
+                <option value"=Switzerland"> Switzerland</option>
+                <option value"=Turkey"> Turkey</option>
+                <option value"=United Kingdom"> United Kingdom</option>
+                <option value"=United States"> United States</option>
+            </select>
+        </ul>
+    </div>
+
+    <div id="graphic"><img src="fallback.png" alt="[Chart]" class="fallback" /></div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var GRAPHIC_DATA = {{ COPY.data.json() }};
+    </script>
+
+{% endblock content %}

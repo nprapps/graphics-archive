@@ -1,0 +1,134 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 1px;
+    stroke: @red6;
+}
+
+.highlight-line {
+    fill: none;    
+    stroke: @red3;
+    stroke-width: 1.5px;    
+}
+
+.revealed {
+    opacity: .7;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+#toggle { position: absolute; }
+#btn-pause,
+#btn-play {
+    padding: 10px 0;
+    font-size: 10px;
+    color: #777;
+    background-color: #eee;
+    border-radius: 4px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    cursor: pointer;
+}
+#btn-pause:hover,
+#btn-play:hover {
+    background-color: #999;
+    color: #fff;
+}
+
+.axis .domain {
+  display: none;
+  stroke-linecap: round;
+}
+
+.area-0{
+    stroke: @blue2;
+    // opacity: .5;
+}
+
+.slider-axis {
+        text {
+            font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+            font-size: 10px;
+            stroke: none;
+            fill: #404040;
+            -webkit-font-smoothing: antialiased;
+
+        }
+
+        .domain {
+          display: none;
+          stroke-linecap: round;
+        }
+}
+
+.slider-label {
+        font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+        font-size: 12px;
+        stroke: none;
+        fill: #404040;
+        -webkit-font-smoothing: antialiased;
+}
+.day-label {
+        font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+        font-size: 16px;
+        stroke: none;
+        fill: #404040;
+        // font-weight: bold;
+        opacity: .5;
+        // text-transform: uppercase;
+        -webkit-font-smoothing: antialiased;
+}
+
+.average-label {
+        font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        stroke: none;
+        fill: #404040;
+        // font-weight: bold;
+        opacity: .5;
+        -webkit-font-smoothing: antialiased;
+}
+
+.y-label {
+        font-family: Helvetica,Arial,sans-serif;
+        font-size: 10px;
+        stroke: none;
+        fill: #404040;
+        -webkit-font-smoothing: antialiased;
+}
+
+
+.slider .handle { cursor: pointer; }
+
+.xbar {
+  stroke: #ccc;
+  stroke-width: 8px;
+  stroke-linecap: round;            
+  cursor: pointer;
+}
+.xbar-halo {
+  stroke: #fff;
+  stroke-width: 6px;
+  stroke-linecap: round;            
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+    .key {
+        display: none;
+    }

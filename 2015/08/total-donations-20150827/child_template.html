@@ -1,0 +1,55 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div class="key">
+        <ul>
+            <li class="bar-0">
+                <b></b>
+                <label>$1</label>
+            </li>
+            <li class="bar-1">
+                <b></b>
+                <label>200</label>
+            </li>
+            <li class="bar-2">
+                <b></b>
+                <label>2,700</label>
+            </li>
+            <li class="bar-3">
+                <b></b>
+                <label>100<span class="desktop">,000</span><span class="mobile">k</span></label>
+            </li>
+            <li class="bar-4">
+                <b></b>
+                <label>500<span class="desktop">,000</span><span class="mobile">k</span></label>
+            </li>
+            <li class="bar-5">
+                <b></b>
+                <label>1<span class="desktop"> million</span><span class="mobile">M</span>+</label>
+            </li>
+        </ul>
+    </div>
+
+    <div id="graphic"><img src="fallback.png" alt="[Chart]" class="fallback" /></div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+    
+    <script type="text/javascript">
+        var GRAPHIC_DATA = {{ COPY.data.json() }};
+    </script>
+
+{% endblock content %}

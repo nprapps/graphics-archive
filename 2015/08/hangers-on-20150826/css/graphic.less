@@ -1,0 +1,40 @@
+@import "base";
+
+#graphic { margin-bottom: 22px; }
+
+.bars {
+    .bar-0.republican { fill: #eca395; }
+    .bar-1.republican { fill: #e78974; }
+    .bar-2.republican { fill: #dd7057; }
+    .bar-3.republican { fill: #cf593f; }
+    .bar-4.republican { fill: #bb442b; }
+    .bar-5.republican { fill: #a23520; }
+
+    .bar-0.democrat { fill: @blue5; }
+    .bar-1.democrat { fill: #8db9d4; }
+    .bar-2.democrat { fill: #74a0ba; }
+    .bar-3.democrat { fill: #5a85a0; }
+    .bar-4.democrat { fill: #416c87; }
+    .bar-5.democrat { fill: @blue1; }
+}
+
+.zero-line  {
+    stroke: #666;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+}
+
+h3 {
+    font-size: 12px;
+    color: #454545;
+    font-weight: normal;
+    font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 10px 0 11px 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+@media screen and (max-width: 500px) {
+    .candidate { margin-bottom: 22px; }
+}

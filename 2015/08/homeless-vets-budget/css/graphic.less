@@ -1,0 +1,54 @@
+@import "base";
+
+.graphic-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.left-wrapper {
+    float: left;
+    width: 60%;
+    margin-top: 30px;
+
+    h1 {
+        margin-top: 0px;
+    }
+}
+
+.right-wrapper {
+    margin-top: 30px;
+    float: left;
+    width: 40%;
+}
+
+#count .bar {
+    fill: #666;
+}
+
+.bar text {
+    fill: #fff;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    .left-wrapper {
+        width: 100%;
+        float: none;
+    }
+
+    .right-wrapper {
+        width: 100%;
+        float: none;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+}
