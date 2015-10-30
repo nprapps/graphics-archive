@@ -1,0 +1,94 @@
+@import "base";
+
+body {
+    width: 948px;
+    margin: 0 auto;
+}
+
+/* TABS */
+#res146180716 ul {
+	clear: both;
+	width: 948px;
+	margin-bottom: 24px;
+	margin-top: 12px;
+	height: 1%; overflow: hidden;
+	border-right: 1px solid #B2B2B4;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+    	color: #000;
+    	font-size: 12px;
+    	font-weight: bold;
+    	margin: 0;
+    	padding: 21px 0 15px 0;
+    	border: 1px solid #B2B2B4;
+    	border-right: none;
+    	background: none;
+    	background-color: #F1F1F1;
+    	width: 86px;
+    	float: left;
+    	text-align: center;
+
+        &:first-child { width: 77px; }
+        &.selected {
+        	background-color: #FFF;
+        	border-bottom: 1px solid #FFF;
+        }
+        &:hover {
+        	cursor: pointer;
+        	color: #36C;
+        	text-decoration: underline;
+        }
+    }
+}
+
+
+/* DESCRIPTIONS IN EACH TAB */
+.container {
+    .listtext {
+        margin-bottom: 24px;
+
+        p {
+        	line-height: 1.45em;
+        	font-size: 13px;
+        	color: #666;
+        	margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+}
+
+
+/* FUNDRAISING TABLES */
+.campfin {
+    table {
+        th,
+        td {
+            padding: 15px 10px;
+            border-bottom: 1px dotted #CCC;
+
+            .candName { font-weight: bold; white-space: nowrap; }
+        }
+    }
+    .candReport { display: block; }
+    .candReport,
+    .candReport a { font-weight: normal; color: #666; font-size: 11px; white-space: nowrap; }
+}
+.campfin table td.amtRaised, .campfin table td.amtCash { width: 138px; background: url('../img/bar-revenue.gif') no-repeat -138px 3px; }
+.campfin table td.amtSpent, .campfin table td.amtDebt { width: 138px; background: url('../img/bar-expense.gif') no-repeat -138px 3px; }
+.campfin table th.right, .campfin table td.right { padding-right: 30px; }
+.campfin table th.amtDebt, .campfin table td.amtDebt { padding-right: 10px; }
+.campfin table th.amtSpent, .campfin table td.amtSpent { padding-right: 30px; }
+.campfin table th.right { text-align: left; }
+.campfin table td.right { padding-top: 16px; }
+.campfin table tr.inactive td { opacity: .5; background-color: #f1f1f1; }
+.campfin table tr.pac td { border-bottom: 2px solid #CCC; }
+.campfin .footnote { padding-top: 21px; }
+.campfin .footnote h4 { margin: 0; font: bold 11px Arial, Helvetica, sans-serif; color: #333; }
+.campfin .footnote p { margin: 0; font-size: 11px; color: #666; }
+
+.campfin.withBurnRate table td.candName { white-space: normal; }
+.campfin.withBurnRate table td.burnRate { width: 90px; background: none; color: #999; }
+.campfin.withBurnRate table th.amtSpent, .campfin.withBurnRate table td.amtSpent { padding-right: 6px; }

@@ -1,0 +1,240 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+
+        <div id="coffeeQuiz">
+
+        <!-- Question 1 -->
+            <div class="question noimg">
+                <h3>Question 1: Who drinks the most coffee?</h3>
+                <ul>
+                    <li class="correct">
+                        <strong>A. Finland</strong>
+                        <span class="answer"> In 2011, Finns consumed an average of 12.17 kilograms (26.8 pounds) of coffee per person. In fact, Nordic countries make up the top six coffee-drinking countries. Could it be something to do with the long, dark nights?</span>
+                    </li>
+                    <li class="incorrect">
+                        <strong>B. Italy</strong>
+                        <span class="answer">While the Italians love their espressos — and were the first Europeans to import coffee from North Africa — they rank 12th on the list, with 5.9 kilograms (13 pounds) per person per year.</span>
+                    </li>
+                    <li class="incorrect">
+                        <strong>C. Peru</strong>
+                        <span class="answer">Coffee consumption in Peru is very low — .51 kilograms or about a pound per person each year — and most of that is instant coffee.</span>
+                    </li>
+                </ul>
+            </div>
+
+        <!-- Question 2 -->
+            <div class="question img">
+                <h3>Question 2: Which of these is a macchiato?</h3>
+                <ul>
+                    <li class="incorrect">
+                        <strong><img src="http://www.npr.org/buckets/news/2013/04/coffee/images/Q6Cappuccino4x3.jpg" alt="milk foam, steamed milk, espresso"></strong>
+                        <span class="answer"> This is a cappuccino.</span>
+                    </li>
+                    <li class="incorrect">
+                        <strong><img src="http://www.npr.org/buckets/news/2013/04/coffee/images/Q6Americano4x3.jpg" alt="water, espresso"></strong>
+                        <span class="answer"> This is an Americano.</span>
+                    </li>
+                    <li class="correct">
+                        <strong><img src="http://www.npr.org/buckets/news/2013/04/coffee/images/Q6Macchiato4x3_Ans.jpg" alt="milk foam, espresso"></strong>
+                        <span class="answer"> This is a macchiato.</span>
+                    </li>
+                </ul>
+            </div>
+
+        <!-- Question 3 -->
+            <div class="question noimg">
+                <h3>Question 3: Where did coffee originate?</h3>
+                <ul>
+                    <li class="correct">
+                        <strong>A. Ethiopia</strong>
+                        <span class="answer"> Evidence suggests that the first coffee plants grew in the region of Kaffa in central Ethiopia.</span>
+                    </li>
+                    <li class="incorrect">
+                        <strong>B. Brazil</strong>
+                        <span class="answer"> Coffee wasn't planted in Brazil until the late 19th century. </span>
+                    </li>
+                    <li class="incorrect">
+                        <strong>C. Indonesia</strong>
+                        <span class="answer"> Java may be synonymous with coffee, but coffee was introduced to the Indonesian archipelago from somewhere else.</span>
+                    </li>
+                </ul>
+            </div>
+
+        <!-- Question 4 -->
+            <div class="question img">
+                <h3>Question 4: Which of these is the coffee plant?</h3>
+                <ul>
+                    <li class="incorrect">
+                        <strong><img src="http://www.npr.org/buckets/news/2013/04/coffee/images/Q4Pyracantha4x3.jpg" alt="milk foam, steamed milk, espresso"></strong>
+                        <span class="answer">This is Pyracantha. Think garden shrub, not breakfast buzz</span>
+                    </li>
+                    <li class="correct">
+                        <strong><img src="http://www.npr.org/buckets/news/2013/04/coffee/images/Q4Coffee4x3_ans.jpg" alt="milk foam, espresso"></strong>
+                        <span class="answer"> Coffee plants produce red or purple fruits called "cherries" that usually contain two seeds, called the coffee "beans." The caffeine helps the plant deter insects!</span>
+                    </li>
+                    <li class="incorrect">
+                        <strong><img src="http://www.npr.org/buckets/news/2013/04/coffee/images/Q4Mahonia4x3.jpg" alt="water, espresso"></strong>
+                        <span class="answer"> This is Mahonia. Think ornamental rather than fundamental.</span>
+                    </li>
+                </ul>
+            </div>
+
+                <!-- Question 5 -->
+            <div class="question noimg">
+                <h3>Question 5: Which country comes SECOND to Brazil as the world's largest coffee producer?</h3>
+                <ul>
+                    <li class="correct">
+                        <strong>A. Vietnam</strong>
+                        <span class="answer"> Coffee was introduced to Vietnam by the French in the mid-19th century. Robusta beans account for most of Vietnam’s coffee  output — more than 3.1 billion pounds in 2011.</span>
+                    </li>
+                    <li class="incorrect">
+                        <strong>B. India</strong>
+                        <span class="answer"> India is the world's second-largest producer of tea, after China.</span>
+                    </li>
+                    <li class="incorrect">
+                        <strong>C. Colombia</strong>
+                        <span class="answer"> Colombia ranks fourth among coffee-producing countries, and third in exports</span>
+                    </li>
+                </ul>
+            </div>
+
+        <!-- Question 6 -->
+            <div class="question img">
+                <h3>Question 6: Who first told North America about coffee?</h3>
+                <ul>
+                    <li class="incorrect">
+                        <strong><img src="http://www.npr.org/buckets/news/2013/04/coffee/images/Q2WilliamPenn.jpg" alt="William Penn">
+                            <span class="caption">A. William Penn</span>
+                        </strong>
+                        <span class="answer">Coffee was being sold in New York for more than a decade before he founded his settlement on the Delaware in 1682.</span>
+
+                    </li>
+                    <li class="correct">
+                        <strong><img src="http://www.npr.org/buckets/news/2013/04/coffee/images/Q2JohnSmith.jpg" alt="John Smith">
+                            <span class="caption">B. John Smith</span>
+                        </strong>
+                        <span class="answer"> Founder of the Colony of Virginia in 1607, Smith would certainly have encountered coffee on his Turkish travels, so he usually gets the credit.</span>
+
+                    </li>
+                    <li class="incorrect">
+                        <strong><img src="http://www.npr.org/buckets/news/2013/04/coffee/images/Q2Colombus.jpg" alt="Christopher Columbus">
+                            <span class="caption">C. Christopher Columbus</span>
+                        </strong>
+                        <span class="answer"> He arrived a bit too early!</span>
+
+                    </li>
+                </ul>
+            </div>
+
+                <!-- Question 7 -->
+            <div class="question noimg">
+                <h3>Question 7: Which will  give you the biggest shot of caffeine?</h3>
+                <ul>
+                    <li class="incorrect">
+                        <strong>A. Arabica  beans</strong>
+                        <span class="answer">These are rough estimates only, but a six oz. cup of drip-brewed arabica coffee will give you around 110 mg of caffeine.</span>
+                    </li>
+                    <li class="correct">
+                        <strong>B. Robusta  beans</strong>
+                        <span class="answer"> A six oz. cup of drip-brewed robusta coffee will give you anything from  140-200 mg of caffeine, compared to around 100 in a cup of  Arabica.</span>
+                    </li>
+                    <li class="incorrect">
+                        <strong>C. Yerba mate tea</strong>
+                        <span class="answer"> Mate has recently been touted as a high-caffeine tea alternative to coffee, but at around 85 mg per serving, it still doesn't reach the jolt of a cup of joe.</span>
+                    </li>
+                </ul>
+            </div>
+
+        <!-- Question 8 -->
+            <div class="question img">
+                <h3>Question 8: Which of these machines would you NOT use to make coffee?</h3>
+                <ul>
+                    <li class="incorrect">
+                        <strong><img src="http://www.npr.org/buckets/news/2013/04/coffee/images/Q5Chemex4x3.jpg" alt="milk foam, steamed milk, espresso"></strong>
+                        <span class="answer"> The Chemex Coffeemaker was invented in 1941 by Dr. Peter J. Schlumbohm, a chemist-turned-inventor.</span>
+                    </li>
+                    <li class="incorrect">
+                        <strong><img src="http://www.npr.org/buckets/news/2013/04/coffee/images/Q5Siphon4x3.jpg" alt="milk foam, espresso"></strong>
+                        <span class="answer"> This design of vacuum, or siphon, coffeemaker is a modern version of a pot invented in Europe in the 1830s.</span>
+                    </li>
+                    <li class="correct">
+                        <strong><img src="http://www.npr.org/buckets/news/2013/04/coffee/images/Q5LabCondensor4x3_Ans.jpg" alt="water, espresso"></strong>
+                        <span class="answer"> This is a condenser, used to collect and cool vapors from boiling liquids in the lab. Better for making moonshine than coffee. </span>
+                    </li>
+                </ul>
+            </div>
+
+                <!-- Question 9 -->
+
+            <div class="question noimg">
+                <h3>Question 9: What's the origin of "Mocha" coffee?</h3>
+                <ul>
+                    <li class="incorrect">
+                        <strong>A. Arabic word for chocolate</strong>
+                        <span class="answer"> If you're headed that way, better ask for <em>shokolata</em>, if you'd like some chocolate, or <em>mashroub el-shocolata</em>, if you fancy a chocolate drink.</span>
+                    </li>
+                    <li class="correct">
+                        <strong>B. Yemeni Port City</strong>
+                        <span class="answer"> Al-Mokha used to be a thriving port on the Red Sea Coast. It shipped a varietal of coffee native to Yemen and Ethiopia and lent its name to those beans. These helped fuel Europe's growing taste for this new and delightful drink that began in the 15th century.</span>
+                    </li>
+                    <li class="incorrect">
+                        <strong>C. Island off South America</strong>
+                        <span class="answer"> Coffee didn't reach any part of South America for another 200 years.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Question 10 -->
+
+            <div class="question noimg">
+                <h3>Question 10: Who brought coffee to Java?</h3>
+                <ul>
+                    <li class="correct">
+                        <strong>A. Dutch East India Company</strong>
+                        <span class="answer"> The Dutch governor of Malabar, India, sent coffee seedlings via the East India Company to Batavia (near present day Jakarta)  around 1696.</span>
+                    </li>
+                    <li class="incorrect">
+                        <strong>B. Marco Polo</strong>
+                        <span class="answer"> Marco Polo visited the region nearly 300 years before coffee arrived.</span>
+                    </li>
+                    <li class="incorrect">
+                        <strong>C. Muslim traders</strong>
+                        <span class="answer"> But these traders DID help introduce Islam to the Indonesian archipelago.</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery-1.11.3.min.js') }}
+    {{ JS.push('js/lib/underscore.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

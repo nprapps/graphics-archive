@@ -1,0 +1,166 @@
+@import "base";
+
+#graphic { margin-bottom: 22px; }
+
+#coffeeQuiz h3 {
+    font: normal 18px Arial, Helvetica, sans-serif;
+    color: #666;
+    margin: 0 0 11px 0;
+}
+#coffeeQuiz ul {
+    font: 13px/1.5 Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#coffeeQuiz li strong {
+    display: block;
+    background: #7598c9;
+    color: #fff;
+    list-style:none;
+    margin: 0px 0px 2px 0px;
+    width: 220px;
+    line-height: 44px;
+    padding: 0 11px;
+}
+
+#coffeeQuiz li strong:hover {
+    opacity: .7;
+    cursor: pointer;
+}
+#coffeeQuiz .question {
+    border-top: 2px solid #eee;
+    padding-top: 22px;
+    margin-top: 22px;
+}
+#coffeeQuiz .question:first-child {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+#coffeeQuiz .answer {
+    display: none;
+}
+
+#coffeeQuiz .img ul:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+#coffeeQuiz .img li {
+    width: 33%;
+    float: left;
+}
+#coffeeQuiz .img li strong {
+    background: transparent;
+    margin: 0 2px 15px 0;
+    width: auto;
+    padding: 0;
+    border: 2px solid #fff;
+    line-height: 0px;
+    display: block;
+}
+#coffeeQuiz .img li strong:hover {
+    border: 2px solid #eee;
+}
+#coffeeQuiz .img img {
+    width: 100%;
+    height: auto;
+}
+
+#coffeeQuiz .answered ul {
+    display: table;
+}
+#coffeeQuiz .answered li {
+    display: table-row;
+}
+#coffeeQuiz .answered strong,
+#coffeeQuiz .answered .answer {
+    display: table-cell;
+    vertical-align: top;
+    border-bottom: 2px solid #fff;
+}
+#coffeeQuiz .answered li strong:hover {
+    cursor: default;
+    opacity: 1;
+}
+#coffeeQuiz .answered .answer {
+    padding: 11px;
+    color: #888;
+    background-color: #f7f7f7;
+}
+#coffeeQuiz .answered .correct .answer {
+    color: #333;
+}
+#coffeeQuiz .answered .correct b {
+    text-transform: uppercase;
+    color: #17807E;
+    font-weight: bold;
+}
+
+#coffeeQuiz .answered .incorrect b {
+    text-transform: uppercase;
+    color: #D8472B;
+    font-weight: bold;
+
+}
+#coffeeQuiz .answered .correct strong {
+    background-color: #17807E;
+}
+#coffeeQuiz .answered .incorrect strong {
+    background-color: #bbb;
+}
+#coffeeQuiz .img.answered .incorrect img {
+    opacity: .5;
+}
+
+#coffeeQuiz .img.answered ul,
+#coffeeQuiz .img.answered li,
+#coffeeQuiz .img.answered strong,
+#coffeeQuiz .img.answered .answer {
+    display: block;
+}
+#coffeeQuiz .img.answered .answer {
+    background-color: transparent;
+    text-align: center;
+}
+#coffeeQuiz .img.answered .correct strong {
+    background-color: transparent;
+    border: 2px solid #F8E2CA;
+}
+#coffeeQuiz .img.answered .incorrect strong {
+    background-color: transparent;
+    border: 2px solid #eee;
+}
+
+#coffeeQuiz .caption {
+    font: 13px/1.5 Arial, Helvetica, sans-serif;
+    color: #333;
+    margin: 10px 0px 0px 10px;
+    display: block;
+}
+
+#coffeeQuiz .credits {
+    font: 11px/1.5 Arial, Helvetica, sans-serif;
+    color: #333;
+    margin: 12px 0px 0px 0px;
+    font-style: italic;
+}
+
+@media (max-width: 480px) {
+    #coffeeQuiz .noimg.answered ul,
+    #coffeeQuiz .noimg.answered li,
+    #coffeeQuiz .noimg.answered strong,
+    #coffeeQuiz .noimg.answered .answer {
+        display: block;
+    }
+    #coffeeQuiz li strong {
+        width: auto;
+        margin-bottom: 6px;
+    }
+    #coffeeQuiz .noimg.answered .answer {
+        padding-top: 0;
+    }
+    #coffeeQuiz .img li {
+        float: none;
+        width: auto;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,88 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="graphic">
+
+        <div id="genomeNav">
+        	<div class="genomeNavButtons">
+        		<span id="genomeBack">back</span>
+        		<span id="genomeNext">next</span>
+        	</div>
+        	{% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+        </div>
+
+        <div id="genomeDaily"><div class="genomeWrapper">
+
+        	<div class="update">
+        	<div class="updateInfo genomemap1">
+        			<img src="http://www.npr.org/news/graphics/2012/09/genome/genome-step1.png" alt="how telescope works">
+        			<p>It used to take hundreds of scientists years and billions of dollars to analyze one genome. Now high-speed sequencing machines can read a genome in weeks.</p>
+        			<p>All genome sequencing machines are designed to make sense out of DNA. DNA is made of two complementary, intertwined strands that fit together like two sides of a zipper.</p>
+        			<p>Each strand is written in a simple language composed of four letters that stand for different nucleic acids: A, T, C and G. The letters always pair the same way: A goes with T; C goes with G.</p>
+        			<p>To decode the letters in a piece of DNA, a sequencing machine figures out what letters stick to the DNA. Here's how one sequencing technique works.</p>
+        		</div>
+
+
+        	</div>
+
+        	<div class="update">
+        	<div class="updateInfo genomemap2">
+        		</div>
+        		<img src="http://www.npr.org/news/graphics/2012/09/genome/genome-step2.png" alt="how telescope works">
+
+        	</div>
+
+        	<div class="update">
+        	<div class="updateInfo genomemap3">
+        		</div>
+        		<img src="http://www.npr.org/news/graphics/2012/09/genome/genome-step3.png" alt="how telescope works">
+
+        	</div>
+
+        	<div class="update">
+        	<div class="updateInfo genomemap4">
+
+        		</div>
+        		<img src="http://www.npr.org/news/graphics/2012/09/genome/genome-step4.png" alt="how telescope works">
+
+        	</div>
+
+        	<div class="update">
+        	<div class="updateInfo genomemap5">
+
+        		</div>
+        		<img src="http://www.npr.org/news/graphics/2012/09/genome/genome-step5.png" alt="how telescope works">
+
+        	</div>
+
+        </div>
+
+    </div>
+
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery-1.11.3.min.js') }}
+    {{ JS.push('js/lib/underscore.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

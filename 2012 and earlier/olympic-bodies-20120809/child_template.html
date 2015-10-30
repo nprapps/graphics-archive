@@ -1,0 +1,62 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+
+        <div id="olyGraphics" class="graphic948">
+
+        	<ul>
+        		<li id="olyNav1">Weightlifters</li>
+        		<li id="olyNav2">Sprinters</li>
+        		<li id="olyNav3">Rowers</li>
+        		<li id="olyNav4">Marathon Runners</li>
+        		<li id="olyNav5">Swimmers</li>
+        	</ul>
+        	<div id="athlete1" class="athlete">
+        		<img src="http://www.npr.org/news/graphics/2012/08/olympic-sports/gr-weightlifters-948.gif" alt="Graphic">
+        	</div>
+        	<div id="athlete2" class="athlete">
+        		<img src="http://www.npr.org/news/graphics/2012/08/olympic-sports/gr-sprinters-948.jpg" alt="Graphic">
+        	</div>
+        	<div id="athlete3" class="athlete">
+        		<img src="http://www.npr.org/news/graphics/2012/08/olympic-sports/gr-rowers-948.jpg" alt="Graphic">
+        	</div>
+        	<div id="athlete4" class="athlete">
+        		<img src="http://www.npr.org/news/graphics/2012/08/olympic-sports/gr-marathon-948.jpg" alt="Graphic">
+        	</div>
+        	<div id="athlete5" class="athlete">
+        		<img src="http://www.npr.org/news/graphics/2012/08/olympic-sports/gr-swimmers-948.gif" alt="Graphic">
+        	</div>
+
+        </div>
+
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery-1.11.3.min.js') }}
+    {{ JS.push('js/lib/underscore.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}
