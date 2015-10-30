@@ -1,0 +1,133 @@
+@import "base";
+@import "typeahead";
+
+.lines {
+    fill: none;
+    stroke-width: 1px;
+    stroke: #ccc;
+
+    .selected-line {
+        stroke-width: 2px;
+        stroke: @teal3;
+        opacity: 0;
+    }
+}
+
+.public-school {
+    stroke: @orange3;
+}
+
+.private-school {
+    stroke: @teal3;
+}
+
+.sticker {
+    fill: none;
+    stroke-width: 1px;
+    stroke: #ccc;
+
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.y-axis-label, .x-axis-label, .value {
+    font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    fill: #999;
+    -webkit-font-smoothing: antialiased;
+    .college-name  {
+        font-size: 10px;
+        fill: #5D5D5D;        
+    }
+    .selected-label {
+        fill: #4D4D4D;
+        opacity: 0;
+    }
+    .college-scatter-label {
+        fill: #5D5D5D;
+
+    }
+}
+
+.areas {
+    fill: @teal6;
+    opacity: .55;
+}
+.point-group {
+    stroke: #ccc;
+    stroke-width: 1.5px;
+    fill: #fff;
+}
+
+
+.teal6 { 
+    stroke: @teal6
+}
+.teal5 { 
+    stroke: @teal5
+}
+.teal4 { 
+    stroke: @teal4
+}
+.teal3 { 
+    stroke: @teal3
+}
+.teal2 { 
+    stroke: @teal2
+}
+
+
+#college-dropdown {
+    margin: 30px 0px 20px 40px;
+    -webkit-font-smoothing: antialiased;
+    .typeahead-directions {
+            line-height: 40px;
+            display: inline-block;
+            vertical-align: middle;
+            height: 30px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #college-dropdown {
+        margin: 0px 0px 5px 22px;
+        -webkit-font-smoothing: antialiased;
+    }    
+    .value text {
+        font-size: 10px;
+    }
+    .key {
+        display: none;
+    }    
+    .twitter-typeahead{
+     width: 80%;
+    }
+    .tt-menu {
+     width: 100%;        
+    }
+    .tt-query,.typeahead,
+    .tt-hint {
+      font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+      width: 100% !important;
+      height: 14px;
+      padding-top: 8px;
+      padding-left: 6px;
+      font-size: 12px;
+    }
+
+
+    .tt-menu {
+      max-height: 150px;
+    }
+
+
+    .tt-suggestion {
+      padding: 3px 0px 0px 20px;
+      font-size: 12px;
+      line-height: 20px;
+    } 
+
+}
+

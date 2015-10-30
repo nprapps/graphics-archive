@@ -1,0 +1,74 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+<!--     <div id="search">
+        <h3>{{ COPY.labels.search_prompt }}</h3>
+        <input value="Harvard"></input>
+        <p>Example: <a href="javascript:;">smith</a>, <a href="javascript:;">los angeles</a>, <a href="javascript:;">1924</a></p>
+    </div> -->
+
+
+        <table id="college-table">
+            <thead>
+                <tr>
+                    <th class="rank sort-default " data-sort-method='number'><div class="sorter"><div class="icon"></div></div class="header">{{ COPY.labels.hdr_rank }}</div></th>
+                    <th class="institution"><div class="sorter"><div class="icon"></div></div class="header">{{ COPY.labels.hdr_institution }}</div></th>
+                    <th class="score"><div class="number"><div class="icon"></div></div class="header">{{ COPY.labels.hdr_score }}</div></th>
+                    <th class="wage" data-sort-method='number'><div class="sorter"><div class="icon"></div></div class="header">{{ COPY.labels.hdr_wage }}</div></th>
+                    <th class="cost" data-sort-method='number'><div class="sorter"><div class="icon"></div></div class="header">{{ COPY.labels.hdr_cost }}</div></th>
+                    <th class="grad" data-sort-method='number'><div class="sorter"><div class="icon"></div></div class="header">{{ COPY.labels.hdr_grad }}</div></th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr id="{{ row.country|classify }}" {% if row.rank|format_rank > 15 %} class="hidden" {% endif %} >
+                <td data-title="{{ COPY.labels.hdr_rank }}" class="rank {{ row.rank }}">{{ row.rank|format_rank }}</td>
+                <td data-title="{{ COPY.labels.hdr_institution }}" class="institution {{ row.institution }}">{{ row.institution }}</td>
+                <td data-title="{{ COPY.labels.hdr_score }}" class="score {{ row.score }}">{{ row.score|format_score }}</td>
+                <td data-title="{{ COPY.labels.hdr_wage }}" class="wage {{ row.wage }}">${{ row.wage|format_currency }}</td>
+                <td data-title="{{ COPY.labels.hdr_cost }}" class="cost {{ row.cost }}">${{ row.cost|format_currency }}</td>
+                <td data-title="{{ COPY.labels.hdr_grad }}" class="grad {{ row.grad }}">{{ row.grad }}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div class = "expand">
+            <p> Show More Colleges</p>
+        </div>
+    <!-- </div> -->
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var LABELS = {{ COPY.labels.json() }};
+        var DATA = {{ COPY.data.json() }};
+    </script>
+
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/d3.min.js') }}
+    {{ JS.push('js/lib/underscore.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

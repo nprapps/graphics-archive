@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> 
+    <link href="table.css" rel="stylesheet"> 
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js"></script>
+    <script>
+        WebFont.load({
+             custom: {
+                 families: [ 'Gotham SSm:n4,n7' ],
+                 urls: [ 'http://s.npr.org/templates/css/fonts/GothamSSm.css' ]
+             },
+             timeout: 10000
+         });
+    </script>
+
+    <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; }
+        body {
+            margin: 0;
+            padding: 0;
+            font: 14px/1.4 'Gotham SSm', Helvetica, Arial, sans-serif;
+            color: #333;
+        }
+        h1 {
+            margin: 0 0 15px 0;
+            font-size: 16px;
+            color: #333;
+        }
+        h2 {
+            font-weight: normal;
+            color: #666;
+            font-size: 14px;
+            margin: -7px 0 10px 0;
+        }
+        
+        .key {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .key .key-item { 
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+        }
+        .key .key-item b { 
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+        }
+        .key .key-item label { 
+            white-space: nowrap;
+            font-size: 11px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.3;
+            color: #808080;
+        }
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { opacity: 0.7; }
+
+        /* graphic */
+        #graphic { 
+            margin: 0 0 22px 0;
+            position: relative;
+        }
+        #graphic img.fallback {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .tick {
+            stroke: #ccc;
+            stroke-width: .5px;
+            shape-rendering: crispEdges;
+        }
+
+        .state {
+            stroke: #fff;
+            stroke-width: 1px;
+        }
+        .state-id {
+         font-size: 10px;
+         fill: #333;
+         text-anchor: middle;
+        }    
+
+        .state-id.d10,
+        .state-id.d11,
+        .state-id.d33,
+        .state-id.d34,
+        .state-id.d50,
+        .state-id.d9,
+        .state-id.d10,
+        .state-id.d44,
+        .state-id.d24,
+        .state-id.d36,
+        .state-id.d42,
+        .state-id.d25,
+        .state-id.d23 {
+         font-size: 8px;
+        }
+
+        .farmer,
+        .farmer-o {
+            background-color: #8CE2A9;
+            fill: #8CE2A9;
+            border-color: #8CE2A9;
+        }
+
+        .retail,
+        .janitors,
+        .cashier,
+        .customer-s,
+        .recreation,
+        .cooks,
+        .manager-h,
+        .housekeepers {
+            background-color: #fff7c4;
+            fill: #fff7c4;
+            border-color: #fff7c4;
+        }
+        
+        .registered-nurse,
+        .nursing-aide {
+            background-color: #fff18a;
+            fill: #fff18a;
+            border-color: #fff18a;
+        }
+
+        .secretaries {
+            background-color: #8dc0ef;
+            fill: #8dc0ef;
+            border-color: #8dc0ef;
+        }  
+
+
+        .software-developer,
+        .computer {
+            background-color: #629bf6;
+            fill: #629bf6;
+            border-color: #629bf6;
+        }
+
+        .teacher-s,
+        .teacher-p {
+            backgroundColor: #e9e2a8;
+            background-color: #e9e2a8;
+            fill: #e9e2a8;
+            border-color: #e9e2a8;
+        }
+
+        .trucker {
+            background-color: #81E0D9;
+            fill: #81E0D9;
+            border-color: #81E0D9;
+        }        
+
+        .machine,
+        .factory-e, 
+        .factory-s {
+            background-color: #6ed2c9;
+            fill: #6ed2c9;
+            border-color: #6ed2c9;
+        }    
+
+        .carpenter,
+        .miners,
+        .textile,
+        .foremen {
+            background-color: #93d1ca;
+            fill: #93d1ca;
+            border-color: #93d1ca;
+        }       
+        .bookkeepers, 
+        .accountants,
+        .lawyers {
+            background-color: #4e76d0;
+            fill: #4e76d0;
+            border-color: #4e76d0;
+        }
+
+
+        .x.axis text {
+            font-size: 12px;
+            stroke: none;
+            fill: #404040;
+        }
+
+        #year-label {
+            font-size: 14px;
+            font-weight: bold;
+            fill: #404040;
+        }
+
+        .axis .domain {
+          display: none;
+          stroke-linecap: round;
+        }
+
+        .slider .handle { cursor: pointer; }
+
+        .xbar {
+          stroke: #ccc;
+          stroke-width: 8px;
+          stroke-linecap: round;            
+          cursor: pointer;
+        }
+        .xbar-halo {
+          stroke: #fff;
+          stroke-width: 6px;
+          stroke-linecap: round;            
+          cursor: pointer;
+        }
+
+        #toggle { position: absolute; }
+        #btn-pause,
+        #btn-play {
+            padding: 10px 0;
+            font-size: 10px;
+            color: #777;
+            background-color: #eee;
+            border-radius: 4px;
+            white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            -webkit-font-smoothing: antialiased;
+            text-align: center;
+            cursor: pointer;
+        }
+        #btn-pause:hover,
+        #btn-play:hover {
+            background-color: #999;
+            color: #fff;
+        }
+
+        .annotation span {
+            font-weight: 500;
+            color: #ccc;
+            position: absolute;
+        }
+        .cell-selected {
+           opacity: 1;
+        }
+
+        .label-selected { font-weight: bold; }
+    </style>
+</head>
+
+<body>
+    <h1>The Most Common* Job In Each State 1978-2014</h1>
+    <div id="graphic"><img src="fallback.png" alt="[Chart]" class="fallback" /></div>
+    <div id="graphic-table">
+            <table>
+            <thead>
+                <tr>
+                    <th class = "state full"></th>
+                    <th class = "d ap"></th>
+                    <th class = "d1978">1978</th>
+                    <th class = "d1996">1996</th>
+                    <th class = "d2014">2014</th>
+                </tr>
+            </thead>
+
+            
+            <tr class="alabama">
+                <td class="state full">Alabama</td>
+                <td class="state ap">Ala.</td>
+                <td class="cell y-1978 alabama ">Machine operators, n.e.c</td>
+                <td class="cell y-1996 alabama ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 alabama ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="alaska">
+                <td class="state full">Alaska</td>
+                <td class="state ap">Alaska</td>
+                <td class="cell y-1978 alaska ">Secretaries</td>
+                <td class="cell y-1996 alaska ">Primary school teachers</td>
+                <td class="cell y-2014 alaska ">Primary school teachers</td>
+            </tr>
+            
+            <tr class="arizona">
+                <td class="state full">Arizona</td>
+                <td class="state ap">Ariz.</td>
+                <td class="cell y-1978 arizona ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-1996 arizona ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 arizona ">Customer service reps, investigators and adjusters, except insurance</td>
+            </tr>
+            
+            <tr class="arkansas">
+                <td class="state full">Arkansas</td>
+                <td class="state ap">Ark.</td>
+                <td class="cell y-1978 arkansas ">Farm workers</td>
+                <td class="cell y-1996 arkansas ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 arkansas ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="california">
+                <td class="state full">California</td>
+                <td class="state ap">Calif.</td>
+                <td class="cell y-1978 california ">Secretaries</td>
+                <td class="cell y-1996 california ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 california ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="colorado">
+                <td class="state full">Colorado</td>
+                <td class="state ap">Colo.</td>
+                <td class="cell y-1978 colorado ">Secretaries</td>
+                <td class="cell y-1996 colorado ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 colorado ">Computer software developers</td>
+            </tr>
+            
+            <tr class="connecticut">
+                <td class="state full">Connecticut</td>
+                <td class="state ap">Conn.</td>
+                <td class="cell y-1978 connecticut ">Secretaries</td>
+                <td class="cell y-1996 connecticut ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 connecticut ">Primary school teachers</td>
+            </tr>
+            
+            <tr class="delaware">
+                <td class="state full">Delaware</td>
+                <td class="state ap">Del.</td>
+                <td class="cell y-1978 delaware ">Secretaries</td>
+                <td class="cell y-1996 delaware ">Secretaries</td>
+                <td class="cell y-2014 delaware ">Secretaries</td>
+            </tr>
+            
+            <tr class="district-of-columbia">
+                <td class="state full">District of Columbia</td>
+                <td class="state ap">D.C.</td>
+                <td class="cell y-1978 district-of-columbia ">Secretaries</td>
+                <td class="cell y-1996 district-of-columbia ">Janitors</td>
+                <td class="cell y-2014 district-of-columbia ">Lawyers</td>
+            </tr>
+            
+            <tr class="florida">
+                <td class="state full">Florida</td>
+                <td class="state ap">Fla.</td>
+                <td class="cell y-1978 florida ">Secretaries</td>
+                <td class="cell y-1996 florida ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 florida ">Primary school teachers</td>
+            </tr>
+            
+            <tr class="georgia">
+                <td class="state full">Georgia</td>
+                <td class="state ap">Ga.</td>
+                <td class="cell y-1978 georgia ">Secretaries</td>
+                <td class="cell y-1996 georgia ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 georgia ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="hawaii">
+                <td class="state full">Hawaii</td>
+                <td class="state ap">Hawaii</td>
+                <td class="cell y-1978 hawaii ">Bookkeepers and accounting and auditing clerks</td>
+                <td class="cell y-1996 hawaii ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 hawaii ">Cooks, variously defined</td>
+            </tr>
+            
+            <tr class="idaho">
+                <td class="state full">Idaho</td>
+                <td class="state ap">Idaho</td>
+                <td class="cell y-1978 idaho ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-1996 idaho ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 idaho ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="illinois">
+                <td class="state full">Illinois</td>
+                <td class="state ap">Ill.</td>
+                <td class="cell y-1978 illinois ">Secretaries</td>
+                <td class="cell y-1996 illinois ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 illinois ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="indiana">
+                <td class="state full">Indiana</td>
+                <td class="state ap">Ind.</td>
+                <td class="cell y-1978 indiana ">Assemblers of electrical equipment</td>
+                <td class="cell y-1996 indiana ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 indiana ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="iowa">
+                <td class="state full">Iowa</td>
+                <td class="state ap">Iowa</td>
+                <td class="cell y-1978 iowa ">Farmers (owners and tenants)</td>
+                <td class="cell y-1996 iowa ">Farmers (owners and tenants)</td>
+                <td class="cell y-2014 iowa ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="kansas">
+                <td class="state full">Kansas</td>
+                <td class="state ap">Kan.</td>
+                <td class="cell y-1978 kansas ">Farmers (owners and tenants)</td>
+                <td class="cell y-1996 kansas ">Farmers (owners and tenants)</td>
+                <td class="cell y-2014 kansas ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="kentucky">
+                <td class="state full">Kentucky</td>
+                <td class="state ap">Ky.</td>
+                <td class="cell y-1978 kentucky ">Machine operators, n.e.c</td>
+                <td class="cell y-1996 kentucky ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 kentucky ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="louisiana">
+                <td class="state full">Louisiana</td>
+                <td class="state ap">La.</td>
+                <td class="cell y-1978 louisiana ">Secretaries</td>
+                <td class="cell y-1996 louisiana ">Secretaries</td>
+                <td class="cell y-2014 louisiana ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="maine">
+                <td class="state full">Maine</td>
+                <td class="state ap">Maine</td>
+                <td class="cell y-1978 maine ">Secretaries</td>
+                <td class="cell y-1996 maine ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 maine ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="maryland">
+                <td class="state full">Maryland</td>
+                <td class="state ap">Md.</td>
+                <td class="cell y-1978 maryland ">Secretaries</td>
+                <td class="cell y-1996 maryland ">Secretaries</td>
+                <td class="cell y-2014 maryland ">Secretaries</td>
+            </tr>
+            
+            <tr class="massachusetts">
+                <td class="state full">Massachusetts</td>
+                <td class="state ap">Mass.</td>
+                <td class="cell y-1978 massachusetts ">Machine operators, n.e.c</td>
+                <td class="cell y-1996 massachusetts ">Secretaries</td>
+                <td class="cell y-2014 massachusetts ">Primary school teachers</td>
+            </tr>
+            
+            <tr class="michigan">
+                <td class="state full">Michigan</td>
+                <td class="state ap">Mich.</td>
+                <td class="cell y-1978 michigan ">Machine operators, n.e.c</td>
+                <td class="cell y-1996 michigan ">Assemblers of electrical equipment</td>
+                <td class="cell y-2014 michigan ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="minnesota">
+                <td class="state full">Minnesota</td>
+                <td class="state ap">Minn.</td>
+                <td class="cell y-1978 minnesota ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-1996 minnesota ">Farmers (owners and tenants)</td>
+                <td class="cell y-2014 minnesota ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="mississippi">
+                <td class="state full">Mississippi</td>
+                <td class="state ap">Miss.</td>
+                <td class="cell y-1978 mississippi ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-1996 mississippi ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 mississippi ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="missouri">
+                <td class="state full">Missouri</td>
+                <td class="state ap">Mo.</td>
+                <td class="cell y-1978 missouri ">Secretaries</td>
+                <td class="cell y-1996 missouri ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 missouri ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="montana">
+                <td class="state full">Montana</td>
+                <td class="state ap">Mont.</td>
+                <td class="cell y-1978 montana ">Farmers (owners and tenants)</td>
+                <td class="cell y-1996 montana ">Farmers (owners and tenants)</td>
+                <td class="cell y-2014 montana ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="nebraska">
+                <td class="state full">Nebraska</td>
+                <td class="state ap">Neb.</td>
+                <td class="cell y-1978 nebraska ">Farmers (owners and tenants)</td>
+                <td class="cell y-1996 nebraska ">Farmers (owners and tenants)</td>
+                <td class="cell y-2014 nebraska ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="nevada">
+                <td class="state full">Nevada</td>
+                <td class="state ap">Nev.</td>
+                <td class="cell y-1978 nevada ">Recreation facility attendants</td>
+                <td class="cell y-1996 nevada ">Recreation facility attendants</td>
+                <td class="cell y-2014 nevada ">Retail sales clerks</td>
+            </tr>
+            
+            <tr class="new-hampshire">
+                <td class="state full">New Hampshire</td>
+                <td class="state ap">N.H.</td>
+                <td class="cell y-1978 new-hampshire ">Machine operators, n.e.c</td>
+                <td class="cell y-1996 new-hampshire ">Primary school teachers</td>
+                <td class="cell y-2014 new-hampshire ">Secretaries</td>
+            </tr>
+            
+            <tr class="new-jersey">
+                <td class="state full">New Jersey</td>
+                <td class="state ap">N.J.</td>
+                <td class="cell y-1978 new-jersey ">Machine operators, n.e.c</td>
+                <td class="cell y-1996 new-jersey ">Secretaries</td>
+                <td class="cell y-2014 new-jersey ">Secretaries</td>
+            </tr>
+            
+            <tr class="new-mexico">
+                <td class="state full">New Mexico</td>
+                <td class="state ap">N.M.</td>
+                <td class="cell y-1978 new-mexico ">Secretaries</td>
+                <td class="cell y-1996 new-mexico ">Secretaries</td>
+                <td class="cell y-2014 new-mexico ">Secretaries</td>
+            </tr>
+            
+            <tr class="new-york">
+                <td class="state full">New York</td>
+                <td class="state ap">N.Y.</td>
+                <td class="cell y-1978 new-york ">Secretaries</td>
+                <td class="cell y-1996 new-york ">Secretaries</td>
+                <td class="cell y-2014 new-york ">Nursing aides, orderlies, and attendants</td>
+            </tr>
+            
+            <tr class="north-carolina">
+                <td class="state full">North Carolina</td>
+                <td class="state ap">N.C.</td>
+                <td class="cell y-1978 north-carolina ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-1996 north-carolina ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 north-carolina ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="north-dakota">
+                <td class="state full">North Dakota</td>
+                <td class="state ap">N.D.</td>
+                <td class="cell y-1978 north-dakota ">Farmers (owners and tenants)</td>
+                <td class="cell y-1996 north-dakota ">Farmers (owners and tenants)</td>
+                <td class="cell y-2014 north-dakota ">Farm managers, except for horticultural farms</td>
+            </tr>
+            
+            <tr class="ohio">
+                <td class="state full">Ohio</td>
+                <td class="state ap">Ohio</td>
+                <td class="cell y-1978 ohio ">Machine operators, n.e.c</td>
+                <td class="cell y-1996 ohio ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 ohio ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="oklahoma">
+                <td class="state full">Oklahoma</td>
+                <td class="state ap">Okla.</td>
+                <td class="cell y-1978 oklahoma ">Secretaries</td>
+                <td class="cell y-1996 oklahoma ">Secretaries</td>
+                <td class="cell y-2014 oklahoma ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="oregon">
+                <td class="state full">Oregon</td>
+                <td class="state ap">Ore.</td>
+                <td class="cell y-1978 oregon ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-1996 oregon ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 oregon ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="pennsylvania">
+                <td class="state full">Pennsylvania</td>
+                <td class="state ap">Pa.</td>
+                <td class="cell y-1978 pennsylvania ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-1996 pennsylvania ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 pennsylvania ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="rhode-island">
+                <td class="state full">Rhode Island</td>
+                <td class="state ap">R.I.</td>
+                <td class="cell y-1978 rhode-island ">Machine operators, n.e.c</td>
+                <td class="cell y-1996 rhode-island ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 rhode-island ">Primary school teachers</td>
+            </tr>
+            
+            <tr class="south-carolina">
+                <td class="state full">South Carolina</td>
+                <td class="state ap">S.C.</td>
+                <td class="cell y-1978 south-carolina ">Secretaries</td>
+                <td class="cell y-1996 south-carolina ">Machine operators, n.e.c</td>
+                <td class="cell y-2014 south-carolina ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="south-dakota">
+                <td class="state full">South Dakota</td>
+                <td class="state ap">S.D.</td>
+                <td class="cell y-1978 south-dakota ">Farmers (owners and tenants)</td>
+                <td class="cell y-1996 south-dakota ">Farmers (owners and tenants)</td>
+                <td class="cell y-2014 south-dakota ">Farm managers, except for horticultural farms</td>
+            </tr>
+            
+            <tr class="tennessee">
+                <td class="state full">Tennessee</td>
+                <td class="state ap">Tenn.</td>
+                <td class="cell y-1978 tennessee ">Machine operators, n.e.c</td>
+                <td class="cell y-1996 tennessee ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 tennessee ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="texas">
+                <td class="state full">Texas</td>
+                <td class="state ap">Texas</td>
+                <td class="cell y-1978 texas ">Secretaries</td>
+                <td class="cell y-1996 texas ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 texas ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="utah">
+                <td class="state full">Utah</td>
+                <td class="state ap">Utah</td>
+                <td class="cell y-1978 utah ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-1996 utah ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 utah ">Computer software developers</td>
+            </tr>
+            
+            <tr class="vermont">
+                <td class="state full">Vermont</td>
+                <td class="state ap">Vt.</td>
+                <td class="cell y-1978 vermont ">Secretaries</td>
+                <td class="cell y-1996 vermont ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 vermont ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="virginia">
+                <td class="state full">Virginia</td>
+                <td class="state ap">Va.</td>
+                <td class="cell y-1978 virginia ">Secretaries</td>
+                <td class="cell y-1996 virginia ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 virginia ">Computer software developers</td>
+            </tr>
+            
+            <tr class="washington">
+                <td class="state full">Washington</td>
+                <td class="state ap">Wash.</td>
+                <td class="cell y-1978 washington ">Secretaries</td>
+                <td class="cell y-1996 washington ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 washington ">Computer software developers</td>
+            </tr>
+            
+            <tr class="west-virginia">
+                <td class="state full">West Virginia</td>
+                <td class="state ap">W.Va.</td>
+                <td class="cell y-1978 west-virginia ">Machine operators, n.e.c</td>
+                <td class="cell y-1996 west-virginia ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 west-virginia ">Primary school teachers</td>
+            </tr>
+            
+            <tr class="wisconsin">
+                <td class="state full">Wisconsin</td>
+                <td class="state ap">Wis.</td>
+                <td class="cell y-1978 wisconsin ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-1996 wisconsin ">Truck, delivery, and tractor drivers</td>
+                <td class="cell y-2014 wisconsin ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+            <tr class="wyoming">
+                <td class="state full">Wyoming</td>
+                <td class="state ap">Wyo.</td>
+                <td class="cell y-1978 wyoming ">Farm workers</td>
+                <td class="cell y-1996 wyoming ">Farmers (owners and tenants)</td>
+                <td class="cell y-2014 wyoming ">Truck, delivery, and tractor drivers</td>
+            </tr>
+            
+
+        </table>
+    </div>
+
+    <div class="footer">
+        <p>Source: IPUMS-CPS/ University Of Minnesota</p>
+        <p>Credit: Quoctrung Bui/NPR</p>
+    </div>
+
+    <script src="js/lib/d3.v3.min.js" type="text/javascript"></script>
+    <script src="js/lib/topojson.v1.min.js"></script>
+    <script src="js/lib/queue.v1.min.js"></script>
+    <script src="js/lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="js/lib/pym.js" type="text/javascript"></script>
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/graphic.js" type="text/javascript"></script>
+</body>
+</html>

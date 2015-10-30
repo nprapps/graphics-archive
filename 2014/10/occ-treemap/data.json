@@ -1,0 +1,406 @@
+{
+  "5": [
+    {
+      "occupation": "Nursing Aides",
+      "income_percentile": "5",
+      "number_employed": "543356",
+      "median_income": "8078.388138",
+      "inc_share": "6",
+      "occtotal": "2640590",
+      "share": "0.2057707",
+      "rank": "1"
+    },
+    {
+      "occupation": "Cashiers",
+      "income_percentile": "5",
+      "number_employed": "454850",
+      "median_income": "8285.526295",
+      "inc_share": "5",
+      "occtotal": "1509837",
+      "share": "0.3012577",
+      "rank": "2"
+    },
+    {
+      "occupation": "Cooks",
+      "income_percentile": "5",
+      "number_employed": "432409",
+      "median_income": "8285.526295",
+      "inc_share": "4",
+      "occtotal": "2125489",
+      "share": "0.2034398",
+      "rank": "3"
+    },
+    {
+      "occupation": "Housekeepers And Maids",
+      "income_percentile": "5",
+      "number_employed": "413070",
+      "median_income": "8078.388138",
+      "inc_share": "4",
+      "occtotal": "1243423",
+      "share": "0.3322039",
+      "rank": "4"
+    },
+    {
+      "occupation": "Janitors",
+      "income_percentile": "5",
+      "number_employed": "374965",
+      "median_income": "7664.111823",
+      "inc_share": "4",
+      "occtotal": "1894498",
+      "share": "0.1979231",
+      "rank": "5"
+    },
+    {
+      "occupation": "Retail sales clerks",
+      "income_percentile": "5",
+      "number_employed": "347252",
+      "median_income": "7767.680902",
+      "inc_share": "4",
+      "occtotal": "2067943",
+      "share": "0.1679215",
+      "rank": "6"
+    },
+    {
+      "occupation": "Child care workers",
+      "income_percentile": "5",
+      "number_employed": "320189",
+      "median_income": "6214.144722",
+      "inc_share": "3",
+      "occtotal": "834956",
+      "share": "0.3834801",
+      "rank": "7"
+    },
+    {
+      "occupation": "Teachers , n.e.c.",
+      "income_percentile": "5",
+      "number_employed": "302658",
+      "median_income": "7767.680902",
+      "inc_share": "3",
+      "occtotal": "1440795",
+      "share": "0.2100632",
+      "rank": "8"
+    },
+    {
+      "occupation": "Servers",
+      "income_percentile": "5",
+      "number_employed": "272030",
+      "median_income": "8285.526295",
+      "inc_share": "3",
+      "occtotal": "1011516",
+      "share": "0.268933",
+      "rank": "9"
+    },
+    {
+      "occupation": "Secretaries",
+      "income_percentile": "5",
+      "number_employed": "230135",
+      "median_income": "8285.526295",
+      "inc_share": "2",
+      "occtotal": "2923266",
+      "share": "0.0787253",
+      "rank": "10"
+    },
+    {
+      "occupation": "Hairdressers and cosmetologists",
+      "income_percentile": "5",
+      "number_employed": "203039",
+      "median_income": "8285.526295",
+      "inc_share": "2",
+      "occtotal": "880158",
+      "share": "0.2306847",
+      "rank": "11"
+    },
+    {
+      "occupation": "Truck Drivers",
+      "income_percentile": "5",
+      "number_employed": "199500",
+      "median_income": "8285.526295",
+      "inc_share": "2",
+      "occtotal": "3233585",
+      "share": "0.0616962",
+      "rank": "12"
+    },
+    {
+      "occupation": "Gardeners and groundskeepers",
+      "income_percentile": "5",
+      "number_employed": "181864",
+      "median_income": "8285.526295",
+      "inc_share": "2",
+      "occtotal": "948245",
+      "share": "0.1917901",
+      "rank": "13"
+    },
+    {
+      "occupation": "Laborers",
+      "income_percentile": "5",
+      "number_employed": "179341",
+      "median_income": "8285.526295",
+      "inc_share": "2",
+      "occtotal": "1358736",
+      "share": "0.1319911",
+      "rank": "14"
+    },
+    {
+      "occupation": "Misc food prep workers",
+      "income_percentile": "5",
+      "number_employed": "175908",
+      "median_income": "8285.526295",
+      "inc_share": "2",
+      "occtotal": "534268",
+      "share": "0.3292505",
+      "rank": "15"
+    },
+    {
+      "occupation": "Primary School Teachers",
+      "income_percentile": "5",
+      "number_employed": "173189",
+      "median_income": "7249.835508",
+      "inc_share": "2",
+      "occtotal": "3149853",
+      "share": "0.0549832",
+      "rank": "16"
+    },
+    {
+      "occupation": "Supervisors, Sales",
+      "income_percentile": "5",
+      "number_employed": "173101",
+      "median_income": "8285.526295",
+      "inc_share": "2",
+      "occtotal": "3511626",
+      "share": "0.0492937",
+      "rank": "17"
+    },
+    {
+      "occupation": "Construction Laborerss",
+      "income_percentile": "5",
+      "number_employed": "163747",
+      "median_income": "8285.526295",
+      "inc_share": "2",
+      "occtotal": "1340992",
+      "share": "0.1221089",
+      "rank": "18"
+    },
+    {
+      "occupation": "Customer Service",
+      "income_percentile": "5",
+      "number_employed": "154527",
+      "median_income": "8285.526295",
+      "inc_share": "2",
+      "occtotal": "1834231",
+      "share": "0.0842462",
+      "rank": "19"
+    },
+    {
+      "occupation": "Stock and inventory clerks",
+      "income_percentile": "5",
+      "number_employed": "150622",
+      "median_income": "8285.526295",
+      "inc_share": "2",
+      "occtotal": "996718",
+      "share": "0.151118",
+      "rank": "20"
+    }
+  ],
+  "10": [
+    {
+      "occupation": "Cooks",
+      "income_percentile": "10",
+      "number_employed": "366600",
+      "median_income": "14188.96378",
+      "inc_share": "5",
+      "occtotal": "2125489",
+      "share": "0.172478",
+      "rank": "1"
+    },
+    {
+      "occupation": "Nursing Aides",
+      "income_percentile": "10",
+      "number_employed": "354362",
+      "median_income": "13774.68747",
+      "inc_share": "5",
+      "occtotal": "2640590",
+      "share": "0.134198",
+      "rank": "2"
+    },
+    {
+      "occupation": "Cashiers",
+      "income_percentile": "10",
+      "number_employed": "280536",
+      "median_income": "13981.82562",
+      "inc_share": "4",
+      "occtotal": "1509837",
+      "share": "0.1858055",
+      "rank": "3"
+    },
+    {
+      "occupation": "Housekeepers And Maids",
+      "income_percentile": "10",
+      "number_employed": "230638",
+      "median_income": "13567.54931",
+      "inc_share": "3",
+      "occtotal": "1243423",
+      "share": "0.1854864",
+      "rank": "4"
+    },
+    {
+      "occupation": "Janitors",
+      "income_percentile": "10",
+      "number_employed": "217308",
+      "median_income": "13981.82562",
+      "inc_share": "3",
+      "occtotal": "1894498",
+      "share": "0.1147048",
+      "rank": "5"
+    },
+    {
+      "occupation": "Teachers , n.e.c.",
+      "income_percentile": "10",
+      "number_employed": "211705",
+      "median_income": "13981.82562",
+      "inc_share": "3",
+      "occtotal": "1440795",
+      "share": "0.1469362",
+      "rank": "6"
+    },
+    {
+      "occupation": "Retail sales clerks",
+      "income_percentile": "10",
+      "number_employed": "208021",
+      "median_income": "13774.68747",
+      "inc_share": "3",
+      "occtotal": "2067943",
+      "share": "0.1005932",
+      "rank": "7"
+    },
+    {
+      "occupation": "Servers",
+      "income_percentile": "10",
+      "number_employed": "184066",
+      "median_income": "13774.68747",
+      "inc_share": "3",
+      "occtotal": "1011516",
+      "share": "0.1819704",
+      "rank": "8"
+    },
+    {
+      "occupation": "Truck Drivers",
+      "income_percentile": "10",
+      "number_employed": "168073",
+      "median_income": "14499.67102",
+      "inc_share": "2",
+      "occtotal": "3233585",
+      "share": "0.0519773",
+      "rank": "9"
+    },
+    {
+      "occupation": "Secretaries",
+      "income_percentile": "10",
+      "number_employed": "161388",
+      "median_income": "13981.82562",
+      "inc_share": "2",
+      "occtotal": "2923266",
+      "share": "0.0552081",
+      "rank": "10"
+    },
+    {
+      "occupation": "Supervisors, Sales",
+      "income_percentile": "10",
+      "number_employed": "150271",
+      "median_income": "14499.67102",
+      "inc_share": "2",
+      "occtotal": "3511626",
+      "share": "0.0427924",
+      "rank": "11"
+    },
+    {
+      "occupation": "Hairdressers and cosmetologists",
+      "income_percentile": "10",
+      "number_employed": "144509",
+      "median_income": "13981.82562",
+      "inc_share": "2",
+      "occtotal": "880158",
+      "share": "0.1641853",
+      "rank": "12"
+    },
+    {
+      "occupation": "Gardeners and groundskeepers",
+      "income_percentile": "10",
+      "number_employed": "137327",
+      "median_income": "14499.67102",
+      "inc_share": "2",
+      "occtotal": "948245",
+      "share": "0.1448223",
+      "rank": "13"
+    },
+    {
+      "occupation": "Child care workers",
+      "income_percentile": "10",
+      "number_employed": "124189",
+      "median_income": "13981.82562",
+      "inc_share": "2",
+      "occtotal": "834956",
+      "share": "0.1487372",
+      "rank": "14"
+    },
+    {
+      "occupation": "Customer Service",
+      "income_percentile": "10",
+      "number_employed": "123341",
+      "median_income": "14188.96378",
+      "inc_share": "2",
+      "occtotal": "1834231",
+      "share": "0.067244",
+      "rank": "15"
+    },
+    {
+      "occupation": "Construction Laborerss",
+      "income_percentile": "10",
+      "number_employed": "119520",
+      "median_income": "14499.67102",
+      "inc_share": "2",
+      "occtotal": "1340992",
+      "share": "0.089128",
+      "rank": "16"
+    },
+    {
+      "occupation": "Laborers",
+      "income_percentile": "10",
+      "number_employed": "118405",
+      "median_income": "14292.53286",
+      "inc_share": "2",
+      "occtotal": "1358736",
+      "share": "0.0871435",
+      "rank": "17"
+    },
+    {
+      "occupation": "Misc food prep workers",
+      "income_percentile": "10",
+      "number_employed": "113504",
+      "median_income": "13671.11839",
+      "inc_share": "2",
+      "occtotal": "534268",
+      "share": "0.2124477",
+      "rank": "18"
+    },
+    {
+      "occupation": "Stock and inventory clerks",
+      "income_percentile": "10",
+      "number_employed": "107354",
+      "median_income": "13878.25654",
+      "inc_share": "2",
+      "occtotal": "996718",
+      "share": "0.1077075",
+      "rank": "19"
+    },
+    {
+      "occupation": "Farm workers",
+      "income_percentile": "10",
+      "number_employed": "86407",
+      "median_income": "13878.25654",
+      "inc_share": "1",
+      "occtotal": "534484",
+      "share": "0.1616643",
+      "rank": "20"
+    }
+  ]
+}

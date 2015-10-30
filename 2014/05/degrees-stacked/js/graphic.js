@@ -56,7 +56,6 @@ d3.selection.prototype.moveToFront = function() {
    });
 };
 
-var Keep = ["United States"]
 
 var $graphic = $('#graphic');
 var $graphicSmall = $('#graphicSmall');
@@ -105,21 +104,21 @@ function drawBigGraph(width, is_mobile) {
         if (is_mobile) {
         var margin = { top: 30, right: 130, bottom: 30, left: 50 };
 
-        var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width*1.7) - margin.top - margin.bottom;        
+        var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width*1.7) - margin.top - margin.bottom;
         blankDegrees.push("Economics", "Security Studies", "Agriculture", "Chemistry", "Philosophy", "Interdisciplinary", "Fitness Studies", "Architecture","Interdisciplinary Studies","Family And Consumer Science", "Foreign Languages");
 
         } else {
-        var margin = { top: 30, right: 130, bottom: 30, left: 60 };            
-        var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;        
-        blankDegrees = ["Architecture", "Consumer Sciences", "Other", "Physics","Public Administration", "Theology", "Zoology", "Recreation And Fitness Studies", "Microbiology","Library Science","Legal Studies", "Cultural Studies", "Geology And Earth Sciences" ];        
+        var margin = { top: 30, right: 130, bottom: 30, left: 60 };
+        var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;
+        blankDegrees = ["Architecture", "Consumer Sciences", "Other", "Physics","Public Administration", "Theology", "Zoology", "Recreation And Fitness Studies", "Microbiology","Library Science","Legal Studies", "Cultural Studies", "Geology And Earth Sciences" ];
         }
 
-        
+
         var num_x_ticks = 8;
         if (width <= 480) {
             num_x_ticks = 6;
-        } 
-        
+        }
+
         var num_y_ticks = 26;
         if (width <= 480) {
             num_y_ticks = 13;
@@ -158,11 +157,11 @@ function drawBigGraph(width, is_mobile) {
             .ticks(num_x_ticks)
             .tickFormat(d3.format("d"));
 
-        var yearLine = svg.append("rect") 
+        var yearLine = svg.append("rect")
           .attr("class", "yearLine")
           .attr("height", height)
           .attr("width", "3")
-          .style("opacity", .5)     
+          .style("opacity", .5)
           .style("z-index", "100");
 
         var xAxis_top = d3.svg.axis()
@@ -190,12 +189,12 @@ function drawBigGraph(width, is_mobile) {
         var area = d3.svg.area()
             .x(function(d) { return x(d.yr); })
             .y0(function(d) { return y(d.y0); })
-            .y1(function(d) { return y(d.y0 + d.y); });        
+            .y1(function(d) { return y(d.y0 + d.y); });
 
         var area2 = d3.svg.area()
             .x(function(d) { return x(d.yr); })
             .y0(function(d) { return y(0); })
-            .y1(function(d) { return y(d.y); });        
+            .y1(function(d) { return y(d.y); });
 
 
         var stack = d3.layout.stack()
@@ -231,7 +230,7 @@ function drawBigGraph(width, is_mobile) {
         // Scale the range of the data
         x.domain(d3.extent(graphic_data, function(d) { return d3.round(d.yr); }));
 
-        // console.log(quintiles)             
+        // console.log(quintiles)
         var quint = svg.selectAll(".quint")
             .data(quintiles)
             .enter().append("g")
@@ -239,9 +238,10 @@ function drawBigGraph(width, is_mobile) {
 
         quint.append("path")
             .attr('class','layer')
-            .attr('id', function(d) { 
+            .attr('id', function(d) {
                 return  d.name})
             .attr("d", function(d) { return area(d.values); })
+            .style("fill", function(d) { return color(d.name); })
             .style("opacity", "1")
             .on("mouseover",mouseover)
             .on("mouseout", mouseout)
@@ -261,7 +261,7 @@ function drawBigGraph(width, is_mobile) {
                 } else {
                     return "12px";
                 }
-            });            
+            });
 
         var xTop = svg.append("g") // Add the X Axis
             .attr("class", "x axis")
@@ -275,8 +275,8 @@ function drawBigGraph(width, is_mobile) {
                 } else {
                     return "12px";
                 }
-            });         
-    
+            });
+
         var yTop = svg.append("g") // Add the Y Axis
             .attr("class", "y axis")
             .attr("transform", "translate("+-width/100+",0)")
@@ -289,15 +289,15 @@ function drawBigGraph(width, is_mobile) {
                 } else {
                     return "12px";
                 }
-            });   
+            });
 
-    
-        var yGrid = svg.append("g")         
+
+        var yGrid = svg.append("g")
             .attr("class", "y grid")
             .call(y_axis_grid()
                 .tickSize(-width, 0, 0)
                 .tickFormat("")
-            );    
+            );
 
         var ylabelText =  quint.append("text")
             .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
@@ -309,7 +309,7 @@ function drawBigGraph(width, is_mobile) {
                     return 'nonblank-label';
                 }
             })
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return 'ylabel quint-' + d.name.replace(/\s+/g, '-').toLowerCase()
             })
             .attr("transform", function(d) { return "translate(" + x(d.value.yr) + "," + y(d.value.y0 + d.value.y / 2) + ")"; })
@@ -323,7 +323,7 @@ function drawBigGraph(width, is_mobile) {
                 } else {
                     return "12px";
                 }
-            });   
+            });
 
             d3.selectAll('.quint-communications-and-journalism').remove();
             // d3.select('.Communications And Journalism').remove();
@@ -369,7 +369,7 @@ function drawBigGraph(width, is_mobile) {
                 } else {
                     andJournal.attr("dy","-1px")
                 }
-            
+
 
 quint.selectAll(".layer")
     .data(quintiles)
@@ -403,7 +403,7 @@ quint.selectAll(".layer")
         .style("opacity","1");
       tooltip
         .style("opacity",".7");
-       
+
         if (date <=1981) {
             if (shareVal2 <80) {
             tooltip.attr("class","tooltip2")
@@ -424,8 +424,8 @@ quint.selectAll(".layer")
             tooltipText
             .style("top", (d3.event.pageY + 25) + "px")
             .transition().ease("easeInOutCirc").duration(10)
-            .style("left", (d3.event.pageX -18) + "px");                    
-                }                
+            .style("left", (d3.event.pageX -18) + "px");
+                }
 
             // tooltip.style("left", (d3.event.pageX -4) + "px");
         } else {
@@ -439,7 +439,7 @@ quint.selectAll(".layer")
             .transition().ease("easeInOutCirc").duration(10)
             .style("left", (d3.event.pageX - 129) + "px");
                 }
-            else 
+            else
                 {
             tooltip.attr("class","tooltip4")
             .style("top", (d3.event.pageY + 25) + "px")
@@ -469,7 +469,7 @@ quint.selectAll(".layer")
        yearLine.attr("x",x(invertedx));
 
     })
-        
+
         function mouseover(d, i) {
 
             d3.selectAll("#blank-label")
@@ -510,7 +510,7 @@ quint.selectAll(".layer")
             .style("opacity", "1")
             .style("stroke", "#3D352A")
             .style("stroke-width", "1");
-            
+
             var testname = d3.select(this).attr("id");
             testname = String('.quint-' + testname.replace(/\s+/g, '-').toLowerCase());
 
@@ -521,7 +521,7 @@ quint.selectAll(".layer")
                 } else {
                     return "14px";
                 }
-            })              
+            })
             .style("opacity","1");
 
             console.log(testname)
@@ -534,7 +534,7 @@ quint.selectAll(".layer")
                     } else {
                         return "14px";
                     }
-                })                
+                })
                 .style("opacity","1");
             }
 
@@ -546,8 +546,6 @@ quint.selectAll(".layer")
         d3.select(".quint-education").style("fill","#17807E");
         d3.select(".quint-chemistry").style("fill","#51AADE");
         d3.select(".quint-political-science").style("fill","#D8472B");
-        d3.selectAll(".layer").style("cursor", "pointer");
-
 
         // Chemistry   Economics   Education
 
@@ -572,7 +570,7 @@ quint.selectAll(".layer")
                 d3.min(quintiles, function(c) { return d3.min(c.values, function(v) { return v.y; }); }),
                 d3.max(quintiles, function(c) { return d3.max(c.values, function(v) { return v.y; }); })
             ]);
-            
+
 
 
              var smallWhat = d3.select(this).attr("id");
@@ -597,10 +595,10 @@ quint.selectAll(".layer")
             d3.selectAll(".quint").transition().duration(200).style("opacity","0").remove();
             d3.selectAll(".ylabel").transition().duration(200).style("opacity","0").remove();
             d3.selectAll(".layer").transition().duration(500).style("opacity","0").remove();
-      
+
             xTop.remove();
 
-            xBottom 
+            xBottom
                 .attr("class", "x axis")
                 .attr("transform", "translate(0," + height/3 + ")")
                 .call(xAxis)
@@ -612,26 +610,26 @@ quint.selectAll(".layer")
                 .call(yaxisSmall);
 
             yGrid
-                .transition().duration(250)            
+                .transition().duration(250)
                 .call(y_axis_gridSmall()
                     .tickSize(-width-80, 0, 0)
                     .tickFormat("")
-                );    
-      
+                );
+
 
 // multiple lines
             var small = svg.selectAll(".small-line")
             .data(quintiles)
             .enter().append("g")
             .attr('class',"small-line")
-            
+
             small.append("path")
             .attr("id","small-area")
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return 'area quint-' + d.name.replace(/\s+/g, '-').toLowerCase()
             })
             .transition().duration(500)
-            .attr("d", function(d) { 
+            .attr("d", function(d) {
                 if(d.name==smallWhat) {
                     return area2(d.values);
                 }
@@ -646,11 +644,11 @@ quint.selectAll(".layer")
 
             small.append("text")
             .attr('class',"small-graph-degree")
-            .text(function(d) { 
+            .text(function(d) {
                 if(d.name==smallWhat) {
                     return d.name;
                 }
-            })            
+            })
             .attr("x",width*.01)
             .attr("y","-6")
             .style("fill", "#black")
@@ -671,7 +669,7 @@ quint.selectAll(".layer")
     var lastVal =  small.append("text")
             .attr('class',"last-val")
             // .attr('x',x(2011))
-            .attr('x', function(d) { 
+            .attr('x', function(d) {
                 if(d.name==smallWhat) {
                     console.log(d.values[lastNum]['yr'])
                        if (is_mobile) {
@@ -681,23 +679,23 @@ quint.selectAll(".layer")
                         }
                     }
             })
-            .attr('y', function(d) { 
+            .attr('y', function(d) {
                 if(d.name==smallWhat) {
                     console.log(d.values[lastNum]['y']*100)
                     return y(d.values[lastNum]['y']) - 7;
                     // return y(d.values[lastNum]['y']*100);
                 }
             })
-            .text(function(d) { 
+            .text(function(d) {
                 if(d.name==smallWhat) {
                     var smallval = d.values[lastNum]['y']*100;
                     console.log(d.values[lastNum]['y'])
                     console.log(d3.round(smallval))
                     if (d3.round(smallval) == 0) {
-                    return '~' + d3.round(smallval) + '%' 
+                    return '~' + d3.round(smallval) + '%'
                     }
                     else {
-                    return d3.round(smallval) + '%' 
+                    return d3.round(smallval) + '%'
                     }
                 }
 
@@ -709,13 +707,13 @@ quint.selectAll(".layer")
             if (is_mobile) {
                 return "10px";
                 } else {
-                return "14px";                
+                return "14px";
                 }
             });
 
     var firstVal = small.append("text")
             .attr('class',"first-val")
-            .attr('x', function(d) { 
+            .attr('x', function(d) {
                 if(d.name==smallWhat) {
                     console.log(d.values[firstNum]['yr'])
                        if (is_mobile) {
@@ -725,22 +723,22 @@ quint.selectAll(".layer")
                         }
                     }
             })
-            .attr('y', function(d) { 
+            .attr('y', function(d) {
                 if(d.name==smallWhat) {
                     console.log(d.values[firstNum]['y']*100)
                     return y(d.values[firstNum]['y']) - 7;
                 }
             })
-            .text(function(d) { 
+            .text(function(d) {
                 if(d.name==smallWhat) {
                     var smallval = d.values[firstNum]['y']*100;
                     console.log(d.values[firstNum]['y'])
                     console.log(d3.round(smallval))
                     if (d3.round(smallval) == 0) {
-                    return '~' + d3.round(smallval) + '%' 
+                    return '~' + d3.round(smallval) + '%'
                     }
                     else {
-                    return d3.round(smallval) + '%' 
+                    return d3.round(smallval) + '%'
                     }
                 }
 
@@ -753,7 +751,7 @@ quint.selectAll(".layer")
             if (is_mobile) {
                 return "10px";
                 } else {
-                return "14px";                
+                return "14px";
                 }
             });
 
@@ -763,7 +761,7 @@ quint.selectAll(".layer")
                     if (is_mobile) {
                         return "-5px";
                         } else {
-                        return "-14px";                
+                        return "-14px";
                         }
                     });
                 }
@@ -774,7 +772,7 @@ quint.selectAll(".layer")
                 .attr('class',"bb")
                 .attr('width','30px')
                 .attr('height', '15px')
-                .text("Back")  
+                .text("Back")
                 .attr("x",x(2005))
                 .attr("y",y(.28))
                 .style('opacity',".2")
@@ -783,14 +781,13 @@ quint.selectAll(".layer")
                 .style("stroke-width", "1px")
                 .style("stroke", "black")
                 .style("opacity", ".8")
-                .style("cursor", "pointer")
                 .on("mouseover",backMouseover)
                 .on("mouseout",backMouseout);
 
 
                 small.append("text")
                 .attr('class',"bb")
-                .text("Back")  
+                .text("Back")
                 .attr("x",x(2005.5))
                 .attr("y",y(.264))
                 .style("fill", "black")
@@ -798,32 +795,30 @@ quint.selectAll(".layer")
                 .style("font-size", "10px")
                 .style("text-align", "center")
                 .style("font-weight", "thin")
-                .style("cursor", "pointer")
                 .on("mouseover",backMouseover)
                 .on("mouseout",backMouseout);
 
             }
-            
+
             else {
 
                 small.append("rect")
                 .attr('class',"bb")
                 .attr('width','65px')
                 .attr('height', '20px')
-                .text("Back")  
+                .text("Back")
                 .attr("x",width)
                 .attr("y","-24")
                 .style("fill", "white")
                 .style("stroke-width", "1px")
                 .style("stroke", "black")
                 .style("opacity", ".5")
-                .style("cursor", "pointer")
                 .on("mouseover",backMouseover)
                 .on("mouseout",backMouseout);
 
                 small.append("text")
                 .attr('class',"bb")
-                .text("Back")  
+                .text("Back")
                 .attr("x",width*1.0265)
                 .attr("y","-8")
                 .style("fill", "black")
@@ -831,10 +826,9 @@ quint.selectAll(".layer")
                 .style("font-size", "16px")
                 .style("text-align", "center")
                 .style("font-weight", "thin")
-                .style("cursor", "pointer")                
                 .on("mouseover",backMouseover)
                 .on("mouseout",backMouseout);
-          
+
             }
 
             d3.selectAll(".bb")
@@ -885,7 +879,7 @@ quint.selectAll(".layer")
                 } else {
                     return "12px";
                 }
-            })               
+            })
             .style("opacity","1")
             d3.select(".tooltip")
             .style("opacity","0");
@@ -900,7 +894,7 @@ quint.selectAll(".layer")
 
 
         }
-    
+
     if (pymChild) {
         pymChild.sendHeightToParent();
     }
@@ -921,5 +915,5 @@ $(window).load(function() {
         renderCallback: render
         });
     });
-    
+
 })

@@ -1,0 +1,111 @@
+@import "base";
+
+.tt-query,.typeahead,
+.tt-hint {
+  font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+  width: 75%;
+  height: 14px;
+  padding: 8px 0px;
+  padding-left: 10px;
+  font-size: 14px;
+  line-height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+    // border: 1.4px solid #fff;
+
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+
+  border-bottom: 2spx solid #ccc;
+  outline: none;
+}
+.typeahead-directions {
+  font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+  padding-left: 10px;
+  font-size: 12px;
+
+}
+.typeahead {
+  background-color: #fff;
+  font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+
+  // border-bottom: 1.4px solid #ccc;
+}
+
+  
+.tt-input {
+  margin: 0 0 0 10px;
+}
+
+.tt-query {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.tt-hint {
+  color: #999;
+  margin-left: 10px;
+}
+
+
+.tt-menu {
+    width: 77%;
+    margin-left: 10px;
+    margin-top: 6px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+
+    max-height: 250px;
+    overflow-y: auto;
+
+}
+
+.tt-suggestion.tt-cursor { /* UPDATE: newer versions use .tt-suggestion.tt-cursor */
+    color: #fff;
+    background-color: @teal4;
+
+}
+
+.tt-suggestion {
+  font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;  
+  padding: 3px 0px 0px 20px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+  color: #ccc;
+  background-color: #0097cf;
+}
+
+.tt-suggestion p {
+  margin: 0;
+}
+
+.tt-suggestion.tt-cursor p {
+  background-color: #D3EAF7;
+  color: #0f3491;
+  text-decoration: underline;
+  outline: 0;
+  opacity: .7;
+}
+
+
+/** Added from this point */
+.twitter-typeahead{
+    width: 75%;
+}
+.tt-dropdown-menu{
+    max-height: 150px;
+    overflow-y: auto;  
+    width: 100%;
+}
+// input.typeahead.tt-query{  This is optional 
+//     width: 200px !important;
+// }
+
+
