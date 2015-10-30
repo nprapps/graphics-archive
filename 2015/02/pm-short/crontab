@@ -1,0 +1,1 @@
+*/5 * * * * ubuntu /bin/bash /home/ubuntu/apps/graphics/repository/pm-short/cron.sh  > /var/log/pm-short.log 2>&1

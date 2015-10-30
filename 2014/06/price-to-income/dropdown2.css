@@ -1,0 +1,107 @@
+.tt-query,.typeahead,
+.tt-hint {
+  font-family: Arial;
+  width: 120% !important;
+  height: 14px;
+  padding: 8px 0px;
+  font-size: 14px;
+  line-height: 30px;
+  /*border: 1px solid #ccc;*/
+    border: 1.4px solid #fff;
+
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+
+  border-bottom: 2spx solid #ccc;
+  outline: none;
+}
+
+.typeahead {
+  background-color: #fff;
+  border-bottom: 1.4px solid #ccc;
+
+}
+
+.typeahead:focus {
+  border-bottom: 1.4px solid #71768a;
+}
+
+.tt-query {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.tt-hint {
+  color: #999
+}
+
+.tt-dropdown-menu {
+    font-size: 13px;
+    width: 102%;
+    min-width: 100px;
+    margin-top: 2px;
+    padding: 7px 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, .2);
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    cursor: pointer;
+}
+.tt-suggestion.tt-is-under-cursor {
+    color: #fff;
+    background-color: #0081c2;
+    background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
+    background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
+    background-image: -o-linear-gradient(top, #0088cc, #0077b3);
+    background-image: linear-gradient(to bottom, #0088cc, #0077b3);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0)
+}
+
+.tt-suggestion {
+  padding: 3px 10px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+  color: #ccc;
+  background-color: #0097cf;
+}
+
+.tt-suggestion p {
+  margin: 0;
+}
+
+.tt-suggestion.tt-cursor p {
+  background-color: #D3EAF7;
+  color: #0f3491;
+  text-decoration: underline;
+  outline: 0;
+  opacity: .7;
+}
+
+
+/** Added from this point */
+.twitter-typeahead{
+     width: 70%;
+}
+.tt-dropdown-menu{
+    width: 72%;
+}
+input.typeahead.tt-query{ /* This is optional */
+    width: 200px !important;
+}
