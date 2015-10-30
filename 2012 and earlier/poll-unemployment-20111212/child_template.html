@@ -1,0 +1,76 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<p class="intro">{{ render(COPY.labels.subhed) }}</p>{% endif %}
+
+    <div id="graphic">
+
+        <div id="panelDaily"><div class="panelWrapper">
+
+        	<div class="update">
+        		<img src="http://media.npr.org/news/graphics/2011/12/kaiser-unemployment/gr-kaiser-income-300.gif" alt="chart">
+        		<div class="updateInfo panelMap1">
+        			<h2>The long-term unemployed tended to be low-wage workers.</h2>
+        			<p>In most cases, the jobs previously held by the long-term unemployed were not high paying. More than half of jobless workers say they made less than $30,000 a year — even when they were on someone's payroll. Only 6 percent earned $75,000 or more annually.</p>
+        		</div>
+        	</div>
+
+        	<div class="update">
+        		<img src="http://media.npr.org/news/graphics/2011/12/kaiser-unemployment/gr-kaiser-problems-300.gif" alt="chart">
+        		<div class="updateInfo">
+        			<h2>The unemployed struggle to stay afloat financially.</h2>
+        			<p>Many people with paychecks report similar financial struggles, but the long-term unemployed and underemployed are about twice as likely to have troubles such as getting calls from collection agencies or having to sell off personal items. They are much more likely to face trouble paying for food or keeping a roof over their heads.</p>
+        		</div>
+        	</div>
+
+        	<div class="update">
+        		<img src="http://media.npr.org/news/graphics/2011/12/kaiser-unemployment/gr-kaiser-health-300.gif" alt="chart">
+        		<div class="updateInfo">
+        			<h2>Losing a job is hard on your health.</h2>
+        			<p>Most people who've been unemployed or without full-time work for a long time say they have trouble sleeping, and have either gained or lost more than 10 pounds since losing their paychecks. And about 1 in 10 has increased the use of drugs or alcohol.</p>
+        		</div>
+        	</div>
+
+        	<div class="update">
+        		<img src="http://media.npr.org/news/graphics/2011/12/kaiser-unemployment/gr-kaiser-health2-300.gif" alt="chart">
+        		<div class="updateInfo">
+        			<h2>People put off health care when they don't have jobs.</h2>
+        			<p>The great majority of people who haven't worked, or have been underemployed, for a long time say they or their family members have skipped or delayed getting health care in the past year because of the cost. About 6 in 10 say they have postponed dental care, and 4 in 10 say they haven't filled a prescription because they don't have the money for it.</p>
+        		</div>
+        	</div>
+
+        	<div class="update">
+        		<img src="http://media.npr.org/news/graphics/2011/12/kaiser-unemployment/gr-kaiser-relationships-300.gif" alt="chart">
+        		<div class="updateInfo">
+        			<h2>Being out of work can hurt family life.</h2>
+        			<p>Being out of work for a long time is far more likely to put stress on a relationship with a partner than to improve it. More than 1 in 5 say their joblessness or lack of full-time work has hurt their relationship with their spouse or partner, while only 8 percent say the troubles have brought them closer.</p>
+        		</div>
+        	</div>
+
+        	<div class="update">
+        		<img src="http://media.npr.org/news/graphics/2011/12/kaiser-unemployment/gr-kaiser-blame-300.gif" alt="chart">
+        		<div class="updateInfo">
+        			<h2>Most unemployed people point a finger at Congress and Wall Street.</h2>
+        			<p>Unemployed workers tend to cut President Obama some slack, but blame Congress and Wall Street for the bad job market. More than 7 in 10 point a finger at Wall Street, and the majority blame both Republicans and Democrats on Capitol Hill. But just 4 in 10 fault Obama.</p>
+        		</div>
+        	</div>
+
+        </div></div>
+
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
