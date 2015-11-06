@@ -1,0 +1,60 @@
+@import "base";
+
+#graphic { 
+    font: 400 14px/1.6 'Gotham SSm', Helvetica, Arial, sans-serif;
+    color: #333;
+    margin-bottom: 22px;
+}
+
+table {
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+}
+table.syria { margin-bottom: 33px; }
+table caption {
+    text-align: left;
+    font-weight: 700;
+    font-size: 12px;
+    color: #666;
+    margin: 0 0 7px 0;
+}
+table td {
+    border-top: 1px solid #eee;
+    vertical-align: top;
+}
+table th,
+table td {
+    padding: 7px 0;
+    text-align: right;
+}
+table th:nth-child(1),
+table td:nth-child(1) {
+    text-align: left;
+}
+
+/* responsive table */
+@media screen and (min-width: 200px) {
+    #graphic {
+        display: table;
+        width: 100%;
+    }
+    #graphic .col {
+        display: table-cell;
+        vertical-align: top;
+        width: 50%;
+    }
+    #graphic .col:nth-child(1) {
+        padding-right: 22px;
+        border-right: 1px solid #eee;
+    }
+    #graphic .col:nth-child(2) { padding-left: 22px; }
+}
+@media screen and (max-width: 480px) {
+    #graphic table { font-size: 11px; }
+    #graphic .col:nth-child(1) { padding-right: 11px; }
+    #graphic .col:nth-child(2) { padding-left: 11px; }
+}

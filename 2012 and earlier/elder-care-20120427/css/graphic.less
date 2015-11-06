@@ -1,0 +1,80 @@
+@import "base";
+
+#graphic { margin-bottom: 22px; }
+
+/* TABS */
+#res151309029 ul {
+	display: table;
+	padding-bottom: 0;
+	width: 100%;
+	margin: 0 0 22px 0;
+    padding: 0;
+    list-style-type: none;
+}
+#res151309029 ul li {
+	display: table-cell;
+	overflow: visible;
+	font-size: 16px;
+	font-weight: bold;
+	text-transform: lowercase;
+	background: #ebebeb;
+	text-align: center;
+	vertical-align: middle;
+	color: #6d8ac4;
+	padding: 22px 0;
+}
+#res151309029 ul li.selected {
+	background: #fff;
+	border-color: #ebebeb;
+	border-width: 2px 2px 0 2px;
+	border-style: solid;
+}
+#res151309029 ul li:hover {
+	color: #bccae5;
+	cursor: pointer;
+}
+
+
+/* TABLES */
+.chart table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+
+    th {
+        padding: 0 10px 15px 10px;
+        border-bottom: 2px solid #eee;
+        padding: 0 10px 10px 10px;
+        text-align: left;
+        white-space: nowrap;
+        vertical-align: bottom;
+        font-weight: bold;
+        color: #333;
+        font-size: 13px;
+    }
+
+    td {
+        vertical-align: top;
+        padding: 15px 10px;
+        font-size: 12px;
+        line-height: 1.5;
+        text-align: left;
+        color: #333;
+    }
+
+    .shadedrow { background-color: #eee; }
+}
+
+.chart table caption { font-size: 22px; font-size: 2.2rem; font-weight: normal; }
+.chart tr.shadedrow td { font-weight: bold; }
+.chart tr.overline th { border-bottom: none; text-align: center; }
+.chart tr td { border-top: 1px dotted #CCC; }
+.chart tr.state td { border-top: 2px solid #CCC; }
+.chart td.right { width: 20%; }
+#costsNursingHome td.right, #costsHomeCare td.right { width: 10%; }
+.chart tr td:first-child { width: 3%; }
+.chart tr.total td:first-child { width: auto; }
+#costsNursingHome tr td:nth-child(5), #costsNursingHome tr.total td:nth-child(4),
+#costsHomeCare tr td:nth-child(5), #costsHomeCare tr.total td:nth-child(4) { border-right: 1px solid #CCC; }
+#costsNursingHome tr.total td:nth-child(5),
+#costsHomeCare tr.total td:nth-child(5) { border-right: none; }

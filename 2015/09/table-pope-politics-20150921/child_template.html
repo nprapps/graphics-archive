@@ -1,0 +1,72 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+    
+    {% for row in COPY.data|groupby('topic') %}
+        <div class="issue {{ row.list[0]['topic']|classify }}">
+            <h3 class="{{ row.list[0]['topic']|classify}}">On {{ row.list[0]['topic'] }}</h3>
+    
+        {% for party in row.list %}
+            <div class="party row-{{ loop.index }}">
+                <ul>
+                    <li class="hdr">
+                        <h5>{{ COPY.labels.hdr_party }}</h5>
+                        <h4 class="{{ party.party|classify }}">{{ party.party }}</h4>
+                    </li>
+                    <li class="pope statement">
+                        <h5>{{ COPY.labels.hdr_pope }}</h5>
+                        <p>
+                            <span class="quote">
+                                {{ party.pope }}
+                                {% if party.pope_source %}
+                                <span class="source">({{ party.pope_source }})</span>
+                                {% endif %}
+                            </span>
+                        </p>
+                    </li>
+
+                    <li class="pols statement">
+                        <h5>{{ COPY.labels.hdr_pols }}</h5>
+                        <p>
+                            <span class="quote">
+                                {{ party.pols }}
+                                {% if party.pols_source %}
+                                <span class="source">({{ party.pols_source }})</span>
+                                {% endif %}
+                            </span>
+                        </p>
+                    </li>
+
+                    <li class="takeaway statement">
+                        <h5>{{ COPY.labels.hdr_so_what }}</h5>
+                        <p>
+                            {{ party.so_what }}
+                        </p>
+                    </li>
+
+                </ul>
+            </div>
+        {% endfor %}
+    
+        </div>
+    {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

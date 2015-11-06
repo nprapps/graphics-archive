@@ -1,0 +1,133 @@
+@import "base";
+
+h3 {
+    font-size: 12px;
+    color: #333;
+    font-weight: normal;
+    font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 -15px 0;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+}
+
+.map { margin-bottom: 22px; }
+
+
+/* Key
+========================================*/
+.key ul {
+    margin: -11px 0 55px 6px;
+    padding: 0;
+    list-style-type: none;
+
+    &:before,
+    &:after {
+        content: ' ';
+        display: table;
+    }
+    &:after { clear: both; }
+    
+    li {
+        position: relative;
+        float: left;
+        margin: 0;
+        padding: 0;
+
+        b {
+            display: block;
+            width: 35px;
+            height: 15px;
+            border-right: 1px solid #fff;
+        }
+        &.key-0 b,
+        &.key-4 b {
+            width: 70px;
+        }
+        
+        label {
+            display: block;
+            font-size: 12px;
+            position: absolute;
+            top: 20px;
+            left: -17px;
+            width: 35px;
+            text-align: center;
+            color: #666;
+            font-weight: normal;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .gt {
+            margin-right: 2px;
+        }
+        
+        &.keyinfinite label { 
+            font-size: 16px;
+            top: 17px;
+        }
+        
+        .desktop { display: inline; }
+        .mobile { display: none; }
+    }
+}
+
+/* Grid Map
+========================================*/
+
+.tile-grid-map {
+    margin-bottom: 33px;
+}
+
+.state {
+    fill: #eee;
+}
+
+.label {
+    font-family: 'Knockout 31 4r';
+    font-size: 12px;
+    fill: #979797;
+}
+
+.label-active {
+    fill: #fff;
+}
+
+@media screen and (max-width: 500px){
+    #graphic { margin-bottom: 33px; }
+
+    .key ul {
+        li {
+            b {
+                width: 20px;
+            }
+            label {
+                width: 20px;
+                left: -10px;
+                font-size: 11px;
+            }
+            &.key-0 b,
+            &.key-4 b {
+                width: 40px;
+            }
+            
+            .desktop { display: none; }
+            .mobile { display: inline; }
+        }
+    }
+}
+
+@media screen and (min-width: 501px){
+    #graphic { margin-bottom: 22px; }
+    .map {
+        width: 47%;
+        margin-right: 3%;
+        float: left;
+    
+        &#hispanic {
+            float: none;
+            margin: 0 auto;
+        }
+    }
+}

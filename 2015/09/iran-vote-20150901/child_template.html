@@ -1,0 +1,151 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+        <div id="party-split">
+            <h3>{{ COPY.labels.hdr_balance }}</h3>
+
+            <ul class="key">
+                <li class="key-item republicans">
+                    <b></b>
+                    <label>Republicans</label>
+                </li>
+                <li class="key-item democrats">
+                    <b></b>
+                    <label>Democrats</label>
+                </li>
+            </ul>
+
+            <div class="phase">
+                <div class="chamber house">
+                    <div class="house"></div>
+                </div>
+                <div class="chamber senate">
+                    <div class="senate"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="approve">
+            <h3>{{ COPY.labels.hdr_approve }}</h3>
+            <h4>{{ COPY.labels.hdr_vote }}</h4>
+            <p class="minimum">{{ COPY.labels.min_approve_vote }}</p>
+            <div class="vote phase">
+                <div class="chamber house">
+                    <h5>House</h5>
+                    <div class="house"></div>
+                </div>
+                <div class="chamber senate">
+                    <h5>Senate</h5>
+                    <div class="senate"></div>
+                </div>
+            </div>
+
+            <div class="bracket"><img src="down-arrow.svg" alt="" /></div>
+
+            <h4>{{ COPY.labels.hdr_reconciliation }}</h4>
+
+            <div class="bracket"><img src="down-arrow.svg" alt="" /></div>
+
+            <h4>{{ COPY.labels.hdr_veto }}</h4>
+
+            <div class="bracket"><img src="down-arrow.svg" alt="" /></div>
+
+            <h4>{{ COPY.labels.hdr_override }}</h4>
+            <p class="minimum">{{ COPY.labels.min_approve_override }}</p>
+            <div class="override phase">
+                <div class="chamber house">
+                    <h5>House</h5>
+                    <div class="house"></div>
+                </div>
+                <div class="chamber senate">
+                    <h5>Senate</h5>
+                    <div class="senate"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="disapprove">
+            <h3>{{ COPY.labels.hdr_disapprove }}</h3>
+            <h2 class="desc">{{ COPY.labels.desc_disapprove }}</h2>
+
+            <h4>{{ COPY.labels.hdr_filibuster }}</h4>
+            <p class="minimum">{{ COPY.labels.min_disapprove_filibuster }}</p>
+            <div class="filibuster phase">
+                <div class="chamber house">
+                    <h5>House</h5>
+                    <div class="house"></div>
+                </div>
+                <div class="chamber senate">
+                    <h5>Senate</h5>
+                    <div class="senate"></div>
+                </div>
+            </div>
+
+            <h4 class="or">-OR-</h4>
+
+            <h4>{{ COPY.labels.hdr_vote2 }}</h4>
+            <p class="minimum">{{ COPY.labels.min_disapprove_vote }}</p>
+            <div class="vote phase">
+                <div class="chamber house">
+                    <h5>House</h5>
+                    <div class="house"></div>
+                </div>
+                <div class="chamber senate">
+                    <h5>Senate</h5>
+                    <div class="senate"></div>
+                </div>
+            </div>
+
+            <div class="bracket"><img src="down-arrow.svg" alt="" /></div>
+
+            <h4>{{ COPY.labels.hdr_reconciliation }}</h4>
+
+            <div class="bracket"><img src="down-arrow.svg" alt="" /></div>
+
+            <h4>{{ COPY.labels.hdr_veto }}</h4>
+
+            <div class="bracket"><img src="down-arrow.svg" alt="" /></div>
+
+            <h4>{{ COPY.labels.hdr_override }}</h4>
+            <p class="minimum">{{ COPY.labels.min_disapprove_override }}</p>
+            <div class="override phase">
+                <div class="chamber house">
+                    <h5>House</h5>
+                    <div class="house"></div>
+                </div>
+                <div class="chamber senate">
+                    <h5>Senate</h5>
+                    <div class="senate"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h6>Notes</h6>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var GRAPHIC_DATA = {
+            'party': {{ COPY.party.json() }},
+            'house': {{ COPY.house.json() }},
+            'senate': {{ COPY.senate.json() }}
+        };
+
+        console.log(GRAPHIC_DATA);
+    </script>
+
+{% endblock content %}

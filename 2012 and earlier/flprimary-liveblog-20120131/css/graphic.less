@@ -1,0 +1,148 @@
+@import "base";
+
+body { padding: 0; }
+
+ul,
+ul li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+#graphic {
+	display: table;
+	width: 100%;
+}
+
+.elexRiverWrap { /* river */
+	display: table-cell;
+	width: 60%;
+	padding-bottom: 24px;
+}
+.elexResultsWrap { /* results */
+	display: table-cell;
+	width: 40%;
+	padding-left: 22px;
+	padding-bottom: 24px;
+}
+.elexRiverWrap h3,
+.elexResultsWrap h3,
+.container h3.conheader {
+	font: bold 18px Georgia, serif; color: #EE1300; text-transform: lowercase; margin-bottom: 12px;
+}
+
+
+/* RIVER OF NEWS */
+#election_river_alert {
+	background-color: #FAFDFF;
+	border: 1px solid #D3E1EA;
+	padding: 12px;
+	margin-bottom: 6px;
+}
+#election_river_alert p {
+	margin: 0;
+	font-size: 13px;
+	font-weight: bold;
+	color: #36c;
+}
+#election_river_alert p:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+#election_river ul li {
+	font-size: 13px;
+	line-height: 1.35em;
+	color: #333;
+	background-color: #f1f1f1;
+	padding: 12px;
+	margin-bottom: 6px;
+}
+#election_river ul li.sticky {
+	background-color: #FFF;
+	border: 1px dotted #999;
+}
+#election_river .date {
+	font-size: 11px;
+	font-style: normal;
+	white-space: nowrap;
+	padding-left: 5px;
+}
+#election_river a {
+	font-weight: bold;
+	color: #36C;
+}
+
+
+/* RESULTS */
+.elexResultsWrap p.credit {
+	margin: 6px 0;
+	color: #999;
+	font-style: italic;
+}
+.elexResultsWrap .elex {
+	border-bottom: 1px solid #CCC;
+	padding-bottom: 9px;
+	margin-bottom: 9px;
+	position: relative;
+}
+.elexResultsTable {
+	margin: 0 0 11px 0;
+}
+.elexResultsTable p.footnote {
+	margin: 0;
+	font-size: 11px;
+	color: #999;
+}
+.elexResultsWrap p.more {
+	border: none;
+	/*margin: 12px 0 0 0; */
+	margin: 0;
+	text-align: right; font-size: 11px;
+	position: absolute; top: 1px; right: 0;
+}
+.elexResultsWrap p.more a {
+	color: #666;
+/*
+	background: url(http://media.npr.org/chrome/news/ico-more-sm.gif) no-repeat right center;
+	padding: 0 10px 0 0;
+	font-weight: bold;
+*/
+}
+/*
+#storyspan03 .elexResultsWrap p.more a:link,
+#storyspan03 .elexResultsWrap p.more a:visited {
+	color: #000; text-decoration: none;
+}
+#storyspan03 .elexResultsWrap p.more a:hover,
+#storyspan03 .elexResultsWrap p.more a:active {
+	color: #36C; text-decoration: underline;
+}
+*/
+.elexResultsWrap h4 {
+	font: bold 12px/1.35em Arial, Helvetica, sans-serif; text-transform: uppercase; color: #333;
+}
+.elexResultsWrap h4 a {
+	background: url('http://media.npr.org/chrome/news/ico-more-sm.gif') no-repeat right 2px;
+	padding-right: 10px;
+}
+#election_timer {
+	float: right; margin-top: -26px; font-size: 11px; color: #999; text-align: right;
+}
+
+
+@media screen and (max-width: 500px) {
+	#graphic {
+		display: block;
+	}
+	.elexRiverWrap { /* river */
+		display: block;
+		width: auto;
+		padding-bottom: 24px;
+	}
+	.elexResultsWrap { /* results */
+		display: block;
+		width: auto;
+		padding-left: 0;
+		padding-bottom: 24px;
+	}
+}

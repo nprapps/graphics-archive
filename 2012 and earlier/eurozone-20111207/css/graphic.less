@@ -1,0 +1,67 @@
+@import "base";
+
+#graphic { margin-bottom: 22px; }
+
+#pmTables20111207 table {
+    margin-bottom: 12px;
+    clear: both;
+    border-collapse: collapse;
+}
+#pmTables20111207 table caption {
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 11px;
+    font-weight: bold;
+}
+#pmTables20111207 table caption span { font-weight: normal; text-transform: none; color: #333; font-size: 12px; margin-top: 3px; display: block; }
+#pmTables20111207 table caption span b { color: #F7E39B; font-size: 18px; padding-right: 3px; }
+#pmTables20111207 table th,
+#pmTables20111207 table td {
+	white-space: nowrap; text-align: center; width: 7.75%;
+    padding: 10px;
+
+    &:nth-child(1) { padding-left: 0; }
+}
+#pmTables20111207 table th { font: bold 12px Arial, Helvetica, sans-serif; }
+#pmTables20111207 table td { font-size: 12px; border-bottom: 1px solid #FFF; border-right: 1px solid #FFF; background-color: #f1f1f1; }
+#pmTables20111207 table .name { text-align: left; font-weight: bold; }
+#pmTables20111207 table td.name { background-color: #FFF; padding-right: 5px; }
+#pmTables20111207 table .spot { background-color: #F7E39B; }
+
+#pmTables20111207 ul#tabs {
+	width: 100%;
+	display: table;
+    margin: 0 0 22px 0;
+    padding: 0;
+    list-style-type: none;
+}
+#pmTables20111207 ul#tabs li {
+	display: table-cell;
+	padding: 22px 0;
+	font-size: 16px;
+	font-weight: bold;
+	color: #6d8ac4;
+	background: #ebebeb;
+	text-align: center;
+	vertical-align: middle;
+	width: 50%;
+	text-transform: lowercase;
+}
+#pmTables20111207 ul#tabs li.selected {
+	background: #fff;
+	border-color: #ebebeb;
+	border-width: 2px 2px 0 2px;
+	border-style: solid;
+}
+#pmTables20111207 ul#tabs li:hover {
+	pointer: cursor;
+	opacity: 0.7;
+}
+
+
+@media (max-width: 480px) {
+	#pmTables20111207 table th,
+	#pmTables20111207 table td {
+		padding: 5px 0;
+	}
+}

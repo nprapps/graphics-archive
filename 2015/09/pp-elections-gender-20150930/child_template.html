@@ -1,0 +1,32 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <h3>Presidential Race in Colorado, 2012</h3>
+    <div id="president-2012"></div>
+
+    <h3>Colorado Senate Race, 2014</h3>
+    <div id="senate-2014"></div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var GRAPHIC_DATA = {};
+        GRAPHIC_DATA['president_2012'] = {{ COPY.president_2012.json() }};
+        GRAPHIC_DATA['senate_2014'] = {{ COPY.senate_2014.json() }};
+    </script>
+
+{% endblock content %}

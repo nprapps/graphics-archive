@@ -1,0 +1,101 @@
+@import "base";
+
+h1 { margin-bottom: 22px; }
+
+rect.bg { fill: #f1f1f1; }
+
+h3 {
+    font-size: 12px;
+    color: #666;
+    font-weight: normal;
+    font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 11px 0;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    
+    #nationwide & { color: #121212; }
+}
+
+.axis {
+    fill: #666;
+    font-weight: bold;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+
+    path { display: none; }
+}
+
+.area path { 
+    fill-opacity: 0.4;
+    fill: @yellow4;
+    
+    .nationwide& { fill: @yellow3; }
+}
+
+.lines line {
+    stroke-width: 3px;
+    stroke: @yellow4;
+    shape-rendering: auto;
+
+    &.nationwide { stroke: @yellow3; }
+}
+
+.dots circle {
+    fill: @yellow4;
+    stroke: #fff;
+    stroke-width: 1px;
+    
+    &.nationwide { fill: @yellow3; }
+}
+
+.value text {
+    font-size: 11px;
+    fill: #666;
+    
+    &.nationwide { 
+        font-weight: bold;
+        fill: #333;
+    }
+}
+
+.label text {
+    font-size: 11px;
+    fill: #333;
+}
+
+.category { 
+    float: left;
+    margin-bottom: 11px;
+}
+
+
+
+@media screen and (min-width: 501px) {
+    .category {
+        margin-left: 22px;
+        
+        &#nationwide { margin-left: 0; }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .category {
+        &#nationwide { 
+            margin-left: auto;
+            margin-right: auto;
+            float: none;
+        }
+        
+        &#northeast,
+        &#south {
+            clear: both;
+        }
+        
+        &#midwest,
+        &#west {
+            margin-left: 22px;
+        }
+    }
+}

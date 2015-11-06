@@ -1,0 +1,34 @@
+@import "base";
+
+.wrapper {
+    float: left;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 12px;
+    color: #666;
+    font-weight: normal;
+    font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 10px 0;
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: @teal4;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}

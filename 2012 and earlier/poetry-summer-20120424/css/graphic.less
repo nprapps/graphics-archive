@@ -1,0 +1,259 @@
+@import "base";
+
+body {
+    width: 624px;
+}
+
+/* TABS */
+#res156627599 {
+    &:before,
+    &:after {
+        content: ' ';
+        display: table;
+    }
+
+    &:after { clear: both; }
+
+    ul {
+    	clear: both;
+    	/*margin-bottom: 24px; */
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    	float: left;
+    }
+}
+
+#res156627599 ul li {
+	color: #000;
+	font-weight: bold;
+	font-size: 12px;
+	padding: 21px 0 15px 0;
+	margin: 0;
+	border: 1px solid #B2B2B4;
+	background: none;
+	background-color: #F1F1F1;
+	width: 310px;
+	float: left;
+	text-align: center;
+}
+#res156627599 ul li.tab-open {
+	padding: 21px 0 15px 0;
+	background-color: #FFF;
+	border-bottom: 1px solid #FFF;
+}
+#res156627599 ul li:first-child {
+	border-right: none;
+}
+#res156627599 ul li:hover {
+	cursor: pointer;
+	color: #36C;
+	text-decoration: underline;
+}
+
+
+#container{
+    // width:621px;
+    // height:525px;
+    border-right:1px #b0b0b0 solid;
+    border-left:1px #b0b0b0 solid;
+    border-bottom:1px #b0b0b0 solid;
+}
+
+em {font-style:italic;}
+a {
+    color: #36C;
+    text-decoration:none;
+}
+
+
+/* POEM */
+#about {
+    margin-right:0px;
+    padding:0 10px 0 10px;
+    overflow:hidden;
+}
+
+#about h4{
+    color:#333333;
+    font:bold 18px Georgia, serif;
+    margin: 15px 0 0 0;
+}
+
+#about h6{
+    color:#999999;
+    font-family:arial, sans-serif;
+    font-size:12px;
+    margin: 2px 0 15px 0;
+    font-style:italic;
+}
+
+#about p {
+    color:#333333;
+    font-family:arial, sans-serif;
+    font-size:13px;
+    line-height:17px;
+    margin:0 0 20px 0;
+}
+
+
+
+audio { height: 50px; width: 400px; }
+
+.speaking {
+    color:#000;
+    font-weight:bold;
+}
+
+// #container{
+//     width:621px;
+//     height:465px;
+//     border-right:1px #b0b0b0 solid;
+//     border-left:1px #b0b0b0 solid;
+//     border-bottom:1px #b0b0b0 solid;
+// }
+
+audio {
+    padding:10px 0 0 10px;
+}
+
+em {font-style: italic;}
+
+a {
+    color: #36C;
+    text-decoration:none;
+}
+
+/* POEM */
+#poembox {
+    width:472px;
+    float:left;
+}
+
+#poembox .mejs-container{
+    margin:15px 0 10px 10px;
+}
+
+#poem {
+    margin-right:0px;
+    padding:10px 10px 10px 40px;
+    overflow:hidden;
+    height:365px;
+}
+
+#poem a{
+    color: #36C;
+    text-decoration:none;
+}
+
+#poem a:hover{
+    text-decoration:underline;
+}
+
+#poem .page {
+    display:none;
+    float:left;
+    color:#777777;
+    font-family:arial, sans-serif;
+    font-size:13px;
+    line-height:17px;
+}
+
+#poem .page h1{
+    font-weight: bold;
+    padding:0;
+    color:#333333;
+}
+
+#poem .page.inview {
+    display:block;
+}
+
+#poem .page h2.author{
+    font-style:italic;
+    padding:0 0 10px 0;
+    color:#999999;
+    font-size:11px;
+}
+
+/* PAGE NAVIGATION */
+.pager {
+    border-top:1px #7e7e7e solid;
+    width:472px;
+    font-family:arial,sans-serif;
+    font-size:12px;
+    font-weight:bold;
+
+}
+
+.pager a{
+    color:#666666;
+    text-decoration:none;
+}
+
+.pager a:hover{
+    color:#666666;
+    text-decoration:underline;
+}
+
+.pager #prevpage{
+    float:left;
+    padding:5px 0 5px 10px;
+    margin:0 0 0 5px;
+    background:url('http://www.npr.org/chrome/ico-gray-arrow-left-11x20.png') left no-repeat;
+    background-size: 6px 12px;
+}
+
+.pager #nextpage{
+    float:right;
+    padding:5px 10px 5px 0;
+    margin:0 5px 0 0;
+    background:url('http://www.npr.org/chrome/ico-gray-arrow-right-11x20.png') right no-repeat;
+    background-size: 6px 12px;
+}
+
+/* RIGHT INFO BAR */
+#sidebar {
+    width:127px;
+    height:445px;
+    float:left;
+    font-family:arial, sans-serif;
+    font-size:11px;
+    line-height:14px;
+    color:#333333;
+    /*font-style: italic;*/
+    padding:10px 10px 10px 10px;
+    border-left:1px #b0b0b0 solid;
+    background:#f8f8f8;
+}
+
+#sidebar p.more:first-child{
+    font-size:13px;
+    padding:0 0 10px  0;
+    font-style: italic;
+}
+
+#sidebar img {
+    margin:0 0 5px 0;
+    border:1px #b0b0b0 solid;
+}
+
+/*PLAYER STUFF */
+#bar {
+    width: 300px;
+    height: 50px;
+    border: 1px solid #999;
+    background-color: #e1e1e1;
+}
+#progress {
+    width: 0%;
+    height: 50px;
+    background-color: #CCC;
+    float: left;
+}
+#slider {
+    height: 50px;
+    width:5%;
+    background: #999;
+
+}

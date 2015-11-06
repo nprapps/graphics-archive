@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <base target="_blank">
+
+    
+
+    <!-- Fonts -->
+    <script src="http://apps.npr.org/dailygraphics/graphics/fonts/js/lib/webfont.js"></script>
+    <script>
+    WebFont.load({
+        custom: {
+            families: [
+                'Gotham SSm:n4,n7',
+                'Knockout 31 4r:n4'
+            ],
+            urls: [
+                'http://s.npr.org/templates/css/fonts/GothamSSm.css',
+                'http://s.npr.org/templates/css/fonts/Knockout.css'
+            ]
+        },
+        timeout: 10000
+    });
+    </script>
+
+    
+
+    <!-- Configuration -->
+    <script type="text/javascript">
+        GOOGLE_ANALYTICS_ACCOUNT_ID = 'UA-5828686-75';
+        GOOGLE_ANALYTICS_PROJECT_SLUG = 'map-obesity-prevalence-20150923';
+    </script>
+
+    <!-- CSS + LESS -->
+    
+    <link rel="stylesheet" type="text/css" href="css/graphic-header.css?1443027439" />
+</head>
+<body>
+    <!-- Analytics -->
+    
+    
+    <script type="text/javascript" src="js/graphic-header.js?1443027440"></script>
+
+    
+
+    <h1>Obesity Prevalance In 2014, By Race</h1>
+    
+
+    <div class="key"><ul></ul></div>
+
+    <div id="graphic"></div>
+
+    
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>&mdash;&nbsp;Figures for white and black populations do not include Hispanics.<br />
+&mdash;&nbsp;Insufficient data to calculate prevalence rates for black residents of Idaho and Montana.</p>
+    </div>
+    
+
+    <div class="footer">
+        <p>Source: <a href="http://www.cdc.gov/obesity/data/prevalence-maps.html">Centers for Disease Control and Prevention</a> Behavioral Risk Factor Surveillance System</p>
+        <p>Credit: Alyson Hurt/NPR</p>
+    </div>
+
+    <div id="map-template" style="display: none;">
+        <h3></h3>
+
+        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <svg viewBox="0 0 436 254" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+            <title>map</title>
+            <desc></desc>
+            <defs></defs>
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                <g class="map" sketch:type="MSLayerGroup" transform="translate(1.000000, 2.000000)" stroke-width="2" stroke="#FFFFFF" fill="#DDDDDD">
+                    <g class="states" sketch:type="MSShapeGroup">
+                        <path d="M35.5255888,0 L52.8460969,10 L52.8460969,30 L35.5255888,40 L18.2050808,30 L18.2050808,10 L35.5255888,0 Z" class="state-alaska"></path>
+                        <path d="M416.576766,0 L433.897275,10 L433.897275,30 L416.576766,40 L399.256258,30 L399.256258,10 L416.576766,0 Z" class="state-maine"></path>
+                        <path d="M364.615242,30 L381.93575,40 L381.93575,60 L364.615242,70 L347.294734,60 L347.294734,40 L364.615242,30 Z" class="state-vermont"></path>
+                        <path d="M399.256258,30 L416.576766,40 L416.576766,60 L399.256258,70 L381.93575,60 L381.93575,40 L399.256258,30 Z" class="state-new-hampshire"></path>
+                        <path d="M70.166605,60 L87.4871131,70 L87.4871131,90 L70.166605,100 L52.8460969,90 L52.8460969,70 L70.166605,60 Z" class="state-washington"></path>
+                        <path d="M104.807621,60 L122.128129,70 L122.128129,90 L104.807621,100 L87.4871131,90 L87.4871131,70 L104.807621,60 Z" class="state-montana"></path>
+                        <path d="M139.448637,60 L156.769145,70 L156.769145,90 L139.448637,100 L122.128129,90 L122.128129,70 L139.448637,60 Z" class="state-north-dakota"></path>
+                        <path d="M174.089653,60 L191.410162,70 L191.410162,90 L174.089653,100 L156.769145,90 L156.769145,70 L174.089653,60 Z" class="state-minnesota"></path>
+                        <path d="M208.73067,60 L226.051178,70 L226.051178,90 L208.73067,100 L191.410162,90 L191.410162,70 L208.73067,60 Z" class="state-wisconsin"></path>
+                        <path d="M278.012702,60 L295.33321,70 L295.33321,90 L278.012702,100 L260.692194,90 L260.692194,70 L278.012702,60 Z" class="state-michigan"></path>
+                        <path d="M347.294734,60 L364.615242,70 L364.615242,90 L347.294734,100 L329.974226,90 L329.974226,70 L347.294734,60 Z" class="state-new-york"></path>
+                        <path d="M381.93575,60 L399.256258,70 L399.256258,90 L381.93575,100 L364.615242,90 L364.615242,70 L381.93575,60 Z" class="state-massachusetts"></path>
+                        <path d="M416.576766,60 L433.897275,70 L433.897275,90 L416.576766,100 L399.256258,90 L399.256258,70 L416.576766,60 Z" class="state-rhode-island"></path>
+                        <path d="M87.4871131,90 L104.807621,100 L104.807621,120 L87.4871131,130 L70.166605,120 L70.166605,100 L87.4871131,90 Z" class="state-idaho"></path>
+                        <path d="M122.128129,90 L139.448637,100 L139.448637,120 L122.128129,130 L104.807621,120 L104.807621,100 L122.128129,90 Z" class="state-wyoming"></path>
+                        <path d="M156.769145,90 L174.089653,100 L174.089653,120 L156.769145,130 L139.448637,120 L139.448637,100 L156.769145,90 Z" class="state-south-dakota"></path>
+                        <path d="M191.410162,90 L208.73067,100 L208.73067,120 L191.410162,130 L174.089653,120 L174.089653,100 L191.410162,90 Z" class="state-iowa"></path>
+                        <path d="M226.051178,90 L243.371686,100 L243.371686,120 L226.051178,130 L208.73067,120 L208.73067,100 L226.051178,90 Z" class="state-illinois"></path>
+                        <path d="M260.692194,90 L278.012702,100 L278.012702,120 L260.692194,130 L243.371686,120 L243.371686,100 L260.692194,90 Z" class="state-indiana"></path>
+                        <path d="M295.33321,90 L312.653718,100 L312.653718,120 L295.33321,130 L278.012702,120 L278.012702,100 L295.33321,90 Z" class="state-ohio"></path>
+                        <path d="M329.974226,90 L347.294734,100 L347.294734,120 L329.974226,130 L312.653718,120 L312.653718,100 L329.974226,90 Z" class="state-pennsylvania"></path>
+                        <path d="M364.615242,90 L381.93575,100 L381.93575,120 L364.615242,130 L347.294734,120 L347.294734,100 L364.615242,90 Z" class="state-new-jersey"></path>
+                        <path d="M399.256258,90 L416.576766,100 L416.576766,120 L399.256258,130 L381.93575,120 L381.93575,100 L399.256258,90 Z" class="state-connecticut"></path>
+                        <path d="M70.166605,120 L87.4871131,130 L87.4871131,150 L70.166605,160 L52.8460969,150 L52.8460969,130 L70.166605,120 Z" class="state-oregon"></path>
+                        <path d="M104.807621,120 L122.128129,130 L122.128129,150 L104.807621,160 L87.4871131,150 L87.4871131,130 L104.807621,120 Z" class="state-nevada"></path>
+                        <path d="M139.448637,120 L156.769145,130 L156.769145,150 L139.448637,160 L122.128129,150 L122.128129,130 L139.448637,120 Z" class="state-colorado"></path>
+                        <path d="M174.089653,120 L191.410162,130 L191.410162,150 L174.089653,160 L156.769145,150 L156.769145,130 L174.089653,120 Z" class="state-nebraska"></path>
+                        <path d="M208.73067,120 L226.051178,130 L226.051178,150 L208.73067,160 L191.410162,150 L191.410162,130 L208.73067,120 Z" class="state-missouri"></path>
+                        <path d="M243.371686,120 L260.692194,130 L260.692194,150 L243.371686,160 L226.051178,150 L226.051178,130 L243.371686,120 Z" class="state-kentucky"></path>
+                        <path d="M278.012702,120 L295.33321,130 L295.33321,150 L278.012702,160 L260.692194,150 L260.692194,130 L278.012702,120 Z" class="state-west-virginia"></path>
+                        <path d="M312.653718,120 L329.974226,130 L329.974226,150 L312.653718,160 L295.33321,150 L295.33321,130 L312.653718,120 Z" class="state-virginia"></path>
+                        <path d="M347.294734,120 L364.615242,130 L364.615242,150 L347.294734,160 L329.974226,150 L329.974226,130 L347.294734,120 Z" class="state-maryland"></path>
+                        <path d="M381.93575,120 L399.256258,130 L399.256258,150 L381.93575,160 L364.615242,150 L364.615242,130 L381.93575,120 Z" class="state-delaware"></path>
+                        <path d="M87.4871131,150 L104.807621,160 L104.807621,180 L87.4871131,190 L70.166605,180 L70.166605,160 L87.4871131,150 Z" class="state-california"></path>
+                        <path d="M122.128129,150 L139.448637,160 L139.448637,180 L122.128129,190 L104.807621,180 L104.807621,160 L122.128129,150 Z" class="state-utah"></path>
+                        <path d="M156.769145,150 L174.089653,160 L174.089653,180 L156.769145,190 L139.448637,180 L139.448637,160 L156.769145,150 Z" class="state-new-mexico"></path>
+                        <path d="M191.410162,150 L208.73067,160 L208.73067,180 L191.410162,190 L174.089653,180 L174.089653,160 L191.410162,150 Z" class="state-kansas"></path>
+                        <path d="M226.051178,150 L243.371686,160 L243.371686,180 L226.051178,190 L208.73067,180 L208.73067,160 L226.051178,150 Z" class="state-arkansas"></path>
+                        <path d="M260.692194,150 L278.012702,160 L278.012702,180 L260.692194,190 L243.371686,180 L243.371686,160 L260.692194,150 Z" class="state-tennessee"></path>
+                        <path d="M295.33321,150 L312.653718,160 L312.653718,180 L295.33321,190 L278.012702,180 L278.012702,160 L295.33321,150 Z" class="state-north-carolina"></path>
+                        <path d="M329.974226,150 L347.294734,160 L347.294734,180 L329.974226,190 L312.653718,180 L312.653718,160 L329.974226,150 Z" class="state-south-carolina"></path>
+                        <path d="M364.615242,150 L381.93575,160 L381.93575,180 L364.615242,190 L347.294734,180 L347.294734,160 L364.615242,150 Z" class="state-district-of-columbia"></path>
+                        <path d="M139.448637,180 L156.769145,190 L156.769145,210 L139.448637,220 L122.128129,210 L122.128129,190 L139.448637,180 Z" class="state-arizona"></path>
+                        <path d="M174.089653,180 L191.410162,190 L191.410162,210 L174.089653,220 L156.769145,210 L156.769145,190 L174.089653,180 Z" class="state-oklahoma"></path>
+                        <path d="M208.73067,180 L226.051178,190 L226.051178,210 L208.73067,220 L191.410162,210 L191.410162,190 L208.73067,180 Z" class="state-louisiana"></path>
+                        <path d="M243.371686,180 L260.692194,190 L260.692194,210 L243.371686,220 L226.051178,210 L226.051178,190 L243.371686,180 Z" class="state-mississippi"></path>
+                        <path d="M278.012702,180 L295.33321,190 L295.33321,210 L278.012702,220 L260.692194,210 L260.692194,190 L278.012702,180 Z" class="state-alabama"></path>
+                        <path d="M312.653718,180 L329.974226,190 L329.974226,210 L312.653718,220 L295.33321,210 L295.33321,190 L312.653718,180 Z" class="state-georgia"></path>
+                        <path d="M18.2050808,210 L35.5255888,220 L35.5255888,240 L18.2050808,250 L0.884572681,240 L0.884572681,220 L18.2050808,210 Z" class="state-hawaii"></path>
+                        <path d="M191.410162,210 L208.73067,220 L208.73067,240 L191.410162,250 L174.089653,240 L174.089653,220 L191.410162,210 Z" class="state-texas"></path>
+                        <path d="M295.33321,210 L312.653718,220 L312.653718,240 L295.33321,250 L278.012702,240 L278.012702,220 L295.33321,210 Z" class="state-florida"></path>
+                    </g>
+                </g>
+            </g>
+        </svg>
+    </div>
+
+    <script type="text/javascript">
+        var MAP_DATA = { 
+            'white': { 
+                'title': 'White',
+                'data': [{"state_name": "District of Columbia", "rate": "9.9", "confidence_interval": "(8.7, 11.3)", "category": "< 20%"}, {"state_name": "Hawaii", "rate": "18.8", "confidence_interval": "(17.3, 20.3)", "category": "< 20%"}, {"state_name": "Colorado", "rate": "19.1", "confidence_interval": "(18.6, 19.7)", "category": "< 20%"}, {"state_name": "New Mexico", "rate": "22.5", "confidence_interval": "(21.5, 23.5)", "category": "20-24.9%"}, {"state_name": "California", "rate": "22.6", "confidence_interval": "(21.8, 23.4)", "category": "20-24.9%"}, {"state_name": "Massachusetts", "rate": "22.6", "confidence_interval": "(22.0, 23.3)", "category": "20-24.9%"}, {"state_name": "Arizona", "rate": "23.7", "confidence_interval": "(22.6, 24.8)", "category": "20-24.9%"}, {"state_name": "Montana", "rate": "23.9", "confidence_interval": "(23.1, 24.7)", "category": "20-24.9%"}, {"state_name": "Connecticut", "rate": "24.2", "confidence_interval": "(23.3, 25.1)", "category": "20-24.9%"}, {"state_name": "Florida", "rate": "24.3", "confidence_interval": "(23.5, 25.2)", "category": "20-24.9%"}, {"state_name": "Vermont", "rate": "24.3", "confidence_interval": "(23.5, 25.1)", "category": "20-24.9%"}, {"state_name": "New York", "rate": "24.5", "confidence_interval": "(23.6, 25.4)", "category": "20-24.9%"}, {"state_name": "Utah", "rate": "24.5", "confidence_interval": "(24.0, 25.1)", "category": "20-24.9%"}, {"state_name": "New Jersey", "rate": "25.4", "confidence_interval": "(24.6, 26.2)", "category": "25-29.9%"}, {"state_name": "Maryland", "rate": "26.0", "confidence_interval": "(25.1, 26.9)", "category": "25-29.9%"}, {"state_name": "Minnesota", "rate": "26.1", "confidence_interval": "(25.4, 26.7)", "category": "25-29.9%"}, {"state_name": "Virginia", "rate": "26.1", "confidence_interval": "(25.2, 26.9)", "category": "25-29.9%"}, {"state_name": "Nevada", "rate": "26.4", "confidence_interval": "(25.0, 27.8)", "category": "25-29.9%"}, {"state_name": "Rhode Island", "rate": "26.6", "confidence_interval": "(25.6, 27.6)", "category": "25-29.9%"}, {"state_name": "Texas", "rate": "26.7", "confidence_interval": "(25.8, 27.7)", "category": "25-29.9%"}, {"state_name": "North Carolina", "rate": "26.8", "confidence_interval": "(26.0, 27.7)", "category": "25-29.9%"}, {"state_name": "Wyoming", "rate": "26.8", "confidence_interval": "(25.7, 27.9)", "category": "25-29.9%"}, {"state_name": "Alaska", "rate": "27.0", "confidence_interval": "(25.8, 28.2)", "category": "25-29.9%"}, {"state_name": "Oregon", "rate": "27.0", "confidence_interval": "(26.1, 28.0)", "category": "25-29.9%"}, {"state_name": "Idaho", "rate": "27.4", "confidence_interval": "(26.3, 28.5)", "category": "25-29.9%"}, {"state_name": "Georgia", "rate": "27.5", "confidence_interval": "(26.5, 28.6)", "category": "25-29.9%"}, {"state_name": "Illinois", "rate": "27.5", "confidence_interval": "(26.5, 28.6)", "category": "25-29.9%"}, {"state_name": "New Hampshire", "rate": "27.5", "confidence_interval": "(26.6, 28.5)", "category": "25-29.9%"}, {"state_name": "Washington", "rate": "27.8", "confidence_interval": "(27.1, 28.5)", "category": "25-29.9%"}, {"state_name": "South Carolina", "rate": "28.1", "confidence_interval": "(27.2, 28.9)", "category": "25-29.9%"}, {"state_name": "Delaware", "rate": "28.2", "confidence_interval": "(27.0, 29.4)", "category": "25-29.9%"}, {"state_name": "Maine", "rate": "28.5", "confidence_interval": "(27.8, 29.3)", "category": "25-29.9%"}, {"state_name": "Missouri", "rate": "28.9", "confidence_interval": "(27.8, 29.9)", "category": "25-29.9%"}, {"state_name": "South Dakota", "rate": "28.9", "confidence_interval": "(27.8, 30.0)", "category": "25-29.9%"}, {"state_name": "Nebraska", "rate": "29.0", "confidence_interval": "(28.4, 29.6)", "category": "25-29.9%"}, {"state_name": "Pennsylvania", "rate": "29.2", "confidence_interval": "(28.5, 29.9)", "category": "25-29.9%"}, {"state_name": "Kansas", "rate": "29.6", "confidence_interval": "(29.1, 30.2)", "category": "25-29.9%"}, {"state_name": "Wisconsin", "rate": "29.6", "confidence_interval": "(28.6, 30.7)", "category": "25-29.9%"}, {"state_name": "Michigan", "rate": "30.2", "confidence_interval": "(29.5, 31.0)", "category": "30-34.9%"}, {"state_name": "Alabama", "rate": "30.4", "confidence_interval": "(29.4, 31.4)", "category": "30-34.9%"}, {"state_name": "Ohio", "rate": "30.4", "confidence_interval": "(29.6, 31.1)", "category": "30-34.9%"}, {"state_name": "Louisiana", "rate": "30.5", "confidence_interval": "(29.3, 31.7)", "category": "30-34.9%"}, {"state_name": "North Dakota", "rate": "30.7", "confidence_interval": "(29.7, 31.7)", "category": "30-34.9%"}, {"state_name": "Tennessee", "rate": "30.7", "confidence_interval": "(29.6, 31.8)", "category": "30-34.9%"}, {"state_name": "Iowa", "rate": "30.9", "confidence_interval": "(30.1, 31.7)", "category": "30-34.9%"}, {"state_name": "Indiana", "rate": "31.1", "confidence_interval": "(30.3, 31.9)", "category": "30-34.9%"}, {"state_name": "Mississippi", "rate": "31.3", "confidence_interval": "(30.0, 32.5)", "category": "30-34.9%"}, {"state_name": "Kentucky", "rate": "31.6", "confidence_interval": "(30.7, 32.4)", "category": "30-34.9%"}, {"state_name": "Oklahoma", "rate": "31.9", "confidence_interval": "(31.0, 32.7)", "category": "30-34.9%"}, {"state_name": "Arkansas", "rate": "32.9", "confidence_interval": "(31.7, 34.2)", "category": "30-34.9%"}, {"state_name": "West Virginia", "rate": "34.7", "confidence_interval": "(33.8, 35.6)", "category": "30-34.9%"}]
+            },
+            'black': { 
+                'title': 'Black',
+                'data': [{"state_name": "Vermont", "rate": "23.2", "confidence_interval": "(13.5, 37.0)", "category": "20-24.9%"}, {"state_name": "South Dakota", "rate": "24.3", "confidence_interval": "(14.4, 37.9)", "category": "20-24.9%"}, {"state_name": "Wyoming", "rate": "24.3", "confidence_interval": "(14.3, 38.2)", "category": "20-24.9%"}, {"state_name": "North Dakota", "rate": "24.9", "confidence_interval": "(16.0, 36.7)", "category": "20-24.9%"}, {"state_name": "New Hampshire", "rate": "25.3", "confidence_interval": "(16.0, 37.7)", "category": "25-29.9%"}, {"state_name": "Utah", "rate": "25.6", "confidence_interval": "(18.7, 34.0)", "category": "25-29.9%"}, {"state_name": "Colorado", "rate": "29.3", "confidence_interval": "(25.7, 33.2)", "category": "25-29.9%"}, {"state_name": "Minnesota", "rate": "31.2", "confidence_interval": "(27.7, 35.0)", "category": "30-34.9%"}, {"state_name": "Rhode Island", "rate": "31.3", "confidence_interval": "(26.8, 36.2)", "category": "30-34.9%"}, {"state_name": "Maine", "rate": "32.2", "confidence_interval": "(21.1, 45.7)", "category": "30-34.9%"}, {"state_name": "New York", "rate": "32.5", "confidence_interval": "(29.9, 35.1)", "category": "30-34.9%"}, {"state_name": "Massachusetts", "rate": "34.6", "confidence_interval": "(31.6, 37.7)", "category": "30-34.9%"}, {"state_name": "California", "rate": "34.7", "confidence_interval": "(31.6, 38.0)", "category": "30-34.9%"}, {"state_name": "Connecticut", "rate": "34.7", "confidence_interval": "(31.7, 37.8)", "category": "30-34.9%"}, {"state_name": "District of Columbia", "rate": "34.7", "confidence_interval": "(32.7, 36.7)", "category": "30-34.9%"}, {"state_name": "New Mexico", "rate": "34.9", "confidence_interval": "(28.1, 42.5)", "category": "30-34.9%"}, {"state_name": "Florida", "rate": "35.0", "confidence_interval": "(32.4, 37.6)", "category": "35% or more"}, {"state_name": "Nebraska", "rate": "35.2", "confidence_interval": "(31.2, 39.4)", "category": "35% or more"}, {"state_name": "Oregon", "rate": "35.3", "confidence_interval": "(25.9, 46.1)", "category": "35% or more"}, {"state_name": "Arizona", "rate": "35.5", "confidence_interval": "(29.3, 42.2)", "category": "35% or more"}, {"state_name": "Washington", "rate": "35.7", "confidence_interval": "(31.1, 40.6)", "category": "35% or more"}, {"state_name": "Hawaii", "rate": "36.0", "confidence_interval": "(26.5, 46.7)", "category": "35% or more"}, {"state_name": "Pennsylvania", "rate": "36.0", "confidence_interval": "(33.6, 38.4)", "category": "35% or more"}, {"state_name": "New Jersey", "rate": "36.7", "confidence_interval": "(34.7, 38.8)", "category": "35% or more"}, {"state_name": "Michigan", "rate": "36.9", "confidence_interval": "(34.6, 39.2)", "category": "35% or more"}, {"state_name": "Nevada", "rate": "37.1", "confidence_interval": "(31.7, 42.8)", "category": "35% or more"}, {"state_name": "Delaware", "rate": "37.2", "confidence_interval": "(34.4, 40.1)", "category": "35% or more"}, {"state_name": "Georgia", "rate": "37.5", "confidence_interval": "(35.6, 39.4)", "category": "35% or more"}, {"state_name": "Maryland", "rate": "37.9", "confidence_interval": "(36.2, 39.7)", "category": "35% or more"}, {"state_name": "Oklahoma", "rate": "38.3", "confidence_interval": "(34.9, 41.7)", "category": "35% or more"}, {"state_name": "Ohio", "rate": "38.6", "confidence_interval": "(35.9, 41.4)", "category": "35% or more"}, {"state_name": "Wisconsin", "rate": "38.8", "confidence_interval": "(33.2, 44.7)", "category": "35% or more"}, {"state_name": "Virginia", "rate": "38.9", "confidence_interval": "(36.8, 41.0)", "category": "35% or more"}, {"state_name": "Kansas", "rate": "39.5", "confidence_interval": "(36.5, 42.7)", "category": "35% or more"}, {"state_name": "Missouri", "rate": "39.9", "confidence_interval": "(36.5, 43.5)", "category": "35% or more"}, {"state_name": "Iowa", "rate": "40.0", "confidence_interval": "(33.2, 47.3)", "category": "35% or more"}, {"state_name": "North Carolina", "rate": "40.0", "confidence_interval": "(38.2, 41.8)", "category": "35% or more"}, {"state_name": "Illinois", "rate": "40.2", "confidence_interval": "(36.8, 43.7)", "category": "35% or more"}, {"state_name": "Alaska", "rate": "40.4", "confidence_interval": "(32.0, 49.4)", "category": "35% or more"}, {"state_name": "Tennessee", "rate": "40.6", "confidence_interval": "(37.6, 43.6)", "category": "35% or more"}, {"state_name": "Texas", "rate": "40.7", "confidence_interval": "(37.8, 43.6)", "category": "35% or more"}, {"state_name": "West Virginia", "rate": "40.9", "confidence_interval": "(34.8, 47.3)", "category": "35% or more"}, {"state_name": "Kentucky", "rate": "41.9", "confidence_interval": "(38.0, 45.9)", "category": "35% or more"}, {"state_name": "Alabama", "rate": "42.4", "confidence_interval": "(40.5, 44.3)", "category": "35% or more"}, {"state_name": "Indiana", "rate": "42.5", "confidence_interval": "(39.4, 45.6)", "category": "35% or more"}, {"state_name": "South Carolina", "rate": "42.7", "confidence_interval": "(41.2, 44.2)", "category": "35% or more"}, {"state_name": "Mississippi", "rate": "43.0", "confidence_interval": "(41.2, 44.9)", "category": "35% or more"}, {"state_name": "Louisiana", "rate": "43.2", "confidence_interval": "(41.1, 45.3)", "category": "35% or more"}, {"state_name": "Arkansas", "rate": "44.4", "confidence_interval": "(41.2, 47.8)", "category": "35% or more"}, {"state_name": "Idaho", "rate": null, "confidence_interval": null, "category": null}, {"state_name": "Montana", "rate": null, "confidence_interval": null, "category": null}]
+            },
+            'hispanic': { 
+                'title': 'Hispanic',
+                'data': [{"state_name": "District of Columbia", "rate": "20.5", "confidence_interval": "(15.5, 26.7)", "category": "20-24.9%"}, {"state_name": "Kentucky", "rate": "23.2", "confidence_interval": "(17.2, 30.5)", "category": "20-24.9%"}, {"state_name": "Maine", "rate": "24.2", "confidence_interval": "(17.6, 32.4)", "category": "20-24.9%"}, {"state_name": "Mississippi", "rate": "21.1", "confidence_interval": "(14.8, 29.2)", "category": "20-24.9%"}, {"state_name": "Virginia", "rate": "24.5", "confidence_interval": "(21.2, 28.2)", "category": "20-24.9%"}, {"state_name": "Alabama", "rate": "25.4", "confidence_interval": "(18.2, 34.3)", "category": "25-29.9%"}, {"state_name": "Alaska", "rate": "27.7", "confidence_interval": "(22.0, 34.2)", "category": "25-29.9%"}, {"state_name": "Colorado", "rate": "28.1", "confidence_interval": "(26.4, 29.8)", "category": "25-29.9%"}, {"state_name": "Florida", "rate": "26.2", "confidence_interval": "(24.3, 28.3)", "category": "25-29.9%"}, {"state_name": "Georgia", "rate": "27.0", "confidence_interval": "(23.1, 31.2)", "category": "25-29.9%"}, {"state_name": "Maryland", "rate": "26.0", "confidence_interval": "(22.2, 29.9)", "category": "25-29.9%"}, {"state_name": "Nevada", "rate": "27.8", "confidence_interval": "(24.7, 31.1)", "category": "25-29.9%"}, {"state_name": "New Hampshire", "rate": "29.3", "confidence_interval": "(21.7, 38.3)", "category": "25-29.9%"}, {"state_name": "New Jersey", "rate": "28.8", "confidence_interval": "(26.9, 30.7)", "category": "25-29.9%"}, {"state_name": "New York", "rate": "29.3", "confidence_interval": "(27.0, 31.6)", "category": "25-29.9%"}, {"state_name": "North Carolina", "rate": "29.7", "confidence_interval": "(26.9, 32.7)", "category": "25-29.9%"}, {"state_name": "Ohio", "rate": "29.1", "confidence_interval": "(24.2, 34.4)", "category": "25-29.9%"}, {"state_name": "Rhode Island", "rate": "28.0", "confidence_interval": "(24.9, 31.3)", "category": "25-29.9%"}, {"state_name": "South Dakota", "rate": "27.1", "confidence_interval": "(19.0, 37.1)", "category": "25-29.9%"}, {"state_name": "Utah", "rate": "27.5", "confidence_interval": "(25.4, 29.7)", "category": "25-29.9%"}, {"state_name": "Vermont", "rate": "25.5", "confidence_interval": "(17.9, 35.0)", "category": "25-29.9%"}, {"state_name": "Arizona", "rate": "33.9", "confidence_interval": "(30.9, 36.9)", "category": "30-34.9%"}, {"state_name": "California", "rate": "31.3", "confidence_interval": "(30.0, 32.6)", "category": "30-34.9%"}, {"state_name": "Connecticut", "rate": "30.9", "confidence_interval": "(28.0, 33.8)", "category": "30-34.9%"}, {"state_name": "Delaware", "rate": "31.9", "confidence_interval": "(27.1, 37.1)", "category": "30-34.9%"}, {"state_name": "Hawaii", "rate": "31.3", "confidence_interval": "(28.0, 34.8)", "category": "30-34.9%"}, {"state_name": "Illinois", "rate": "33.0", "confidence_interval": "(29.5, 36.7)", "category": "30-34.9%"}, {"state_name": "Indiana", "rate": "32.0", "confidence_interval": "(28.3, 35.9)", "category": "30-34.9%"}, {"state_name": "Kansas", "rate": "34.2", "confidence_interval": "(31.5, 37.0)", "category": "30-34.9%"}, {"state_name": "Louisiana", "rate": "31.3", "confidence_interval": "(24.9, 38.6)", "category": "30-34.9%"}, {"state_name": "Massachusetts", "rate": "31.4", "confidence_interval": "(29.1, 33.9)", "category": "30-34.9%"}, {"state_name": "Minnesota", "rate": "31.7", "confidence_interval": "(27.6, 36.0)", "category": "30-34.9%"}, {"state_name": "Montana", "rate": "30.1", "confidence_interval": "(24.4, 36.5)", "category": "30-34.9%"}, {"state_name": "Nebraska", "rate": "31.0", "confidence_interval": "(28.2, 33.8)", "category": "30-34.9%"}, {"state_name": "New Mexico", "rate": "30.1", "confidence_interval": "(28.8, 31.5)", "category": "30-34.9%"}, {"state_name": "Oklahoma", "rate": "33.4", "confidence_interval": "(30.0, 37.0)", "category": "30-34.9%"}, {"state_name": "Oregon", "rate": "30.2", "confidence_interval": "(26.0, 34.8)", "category": "30-34.9%"}, {"state_name": "South Carolina", "rate": "32.2", "confidence_interval": "(27.3, 37.5)", "category": "30-34.9%"}, {"state_name": "Tennessee", "rate": "31.7", "confidence_interval": "(23.4, 41.2)", "category": "30-34.9%"}, {"state_name": "Washington", "rate": "31.8", "confidence_interval": "(29.0, 34.9)", "category": "30-34.9%"}, {"state_name": "Wisconsin", "rate": "33.9", "confidence_interval": "(27.5, 41.0)", "category": "30-34.9%"}, {"state_name": "Wyoming", "rate": "32.7", "confidence_interval": "(27.7, 38.0)", "category": "30-34.9%"}, {"state_name": "Arkansas", "rate": "39.5", "confidence_interval": "(33.1, 46.3)", "category": "35% or more"}, {"state_name": "Idaho", "rate": "35.9", "confidence_interval": "(31.2, 40.9)", "category": "35% or more"}, {"state_name": "Iowa", "rate": "35.5", "confidence_interval": "(30.6, 40.8)", "category": "35% or more"}, {"state_name": "Michigan", "rate": "35.5", "confidence_interval": "(30.7, 40.6)", "category": "35% or more"}, {"state_name": "Missouri", "rate": "35.5", "confidence_interval": "(28.5, 43.1)", "category": "35% or more"}, {"state_name": "North Dakota", "rate": "37.9", "confidence_interval": "(29.1, 47.7)", "category": "35% or more"}, {"state_name": "Pennsylvania", "rate": "36.7", "confidence_interval": "(32.6, 40.9)", "category": "35% or more"}, {"state_name": "Texas", "rate": "35.8", "confidence_interval": "(34.3, 37.3)", "category": "35% or more"}, {"state_name": "West Virginia", "rate": "37.1", "confidence_interval": "(28.8, 46.3)", "category": "35% or more"}]
+            }
+        };
+        var STATES = [{"name": "Alabama", "usps": "AL", "ap": "Ala."}, {"name": "Alaska", "usps": "AK", "ap": "Alaska"}, {"name": "Arizona", "usps": "AZ", "ap": "Ariz."}, {"name": "Arkansas", "usps": "AR", "ap": "Ark."}, {"name": "California", "usps": "CA", "ap": "Calif."}, {"name": "Colorado", "usps": "CO", "ap": "Colo."}, {"name": "Connecticut", "usps": "CT", "ap": "Conn."}, {"name": "Delaware", "usps": "DE", "ap": "Del."}, {"name": "District of Columbia", "usps": "DC", "ap": "D.C."}, {"name": "Florida", "usps": "FL", "ap": "Fla."}, {"name": "Georgia", "usps": "GA", "ap": "Ga."}, {"name": "Hawaii", "usps": "HI", "ap": "Hawaii"}, {"name": "Idaho", "usps": "ID", "ap": "Idaho"}, {"name": "Illinois", "usps": "IL", "ap": "Ill."}, {"name": "Indiana", "usps": "IN", "ap": "Ind."}, {"name": "Iowa", "usps": "IA", "ap": "Iowa"}, {"name": "Kansas", "usps": "KS", "ap": "Kan."}, {"name": "Kentucky", "usps": "KY", "ap": "Ky."}, {"name": "Louisiana", "usps": "LA", "ap": "La."}, {"name": "Maine", "usps": "ME", "ap": "Maine"}, {"name": "Maryland", "usps": "MD", "ap": "Md."}, {"name": "Massachusetts", "usps": "MA", "ap": "Mass."}, {"name": "Michigan", "usps": "MI", "ap": "Mich."}, {"name": "Minnesota", "usps": "MN", "ap": "Minn."}, {"name": "Mississippi", "usps": "MS", "ap": "Miss."}, {"name": "Missouri", "usps": "MO", "ap": "Mo."}, {"name": "Montana", "usps": "MT", "ap": "Mont."}, {"name": "Nebraska", "usps": "NE", "ap": "Neb."}, {"name": "Nevada", "usps": "NV", "ap": "Nev."}, {"name": "New Hampshire", "usps": "NH", "ap": "N.H."}, {"name": "New Jersey", "usps": "NJ", "ap": "N.J."}, {"name": "New Mexico", "usps": "NM", "ap": "N.M."}, {"name": "New York", "usps": "NY", "ap": "N.Y."}, {"name": "North Carolina", "usps": "NC", "ap": "N.C."}, {"name": "North Dakota", "usps": "ND", "ap": "N.D."}, {"name": "Ohio", "usps": "OH", "ap": "Ohio"}, {"name": "Oklahoma", "usps": "OK", "ap": "Okla."}, {"name": "Oregon", "usps": "OR", "ap": "Ore."}, {"name": "Pennsylvania", "usps": "PA", "ap": "Pa."}, {"name": "Rhode Island", "usps": "RI", "ap": "R.I."}, {"name": "South Carolina", "usps": "SC", "ap": "S.C."}, {"name": "South Dakota", "usps": "SD", "ap": "S.D."}, {"name": "Tennessee", "usps": "TN", "ap": "Tenn."}, {"name": "Texas", "usps": "TX", "ap": "Texas"}, {"name": "Utah", "usps": "UT", "ap": "Utah"}, {"name": "Vermont", "usps": "VT", "ap": "Vt."}, {"name": "Virginia", "usps": "VA", "ap": "Va."}, {"name": "Washington", "usps": "WA", "ap": "Wash."}, {"name": "West Virginia", "usps": "WV", "ap": "W.Va."}, {"name": "Wisconsin", "usps": "WI", "ap": "Wis."}, {"name": "Wyoming", "usps": "WY", "ap": "Wyo."}];
+        var SCALE = [{"label": "10", "value": "< 20%"}, {"label": "20", "value": "20-24.9%"}, {"label": "25", "value": "25-29.9%"}, {"label": "30", "value": "30-34.9%"}, {"label": "35", "value": "35% or more"}, {"label": "45%", "value": null}];
+    </script>
+
+
+    
+
+        
+        
+        
+        
+        
+        <script type="text/javascript" src="js/graphic-footer.js?1443027440"></script>
+
+    
+</body>
+</html>

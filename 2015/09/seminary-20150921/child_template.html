@@ -1,0 +1,34 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <!-- <div id="graphic"><img src="fallback.png" alt="[Chart]" class="fallback" /></div> -->
+
+    {% for age in AGES %}
+    <div class="wrapper">
+        <h3>{{ age }}</h3>
+        <div id="age-{{ age|classify }}"></div>
+    </div>
+    {% endfor %}
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var GRAPHIC_DATA = {{ COPY.data.json() }};
+        var AGES = {{ AGES }};
+    </script>
+
+{% endblock content %}

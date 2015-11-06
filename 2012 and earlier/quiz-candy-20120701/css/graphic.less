@@ -1,0 +1,51 @@
+@import "base";
+
+body { min-width: 624px; }
+
+#graphic { margin-bottom: 22px; }
+
+#candyQuiz { font: 14px/1.35em Arial, Helvetica, sans-serif; color: #333; width: 624px; }
+#candyQuiz h3.candyHeader { border-top: 1px dotted #CCC; padding-top: 12px; font-size: 12px; margin: 0 0 9px 0; text-transform: uppercase; color: #666; }
+/*#candyQuiz h3.candyHeader { border-top: 1px dotted #CCC; padding-top: 12px; font-size: 12px; margin: 0 0 6px 0; text-transform: lowercase; color: #999; font-weight: normal; } */
+#candyQuiz ul { list-style: none; margin: 0 0 18px; padding: 0; }
+#candyQuiz ul li { margin: 0 0 3px 0; padding: 0; text-indent: 0; }
+
+#candyQuiz .candyQ { display: none; padding-bottom: 12px; }
+#candyQuiz .candyQ h3 { font: normal 18px Georgia, serif; margin: 0 0 12px 0; }
+#candyQuiz .candyQ ul li { width: 270px; float: left; padding: 6px 18px; }
+#candyQuiz .candyQ.active li:hover { background-color: #f1f1f1; cursor: pointer; }
+#candyQuiz .candyQ li.selected { background-color: #999; font-weight: bold; color: #fff; }
+
+#candyQuiz #candyAnswer { margin-bottom: 18px; }
+#candyQuiz #candyAnswer h3 { margin: 4px 0 12px 0; padding: 0; font: normal 14px Arial, Helvetica, sans-serif; color: #999; }
+#candyQuiz #candyAnswer h3 span { display: block; font: normal 40px Georgia, serif; color: #000; }
+#candyQuiz #candyAnswer img { float: left; border: 1px solid #dadada; width: 298px; }
+#candyQuiz #candyAnswer .bucketwrap { width: 300px; float: right; }
+#candyQuiz #candyAnswer p { line-height: 1.45em; margin: 0; color: #555; }
+#candyQuiz #candyAnswer p.more { font-size: 13px; font-weight: bold; text-align: right; padding-top: 12px; text-transform: lowercase; }
+#candyQuiz #candyAnswer p.more a { padding-right: 10px; color: #333; background: transparent url(http://media.npr.org/chrome/news/ico-more-sm.gif) no-repeat scroll right center; }
+#candyQuiz #candyAnswer em { color: #999; display: block; padding-top: 12px; font-size: 12px; }
+
+#candyQuiz #candyList ul { margin: 0; padding: 0; list-style: none; }
+#candyQuiz #candyList li { width: 138px; float: left; margin: 0 24px 12px 0; }
+#candyQuiz #candyList li#c6, #candyQuiz #candyList li#c5 { margin-right: 0; }
+#candyQuiz #candyList li img { width: 136px; border: 1px solid #dadada; float: none; }
+#candyQuiz #candyList li a img:hover { border-color: #999; }
+#candyQuiz #candyList li h4 { margin: 0; font-size: 12px; color: #666; }
+#candyQuiz #candyList li a h4 { color: #000; }
+#candyQuiz #candyList li a:hover h4 { color: #36C; text-decoration: none; }
+#candyQuiz #candyList li a:hover { text-decoration: none; }
+#candyQuiz #candyList li span { display: none; }
+#candyQuiz #candyList li em { display: block; font-size: 11px; color: #999; line-height: 13px; font-style: normal; }
+
+#candyQuiz #candyList,
+#candyQuiz .candyQ ul,
+#candyQuiz #candyAnswer {
+    &:before,
+    &:after {
+        content: ' ';
+        display: table;
+    }
+
+    &:after { clear: both; }
+}

@@ -1,0 +1,56 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+.arrows line {
+    stroke-width: 2px;
+    shape-rendering: crispEdges;
+    stroke: #999;
+}
+
+.highlights text {
+    font-size: 14px;
+    fill: #999;
+}
+
+.value {
+    .label-huckabee { display: none; }
+    .label-walker { display: none; }
+    .label-paul { display: none; }
+    .label-cruz { display: none; }
+    .label-christie { display: none; }
+    .label-bush { display: none; }
+    .label-kasich { display: none; }
+}
+
+.key {
+    b.key-trump { background-color: @blue3; }
+    b.key-fiorina { background-color: @red3; }
+    b.key-rubio { background-color: @orange3; }
+    b.key-carson { background-color: @teal3; }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+    .highlights text {
+        font-size: 11px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

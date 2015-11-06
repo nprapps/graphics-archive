@@ -1,0 +1,61 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+    
+    {% for row in COPY.data|groupby('cat_order') %}
+    <h3 class="{{ row.list[0]['category']|classify}}">{{ row.list[0]['category'] }}</h3>
+    
+    {% if row.grouper == '5' %}
+        <div class="candidate">
+            <p>{{ COPY.labels.no_statement }}</p>
+        </div>
+    {% else %}
+    
+        {% for candidate in row.list|groupby('last_name') %}
+            <div class="candidate">
+            {% for statement in candidate.list %}
+                {% if loop.index == 1 %}
+                <h4>{{ statement.first_name }} {{ statement.last_name }} ({{ statement.party }})</h4>
+                <ul>
+                {% endif %}
+
+                    {% if statement.statement != '' %}
+                    <li class="statement">
+                        <span class="quote">{{ statement.statement }}</span>
+                        <span class="source">(<a href="{{ statement.source_link }}">{{ statement.source_id }}</a>)</span>
+                    </li>
+                    {% else %}
+                    <li class="no-statement">
+                        {{ statement.no_statement }}
+                    </li>
+                    {% endif %}
+
+                {% if loop.index == 0 %}
+                </ul>
+                {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    
+    {% endif %}
+    {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

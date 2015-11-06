@@ -1,0 +1,82 @@
+@import "base";
+
+body {
+    width: 948px;
+    margin: 0 auto;
+}
+
+#graphic { margin-bottom: 22px; }
+
+#birdBuildings { margin-bottom: 18px; position: relative; }
+#birdbg { background: url('http://media.npr.org/news/graphics/2012/08/bird-buildings/bg-building.jpg') no-repeat; width: 948px; height: 558px; margin-bottom: 6px; position: relative; }
+#birdMarkers { position: absolute; top: 0; left: 0; width: 948px; height: 558px; }
+#birdMarkers .marker {
+	position: absolute;
+	top: 0; left: 0;
+}
+#birdMarkers .marker .pin {
+	display: block;
+	width: 32px; height: 32px;
+	background-image: url('http://media.npr.org/news/graphics/2012/08/bird-buildings/plus-pins.png');
+	background-repeat: no-repeat;
+	position: relative;
+	z-index: 3;
+	cursor: pointer;
+}
+#birdMarkers .marker .pin:hover { background-position: -50px 0; }
+#birdMarkers .marker.good .pin { background-position: 0 -50px; }
+#birdMarkers .marker.bad .pin { background-position: 0 0; }
+
+#birdMarkers .marker h3 {
+	background: white;
+	padding: 5px 9px 5px 20px;
+	margin: 5px 0 0 15px;
+	font: 11px arial, sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #000;
+	position: absolute;
+	top: 0px;
+	z-index: 1;
+	opacity: .8;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+#birdMarkers .marker.good.active .pin { background-position: -50px -50px; }
+#birdMarkers .marker.bad.active .pin { background-position: -50px 0; }
+#birdMarkers .marker.active h3 { opacity: 1; box-shadow: 3px 3px 10px rgba(150,150,150,.5); -moz-box-shadow: 3px 3px 10px rgba(150,150,150,.5); -webkit-box-shadow: 3px 3px 10px rgba(150,150,150,.5); }
+
+#birdMarkers .m1 { left: 454px; top: 244px; }
+#birdMarkers .m2 { left: 277px; top: 148px; }
+#birdMarkers .m3 { left: 363px; top: 31px; }
+#birdMarkers .m4 { left: 231px; top: 441px; }
+#birdMarkers .m5 { left: 589px; top: 340px; }
+#birdMarkers .m6 { left: 538px; top: 441px; }
+#birdMarkers .m7 { left: 124px; top: 393px; }
+
+#birdOverlay {
+	position: absolute;
+	top: 24px; left: 120px;
+	width: 657px; /* 705 (4.5 cols) - 24 - 24 */
+	/* height: 490px; */
+	padding: 24px;
+	background-color: #FFF;
+	background-color: rgba(255,255,255,.9);
+	z-index: 999;
+	border: 1px #ccc solid;
+	box-shadow: 3px 3px 10px #999;
+	-moz-box-shadow: 3px 3px 10px #999;
+	-webkit-box-shadow: 3px 3px 10px #999;
+}
+#birdOverlay.vert {
+	width: 495px; /* 543 (3.5 cols) - 24 - 24 */
+	left: 202px;
+}
+#birdOverlay h3 { font: bold 18px Georgia, serif; }
+#birdOverlay p { font-size: 13px; line-height: 1.35em; color: #333; }
+#birdOverlay img { float: left; margin-right: 12px; }
+#birdOverlay .close { position: absolute; top: 12px; right: 12px; font-size: 12px; font-weight: bold; color: #333; background: #EFEFEF; border: 1px #999 solid; padding: 2px 5px; margin: 0 0 10px 10px; cursor: pointer; }
+#birdOverlay .close:hover { border-color: #ccc; background-color: #fff; color: #999; }
+#birdOverlay .captionwrap { font-size: 11px; line-height: 1.35em; color: #666; }
+#birdOverlay .captionwrap a { color: #333; }

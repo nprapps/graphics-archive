@@ -1,0 +1,84 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+        <div class="key">
+        <p>Mortality rate</p>
+
+        <ul>
+            <li class="plus200">
+                <b></b>
+                <label>250+</label>
+            </li>
+            <li class="plus150">
+                <b></b>
+                <label>200</label>
+            </li>
+            <li class="plus100">
+                <b></b>
+                <label>150</label>
+            </li>
+            <li class="plus50">
+                <b></b>
+                <label>100</label>
+            </li>
+            <li class="plus0">
+                <b></b>
+                <label>50</label>
+            </li>
+            <li class="zero">
+                <b></b>
+                <label>0</label>
+            </li>
+        </ul>
+
+        <table id="country-table">
+            <thead>
+                <tr>
+                    <th class="country"><div class="sorter"><div class="icon"></div></div class="header">{{ COPY.labels.hdr_country }}</div></th>
+                    <th class="rate90" data-sort-method='number'><div class="sorter"><div class="icon"></div></div class="header">{{ COPY.labels.hdr_rate90 }}</div></th>
+                    <th class="rate00" data-sort-method='number'><div class="sorter"><div class="icon"></div></div class="header">{{ COPY.labels.hdr_rate00 }}</div></th>
+                    <th class="rate15 sort-default sort-down" data-sort-method='number'><div class="sorter"><div class="icon"></div></div class="header">{{ COPY.labels.hdr_rate15 }}</div></th>
+                    <th class="change" data-sort-method='number'><div class="sorter"><div class="icon"></div></div class="header">{{ COPY.labels.hdr_change }}</div></th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr id="{{ row.country|classify }}" {% if row.country == 'Global' %}class="no-sort"{% endif %}>
+                <td data-title="{{ COPY.labels.hdr_country }}" class="country">{{ row.country }}</td>
+                <td data-title="{{ COPY.labels.rate90 }}" class="rate90 {{ row.rate90|breaks }}">{{ row.rate90|int }}</td>
+                <td data-title="{{ COPY.labels.rate00 }}" class="rate00 {{ row.rate00|breaks }}">{{ row.rate00|int }}</td>
+                <td data-title="{{ COPY.labels.rate15 }}" class="rate15 {{ row.rate15|breaks }}">{{ row.rate15|int }}</td>
+                <td data-title="{{ COPY.labels.change }}" class="change">{{ row.change|int }}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

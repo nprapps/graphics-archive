@@ -1,0 +1,129 @@
+@import "base";
+
+h3 {
+    font-size: 16px;
+    color: #333;
+    font-weight: 700;
+    font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+    margin: 0 0 22px 0;
+    padding: 0 0 11px 0;
+    -webkit-font-smoothing: antialiased;
+    border-bottom: 2px solid #eee;
+
+    &:first-child { padding-top: 0; }
+}
+
+h5 {
+    display: block;
+    font-size: 11px;
+    color: #666;
+    font-weight: normal;
+    font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+}
+
+.party {
+    &.row-2 {
+        border-top: 1px solid #eee;
+        padding-top: 16px;
+    }
+
+    h4 {
+        font-weight: bold;
+        color: #454545;
+        margin: 0;
+
+        &.democrats { color: @blue2; }
+        &.republicans,
+        &.some-republicans,
+        &.most-republicans,
+        &.mostly-republicans { color: @red3; }
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        color: #666;
+    }
+    li {
+        margin: 0;
+        padding: 0 0 22px 0;
+    }
+
+    p {
+        margin: 0 0 22px 0;
+        color: #666;
+
+        .quote {
+            display: block;
+            text-indent: -.3em;
+        }
+    }
+
+    .source {
+        font-size: 80%;
+        opacity: 0.7;
+        color: #999;
+        font-style: italic;
+    }
+
+    .takeaway p {
+        font-weight: bold;
+        color: #333;
+    }
+}
+
+.evolution .pols p .quote,
+.palestinian-statehood .pope p .quote,
+.palestinian-statehood .pols p .quote,
+.iran .pope p .quote,
+.iran .pols p .quote,
+.same-sex-marriage .pols p .quote,
+.u-s-cuba-relations .pols p .quote {
+    text-indent: 0;
+}
+
+.palestinian-statehood .pols p .source,
+.same-sex-marriage .pols p .source { 
+    margin-top: 6px;
+    display: block; 
+}
+
+
+@media screen and (min-width: 501px) {
+    h3 { padding-left: 182px; }
+    .issue { padding-bottom: 44px; }
+    .party {
+        h4,
+        p { display: table-cell; }
+        h5 {
+            display: table-cell;
+            width: 160px;
+            text-align: right;
+            padding-right: 22px;
+        }
+        ul li {
+            display: table;
+            width: 100%;
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+    h3 { font-size: 14px; }
+    .issue { padding-bottom: 33px; }
+    .party {
+        h5 { margin-bottom: 6px; }
+        ul li { padding-bottom: 22px; }
+        p { margin-bottom: 0; }
+
+        h4,
+        p {
+            margin-left: 22px;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+    }
+}

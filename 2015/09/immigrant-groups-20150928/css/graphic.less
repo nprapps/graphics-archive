@@ -1,0 +1,41 @@
+@import "base";
+
+.key {
+    margin-bottom: 20px;
+}
+
+.bar {
+    &.bar-2025,
+    &.bar-2035,
+    &.bar-2045,
+    &.bar-2055,
+    &.bar-2065 {
+        opacity: 0.8;
+    }
+
+    text {
+        fill: #fff;
+
+        &.hidden {
+            display: none;
+        }
+    }
+}
+
+line.projected {
+    stroke: #666;
+    stroke-width: 2px;
+}
+
+text.projected {
+    font-size: 12px;
+    fill: #666;
+    font-style: italic;
+}
+
+@media screen and (max-width: 500px) {
+    .bar text,
+    .annotation {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,479 @@
+
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Title Goes Here</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/reset-min.css">
+  <link rel="stylesheet" type="text/css" css/jquery.qtip.css" />
+  <link rel="stylesheet" type="text/css" href="css/mediaelementplayer.css" />
+
+  <script type="text/javascript" src="js/lib/swfobject.js"></script>
+
+  <script src="js/lib/modernizr-2.0.6.min.js"></script>
+
+  <script type="text/javascript" src="js/lib/jquery.min.js"></script>
+  <script type="text/javascript" src="js/lib/jquery.qtip.min.js"></script>
+  <!--<script src="js/lib/jquery.scrollTo-1.4.2-min.js"></script>-->
+  <script src="js/lib/popcorn.js"></script>
+  <script type="text/javascript" src="js/lib/mediaelement-and-player.min.js"></script>
+
+
+   <script>
+
+//FIX: Audio does not begin at correct section if audio is started on page 2, without being started on page 1.
+
+   		var tpages = 1;
+   		var cpage = 0;
+
+		$(document).ready(function(){
+			var isiPad = navigator.userAgent.toLowerCase().indexOf("ipad");
+			//console.log(isiPad);
+			if(isiPad == -1)
+			{
+    			$('audio').mediaelementplayer(/* Options */);
+  			}
+
+			$('#prevpage').hide();
+			var popcorn = Popcorn("#audiotrack");
+
+
+			//hook up audio seek to page turns
+			var audio = document.getElementsByTagName('audio');
+			audio[0].addEventListener('seeked', doScrub, false);
+
+			//setup prev + next page link
+			initializePager();
+
+			//generate popcorn code
+			$('.page p').each(function(i){
+				var start = $(this).attr('data-start');
+				var end = $(this).attr('data-end');
+
+				popcorn.code({
+					start: start,
+					end: end,
+					onStart: function(options) {
+						beginLine(i);
+					},
+					onEnd: function(options) {
+						endLine();
+					}
+				});
+			})
+		});
+
+		function initializePager() {
+			$('#prevpage').click(function(){
+				if($('.page.inview').prev().length != 0){
+					pageBackward();
+					cueAudio();
+				}
+				return false;
+			});
+
+			$('#nextpage').click(function(){
+				if($('.page.inview').next().length != 0){
+					pageForward();
+					cueAudio();
+
+				}
+
+				return false;
+			});
+		}
+
+		function managePages() {
+			//console.log("cpage " + cpage);
+			if ($('.page.inview').attr('id') == "0") {
+				$('#prevpage').hide();
+				$('#nextpage').show();
+			}
+
+			if ($('.page.inview').attr('id') == "1") {
+				$('#prevpage').show();
+				$('#nextpage').hide();
+			}
+
+			//console.log($('.page.inview').attr('id'));
+		}
+
+		function pageForward() {
+			cpage ++;
+			var $currentPage = $('.page.inview');
+			$currentPage.removeClass('inview');
+			$currentPage.next().addClass('inview');
+			managePages();
+
+		}
+
+		function pageBackward() {
+			cpage --;
+			var $currentPage = $('.page.inview');
+			$currentPage.removeClass('inview');
+			$currentPage.prev().addClass('inview');
+			managePages();
+
+		}
+
+
+
+		function setCurPage($currentPage) {
+			$('#poem .page').each(function(i){
+				if($(this).hasClass('inview')){
+					$currentPage = $(this);
+				}
+			});
+
+			return $currentPage;
+
+		}
+
+		function beginLine(num) {
+			var $currentLine = $('#poem p:eq(' + num + ')');
+			$currentLine.addClass('speaking');
+
+		}
+
+		function endLine() {
+			var audio = document.getElementsByTagName('audio');
+
+			if(audio[0].seeking === false){
+				checkForNextPage();
+			}
+
+			$('#poem p').removeClass('speaking');
+		}
+
+		function checkForNextPage() {
+			$currentPage = $('.page.inview');
+			$curline = $('p.speaking');
+			var isThereAnotherPage = $('.page.inview').next().length;
+
+			if($curline.is(':last-child') && isThereAnotherPage === 1) {
+				$currentPage.removeClass('inview');
+				$currentPage.next().addClass('inview');
+				managePages();
+			}
+
+		}
+
+		function cueAudio() {
+			var audio = document.getElementsByTagName('audio');
+			audio[0].pause();
+
+			$('#poem .page p').removeClass('speaking');
+			var $firstLine = $('.page.inview p:first');
+			var cueTime = $firstLine.attr('data-start');
+
+			$firstLine.addClass('speaking');
+
+			audio[0].currentTime = cueTime;
+		}
+
+		function doScrub() {
+			var $speakingLine = $('.speaking');
+
+			//if the highlighted line is not visible, that means the page should change
+			if($speakingLine.length !== 0 && !$speakingLine.is(':visible')){
+				$('#poem .page').removeClass('inview');
+				$('p.speaking').parent().addClass('inview');
+			}
+
+			managePages();
+		}
+
+   </script>
+
+	<style>
+
+		body { margin: 0; padding: 0; }
+
+		audio { height: 50px; width: 400px; }
+
+		.speaking {
+			color:#000;
+			font-weight:bold;
+		}
+
+		#container{
+			width:621px;
+			height:465px;
+			border-right:1px #b0b0b0 solid;
+			border-left:1px #b0b0b0 solid;
+			border-bottom:1px #b0b0b0 solid;
+		}
+
+		audio {
+			padding:10px 0 0 10px;
+		}
+
+		em {font-style: italic;}
+
+		a {
+			color: #36C;
+			text-decoration:none;
+		}
+
+	/* POEM */
+		#poembox {
+			width:472px;
+			float:left;
+		}
+
+		#poembox .mejs-container{
+			margin:15px 0 10px 10px;
+		}
+
+		#poem {
+			margin-right:0px;
+			padding:10px 10px 10px 40px;
+			overflow:hidden;
+			height:365px;
+		}
+
+		#poem a{
+			color: #36C;
+			text-decoration:none;
+		}
+
+		#poem a:hover{
+			text-decoration:underline;
+		}
+
+		#poem .page {
+			display:none;
+			float:left;
+			color:#777777;
+			font-family:arial, sans-serif;
+			font-size:13px;
+			line-height:17px;
+		}
+
+		#poem .page h1{
+			font-weight: bold;
+			padding:0;
+			color:#333333;
+		}
+
+		#poem .page.inview {
+			display:block;
+		}
+
+		#poem .page h2.author{
+			font-style:italic;
+			padding:0 0 10px 0;
+			color:#999999;
+			font-size:11px;
+		}
+
+	/* PAGE NAVIGATION */
+		.pager {
+			border-top:1px #7e7e7e solid;
+			width:472px;
+			font-family:arial,sans-serif;
+			font-size:12px;
+			font-weight:bold;
+
+		}
+
+		.pager a{
+			color:#666666;
+			text-decoration:none;
+		}
+
+		.pager a:hover{
+			color:#666666;
+			text-decoration:underline;
+		}
+
+		.pager #prevpage{
+			float:left;
+			padding:5px 0 5px 10px;
+			margin:0 0 0 5px;
+			background:url('http://www.npr.org/chrome/ico-gray-arrow-left-11x20.png') left no-repeat;
+			background-size: 6px 12px;
+		}
+
+		.pager #nextpage{
+			float:right;
+			padding:5px 10px 5px 0;
+			margin:0 5px 0 0;
+			background:url('http://www.npr.org/chrome/ico-gray-arrow-right-11x20.png') right no-repeat;
+			background-size: 6px 12px;
+		}
+
+	/* RIGHT INFO BAR */
+		#sidebar {
+			width:127px;
+			height:445px;
+			float:left;
+			font-family:arial, sans-serif;
+			font-size:11px;
+			line-height:14px;
+			color:#333333;
+			/*font-style: italic;*/
+			padding:10px 10px 10px 10px;
+			border-left:1px #b0b0b0 solid;
+			background:#f8f8f8;
+		}
+
+		#sidebar p.more:first-child{
+			font-size:13px;
+			padding:0 0 10px  0;
+			font-style: italic;
+		}
+
+		#sidebar img {
+			margin:0 0 5px 0;
+			border:1px #b0b0b0 solid;
+		}
+
+		/*PLAYER STUFF */
+		#bar {
+			width: 300px;
+			height: 50px;
+			border: 1px solid #999;
+			background-color: #e1e1e1;
+		}
+		#progress {
+			width: 0%;
+			height: 50px;
+			background-color: #CCC;
+			float: left;
+		}
+		#slider {
+			height: 50px;
+			width:5%;
+			background: #999;
+
+		}
+
+	</style>
+</head>
+
+<body>
+
+
+  <div id="container">
+    <header>
+
+    </header>
+    <![if !IE]>
+ <div id="poembox">
+
+
+
+    <audio id="audiotrack" controls="controls" height="30" width="400" preload="auto">
+		<source src="http://download.npr.org/anon.npr-mp3/npr/specials/2012/04/20120416_specials_ydstieread.mp4?dl=1" />
+		<source src="http://download.npr.org/anon.npr-mp3/npr/specials/2012/04/20120416_specials_ydstieread.ogg" />
+		<!-- Flash fallback for non-HTML5 browsers without JavaScript -->
+		<object width="472" height="240" type="application/x-shockwave-flash" data="audioResources/flashmediaelement.swf">
+			<param name="poem" value="audioResources/flashmediaelement.swf" />
+			<param name="flashvars" value="controls=true&file=myvideo.mp4" />
+		</object>
+	</audio>
+
+    <div id="poem">
+    	<div class="page inview" id="0">
+    		<h1>Failing and Flying</h1>
+    		<h2 class="author">by Jack Gilbert</h2>
+
+			<p data-start="3" data-end="7">Everyone forgets that Icarus also flew.</p>
+			<p data-start="7" data-end="9.5">It's the same when love comes to an end,
+			<!--<a href="#" title="Brunch squid PBR, in officia tempor trust fund velit vinyl twee. Keytar elit readymade letterpress pariatur. Wolf mixtape dolor, fugiat cliche american apparel tofu. Chillwave tattooed next level post-ironic. Forage semiotics vice proident, occaecat laborum post-ironic cliche reprehenderit cred brooklyn placeat. Carles ut cardigan forage, cliche brunch sint. Irure artisan sustainable, messenger bag pinterest yr hella odd future wolf." >
+			fantasy</a>?--></p>
+			<p data-start="9.5" data-end="11.5">or the marriage fails and people say</p>
+			<p data-start="11.5" data-end="14">they knew it was a mistake, that everybody</p>
+			<p data-start="14" data-end="16.5">said it would never work. That she was</p>
+			<p data-start="16.5" data-end="19">old enough to know better. But anything</p>
+			<p data-start="19" data-end="22">worth doing is worth doing badly.</p>
+			<p data-start="22" data-end="25">Like being there by that summer ocean</p>
+			<p data-start="25" data-end="26.5">on the other side of the island while</p>
+			<p data-start="26.5" data-end="29.5">love was fading out of her, the stars</p>
+			<p data-start="29.5" data-end="32">burning so extravagantly those nights that</p>
+			<p data-start="32" data-end="35">anyone could tell you they would never last.</p>
+			<p data-start="35" data-end="38">Every morning she was asleep in my bed</p>
+			<p data-start="38" data-end="42">like a visitation, the gentleness in her</p>
+			<p data-start="42" data-end="45">like antelope standing in the dawn mist.</p>
+			<p data-start="45" data-end="48">Each afternoon I watched her coming back</p>
+			<p data-start="48" data-end="51">through the hot stony field after swimming,</p>
+			<p data-start="51" data-end="55">the sea light behind her and the huge sky</p>
+			</div>
+
+		<div class="page" id="1">
+			<p data-start="55" data-end="57.5">on the other side of that. Listened to her</p>
+			<p data-start="57.5" data-end="60">while we ate lunch. How can they say</p>
+			<p data-start="60" data-end="62.5">the marriage failed? Like the people who</p>
+			<p data-start="62.5" data-end="65.5">came back from Provence (when it was Provence)</p>
+			<p data-start="65.5" data-end="69">and said it was pretty but the food was greasy.</p>
+			<p data-start="69" data-end="73">I believe Icarus was not failing as he fell,</p>
+			<p data-start="73" data-end="76">but just coming to the end of his triumph.</p>
+		</div>
+
+    </div>
+
+	<div class="pager">
+		<a id="prevpage" href="#">Prev page</a>
+		<a id="nextpage" href="#">Next page</a>
+	</ul>
+	</div>
+
+    <footer>
+
+    </footer>
+    </div> <!--! end of #poembox -->
+    <![endif]>
+
+    <!--[if IE]>
+	<div id="poembox">
+		<div id="fl_back"><strong>This features requires version 10 or higher of the Adobe Flash Player.</strong><a href="http://www.adobe.com/products/flashplayer/" target="_blank">Get the latest Flash Player.</a></div>
+
+		<script type="text/javascript">
+			// <![CDATA[
+			var so = new SWFObject("poetrytool_failfly.swf", "tool", "474", "465", "10", "#FFFFFF");
+			so.addParam("allowScriptAccess", "sameDomain");
+			so.addParam("quality", "high");
+			so.addParam("align", "middle");
+			so.addParam("wmode", "window");
+			so.write("fl_back");
+			// ]]>
+		</script>
+	</div>
+	<![endif]-->
+
+    <div id="sidebar">
+    	<!--<img src="http://www.npr.org/design/comps/stephanie/poetry/queen-wallpaper.jpg" alt="queen image" width="127" height="127" />-->
+    	<p class="more">Read by NPR's John Ydstie</p>
+    	<p class="more">"Failing and Flying" from <a href="http://www.npr.org/books/titles/144925414/collected-poems" target="blank"><em>Collected Poems</em></a> by Jack Gilbert, copyright 2012 by Jack Gilbert. Used  by permission of Alfred A. Knopf, a division of Random House, Inc. </p>
+    </div>
+
+  </div> <!--! end of #container -->
+
+<!-- TOOL TIPS -->
+<script type="text/javascript" class="example">
+$(document).ready(function()
+{
+	// Match all <A/> links with a title tag and use it as the content (default).
+	$('a[title]').qtip({
+	style: {
+      classes: 'ui-tooltip-light ui-tooltip-shadow'
+   }
+	});
+});
+</script>
+<!-- END OF TOOL TIPS -->
+
+
+
+</body>
+</html>

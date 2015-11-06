@@ -1,0 +1,139 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <!-- <h1>Headline</h1>
+    <h2>Subhed</h2> -->
+
+    <div id="graphic">
+
+        <div id="candyQuiz">
+
+        <h3 class="candyHeader">The Quiz</h3>
+
+            <div id="candyQ1" class="candyQ active">
+            	<h3>1. What would be your perfect vacation?</h3>
+            	<ul>
+            		<li class="cq0">Museum-exploring</li>
+            		<li class="cq1">Camping</li>
+            		<li class="cq2">Wine country</li>
+            		<li class="cq3">Dude ranch</li>
+            		<li class="cq4">Spa retreat</li>
+            		<li class="cq5">Disneyland</li>
+            		<li class="cq6">Road trip</li>
+            		<li class="cq7">International cruise</li>
+            	</ul>
+            </div>
+
+            <div id="candyQ2" class="candyQ active">
+            	<h3>2. What dish would you bring to a potluck dinner?</h3>
+            	<ul>
+            		<li class="cq0">Apple pie</li>
+            		<li class="cq1">Sourdough bread</li>
+            		<li class="cq2">Red wine</li>
+            		<li class="cq3">BBQ ribs</li>
+            		<li class="cq4">Chocolate cake</li>
+            		<li class="cq5">Deep-fried Twinkies</li>
+            		<li class="cq6">Potato salad</li>
+            		<li class="cq7">Potstickers</li>
+            	</ul>
+            </div>
+
+            <div id="candyQ3" class="candyQ active">
+            	<h3>3. How might your friends describe you?</h3>
+            	<ul>
+            		<li class="cq0">Nutty</li>
+            		<li class="cq1">Rugged</li>
+            		<li class="cq2">Mysterious</li>
+            		<li class="cq3">Lively</li>
+            		<li class="cq4">Sophisticated</li>
+            		<li class="cq5">Over-the-top</li>
+            		<li class="cq6">Surprising</li>
+            		<li class="cq7">Unique</li>
+            	</ul>
+            </div>
+
+            <h3 class="candyHeader">All Of The Sweets</h3>
+            <ul id="candyList">
+            	<li id="c2">
+            		<a href="http://www.npr.org/2012/07/01/156031130/in-sponge-candy-crescent-addicts-hoard-heaven">
+            			<img src="http://www.npr.org/assets/multimedia/2012/07/candy/buffalo.jpg?s=2" alt="Buffalo Sponge">
+            			<h4>Buffalo Sponge</h4>
+            			<span>Like this caramelized sugar candy from upstate New York, you're just a bit mysterious. As people get to know you, they quickly realize your smooth exterior hides an unexpectedly complex character.</span>
+            		</a>
+            	</li>
+            	<li id="c7">
+            		<a href="http://www.npr.org/blogs/thesalt/2012/07/07/156204377/manju-a-taste-of-home-for-seattles-japanese-community">
+            			<img src="http://www.npr.org/assets/multimedia/2012/07/candy/manju.jpg?s=2" alt="Manju">
+            		    <h4>Manju</h4>
+            		    <span>Like these traditional sweets from Japan — by way of Seattle — you're a world traveler. You're sweet but never treacly, and you have a subtle, unique charm that sets you apart from the crowd.</span>
+            		</a>
+            	</li>
+            	<li id="c1">
+            		<a href="http://www.npr.org/2012/07/15/156739957/dont-cry-over-burnt-milk-in-south-texas-savor-it">
+            			<img src="http://www.npr.org/assets/multimedia/2012/07/candy/goatmilk.jpg?s=2" alt="Leche Quemada">
+            		    <h4>Leche Quemada</h4>
+            		    <span>Like this Texas-Mexico border candy made of burnt milk and pecans, you can be a bit rough around the edges. Yet you have a rustic, earthy quality that people can't resist.</span>
+            		</a>
+            	</li>
+            	<li id="c6">
+            		<a href="http://www.npr.org/2012/07/21/157095829/the-modjeska-a-star-on-stage-sweetly-remembered">
+            			<img src="http://www.npr.org/assets/multimedia/2012/07/candy/modjeska.jpg?s=2" alt="Modjeska">
+            		    <h4>Modjeska</h4>
+            		    <span>Like this caramel-marshmallow dumpling from Louisville, Ky., you're a package of sweet and light. With your bouncy personality, you're a true people-magnet, and if something gets you down, you bounce right back again.</span>
+            		</a>
+            	</li>
+            	<li id="c3">
+            		<a href="http://www.npr.org/2012/07/29/157503013/in-new-mexico-a-brittle-treat-that-smolders">
+            			<img src="http://www.npr.org/assets/multimedia/2012/07/candy/brittle.jpg?s=2" alt="Chile Brittle">
+            			<h4>Chile Brittle</h4>
+            			<span>Like this New Mexico scorcher, you deliver a lively kick. For some mild-mannered folks, your smoky, smoldering company is best enjoyed in small doses, but people who like to play with fire can't get enough of you.</span>
+            		</a>
+            	</li>
+            	<li id="c0">
+            		<a href="http://www.npr.org/2012/08/04/158090777/grand-ole-goo-goo-sweetens-fans-old-and-new">
+            			<img src="http://www.npr.org/assets/multimedia/2012/07/candy/googoo.jpg?s=2" alt="Goo Goo Cluster">
+            		    <h4>GooGoo Cluster</h4>
+            		    <span>Like the classic Tennessee treat, folks love it when you show up at a party. You're popular, a little bit nutty, and people often turn to you for comfort when they're feeling a little low.</span>
+            		</a>
+            	</li>
+            	<li id="c4">
+            		<a href="http://www.npr.org/2012/08/12/158570024/chukar-cherries-offers-a-year-round-taste-of-summer">
+            			<img src="http://www.npr.org/assets/multimedia/2012/07/candy/chukar.jpg?s=2" alt="Chukar Cherry">
+            		    <h4>Chukar Cherry</h4>
+            		    <span>Like these chocolate-covered Washington State cherries, you're the perfect balance of tart and sweet. You're easily at home at a sophisticated cocktail bar, and you wouldn't <i>dream</i> of going to a party without the perfect bottle of red wine.</span>
+            		</a>
+            	</li>
+            	<li id="c5">
+            		<a href="http://www.npr.org/2012/08/18/159026303/valomilks-a-sweet-treat-that-runs-down-your-chin">
+            			<img src="http://www.npr.org/assets/multimedia/2012/07/candy/valomilk.jpg?s=2" alt="Valomilk">
+            		    <h4>Valomilk</h4>
+            		    <span>Like this Kansas classic, you are anything but subtle. As sweet as can be, you're full of youthful energy. At a party, people will know you instantly — you're the one dancing on the table.</span>
+            		</a>
+            	</li>
+            </ul>
+
+        </div> <!-- end #candyQuiz -->
+
+    </div>
+
+    <!-- <div class="footnotes">
+        <h4>Notes</h4>
+        <p>Footnote</p>
+    </div> -->
+
+    <!-- <div class="footer">
+        <p>Source: TK TK TK</p>
+        <p>Credit: TK TK TK</p>
+    </div> -->
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery-1.11.3.min.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

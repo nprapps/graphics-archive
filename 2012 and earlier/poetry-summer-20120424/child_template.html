@@ -1,0 +1,57 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <!-- <h1>Headline</h1>
+    <h2>Subhed</h2> -->
+
+    <div id="graphic">
+
+              <div id="res156627599" class="bucketwrap listtext">
+                    <div class="bucket">
+                          <ul class="edTag">         <li>Listen To The Poem</li>         <li>Learn More About This Poem</li>         </ul>
+              </div>
+
+        <!-- END CLASS="BUCKET" -->
+           </div>
+
+        <!-- END ID="RES156627599" CLASS="BUCKETWRAP LISTTEXT" -->
+           <div id="res156627351" class="bucketwrap statichtml">
+                <iframe src="poem.html" frameborder="none" scrolling="none" style="width:100%; height:575px; border: none;"></iframe>
+           </div>
+
+        <!-- END ID="RES156627351" CLASS="BUCKETWRAP STATICHTML" -->
+           <div id="res156627366" class="bucketwrap statichtml">
+               <div id="container">
+                    <div id="about">
+                        <h4>About Jack Gilbert's 'Failing and Flying'</h4>
+                        <h6>by David Orr</h6>
+                        <p>Jack Gilbert, whose <a href="http://www.npr.org/books/titles/144925414/collected-poems" target="blank"><em>Collected Poems</em></a> was recently published by Knopf, is a quintessential American poet widely known for living in places other than America. Born in Pittsburgh in 1925, he published his first book, <em>Views of Jeopardy</em>, in 1962 as the winner of the Yale Younger Poets competition. Shortly thereafter he left the U.S. for Europe.  Gilbert spent over 15 years living abroad and traveling to more than a dozen countries, several of which  -- particularly Greece and Japan -- feature prominently in his writing. Along the way, Gilbert developed a spare yet resonant style based on relatively simple diction, chiseled free verse lines and clean, uncomplicated syntax. His subjects are often among the most basic: relationships, sex, food, memory, grief, making art.</p>
+                        <p>The best Gilbert poems are like long, steady camera shots, in which the light becomes richer as the seconds slowly pass. In this sense, “Failing and Flying” is typical, as Gilbert flirts deliberately with cliché -- stars are “burning” – in order to create a quiet background from which his more startling images can vividly emerge. (The “gentleness” of his lover, for instance, is “like antelope standing in the dawn mist.”)</p>
+                        <p>Similarly, Gilbert carefully balances the poem’s tone by setting throwaway references to rude tourists (who say that Provence “was pretty but the food was greasy”) against the concluding flourish: “I believe Icarus was not failing as he fell, / but just coming to the end of his triumph.” The point is to move the reader without seeming to have lifted a hand, to fly without seeming to have left the ground.</p>
+                    </div> <!--! end of #poembox -->
+                </div>
+           </div>
+        <!-- END ID="RES156627366" CLASS="BUCKETWRAP STATICHTML" -->
+    </div>
+
+    <!-- <div class="footnotes">
+        <h4>Notes</h4>
+        <p>Footnote</p>
+    </div> -->
+
+    <!-- <div class="footer">
+        <p>Source: TK TK TK</p>
+        <p>Credit: TK TK TK</p>
+    </div> -->
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery-1.11.3.min.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

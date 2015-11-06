@@ -1,0 +1,42 @@
+@import "base";
+
+.bars rect {
+    fill: @red5;
+    
+    &.all-households { fill: @red3; }
+}
+
+.zero-line  { 
+    stroke: #666;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+    display: none;
+}
+
+.labels {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: none;
+
+    li {
+        position: absolute;
+        text-align: right;
+        font-size: 12px;
+        line-height: 1.3;
+        color: #666;
+        display: table;
+        -webkit-font-smoothing: antialiased;
+
+        span {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        
+        &.all-households {
+            font-weight: bold;
+            color: #333;
+        }
+    }
+}

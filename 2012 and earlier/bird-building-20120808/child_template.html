@@ -1,0 +1,100 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <!-- <h1>Headline</h1>
+    <h2>Subhed</h2> -->
+
+    <div id="graphic">
+
+        <div id="birdBuildings">
+        	<div id="birdbg"></div>
+        	<div id="birdMarkers">
+        		<div class="m1 marker good">
+        			<span class="pin"></span>
+        			<h3>Good: Contoured Surfaces</h3>
+        			<div class="content vert">
+        				<img src="http://media.npr.org/news/graphics/2012/08/bird-buildings/good-shape.jpg?s=15" alt="">
+        				<div class="captionwrap">Photo: <span class="creditwrap"><span class="credit"><a href="http://www.flickr.com/photos/afagen/7607439804">afagen</a></span>/<span class="rightsnotice">via Flickr</span></span></div>
+        				<p>Balconies, overhangs, recessed windows and other variations in a building's facade help birds determine whether they're looking at a solid object.</p>
+        			</div>
+        		</div>
+        		<div class="m2 marker good">
+        			<span class="pin"></span>
+        			<h3>Good: Safer Glass</h3>
+        			<div class="content">
+        				<img src="http://media.npr.org/news/graphics/2012/08/bird-buildings/good-glass.jpg?s=3" alt="">
+        				<div class="captionwrap">Photo: <span class="creditwrap"><span class="rightsnotice">AP</span></span></div>
+        				<p>When a bird collides with a building, glass is nearly always to blame. Birds don't register clear or reflective glass panes as barriers in their way. Special kinds of glass address this problem by reflecting patterns in the UV light spectrum that are visible to birds. Architects can also cover exterior glass with grilles or screens, which reduce the amount of exposed glass while still allowing building occupants to see out.</p>
+        			</div>
+        		</div>
+        		<div class="m3 marker good">
+        			<span class="pin"></span>
+        			<h3>Good: Decoys</h3>
+        			<div class="content vert">
+        				<img src="http://media.npr.org/news/graphics/2012/08/bird-buildings/good-decoys.jpg?s=2" alt="">
+        				<div class="captionwrap">Photo: <span class="creditwrap"><span class="credit"><a href="http://www.flickr.com/photos/maetang/3897310842/">maetang</a></span>/<span class="rightsnotice">via Flickr</span></span></div>
+        				<p>Models of predatory birds like owls or hawks are often placed on buildings, particularly homes, to scare birds away. They may not always match a building's aesthetic, but they're effective.</p>
+        			</div>
+        		</div>
+        		<div class="m4 marker good">
+        			<span class="pin"></span>
+        			<h3>Good: Smarter Lighting</h3>
+        			<div class="content">
+        				<img src="http://media.npr.org/news/graphics/2012/08/bird-buildings/good-downward-lights.jpg?s=3" alt="">
+        				<div class="captionwrap">Photo: <span class="creditwrap"><span class="credit">Dariusz Zdziebkowski</span>/<span class="rightsnotice">American Bird Conservancy</span></span></div>
+        				<p>Lights-out programs and street lights with shades that direct light downward help to reduce the amount of light that spills into the night sky. As a result, birds are less likely to be distracted and interrupted during their nocturnal migrations.</p>
+        			</div>
+        		</div>
+        		<div class="m5 marker bad">
+        			<span class="pin"></span>
+        			<h3>Bad: Reflective Surfaces</h3>
+        			<div class="content vert">
+        				<img src="http://media.npr.org/news/graphics/2012/08/bird-buildings/bad-time-warner.jpg?s=2" alt="">
+        				<div class="captionwrap">Photo: <span class="creditwrap"><span class="credit">Christine Sheppard</span>/<span class="rightsnotice">American Bird Conservancy</span></span></div>
+        				<p>Buildings with mirrored or reflective surfaces are especially dangerous to birds. Birds have a hard time distinguishing between real and reflected obstacles, so they can very easily fly right into a shiny skyscraper.</p>
+        			</div>
+        		</div>
+        		<div class="m6 marker bad">
+        			<span class="pin"></span>
+        			<h3>Bad: Planted Atriums</h3>
+        			<div class="content">
+        				<img src="http://media.npr.org/news/graphics/2012/08/bird-buildings/bad-forest.jpg?s=3" alt="">
+        				<div class="captionwrap">Photo: <span class="creditwrap"><span class="credit"><a href="http://www.flickr.com/photos/mvjantzen/2106805365/">M.V. Jantzen</a></span>/<span class="rightsnotice">via Flickr</span></span></div>
+        				<p>Placing attractive, bird-friendly habitats, like trees and other plants, inside glass enclosures can be deadly for birds, who might try to fly directly through the glass.</p>
+        			</div>
+        		</div>
+        		<div class="m7 marker bad">
+        			<span class="pin"></span>
+        			<h3>Bad: City Lights</h3>
+        			<div class="content">
+        				<img src="http://media.npr.org/news/graphics/2012/08/bird-buildings/bad-building-city-light.jpg?s=3" alt="">
+        				<div class="captionwrap">Photo: <span class="creditwrap"><span class="rightsnotice">Getty Images</span></span></div>
+        				<p>Birds are easily distracted by and drawn to light. Bright city lights can draw migrating birds into urban areas, where they are more likely to crash into buildings or each other.</p>
+        			</div>
+        		</div>
+        	</div>
+        	<div id="birdOverlay"></div>
+        </div>
+    </div>
+
+    <!-- <div class="footnotes">
+        <h4>Notes</h4>
+        <p>Footnote</p>
+    </div> -->
+
+    <div class="footer">
+        <p>Source: American Bird Conservancy</p>
+        <p>Credit: Alyson Hurt, Ayodha Ouditt, Andrew Prince and Maria Godoy/NPR</p>
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery-1.11.3.min.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

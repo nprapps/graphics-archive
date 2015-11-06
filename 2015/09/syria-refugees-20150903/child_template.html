@@ -1,0 +1,70 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.syria_labels.headline %}<h1>{{ COPY.syria_labels.headline }}</h1>{% endif %}
+    {% if COPY.syria_labels.subhed %}<h2>{{ COPY.syria_labels.subhed }}</h2>{% endif %}
+
+    <div id="graphic">
+        <div class="col">
+            <table class="syria">
+                <caption>{{ COPY.syria_labels.hed_idp }}</caption>
+                {% for row in COPY.syria_data %}
+                {% if row.type == 'Internally-displaced' %}
+                <tr class="{{ row.type|lower|replace(' ', '-') }}">
+                    <td>{{ row.country }}</td>
+                    <td>{{ row.amt_fmt }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+
+            <table class="mideast">
+                <caption>{{ COPY.syria_labels.hed_mideast }}</caption>
+                {% for row in COPY.syria_data %}
+                {% if row.type == 'Total persons of concern' %}
+                <tr class="{{ row.type|lower|replace(' ', '-') }}">
+                    <td>{{ row.country }}</td>
+                    <td>{{ row.amt_fmt }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="col">
+            <table class="europe">
+                <caption>{{ COPY.syria_labels.hed_europe }}</caption>
+                {% for row in COPY.syria_data %}
+                {% if row.type == 'Asylum applications' and loop.index < 15 %}
+                <tr class="{{ row.type|lower|replace(' ', '-') }}">
+                    <td>{{ row.country }}</td>
+                    <td>{{ row.amt_fmt }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    {% if COPY.syria_labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.syria_labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.syria_labels.source %}<p>Source: {{ COPY.syria_labels.source }}</p>{% endif %}
+        {% if COPY.syria_labels.credit %}<p>Credit: {{ COPY.syria_labels.credit }}</p>{% endif %}
+    </div>
+   
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

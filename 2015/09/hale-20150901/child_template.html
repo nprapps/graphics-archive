@@ -1,0 +1,80 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+        <div class="key">
+        <p>Life expectancy compared with global average</p>
+
+        <ul>
+            <li class="minus-15">
+                <b></b>
+                <label>25 years less</label>
+            </li>
+            <li class="minus-5">
+                <b></b>
+                <label>-15</label>
+            </li>
+            <li class="equal">
+                <b></b>
+                <label>-5</label>
+            </li>
+            <li class="plus-5">
+                <b></b>
+                <label>+5</label>
+            </li>
+            <li class="plus-15">
+                <b></b>
+                <label>15 years more</label>
+            </li>
+        </ul>
+
+        <table id="country-table">
+            <thead>
+                <tr>
+                    <th class="country sort-default"><div class="sorter"><div class="icon"></div></div class="header">{{ COPY.labels.hdr_country }}</div></th>
+                    <th class="male" data-sort-method='number'><div class="sorter"><div class="icon"></div></div class="header">{{ COPY.labels.hdr_male_life_2013 }}</div></th>
+                    <th class="male-non-hale" data-sort-method='number'><div class="sorter"><div class="icon"></div></div class="header">{{ COPY.labels.hdr_male_non_hale_2013 }}</div></th>
+                    <th class="female" data-sort-method='number'><div class="sorter"><div class="icon"></div></div class="header">{{ COPY.labels.hdr_female_life_2013 }}</div></th>
+                    <th class="female-non-hale" data-sort-method='number'><div class="sorter"><div class="icon"></div></div class="header">{{ COPY.labels.hdr_female_non_hale_2013  }}</div></th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr id="{{ row.country|classify }}" {% if row.country == 'Global' %}class="no-sort"{% endif %}>
+                <td data-title="{{ COPY.labels.hdr_country }}" class="country">{{ row.country }}</td>
+                <td data-title="{{ COPY.labels.hdr_male_life_2013 }}" class="male {{ row.male_breaks }}">{{ row.male_2013|int }}</td>
+                <td data-title="{{ COPY.labels.hdr_male_non_hale_2013 }}" class="male-non-hale">{{ row.male_non_hale_2013 }}</td>
+                <td data-title="{{ COPY.labels.hdr_female_life_2013 }}" class="female {{ row.female_breaks }}">{{ row.female_2013|int }}</td>
+                <td data-title="{{ COPY.labels.hdr_female_non_hale_2013 }}" class="female-non-hale">{{ row.female_non_hale_2013 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}
