@@ -1,0 +1,51 @@
+@import "base";
+
+.graphic { margin-bottom: 22px; }
+
+.guidelines line {
+    fill: none;
+    stroke-width: 1px;
+    stroke: #eee;
+}
+
+.labels li.total {
+    font-weight: bold;
+    color: #333;
+}
+
+.bars line {
+    fill: none;
+    stroke-width: 4px;
+    stroke: @red5;
+
+    &.total { stroke: @red3; }
+}
+
+.dots circle {
+    stroke-width: 1px;
+    stroke: #fff;
+    fill: @red5;
+
+    &.total { fill: @red3; }
+}
+
+.value text {
+    font-size: 11px;
+    fill: #999;
+
+    &.total {
+        fill: #787878;
+        font-weight: bold;
+    }
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}
+
+@media screen and (max-width: 500px) {
+    .labels li { font-size: 11px; }
+}

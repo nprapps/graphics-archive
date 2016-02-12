@@ -1,0 +1,53 @@
+@import "base";
+
+.graphic { margin-bottom: 22px; }
+
+.key {
+    margin-top: 15px;
+    margin-bottom: 22px;
+
+    .key-item {
+        &.decreased b { background-color: @orange4; }
+        &.increased b { background-color: @blue3; }
+    }
+}
+
+.bars line {
+    fill: none;
+    stroke-width: 4px;
+    stroke: #eee;
+
+    &.decreased { stroke: @orange4; }
+    &.increased { stroke: @blue3; }
+}
+
+.guidelines line {
+    fill: none;
+    stroke-width: 1px;
+    stroke: #eee;
+}
+
+.labels li.iuds-and-implants {
+    font-weight: bold;
+    color: #333;
+}
+
+.dots circle {
+    stroke-width: 1px;
+    stroke: #fff;
+
+    &.decreased { fill: @orange4; }
+    &.increased { fill: @blue3; }
+}
+
+.value text {
+    font-size: 11px;
+    fill: #999;
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}

@@ -1,0 +1,57 @@
+@import "base";
+
+.key { margin-bottom: 11px; }
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    // fill: #999;
+}
+
+.annotation {
+    line {
+        stroke: #999;
+    }
+    circle {
+        stroke: #fff;
+        stroke-width: 1px;
+    }
+    text {
+        font-size: 11px;
+
+        &.top {
+            text-anchor: middle;
+            fill: #999;
+            font-style: italic;
+        }
+
+        &.peak {
+            text-anchor: end;
+            fill-opacity: .75;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+    .annotation {
+        circle,
+        text.peak {
+            display: none;
+        }
+    }
+}
+
+@media screen and (min-width: 501px) {
+    .key {
+        display: none;
+    }
+}

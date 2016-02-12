@@ -1,0 +1,95 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+        {% for row in COPY.data %}
+        <div class="section {{ row.header|classify }}">
+            {% if row.header != 'Title' and row.header != 'Deadline' %}
+            <div class="header">
+                <h3>{{ row.header }}</h3>
+            </div>
+            {% endif %}
+
+            <div class="desc">
+                {% if row.layout == 'two' %}
+                    <div class="debt">{{ row.debt }}</div>
+                    <div class="budget">{{ row.budget }}</div>
+                {% elif row.layout == 'one' %}
+                    <div class="unified">{{ row.unified }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if row.header == 'How Are These Related?' or row.header == 'Who Could Be Hurt?' %}
+        <div class="section title-repeat">
+            <div class="desc">
+                {% if COPY.data[0].layout == 'two' %}
+                    <div class="debt">{{ COPY.data[0].debt }}</div>
+                    <div class="budget">{{ COPY.data[0].budget }}</div>
+                {% elif COPY.data[0].layout == 'one' %}
+                    <div class="unified">{{ COPY.data[0].unified }}</div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        <div class="section people">
+            <div class="header">
+                <h3>Who's Involved?</h3>
+            </div>
+            <div class="desc">
+                {% for row in COPY.people %}
+                    <div class="person {{ row.person|classify }}">
+                        <h4>
+                            {% if row.img %}<img src="assets/{{ row.img }}" alt="Photo of {{ row.person }}" />{% endif %}
+                            {{ row.person }}
+                        </h4>
+
+                        {% if row.unified %}
+                        <div class="unified">
+                            {{ row.unified }}
+                        </div>
+                        {% else %}
+                        <div class="debt">
+                            <!-- {% if row.debt and row.debt != 'n/a' %}
+                            <h4>
+                                {% if row.img %}<img src="assets/{{ row.img }}" alt="Photo of {{ row.person }}" />{% endif %}
+                                {{ row.person }}
+                            </h4>
+                            {% endif %} -->
+                            {{ row.debt }}
+                        </div>
+                        <div class="budget">
+                            <!-- {% if row.budget and row.budget != 'n/a' %}
+                            <h4>
+                                {% if row.img %}<img src="assets/{{ row.img }}" alt="Photo of {{ row.person }}" />{% endif %}
+                                {{ row.person }}
+                            </h4>
+                            {% endif %} -->
+                            {{ row.budget }}
+                        </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

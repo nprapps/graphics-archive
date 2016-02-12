@@ -1,0 +1,51 @@
+@import "base";
+
+#graphic { margin-bottom: 22px; }
+
+//.bars rect { fill: #17807E; }
+
+.zero-line  { 
+    stroke: #666;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+}
+
+.labels {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: none;
+
+    li {
+        position: absolute;
+        text-align: right;
+        font-size: 12px;
+        line-height: 1.3;
+        color: #666;
+        display: table;
+        -webkit-font-smoothing: antialiased;
+
+        span {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+}
+
+.categories text {
+    fill: #787878;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-family: 'Knockout 31 4r';
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+@media screen and (max-width: 500px) {
+    .labels li { font-size: 11px; }
+    .categories text { font-size: 10px; }
+}
