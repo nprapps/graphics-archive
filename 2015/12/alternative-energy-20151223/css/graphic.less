@@ -1,0 +1,35 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+path.line.coal, path.line.gas {
+    stroke-dasharray: 0px 6px;
+    stroke-linecap: round;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    /*fill: #999;*/
+
+    &.label-right {
+        text-anchor: end;
+        font-weight: normal;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

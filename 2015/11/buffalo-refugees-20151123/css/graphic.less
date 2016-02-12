@@ -1,0 +1,30 @@
+@import "base";
+
+path.area {
+    stroke: #fff;
+    stroke-width: 0.5px;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+
+    &.label-num {
+        font-weight: normal;
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}
+

@@ -1,0 +1,21 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+<div id="candidates-grid">
+    <ul>
+    {% for row in COPY.data %}
+    <li>
+            <a class="candidate-{{ row.party }}" href="#" data-scroll="{{ row.name_combined }}"><img src="assets/thumbs/{{ row.last_name|lower }}.jpg" alt="Photo" />
+                <strong>{{ row.first_name}}<span class="name-break"></span>{{ row.last_name }}</strong>
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+
+<div class="footer">
+    {% if COPY.labels.credit %}<p>{{ COPY.labels.credit|smarty }}</p>{% endif %}
+</div>
+
+{% endblock content %}

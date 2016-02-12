@@ -1,0 +1,64 @@
+@import "base";
+
+.value text {
+    fill: #fff;
+    font-weight: bold;
+    font-size: 11px;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.labels li {
+    display: none;
+}
+
+.key {
+    margin-top: 18px;
+}
+
+.key .key-item {
+    display: block;
+    float: left;
+    min-height: 160px;
+    margin: 0 2% 0 0;
+    width: 23%;
+
+    label {
+        white-space: normal;
+        margin: 0 0 15px 0;
+        font-family: 'Knockout 31 4r';
+        font-weight: normal;
+        text-transform: uppercase;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+        font-size: 12px;
+        color: #333;
+    }
+
+    p {
+        font-size: 12px;
+        color: #666;
+        font-weight: normal;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .key .key-item {
+        width: 48%;
+        min-height: 100px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .key .key-item {
+        width: 100%;
+        margin: 0 0 18px 0;
+        min-height: 0;
+        float: none;
+    }
+}

@@ -1,0 +1,43 @@
+@import "base";
+
+.graphic { margin-bottom: 22px; }
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.recession rect {
+    /*fill-opacity: 0.8;*/
+}
+
+.dots {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+.chart-label {
+    fill: #999;
+    font-style: italic;
+    font-size: 12px;
+    text-anchor: middle;
+    letter-spacing: .3px;
+}
+
+@media screen and (max-width: 500px) {
+    .value text { font-size: 10px; }
+    .chart-label { font-size: 11px; }
+}
+
+// @media screen and (min-width: 500px) {
+//     .key {
+//         display: none;
+//     }
+// }

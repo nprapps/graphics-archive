@@ -1,0 +1,52 @@
+@import "base";
+
+.graphic {
+    width: 50%;
+    float: left;
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+    .graphic {
+        width: 100%;
+        float: none;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        position: absolute;
+        left: 40px;
+        top: 36px;
+        margin-top: 0px;
+        background: #fff;
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 580px) {
+    .key {
+        width: 85%;
+
+        .key-item b {
+            width: 10px;
+            height: 10px;
+            margin-right: 4px;
+            margin-top: 2px;
+        }
+    }
+}
