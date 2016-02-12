@@ -1,0 +1,69 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_city }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_closed_2016 }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_closed_change }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_open_2016 }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_open_change }}</div>
+                    </th>
+                </tr>
+            </thead>
+            {% for row in COPY.data %}
+            <tr class="city-{{ row.city|classify }}">
+                <td data-title="{{ COPY.labels.hdr_city }}">{{ row.city}}</td>
+                <td class="amt" data-title="{{ COPY.labels.hdr_closed_2016 }}">{% if loop.first %}${% endif %}{{ row.closed_2016|int }}</td>
+                <td class="amt change-{{ row.closed_class }}" data-title="{{ COPY.labels.hdr_closed_change }}">{{ row.closed_change_fmt }}{% if loop.first %}%{% endif %}</td>
+                <td class="amt" data-title="{{ COPY.labels.hdr_open_2016 }}">{% if loop.first %}${% endif %}{{ row.open_2016|int }}</td>
+                <td class="amt change-{{ row.open_class }}" data-title="{{ COPY.labels.hdr_open_change }}">{{ row.open_change_fmt }}{% if loop.first %}%{% endif %}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

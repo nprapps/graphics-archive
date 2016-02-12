@@ -1,0 +1,69 @@
+@import "base";
+
+// Add custom styles here
+.text-highlight {
+    &.highlight-deet {
+        color: @orange3;
+        font-weight: bold;
+    }
+
+    &.highlight-natural {
+        color: @teal4;
+        font-weight: bold;
+    }
+}
+
+#bar-chart {
+    .chart-wrapper {
+        float: left;
+    }
+
+    h3 {
+        margin-left: 150px;
+        margin-bottom: 5px;
+        font-size: 12px;
+
+        &.initial-h3 {
+            font-size: 16px;
+        }
+    }
+
+    #chart-initial, #chart-240 {
+        h3 { margin-bottom: 15px; color: #666; }
+    }
+
+    #chart-240 {
+        h3 {
+            margin-left: 10px;
+        }
+    }
+
+    .bars rect {
+        fill: #aaa;
+
+        &.has-deet {
+            fill: @orange3;
+        }
+
+        &.cutter-lemon-eucalyptus-insect-repellent {
+            fill: @teal4;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #bar-chart {
+        .chart-wrapper {
+            margin-bottom: 20px;
+        }
+        
+        h3 {
+            margin: 0 0 11px;
+        }
+
+        .labels li span {
+            line-height: 1em;
+        }
+    }
+}
+

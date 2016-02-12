@@ -1,0 +1,81 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    {% set col_names = ['race','education','age','income','religion'] %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th class="amt sort-default">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header amt">{{ COPY.labels.th_rank }}</div>
+                    </th>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.th_state }}</div>
+                    </th>
+                    {% for col in col_names %}
+                        <th class="th-shade" data-sort-method="number">
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels['th_' + col] }}</div>
+                        </th>
+                    {% endfor %}
+                </tr>
+            </thead>
+
+            <tr class="state-us no-sort">
+                <td data-title="U.S. overall" class="amt">&nbsp;</td>
+                <td data-title="{{ COPY.labels.th_state }}" class="row-state">U.S. overall</td>
+                <td data-title="{{ COPY.labels['th_race'] }}" class="row-race">&mdash;*</td>
+                <td data-title="{{ COPY.labels['th_education'] }}" class="row-education">29.3%</td>
+                <td data-title="{{ COPY.labels['th_age'] }}" class="row-age">37.7</td>
+                <td data-title="{{ COPY.labels['th_income'] }}" class="row-income">$53,482</td>
+                <td data-title="{{ COPY.labels['th_religion'] }}" class="row-religion">53%</td>
+            </tr>
+
+            {% set state_i = 0 %}
+            {% for state in COPY['states']|sort(attribute='name') %}
+                <tr class="state-{{ state.usps|classify }}">
+                    <td data-title="{{ COPY['data_rank'][state_i]['display_value']|int }}. {{state.name }}" data-sort="{{ COPY['data_rank'][state_i]['diff']|float|abs }}" data-diff="{{ COPY['data_rank'][state_i]['display_value'] }}" class="amt"><span>{{ COPY['data_rank'][state_i]['value']|int }}</span></td>
+                    <td data-title="{{ COPY.labels.th_state }}" class="row-state">{{ state.name }}</td>
+                    {% for col in col_names %}
+                        {% set col_data = COPY['data_' + col]|sort(attribute='state_name') %}
+                        {% set state_row = col_data[state_i] %}
+                        <td data-title="{{ COPY.labels['th_' + col] }}" data-sort="{{ state_row['diff']|float|abs }}" data-diff="{{ state_row['diff'] }}" class="amt cell-shade row-{{ col }}">{{ state_row['display_value'] }}</td>
+                    {% endfor %}
+                </tr>
+                {% set state_i = state_i + 1 %}
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.table_footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.table_footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/d3.min.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

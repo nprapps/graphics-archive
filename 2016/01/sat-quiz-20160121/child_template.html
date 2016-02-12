@@ -1,0 +1,93 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="quiz">
+        {% for row in COPY.quiz %}
+        <div class="question">
+            <div class="left-col">
+                <h3 class="q-label">{{ row.label }}</h3>
+            </div>
+            <div class="q">
+                {% if row.img != 'None' and row.img != '' %}
+                    <img src="img/{{ row.img }}" class="q-img" alt="Image of SAT question">
+                {% endif %}
+                <p class="q-text">{{ row.question }}</p>
+                <ul>
+                    {% if row.qtype == 'input' %}
+                        <li class="q-input">
+                            <form>
+                                <input data-answer="{{ row['option_1'] }}" type=text" name="answer-2" maxlength="10" inputmode="numeric">
+                                <input type="submit" name="submit-btn-2" id="submit-btn-2">
+                                <a href="#" id="submit-2" class="answer-btn"><strong>Submit</strong></a>
+                            </form>
+                            <p class="answer">
+                                <span class="answer-note">The correct answer is {{ row['option_1'] }}.</span> {{ row.answer }}
+                            </p>
+                        </li>
+                    {% elif row.qtype == 'check' %}
+                        <li class="q-check">
+                            <form>
+                            {% set has_answer = False %}
+                            {% for q_num in ['1','2','3','4','5','6'] %}
+                                {% if row['status_' + q_num] != 'None' and row['status_' + q_num] != '' %}
+                                <label>
+                                    <input class="q-checkbox" data-answer="{{ row['status_'+q_num] }}" type="checkbox" name="check-answer-{{ q_num }}">
+                                    <span>{{ row['option_' + q_num ] }}</span>
+                                </label>
+                                {% endif %}
+                            {% endfor %}
+                                <input type="submit" name="submit-btn-1" id="submit-btn-1">
+                                <a href="#" id="submit-1" class="answer-btn"><strong>Submit</strong></a>
+                            </form>
+                            <p class="answer">
+                                <span class="answer-note">The correct answers are round, rump and sirloin.</span> {{ row.answer }}
+                            </p>
+                        </li>
+                    {% else %}
+                        {% set has_answer = False %}
+                        {% for q_num in ['1','2','3','4','5','6'] %}
+                                {% if row['status_' + q_num] != 'None' and row['status_' + q_num] != '' %}
+                                <li class="{{ row['status_' + q_num] }} q-choice">
+                                    <strong>{{ row['option_' + q_num] }}</strong>
+                                    {% if row['status_' + q_num] == 'correct' and has_answer == False %}
+                                        <p class="answer">
+                                            {{ row.answer }}
+                                        </p>
+                                        {% set has_answer = True %}
+                                    {% endif %}
+                                </li>
+                                {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var LBL_RIGHT  = "{{ COPY.labels.lbl_right }}";
+        var LBL_WRONG  = "{{ COPY.labels.lbl_wrong }}";
+        var FINAL_LOW  = "{{ COPY.labels.final_low }}";
+        var FINAL_MID  = "{{ COPY.labels.final_mid }}";
+        var FINAL_HIGH = "{{ COPY.labels.final_high }}";
+    </script>
+
+{% endblock content %}

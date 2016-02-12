@@ -1,0 +1,76 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th class="drug-name align-right">
+                        <div class="header"></div>
+                    </th>
+                    <th>
+                        <img class="header-icon" src="img/{{ COPY.labels.icon_oral }}.png">
+                        <div class="header">{{ COPY.labels.hdr_oral }}</div>
+                    </th>
+                    <th>
+                        <img class="header-icon" src="img/{{ COPY.labels.icon_inject }}.png">
+                        <div class="header">{{ COPY.labels.hdr_inject }}</div>
+                    </th>
+                    <th>
+                        <img class="header-icon" src="img/{{ COPY.labels.icon_implant }}.png">
+                        <div class="header">{{ COPY.labels.hdr_implant }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="row-mobile-head row-{{row.name|classify }}">
+                <td colspan="3">{{ row.name }}</td>
+            </tr>
+            <tr class="row-{{ row.name |classify }}">
+                <td class="drug-name align-right" data-title="{{ COPY.labels.hdr_name }}">{{ row.name }}</td>
+                <td class="column-oral" data-icon="img/{{ COPY.labels.icon_inject }}.png" data-title="{{ COPY.labels.hdr_oral }}">
+                    <img src="img/oral.png" class="cell-icon">
+                    {{ row.oral }}
+                </td>
+                <td class="column-inject" data-title="{{ COPY.labels.hdr_inject }}">
+                    <img src="img/inject.png" class="cell-icon">
+                    {{ row.inject }}
+                </td>
+                <td class="column-implant" data-title="{{ COPY.labels.hdr_implant }}">
+                    <img src="img/implant.png" class="cell-icon">
+                    {{ row.implant }}
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

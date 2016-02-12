@@ -1,0 +1,44 @@
+@import "base";
+
+p {
+    font-weight: normal;
+    color: #777;
+    font-size: 12px;
+    margin: 0 0 5px 0;
+    line-height: 1.6;
+}
+
+h3 {
+    margin-left: 11px;
+}
+
+.graphic {
+    float: left;
+
+    &#bar-chart-lone {
+        width: 30%;
+    }
+
+    &#bar-chart-stacked {
+        width: 70%;
+    }
+}
+
+.value text {
+    fill: #fff;
+
+    &.outer-label {
+        fill: #999;
+    }
+
+    &.hidden {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .graphic#bar-chart-lone, .graphic#bar-chart-stacked {
+        width: 100%;
+        float: none;
+    }
+}

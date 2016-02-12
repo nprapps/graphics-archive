@@ -1,0 +1,92 @@
+@import "base";
+
+.graphic .key {
+    display: none;
+}
+
+.lines-face-value line {
+    stroke: #999;
+}
+
+.key.coin-key {
+    margin-bottom: 22px;
+
+    b.cost-swatch {
+        border-top: 3px solid #ccc;
+        margin-top: 6px;
+        height: 6px;
+    }
+
+    b.face-swatch {
+        border-top: 3px dotted #999;
+        margin-top: 6px;
+        height: 6px;
+    }
+}
+
+.graphic {
+    width: 25%;
+    float: left;
+
+    .chart-anno-wrap {
+        position: absolute;
+        top: 10px;
+        margin-left: 30px;
+    }
+
+    h3 {
+        margin-bottom: 3px;
+    }
+
+    p.chart-anno {
+        font-size: 11px;
+        color: #999;
+        margin: 0;
+    }
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+
+    .line-face {
+        stroke-dasharray: 3px 3px;
+    }
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+    text-anchor: end;
+}
+
+@media screen and (min-width: 500px) {
+    .graphic {
+        .x.grid {
+            display: none;
+        }
+
+        &#line-chart-nickel, &#line-chart-dime, &#line-chart-quarter {
+            .y.axis .tick {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+
+    .graphic {
+        width: 100%;
+        margin-bottom: 33px;
+
+        h3, p.chart-anno {
+            margin-left: 0;
+        }
+    }
+}

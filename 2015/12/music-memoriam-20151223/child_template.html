@@ -1,0 +1,61 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+<style type="text/css">
+    #in-memoriam-grid { font: 12px/1.2 'Gotham SSm',Helvetica,Arial,sans-serif; }
+    #in-memoriam-grid ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    #in-memoriam-grid li {
+        margin: auto;
+        padding: 0;
+        text-align: center;
+        display: inline-block;
+        margin-right: -4px; /* via: http://css-tricks.com/fighting-the-space-between-inline-block-elements/ */
+        vertical-align: top;
+    }
+    #in-memoriam-grid a {
+        display: block;
+        padding: 1px;
+        color: #6d8ac4;
+    }
+    #in-memoriam-grid strong {
+        display: block;
+        padding: 6px 6px 11px 6px;
+        font-weight: normal;
+    }
+    #in-memoriam-grid img {
+        width: 100%;
+        height: auto;
+        opacity: 0.7;
+    }
+    #in-memoriam-grid li:hover a { color: #333; }
+    #in-memoriam-grid li:hover img { opacity: 1; }
+    @media screen and (min-width: 1001px) {
+        #in-memoriam-grid li { width: 12.5%; }
+    }
+    @media screen and (min-width: 501px) and (max-width: 1000px) {
+        #in-memoriam-grid li { width: 16.6%; }
+    }
+    @media screen and (max-width: 500px) {
+        #in-memoriam-grid li { width: 25%; }
+    }
+    @media screen and (max-width: 400px) {
+        #in-memoriam-grid { font: 11px/1.1 'Gotham SSm',Helvetica,Arial,sans-serif; }
+        #in-memoriam-grid strong { padding: 6px 1px 11px 1px; }
+    }
+</style>
+
+<div id="in-memoriam-grid">
+<ul>
+{% for row in COPY.FINAL %}
+<li><a href="#" data-scroll="{{ row.name_combined }}"><img src="assets/thumbs/{{ row.name_combined }}.jpg" alt="Photo" /><strong>{{ row.first_name}} {{ row.last_name }}</strong></a></li>
+{% endfor %}
+</ul>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,20 @@
+@import "base";
+
+// Add custom styles here
+.graphic {
+    .labels li {
+        line-height: 1em;
+
+        &.united-states {
+            font-weight: bold;
+        }
+    }
+    
+    .bars rect {
+        fill: @red6;
+
+        &.united-states {
+            fill: @red3;
+        }
+    }
+}

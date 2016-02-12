@@ -1,0 +1,210 @@
+@import "base";
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 11px;
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+        width: 27%;
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+
+        &.align-right {
+            text-align: right;
+        }
+
+        &.drug-name {
+            width: 19%;
+            font-weight: bold;
+        }
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    th.amt, td.amt {
+        text-align: right;
+    }
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+}
+
+.row-buprenorphine {
+    .column-inject, .column-implant {
+        color: #aaa;
+    }
+}
+
+img.header-icon {
+    max-width: 45px;
+    margin-bottom: 5px;
+}
+
+// Tablesorter styles
+table {
+    th {
+        &.sort-header {
+            cursor: pointer;
+
+            &::-moz-selection,
+            &::selection {
+                background: transparent;
+            }
+
+            .sorter {
+                border-top: 2px solid #404040;
+                visibility: hidden;
+
+                .icon {
+                    content: '';
+                    width: 1px;
+                    margin: 3px auto 7px auto;
+                    border-width: 0 4px 4px;
+                    border-style: solid;
+                    border-color: #404040 transparent;
+                }
+            }
+
+            &:hover .sorter {
+                visibility: visible;
+            }
+        }
+
+        &.sort-up .sorter,
+        &.sort-down .sorter,
+        &.sort-down:hover .sorter {
+            visibility: visible;
+            opacity: 0.4;
+        }
+
+        &.sort-up .sorter .icon {
+            border-bottom: none;
+            border-width: 4px 4px 0;
+        }
+    }
+}
+
+@media screen and (min-width: 501px){
+    span.cell-break {
+        display: block;
+        clear: left;
+    }
+
+    img.cell-icon {
+        display: none;
+    }
+
+    .row-mobile-head {
+        display: none;
+    }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    h2 {
+        margin-bottom: 0;
+    }
+
+    span.cell-break {
+        &:before {
+            content: "\00A0";
+        }
+    }
+
+    .drug-name {
+        display: none;
+    }
+
+    .row-buprenorphine {
+        .column-inject, .column-implant {
+            img {
+                opacity: 0.5;
+            }
+        }
+    }
+
+    .row-buprenorphinenaloxone {
+        .column-inject, .column-implant {
+            display: none;
+        }
+    }
+
+    .row-methadone {
+        .column-inject {
+            display: none;
+        }
+    }
+
+    .row-methadone, .row-naltrexone {
+        .column-implant {
+            display: none;
+        }
+    }
+
+    img.cell-icon {
+        max-width: 35px;
+        display: block;
+        margin: 5px auto;
+        clear: both;
+    }
+
+    table {
+        thead {
+            display: none;
+        }
+
+        th, td {
+            width: 33%;
+            font-size: 12px;
+            padding: 15px 10px;
+
+            &:before {
+                content: attr(data-title);
+                font-weight: bold;
+            }
+        }
+
+        .row-mobile-head td {
+            border-bottom: none;
+            padding-bottom: 0;
+            vertical-align: bottom;
+            font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+            font-weight: normal;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            line-height: 1.2;
+            letter-spacing: 0.05em;
+            -webkit-font-smoothing: antialiased;
+            width: 100%;
+        }
+
+        .row-methadone td {
+            border-bottom: none;
+        }
+    }
+}

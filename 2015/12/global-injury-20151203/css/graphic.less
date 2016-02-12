@@ -1,0 +1,39 @@
+@import "base";
+
+// Add custom styles here
+.graphic {
+    width: 50%;
+    float: left;
+
+    h3 {
+        margin-right: 10px;
+    }
+
+    rect {
+        fill: #aaa;
+    }
+}
+
+#bar-chart-pct_change {
+    rect {
+        fill: @teal4;
+    }
+
+    rect.negative {
+        fill: @red4;
+    }
+}
+
+@media screen and (max-width: 720px) and (min-width: 501px) {
+    h3 {
+        min-height: 28px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .graphic {
+        width: 100%;
+        float: none;
+        margin-bottom: 22px;
+    }
+}
