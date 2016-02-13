@@ -1,0 +1,82 @@
+@import "base";
+
+.value text {
+    fill: #666;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.key .q3 {
+    b.r { background-color: @red2; margin-right: 2px; }
+    b.d { background-color: @blue2; margin-right: 2px; }
+}
+
+.key .q2 {
+    b.r { background-color: @red4; margin-right: 2px; }
+    b.d { background-color: @blue4; margin-right: 2px; }
+}
+
+.key .q1 {
+    b.r { background-color: @red6; margin-right: 2px; }
+    b.d { background-color: @blue6; margin-right: 2px; }
+}
+
+.zero-line  {
+    stroke: #666;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+}
+
+.labels {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: none;
+
+    li {
+        position: absolute;
+        text-align: right;
+        font-size: 12px;
+        line-height: 1.3;
+        color: #666;
+        display: table;
+        -webkit-font-smoothing: antialiased;
+
+        &.overall {
+            font-weight: bold;
+            color: #111;
+        }
+
+        span {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+}
+
+.group.r {
+    .q3 {
+        fill: @red2;
+    }
+    .q2 {
+        fill: @red4;
+    }
+    .q1 {
+        fill: @red6;
+    }
+}
+
+.group.d {
+    .q3 {
+        fill: @blue2;
+    }
+    .q2 {
+        fill: @blue4;
+    }
+    .q1 {
+        fill: @blue6;
+    }
+}

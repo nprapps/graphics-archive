@@ -1,0 +1,70 @@
+@import "base";
+
+h1 {
+    margin-bottom: 11px;
+    display: none;
+}
+
+.quote {
+    position: relative;
+
+    blockquote {
+        margin: 0 0 11px 0;
+        color: #787878;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.2;
+        font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+        -webkit-font-smoothing: antialiased;
+
+        strong {
+            color: #454545;
+            font-weight: 700;
+        }
+
+        &::before {
+            display: block;
+            content: "\201C";
+            margin-bottom: -20px;
+            color: rgb(216, 226, 249);
+            font-size: 60px;
+            font-weight: 700;
+        }
+    }
+
+    p {
+        margin-bottom: 11px;
+        color: #999;
+        font-family: Georgia,serif;
+        font-size: 12px;
+        text-align: left;
+        -webkit-font-smoothing: subpixel-antialiased;
+
+        &.date {
+            color: #666;
+            font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+            font-weight: 700;
+            margin-bottom: 3px;
+            font-size: 14px;
+            position: absolute;
+            top: 4px;
+            left: 40px;
+        }
+    }
+}
+
+@media screen and (min-width: 501px) {
+    .quote {
+        width: 33%;
+        float: left;
+
+        &:nth-child(3n+1) { clear: left; }
+    }
+    .quote-wrapper { margin-right: 33px; }
+}
+@media screen and (max-width: 500px) {
+    .quote {
+        width: 100%;
+        margin-bottom: 22px;
+    }
+}

@@ -1,0 +1,36 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels_turnout.headline %}<h1>{{ COPY.labels_turnout.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels_turnout.subhed %}<h2>{{ render(COPY.labels_turnout.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        {% for quote in COPY.quotes_turnout %}
+        {% if quote.show == 'True' %}
+        <div class="quote">
+            <div class="quote-wrapper">
+                <p class="date">{{ quote.when }}</p>
+                <blockquote>{{ quote.quote|smarty }}</blockquote>
+                <p>
+                    <span class="location">{{ quote.where }}</span>
+                </p>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels_turnout.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels_turnout.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels_turnout.source %}<p>Source: {{ COPY.labels_turnout.source|smarty }}</p>{% endif %}
+        {% if COPY.labels_turnout.credit %}<p>Credit: {{ COPY.labels_turnout.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

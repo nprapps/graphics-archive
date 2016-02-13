@@ -1,0 +1,26 @@
+@import "base";
+
+body {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.bars rect {
+    fill: @orange5;
+
+    &:nth-child(1) { fill: @orange3; }
+}
+
+.labels li:nth-child(1) {
+    font-weight: bold;
+    color: #454545;
+}
+
+.value text:nth-child(1) {
+    font-weight: bold;
+    fill: #454545;
+
+    &.in {
+        fill: #fff;
+    }
+}

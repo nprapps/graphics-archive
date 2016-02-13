@@ -1,0 +1,113 @@
+@import "base";
+
+.bars line {
+    fill: none;
+    stroke-width: 10px;
+    stroke: #ebebeb;
+}
+
+.dots circle {
+    stroke-width: 1px;
+    stroke: @orange2;
+    fill: @orange3;
+    fill-opacity: .8;
+
+    .state-dots & {
+        stroke: #bababa;
+        stroke-opacity: .4;
+        fill: #bababa;
+        fill-opacity: .2;
+    }
+}
+
+.state-dots text {
+    text-anchor: middle;
+    font-size: 9px;
+    fill: #999;
+    font-style: italic;
+}
+
+.value text {
+    font-size: 11px;
+    fill: #787878;
+    text-anchor: middle;
+    font-weight: bold;
+}
+
+.key {
+    margin-top: 0;
+    margin-bottom: 22px;
+
+    .key-item b {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin-right: 6px;
+        float: left;
+        border-radius: 15px;
+        opacity: .8;
+    }
+
+    .median b {
+        border: 1px solid @orange2;
+        background-color: @orange3;
+    }
+    .state b {
+        border: 1px solid #bababa;
+        background: rgba(186, 186, 186, .5);
+    }
+}
+
+.labels li.all-16-topics { font-weight: bold; }
+
+.tabs {
+    display: table;
+    width: 100%;
+    margin: 0 0 22px 0;
+    padding: 0;
+    list-style-type: none;
+
+    > li {
+        display: table-cell;
+        width: 50%;
+        text-align: center;
+        line-height: 44px;
+        font-size: 12px;
+        border-top: 1px solid #eee;
+        border-right: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        background-color: #eee;
+        color: #6d8ac4;
+        font-family: 'Knockout 31 4r';
+        font-weight: normal;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        &:nth-child(1) { border-left: 1px solid #eee; }
+        &:hover {
+            opacity: 0.7;
+            cursor: pointer;
+        }
+
+        &.active {
+            border-bottom: none;
+            background-color: #fff;
+            color: #454545;
+
+            &:hover {
+                opacity: 1;
+                cursor: default;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .labels li { font-size: 11px; }
+}

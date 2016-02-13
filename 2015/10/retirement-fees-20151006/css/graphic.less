@@ -1,0 +1,38 @@
+@import "base";
+
+#graphic { margin-bottom: 22px; }
+
+h2 strong {
+    color: #666;
+    font-weight: bold;
+}
+
+.axis.label {
+    text-anchor: middle;
+    font-size: 12px;
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.area { fill-opacity: 0.5; }
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.dots circle {
+    fill: #ddd;
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}

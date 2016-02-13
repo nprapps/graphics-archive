@@ -1,0 +1,49 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline_swensen %}<h1>{{ COPY.labels.headline_swensen }}</h1>{% endif %}
+    {% if COPY.labels.subhed_swensen %}<h2>{{ render(COPY.labels.subhed_swensen) }}</h2>{% endif %}
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th>{{ COPY.labels.hdr_type }}</th>
+                    <th>{{ COPY.labels.hdr_fund }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_fee }}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="{{ row.type|classify }}">
+                <td class="type" data-title="{{ COPY.labels.hdr_type }}">{{ row.type }}</td>
+                <td data-title="{{ COPY.labels.hdr_fund }}">{{ row.fund }}</td>
+                <td data-title="{{ COPY.labels.hdr_fee }}" class="amt">{{ row.fee }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

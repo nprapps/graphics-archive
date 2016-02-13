@@ -1,0 +1,90 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_name }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_overall }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_aid }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_finance }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_technology }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_environment }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_trade }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_security }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_migration }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="{{ row.name|classify }}">
+                <td data-title="{{ COPY.labels.hdr_name }}">{{ row.rank }}. {{ row.name }}</td>
+                <td data-title="{{ COPY.labels.hdr_overall }}" class="amt bg overall bg-{{ row.overall_min }}">{{ row.overall }}</td>
+                <td data-title="{{ COPY.labels.hdr_aid }}" class="amt bg bg-{{ row.aid_min }}">{{ row.aid }}</td>
+                <td data-title="{{ COPY.labels.hdr_finance }}" class="amt bg bg-{{ row.finance_min }}">{{ row.finance }}</td>
+                <td data-title="{{ COPY.labels.hdr_technology }}" class="amt bg bg-{{ row.technology_min }}">{{ row.technology }}</td>
+                <td data-title="{{ COPY.labels.hdr_environment }}" class="amt bg bg-{{ row.environment_min }}">{{ row.environment }}</td>
+                <td data-title="{{ COPY.labels.hdr_trade }}" class="amt bg bg-{{ row.trade_min }}">{{ row.trade }}</td>
+                <td data-title="{{ COPY.labels.hdr_security }}" class="amt bg bg-{{ row.security_min }}">{{ row.security }}</td>
+                <td data-title="{{ COPY.labels.hdr_migration }}" class="amt bg bg-{{ row.migration_min }}">{{ row.migration }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

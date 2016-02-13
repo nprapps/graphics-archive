@@ -1,0 +1,66 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+
+    {% for name in ['by_wind', 'by_pressure'] %}
+    {% set title = COPY.labels[name] %}
+    {% set sheet = COPY[name] %}
+
+    <h3>{{ title }}</h3>
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th class="rank">{{ COPY.labels.hdr_rank }}</th>
+                    <th class="storm">{{ COPY.labels.hdr_storm }}</th>
+                    <th class="year">{{ COPY.labels.hdr_year }}</th>
+                    <th class="amt pressure">{{ COPY.labels.hdr_pressure }}</th>
+                    <th class="amt wind">{{ COPY.labels.hdr_wind }}</th>
+                </tr>
+            </thead>
+
+            {% for row in sheet %}
+            <tr class="storm-{{ row.storm|classify }}">
+                <td data-title="{{ COPY.labels.hdr_rank }}" class="rank">{% if row.rank %}{{ row.rank|int }}{% endif %}</td>
+                <td data-title="{{ COPY.labels.hdr_storm }}" class="storm">
+                    {% if row.link %}<a href="{{ row.link }}">{% endif %}
+                    {{ row.storm }}
+                    {% if row.link %}</a>{% endif %}
+                </td>
+                <td data-title="{{ COPY.labels.hdr_year }}" class="year">{{ row.year|int }}</td>
+                <td data-title="{{ COPY.labels.hdr_pressure }}" class="amt pressure">{% if row.pressure %}{{ row.pressure|int }}{% endif %}</td>
+                <td data-title="{{ COPY.labels.hdr_wind }}" class="amt wind">{% if row.wind %}{{ row.wind|int }}{% endif %}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% endfor %}
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

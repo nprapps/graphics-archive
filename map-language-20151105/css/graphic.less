@@ -1,0 +1,41 @@
+@import "base";
+
+svg { overflow: hidden; }
+
+.key {
+    margin-top: -11px;
+    margin-bottom: 11px;
+
+    .key-item {
+        margin-right: 1px;
+
+        b {
+            margin-right: 0;
+            width: 20px;
+        }
+
+        label { float: left; }
+        &.key-0 label { margin-right: 6px; }
+        &.key-3 label { margin-left: 6px; }
+    }
+}
+
+.countries path {
+    // fill: #dedede;
+    // stroke: #fff;
+    // stroke-width: 0.5;
+    fill: #f1f1f1;
+    stroke: #ddd;
+    stroke-width: 0.75;
+}
+
+.dots circle {
+    stroke: #fff;
+    stroke-width: 0.5;
+    stroke-opacity: .5;
+    fill-opacity: .8;
+}
+
+@media screen and (max-width: 500px) {
+    .dots circle { stroke: none; }
+}

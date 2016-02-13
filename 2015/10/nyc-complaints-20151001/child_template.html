@@ -1,0 +1,38 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div class="wrapper">
+        <h3>Blacks were the victims of excessive police use of force in the majority of substantiated cases<sup>1</sup> in New York City ...</h3>
+        <div id="complainants"></div>
+    </div>
+
+    <div class="spacer">&nbsp;</div>
+
+    <div class="wrapper">
+        <h3>... but they make up less than a quarter of the population.</h3>
+        <div id="population"></div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var GRAPHIC_DATA = {};
+        GRAPHIC_DATA['complainants'] = {{ COPY.complainants.json() }};
+        GRAPHIC_DATA['population'] = {{ COPY.population.json() }};
+    </script>
+
+{% endblock content %}

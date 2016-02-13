@@ -1,0 +1,51 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.hed_population %}<h1>{{ COPY.labels.hed_cities }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table class="major">
+            <!-- <thead>
+                <tr>
+                    <th>City</th>
+                    <th class="amt">2015</th>
+                </tr>
+            </thead> -->
+
+            {% for row in COPY.cities %}
+            {% if row.type == 'major' %}
+            <tr class="{{ row.class|classify }}">
+                <td data-title="{{ COPY.labels.hdr_name }}">{{ row.name }}</td>
+                <td data-title="{{ COPY.labels.hdr_2015 }}" class="amt">{{ row.d2015|comma }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        <!-- {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %} -->
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

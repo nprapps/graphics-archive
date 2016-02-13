@@ -1,0 +1,85 @@
+{% extends 'base_template.html' %}
+
+{% block fonts %}
+
+<!-- Fonts -->
+<script src="http://apps.npr.org/dailygraphics/graphics/fonts/js/lib/webfont.js"></script>
+<script>
+WebFont.load({
+    custom: {
+        families: [
+            'StateFaceRegular',
+            'Gotham SSm:n4,n7',
+            'Knockout 31 4r:n4'
+        ],
+        urls: [
+            '../fonts/assets/stateface.css',
+            'http://s.npr.org/templates/css/fonts/GothamSSm.css',
+            'http://s.npr.org/templates/css/fonts/Knockout.css'
+        ]
+    },
+    timeout: 10000
+});
+</script>
+{% endblock %}
+
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2" class="divider">{{ COPY.labels.hdr_state }}</th>
+                    <th colspan="3" class="hdr divider">{{ COPY.labels.hdr_dams }}</th>
+                    <th colspan="2" class="hdr">{{ COPY.labels.hdr_regulation }}</th>
+                </tr>
+                <tr>
+                    <th class="amt">{{ COPY.labels.hdr_total }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_hazard }}</th>
+                    <th class="amt divider">{{ COPY.labels.hdr_inspected }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_budget }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_employees }}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            {% if row.state_abbr != 'usa' %}
+            <tr class="state-{{ row.state_abbr|classify }}">
+                <td class="divider"><span class="stateface stateface-{{ row.state_abbr }}">{{ row['State'] }}</span></td>
+                <td class="amt" data-title="{{ COPY.labels.hdr_total }}">{{ row['Total state-regulated dams'] }}</td>
+                <td class="amt hazard hazard-{{ row.hh_shade }}" data-title="{{ COPY.labels.hdr_hazard }}">{{ row['% of state-regulated dams that have high-hazard potential'] }}</td>
+                <td class="amt divider inspect inspect-{{ row.inspect_shade }}" data-title="{{ COPY.labels.hdr_inspected }}">{{ row['% of HH dams inspected in 2014'] }}</td>
+                <td class="amt" data-title="{{ COPY.labels.hdr_budget }}">{{ row['State budget for dams'] }}</td>
+                <td class="amt employees employees-{{ row.fte_shade }}" data-title="{{ COPY.labels.hdr_employees }}">{{ row['Dams/FTE'] }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

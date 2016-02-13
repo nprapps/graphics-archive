@@ -1,0 +1,58 @@
+@import "base";
+
+#graphic { margin-bottom: 22px; }
+
+.value text {
+    fill: #fff;
+
+    .total & { font-weight: bold; }
+
+    &.hidden { display: none; }
+}
+
+.zero-line  {
+    stroke: #666;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+}
+
+.group rect {
+    fill-opacity: 0.8;
+
+    .total& { fill-opacity: 1; }
+}
+
+.labels {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: none;
+
+    li {
+        position: absolute;
+        text-align: right;
+        font-size: 12px;
+        line-height: 1.3;
+        color: #666;
+        display: table;
+        -webkit-font-smoothing: antialiased;
+
+        &.l-total {
+            font-weight: bold;
+            color: #111;
+        }
+
+        &.l-total,
+        &.l-age-65,
+        &.l-college,
+        &.l-millennials {
+            border-bottom: 2px solid #eee;
+        }
+
+        span {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+}

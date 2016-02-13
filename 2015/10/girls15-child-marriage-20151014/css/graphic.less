@@ -1,0 +1,100 @@
+@import "base";
+
+h1 {
+    font-size: 18px;
+}
+
+ul {
+    li.age-15-and-under {
+        b.first { background-color: @orange2; }
+        b.second { background-color: @teal3; }
+        b.third { background-color: #aaa; }
+    }
+
+    li.age-15-to-18 {
+        b.first { background-color: @orange4; }
+        b.second { background-color: @teal5; }
+        b.third { background-color: #ddd; }
+    }
+}
+
+.india,
+.china {
+    .age-15-and-under {
+        fill: @orange2;
+    }
+
+    .age-15-to-18 {
+        fill: @orange4;
+    }
+}
+
+.indonesia,
+.nigeria,
+.united-states,
+.pakistan,
+.brazil {
+    .age-15-and-under {
+        fill: @teal3;
+    }
+
+    .age-15-to-18 {
+        fill: @teal5;
+    }
+}
+
+.world {
+    .age-15-and-under {
+        fill: #aaa;
+    }
+
+    .age-15-to-18 {
+        fill: #ddd;
+    }
+}
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.zero-line  {
+    stroke: #666;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+}
+
+.labels {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: none;
+
+    li {
+        position: absolute;
+        text-align: right;
+        font-size: 12px;
+        line-height: 1.3;
+        color: #666;
+        display: table;
+        -webkit-font-smoothing: antialiased;
+
+        &.overall {
+            font-weight: bold;
+            color: #111;
+        }
+
+        span {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        &.world {
+            font-weight: bold;
+        }
+    }
+}

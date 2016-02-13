@@ -1,0 +1,157 @@
+@import "base";
+
+h1 { margin-bottom: 15px; }
+
+#info {
+    margin-bottom: 22px;
+    
+    button {
+        background-color: rgba(0, 0, 0, 0.0666667);
+        border: none;
+        color: #777;
+        font: 11px 'Gotham SSm',Helvetica,Arial,sans-serif;
+        font-weight: 700;
+        letter-spacing: 2.00002px;
+        text-transform: uppercase;
+        padding: 10px 15px 10px 15px;
+        margin: 0;
+        border-radius: 4px;
+        opacity: 0.5;
+        
+        &.btn-next { margin-left: 5px; }
+        
+        &.enabled {
+            opacity: 1;
+            transition-delay: 0s, 0s;
+            transition-duration: 0.1s, 0.1s;
+            transition-property: background-color, color;
+            transition-timing-function: ease-out, ease-out;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.4);
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+        
+        &:focus { outline: none; }
+    }
+    
+    p {
+        font-weight: normal;
+        color: #777;
+        font-size: 13px;
+        margin: 0;
+        line-height: 1.6;
+        
+        strong {
+            color: #666;
+            font-weight: bold;
+        }
+    }
+}
+
+.axis.label {
+    text-anchor: middle;
+    font-size: 12px;
+}
+
+.lines path {
+    fill: none;
+    stroke-width: 3px;
+    display: none;
+    
+    &.active { display: block; }
+    
+    &.inactive {
+        display: block;
+        stroke-width: 1px;
+        stroke: @red5;
+    }
+}
+
+.area { 
+    fill-opacity: 0.8;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    display: none;
+    
+    &.init,
+    &.active { display: block; }
+
+    &.inactive {
+        display: block;
+        fill: @red5;
+        font-weight: normal;
+    }
+}
+
+.dots circle {
+    fill: #ddd;
+    stroke: #fff;
+    stroke-width: 1px;
+    display: none;
+    
+    &.active { display: block; }
+}
+
+
+@media screen and (min-width: 600px) {
+    #info p { height: 90px; }
+}
+@media screen and (min-width: 501px) {
+    h1 { margin-right: 150px; }
+
+    #buttons {
+        position: absolute;
+        top: 28px;
+        right: 0;
+    }
+
+    #info {
+        display: table;
+        width: 100%;
+        
+        p { 
+            display: table-cell;
+            height: 110px;
+            background-color: #f1f1f1;
+            vertical-align: middle;
+            font-size: 13px;
+            
+            span {
+                display: block;
+                padding: 0 11px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text { font-size: 10px; }
+    #info p {
+        height: 100px;
+        clear: both;
+        display: table-cell;
+        width: 100%;
+        vertical-align: middle;
+        background-color: #f1f1f1;
+        font-size: 12px;
+        line-height: 1.4;
+        
+        span { 
+            padding: 0 11px;
+            display: block;
+        }
+    }
+    #buttons { 
+        margin-bottom: 11px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #info p { height: 140px; }
+}

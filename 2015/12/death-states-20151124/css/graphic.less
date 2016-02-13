@@ -1,0 +1,47 @@
+@import "base";
+
+.list {
+    h3 { color: #333; }
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        li {
+            margin: 0 0 6px 0;
+            padding: 0;
+            font-size: 12px;
+            color: #666;
+        }
+    }
+}
+
+
+@media screen and (min-width: 501px) {
+    .graphic {
+        display: table;
+        width: 100%;
+        margin-bottom: 22px;
+    }
+    .list {
+        width: 33%;
+        display: table-cell;
+        padding-right: 11px;
+        border-left: 1px solid #eee;
+        padding-left: 11px;
+
+        &:nth-child(1) {
+            padding-left: 0;
+            border-left: none;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .list {
+        display: block;
+        margin-bottom: 22px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 11px;
+    }
+}

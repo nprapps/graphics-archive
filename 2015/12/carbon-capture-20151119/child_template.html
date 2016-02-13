@@ -1,0 +1,54 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <div class="btns">
+            <div class="btn" id="btn-back">Back</div><div class="btn" id="btn-next">Next</div>
+        </div>
+
+        {% for step in COPY.data %}
+        <div class="step step-{{ step.step }}">
+            <div class="desktop">
+                <div class="step-wrapper">
+                    <div class="desc">
+                        <h3>Step {{ step.step }} <i>(of 6)</i></h3>
+                        <p>{{ step.description|smarty }}</p>
+                    </div>
+                    <div class="illo">
+                        <img src="assets/{{ step.img }}" alt="Illustration" class="process-illo" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="mobile">
+                <h3>Step {{ step.step }} <i>(of 6)</i></h3>
+                <div class="step-wrapper">
+                    <div class="illo">
+                        <img src="assets/{{ step.img }}" alt="Illustration" class="process-illo" />
+                    </div>
+                    <div class="desc">
+                        <p>{{ step.description|smarty }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

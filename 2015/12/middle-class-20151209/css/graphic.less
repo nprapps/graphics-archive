@@ -1,0 +1,42 @@
+@import "base";
+
+.labels li {
+    line-height: 1.5em;
+
+    &.label-20150 {
+        font-weight: bold;
+        color: #333;
+    }
+}
+
+.bar-categories {
+    text.bar-category-label {
+        font-size: 12px;
+        font-family: 'Knockout 31 4r';
+        font-weight: normal;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+        fill: #333;
+        text-anchor: end;
+
+        &.middle {
+            text-anchor: start;
+        }
+    }
+}
+
+.x.grid, .x.axis {
+    g.tick:nth-child(2) line {
+        stroke: #000;
+    }
+}
+
+.value text {
+    fill: #fff;
+    font-weight: bold;
+
+    &.hidden {
+        display: none;
+    }
+}

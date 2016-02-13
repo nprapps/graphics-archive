@@ -1,0 +1,174 @@
+@import "base";
+
+#loading {
+    color: #787878;
+    font-style: italic;
+
+    img {
+        float: left;
+        margin-right: 6px;
+    }
+}
+
+.graphic { margin-bottom: 33px; }
+
+.map {
+    display: none;
+
+    &.active { display: block; }
+}
+
+svg { font-size: 20px; }
+
+#locator-map { clear: both; }
+
+.landmass path {
+    fill: #ddd;
+    stroke: none;
+}
+
+.states path {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+
+.counties path {
+    fill: #ddd;
+    stroke: #eee;
+    stroke-width: .6px;
+}
+
+.city-labels {
+    font-size: 11px;
+    fill: #787878;
+}
+.city-labels.shadow text {
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 2px;
+    opacity: .7;
+}
+.cities path { fill: #787878; }
+
+.executions {
+    circle {
+        fill: @red3;
+        fill-opacity: .6;
+        stroke: #f1f1f1;
+        stroke-width: .5;
+    }
+}
+
+#slider {
+    position: relative;
+    margin-bottom: 22px;
+
+    .handle { cursor: pointer; }
+
+    .xbar {
+      stroke: #ccc;
+      stroke-width: 8px;
+      stroke-linecap: round;
+      cursor: pointer;
+    }
+
+    .xbar-halo {
+      stroke: #fff;
+      stroke-width: 6px;
+      stroke-linecap: round;
+      cursor: pointer;
+    }
+
+    #year-label {
+        font-size: 12px;
+        font-weight: 700;
+        font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+        fill: #666;
+    }
+}
+
+#totals {
+    margin-bottom: 22px;
+}
+
+#toggle { position: absolute; }
+
+.btns {
+    display: none;
+
+    &:before,
+    &:after {
+        content: ' ';
+        display: table;
+    }
+
+    &:after { clear: both; }
+
+    .btn {
+        padding: 10px 0;
+        width: 75px;
+        font-size: 10px;
+        color: #777;
+        background-color: #eee;
+        border-radius: 4px;
+        white-space: nowrap;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700;
+        -webkit-font-smoothing: antialiased;
+        text-align: center;
+        cursor: pointer;
+        display: inline-block;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        &:hover {
+            background-color: #999;
+            color: #fff;
+        }
+
+        &.inactive { opacity: 0.5; }
+        // &.restart { background-color: #6a85bb; }
+        &.restart {
+            background-color: #6a85bb;
+            color: #fff;
+        }
+
+        span {
+            font-size: 16px;
+            font-weight: 700;
+        }
+    }
+}
+
+
+// responsive styles
+@media screen and (min-width: 501px) {
+    #slider { float: left; }
+    .btns {
+        margin-top: 3px;
+        float: right;
+
+        #btn-next { margin-left: 11px; }
+    }
+}
+@media screen and (max-width: 500px) {
+    svg { font-size: 12px; }
+    .states path { stroke-width: 1px; }
+    .city-labels text,
+    .cities path {
+        display: none;
+    }
+
+    #slider { margin-bottom: 0; }
+
+    .btns {
+        margin-bottom: 22px;
+        .btn { width: 45%; }
+        #btn-back { float: left; }
+        #btn-next { float: right; }
+    }
+}

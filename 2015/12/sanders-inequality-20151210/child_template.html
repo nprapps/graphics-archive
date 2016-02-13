@@ -1,0 +1,36 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels_inequality.headline %}<h1>{{ COPY.labels_inequality.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels_inequality.subhed %}<h2>{{ render(COPY.labels_inequality.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        {% for quote in COPY.quotes_inequality %}
+        {% if quote.show == 'True' %}
+        <div class="quote">
+            <div class="quote-wrapper">
+                <p class="date">{{ quote.when }}</p>
+                <blockquote>{{ quote.quote|smarty }}</blockquote>
+                <p>
+                    <span class="location">{{ quote.where }}</span>
+                </p>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels_inequality.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels_inequality.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels_inequality.source %}<p>Source: {{ COPY.labels_inequality.source|smarty }}</p>{% endif %}
+        {% if COPY.labels_inequality.credit %}<p>Credit: {{ COPY.labels_inequality.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

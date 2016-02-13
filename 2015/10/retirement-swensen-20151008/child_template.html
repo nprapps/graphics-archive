@@ -1,0 +1,49 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline_swensen %}<h1>{{ COPY.labels.headline_swensen }}</h1>{% endif %}
+    {% if COPY.labels.subhed_swensen %}<h2>{{ render(COPY.labels.subhed_swensen) }}</h2>{% endif %}
+
+    <div id="graphic"><img src="fallback.png" alt="[Chart]" class="fallback" /></div>
+
+    <div id="allocation">
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2">{{ COPY.labels.hdr_label }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_amt }}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.swensen %}
+            <tr class="{{ row.type|classify }}">
+                <td class="type">{{ row.type }}</td>
+                <td>
+                    <strong class="investment">{{ row.label }}</strong>:
+                    <span class="definition">{{ row.definition }}</span>
+                </td>
+                <td class="amt">{{ row.amt }}%</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var GRAPHIC_DATA = {{ COPY.swensen.json() }};
+    </script>
+
+{% endblock content %}

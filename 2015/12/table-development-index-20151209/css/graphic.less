@@ -1,0 +1,176 @@
+@import "base";
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 11px;
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    th.amt, td.amt {
+        text-align: right;
+        color: #787878;
+
+        &.overall { color: #454545; }
+    }
+
+    tr.united-states {
+        font-weight: bold;
+        color: #333;
+        background-color: #f1f1f1;
+    }
+
+    .bg {
+        &.bg-7 { background-color: mix(@yellow5, #fff, 100%);; }
+        &.bg-6 { background-color: mix(@yellow5, #fff, 86%);; }
+        &.bg-5 { background-color: mix(@yellow5, #fff, 72%);; }
+        &.bg-4 { background-color: mix(@yellow5, #fff, 58%);; }
+        &.bg-3 { background-color: mix(@yellow5, #fff, 44%);; }
+        &.bg-2 { background-color: mix(@yellow5, #fff, 30%);; }
+        &.bg-1 { background-color: mix(@yellow5, #fff, 16%);; }
+
+        &.overall {
+            &.bg-7 { background-color: mix(@yellow3, #fff, 100%);; }
+            &.bg-6 { background-color: mix(@yellow3, #fff, 86%);; }
+            &.bg-5 { background-color: mix(@yellow3, #fff, 72%);; }
+            &.bg-4 { background-color: mix(@yellow3, #fff, 58%);; }
+            &.bg-3 { background-color: mix(@yellow3, #fff, 44%);; }
+            &.bg-2 { background-color: mix(@yellow3, #fff, 30%);; }
+            &.bg-1 { background-color: mix(@yellow3, #fff, 16%);; }
+        }
+    }
+}
+
+// Tablesorter styles
+table {
+    th {
+        &.sort-header {
+            cursor: pointer;
+
+            &::-moz-selection,
+            &::selection {
+                background: transparent;
+            }
+
+            .sorter {
+                border-top: 2px solid #404040;
+                visibility: hidden;
+
+                .icon {
+                    content: '';
+                    width: 1px;
+                    margin: 3px auto 7px auto;
+                    border-width: 0 4px 4px;
+                    border-style: solid;
+                    border-color: #404040 transparent;
+                }
+            }
+
+            &:hover .sorter {
+                visibility: visible;
+            }
+        }
+
+        &.sort-up .sorter,
+        &.sort-down .sorter,
+        &.sort-down:hover .sorter {
+            visibility: visible;
+            opacity: 0.4;
+        }
+
+        &.sort-up .sorter .icon {
+            border-bottom: none;
+            border-width: 4px 4px 0;
+        }
+    }
+}
+
+// Mobile styles
+@media screen and (min-width: 601px) {
+    table th.amt,
+    table td.amt {
+        text-align: center;
+        width: 9%;
+    }
+    .bg {
+        border-right: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+
+        &.overall { border-right: 3px solid #fff; }
+    }
+}
+@media screen and (max-width: 600px) {
+    table {}
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        thead { display: none; }
+
+        tr, th, td, td.amt {
+            display: block;
+            padding: 0;
+            text-align: left;
+            white-space: normal;
+        }
+
+        td, td.amt {
+            border: none;
+            margin-bottom: 2px;
+            padding: 3px 10px;
+        }
+
+        td:empty { display: none; }
+
+        tr { padding: 10px 0; }
+
+        th[data-title]:before,
+        td[data-title]:before {
+            content: attr(data-title) ":\00A0";
+            display: inline-block;
+            width: 75%;
+            min-width: 220px;
+            width: 220px;
+        }
+
+        tr td:first-child {
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #333;
+            font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+        tr td:first-child:before {
+            content: '';
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,69 @@
+@import "base";
+
+h1 { font-size: 18px; }
+#graphic { margin-bottom: 0; }
+
+/* table */
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+}
+table th,
+table td {
+    padding: 5px 10px;
+    text-align: left;
+}
+table th {
+    border-bottom: 2px solid #eee;
+    vertical-align: bottom;
+    font-family: 'Knockout 31 4r';
+    font-weight: normal;
+    text-transform: uppercase;
+    padding-top: 0;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+}
+table td {
+    vertical-align: top;
+    
+    &.type { 
+        font-weight: bold;
+        color: #454545;
+        width: 20%;
+    }
+}
+
+table tr {
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5),
+    &:nth-child(7),
+    &:nth-child(8),
+    &:nth-child(10) {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+    
+    &.stocks td.type,
+    &.foreign-developed-equity td.type,
+    &.emerging-market-stocks td.type { color: @orange4; }
+    &.core-bonds td.type,
+    &.high-yield-bonds td.type,
+    &.long-term-bonds td.type { color: @blue3; }
+    &.global-reits td.type { color: @teal4; }
+}
+
+table th.amt,
+table td.amt {
+    text-align: right;
+}
+
+table tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+}

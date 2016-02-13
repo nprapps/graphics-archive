@@ -1,0 +1,90 @@
+
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <style>
+        {% for step in COPY.data %}
+            {% set contrib_size = 100 * step.contrib_size|float / step.base_size|float %}
+            .gfc-square.square-{{ step.step }}  {
+                width: {{ contrib_size }}%;
+                height: {{ contrib_size }}%;
+            }
+
+            .step-{{ step.step }} .label-wrapper.label-amt {
+                left: {{ contrib_size }}%;
+            }
+        {% endfor %}
+    </style>
+
+    <div id="graphic" class="graphic">
+        {% for step in COPY.data %}
+        <div class="step step-{{ step.step }}">
+            <div class="step-wrapper">
+                <div class="illo desktop">
+                    <div
+                        class="gfc-square square-base"
+                        style="width: 100%; height: 100%;">
+                    </div>
+                    <div class="gfc-square square-highlight square-{{ step.step }}"></div>
+                    <div class="gfc-square square-3"></div>
+                    <div class="gfc-square square-2"></div>
+                    <div class="gfc-square square-1"></div>
+                    <!--<div class="label-wrapper label-total">-->
+                        <!--<span class="square-label">Actual maximum contribution: $732,200</span>-->
+                    <!--</div>-->
+                    <div class="label-wrapper label-amt">
+                        <span class="label-leader"></span>
+                        <span class="square-label">${{ step.contrib_total|comma }}</span>
+                        {% if step.agg_total %}
+                            <span class="square-label label-agg">Aggregate total: ${{ step.agg_total|int|comma }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="desc">
+                    <h3>{{ step.step_title }}</h3>
+                    <p>{{ step.description|smarty }}</p>
+                </div>
+                <div class="mobile">
+                    <div class="illo">
+                        <div
+                            class="gfc-square square-base"
+                            style="width: 100%; height: 100%;">
+                        </div>
+                        <div class="gfc-square square-highlight square-{{ step.step }}"></div>
+                        <div class="gfc-square square-3"></div>
+                        <div class="gfc-square square-2"></div>
+                        <div class="gfc-square square-1"></div>
+                        <!--<div class="label-wrapper label-total">-->
+                            <!--<span class="square-label">Actual maximum contribution: $732,200</span>-->
+                        <!--</div>-->
+                        <div class="label-wrapper label-amt">
+                            <span class="label-leader"></span>
+                            <span class="square-label">${{ step.contrib_total|comma }}</span>
+                            {% if step.agg_total %}
+                                <span class="square-label label-agg">Aggregate total: ${{ step.agg_total|int|comma }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
