@@ -1,0 +1,150 @@
+@import "base";
+
+@dotcolor: tint(#728ea7, 30%);
+
+h2 span.legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: @dotcolor;
+    display: inline-block;
+}
+
+// Add custom styles here
+#graphic-wrapper {
+    position: relative;
+
+    &.fallback-wrap {
+        .annos {
+            display: none;
+        }
+    }
+}
+
+.axis .tick line {
+    display: none;
+}
+
+.bar circle {
+    fill: @dotcolor;
+}
+
+.value text {
+    fill: #666;
+}
+
+.annos p {
+    position: absolute;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    line-height: 1.3em;
+    margin: 0;
+
+    width: 28%;
+
+    &.thin {
+        width: 14%;
+    }
+
+    &#anno-2014 {
+        top: 17%;
+        right: 42%;
+        width: 22%;
+        text-align: right;
+        margin-right: 10px;
+    }
+
+    &#anno-2015 {
+        bottom: 94%;
+        right: 0%;
+    }
+
+    &#anno-2016 {
+        bottom: 20%;
+        right: 0%;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    #graphic-wrapper {
+        padding-top: 10px;
+    }
+
+    .annos p {
+        &#anno-2014 {
+            top: 25%;
+            right: 42%;
+        }
+
+        &#anno-2015 {
+            top: auto;
+            bottom: 90%;
+            right: 0%;
+        }
+
+        &#anno-2016 {
+            bottom: 20%;
+            right: 0%;
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .annos p {
+        font-size: 11px;
+
+        &#anno-2014 {
+            top: 27%;
+            right: 42%;
+        }
+
+        &#anno-2015 {
+            top: auto;
+            bottom: 88%;
+            right: 1%;
+            width: 40%;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #graphic-wrapper {
+        padding-top: 40px;
+    }
+
+    .graphic {
+    }
+
+    .mobile-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .annos p {
+        font-size: 11px;
+        line-height: 1.2em;
+
+        &#anno-2014, &#anno-2015, &#anno-2016 {
+            position: relative;
+            text-align: left;
+            margin-bottom: 10px;
+            top: auto;
+            right: auto;
+            bottom: auto;
+            left: auto;
+            width: 100%;
+        }
+
+        &#anno-2015, &#anno-2016 {
+            width: 52%;
+        }
+    }
+}
+
+@media screen and (min-width: 341px) and (max-width: 500px) {
+    .annos p {
+        font-size: 12px;
+    }
+}

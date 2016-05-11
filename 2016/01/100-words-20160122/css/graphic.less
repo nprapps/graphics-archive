@@ -32,6 +32,20 @@
         color: #498dcb;
         border-color: #498dcb;
     }
+
+    &.candidate-inactive {
+        opacity: 0.5;
+
+        &.candidate-gop strong {
+            color: mix(#f05b4e, #666, 30%);
+            border-color: mix(#f05b4e, #666, 30%);
+        }
+
+        &.candidate-dem strong {
+            color: mix(#498dcb, #666, 30%);
+            border-color: mix(#498dcb, #666, 30%);
+        }
+    }
 }
 #candidates-grid img {
     margin-left: -4px;
@@ -60,7 +74,7 @@
     #candidates-grid li { width: 14.2%; }
 }
 @media screen and (max-width: 640px) {
-    #candidates-grid li { width: 20%; }
+    #candidates-grid li { width: 25%; }
 }
 @media screen and (max-width: 400px) {
     #candidates-grid li { width: 25%; }

@@ -1,0 +1,41 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        {% for row in COPY.data %}
+            {% if row.has_wide_version %}
+                <div class="panel-wrapper show-wide {% if row.wide_class %}{{ row.wide_class }}{% endif %}">
+                    <img src="assets/img/wide/panel-{{ row.num }}-wide.png"
+                         alt="{% if row.wide_alt_text %}{{ row.wide_alt_text|smarty }}{% endif %} {% if row.wide_dialogue %}
+{{ row.wide_dialogue|smarty }}{% endif %}"
+                         />
+                    <hr>
+                </div>
+            {% endif %}
+            <div class="panel-wrapper {% if row.class %}{{ row.class }}{% endif %}">
+                <img src="assets/img/panel-{{ row.num }}.png"
+                     alt="{% if row.alt_text %}{{ row.alt_text|smarty }}{% endif %} {% if row.dialogue %}
+{{ row.dialogue|smarty }}{% endif %}"
+                     />
+                <hr>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

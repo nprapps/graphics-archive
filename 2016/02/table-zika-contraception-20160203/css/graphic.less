@@ -1,0 +1,138 @@
+@import "base";
+
+sup {
+    line-height: 0;
+    padding: 0 5px;
+    margin-right: -15px;
+    white-space: nowrap;
+}
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 11px;
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+
+        &.cpr,
+        &.abortion {
+            border-left: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+        }
+
+        &.abortion { color: mix(@orange6, #fff, 10%); }
+        &.cpr { color: mix(@teal6, #fff, 10%); }
+
+        &.c-30 { background-color: mix(@teal3, @teal6, 15%); }
+        &.c-45 { background-color: mix(@teal3, @teal6, 36.25%); }
+        &.c-60 { background-color: mix(@teal3, @teal6, 57.5%); }
+        &.c-75 { background-color: mix(@teal3, @teal6, 78.75%); }
+        &.c-90 { background-color: mix(@teal3, @teal6, 100%); }
+
+        &.least-restrictive { background-color: mix(@orange3, @orange6, 20%); }
+        &.some-restrictions { background-color: mix(@orange3, @orange6, 40%); }
+        &.restrictive { background-color: mix(@orange3, @orange6, 60%); }
+        &.highly-restrictive { background-color: mix(@orange3, @orange6, 80%); }
+        &.banned { background-color: mix(@orange3, @orange6, 100%); }
+    }
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+}
+
+// desktop-only styles
+@media screen and (min-width: 501px) {
+    table {
+        th {
+            width: 33%;
+            // &.country { width: 34%; }
+        }
+        th.amt,
+        td.amt {
+            text-align: center;
+        }
+        td { vertical-align: middle; }
+    }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    table {}
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        thead { display: none; }
+
+        tr, th, td {
+            display: block;
+            padding: 0;
+            text-align: left;
+            white-space: normal;
+        }
+
+        td {
+            border: none;
+            margin-bottom: 1px;
+            padding: 5px 10px;
+        }
+
+        td:empty { display: none; }
+
+        tr {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+
+        tr:first-child { border-top: 1px solid #eee; }
+
+        th[data-title]:before,
+        td[data-title]:before {
+            content: attr(data-title) ":\00A0";
+            display: inline-block;
+            width: 180px;
+        }
+
+        tr td:first-child {
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #333;
+            font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+        tr td:first-child:before {
+            content: '';
+            display: none;
+        }
+    }
+}

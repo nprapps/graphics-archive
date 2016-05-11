@@ -1,0 +1,33 @@
+@import "base";
+
+// Add custom styles here
+.map-wrap {
+    width: 50%;
+    display: table-cell;
+
+    &:first-child {
+        padding-right: 10px;
+    }
+
+    &:last-child {
+        padding-left: 10px;
+    }
+
+    img {
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .map-wrap {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+
+        &:first-child, &:last-child {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}

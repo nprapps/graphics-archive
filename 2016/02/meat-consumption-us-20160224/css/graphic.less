@@ -1,0 +1,34 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+
+    &.total-meat-and-seafood {
+        fill: #454545;
+    }
+}
+
+.key-item.total-meat-and-seafood label {
+    color: #454545;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 11px;
+    }
+}
+
+@media screen and (min-width: 251px) {
+    .key {
+        display: none;
+    }
+}

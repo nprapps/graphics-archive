@@ -1,0 +1,64 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <p class="intro">{{ COPY.labels.text_overall }}</p>
+        <div class="dot-wrapper all-wrapper clearfix">
+            <div class="section-wrapper transfer">
+                {% for count in range(COPY.labels.num_transfer|string|int) %}
+                    <span class="gfc-dot"></span>
+                {% endfor %}
+                <div class="section-bracket bracket-bottom"><span class="bracket-notch"></span></div>
+                <p class="anno">{{ COPY.labels.text_transfer }}</p>
+            </div>
+            <div class="section-wrapper others">
+                {% for count in range(COPY.labels.num_overall|string|int - COPY.labels.num_transfer|string|int) %}
+                    <span class="gfc-dot"></span>
+                {% endfor %}
+                <div class="section-bracket bracket-bottom"><span class="bracket-notch"></span></div>
+                <p class="anno">{{ COPY.labels.text_remaining }}</p>
+            </div>
+        </div>
+        <div class="dot-wrapper count-wrapper">
+            <p class="anno">{{ COPY.labels.text_charged }}</p>
+            <div class="section-wrapper">
+                {% for count in range(COPY.labels.num_charged|string|int) %}
+                    <span class="gfc-dot"></span>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="dot-wrapper count-wrapper">
+            <p class="anno">{{ COPY.labels.text_referred }}</p>
+            <div class="section-wrapper">
+                {% for count in range(COPY.labels.num_referred|string|int) %}
+                    <span class="gfc-dot"></span>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="dot-wrapper count-wrapper">
+            <p class="anno">{{ COPY.labels.text_indefinite }}</p>
+            <div class="section-wrapper">
+                {% for count in range(COPY.labels.num_indefinite|string|int) %}
+                    <span class="gfc-dot"></span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,91 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        {% for row in COPY.data %}
+        <div class="question-wrap">
+            <p class="question-text">{{ row.question }}</p>
+            <table class="survey-table table-{{ loop.index }}">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header"></div>
+                        </th>
+                        <th class="response">
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_all }}</div>
+                        </th>
+                        <th class="response">
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_white }}</div>
+                        </th>
+                        <th class="response">
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_hisp }}</div>
+                        </th>
+                        <th class="response">
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_afam }}</div>
+                        </th>
+                        <th class="response">
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_asian }}</div>
+                        </th>
+                        <th class="response">
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_amind }}</div>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tr class="row-visitor">
+                    <td data-title="Park visitors">Park visitors</td>
+                    <td data-title="{{ COPY.labels.hdr_all }}" class="response c-{{ row.all|int // 10 }}">{{ row.all|int }}%</td>
+                    <td data-title="{{ COPY.labels.hdr_white }}" class="response c-{{ row.white|int // 10 }}">{{ row.white|int }}%</td>
+                    <td data-title="{{ COPY.labels.hdr_hisp }}" class="response c-{{ row.hisp|int // 10 }}">{{ row.hisp|int }}%</td>
+                    <td data-title="{{ COPY.labels.hdr_afam }}" class="response c-{{ row.afam|int // 10 }}">{{ row.afam|int }}%</td>
+                    <td data-title="{{ COPY.labels.hdr_asian }}" class="response c-{{ row.asian|int // 10 }}">{{ row.asian|int }}%</td>
+                    <td data-title="{{ COPY.labels.hdr_amind }}" class="response c-{{ row.amind|int // 10 }}">{{ row.amind|int }}%</td>
+                </tr>
+                <tr class="row-nonvisitor">
+                    <td data-title="Non-visitors">Non-visitors</td>
+                    <td data-title="{{ COPY.labels.hdr_all }}" class="response c-{{ row.nonv_all|int // 10 }}">{{ row.nonv_all|int }}%</td>
+                    <td data-title="{{ COPY.labels.hdr_white }}" class="response c-{{ row.nonv_white|int // 10 }}">{{ row.nonv_white|int }}%</td>
+                    <td data-title="{{ COPY.labels.hdr_hisp }}" class="response c-{{ row.nonv_hisp|int // 10 }}">{{ row.nonv_hisp|int }}%</td>
+                    <td data-title="{{ COPY.labels.hdr_afam }}" class="response c-{{ row.nonv_afam|int // 10 }}">{{ row.nonv_afam|int }}%</td>
+                    <td data-title="{{ COPY.labels.hdr_asian }}" class="response c-{{ row.nonv_asian|int // 10 }}">{{ row.nonv_asian|int }}%</td>
+                    <td data-title="{{ COPY.labels.hdr_amind }}" class="response c-{{ row.nonv_amind|int // 10 }}">{{ row.nonv_amind|int }}%</td>
+                </tr>
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

@@ -1,0 +1,124 @@
+@import "base";
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+
+        &.spent,
+        &.spent-vote {
+            font-weight: bold;
+            color: #333;
+            background-color: #f1f1f1;
+            border-color: #fff;
+        }
+    }
+
+    th.amt, td.amt {
+        text-align: right;
+    }
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+}
+
+@media screen and (min-width: 501px) {
+    table {
+        td { width: 17%; }
+
+        th, td {
+            &.votes {
+                border-left: 1px solid #eee;
+            }
+        }
+
+        tr.sanders td { border-top: 2px solid #ccc; }
+    }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    table {}
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        thead { display: none; }
+
+        tr, th, td, td.amt {
+            display: block;
+            padding: 0;
+            text-align: left;
+            white-space: normal;
+        }
+
+        td, td.amt {
+            border: none;
+            padding: 4px 10px;
+            margin-bottom: 2px;
+        }
+
+        td:empty { display: none; }
+
+        tr {
+            padding: 15px 0;
+
+            &.cruz { border-bottom: 2px solid #ccc; }
+        }
+
+        tr:first-child {
+            padding-top: 0;
+        }
+
+        th[data-title]:before,
+        td[data-title]:before {
+            content: attr(data-title) ":\00A0";
+            display: inline-block;
+            width: 220px;
+        }
+
+        tr td:first-child {
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #333;
+            font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            padding-top: 0;
+        }
+        tr td:first-child:before {
+            content: '';
+            display: none;
+        }
+    }
+}

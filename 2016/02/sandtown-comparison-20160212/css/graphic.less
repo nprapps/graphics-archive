@@ -1,0 +1,45 @@
+@import "base";
+
+.bars line {
+    fill: none;
+    stroke-width: 1px;
+    stroke: #ddd;
+
+    .range& { stroke-width: 3px; }
+}
+
+.dots circle {
+    stroke-width: 1px;
+    stroke: #fff;
+}
+
+.value text {
+    font-size: 11px;
+    // fill: #999;
+    text-anchor: middle;
+
+    .sandtown-winchester& { font-weight: bold; }
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}
+
+.key {
+    margin-bottom: 11px;
+
+    .key-item b {
+        border-radius: 8px;
+        width: 9px;
+        height: 9px;
+        margin-top: 3px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .value { display: none; }
+    .value.sandtown-winchester { display: block; }
+}

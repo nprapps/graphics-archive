@@ -5,8 +5,11 @@
 <div id="candidates-grid">
     <ul>
     {% for row in COPY.data %}
+    {% if row.num|int == 8 %}
+        <div class="candidate-clear"></div>
+    {% endif %}
     <li>
-            <a class="candidate-{{ row.party }}" href="#" data-scroll="{{ row.name_combined }}"><img src="assets/thumbs/{{ row.last_name|lower }}.jpg" alt="Photo" />
+        <a class="candidate-{{ row.party }} {% if not row.active %}candidate-inactive{% endif %}" href="#" data-scroll="{{ row.name_combined }}"><img src="assets/thumbs/{{ row.last_name|lower }}.jpg" alt="Photo" />
                 <strong>{{ row.first_name}}<span class="name-break"></span>{{ row.last_name }}</strong>
             </a>
         </li>

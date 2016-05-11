@@ -1,0 +1,22 @@
+@import "base";
+
+// Add custom styles here
+.labels li {
+    &.el-salvador, &.guatemala, &.honduras, &.mexico {
+        font-weight: bold;
+    }
+}
+
+.bars rect {
+    fill: #ccc;
+
+    &.el-salvador, &.guatemala, &.honduras, &.mexico {
+        fill: @red3;
+    }
+}
+
+.value text {
+    &.el-salvador, &.guatemala, &.honduras, &.mexico {
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,70 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        {% set years = [1992,1996,2000,2004,2008,2012] %}
+        {% for year in years %}
+        <div class="year-wrap clearfix">
+            <p class="year">{{ year }}</p>
+            <div class="parties-wrap">
+                {% for party in ['dem','rep'] %}
+                <div class="party-wrap party-{{ party }}">
+                    <p class="party-hed">{{ COPY.labels['hdr_' + party + '_votes'] }}</p>
+                    <h3>Dixville-Notch votes</h3>
+                    {% set vars = { 'winner': None, 'nom': None } %}
+                    <table class="votes-table">
+                    {% for row in COPY.data %}
+                        {% if row.year|int == year %}
+                            {% if row[party + '_winner'] %}
+                                {% if vars.update({'winner':row[party + '_winner']}) %}{% endif %}
+                            {% endif %}
+                            {% if row[party + '_nom'] %}
+                                {% if vars.update({'nom':row[party + '_nom']}) %}{% endif %}
+                            {% endif %}
+                            {% if row[party + '_name'] %}
+                                <tr>
+                                    <td class="cand-name">{{ row[party + '_name'] }}</td>
+                                    <td class="cand-vote amt">{{ row[party + '_votes'] }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    </table>
+                    <h3>Primary winner</h3>
+                    <p class="cand">{{ vars['winner'] }}</p>
+                    <h3>Party nominee</h3>
+                    <p class="cand">{{ vars['nom'] }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

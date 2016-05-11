@@ -1,0 +1,92 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th>{{ COPY.labels.hdr_polls }}</th>
+                    <th colspan="2">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_dem }}</div>
+                    </th>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header"><span class="desktop">{{ COPY.labels.hdr_gop }}</span><span class="mobile">{{ COPY.labels.hdr_gop_mobile }}</span></div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data|groupby('ordering') %}
+            {% set row_label = row.list[0]['polls'] %}
+            {% if loop.index == 1 %}
+            <tr>
+                <th class="polls">{{ row_label }}</th>
+                <th class="dem-type">
+                    <div class="sorter"><div class="icon"></div></div>
+                    <div class="header">{{ COPY.labels.hdr_pledged }}</div>
+                </th>
+                <th class="dem-type">
+                    <div class="sorter"><div class="icon"></div></div>
+                    <div class="header"><span class="desktop">{{ COPY.labels.hdr_super }}</span><span class="mobile">{{ COPY.labels.hdr_super_mobile }}</span></div>
+                </th>
+                <th>&nbsp;</th>
+                {% else %}
+                <th colspan="4" class="polls">{{ row_label }}</th>
+            </tr>
+            {% endif %}
+            {% for state in row.list %}
+            <tr class="state-{{ row.usps|classify }}">
+                <td class="state"><span class="desktop">{{ state.name }}</span><span class="mobile">{{ state.usps|ap_state }}</span></td>
+                <td class="delegates {% if state.dem_pledged != 'n/a' %} dem pledged{% endif %}">{{ state.dem_pledged }}</td>
+                <td class="delegates {% if state.dem_super != 'n/a' %} dem super{% endif %}">{{ state.dem_super }}</td>
+                <td class="delegates {% if state.gop != 'n/a' %} gop{% endif %}">{{ state.gop }}</td>
+            </tr>
+            {% endfor %}
+            {% endfor %}
+
+            <tfoot>
+                <tr>
+                    <th colspan="4">&nbsp;</th>
+                </tr>
+                <tr>
+                    <td class="state">Total</td>
+                    <td class="delegates dem pledged">691</td>
+                    <td class="delegates dem super">102</td>
+                    <td class="delegates gop">367</td>
+                </tr>
+                <tr>
+                    <td class="total">&nbsp;</td>
+                    <td class="total" colspan="3"><strong>1,058 combined</strong> (1,160 with&nbsp;superdelegates)</td>
+            </tfoot>
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

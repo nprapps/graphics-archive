@@ -1,0 +1,70 @@
+@import "base";
+
+.chart-wrapper {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.key {
+    margin-bottom: 22px; 
+
+    .increased {
+        b {
+            background: @blue3;
+        }
+    }
+
+    .decreased {
+        b {
+            background: @orange3;
+        }
+    }
+}
+
+.bars line {
+    fill: none;
+    stroke-width: 3px;
+    /*stroke-opacity: 0.5;*/
+
+    &.negative {
+        stroke: @orange3;
+    }
+
+    &.positive {
+        stroke: @blue3;
+    }
+}
+
+.dots circle, .arrows path.arrow {
+    &.negative {
+        fill: @orange3;
+    }
+
+    &.positive {
+        fill: @blue3;
+    }
+}
+
+.arrows path.arrow {
+
+}
+
+.value text {
+    font-size: 11px;
+    fill: #999;
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}
+
+@media screen and (max-width: 500px) {
+    .labels {
+        li {
+            line-height: 12px;
+        }
+    }
+}

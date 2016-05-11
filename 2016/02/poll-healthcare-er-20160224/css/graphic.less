@@ -1,0 +1,80 @@
+@import "base";
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    tr:first-child td {
+        border-top: 1px solid #eee;
+    }
+
+    td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+
+        &:nth-child(1) { padding-left: 0; }
+
+        &.amt {
+            text-align: center;
+            background-color: #f1f1f1;
+            border-color: #fff;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
+        // &.c-40 { background-color: mix(#fff, @teal4, 10%); }
+        // &.c-30 { background-color: mix(#fff, @teal4, 30%); }
+        // &.c-20 { background-color: mix(#fff, @teal4, 50%); }
+        // &.c-10 { background-color: mix(#fff, @teal4, 70%); }
+        // &.c-0  { background-color: mix(#fff, @teal4, 90%); }
+
+        &.c-40 { color: mix(@teal5, @teal1, 10%); }
+        &.c-30 { color: mix(@teal5, @teal1, 30%); }
+        &.c-20 { color: mix(@teal5, @teal1, 50%); }
+        &.c-10 { color: mix(@teal5, @teal1, 70%); }
+        &.c-0  { color: mix(@teal5, @teal1, 90%); }
+    }
+
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+}
+
+// Mobile styles
+@media screen and (min-width: 501px) {
+    .purpose {
+        width: 48%;
+        float: left;
+    }
+    .reason {
+        width: 48%;
+        float: right;
+        margin-bottom: 22px;
+    }
+    .footer {
+        &.desktop {
+            display: block;
+            margin-top: 33px;
+        }
+        &.mobile { display: none; }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .purpose { margin-bottom: 33px; }
+    .footer {
+        margin-top: 33px;
+
+        &.desktop { display: none; }
+        &.mobile { display: block; }
+    }
+}

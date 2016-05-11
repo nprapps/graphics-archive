@@ -1,0 +1,27 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="graphic" class="graphic">
+        {% for quote in COPY.quotes_trade %}
+        {% if quote.show == 'True' %}
+        <div class="quote">
+            <div class="quote-wrapper">
+                <p class="date">{{ quote.when }}</p>
+                <blockquote>{{ quote.quote|smarty }}</blockquote>
+                <p>
+                    <span class="location">{{ quote.where }}</span>
+                </p>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+{% endblock js %}

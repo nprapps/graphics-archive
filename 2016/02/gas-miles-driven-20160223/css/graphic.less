@@ -1,0 +1,37 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+
+    #gas-prices & { stroke: @orange3; }
+    #miles-driven & { stroke: @teal3; }
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+
+    #gas-prices { margin-bottom: 22px; }
+}
+
+@media screen and (min-width: 501px) {
+    .key {
+        display: none;
+    }
+
+    .chart-wrapper {
+        float: left;
+        margin-left: 22px;
+
+        &:first-child { margin-left: 0; }
+    }
+}

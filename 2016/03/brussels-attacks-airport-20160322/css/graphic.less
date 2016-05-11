@@ -1,0 +1,30 @@
+@import "base";
+
+// Add custom styles here
+body {
+    padding: 11px 0;
+}
+
+#graphic {
+    text-align: center;
+
+    img {
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 501px) {
+    #graphic {
+        .show-mobile {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #graphic {
+        .show-wide {
+            display: none;
+        }
+    }
+}

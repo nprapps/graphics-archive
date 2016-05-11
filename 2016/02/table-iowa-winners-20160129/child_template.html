@@ -1,0 +1,75 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <ul class="key">
+            <li class="key-item key-0 nomination"><b class="d"></b> <b class="r"></b> <label>Won the party nomination</label></li>
+            <li class="key-item key-0 president"><b class="d"></b> <b class="r"></b> <label>Won the presidency</label></li>
+        </ul>
+
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th class="year">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_year }}</div>
+                    </th>
+                    <th class="party">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_party }}</div>
+                    </th>
+                    <th class="iowa">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_iowa }}</div>
+                    </th>
+                    <th class="nominee">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_nominee }}</div>
+                    </th>
+                    <th class="president">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_president }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="{% if row.year %}year-{{ row.year }} year-row{% else %}year-row-last{% endif %} {{ row.party|classify }}">
+                <td data-title="{{ COPY.labels.hdr_year }}" class="year">{{ row.year }}</td>
+                <td data-title="{{ COPY.labels.hdr_party }}" class="party">{{ row.party }}</td>
+                <td data-title="{{ COPY.labels.hdr_iowa }}" class="iowa {% if row.iowa == row.president or row.iowa == row.nominee and row.iowa != 'n/a' %}advanced{% endif %} {% if row.iowa == row.president %}won{% endif %} {{ row.iowa_status }}">{{ row.iowa }}</td>
+                <td data-title="{{ COPY.labels.hdr_nominee }}" class="nominee {% if row.iowa == row.president or row.iowa == row.nominee and row.iowa != 'n/a' %}advanced{% endif %} {% if row.iowa == row.president and row.nominee == row.president %}won{% endif %} {{ row.nominee_status }}">{{ row.nominee }}{% if row.nominee_note %} <em>({{ row.nominee_note}})</em>{% endif %}</td>
+                <td data-title="{{ COPY.labels.hdr_president }}" class="president {% if row.iowa == row.president and row.iowa != 'n/a' %}advanced{% endif %} {% if row.iowa == row.president %}won{% endif %}">{{ row.president }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

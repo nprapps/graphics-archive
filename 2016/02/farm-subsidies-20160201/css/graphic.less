@@ -1,0 +1,25 @@
+@import "base";
+
+// Add custom styles here
+.bars rect {
+    fill: @teal2;
+
+    &.estimate {
+        fill: mix(@teal2, #ddd, 60%);
+    }
+}
+
+rect.shaded-area {
+    fill: #ddd;
+}
+
+text.shaded-label {
+    fill: #888;
+    font-size: 12px;
+}
+
+@media screen and (max-width: 500px) {
+    text.shaded-label {
+        font-size: 11px;
+    }
+}

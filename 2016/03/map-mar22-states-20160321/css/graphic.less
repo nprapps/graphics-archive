@@ -1,0 +1,99 @@
+@import "base";
+
+h1 { margin-bottom: 11px; }
+
+.poll-closings {
+    margin: 22px 0 22px 0;
+
+    table {
+        width: 100%;
+        margin: 0;
+        border-collapse: collapse;
+        font-size: 12px;
+        color: #666;
+
+        td {
+            padding: 0 10px 6px 0;
+            vertical-align: middle;
+            line-height: 1.5;
+
+            &.state {
+                width: 50px;
+                text-align: right;
+                font-size: 11px;
+                vertical-align: top;
+            }
+        }
+    }
+
+    strong {
+        color: #fff;
+        padding: 3px 5px;
+        border-radius: 4px;
+        display: inline-block;
+
+        &.both { background-color: @yellow3; }
+        &.dem { background-color: @blue3; }
+    }
+}
+
+/* Key
+========================================*/
+.key {
+    margin: 0 0 18px 0;
+    padding: 0;
+    list-style-type: none;
+}
+.key .key-item {
+    display: inline-block;
+    margin: 0 18px 0 0;
+    padding: 0;
+    line-height: 15px;
+}
+.key .key-item b {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
+    float: left;
+}
+.key .key-item label {
+    white-space: nowrap;
+    font-size: 12px;
+    color: #666;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Grid Map
+========================================*/
+
+.tile-grid-map {
+    margin-bottom: 33px;
+}
+
+.state {
+    fill: #eee;
+}
+
+.label {
+    font-family: 'Knockout 31 4r';
+    font-size: 12px;
+    fill: #979797;
+}
+
+.label-active {
+    fill: #fff;
+}
+
+@media screen and (max-width: 500px){
+    .label {
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width: 500px){
+    .label {
+        font-size: 8px;
+    }
+}

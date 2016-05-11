@@ -1,0 +1,28 @@
+@import "base";
+
+h2 b {
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: normal;
+    white-space: nowrap;
+
+    &.helped{ background-color: @teal4; }
+    &.noimpact{ background-color: #c0c0c0; }
+    &.hurt{ background-color: @orange4; }
+}
+
+.value text {
+    fill: #fff;
+    text-anchor: middle;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.labels li.nationwide {
+    font-weight: bold;
+    color: #333;
+}
+

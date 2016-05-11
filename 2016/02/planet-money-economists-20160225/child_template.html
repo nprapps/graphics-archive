@@ -1,0 +1,55 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        {% for row in COPY.data %}
+            <div class="row-wrapper">
+                <div class="top-wrapper clearfix">
+                    <div class="top-text">
+                        <p class="proposal">{{ row.proposal }}</p>
+                        <p class="support">Proposed by {{ row.support}}</p>
+                    </div>
+                    <div class="rating-wrapper {{ row.rating|lower }}">
+                        <span>Economists' rating: <strong class="rating">{{ row.rating }}</strong></span>
+                        <div class="viz-wrapper clearfix">
+                            {% set rating_list = ['good','undecided','bad'] %}
+                            {% for rating_name in rating_list %}
+                                {% for dot in range(0, row[rating_name]|int) %}
+                                <div class="dot-holder count-{{ rating_name }}">
+                                    <span class="dot"></span>
+                                </div>
+                                {% endfor %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-wrapper clearfix">
+                    {% for num in range(1,6) %}
+                        {% if row['quote_' + num|string] %}
+                        <div class="quote-wrapper quote-{{ row['rating_' + num|string] }}">
+                            <p>&ldquo;<span class="quote-text">{{ row['quote_' + num|string]|smarty }}</span>&rdquo; <span class="quote-attrib">&mdash; {{ row['name_' + num|string] }}</span></p>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,29 @@
+@import "base";
+
+// Add custom styles here
+
+.bars rect {
+    &.clinton { fill: @blue2; }
+    &.obama { fill: @blue4; }
+    &.sanders { fill: @blue4; }
+}
+
+@media screen and (min-width: 501px) {
+    #bar-chart {
+        display: table;
+    }
+    .bar-chart {
+        display: table-cell;
+        width: 50%;
+
+        &:nth-child(1) { padding-right: 11px; }
+        &:nth-child(2) { padding-left: 11px; }
+    }
+}
+@media screen and (max-width: 500px) {
+    .bar-chart {
+        margin-top: 22px;
+
+        &:first-child { margin-top: 0; }
+    }
+}

@@ -1,0 +1,233 @@
+@import "base";
+
+.btns {
+    .btn {
+        padding: 10px 0;
+        width: 75px;
+        font-size: 10px;
+        color: #777;
+        background-color: #eee;
+        border-radius: 4px;
+        white-space: nowrap;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700;
+        -webkit-font-smoothing: antialiased;
+        text-align: center;
+        cursor: pointer;
+        display: inline-block;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        &:hover {
+            background-color: #999;
+            color: #fff;
+        }
+
+        &.active {
+            background-color: #6a85bb;
+            color: #fff;
+
+            &:hover { opacity: 0.7; }
+        }
+
+        &.inactive {
+            opacity: 0.5;
+
+            &:hover {
+                background-color: #777;
+                cursor: default;
+            }
+        }
+    }
+}
+
+.step {
+    text-align: center;
+
+    img { display: block; }
+
+    h3 {
+        margin: 0 0 15px 0;
+        color: #121212;
+
+        i {
+            color: #999;
+            font-style: normal;
+        }
+    }
+
+    p {
+        margin: 0;
+        line-height: 1.6;
+        color: #666;
+        font-size: 1.4em;
+    }
+
+    &.wide {
+        .illo {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .desc {
+            display: none;
+        }
+    }
+
+    &.wide-text {
+        .illo {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .desc {
+            margin: 0 auto;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 25%;
+        }
+    }
+
+    // clearfix
+    &:before,
+    &:after {
+        content: ' ';
+        display: table;
+    }
+
+    &:after { clear: both; }
+}
+
+.btn-start, .btn-restart {
+    display: none;
+
+    #btn-start, #btn-restart {
+        background-color: #6a85bb;
+        color: #fff;
+
+        &:hover { opacity: 0.7; }
+    }
+
+    #btn-restart {
+        width: 95px;
+    }
+}
+
+.initial {
+    .btn-standard, .btn-restart {
+        display: none;
+    }
+
+    .btn-start {
+        display: block;
+    }
+}
+
+.restart {
+    .btn-standard, .btn-start {
+        display: none;
+    }
+
+    .btn-restart {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 501px) {
+    #graphic {
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        margin-bottom: 22px;
+        padding-bottom: 33px;
+        padding-top: 22px;
+    }
+
+    .btns {
+        position: absolute;
+        bottom: 22px;
+        left: 0;
+
+        &.btn-start, &.btn-restart {
+            left: 50%;
+            bottom: 15%;
+
+            #btn-start, #btn-restart {
+                margin-left: -50%;
+                font-size: 1.2em;
+                padding: 10px 15px;
+            }
+        }
+    }
+
+    .step {
+        .step-wrapper {
+            width: 100%;
+            display: table;
+            margin: 0;
+        }
+        .illo {
+            display: table-cell;
+            width: 50%;
+        }
+        .desc {
+            display: table-cell;
+            width: 50%;
+            vertical-align: middle;
+            text-align: left;
+            padding-right: 44px;
+            padding-top: 33px;
+            padding-bottom: 33px;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    #btn-back { margin-right: 11px; }
+}
+
+@media screen and (max-width: 700px) and (min-width: 501px) {
+    .step p {
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #graphic { margin-bottom: 33px; }
+    .step {
+        p {
+            font-size: 1.1em;
+            line-height: 1.4em;
+        }
+
+        img {
+            width: 80%;
+            margin: 11px auto 22px auto;
+        }
+
+        &.wide {
+            img {
+                width: 70%;
+            }
+        }
+    }
+
+    .btns {
+        margin: 0 auto 22px auto;
+
+        .btn { width: 49%; }
+        #btn-back { margin-right: 2%; }
+
+        &.btn-start, &.btn-restart {
+            text-align: center;
+            margin-top: -15%;
+        }
+    }
+}
+

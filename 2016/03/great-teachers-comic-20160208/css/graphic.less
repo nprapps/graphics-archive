@@ -1,0 +1,70 @@
+@import "base";
+
+body {
+    padding-top: 0;
+}
+
+// Add custom styles here
+.panel-wrapper {
+    text-align: center;
+
+    hr {
+        border-style: solid;
+        border-top: 2px solid #ddd;
+        border-right: none;
+        border-bottom: none;
+        border-left: none;
+        width: 70px;
+    }
+
+    &:last-child {
+        hr { display: none; }
+    }
+
+    img {
+        width: 100%;
+        max-width: 700px;
+        margin: 10px auto;
+        -webkit-touch-callout: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+    }
+
+    &.show-wide {
+        &.title-card img {
+            max-width: 1240px;
+        }
+
+        img {
+            max-width: 1000px;
+        }
+    }
+}
+
+.footer p {
+    text-align: center;
+}
+
+@media screen and (min-width: 601px) {
+    .panel-wrapper {
+        &.show-m {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .panel-wrapper {
+        &.show-wide {
+            display: none;
+        }
+
+        img {
+            margin: 25px auto;
+        }
+    }
+}

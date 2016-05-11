@@ -1,0 +1,42 @@
+@import "base";
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.group.democrat {
+    rect.be-an-outsider {
+        fill: @blue4;
+    }
+    rect.have-experience {
+        fill: @blue3;
+    }
+}
+
+.group.republican {
+    rect.be-an-outsider {
+        fill: @red4;
+    }
+    rect.have-experience {
+        fill: @red3;
+    }
+}
+
+.header {
+    fill: #454545;
+    font-family: 'Knockout 31 4r';
+    font-weight: normal;
+    text-transform: uppercase;
+    padding-top: 0;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+
+    &.left { text-anchor: end; }
+    &.right { text-anchor: begin; }
+}

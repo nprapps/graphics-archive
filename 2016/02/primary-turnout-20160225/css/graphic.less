@@ -1,0 +1,24 @@
+@import "base";
+
+h1 { margin-bottom: 22px; }
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    #rep { margin-bottom: 22px; }
+}
+
+@media screen and (min-width: 500px) {
+    #dem { float: left; }
+    #rep { float: right; }
+}

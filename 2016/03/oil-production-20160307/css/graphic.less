@@ -1,0 +1,39 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    fill: #999;
+
+    &.label-us {
+        font-weight: bold;
+    }
+}
+
+text.label {
+    font-size: 12px;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .value text {
+        &.label-us {
+            fill: #666;
+        }
+    }
+
+    .key {
+        display: none;
+    }
+}

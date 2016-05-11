@@ -1,0 +1,37 @@
+@import "base";
+
+.graphic { margin-bottom: 22px; }
+
+.tick.baseline-0 {
+    stroke: #999;
+    stroke-width: 2px;
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+
+    #housing-chart { margin-bottom: 33px; }
+}
+
+@media screen and (min-width: 501px) {
+    #housing-chart { float: left; }
+    #stocks-chart { float: right; }
+
+    .key {
+        display: none;
+    }
+}

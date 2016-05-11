@@ -1,0 +1,83 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_candidate }}</div>
+                    </th>
+                    <th class="amt spent">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_total_spent_abbr }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_campaign }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_superpacs }}</div>
+                    </th>
+                    <th class="amt votes">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_votes }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_spend_per_vote }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="{{ row.candidate|classify }}">
+                <td data-title="{{ COPY.labels.hdr_candidate }}">{{ row.candidate }}</td>
+                <td data-title="{{ COPY.labels.hdr_total_spent_abbr }}" class="amt spent">${{ row.total_spent_abbr }}M</td>
+                <td data-title="{{ COPY.labels.hdr_campaign }}" class="amt">
+                    {% if row.campaign_orig|float > 0 and row.campaign_orig|float < 0.1 %}>$0.1M
+                    {% else %}${{ row.campaign }}M{% endif %}
+                </td>
+                <td data-title="{{ COPY.labels.hdr_superpacs }}" class="amt">
+                    {% if row.superpacs %}
+                        {% if row.superpacs_orig|float > 0 and row.superpacs_orig|float < 0.1 %}>$0.1M
+                        {% else %}${{ row.superpacs }}M{% endif %}
+                    {% else %}n/a{% endif %}
+                </td>
+                <td data-title="{{ COPY.labels.hdr_votes }}" class="amt votes">{{ row.votes|comma }}</td>
+                <td data-title="{{ COPY.labels.hdr_spend_per_vote }}" class="amt spent-vote">${{ row.spend_per_vote|comma }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

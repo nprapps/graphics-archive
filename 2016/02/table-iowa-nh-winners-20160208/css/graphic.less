@@ -1,0 +1,191 @@
+@import "base";
+
+.key .nomination {
+    b.d { background-color: @blue5; margin-right: 2px; }
+    b.r { background-color: @red5; }
+}
+
+.key .president {
+    b.d { background-color: @blue2; margin-right: 2px; }
+    b.r { background-color: @red2; }
+}
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+
+        &.amt { text-align: right; }
+    }
+
+    th {
+        border-bottom: 2px solid #bababa;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        border-bottom: 1px solid #ddd;
+        vertical-align: top;
+        -webkit-font-smoothing: antialiased;
+
+        &.year {
+            font-weight: bold;
+            color: #333;
+        }
+        &.iowa,
+        &.nh,
+        &.nominee,
+        &.president {
+            background-color: #f1f1f1;
+        }
+        &.advanced {
+            font-weight: bold;
+            background-color: #f1f1f1;
+            color: #fff;
+        }
+    }
+
+    .year-track-record-since-1976sup2sup td,
+    .year-row-last:last-child td {
+        &.nominee,
+        &.president {
+            background: none;
+        }
+        &.president { border-left: none; }
+
+        .advanced,
+        .won {
+            padding: 0 5px;
+            color: #fff;
+            font-weight: bold;
+        }
+    }
+
+    .democratic .advanced { background-color: @blue5; }
+    .republican .advanced { background-color: @red5; }
+
+    .democratic .won { background-color: @blue2; }
+    .republican .won { background-color: @red2; }
+
+    td.none,
+    em {
+        color: #999;
+        font-style: italic;
+    }
+}
+
+// Mobile styles
+@media screen and (min-width: 501px) {
+    table {
+        td {
+            &.year { width: 10%; }
+            &.party { width: 15%; }
+
+            &.iowa,
+            &.nh,
+            &.nominee,
+            &.president {
+                width: 18%;
+            }
+
+            &.nh,
+            &.nominee,
+            &.president {
+                border-left: 1px solid #ddd;
+            }
+        }
+
+        tr.year-row-last td {
+            border-bottom: 2px solid #bababa;
+        }
+    }
+
+    .sum-nom,
+    .sum-pres {
+        display: block;
+        margin-bottom: 3px;
+    }
+}
+@media screen and (max-width: 500px) {
+    table {}
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        thead { display: none; }
+
+        tr, th, td, td.amt {
+            display: block;
+            padding: 0;
+            text-align: left;
+            white-space: normal;
+        }
+
+        td,
+        td.amt {
+            border: none;
+            margin-bottom: 1px;
+            padding: 5px 10px;
+
+            &:empty { display: none; }
+            &.nh { margin-bottom: 4px; }
+        }
+
+        tr {
+            padding: 15px 0;
+
+            &.year-row {
+                border-top: 2px solid #ccc;
+                padding-bottom: 0;
+            }
+        }
+
+        // tr:first-child { border-top: 1px solid #eee; }
+
+        th[data-title]:before,
+        td[data-title]:before {
+            content: attr(data-title) ":\00A0";
+            display: inline-block;
+            width: 100px;
+        }
+        th[data-title].none:before,
+        td[data-title].none:before {
+            font-style: normal;
+            color: #666;
+        }
+
+        tr td:first-child {
+            padding-top: 0;
+            font-size: 14px;
+            // margin-bottom: 6px;
+            color: #333;
+            font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+
+            &:before {
+                content: '';
+                display: none;
+            }
+        }
+
+        tr td:first-child:empty { display: none; }
+    }
+}

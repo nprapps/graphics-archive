@@ -1,0 +1,47 @@
+@import "base";
+
+h2 b {
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: normal;
+
+    &.increased { background-color: @orange3; }
+    &.decreased { background-color: #bababa; }
+    &.stayed { background-color: #999; }
+}
+
+.bar text {
+    fill: #fff;
+    fill-opacity: 0.5;
+    font-size: 11px;
+
+    &.increased {
+        font-weight: bold;
+        fill-opacity: 1;
+    }
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.annotations {
+    position: absolute;
+    color: #999;
+    font-size: 11px;
+    font-style: italic;
+    text-align: center;
+
+    div {
+        position: absolute;
+        padding-bottom: 2px;
+        border-bottom: 2px solid #ccc;
+        bottom: 0;
+        line-height: 1;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    h2 b { padding: 2px 6px; }
+}

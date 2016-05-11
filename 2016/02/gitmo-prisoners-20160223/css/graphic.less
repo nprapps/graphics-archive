@@ -1,0 +1,176 @@
+@import "base";
+
+h1 {
+    margin-bottom: 11px;
+}
+
+/*p.intro {*/
+    /*font-size: 1.2em;*/
+/*}*/
+
+p.anno {
+    color: #777;
+
+    strong {
+        color: @blue2;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.all-wrapper {
+    margin: 33px 0 85px;
+}
+
+// Add custom styles here
+.section-wrapper {
+    position: relative;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* IE/Edge */
+    user-select: none;           /* non-prefixed version, currently
+                                  not supported by any browser */
+
+    p {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        text-align: center;
+        margin-top: 26px;
+    }
+
+    p span {
+        padding: 2px 4px;
+        margin: 0 1px;
+        white-space: nowrap;
+    }
+
+    &.transfer {
+        float: left;
+        width: 36%;
+        margin-right: 5%;
+
+        p span {
+            background: @blue5;
+            color: shade(@blue5, 60%);
+
+            strong {
+                color: shade(@blue5, 60%);
+            }
+        }
+
+        .gfc-dot {
+            background: @blue5;
+        }
+    }
+
+    &.others {
+        float: right;
+        width: 59%;
+
+        p span {
+            background: @blue2;
+            color: #fff;
+
+            strong {
+                color: #fff;
+            }
+        }
+    }
+}
+
+.section-bracket {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    box-sizing: border-box;
+
+    .bracket-notch {
+        display: inline;
+        border-left: 1px solid #ccc;
+        height: 10px;
+        position: absolute;
+        left: 50%;
+    }
+
+    &.bracket-top {
+        top: -15px;
+        border-bottom: none;
+
+        .bracket-notch {
+            top: -11px;
+        }
+    }
+
+    &.bracket-bottom {
+        bottom: -15px;
+        border-top: none;
+
+        .bracket-notch {
+            bottom: -11px;
+        }
+    }
+}
+
+.gfc-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    background: @blue2;
+    margin: 0px 4px 4px;
+}
+
+.count-wrapper {
+    text-align: center;
+    margin-bottom: 22px;
+
+    .section-wrapper {
+        width: 240px;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    p.anno {
+        max-width: 480px;
+        margin: 0 auto 11px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .all-wrapper {
+        margin: 80px 0 60px;
+    }
+
+    .count-wrapper .section-wrapper {
+        width: 120px;
+    }
+
+    .section-wrapper.transfer {
+        .section-bracket {
+            top: -15px;
+            border-top: 1px solid #ccc;
+            border-bottom: none;
+
+            .bracket-notch {
+                top: -11px;
+            }
+        }
+
+        p {
+            top: auto;
+            bottom: 100%;
+            margin-top: 0;
+            margin-bottom: 26px;
+            width: 260%;
+            text-align: left;
+        }
+    }
+}

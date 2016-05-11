@@ -1,0 +1,19 @@
+@import "base";
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+
+    &.incumbent {
+        font-size: 12px;
+        fill: #787878;
+        font-style: italic;
+    }
+}
+
+.bars rect.incumbent {
+    fill-opacity: 0.2;
+}

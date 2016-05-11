@@ -1,0 +1,58 @@
+@import "base";
+
+.graphic {
+    width: 50%;
+    display: inline-block;
+}
+
+#line-chart {
+    .bars rect {
+        fill: @orange4;
+
+        &.source-int, &.source-proj {
+            fill: @orange5;
+        }
+    }
+
+    .value text {
+        font-size: 12px;
+        font-weight: bold;
+        fill: #999;
+    }
+}
+
+#bar-chart {
+    .bars rect {
+        fill: @red4;
+
+        &.source-int, &.source-proj {
+            fill: @red5;
+        }
+    }
+
+    .value text {
+        font-size: 12px;
+        font-weight: bold;
+        fill: #999;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    #line-chart {
+        .key {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .graphic {
+        width: 100%;
+    }
+    
+    #line-chart {
+        .value text {
+            font-size: 10px;
+        }
+    }
+}

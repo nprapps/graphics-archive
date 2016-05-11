@@ -1,0 +1,215 @@
+@import "base";
+
+@good: #409d71;
+@undecided: #ccc;
+@bad: @orange3;
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+h2 {
+    .dot {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        margin-left: 3px;
+
+        &.dot-good { background: @good; }
+        &.dot-debatable { background: #777; }
+        &.dot-bad { background: @bad; }
+    }
+}
+
+// Add custom styles here
+.row-wrapper {
+    padding:  30px 0 0;
+    margin-bottom: 15px;
+    border-top: 1px solid #eee;
+
+    &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+
+    .top-wrapper {
+        min-height: 70px;
+        margin-bottom: 20px;
+    }
+
+    p.proposal {
+        font-size: 1.3em;
+        font-family: 'Gotham SSm', Helvetica, Arial, sans-serif;
+        font-weight: bold;
+        line-height: 1.4em;
+        margin: 13px auto 11px;
+    }
+
+    .top-text {
+        width: 64%;
+        float: left;
+    }
+
+    .rating-wrapper {
+        /*padding: 3px 6px;*/
+        color: #333;
+        border-radius: 2px;
+        display: block;
+        width: 30%;
+        padding: 20px 2%;
+        min-height: 50px;
+        float: right;
+        margin: 0 0 10px 2%;
+        text-align: center;
+        font-size: 0.9em;
+
+        &.good { background: tint(@good, 70%); color: shade(@good, 40%); }
+        &.debatable { background: tint(@undecided, 60%); color: shade(@undecided, 40%); }
+        &.bad { background: tint(@bad, 70%); color: shade(@bad, 40%); }
+
+        strong {
+            display: block;
+            font-family: 'Gotham SSm', Helvetica, Arial, sans-serif;
+            clear: both;
+            font-size: 1.2em;
+        }
+    }
+
+    p.support {
+        font-size: 0.9em;
+        color: #999;
+        margin: 0 auto 10px;
+    }
+
+
+    .count-text {
+        position: absolute;
+        font-size: 12px;
+        text-transform: uppercase;
+        white-space: nowrap;
+        top: -18px;
+        color: #999;
+    }
+
+    .viz-wrapper {
+        margin-left: 4px;
+        white-space: nowrap;
+    }
+
+    .dot-holder {
+        display: inline-block;
+        width: 4.4%;
+        text-align: center;
+        margin-left: -4px;
+    }
+
+    .dot {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+        background: #999;
+    }
+
+    .count-good .dot { background: @good; }
+    .count-undecided .dot { background: #777; }
+    .count-bad .dot { background: @bad; }
+
+    .quote-wrapper {
+        box-sizing: border-box;
+        border-left: 6px solid;
+        padding: 5px 15px 5px 15px;
+        margin-bottom: 15px;
+
+        &.quote-good { border-color: @good; background-color: tint(@good, 90%); }
+        &.quote-undecided { border-color: @undecided; background-color: tint(@undecided, 90%); }
+        &.quote-bad { border-color: @bad; background-color: tint(@bad, 90%); }
+
+        p {
+            margin: 5px auto;
+        }
+
+        .quote-attrib {
+            font-style: italic;
+            color: #999;
+            white-space: nowrap;
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .row-wrapper {
+        .top-text {
+            width: 48%;
+        }
+
+        .rating-wrapper {
+            width: 46%;
+        }
+
+        p.proposal {
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .row-wrapper {
+        padding: 20px 0 0;
+
+        :last-child {
+            margin-bottom: 0;
+        }
+
+        .top-wrapper {
+            min-height: 0;
+            margin-bottom: 0;
+        }
+
+        .top-text {
+            width: 100%;
+        }
+
+        .rating-wrapper {
+            width: 100%;
+            margin: 0;
+            padding: 10px 0;
+            text-align: left;
+
+            &.good, &.debatable, &.bad {
+                background: none;
+            }
+
+            strong {
+                display: inline-block;
+                padding: 2px 4px;
+                border-radius: 2px;
+                clear: none;
+            }
+
+            &.good strong { background: tint(@good, 70%); color: shade(@good, 40%); }
+            &.debatable strong { background: tint(@undecided, 60%); color: shade(@undecided, 40%); }
+            &.bad strong { background: tint(@bad, 70%); color: shade(@bad, 40%); }
+        }
+
+        .viz-wrapper {
+            max-width: 270px;
+            margin: 0 0 0 4px;
+        }
+
+        .count-undecided {
+            .dot {
+                background: #ccc;
+            }
+        }
+
+        p.proposal {
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+    }
+}

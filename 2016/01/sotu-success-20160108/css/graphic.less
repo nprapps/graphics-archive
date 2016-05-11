@@ -1,0 +1,37 @@
+@import "base";
+
+.value text {
+    fill: #999;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.group.r {
+    rect.part {
+        fill: @red5;
+    }
+    rect.full {
+        fill: @red2;
+    }
+}
+
+.group.d {
+    rect.part {
+        fill: @blue5;
+    }
+    rect.full {
+        fill: @blue2;
+    }
+}
+
+.key .full {
+    b.r { background-color: @red2; margin-right: 2px; }
+    b.d { background-color: @blue2; margin-right: 2px; }
+}
+
+.key .part {
+    b.r { background-color: @red5; margin-right: 2px; }
+    b.d { background-color: @blue5; margin-right: 2px; }
+}

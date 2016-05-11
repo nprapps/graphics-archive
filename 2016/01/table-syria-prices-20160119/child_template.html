@@ -1,0 +1,81 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+
+        <ul class="key">
+            <li class="key-item key-0"><b></b><label>Price increased above normal fluctuation</label></li>
+            <li class="key-item key-1"><b></b><label>Normal price fluctuation</label></li>
+            <li class="key-item key-2"><b></b><label>Price decreased below normal fluctuation</label></li>
+        </ul>
+
+        <ul class="tabs">
+            <!-- <li class="standard-food-basket">Food Basket</li> -->
+            <li class="rice-per-1-kg">Rice</li>
+            <li class="sugar-per-1-kg">Sugar</li>
+            <li class="wheat-flour-per-1-kg">Wheat Flour</li>
+        </ul>
+
+        {% for commodity in COPY.data|groupby('commodity') %}
+        <table class="{{ commodity.grouper|classify }}">
+            <caption>{{ commodity.grouper }}</caption>
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_governorate }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_price }}</div>
+                    </th>
+                    <th class="change">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_change_1mo }}</div>
+                    </th>
+                    <th class="change">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_change_6mo }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in commodity.list %}
+            <tr class="{{ row.governorate|classify }}">
+                <td data-title="{{ COPY.labels.hdr_governorate }}">{{ row.governorate }}</td>
+                <td data-title="{{ COPY.labels.hdr_price }}" class="amt">${{ row.price_usd }}</td>
+                <td data-title="{{ COPY.labels.hdr_change_1mo }}" class="change {{ row.change_1mo_type|classify }}">{{ row.change_1mo }}{% if row.change_1mo != 'n/a' %}%{% endif %}</td>
+                <td data-title="{{ COPY.labels.hdr_change_6mo }}" class="change {{ row.change_6mo_type|classify }}">{{ row.change_6mo }}{% if row.change_6mo != 'n/a' %}%{% endif %}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/d3.min.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

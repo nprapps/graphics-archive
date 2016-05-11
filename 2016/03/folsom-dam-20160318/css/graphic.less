@@ -1,0 +1,62 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 2px;
+    stroke: #ccc;
+
+    .limit {
+        stroke-width: 1.5px;
+        // stroke-dasharray: 6px 2px;
+    }
+}
+
+.area path {
+    stroke: none;
+    fill: @blue4;
+    fill-opacity: 0.2;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+.annotations {
+    font-size: 11px;
+    fill: #787878;
+
+    .axis-label {
+        font-style: italic;
+        text-anchor: middle;
+        fill: #999;
+        letter-spacing: 0.05em;
+    }
+    .line-label {
+        &.title { font-weight: bold; }
+        &.storage { text-anchor: end; }
+    }
+
+    circle {
+        stroke: #fff;
+        stroke-width: .5px;
+    }
+
+    line.pointer {
+        stroke: #787878;
+        stroke-width: 1px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}
