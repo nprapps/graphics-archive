@@ -1,0 +1,33 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <ul class="key">
+        <li class="key-item"><b></b><label>≥&nbsp;48.2 (first quintile)</label></li>
+        <li class="key-item"><b></b><label>37.5–48.1 (second quintile)</label></li>
+        <li class="key-item"><b></b><label>29.0–37.4 (third quintile)</label></li>
+        <li class="key-item"><b></b><label>20.8–28.9 (fourth quintile)</label></li>
+        <li class="key-item"><b></b><label>≤&nbsp;20.7 (fifth quintile)</label></li>
+        <li class="key-item"><b></b><label>Data not available</label></li>
+    </ul>
+
+    <div id="graphic" class="graphic">
+        <img src="assets/map-cdc-teen-birth-rate.png" alt="Map showing teen birth rates by county in the U.S." class="fallback" />
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

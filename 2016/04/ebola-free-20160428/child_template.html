@@ -1,0 +1,63 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <ul class="key">
+        <li class="key-item key-1 ebola-free"><b>&#9733;</b><label>Declared 'ebola-free'</label></li>
+        <li class="key-item key-2 outbreak"><b>#</b><label>Flareups (number of cases)</label></li>
+    </ul>
+
+    <div id="graphic" class="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th class="country"><div><span>&nbsp;</span></div></th>
+                    <th><div><span>March 2015</span></div></th>
+                    <th><div><span>&nbsp;</span></div></th>
+                    <th><div><span>May 2015</span></div></th>
+                    <th><div><span>&nbsp;</span></div></th>
+                    <th><div><span>July 2015</span></div></th>
+                    <th><div><span>&nbsp;</span></div></th>
+                    <th><div><span>Sept. 2015</span></div></th>
+                    <th><div><span>&nbsp;</span></div></th>
+                    <th><div><span>Nov. 2015</span></div></th>
+                    <th><div><span>&nbsp;</span></div></th>
+                    <th><div><span>Jan. 2016</span></div></th>
+                    <th><div><span>&nbsp;</span></div></th>
+                    <th><div><span>March 2016</span></div></th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data_table %}
+            <tr>
+                <th class="country">{{ row.country }}</th>
+                {% for col in ['d_0315', 'd_0415', 'd_0515', 'd_0615', 'd_0715', 'd_0815', 'd_0915', 'd_1015', 'd_1115', 'd_1215', 'd_0116', 'd_0216', 'd_0316'] %}
+                    {% if row[col] == 'Ebola-free' %}<td class="ebola-free">&#9733;</td>
+                    {% elif row[col] %}<td class="outbreak">{{ row[col] }}</td>
+                    {% else %}<td>&nbsp;</td>{% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var DATA = {{ COPY.data.json() }};
+    </script>
+
+{% endblock content %}

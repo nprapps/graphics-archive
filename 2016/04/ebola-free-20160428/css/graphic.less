@@ -1,0 +1,84 @@
+@import "base";
+
+table {
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0 0 11px 0;
+    width: 100%;
+    font-size: 12px;
+
+    tr { vertical-align: middle; }
+    th {
+        text-align: left;
+
+        &.country { border-bottom: 1px solid #eee; }
+    }
+    thead th {
+        font-weight: normal;
+        font-size: 10px;
+        color: #999;
+        vertical-align: bottom;
+        padding-bottom: 5px;
+
+        div {
+            position: relative;
+            height: 70px;
+            width: 100%;
+        }
+
+        span {
+            position: absolute;
+            bottom: 55%;
+            left: 50%;
+            -webkit-transform: translateX(-50%) translateY(50%) rotate(-90deg);
+            transform: translateX(-50%) translateY(50%) rotate(-90deg);
+            width: 60px;
+        }
+    }
+    td {
+        text-align: center;
+        background-color: #f1f1f1;
+        border-left: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        height: 40px;
+        padding: 0;
+    }
+}
+
+table .ebola-free,
+.key .ebola-free b {
+    background-color: @yellow4;
+    color: @yellow1;
+}
+
+table .outbreak,
+.key .outbreak b {
+    background-color: @red4;
+    color: #fff;
+}
+
+.key {
+    margin-bottom: 11px;
+
+    b {
+        font-size: 9px;
+        text-align: center;
+        font-weight: normal;
+    }
+}
+
+
+@media screen and (min-width: 501px) {
+    table td { width: 6.5%; }
+}
+
+@media screen and (max-width: 500px) {
+    table {
+        font-size: 11px;
+
+        td {
+            font-size: 10px;
+            width: 7%;
+        }
+    }
+}

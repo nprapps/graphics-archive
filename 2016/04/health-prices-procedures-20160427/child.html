@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <base target="_blank">
+
+    
+
+    <!-- Fonts -->
+    <script src="http://apps.npr.org/dailygraphics/graphics/fonts/js/lib/webfont.js"></script>
+    <script>
+    WebFont.load({
+        custom: {
+            families: [
+                'Gotham SSm:n4,n7',
+                'Knockout 31 4r:n4'
+            ],
+            urls: [
+                'http://s.npr.org/templates/css/fonts/GothamSSm.css',
+                'http://s.npr.org/templates/css/fonts/Knockout.css'
+            ]
+        },
+        timeout: 10000
+    });
+    </script>
+
+    
+
+    <!-- Configuration -->
+    <script type="text/javascript">
+        GOOGLE_ANALYTICS_ACCOUNT_ID = 'UA-5828686-75';
+        GOOGLE_ANALYTICS_PROJECT_SLUG = 'health-prices-procedures-20160427';
+    </script>
+
+    <!-- CSS + LESS -->
+    
+    <link rel="stylesheet" type="text/css" href="css/graphic-header.css?1461787609" />
+</head>
+<body>
+    <!-- Analytics -->
+    
+    
+    <script type="text/javascript" src="js/graphic-header.js?1461787609"></script>
+
+    
+
+    <h1>Prices For Common Procedures Vary By&nbsp;State</h1>
+    <h2>Ratio of state average prices to national average price (2015 prices)</h2>
+
+    <div class="state-wrapper">
+        <div class="selector"><label for="states">How Your State Compares:</label>&nbsp;<select name="states" class="state-selector"></select></div>
+    </div>
+
+    <ul class="key">
+        <li class="key-item key-1"><b></b><label></label></li>
+        <li class="key-item key-2 state"><b></b><label>Average price in individual states</label></li>
+    </ul>
+
+    <div id="graphic" class="graphic">
+        <img src="fallback.png" alt="[Chart]" class="fallback" />
+    </div>
+
+    
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>Data not available for Alabama, Alaska (knee replacements), Arkansas, Delaware (knee replacements), Hawaii, Idaho, Michigan (knee replacements and pregnancy ultrasounds), Montana, North Dakota (pregnancy ultrasounds), South Dakota, Vermont and Wyoming.</p>
+    </div>
+    
+
+    <div class="footer">
+        <p>Source: Health Care Cost Institute analysis of insurance claims data from Guroo.com</p>
+        <p>Credit: Alyson Hurt/NPR</p>
+    </div>
+
+    <script type="text/javascript">
+        var DATA = [{"label": "Knee replacement", "category": "age", "national_avg": "$33,098", "median": "1", "min": "0.7288", "max": "1.4169", "AL": null, "AK": null, "AZ": "0.8456", "AR": null, "CA": "1.2045", "CO": "1.2308", "CT": "1.0117", "DE": null, "DC": "0.8491", "FL": "0.9672", "GA": "0.971", "HI": null, "ID": null, "IL": "0.9811", "IN": "1.1743", "IA": "0.9964", "KS": "0.7633", "KY": "0.8895", "LA": "0.803", "ME": "1.1583", "MD": "0.9113", "MA": "0.8229", "MI": null, "MN": "1.1748", "MS": "0.8485", "MO": "0.803", "MT": null, "NE": "1.103", "NV": "0.9028", "NH": "1.2267", "NJ": "0.7288", "NM": "1.2586", "NY": "1.0942", "NC": "1.1643", "ND": "1.0954", "OH": "0.9937", "OK": "0.7898", "OR": "1.3178", "PA": "0.8878", "RI": "1.0166", "SC": "1.4169", "SD": null, "TN": "0.9132", "TX": "1.0803", "UT": "1.1228", "VT": null, "VA": "1.1576", "WA": "1.2715", "WV": "1.2043", "WI": "1.2147", "WY": null}, {"label": "Pregnancy ultrasound", "category": "age", "national_avg": "$268", "median": "1", "min": "0.75", "max": "3.3396", "AL": null, "AK": "3.3396", "AZ": "0.75", "AR": null, "CA": "0.9216", "CO": "0.8955", "CT": "1.3209", "DE": "1.1306", "DC": "0.8918", "FL": "0.9328", "GA": "1.2276", "HI": null, "ID": null, "IL": "1.3209", "IN": "0.903", "IA": "1.444", "KS": "1.1567", "KY": "0.8843", "LA": "0.8806", "ME": "1.2351", "MD": "1.0261", "MA": "1.5821", "MI": null, "MN": "1.6306", "MS": "1.2985", "MO": "1.0634", "MT": null, "NE": "1.3918", "NV": "1.6119", "NH": "1.4403", "NJ": "1.4179", "NM": "1.2799", "NY": "1.0261", "NC": "1.3769", "ND": null, "OH": "0.8918", "OK": "0.8694", "OR": "1.6903", "PA": "1.5933", "RI": "0.8582", "SC": "1.2015", "SD": null, "TN": "0.9701", "TX": "0.791", "UT": "0.959", "VT": null, "VA": "1.0261", "WA": "1.3507", "WV": "0.8582", "WI": "2.5187", "WY": null}, {"label": "Cataract removal with lens replacement", "category": "age", "national_avg": "$3,292", "median": "1", "min": "0.6987", "max": "2.4854", "AL": null, "AK": "2.4854", "AZ": "0.7357", "AR": null, "CA": "0.9672", "CO": "1.0179", "CT": "1.3591", "DE": "0.9842", "DC": "0.9444", "FL": "0.6987", "GA": "1.1212", "HI": null, "ID": null, "IL": "1.2919", "IN": "1.4116", "IA": "1.4541", "KS": "0.9869", "KY": "1.1984", "LA": "1.1364", "ME": "1.6179", "MD": "0.8351", "MA": "1.0389", "MI": "1.1379", "MN": "1.6124", "MS": null, "MO": "1.0443", "MT": null, "NE": "1.1962", "NV": "0.9061", "NH": "1.5003", "NJ": "1.0857", "NM": "1.6376", "NY": "0.986", "NC": "1.541", "ND": "1.4724", "OH": "0.8536", "OK": "1.5185", "OR": "1.0875", "PA": "1.1157", "RI": "1.6981", "SC": "1.5705", "SD": null, "TN": "0.9046", "TX": "1.0598", "UT": "1.1495", "VT": null, "VA": "1.2631", "WA": "0.9882", "WV": "1.2773", "WI": "2.0869", "WY": null}];
+    </script>
+
+
+    
+
+        
+        
+        
+        
+        
+        
+        <script type="text/javascript" src="js/graphic-footer.js?1461787609"></script>
+
+    
+</body>
+</html>

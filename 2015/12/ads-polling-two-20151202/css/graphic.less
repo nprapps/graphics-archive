@@ -1,0 +1,62 @@
+@import "base";
+
+.key {
+    b.september { background-color: @red4; margin-right: 4px; }
+    b.december { background-color: @red2; margin-right: 4px; }
+}
+
+
+.lines {
+    fill: none;
+    stroke-width: 1px;
+    stroke: @red5;
+    stroke-dasharray: 3px 2px;
+}
+
+.lines line {
+    shape-rendering: auto;
+}
+
+.label text {
+    font-size: 12px;
+    fill: #666;
+}
+
+.shadow text {
+    font-size: 12px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 2px;
+    opacity: .7;
+}
+
+.axis-label {
+    fill: #666;
+    font-size: 12px;
+}
+
+circle {
+    opacity: 0.75;
+
+    &.highlight {
+        opacity: 1.0;
+    }
+}
+
+.x-label,
+.y-label {
+    font-size: 14px;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+// @media screen and (min-width: 500px) {
+//     .key {
+//         display: none;
+//     }
+// }

@@ -1,0 +1,29 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="graphic" class="graphic">
+        <div class="burning"></div>
+    </div>
+
+    {% if COPY.labels.caption %}
+    <div class="caption">
+        <p>{{ COPY.labels.caption }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.credit %}<p>{{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/d3.min.js') }}
+    {{ JS.push('js/lib/canvid.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

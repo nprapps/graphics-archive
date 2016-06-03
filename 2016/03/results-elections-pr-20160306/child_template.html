@@ -1,0 +1,87 @@
+{% extends 'base_template.html' %}
+
+{% block fonts %}
+<!-- Fonts -->
+<script src="http://apps.npr.org/dailygraphics/graphics/fonts/js/lib/webfont.js"></script>
+<script>
+WebFont.load({
+    custom: {
+        families: [
+            'Gotham SSm:n4,n7',
+            'Knockout 31 4r:n4',
+            'elections'
+        ],
+        urls: [
+            'http://s.npr.org/templates/css/fonts/GothamSSm.css',
+            'http://s.npr.org/templates/css/fonts/Knockout.css',
+            'css/elections.css'
+        ]
+    },
+    timeout: 10000
+});
+</script>
+{% endblock %}
+
+{% block content %}
+    <div class="graphic">
+
+        <div class="results dem">
+            <h3>Puerto Rico Republican&nbsp;Primary</h3>
+
+            <ul class="meta">
+                <li>100% of precincts reporting (220 of 220)</li>
+            </ul>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th class="votes">Votes</th>
+                        <th class="pct">Percent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="winner">
+                        <td>Marco Rubio&nbsp;<b class="icon icon-ok"></b></td>
+                        <td class="votes">27,485</td>
+                        <td class="pct">71.0%</td>
+                    </tr>
+                    <tr>
+                        <td>Donald Trump </td>
+                        <td class="votes">5,052</td>
+                        <td class="pct">13.1%</td>
+                    </tr>
+                    <tr>
+                        <td>Ted Cruz </td>
+                        <td class="votes">3,340</td>
+                        <td class="pct">8.6%</td>
+                    </tr>
+                    <tr>
+                        <td>John Kasich </td>
+                        <td class="votes">516</td>
+                        <td class="pct">1.3%</td>
+                    </tr>
+                    <tr>
+                        <td>Other </td>
+                        <td class="votes">2,306</td>
+                        <td class="pct">2.2%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <ul class="meta source">
+                <li>Source: AP</li>
+            </ul>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/d3.min.js') }}
+    {{ JS.push('js/base.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

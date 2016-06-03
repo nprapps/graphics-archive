@@ -1,0 +1,35 @@
+@import "base";
+
+.key .key-item { margin-right: 15px; }
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+    stroke-dasharray: 8px 1px;
+
+    .overall {
+        stroke-width: 4px;
+        stroke-dasharray: none;
+    }
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #787878;
+
+    &.overall { fill: @blue1; }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

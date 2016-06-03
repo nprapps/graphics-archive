@@ -1,0 +1,61 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <div class="bottom-wrapper">
+            <p class="bottom-type">From 2000 to 2013, here's where affordable housing has gotten:</p>
+            <div class="map-wrapper maps-change map-harder">
+                <p class="map-title">Harder to find</p>
+                <p class="legend-title">Change in available units per 100 households</p>
+                <div class="map-legend">
+                    <div class="legend-block change-least"></div>
+                    <div class="legend-block change-less"></div>
+                    <span class="legend-label label-1">-45</span>
+                    <span class="legend-label label-2">-15</span>
+                    <span class="legend-label label-3">-1 unit</span>
+                </div>
+                <img src="assets/maps-change-harder.png" alt="Map of U.S."/>
+            </div>
+            <div class="map-wrapper maps-change map-same">
+                <p class="map-title">About the same</p>
+                <p class="legend-title">Change in available units per 100 households</p>
+                <div class="map-legend">
+                    <div class="legend-block change-none"></div>
+                    <span class="legend-label label-1">-1</span>
+                    <span class="legend-label label-3">+1 unit</span>
+                </div>
+                <img src="assets/maps-change-same.png" alt="Map of U.S."/>
+            </div>
+            <div class="map-wrapper maps-change map-easier">
+                <p class="map-title">Easier to find</p>
+                <p class="legend-title">Change in available units per 100 households</p>
+                <div class="map-legend">
+                    <div class="legend-block change-more"></div>
+                    <div class="legend-block change-most"></div>
+                    <span class="legend-label label-1">+1</span>
+                    <span class="legend-label label-2">+15</span>
+                    <span class="legend-label label-3">+28 units</span>
+                </div>
+                <img src="assets/maps-change-easier.png" alt="Map of U.S."/>
+            </div>
+            <p class="small-note"><strong>Counties with fewer than 20,000 residents</strong> excluded owing to <span class="no-break">small sample size</span></p>
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

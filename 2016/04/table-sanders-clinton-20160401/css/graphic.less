@@ -1,0 +1,195 @@
+@import "base";
+
+.graphic { margin-bottom: 22px; }
+
+h1 { margin-bottom: 22px; }
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        // font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        // font-weight: normal;
+        // text-transform: uppercase;
+        text-align: left;
+        padding: 0 10px 10px 10px;
+        padding-top: 0;
+        // line-height: 1.2;
+        // letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    th,
+    td {
+        &.amt {
+            text-align: right;
+        }
+    }
+}
+
+// Tablesorter styles
+table {
+    th {
+        &.sort-header {
+            cursor: pointer;
+
+            &::-moz-selection,
+            &::selection {
+                background: transparent;
+            }
+
+            .sorter {
+                border-top: 2px solid #404040;
+                visibility: hidden;
+
+                .icon {
+                    content: '';
+                    width: 1px;
+                    margin: 3px auto 7px auto;
+                    border-width: 0 4px 4px;
+                    border-style: solid;
+                    border-color: #404040 transparent;
+                }
+            }
+
+            &:hover .sorter {
+                visibility: visible;
+            }
+        }
+
+        &.sort-up .sorter,
+        &.sort-down .sorter,
+        &.sort-down:hover .sorter {
+            visibility: visible;
+            opacity: 0.4;
+        }
+
+        &.sort-up .sorter .icon {
+            border-bottom: none;
+            border-width: 4px 4px 0;
+        }
+    }
+}
+
+// Mobile styles
+@media screen and (min-width: 501px) {
+    table {
+        th {
+            width: 40%;
+            &.issue {
+                width: 20%;
+            }
+            border-bottom-width: 1px;
+
+            &.clinton,
+            &.sanders {
+                .header {
+                    display: inline-block;
+                    font-weight: bold;
+                    color: #fff;
+                    padding: 2px 6px;
+                    border-radius: 4px;
+                    margin-right: 5px;
+                }
+            }
+            &.clinton .header { background-color: @blue2; }
+            &.sanders .header { background-color: @blue4; }
+        }
+        td {
+            &.issue {
+                font-weight: bold;
+                color: #333;
+                text-align: right;
+            }
+        }
+        th, td {
+            &.issue { padding-left: 0; }
+            &.sanders { padding-right: 0; }
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        thead { display: none; }
+
+        tr,
+        th,
+        th.amt,
+        td,
+        td.amt {
+            display: block;
+            padding: 0;
+            white-space: normal;
+        }
+
+        tr {
+            border-bottom: 1px solid #eee;
+            padding: 22px 0;
+
+            &:first-child { border-top: 1px solid #eee; }
+        }
+
+        td,
+        td.amt {
+            border: none;
+            text-align: left;
+            margin-top: 11px;
+
+            &:empty { display: none; }
+        }
+
+        th[data-title]:before,
+        td[data-title]:before {
+            // content: attr(data-title) ":\00A0";
+            content: attr(data-title);
+            display: inline-block;
+            font-weight: bold;
+            color: #fff;
+            padding: 2px 5px;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+        td[data-title].clinton:before { background-color: @blue2; }
+        td[data-title].sanders:before { background-color: @blue4; }
+
+
+        tr td:first-child {
+            font-size: 14px;
+            margin-top: 0;
+            color: #333;
+            font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+
+            &:before {
+                content: '';
+                display: none;
+            }
+        }
+    }
+}

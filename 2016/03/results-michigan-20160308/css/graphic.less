@@ -1,0 +1,47 @@
+@import "base";
+
+.footnotes { font-style: italic; }
+
+.labels li{
+    font-size: 13px;
+
+    &.winner {
+        font-weight: bold;
+        color: #333;
+    }
+}
+
+.value text {
+    font-size: 12px;
+
+    &.out { fill: #787878; }
+
+    &.winner {
+        font-weight: bold;
+
+        &.out { fill: #333; }
+    }
+}
+
+.dem .bars rect {
+    fill: @blue4;
+
+    &:first-child { fill: @blue2; }
+}
+
+.gop .bars rect {
+    fill: @red4;
+
+    &:first-child { fill: @red2; }
+}
+
+@media screen and (min-width: 501px) {
+    .party.dem { float: right; }
+    .party.gop { float: left; }
+
+    // .footnotes {
+    //     position: absolute;
+    //     bottom: 27px;
+    //     right: 0;
+    // }
+}

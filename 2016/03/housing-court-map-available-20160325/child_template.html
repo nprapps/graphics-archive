@@ -1,0 +1,44 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <div class="top-wrapper">
+            <div class="size-wrapper">
+                <p>There are <strong>10.4 million extremely low income households</strong> in the U.S.</p>
+                <div class="bar bar-total"></div>
+                <div class="bar bar-highlight"></div>
+                <p>and only <strong>3.2 million</strong> affordable housing units.</p>
+            </div>
+        </div>
+        <div class="bottom-wrapper">
+            <p class="bottom-type">Here are the counties where affordable housing is available ...</p>
+            <div class="map-wrapper map-more">
+                <p class="map-title">To <strong>at least half</strong> of extremely <span class="no-break">low income households</span></p>
+                <p class="small-note"><strong>Counties with fewer than 20,000 residents</strong> excluded owing to <span class="no-break">small sample size</span></p>
+                <img src="assets/maps-2011-more.png" alt="Map of U.S."/>
+            </div>
+            <div class="map-wrapper map-less">
+                <p class="map-title">To <strong>less than half</strong> of extremely <span class="no-break">low income households</span></p>
+                <p class="small-note"><strong>Counties with fewer than 20,000 residents</strong> excluded owing to <span class="no-break">small sample size</span></p>
+                <img src="assets/maps-2011-less.png" alt="Map of U.S."/>
+            </div>
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

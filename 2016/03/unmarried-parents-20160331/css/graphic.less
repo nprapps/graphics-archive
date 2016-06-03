@@ -1,0 +1,25 @@
+@import "base";
+
+.bar text {
+    fill: #fff;
+    font-size: 12px;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .bar text {
+        display: none;
+    }
+
+    /*.bar {*/
+        /*&.bar-1996, &.bar-2015 {*/
+            /*text {*/
+                /*display: block;*/
+                /*fill: #999;*/
+            /*}*/
+        /*}*/
+    /*}*/
+}

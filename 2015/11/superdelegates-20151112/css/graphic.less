@@ -1,0 +1,81 @@
+@import "base";
+
+#graphic { margin-bottom: 22px; }
+
+h3 {
+    margin: 0 0 11px 0;
+    font-family: 'Knockout 31 4r';
+    font-weight: normal;
+    text-transform: uppercase;
+    padding-top: 0;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    color: #666;
+}
+
+.year { float: left; }
+
+.key {
+    margin-top: 11px;
+    margin-bottom: 11px;
+    // height: 160px;
+
+    .key-item b {
+        &.clinton { background-color: @blue2; }
+        &.obama,
+        &.sanders { background-color: @yellow4; }
+        &.edwards,
+        &.omalley { background-color: @teal5; }
+        &.other { background-color: @orange4; }
+        &.uncommitted { background-color: #ddd; }
+        &.not-surveyed { background-color: #f1f1f1; }
+    }
+
+    .key-item.total {
+        margin-top: 11px;
+
+        label {
+            color: #999;
+            font-style: italic;
+        }
+    }
+}
+
+table.grid {
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    td {
+        height: 6px;
+        background-color: #ddd;
+        border: 1px solid #fff;
+
+        &.clinton { background-color: @blue2; }
+        &.obama,
+        &.sanders { background-color: @yellow4; }
+        &.edwards,
+        &.omalley { background-color: @teal5; }
+        &.other { background-color: @orange4; }
+        &.uncommitted { background-color: #ddd; }
+        &.not-surveyed { background-color: #f1f1f1; }
+    }
+}
+
+
+@media screen and (min-width: 501px) {
+    .key .key-item {
+        width: 50%;
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .key { height: 158px; }
+    .key .key-item label {
+        white-space: normal;
+    }
+}

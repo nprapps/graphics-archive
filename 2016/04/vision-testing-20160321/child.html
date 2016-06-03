@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <base target="_blank">
+
+    
+
+    <!-- Fonts -->
+    <script src="http://apps.npr.org/dailygraphics/graphics/fonts/js/lib/webfont.js"></script>
+    <script>
+    WebFont.load({
+        custom: {
+            families: [
+                'Gotham SSm:n4,n7',
+                'Knockout 31 4r:n4'
+            ],
+            urls: [
+                'http://s.npr.org/templates/css/fonts/GothamSSm.css',
+                'http://s.npr.org/templates/css/fonts/Knockout.css'
+            ]
+        },
+        timeout: 10000
+    });
+    </script>
+
+    
+
+    <!-- Configuration -->
+    <script type="text/javascript">
+        GOOGLE_ANALYTICS_ACCOUNT_ID = 'UA-5828686-75';
+        GOOGLE_ANALYTICS_PROJECT_SLUG = 'vision-testing-20160321';
+    </script>
+
+    <!-- CSS + LESS -->
+    
+    <link rel="stylesheet" type="text/css" href="css/graphic-header.css?1459547805" />
+</head>
+<body>
+    <!-- Analytics -->
+    
+    
+    <script type="text/javascript" src="js/graphic-header.js?1459547805"></script>
+
+    
+
+    <h1>Vision Screening Rates By State</h1>
+    
+
+    <div class="state-wrapper">
+        <div class="selector"><label for="states">How Your State Compares:</label>&nbsp;<select name="states" class="state-selector"></select></div>
+        <div class="state-info"></div>
+    </div>
+
+    <ul class="key">
+        <li class="key-item key-0 median"><b></b><label>Median share of students screened</label></li>
+        <li class="key-item key-1"><b></b><label></label></li>
+        <li class="key-item key-2 state"><b></b><label>Share of students screened in individual states</label></li>
+    </ul>
+
+    <div id="dot-chart" class="graphic">
+        <img src="fallback.png" alt="[Chart]" class="fallback" />
+    </div>
+
+    
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>&mdash;&nbsp;In the 2011-2012 National Survey of Children&#8217;s Health, respondents were asked about whether their children&#8217;s vision had been tested with pictures, shapes or letters. (For children 5 years old and younger: If they had ever been tested. For children 6 to 17 years old: If they had been tested within the past two years.)<br />
+&mdash;&nbsp;Screening rates for black children in Montana, North Dakota and Wyoming are not shown because the sample sizes were too small.</p>
+    </div>
+    
+
+    <div class="footer">
+        <p>Source: <a href="http://childhealthdata.org/browse/survey/allstates?q=2506&g=448&a=4085">National Survey of Children&#8217;s Health</a> (2011-2012); National Center for Children&#8217;s Vision and Eye Health at Prevent Blindness: &#8220;Children&#8217;s Vision and Eye Health: A Snapshot of Current National Issues&#8221; (2016)</p>
+        <p>Credit: Alyson Hurt/NPR</p>
+    </div>
+
+    <script type="text/javascript">
+        var DATA = [{"label": "Age 0-5", "category": "age", "median": "41", "min": "27", "max": "50", "AL": "43.0", "AK": "38.0", "AZ": "27.0", "AR": "37.0", "CA": "40.0", "CO": "38.0", "CT": "41.0", "DE": "43.0", "DC": "41.0", "FL": "38.0", "GA": "42.0", "HI": "37.0", "ID": "30.0", "IL": "39.0", "IN": "35.0", "IA": "40.0", "KS": "41.0", "KY": "44.0", "LA": "44.0", "ME": "41.0", "MD": "47.0", "MA": "41.0", "MI": "42.0", "MN": "50.0", "MS": "43.0", "MO": "43.0", "MT": "40.0", "NE": "34.0", "NV": "31.0", "NH": "41.0", "NJ": "41.0", "NM": "37.0", "NY": "40.0", "NC": "42.0", "ND": "35.0", "OH": "42.0", "OK": "39.0", "OR": "36.0", "PA": "41.0", "RI": "45.0", "SC": "40.0", "SD": "39.0", "TN": "42.0", "TX": "38.0", "UT": "35.0", "VT": "44.0", "VA": "43.0", "WA": "36.0", "WV": "44.0", "WI": "40.0", "WY": "45.0"}, {"label": "Age 6-11", "category": "age", "median": "84", "min": "70", "max": "91", "AL": "86.0", "AK": "82.0", "AZ": "78.0", "AR": "81.0", "CA": "73.0", "CO": "84.0", "CT": "90.0", "DE": "86.0", "DC": "80.0", "FL": "82.0", "GA": "82.0", "HI": "78.0", "ID": "70.0", "IL": "84.0", "IN": "85.0", "IA": "86.0", "KS": "88.0", "KY": "87.0", "LA": "81.0", "ME": "83.0", "MD": "80.0", "MA": "89.0", "MI": "85.0", "MN": "82.0", "MS": "83.0", "MO": "86.0", "MT": "81.0", "NE": "87.0", "NV": "72.0", "NH": "89.0", "NJ": "87.0", "NM": "84.0", "NY": "85.0", "NC": "88.0", "ND": "84.0", "OH": "84.0", "OK": "86.0", "OR": "82.0", "PA": "87.0", "RI": "91.0", "SC": "83.0", "SD": "84.0", "TN": "87.0", "TX": "81.0", "UT": "85.0", "VT": "88.0", "VA": "83.0", "WA": "83.0", "WV": "86.0", "WI": "91.0", "WY": "86.0"}, {"label": "Age 12-17", "category": "age", "median": "81", "min": "69", "max": "88", "AL": "78.0", "AK": "81.0", "AZ": "77.0", "AR": "78.0", "CA": "69.0", "CO": "86.0", "CT": "85.0", "DE": "87.0", "DC": "78.0", "FL": "80.0", "GA": "77.0", "HI": "73.0", "ID": "75.0", "IL": "84.0", "IN": "83.0", "IA": "85.0", "KS": "84.0", "KY": "83.0", "LA": "83.0", "ME": "81.0", "MD": "79.0", "MA": "85.0", "MI": "85.0", "MN": "82.0", "MS": "77.0", "MO": "80.0", "MT": "81.0", "NE": "84.0", "NV": "71.0", "NH": "86.0", "NJ": "88.0", "NM": "76.0", "NY": "84.0", "NC": "77.0", "ND": "81.0", "OH": "84.0", "OK": "76.0", "OR": "71.0", "PA": "85.0", "RI": "84.0", "SC": "77.0", "SD": "87.0", "TN": "80.0", "TX": "80.0", "UT": "76.0", "VT": "85.0", "VA": "80.0", "WA": "73.0", "WV": "86.0", "WI": "79.0", "WY": "84.0"}, {"label": "White, non-Hispanic", "category": "race", "median": "71", "min": "59", "max": "81", "AL": "70.0", "AK": "67.0", "AZ": "70.0", "AR": "66.0", "CA": "67.0", "CO": "71.0", "CT": "81.0", "DE": "77.0", "DC": "63.0", "FL": "74.0", "GA": "72.0", "HI": "63.0", "ID": "59.0", "IL": "72.0", "IN": "69.0", "IA": "73.0", "KS": "75.0", "KY": "72.0", "LA": "69.0", "ME": "69.0", "MD": "72.0", "MA": "77.0", "MI": "74.0", "MN": "74.0", "MS": "66.0", "MO": "71.0", "MT": "68.0", "NE": "71.0", "NV": "65.0", "NH": "75.0", "NJ": "79.0", "NM": "70.0", "NY": "75.0", "NC": "73.0", "ND": "68.0", "OH": "71.0", "OK": "70.0", "OR": "66.0", "PA": "76.0", "RI": "79.0", "SC": "71.0", "SD": "71.0", "TN": "72.0", "TX": "75.0", "UT": "65.0", "VT": "75.0", "VA": "72.0", "WA": "67.0", "WV": "72.0", "WI": "73.0", "WY": "71.0"}, {"label": "Black, non-Hispanic", "category": "race", "median": "71", "min": "52", "max": "90", "AL": "72.0", "AK": "75.0", "AZ": "56.0", "AR": "70.0", "CA": "79.0", "CO": "85.0", "CT": "65.0", "DE": "77.0", "DC": "71.0", "FL": "68.0", "GA": "71.0", "HI": "65.0", "ID": "67.0", "IL": "71.0", "IN": "73.0", "IA": "52.0", "KS": "71.0", "KY": "79.0", "LA": "76.0", "ME": "53.0", "MD": "70.0", "MA": "64.0", "MI": "70.0", "MN": "69.0", "MS": "73.0", "MO": "71.0", "MT": null, "NE": "72.0", "NV": "68.0", "NH": "81.0", "NJ": "72.0", "NM": "56.0", "NY": "76.0", "NC": "66.0", "ND": null, "OH": "70.0", "OK": "66.0", "OR": "90.0", "PA": "69.0", "RI": "75.0", "SC": "65.0", "SD": "64.0", "TN": "72.0", "TX": "71.0", "UT": "82.0", "VT": "59.0", "VA": "71.0", "WA": "57.0", "WV": "77.0", "WI": "69.0", "WY": null}, {"label": "Hispanic", "category": "race", "median": "57", "min": "35", "max": "76", "AL": "49.0", "AK": "67.0", "AZ": "53.0", "AR": "55.0", "CA": "57.0", "CO": "63.0", "CT": "56.0", "DE": "54.0", "DC": "35.0", "FL": "57.0", "GA": "50.0", "HI": "64.0", "ID": "47.0", "IL": "62.0", "IN": "61.0", "IA": "53.0", "KS": "58.0", "KY": "53.0", "LA": "50.0", "ME": "66.0", "MD": "55.0", "MA": "64.0", "MI": "60.0", "MN": "58.0", "MS": "49.0", "MO": "50.0", "MT": "50.0", "NE": "53.0", "NV": "50.0", "NH": "65.0", "NJ": "62.0", "NM": "62.0", "NY": "59.0", "NC": "56.0", "ND": "70.0", "OH": "69.0", "OK": "52.0", "OR": "49.0", "PA": "55.0", "RI": "59.0", "SC": "51.0", "SD": "61.0", "TN": "61.0", "TX": "58.0", "UT": "62.0", "VT": "76.0", "VA": "54.0", "WA": "55.0", "WV": "74.0", "WI": "63.0", "WY": "71.0"}, {"label": "Other", "category": "race", "median": "67", "min": "55", "max": "82", "AL": "69.0", "AK": "64.0", "AZ": "60.0", "AR": "68.0", "CA": "57.0", "CO": "76.0", "CT": "69.0", "DE": "70.0", "DC": "70.0", "FL": "64.0", "GA": "63.0", "HI": "63.0", "ID": "69.0", "IL": "76.0", "IN": "67.0", "IA": "71.0", "KS": "59.0", "KY": "70.0", "LA": "55.0", "ME": "76.0", "MD": "71.0", "MA": "62.0", "MI": "69.0", "MN": "67.0", "MS": "65.0", "MO": "75.0", "MT": "63.0", "NE": "82.0", "NV": "62.0", "NH": "66.0", "NJ": "67.0", "NM": "68.0", "NY": "65.0", "NC": "74.0", "ND": "62.0", "OH": "72.0", "OK": "71.0", "OR": "72.0", "PA": "55.0", "RI": "70.0", "SC": "65.0", "SD": "67.0", "TN": "66.0", "TX": "65.0", "UT": "68.0", "VT": "66.0", "VA": "66.0", "WA": "69.0", "WV": "73.0", "WI": "64.0", "WY": "76.0"}];
+        var REQUIREMENTS = [{"state": "AL", "required_prek": "Not required", "required_school": "Required", "frequency": "Annually", "other": null}, {"state": "AK", "required_prek": "Required", "required_school": "Required", "frequency": "Upon school entrance and at regular intervals determined by the school district", "other": null}, {"state": "AZ", "required_prek": "Not required", "required_school": "Not required", "frequency": null, "other": "Requires follow-up eye exam after a failed screen"}, {"state": "AR", "required_prek": "Required for public pre-K", "required_school": "Required", "frequency": "Public pre-K; K; grades 1, 2, 4, 6, 8; transfer students", "other": null}, {"state": "CA", "required_prek": "Not required", "required_school": "Required", "frequency": "K; grades 2, 5, 8; transfer students", "other": null}, {"state": "CO", "required_prek": "Not required", "required_school": "Required", "frequency": "K; grades 1, 2, 3, 5, 7, 9; transfer students and special education students", "other": null}, {"state": "CT", "required_prek": "Not required", "required_school": "Required", "frequency": "K; grades 1-6 and 9", "other": null}, {"state": "DE", "required_prek": "Not required", "required_school": "Required", "frequency": "K; grades 2, 4, 7, and 9 or 10; transfer students, students referred by teacher/administrator, students considered for special education, driver education students prior to in-car hours", "other": null}, {"state": "DC", "required_prek": "Required", "required_school": "Required", "frequency": "Upon enrollment into public and private pre-K; K; grades 1, 3, 5, 7, 9, 11", "other": null}, {"state": "FL", "required_prek": "Not required", "required_school": "Required", "frequency": "K; grades 1, 3, 6; transfer students entering K-5; students considered for special education", "other": null}, {"state": "GA", "required_prek": "Not required", "required_school": "Required", "frequency": "Upon entry into school system", "other": null}, {"state": "HI", "required_prek": "Not required", "required_school": "Required", "frequency": "Physical exam required prior to entry into school system includes basic vision status", "other": null}, {"state": "ID", "required_prek": "Not required", "required_school": "Not required", "frequency": null, "other": "No recommendation or requirement for vision screening"}, {"state": "IL", "required_prek": "Required", "required_school": "Required", "frequency": "Annual screening for preschool children 3 years of age or older in any public/private preschool or licensed child care; eye exam prior to public/private school entry; screening in public/private K; grades 2 and 8; transfer students, special education students, students referred by teachers", "other": "Recommends screening in grades 4, 6, 10, 12"}, {"state": "IN", "required_prek": "Not required", "required_school": "Required", "frequency": "K or grade 1 \u2014 performed by ophthalmologist or optometrist; screening only in grades 3, 5, 8; screening of students suspected of having vision problem; pertains to public and private schools", "other": null}, {"state": "IA", "required_prek": "Not required", "required_school": "Required", "frequency": "Prior to enrollment in public/private K and grade 3", "other": "May be satisfied by online vision screening conducted by parent/guardian; proof of a screening may be met either electronically through the state immunization information system or in a hard copy provided by the parent"}, {"state": "KS", "required_prek": "Not required", "required_school": "Required", "frequency": "At least once every two years while enrolled in public school", "other": null}, {"state": "KY", "required_prek": "Required", "required_school": "Required", "frequency": "Eye exam for all children ages 3-6 entering public preschool/Head Start/public school for the first time, performed by ophthalmologist or optometrist; vision screening prior to first enrollment and entry into grades 6 and 9 ", "other": null}, {"state": "LA", "required_prek": "Not required", "required_school": "Required", "frequency": "Entry into K; grades 1, 3, 5, 7, 9", "other": null}, {"state": "ME", "required_prek": "Not required", "required_school": "Required", "frequency": "Screen in K; grades 1, 3, 5, 7, 9", "other": null}, {"state": "MD", "required_prek": "Not required", "required_school": "Required", "frequency": "Entry into school; K; grades 1 and 8 or 9", "other": null}, {"state": "MA", "required_prek": "Not required", "required_school": "Required", "frequency": "Screening in K and grades 1-5; once in middle school; once in high school; and new student entry", "other": "Eye exam required for children with neurodevelopmental delay diagnosis; required for school entry for children who fail screening"}, {"state": "MI", "required_prek": "Required", "required_school": "Required", "frequency": "Once between ages 3-5 and in grades 1, 3, 5, 7 and 9; or in conjunction with driver training classes", "other": null}, {"state": "MN", "required_prek": "Required", "required_school": "Required", "frequency": "Children registered for the first time in a Minnesota school; once between age 3 and 4; and children in grades 1, 3, 5, 7 and 10", "other": null}, {"state": "MS", "required_prek": "Required", "required_school": "Required", "frequency": "Children in all public school districts in the state", "other": null}, {"state": "MO", "required_prek": "Not required", "required_school": "Required", "frequency": "Eye exam required for children enrolling in K or grade 1; screening completed before end of grades 1 and 3", "other": null}, {"state": "MT", "required_prek": "Not required", "required_school": "Not required", "frequency": null, "other": "Recommended for all students"}, {"state": "NE", "required_prek": "Required", "required_school": "Required", "frequency": "Eye exam required within six months prior to the entrance of a child in the beginner grade or upon transfer; periodic screening ages 3-5 annually; in K, and grades 1-4, 7 and 10", "other": null}, {"state": "NV", "required_prek": "Not required", "required_school": "Required", "frequency": "Screening required for children entering elementary school and one additional grade of elementary school, one grade of middle or junior high schools, one grade of high school, and transfer students", "other": null}, {"state": "NH", "required_prek": "Not required", "required_school": "Not required", "frequency": null, "other": "Recommended screening for pre-K, K and grade 1; eye exam recommended for first year in school"}, {"state": "NJ", "required_prek": "Not required", "required_school": "Required", "frequency": "Screening required biennially for students in K and grades 1-10", "other": null}, {"state": "NM", "required_prek": "Required", "required_school": "Required", "frequency": "Screening required for students enrolled in pre-K; K; grades 1 and 3; transfer and new students", "other": null}, {"state": "NY", "required_prek": "Required", "required_school": "Required", "frequency": "Screening required in pre-K; K; grades 1-3, 5, 7 and 10; an eye exam is recommended", "other": null}, {"state": "NC", "required_prek": "Not required", "required_school": "Required", "frequency": "Legislation requires screening for students entering K or upon school entry", "other": "NC DHHS recommends K-5 plus one middle school grade"}, {"state": "ND", "required_prek": "Not required", "required_school": "Not required", "frequency": null, "other": "No requirement and no state support services available"}, {"state": "OH", "required_prek": "Not required", "required_school": "Required", "frequency": "K; grades 1, 3, 5, 7 and 9", "other": "Eye exam required for children on an IEP"}, {"state": "OK", "required_prek": "Not required", "required_school": "Required", "frequency": "K; grades 1 and 3 at public schools", "other": null}, {"state": "OR", "required_prek": "Required", "required_school": "Required", "frequency": "Preschool (ages 3-5); K; grades 1, 2 or 3; 4 or 5; 7 or 8; and 10 or 11; upon first entry into school", "other": "Screening required for students enrolled in driver education, upon entrance into special education, and upon parent or teacher referral"}, {"state": "PA", "required_prek": "Required", "required_school": "Required", "frequency": "Annually for students ages 3 and older", "other": null}, {"state": "RI", "required_prek": "Not required", "required_school": "Required", "frequency": null, "other": null}, {"state": "SC", "required_prek": "Not required", "required_school": "Not required", "frequency": null, "other": "Screening is not required but is recommended"}, {"state": "SD", "required_prek": "Not required", "required_school": "Not required", "frequency": null, "other": "No screening requirement or recommendation"}, {"state": "TN", "required_prek": "Required", "required_school": "Required", "frequency": "All students in pre-K; K; grades 2, 4, 6 and 8", "other": null}, {"state": "TX", "required_prek": "Required", "required_school": "Required", "frequency": "All children upon their first enrollment to any school (public or private) or in a licensed child care setting; screening for children age 4; K; grades 1, 3, 5 and 7", "other": null}, {"state": "UT", "required_prek": "Not required", "required_school": "Not required", "frequency": null, "other": "Recommends screening students every other year after pre-K and K screenings, and annually for students with hearing impairment and any student referred by school personnel, parent or self; students receiving services from Utah Schools for the Deaf and Blind or from Local Education Agency vision staff who have a diagnosed significant visual impairment will be exempt from screening; 2015 legislation requires Division of Services for the Blind and Visually Impaired to certify volunteer vision screeners"}, {"state": "VT", "required_prek": "Not required", "required_school": "Required", "frequency": "Screening in K; grades 1, 3, 5, 7, 9 and 12", "other": null}, {"state": "VA", "required_prek": "Not required", "required_school": "Required", "frequency": "K; grades 3, 7 and 10; and upon entry into a school system", "other": null}, {"state": "WA", "required_prek": "Not required", "required_school": "Required", "frequency": "K; grades 1, 3, 5 and 7 (or annually, if school resources permit); and any child showing symptoms of possible loss in visual acuity referred to the district by parents, guardians or school staff", "other": null}, {"state": "WV", "required_prek": "Not required", "required_school": "Required", "frequency": "Students entering public school for the first time; and once between ages 11-13", "other": null}, {"state": "WI", "required_prek": "Not required", "required_school": "Not required", "frequency": null, "other": "Allows individual schools and boards to request evidence of an eye exam, but does not require"}, {"state": "WY", "required_prek": "Not required", "required_school": "Not required", "frequency": null, "other": null}];
+    </script>
+
+
+
+    
+
+        
+        
+        
+        
+        
+        
+        <script type="text/javascript" src="js/graphic-footer.js?1459547805"></script>
+
+    
+</body>
+</html>

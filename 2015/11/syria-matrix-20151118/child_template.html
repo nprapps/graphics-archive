@@ -1,0 +1,74 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th class="name">{{ COPY.labels.hdr_name }}</th>
+                    <th class="syria">{{ COPY.labels.hdr_refugees }}</th>
+                    <th class="syria">{{ COPY.labels.hdr_groundtroops }}</th>
+                    <th class="syria">{{ COPY.labels.hdr_nofly }}</th>
+                    <th class="syria">{{ COPY.labels.hdr_article }}</th>
+                    <th class="syria">{{ COPY.labels.hdr_radical }}</th>
+                    <th class="syria">{{ COPY.labels.hdr_war }}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="state-{{ row.name|classify }}">
+                <td data-title="{{ COPY.labels.hdr_name }}" class="name">{{ row.name }} ({{ row.party }})</td>
+                <td data-title="{{ COPY.labels.hdr_refugees }}" class ="syria {{ row.refugees|classify }}">{% if row.refugees_link %}<a href="{{ row.refugees_link }}">{% endif %}<span class="{% if row.refugees == 'Yes' %}yes{% elif row.refugees == 'No' %}no{% else %}other{% endif %}">{{ row.refugees }}</span>{% if row.refugees_link %}</a>{% endif %}{% if row.refugees_footnote %}<sup>{{ row.refugees_footnote }}</sup>{% endif %} </td>
+                <td data-title="{{ COPY.labels.hdr_groundtroops }}" class ="syria {{ row.groundtroops|classify }}">{% if row.groundtroops_link %}<a href="{{ row.groundtroops_link }}">{% endif %}<span class="{% if row.groundtroops == 'Yes' %}yes{% elif row.groundtroops == 'No' %}no{% else %}other{% endif %}">{{ row.groundtroops }}</span>{% if row.groundtroops_link %}</a>{% endif %}{% if row.groundtroops_footnote %}<sup>{{ row.groundtroops_footnote }}</sup>{% endif %} </td>
+                <td data-title="{{ COPY.labels.hdr_nofly }}" class ="syria {{ row.nofly|classify }}">{% if row.nofly_link %}<a href="{{ row.nofly_link }}">{% endif %}<span class="{% if row.nofly == 'Yes' %}yes{% elif row.nofly == 'No' %}no{% else %}other{% endif %}">{{ row.nofly }}</span>{% if row.nofly_link %}</a>{% endif %}{% if row.nofly_footnote %}<sup>{{ row.nofly_footnote }}</sup>{% endif %} </td>
+                <td data-title="{{ COPY.labels.hdr_article }}" class ="syria {{ row.article|classify }}">{% if row.article_link %}<a href="{{ row.article_link }}">{% endif %}<span class="{% if row.article == 'Yes' %}yes{% elif row.article == 'No' %}no{% else %}other{% endif %}">{{ row.article }}</span>{% if row.article_link %}</a>{% endif %}{% if row.article_footnote %}<sup>{{ row.article_footnote }}</sup>{% endif %} </td>
+                <td data-title="{{ COPY.labels.hdr_radical }}" class ="syria {{ row.radical|classify }}">{% if row.radical_link %}<a href="{{ row.radical_link }}">{% endif %}<span class="{% if row.radical == 'Yes' %}yes{% elif row.radical == 'No' %}no{% else %}other{% endif %}">{{ row.radical }}</span>{% if row.radical_link %}</a>{% endif %}{% if row.radical_footnote %}<sup>{{ row.radical_footnote }}</sup>{% endif %} </td>
+                <td data-title="{{ COPY.labels.hdr_war }}" class ="syria {{ row.war|classify }}">{% if row.war_link %}<a href="{{ row.war_link }}">{% endif %}<span class="{% if row.war == 'Yes' %}yes{% elif row.war == 'Yes (AUMF)' %}yes{% elif row.war == 'Yes (War)' %}yes{% elif row.war == 'No' %}no{% else %}other{% endif %}">{{ row.war }}</span>{% if row.war_link %}</a>{% endif %}{% if row.war_footnote %}<sup>{{ row.war_footnote }}</sup>{% endif %} </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote_1 %}<sup>
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>
+            1. {{ COPY.labels.footnote_1 }}</br>
+            2. {{ COPY.labels.footnote_2 }}</br>
+            3. {{ COPY.labels.footnote_3 }}</br>
+            4. {{ COPY.labels.footnote_4 }}</br>
+            5. {{ COPY.labels.footnote_5 }}</br>
+            6. {{ COPY.labels.footnote_6 }}</br>
+            7. {{ COPY.labels.footnote_7 }}</br>
+            8. {{ COPY.labels.footnote_8 }}</br>
+            9. {{ COPY.labels.footnote_9 }}</br>
+            10. {{ COPY.labels.footnote_10 }}</br>
+            11. {{ COPY.labels.footnote_11 }}</br>
+            12. {{ COPY.labels.footnote_12 }}</br>
+            13. {{ COPY.labels.footnote_13 }}</br>
+            14. {{ COPY.labels.footnote_14 }}</br>             
+        </p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

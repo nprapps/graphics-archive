@@ -1,0 +1,45 @@
+{% extends 'base_template.html' %}
+
+{% block fonts %}
+<!-- Fonts -->
+<script src="http://apps.npr.org/dailygraphics/graphics/fonts/js/lib/webfont.js"></script>
+<script>
+WebFont.load({
+    custom: {
+        families: [
+            'Gotham SSm:n4,n7',
+            'Knockout 31 4r:n4',
+            'elections'
+        ],
+        urls: [
+            'http://s.npr.org/templates/css/fonts/GothamSSm.css',
+            'http://s.npr.org/templates/css/fonts/Knockout.css',
+            'css/elections.css'
+        ]
+    },
+    timeout: 10000
+});
+</script>
+{% endblock %}
+
+{% block content %}
+    <div class="graphic">
+        <h1>Super Tuesday: Republican Results</h1>
+
+        <div class="results gop"></div>
+
+        <div class="footer">
+            <p>Source: AP</p>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/d3.min.js') }}
+    {{ JS.push('js/base.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

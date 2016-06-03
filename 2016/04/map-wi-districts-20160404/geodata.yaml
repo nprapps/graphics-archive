@@ -1,0 +1,17 @@
+bbox: '-93.43 41.96 -86.02 47.48'
+layers:
+    districts:
+        type: 'shp'
+        path: 'http://www2.census.gov/geo/tiger/GENZ2014/shp/cb_2014_us_cd114_20m.zip'
+        id-property: 'STATEFP'
+        properties:
+            - 'district=CD114FP'
+    cities:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_populated_places_simple.zip'
+        id-property: 'name'
+        properties:
+            - 'featurecla'
+            - 'city=name'
+            - 'scalerank'
+        where: adm0name = 'United States of America'

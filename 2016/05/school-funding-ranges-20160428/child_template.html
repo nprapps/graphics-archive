@@ -1,0 +1,86 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="anno-layer annos-thin">
+        {% include 'intro-annos.html' %}
+    </div>
+    <div id="graphic" class="graphic">
+        <div class="chart-body-wide">
+            <ul class="chart-labels">
+                <li class="label-0">$0</li>
+                <li class="label-1">$10,000</li>
+                <li class="label-2">$20,000</li>
+                <li class="label-3">$30,000</li>
+                <li class="label-4">$40,000</li>
+                <li class="label-5">$50,000</li>
+            </ul>
+            <div class="chart-lines">
+                <span class="chart-line label-0"></span>
+                <span class="chart-line label-1"></span>
+                <span class="chart-line label-2"></span>
+                <span class="chart-line label-3"></span>
+                <span class="chart-line label-4"></span>
+                <span class="chart-line label-5"></span>
+            </div>
+            <div class="chart-slices">
+            {% for row in COPY.data %}
+                <div class="slice-wrap">
+                    <img src="assets/images/range-slice_{{ row.index_padded }}.png" />
+                    <span class="slice-tick"></span>
+                    <span class="slice-label {{ row.special_class }} state-{{ row.state|lower }}">{{ row.state|ap_state }}</span>
+                </div>
+            {% endfor %}
+            </div>
+            <div class="chart-lines">
+                <span class="chart-line label-avg"></span>
+            </div>
+            <div class="anno-layer annos-wide">
+            {% include 'intro-annos.html' %}
+            {% include 'state-annos.html' %}
+            </div>
+        </div>
+        <div class="chart-body-mobile">
+            <ul class="chart-labels">
+                <li class="label-0">$0</li>
+                <li class="label-2">$20,000</li>
+                <li class="label-4">$40,000</li>
+            </ul>
+            <div class="chart-lines">
+                <span class="chart-line label-0"></span>
+                <span class="chart-line label-2"></span>
+                <span class="chart-line label-4"></span>
+            </div>
+            <div class="chart-slices">
+            {% for row in COPY.data|sort(reverse=True,attribute='index_padded') %}
+                <div class="slice-wrap clearfix">
+                    <span class="slice-label">{{ row.state|ap_state }}</span>
+                    <img src="assets/m/images/range-slice_{{ row.index_padded }}.png" />
+                </div>
+            {% endfor %}
+            </div>
+            <div class="chart-lines">
+                <span class="chart-line label-avg"></span>
+            </div>
+            <div class="anno-layer annos-wide">
+            {% include 'state-annos.html' %}
+            </div>
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,57 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+        <div id="quiz1">
+        <h3> Story #1 </h3>
+
+            <!-- <img class="bat-image" width="200" height="auto" src="assets/bat-tie.png">     -->
+            <div class="quiz-box">
+                <span class="quiz-span soundcite soundcite-loaded soundcite-play" data-url="assets/spot1-audacity.mp3" data-start="0" data-end="40000">Denny's Corporation on Monday reported first-quarter profit of 8.5 million dollars. The Spartanburg, South Carolina-based company said it had profit of 10 cents per share. The results beat Wall Street expectations. The average estimate of four analysts surveyed by Zacks Investment Research was for earnings of 9 cents per share. The restaurant operator posted revenue of $120.2 million in the period, also beating Street forecasts. Three analysts surveyed by Zacks expected $117.1 million. Denny's shares have risen nearly 6 percent since the beginning of the year. In the final minutes of trading on Monday, shares hit $10.90, a climb of 61 percent in the last 12 months. 
+                </span>
+            </div>
+        </div>
+        <div id="quiz2">
+        <h3> Story #2 </h3>
+
+            <!-- <img class="bat-image" width="200" height="auto" src="assets/bat-tie.png">     -->
+            <div class="quiz-box">
+                <span class="quiz-span soundcite soundcite-loaded soundcite-play" data-url="assets/spot2-audacity.mp3" data-start="0" data-end="40000">Denny’s Corporation notched a grand slam of its own in the first quarter, earning a better-than-expected ten cents a share, as restaurant sales jumped by more than 7-percent. Operating revenues topped $120 million.   Adjusted net income jumped 36 percent to $8.7 million.  Denny’s is one of the nation’s largest full-service restaurant chains.  The growth in sales suggests consumers are opening their pocketbooks for pancakes, eggs, and hash browns.  Earnings were also helped by lower costs for raw materials. Denny’s results were also helped by the re-opening of the high-volume location inside the Las Vegas Casino Royale restaurant.  After sales grew faster than expected in the first three months of the year, managers raised their sales forecast for the remainder of 2015.  
+                </span>
+            </div>
+        </div>
+    </div>
+<!-- 
+    <h4 class = "question-prompt"> Which Spot Was Written By A Robot? </h4> 
+    <div class = "question">
+        <div class = "directions" >Which Spot Was Written By A Robot?</div>
+        <div class = "button1 response1" >Spot 1</div>
+        <div class = "button2 response2" >Spot 2</div>
+    </div>
+ -->
+<!--     <div class="answer1">
+        <p>{{ COPY.labels.answer1 }}</p>
+    </div>
+    <div class="answer2">
+        <p>{{ COPY.labels.answer2 }}</p>
+    </div>
+ -->
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+

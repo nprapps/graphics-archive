@@ -1,0 +1,212 @@
+@import "base";
+
+// DATA
+@hh_total: 10.4;
+@hh_afford: 3.2;
+
+// Add custom styles here
+@gotham: 'Gotham SSm',Helvetica,Arial,sans-serif;
+@helvetica: Helvetica, Arial, sans-serif;
+
+@no-data: #e8e8e8;
+@housing-more: #f2970c;
+@housing-less: #e14411;
+@change-least: #c12218;
+@change-less: #e66a53;
+@change-none: #745c45;
+@change-more: #41a099;
+@change-most: #0d514b;
+
+body {
+    padding: 0 0 10px;
+}
+
+.no-break {
+    white-space: nowrap;
+}
+
+.top-wrapper {
+    max-width: 730px;
+    margin: 0 auto;
+    font-family: @gotham;
+    text-align: center;
+
+    .size-wrapper {
+        display: inline-block;
+        text-align: left;
+
+        p {
+            display: inline-block;
+        }
+
+        .bar {
+            display: block;
+            height: 10px;
+            background: #ccc;
+
+            &.bar-total{
+                width: 100% * (@hh_total / @hh_total);
+                margin-bottom: 7px;
+            }
+
+            &.bar-highlight {
+                width: 100% * (@hh_afford / @hh_total);
+                background: @housing-less;
+            }
+        }
+    }
+}
+
+.bottom-wrapper {
+    p.bottom-type {
+        font-family: @gotham;
+        text-align: center;
+        margin: 15px auto;
+        font-size: 1.3em;
+        color: #666;
+    }
+}
+
+.small-note {
+    font-size: 0.8em;
+    font-weight: normal;
+    font-family: @helvetica;
+    color: #888;
+    margin: 0 auto 15px;
+    text-align: center;
+
+    strong {
+        font-weight: normal;
+        background: @no-data;
+        padding: 3px 3px;
+    }
+}
+
+p.legend-title {
+    font-family: @helvetica;
+    font-weight: normal;
+    font-size: 0.9em;
+    color: #888;
+    margin: 10px auto 0;
+}
+
+.map-legend {
+    display: inline-block;
+    position: relative;
+    font-family: @helvetica;
+    font-weight: normal;
+
+    .legend-block {
+        display: inline-block;
+        width: 30px;
+        height: 8px;
+        margin-left: -2px;
+
+        &.change-least { background: @change-least; }
+        &.change-less { background: @change-less; }
+        &.change-none { background: @change-none; }
+        &.change-more { background: @change-more; }
+        &.change-most { background: @change-most; }
+    }
+
+    .legend-label {
+        position: absolute;
+        bottom: -10px;
+        font-size: 10px;
+        color: #888;
+
+        &.label-1 { left: -8px; }
+        &.label-2 { left: 50%;  margin-left: -10px; }
+        &.label-3 { right: -26px; }
+    }
+}
+
+.map-wrapper {
+    display: inline-block;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0 2%;
+    font-family: @gotham;
+    font-weight: bold;
+    text-align: center;
+    margin-left: -4px;
+
+    &.maps-change {
+        width: 33%;
+        padding: 0 1%;
+        margin-bottom: 25px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .map-title {
+        margin: 10px 0 5px;
+
+        strong {
+            color: white;
+            padding: 0 3px;
+        }
+    }
+
+    &.map-more {
+        .map-title strong {
+            background: @housing-more;
+        }
+    }
+
+    &.map-less {
+        .map-title strong {
+            background: @housing-less;
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .map-wrapper {
+        .small-note {
+            strong {
+                padding: 1px 3px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .top-wrapper {
+        p {
+            margin: 5px auto;
+        }
+
+        .size-wrapper .bar.bar-total {
+            margin-bottom: 5px;
+        }
+    }
+
+    .bottom-wrapper {
+        p.bottom-type {
+            text-align: left;
+            font-size: 1.2em;
+            margin: 10px auto;
+        }
+    }
+
+    .map-wrapper, .map-wrapper.maps-change {
+        display: block;
+        width: 100%;
+        margin: 20px 0;
+
+        img {
+            padding: 0 40px;
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .map-wrapper, .map-wrapper.maps-change {
+        img {
+            padding: 0;
+        }
+    }
+}

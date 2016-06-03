@@ -1,0 +1,142 @@
+@import "base";
+
+@change-least: tint(#c12218, 30%);
+@change-less: tint(#e66a53, 50%);
+@change-mid: tint(#e66a53, 80%);
+@change-none: tint(#745c45);
+@change-more: tint(#41a099);
+@change-most: tint(#0d514b);
+
+h2 {
+    margin-bottom: 5px;
+}
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    th, td {
+        padding: 10px 10px 10px 5px;
+        text-align: left;
+
+        &.col-rank {
+            padding: 10px 0;
+        }
+
+        &.col-pct {
+            text-align: center;
+            vertical-align: middle;
+            padding: 10px 0;
+            width: 80px;
+        }
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    th.amt, td.amt {
+        text-align: right;
+    }
+
+    td.bin { border-color: #fff; }
+    td.bin-35 { background-color: @change-least; color: #fff; }
+    td.bin-32 { background-color: @change-less; }
+    td.bin-30 { background-color: @change-mid; }
+    td.bin-13 { background-color: @teal6; }
+    td.bin-12 { background-color: @teal5; }
+
+
+    // td.bin-26 { background-color: @orange1; }
+    // td.bin-25 { background-color: @orange2; }
+    // td.bin-24 { background-color: @orange3; }
+    // td.bin-23 { background-color: @orange4; }
+    // td.bin-22 { background-color: @orange5; }
+    // td.bin-21 { background-color: @orange6; }
+    // td.bin-13 { background-color: @teal3; }
+    // td.bin-12 { background-color: @teal4; }
+    // td.bin-11 { background-color: @teal5; }
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+}
+
+// Table bin colors
+// DELETE ALL IF IT DOESN'T WORK
+
+
+
+// Tablesorter styles
+table {
+    th {
+        &.sort-header {
+            cursor: pointer;
+
+            &::-moz-selection,
+            &::selection {
+                background: transparent;
+            }
+
+            .sorter {
+                border-top: 2px solid #404040;
+                visibility: hidden;
+
+                .icon {
+                    content: '';
+                    width: 1px;
+                    margin: 3px auto 7px auto;
+                    border-width: 0 4px 4px;
+                    border-style: solid;
+                    border-color: #404040 transparent;
+                }
+            }
+
+            &:hover .sorter {
+                visibility: visible;
+            }
+        }
+
+        &.sort-up .sorter,
+        &.sort-down .sorter,
+        &.sort-down:hover .sorter {
+            visibility: visible;
+            opacity: 0.4;
+        }
+
+        &.sort-up .sorter .icon {
+            border-bottom: none;
+            border-width: 4px 4px 0;
+        }
+    }
+}
+
+// Mobile styles
+@media screen and (max-width: 220px) {
+    table {
+        th, td {
+            &.col-pct {
+                width: 50px;
+            }
+        }
+    }
+}

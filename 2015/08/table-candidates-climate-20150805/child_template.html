@@ -1,0 +1,110 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+    
+    <ul class="key"><li class="key-item"><b></b><label>Recent change</label></li></ul>
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th class="name">{{ COPY.labels.hdr_name }}</th>
+                    <th class="climate">{{ COPY.labels.hdr_climate_real }}</th>
+                    <th class="climate">{{ COPY.labels.hdr_climate_manmade }}</th>
+                    <th class="climate">{{ COPY.labels.hdr_climate_action }}</th>
+                    <th class="climate">{{ COPY.labels.hdr_climate_promise }}</th>
+                    <th class="climate">{{ COPY.labels.hdr_climate_plan }}</th>
+                    <th class="climate">{{ COPY.labels.hdr_keystone }}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data_matrix %}
+            <tr class="state-{{ row.name|classify }}">
+
+                <td data-title="{{ COPY.labels.hdr_name }}" class="name">{{ row.name }} ({{ row.party }})</td>
+                <td data-title="{{ COPY.labels.hdr_climate_real }}" class="climate {{ row.climate_real|classify }}">
+                    {% if row.climate_real_link %}<a href="{{ row.climate_real_link }}">{% endif %}<span class="{% if row.climate_real == 'Yes' %}yes{% elif row.climate_real == 'No' %}no{% else %}other{% endif %}">{{ row.climate_real }}</span>{% if row.climate_real_link %}</a>{% endif %}{% if row.climate_real_footnote %}<sup>{{ row.climate_real_footnote }}</sup>{% endif %}
+                </td>
+                <td data-title="{{ COPY.labels.hdr_climate_manmade }}" class="climate">
+                    {% if row.climate_manmade_link %}<a href="{{ row.climate_manmade_link }}">{% endif %}
+                    
+                    <span class="{% if row.climate_manmade == 'Yes' %}yes{% elif row.climate_manmade == 'No' %}no{% else %}other{% endif %}">
+                    {{ row.climate_manmade }}
+                    </span>
+                    
+                    {% if row.climate_manmade_link %}</a>{% endif %}{% if row.climate_manmade_footnote %}<sup>{{ row.climate_manmade_footnote }}</sup>{% endif %}
+                </td>
+                <td data-title="{{ COPY.labels.hdr_climate_action }}" class="climate">
+                    {% if row.climate_action_link %}<a href="{{ row.climate_action_link }}">{% endif %}
+                    
+                    <span class="{% if row.climate_action == 'Yes' %}yes{% elif row.climate_action == 'No' %}no{% else %}other{% endif %}">
+                    {{ row.climate_action }}
+                    </span>
+
+                    {% if row.climate_action_link %}</a>{% endif %}{% if row.climate_action_footnote %}<sup>{{ row.climate_action_footnote }}</sup>{% endif %}
+                </td>
+                <td data-title="{{ COPY.labels.hdr_climate_promise }}" class="climate">
+                    {% if row.climate_promise_link %}<a href="{{ row.climate_promise_link }}">{% endif %}
+                    
+                    <span class="{% if row.climate_promise == 'Yes' %}yes{% elif row.climate_promise == 'No' %}no{% else %}other{% endif %}">{{ row.climate_promise }}</span>
+                    
+                    {% if row.climate_promise_link %}</a>{% endif %}{% if row.climate_promise_footnote %}<sup>{{ row.climate_promise_footnote }}</sup>{% endif %}
+                </td>
+                <td data-title="{{ COPY.labels.hdr_climate_plan }}" class="climate">
+                    {% if row.climate_plan_link %}<a href="{{ row.climate_plan_link }}">{% endif %}
+                    
+                    <span class="{% if row.climate_plan == 'Yes' %}yes{% elif row.climate_plan == 'No' %}no{% else %}other{% endif %}">
+                    {{ row.climate_plan }}
+                    </span>
+                    
+                    {% if row.climate_plan_link %}</a>{% endif %}{% if row.climate_plan_footnote %}<sup>{{ row.climate_plan_footnote }}</sup>{% endif %}
+                </td>
+                <td data-title="{{ COPY.labels.hdr_keystone }}" class="climate">
+                    {% if row.keystone_link %}<a href="{{ row.keystone_link }}">{% endif %}
+                    
+                    <span class="{% if row.keystone == 'Yes' %}yes{% elif row.keystone == 'No' %}no{% else %}other{% endif %}">
+                    {{ row.keystone }}
+                    </span>
+                    
+                    {% if row.keystone_link %}</a>{% endif %}
+
+                    {% if row.keystone_footnote %}<sup>{{ row.keystone_footnote }}</sup>{% endif %}
+                </td>
+                
+                <td class="footnotes-inline">{% if row.climate_real_footnote %}<p>{{ COPY.labels['footnote_' + row.climate_real_footnote] }}</p>{% endif %}{% if row.climate_manmade_footnote %}<p>{{ COPY.labels['footnote_' + row.climate_manmade_footnote] }}</p>{% endif %}{% if row.climate_action_footnote %}<p>{{ COPY.labels['footnote_' + row.climate_action_footnote] }}</p>{% endif %}{% if row.climate_promise_footnote %}<p>{{ COPY.labels['footnote_' + row.climate_promise_footnote] }}</p>{% endif %}{% if row.climate_plan_footnote %}{% if row.name != 'Bobby Jindal' %}<p>{{ COPY.labels['footnote_' + row.climate_plan_footnote] }}</p>{% endif %}{% endif %}{% if row.keystone_footnote %}<p>{{ COPY.labels['footnote_' + row.keystone_footnote] }}</p>{% endif %}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote_1 %}<sup>
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>
+            {{ COPY.labels.footnote_1 }}<br />
+            {{ COPY.labels.footnote_2 }}<br />
+            {{ COPY.labels.footnote_3 }}<br />
+            {{ COPY.labels.footnote_4 }}<br />
+            {{ COPY.labels.footnote_5 }}
+        </p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

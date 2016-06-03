@@ -1,0 +1,119 @@
+@import "base";
+
+h3 {
+    font-size: 14px;
+    margin-left: 10px;
+    margin-bottom: 6px;
+}
+.precincts {
+    color: #999;
+    font-size: 12px;
+    white-space: nowrap;
+    display: block;
+    margin-top: 2px;
+}
+
+.results {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+
+.state {
+    box-sizing: border-box;
+    margin-bottom: 33px;
+
+    &.filler {
+        height: 1px;
+        margin-bottom: 0;
+    }
+    // via http://stackoverflow.com/questions/16377972/how-to-align-left-last-row-line-in-multiple-line-flexbox
+}
+
+.source {
+    margin: 11px 10px 0 10px;
+    padding: 0;
+    list-style: none;
+
+    > li {
+        font-style: italic;
+        color: #999;
+        line-height: 1.3;
+        margin: 2px 0 0 0;
+        font-size: 11px;
+
+        &:first-child { margin-bottom: 6px; }
+    }
+}
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    th {
+        padding: 0 10px 6px 10px;
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        text-align: left;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        vertical-align: top;
+        text-align: left;
+        padding: 6px 10px;
+        white-space: nowrap;
+    }
+
+    .votes,
+    .pct {
+        text-align: right;
+        width: 20%;
+    }
+
+    tr {
+        background-color: #f1f1f1;
+        border-bottom: 1px solid #fff;
+
+        &.winner {
+            color: #fff;
+            font-weight: bold;
+
+            // .icon-ok { color: #f19e14; }
+            .icon-ok { color: #fff; }
+        }
+    }
+}
+.dem tr.winner {
+    &.clinton { background-color: @blue2; }
+    &.sanders { background-color: @teal4; }
+}
+
+// // Desktop-only styles
+@media screen and (min-width: 701px) {
+    .state { width: 23%; }
+}
+
+@media screen and (max-width: 700px) {
+    .state { width: 30%; }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    .state { width: 47%; }
+}

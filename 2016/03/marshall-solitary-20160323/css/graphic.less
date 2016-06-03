@@ -1,0 +1,29 @@
+@import "base.less";
+.g-solitary #cell, .g-solitary .image {
+    display: block;
+    width: 100%;
+}
+
+.g-solitary #cell {
+    height: 400px;
+}
+
+@media screen and (min-width: 730px) {
+    .g-solitary #cell {
+        display: inline-block;
+        height: 400px;
+        width: 75%;
+    }
+
+    .g-solitary .image {
+        display: inline-block;
+        width: 24%;
+    }
+}
+.g-solitary canvas {
+    width: 100%;
+    height: 100%;
+}
+.g-solitary .image img {
+    width: 100%;
+}
