@@ -44,7 +44,7 @@ var render = function(containerWidth) {
     containerElement.html('');
     containerElement.append('h3')
         .attr('class', 'initial-h3')
-        .text('Share of mosquitos attracted...');
+        .text('Share of mosquitoes attracted...');
 
     var dataValues = ['initial', '240'];
     for (var i=0; i < dataValues.length; i++) {
