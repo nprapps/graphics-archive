@@ -113,20 +113,20 @@ function draw_graph(width) {
         return key !== 'date';
     }));
 
-    console.log(graphic_data)
-
     // parse data into columns
     var formatted_data = {};
     for (var column in graphic_data[0]) {
         if (column == 'date') continue;
         formatted_data[column] = graphic_data.map(function(d) {
-            return { 'date': d['date'], 'amt': d[column]*100 };
+            return {
+                'date': d['date'],
+                'amt': d[column] * 100
+            };
+        })
+        .filter(function(d) {
+            return d['amt'] != null && d['amt'] != 0 && !isNaN(d['amt']);
         });
-        // filter(function(d) {
-        //     return d['amt'].length > 0;
-        // });
     }
-
 
     // set the data domain
     x.domain(d3.extent(graphic_data, function(d) {
@@ -235,7 +235,6 @@ function classify(str) { // clean up strings to use as CSS classes
 $(window).load(function() {
     if (Modernizr.svg) {
         $graphic = $('#graphic');
-        console.log(graphic_data)
 
         d3.csv(graphic_data_url, function(error, data) {
             graphic_data = data;
