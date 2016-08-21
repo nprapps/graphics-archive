@@ -1,0 +1,266 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels_map.headline_trump %}<h1>{{ COPY.labels_map.headline_trump|smarty }}</h1>{% endif %}
+    {% if COPY.labels_map.subhed_trump %}<h2>{{ render(COPY.labels_map.subhed_trump)|smarty }}</h2>{% endif %}
+
+    <h3 class="totals">{{ COPY.labels_map.hed_trump_totals }}</h3>
+    <div id="bar-chart" class="graphic"></div>
+
+    <h3>{{ COPY.labels_map.hed_trump_map }}</h3>
+    <p class="map-subhed">{{ COPY.labels_map.subhed_trump_map }}</p>
+
+    <div id="graphic" class="graphic">
+        <img src="fallback.png" alt="[Chart]" class="fallback" />
+    </div>
+
+    {% if COPY.labels_map.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels_map.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels_map.source %}<p>Source: {{ COPY.labels_map.source|smarty }}</p>{% endif %}
+        {% if COPY.labels_map.credit %}<p>Credit: {{ COPY.labels_map.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var DATA_GOP = {{ COPY.gop.json() }};
+    </script>
+
+    <div id="gop-map" style="display: none;">
+        <?xml version="1.0" encoding="utf-8"?>
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        	 viewBox="0 0 623 480" style="enable-background:new 0 0 623 480;" xml:space="preserve">
+        <g class="ia">
+        	<rect x="220" y="151" class="total" width="30" height="30"/>
+        	<text>IA</text>
+        </g>
+        <g class="sc">
+        	<rect x="387.1" y="261" class="total" width="38" height="38"/>
+        	<text>SC</text>
+        </g>
+        <g class="nv">
+        	<rect x="81" y="224" class="total" width="30" height="30"/>
+        	<text>NV</text>
+        </g>
+        <g class="al">
+        	<rect x="344.1" y="304" class="total" width="38" height="38"/>
+        	<text>AL</text>
+        </g>
+        <g class="ak">
+        	<rect x="7" y="25" class="total" width="28" height="28"/>
+        	<text>AK</text>
+        </g>
+        <g class="ar">
+        	<rect x="263.1" y="257.7" class="total" width="34" height="34"/>
+        	<text>AR</text>
+        </g>
+        <g class="ga">
+        	<rect x="387.1" y="304" class="total" width="47" height="47"/>
+        	<text>GA</text>
+        </g>
+        <g class="mn">
+        	<rect x="217" y="104" class="total" width="33" height="33"/>
+        	<text>MN</text>
+        </g>
+        <g class="ok">
+        	<rect x="202.5" y="263" class="total" width="35" height="35"/>
+        	<text>OK</text>
+        </g>
+        <g class="tn">
+        	<rect x="305" y="251.7" class="total" width="41" height="41"/>
+        	<text>TN</text>
+        </g>
+        <g class="tx">
+        	<rect x="190.1" y="303" class="total" width="68" height="68"/>
+        	<text>TX</text>
+        </g>
+        <g class="va">
+        	<rect x="417.8" y="200" class="total" width="38" height="38"/>
+        	<text>VA</text>
+        </g>
+        <g class="ks">
+        	<rect x="194.7" y="220.2" class="total" width="34" height="34"/>
+        	<text>KS</text>
+        </g>
+        <g class="ky">
+        	<rect x="307" y="203.3" class="total" width="37" height="37"/>
+        	<text>KY</text>
+        </g>
+        <g class="la">
+        	<rect x="263.1" y="303" class="total" width="37" height="37"/>
+        	<text>LA</text>
+        </g>
+        <g class="hi">
+        	<rect x="5" y="356" class="total" width="23" height="23"/>
+        	<text>HI</text>
+        </g>
+        <g class="id">
+        	<rect x="89.7" y="154.6" class="total" width="30" height="30"/>
+        	<text>ID</text>
+        </g>
+        <g class="mi">
+        	<rect x="351" y="104" class="total" width="42" height="42"/>
+        	<text>MI</text>
+        </g>
+        <g class="ms">
+        	<rect x="305.1" y="304" class="total" width="34" height="34"/>
+        	<text>MS</text>
+        </g>
+        <g class="dc">
+        	<rect x="460.8" y="200" class="total" width="23" height="23"/>
+        	<text>DC</text>
+        </g>
+        <g class="wy">
+        	<rect x="133.3" y="182.5" class="total" width="29" height="29"/>
+        	<text>WY</text>
+        </g>
+        <g class="fl">
+        	<rect x="396.1" y="356" class="total" width="54" height="54"/>
+        	<text>FL</text>
+        </g>
+        <g class="il">
+        	<rect x="255" y="151" class="total" width="45" height="45"/>
+        	<text>IL</text>
+        </g>
+        <g class="mo">
+        	<rect x="248.4" y="207.3" class="total" width="39" height="39"/>
+        	<text>MO</text>
+        </g>
+        <g class="nc">
+        	<rect x="430.1" y="243" class="total" width="46" height="46"/>
+        	<text>NC</text>
+        </g>
+        <g class="oh">
+        	<rect x="351" y="151" class="total" width="44" height="44"/>
+        	<text>OH</text>
+        </g>
+        <g class="az">
+        	<rect x="109" y="263" class="total" width="41" height="41"/>
+        	<text>AZ</text>
+        </g>
+        <g class="ut">
+        	<rect x="116" y="224" class="total" width="34" height="34"/>
+        	<text>UT</text>
+        </g>
+        <g class="wi">
+        	<rect x="255" y="104" class="total" width="35" height="35"/>
+        	<text>WI</text>
+        </g>
+        <g class="de">
+        	<rect x="488.8" y="189" class="total" width="21" height="21"/>
+        	<text>DE</text>
+        </g>
+        <g class="md">
+        	<rect x="450.8" y="162" class="total" width="33" height="33"/>
+        	<text>MD</text>
+        </g>
+        <g class="pa">
+        	<rect x="399.8" y="149" class="total" width="46" height="46"/>
+        	<text>PA</text>
+        </g>
+        <g class="ny">
+        	<rect x="474.8" y="87" class="total" width="53" height="53"/>
+        	<text>NY</text>
+        </g>
+        <g class="nh">
+        	<rect x="558.8" y="56" class="total" width="26" height="26"/>
+        	<text>NH</text>
+        </g>
+        <g class="ma">
+        	<rect x="532.8" y="87" class="total" width="35" height="35"/>
+        	<text>MA</text>
+        </g>
+        <g class="vt">
+        	<rect x="532.8" y="61" class="total" width="21" height="21"/>
+        	<text>VT</text>
+        </g>
+        <g class="me">
+        	<rect x="572.8" y="25" class="total" width="26" height="26"/>
+        	<text>ME</text>
+        </g>
+        <g class="ct">
+        	<rect x="532.8" y="127" class="total" width="28" height="28"/>
+        	<text>CT</text>
+        </g>
+        <g class="ri">
+        	<rect x="565.8" y="127" class="total" width="23" height="23"/>
+        	<text>RI</text>
+        </g>
+        <g class="in">
+        	<rect x="305" y="151" class="total" width="41" height="41"/>
+        	<text>IN</text>
+        </g>
+        <g class="ne">
+        	<rect x="176" y="179.5" class="total" width="32" height="32"/>
+        	<text>NE</text>
+        </g>
+        <g class="wv">
+        	<rect x="365.8" y="207" class="total" width="31" height="31"/>
+        	<text>WV</text>
+        </g>
+        <g class="wa">
+        	<rect x="40" y="104" class="total" width="36" height="36"/>
+        	<text>WA</text>
+        </g>
+        <g class="or">
+        	<rect x="48" y="156.6" class="total" width="28" height="28"/>
+        	<text>OR</text>
+        </g>
+        <g class="ca">
+        	<rect x="5" y="201.2" class="total" width="71" height="71"/>
+        	<text>CA</text>
+        </g>
+        <g class="mt">
+        	<rect x="112" y="104" class="total" width="28" height="28"/>
+        	<text>MT</text>
+        </g>
+        <g class="nj">
+        	<rect x="488.8" y="145" class="total" width="39" height="39"/>
+        	<text>NJ</text>
+        </g>
+        <g class="nm">
+        	<rect x="155" y="263" class="total" width="26" height="26"/>
+        	<text>NM</text>
+        </g>
+        <g class="sd">
+        	<rect x="176" y="141.8" class="total" width="29" height="29"/>
+        	<text>SD</text>
+        </g>
+        <g class="nd">
+            <rect x="176" y="104" class="total" width="28" height="28"/>
+        	<text>ND</text>
+        </g>
+        <g class="co">
+            <rect x="155" y="225" class="total" width="33" height="33"/>
+        	<text>CO</text>
+        </g>
+        <g class="as">
+        	<rect x="5" y="444" class="total" width="16" height="16"/>
+        	<text>AS</text>
+        </g>
+        <g class="gu">
+        	<rect x="26" y="444" class="total" width="16" height="16"/>
+        	<text>GU</text>
+        </g>
+        <g class="mp">
+        	<rect x="47" y="444" class="total" width="16" height="16"/>
+        	<text>MP</text>
+        </g>
+        <g class="pr">
+        	<rect x="69" y="444" class="total" width="26" height="26"/>
+        	<text>PR</text>
+        </g>
+        <g class="vi">
+        	<rect x="100" y="444" class="total" width="16" height="16"/>
+        	<text>VI</text>
+        </g>
+        <text class="territories" x="0" y="435">Territories</text>
+        </svg>
+    </div>
+{% endblock content %}

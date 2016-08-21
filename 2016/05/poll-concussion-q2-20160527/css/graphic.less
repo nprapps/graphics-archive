@@ -1,0 +1,23 @@
+@import "base";
+
+.group rect.no { fill-opacity: 0.7; }
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+
+    .total& { font-weight: bold; }
+}
+
+.labels {
+    .total {
+        font-weight: bold;
+        color: #333;
+    }
+    .division {
+        border-top: 1px solid #ddd;
+    }
+}

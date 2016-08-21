@@ -1,0 +1,47 @@
+@import "base";
+
+.promo {
+    .labels li {
+        font-size: 14px;
+        font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+    }
+    .chart.gop {
+        padding-left: 15px;
+        border-left: 1px solid #dadada;
+    }
+}
+
+.value text {
+    fill: #787878;
+
+    .total& {
+        fill: #454545;
+        font-weight: bold;
+        font-size: 11px;
+    }
+}
+
+.key {
+    .key-item.remaining { display: none; }
+    .key-item b:first-child { margin-right: 1px; }
+}
+
+@media screen and (min-width: 501px) {
+    .chart.dem { float: left; }
+    .chart.gop { float: right; }
+
+    .key {
+        margin-top: 11px;
+        margin-bottom: 0;
+
+        .key-item {
+            display: block;
+            margin-bottom: 3px;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .chart.dem { margin-bottom: 22px; }
+    .key { margin-top: 0; }
+}

@@ -1,0 +1,120 @@
+@import "base";
+
+#stacked-bar-chart {
+    margin-bottom: 0;
+}
+
+.annotations {
+    line {
+        stroke: #666;
+        stroke-width: 1px;
+
+        .polling & { stroke: #ccc; }
+    }
+    .winner-line {
+        text-anchor: middle;
+        font-size: 11px;
+        fill: #666;
+    }
+    .candidate {
+        font-weight: bold;
+        font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+        -webkit-font-smoothing: antialiased;
+
+        &.dem {
+            text-anchor: begin;
+            fill: @blue1;
+        }
+        &.gop {
+            text-anchor: end;
+            fill: @red1;
+        }
+    }
+}
+
+/* Key
+========================================*/
+.key {
+    margin: 0 0 18px 0;
+    padding: 0;
+    list-style-type: none;
+
+    &:empty { display: none; }
+}
+.key .key-item {
+    display: inline-block;
+    margin: 0 18px 0 0;
+    padding: 0;
+    line-height: 15px;
+}
+.key .key-item b {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
+    float: left;
+}
+.key .key-item label {
+    white-space: nowrap;
+    font-size: 12px;
+    color: #666;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Grid Map
+========================================*/
+
+.tile-grid-map {
+    margin-bottom: 33px;
+}
+
+.state {
+    fill: #eee;
+}
+
+.label {
+    font-family: 'Knockout 31 4r';
+    font-size: 12px;
+    fill: #979797;
+
+    tspan:nth-child(2) {
+        font-size: 75%;
+        fill-opacity: 0.75;
+    }
+}
+
+.label-active {
+    fill: #fff;
+}
+
+.districts {
+    text { fill: #666; }
+}
+
+@media screen and (max-width: 500px){
+    .label { font-size: 14px; }
+    .districts text { font-size: 12px; }
+    .annotations .candidate { font-size: 14px; }
+    .key .key-item {
+        margin-right: 0;
+        width: 25%;
+    }
+}
+
+@media screen and (min-width: 501px){
+    .label { font-size: 9.5px; }
+    .districts text { font-size: 7px; }
+    .annotations .candidate { font-size: 18px; }
+    .key {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 500px;
+
+        .key-item { margin-right: 0; }
+    }
+}

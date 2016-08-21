@@ -1,0 +1,67 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th class="trait">{{ COPY.labels.hdr_trait }}</th>
+                    <th class="candidate">{{ COPY.labels.hdr_trump}}</th>
+                    <th class="candidate">{{ COPY.labels.hdr_cruz}}</th>
+                    <th class="candidate">{{ COPY.labels.hdr_bush}}</th>
+                    <th class="candidate">{{ COPY.labels.hdr_romney}}</th>
+                    <th class="candidate">{{ COPY.labels.hdr_rubio}}</th>
+                    <th class="candidate">{{ COPY.labels.hdr_kasich}}</th>
+                    <th class="candidate">{{ COPY.labels.hdr_ryan}}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            {% if row.trait == 'TOTAL' %}
+            <tfoot>
+            {% endif %}
+            <tr class="state-{{ row.trait|classify }}">
+                <td data-title="{{ COPY.labels.hdr_trait }}" class="trait">{{ row.trait }}</td>
+                <td data-title="{{ COPY.labels.hdr_trump }}" class ="candidate {{ row.trump_class|classify }}">{{ row.trump }}</span></td>
+                <td data-title="{{ COPY.labels.hdr_cruz }}" class ="candidate {{ row.cruz_class|classify }}">{{ row.cruz }}</span></td>
+                <td data-title="{{ COPY.labels.hdr_bush }}" class ="candidate {{ row.bush_class|classify }}">{{ row.bush }}</span></td>
+                <td data-title="{{ COPY.labels.hdr_romney }}" class ="candidate {{ row.romney_class|classify }}">{{ row.romney }}</span></td>
+                <td data-title="{{ COPY.labels.hdr_rubio }}" class ="candidate {{ row.rubio_class|classify }}">{{ row.rubio }}</span></td>
+                <td data-title="{{ COPY.labels.hdr_kasich }}" class ="candidate {{ row.kasich_class|classify }}">{{ row.kasich }}</span></td>
+                <td data-title="{{ COPY.labels.hdr_ryan }}" class ="candidate {{ row.ryan_class|classify }}">{{ row.ryan }}</span></td>
+            </tr>
+            {% if row.trait == 'TOTAL' %}
+            </tfoot>
+            {% endif %}
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

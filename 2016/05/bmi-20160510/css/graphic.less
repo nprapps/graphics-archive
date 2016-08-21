@@ -1,0 +1,63 @@
+@import "base";
+
+.y.grid .tick {
+    stroke: #fff;
+    stroke-width: 2px;
+}
+
+.bg-bars rect {
+    &.wide { fill: #f1f1f1; }
+    &.side.bar-0 { fill: #999; }
+    &.side.bar-1 { fill: @teal3; }
+    &.side.bar-2 { fill: @yellow3; }
+    &.side.bar-3 { fill: @orange3; }
+}
+
+.bars {
+    line {
+        stroke: #333;
+        stroke-width: 5px;
+
+        &.bar-1976-1978 { stroke: @teal2; }
+        &.bar-1991-1994 { stroke: @teal2; }
+        &.bar-2003-2013 { stroke: @yellow2; }
+    }
+    rect {
+        fill: #ddd;
+
+        &.bar-1976-1978 { fill: @teal5; }
+        &.bar-1991-1994 { fill: @teal5; }
+        &.bar-2003-2013 { fill: @yellow5; }
+    }
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.y.axis text {
+    // fill: #333;
+}
+
+.range-labels text {
+    font-style: italic;
+    text-anchor: end;
+    fill: #787878;
+}
+
+@media screen and (min-width: 501px) {
+    .range-labels text { font-size: 12px; }
+}
+
+@media screen and (max-width: 500px) {
+    .range-labels text { font-size: 11px; }
+}
+
+@media screen and (max-width: 280px) {
+    .range-labels text { font-size: 10px; }
+    .value text {
+        font-size: 10px;
+        text-anchor: middle;
+    }
+}

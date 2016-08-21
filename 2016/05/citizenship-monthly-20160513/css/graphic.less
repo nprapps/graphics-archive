@@ -1,0 +1,31 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 2px;
+    stroke: #ccc;
+    stroke-opacity: 0.9;
+
+    .fy-2016 {
+        stroke-width: 4px;
+        stroke-opacity: 1;
+    }
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

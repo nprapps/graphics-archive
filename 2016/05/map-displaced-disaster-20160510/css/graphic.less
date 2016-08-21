@@ -1,0 +1,119 @@
+@import "base";
+
+h1 {
+    margin-bottom: 22px;
+    color: #787878;
+
+    strong { color: #454545; }
+}
+
+#world-map { margin-bottom: 22px; }
+
+.bars rect {
+    .conflict & { fill: @orange4; }
+    .disaster & { fill: @teal4; }
+}
+
+h3 {
+    font-size: 12px;
+    color: #454545;
+    font-weight: normal;
+    font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 15px 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+.countries path {
+    stroke-width: 0.3;
+    fill: #ddd;
+    stroke: #fff;
+}
+
+.populations {
+    circle {
+        stroke-width: .5;
+        fill-opacity: .3;
+        stroke-opacity: .7;
+
+        .conflict & {
+            fill: @orange3;
+            stroke: @orange3;
+        }
+
+        .disaster & {
+            fill: @teal3;
+            stroke: @teal3;
+        }
+    }
+    text {
+        display: none;
+        fill: #333;
+        font-size: 9px;
+        font-weight: 700;
+        text-anchor: middle;
+        -webkit-font-smoothing: antialiased;
+        font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+    }
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    tr { vertical-align: top; }
+
+    td {
+        border-top: 1px solid #eee;
+        padding: 10px 0;
+        color: #666;
+        font-size: 12px;
+        -webkit-font-smoothing: antialiased;
+
+        &.amt {
+            text-align: right;
+            width: 30%;
+        }
+        &.pct {
+            color: #999;
+            padding-left: 10px;
+            font-size: 10px;
+            width: 40px;
+        }
+    }
+
+    tr:first-child td {
+        border-top: none;
+        padding-top: 0;
+    }
+}
+
+.key {
+    margin-bottom: 8px;
+
+    b { border-radius: 20px; }
+    .positive b { background-color: @teal4; }
+    .negative b { background-color: @red4; }
+
+    circle {
+        fill: none;
+        stroke: #ddd;
+        stroke-width: 1px;
+    }
+    text {
+        fill: #999;
+        font-size: 10px;
+        text-anchor: middle;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .key text { font-size: 7px; }
+    .populations text { font-size: 8px; }
+}

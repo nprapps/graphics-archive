@@ -1,0 +1,68 @@
+@import "base";
+
+.key {
+    margin-bottom: 11px;
+    margin-top: 0;
+}
+
+.annotations {
+    text {
+        text-anchor: middle;
+        font-size: 10px;
+        fill: #666;
+        font-style: italic;
+    }
+    line {
+        stroke: #ccc;
+        stroke-width: 1px;
+    }
+}
+
+.value text {
+    fill: #666;
+
+    &.hidden { display: none; }
+
+    .profits& {
+        fill: #787878;
+        text-anchor: end;
+
+        &.average {
+            fill: #333;
+            font-weight: bold;
+        }
+    }
+}
+
+.labels li {
+    color: #787878;
+
+    b { font-weight: normal; }
+    i {
+        font-style: normal;
+        color: #999;
+        display: block;
+        font-size: 11px;
+
+        &:empty { display: none; }
+    }
+
+    &.average {
+        b {
+            font-weight: bold;
+            color: #333;
+        }
+    }
+}
+
+.group {
+    &.average {
+        .value text {
+            font-weight: bold;
+            fill: #fff;
+        }
+        .profits.value text {
+            fill: #333;
+        }
+    }
+}

@@ -1,0 +1,220 @@
+@import "base";
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+
+    th {
+        border-bottom: 2px solid #ddd;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 0 10px 10px 10px;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+
+        &.candidate {
+            color: #fff;
+
+            &.zero0 {
+                background-color: #ddd;
+                color: #787878;
+            }
+
+            &.pos25  { background-color: mix(@teal4, @teal6, 0%); color: @teal3; }
+            &.pos50  { background-color: mix(@teal4, @teal6, 33%); color: @teal3; }
+            &.pos75  { background-color: mix(@teal4, @teal6, 66%); color: @teal2; }
+            &.pos100 { background-color: mix(@teal4, @teal6, 100%); color: #D0ECEC; }
+
+            &.neg25  { background-color: mix(@orange4, @orange6, 0%); color: @orange3; }
+            &.neg50  { background-color: mix(@orange4, @orange6, 33%); color: @orange3; }
+            &.neg75  { background-color: mix(@orange4, @orange6, 66%); color: @orange2; }
+            &.neg100 { background-color: mix(@orange4, @orange6, 100%); color: #8E591E; }
+
+            // &.pos { background-color: @teal2; color: #fff; }
+            // &.pos2 { background-color: @teal3; color: #fff; }
+            // &.pos3 { background-color: @teal4; color: #fff; }
+            // &.pos4 { background-color: @teal5; color: #fff; }
+            //
+            // &.neg { background-color: @orange2; color: #fff; }
+            // &.neg2 { background-color: @orange3; color: #fff; }
+            // &.neg3 { background-color: @orange4; color: #fff; }
+            // &.neg4 { background-color: @orange5; color: #fff; }
+        }
+    }
+    tfoot td {
+        font-weight: bold;
+
+        &.candidate {
+            &.zero0 { color: #fff; background-color: #bbb; }
+
+            &.pos0  { background-color: @teal4; }
+            &.pos1  { background-color: mix(@teal1, @teal3, 0); }
+            &.pos2  { background-color: mix(@teal1, @teal3, (100% * 1/6)); }
+            &.pos3  { background-color: mix(@teal1, @teal3, (100% * 2/6)); }
+            &.pos4  { background-color: mix(@teal1, @teal3, (100% * 3/6)); }
+            &.pos5  { background-color: mix(@teal1, @teal3, (100% * 4/6)); }
+            &.pos6  { background-color: mix(@teal1, @teal3, (100% * 5/6)); }
+            &.pos7  { background-color: mix(@teal1, @teal3, (100% * 6/6)); }
+
+            &.neg0  { background-color: @orange4; }
+            &.neg1  { background-color: mix(@orange1, @orange3, 0); }
+            &.neg2  { background-color: mix(@orange1, @orange3, (100% * 1/6)); }
+            &.neg3  { background-color: mix(@orange1, @orange3, (100% * 2/6)); }
+            &.neg4  { background-color: mix(@orange1, @orange3, (100% * 3/6)); }
+            &.neg5  { background-color: mix(@orange1, @orange3, (100% * 4/6)); }
+            &.neg6  { background-color: mix(@orange1, @orange3, (100% * 5/6)); }
+            &.neg7  { background-color: mix(@orange1, @orange3, (100% * 6/6)); }
+        }
+    }
+
+    th,
+    td {
+        &.amt {
+            text-align: right;
+        }
+    }
+}
+
+// Tablesorter styles
+table {
+    th {
+        &.sort-header {
+            cursor: pointer;
+
+            &::-moz-selection,
+            &::selection {
+                background: transparent;
+            }
+
+            .sorter {
+                border-top: 2px solid #404040;
+                visibility: hidden;
+
+                .icon {
+                    content: '';
+                    width: 1px;
+                    margin: 3px auto 7px auto;
+                    border-width: 0 4px 4px;
+                    border-style: solid;
+                    border-color: #404040 transparent;
+                }
+            }
+
+            &:hover .sorter {
+                visibility: visible;
+            }
+        }
+
+        &.sort-up .sorter,
+        &.sort-down .sorter,
+        &.sort-down:hover .sorter {
+            visibility: visible;
+            opacity: 0.4;
+        }
+
+        &.sort-up .sorter .icon {
+            border-bottom: none;
+            border-width: 4px 4px 0;
+        }
+    }
+}
+
+// Desktop-only styles
+@media screen and (min-width: 501px) {
+    tfoot td {
+        font-weight: bold;
+
+        &.trait { border-top: 2px solid #ddd; }
+        &.candidate { border-top: 2px solid #fff; }
+    }
+
+    table th.candidate,
+    table td.candidate {
+        width: 10%;
+        text-align: center;
+        border-left: 1px solid #fff;
+    }
+    table td.candidate { vertical-align: middle; }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        thead { display: none; }
+
+        tr,
+        th,
+        th.amt,
+        td,
+        td.amt {
+            display: block;
+            padding: 0;
+            white-space: normal;
+        }
+
+        tr {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+
+            &:first-child { border-top: 1px solid #eee; }
+        }
+
+        td,
+        td.amt {
+            border: none;
+            margin-bottom: 1px;
+            padding: 5px 10px;
+            text-align: left;
+
+            &:empty { display: none; }
+        }
+
+        th[data-title]:before,
+        td[data-title]:before {
+            content: attr(data-title) ":\00A0";
+            display: inline-block;
+            width: 70%;
+        }
+
+        tr td:first-child {
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #333;
+            font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+
+            &:before {
+                content: '';
+                display: none;
+            }
+        }
+    }
+}
