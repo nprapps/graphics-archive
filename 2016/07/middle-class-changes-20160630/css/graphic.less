@@ -1,0 +1,56 @@
+@import "base";
+
+.chart {
+    &.overall { margin-bottom: 22px; }
+
+    h2 { margin-top: 0; }
+    h3 {
+        margin-bottom: 6px;
+
+        .wide& { margin-bottom: 15px; }
+    }
+}
+
+.legend {
+    text {
+        font-size: 12px;
+        fill: #454545;
+        font-weight: bold;
+        text-anchor: end;
+        -webkit-font-smoothing: antialiased;
+    }
+    line {
+        stroke: #ccc;
+        stroke-width: 1px;
+    }
+}
+
+.bar text {
+    fill: #fff;
+    font-size: 11px;
+
+    &.hidden {
+        font-size: 9px;
+        // display: none;
+    }
+}
+
+.x.axis.category {
+    text {
+        font-weight: bold;
+        fill: #454545;
+        text-anchor: middle;
+    }
+}
+
+.x.axis.bars {
+    path, line {
+        display: none;
+    }
+}
+
+// mobile styles
+@media screen and (max-width: 500px){
+    .legend text { font-size: 11px; }
+    .bar text { font-size: 10px; }
+}

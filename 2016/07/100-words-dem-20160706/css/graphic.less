@@ -1,0 +1,84 @@
+@import "base";
+
+// Add custom styles here
+#candidates-grid { font: 12px/1.2 'Gotham SSm',Helvetica,Arial,sans-serif; }
+#candidates-grid ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+#candidates-grid li {
+    margin: 0 auto 10px;
+    padding: 0;
+    text-align: center;
+    display: inline-block;
+    margin-right: -4px; /* via: http://css-tricks.com/fighting-the-space-between-inline-block-elements/ */
+    vertical-align: top;
+}
+#candidates-grid a {
+    display: block;
+    padding: 1px;
+    color: #fff;
+    opacity: 0.8;
+
+    &.candidate-gop strong {
+        color: #f05b4e;
+        border-color: #f05b4e;
+    }
+
+    &.candidate-dem strong {
+        color: #498dcb;
+        border-color: #498dcb;
+    }
+
+    &.candidate-inactive {
+        opacity: 0.5;
+
+        &.candidate-gop strong {
+            color: mix(#f05b4e, #666, 30%);
+            border-color: mix(#f05b4e, #666, 30%);
+        }
+
+        &.candidate-dem strong {
+            color: mix(#498dcb, #666, 30%);
+            border-color: mix(#498dcb, #666, 30%);
+        }
+    }
+}
+#candidates-grid img {
+    margin-left: -4px;
+}
+#candidates-grid strong {
+    display: block;
+    padding: 3px 4px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-left: -2px;
+    font-weight: normal;
+    border-top: 3px solid;
+    margin-top: -3px;
+
+    span.name-break {
+        display: block;
+        clear: both;
+    }
+}
+#candidates-grid img {
+    width: 100%;
+    height: auto;
+}
+#candidates-grid li:hover a { opacity: 1; }
+@media screen and (min-width: 601px) {
+    #candidates-grid li { width: 20%; }
+}
+@media screen and (max-width: 600px) {
+    #candidates-grid li { width: 25%; }
+}
+@media screen and (max-width: 400px) {
+    #candidates-grid li { width: 50%; }
+    #candidates-grid { font: 11px/1.1 'Gotham SSm',Helvetica,Arial,sans-serif; }
+    #candidates-grid strong { padding: 6px 1px 11px 1px; }
+}
+

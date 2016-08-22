@@ -1,0 +1,32 @@
+@import "base";
+
+.value text {
+    fill: #fff;
+
+    &.hidden { display: none; }
+    &.men_share { text-anchor: start; }
+    &.women_share { text-anchor: end; }
+}
+
+.labels li {
+    text-align: left;
+
+    &.rwanda,
+    &.united-states {
+        font-weight: bold;
+        color: #333;
+    }
+    &.united-states { border-top: 2px solid #ccc; }
+}
+
+.annotations {
+    .label {
+        font-size: 12px;
+        -webkit-font-smoothing: antialiased;
+    }
+    .women_share {
+        text-anchor: start;
+        font-weight: bold;
+    }
+    .men_share { text-anchor: end; }
+}

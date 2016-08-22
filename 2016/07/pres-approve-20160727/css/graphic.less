@@ -1,0 +1,21 @@
+@import "base";
+
+.value text {
+    fill: #fff;
+
+    &.hidden { display: none; }
+    &.disapprove { text-anchor: start; }
+    &.approve { text-anchor: end; }
+}
+
+.annotations {
+    .label {
+        font-size: 12px;
+        -webkit-font-smoothing: antialiased;
+    }
+    .approve {
+        text-anchor: start;
+        font-weight: bold;
+    }
+    .disapprove { text-anchor: end; }
+}

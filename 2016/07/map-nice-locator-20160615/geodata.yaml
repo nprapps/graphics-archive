@@ -1,0 +1,17 @@
+bbox: '-16.79 34.05 20.48 54.34'
+layers:
+    countries:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip'
+        id-property: 'NAME'
+        properties:
+            - 'country=NAME'
+    cities:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_populated_places_simple.zip'
+        id-property: 'name'
+        properties:
+            - 'featurecla'
+            - 'city=name'
+            - 'scalerank'
+        where: adm0name = 'France' AND (scalerank < 4 OR name = 'Nice')

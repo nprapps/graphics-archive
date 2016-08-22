@@ -1,0 +1,99 @@
+@import "base";
+
+.knockout() {
+    font-family: 'Knockout 31 4r';
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+// Add custom styles here
+.graphic text {
+    -webkit-font-smoothing: antialiased;
+}
+
+.x.grid .tick {
+    display: none;
+}
+
+.x.axis path {
+    stroke: none;
+}
+
+.anno-lines {
+    .anno-bracket {
+        path, line {
+            stroke-width: 1px;
+            stroke: #ccc;
+            fill: none;
+            shape-rendering: crispEdges;
+        }
+    }
+
+    .anno-line {
+        stroke: #aaa;
+        stroke-width: 2px;
+        stroke-dasharray: 0px 6px;
+        stroke-linecap: round;
+        shape-rendering: auto;
+    }
+
+    .anno-line.median {
+        stroke: #aaa;
+        stroke-width: 3px;
+        stroke-dasharray: 0px 6px;
+        stroke-linecap: round;
+        shape-rendering: auto;
+    }
+
+    .anno-label {
+        text-anchor: middle;
+        font-size: 13px;
+        fill: #666;
+
+        &.quantity {
+            font-weight: bold;
+        }
+
+        &.lower {
+            text-anchor: end;
+        }
+
+        &.upper {
+            text-anchor: start;
+        }
+    }
+}
+
+.bars rect {
+    fill: #ccc;
+
+    &.bar-middle {
+        fill: @blue3;
+    }
+}
+
+.bar-label text {
+    .knockout();
+
+    font-size: 14px;
+    text-anchor: middle;
+    fill: #888;
+
+    &.middle {
+        fill: #fff;
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .anno-lines {
+        .anno-label {
+            font-size: 11px;
+        }
+    }
+
+    .bar-label text {
+        font-size: 12px;
+    }
+}

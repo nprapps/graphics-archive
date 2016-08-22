@@ -1,0 +1,62 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="legend">
+        <div class="legend-group">
+            <span class="box group-pass row-other"></span>
+            <span class="legend-label">Bill passed</span>
+        </div>
+        <div class="legend-group">
+            <span class="box group-pend row-other"></span>
+            <span class="legend-label">Bill pending</span>
+        </div>
+        <div class="legend-group">
+            <span class="box group-fail row-other"></span>
+            <span class="legend-label">Bill failed</span>
+        </div>
+    </div>
+
+    <div id="graphic" class="graphic">
+        <div class="party-wrapper party-republican">
+            <h4 class="party-id">{{ COPY.labels.hed_gop }}</h4>
+        </div>
+        <div class="party-wrapper party-democratic">
+            <h4 class="party-id">{{ COPY.labels.hed_dem }}</h4>
+        </div>
+        <div class="party-wrapper party-split">
+            <h4 class="party-id">{{ COPY.labels.hed_split }}</h4>
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/template" id="shooting-template">
+<h3><%= shooting %></h3>
+<p class="shooting-date"><%= casualties %> on <%= date %></p>
+<h5>Gun-related bills introduced after shooting</h5>
+<div class="graphic-wrap"></div>
+    </script>
+
+    <script type="text/template" id="stack-template">
+<span class="stack-label"></span>
+    </script>
+
+    <script type="text/javascript">
+        var DATA = {{ COPY.data.json() }};
+    </script>
+
+{% endblock content %}

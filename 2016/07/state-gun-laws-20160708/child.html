@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <base target="_blank">
+
+    
+
+    <!-- Fonts -->
+    <script src="http://apps.npr.org/dailygraphics/graphics/fonts/js/lib/webfont.js"></script>
+    <script>
+    WebFont.load({
+        custom: {
+            families: [
+                'Gotham SSm:n4,n7',
+                'Knockout 31 4r:n4'
+            ],
+            urls: [
+                'http://s.npr.org/templates/css/fonts/GothamSSm.css',
+                'http://s.npr.org/templates/css/fonts/Knockout.css'
+            ]
+        },
+        timeout: 10000
+    });
+    </script>
+
+    
+
+    <!-- Configuration -->
+    <script type="text/javascript">
+        GOOGLE_ANALYTICS_ACCOUNT_ID = 'UA-5828686-75';
+        GOOGLE_ANALYTICS_PROJECT_SLUG = 'state-gun-laws-20160708';
+    </script>
+
+    <!-- CSS + LESS -->
+    
+    <link rel="stylesheet" type="text/css" href="css/graphic-header.css?1468436056" />
+</head>
+<body>
+    <!-- Analytics -->
+    
+    
+    <script type="text/javascript" src="js/graphic-header.js?1468436056"></script>
+
+    
+
+    <h1>How Five State Legislatures Responded To Recent Mass&nbsp;Shootings</h1>
+    <h2>We looked at five states that had a high-profile mass shooting in 2015 &#8212; California, Colorado, Oregon, South Carolina and Tennessee &#8212; and gun-related legislation that has been proposed since the shooting. The results are consistent with what the longer-term Harvard study showed: States with Republican legislatures tended to pass laws that eased gun restrictions, while states with Democratic legislatures tended to pass laws that strengthened gun restrictions (or nothing at&nbsp;all).</h2>
+
+    <div id="legend">
+        <div class="legend-group">
+            <span class="box group-pass row-other"></span>
+            <span class="legend-label">Bill passed</span>
+        </div>
+        <div class="legend-group">
+            <span class="box group-pend row-other"></span>
+            <span class="legend-label">Bill pending</span>
+        </div>
+        <div class="legend-group">
+            <span class="box group-fail row-other"></span>
+            <span class="legend-label">Bill failed</span>
+        </div>
+    </div>
+
+    <div id="graphic" class="graphic">
+        <div class="party-wrapper party-republican">
+            <h4 class="party-id">States with a <b>Republican</b> legislature and&nbsp;governor</h4>
+        </div>
+        <div class="party-wrapper party-democratic">
+            <h4 class="party-id">States with a <b>Democratic</b> legislature and&nbsp;governor</h4>
+        </div>
+        <div class="party-wrapper party-split">
+            <h4 class="party-id">State with a <b>Split</b> legislature and Democratic&nbsp;governor</h4>
+        </div>
+    </div>
+
+    
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>&#8220;Pending&#8221; action in California includes one ballot initiative.</p>
+    </div>
+    
+
+    <div class="footer">
+        <p>Source: NPR research, <a href="http://www.ncsl.org/research/about-state-legislatures/partisan-composition.aspx">National Conference of State Legislatures</a>, <a href="https://www.fbi.gov/about-us/office-of-partner-engagement/active-shooter-incidents/2000-2015-active-shooter-incidents">FBI</a></p>
+        <p>Credit: Katie Park, Nate Rott, Jeff Landa and Alyson Hurt/NPR</p>
+    </div>
+
+    <script type="text/template" id="shooting-template">
+<h3><%= shooting %></h3>
+<p class="shooting-date"><%= casualties %> on <%= date %></p>
+<h5>Gun-related bills introduced after shooting</h5>
+<div class="graphic-wrap"></div>
+    </script>
+
+    <script type="text/template" id="stack-template">
+<span class="stack-label"></span>
+    </script>
+
+    <script type="text/javascript">
+        var DATA = [{"date": "June 17, 2015", "date_orig": "42172.0", "shooting": "Emanuel AME Church in Charleston, S.C.", "state": "SC", "restrict_pass": "0.0", "restrict_pend": "12.0", "restrict_fail": "2.0", "expand_pass": "1.0", "expand_pend": "4.0", "expand_fail": "1.0", "other_pass": "0.0", "other_pend": "0.0", "other_fail": "0.0", "notes": null, "political_leaning": "republican", "political_leaning_note": "Republican legislature and governor", "casualties": "9 people killed"}, {"date": "July 16, 2015", "date_orig": "42201.0", "shooting": "Two military installations in Chattanooga, Tenn.", "state": "TN", "restrict_pass": "0.0", "restrict_pend": "0.0", "restrict_fail": "1.0", "expand_pass": "5.0", "expand_pend": "1.0", "expand_fail": "2.0", "other_pass": "0.0", "other_pend": "0.0", "other_fail": "0.0", "notes": null, "political_leaning": "republican", "political_leaning_note": "Republican legislature and governor", "casualties": "5 people killed, 2 wounded"}, {"date": "Oct. 1, 2015", "date_orig": "42278.0", "shooting": "Umpqua Community College in Roseburg, Ore.", "state": "OR", "restrict_pass": "0.0", "restrict_pend": "3.0", "restrict_fail": "1.0", "expand_pass": "0.0", "expand_pend": "0.0", "expand_fail": "0.0", "other_pass": "0.0", "other_pend": "0.0", "other_fail": "0.0", "notes": null, "political_leaning": "democratic", "political_leaning_note": "Democratic legislature and governor", "casualties": "9 people killed, 7 wounded"}, {"date": "Dec. 2, 2015", "date_orig": "42340.0", "shooting": "Inland Regional Center in San Bernardino, Calif.", "state": "CA", "restrict_pass": "6.0", "restrict_pend": "6.0", "restrict_fail": "6.0", "expand_pass": "0.0", "expand_pend": "1.0", "expand_fail": "0.0", "other_pass": "0.0", "other_pend": "2.0", "other_fail": "0.0", "notes": "restrict_pend includes one ballot initiative", "political_leaning": "democratic", "political_leaning_note": "Democratic legislature and governor", "casualties": "14 people killed, 22 injured"}, {"date": "Nov. 27, 2015", "date_orig": "42335.0", "shooting": "Planned Parenthood in Colorado Springs, Colo.", "state": "CO", "restrict_pass": "0.0", "restrict_pend": "0.0", "restrict_fail": "0.0", "expand_pass": "0.0", "expand_pend": "0.0", "expand_fail": "5.0", "other_pass": "0.0", "other_pend": "0.0", "other_fail": "0.0", "notes": "Does not fit FBI threshold for mass shooting", "political_leaning": "split", "political_leaning_note": "Split control of the legislature; Democratic governor", "casualties": "3 people killed, 9 injured"}];
+    </script>
+
+
+
+    
+
+        
+        
+        
+        
+        
+        
+        <script type="text/javascript" src="js/graphic-footer.js?1468436056"></script>
+
+    
+</body>
+</html>

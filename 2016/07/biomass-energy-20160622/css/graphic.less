@@ -1,0 +1,57 @@
+@import "base";
+
+.graphic {
+    margin: 0 0 22px;
+
+    h4 {
+        font-weight: normal;
+        font-size: 12px;
+        color: #777;
+        margin: 0px auto 11px;
+    }
+}
+
+li {
+    &.biomass {
+        font-weight: bold;
+        color: #333;
+    }
+}
+
+.key {
+    margin: 11px 0 7px;
+}
+
+.value text {
+    fill: #fff;
+
+    &.biomass {
+        font-weight: bold;
+        fill: #333;
+    }
+
+    &.all-other-sources {
+        fill: #888;
+    }
+
+    &.hidden {
+        display: none;
+    }
+}
+
+#bar-chart {
+    .value text {
+        &.biomass {
+            font-weight: bold;
+            fill: #333;
+        }
+    }
+}
+
+.bars rect {
+    fill: @teal5;
+
+    &.biomass {
+        fill: @teal2;
+    }
+}

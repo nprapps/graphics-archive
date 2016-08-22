@@ -1,0 +1,38 @@
+@import "base";
+
+.annotations {
+    line {
+        stroke: #999;
+        stroke-width: 1px;
+    }
+    text {
+        text-anchor: start;
+        font-style: italic;
+        font-size: 11px;
+        fill: #787878;
+    }
+}
+
+.lines {
+    fill: none;
+    stroke-width: 2px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

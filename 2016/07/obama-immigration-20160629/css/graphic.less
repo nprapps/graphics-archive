@@ -1,0 +1,88 @@
+@import "base";
+
+h1 {
+    font-size: 15px;
+    margin-bottom: 11px;
+}
+
+.graphic {
+    position: relative;
+    margin-top: 20px;
+
+    .anno {
+        position: absolute;
+        font-size: 13px;
+        line-height: 15px;
+        -webkit-font-smoothing: antialiased;
+        color: #666;
+
+        @media screen and (max-width: 500px) {
+            font-size: 11px;
+        }
+
+        &.anno-1 {
+            max-width: 240px;
+            right: 6%;
+            bottom: 90%;
+            text-align: right;
+
+            @media screen and (max-width: 500px) {
+                max-width: 200px;
+                bottom: 85%;
+            }
+        }
+    }
+}
+
+// Add custom styles here
+.bars rect {
+    &.barack-obama {
+        fill: @blue2;
+    }
+
+    &.george-w-bush, &.george-hw-bush {
+        fill: #ccc;
+    }
+
+    &.bill-clinton {
+        fill: #999;
+    }
+}
+
+line.pres-line {
+    stroke-width: 3px;
+    stroke: #ccc;
+
+    &.obama {
+        stroke: @blue2;
+    }
+
+    &.clinton {
+        stroke: #999;
+    }
+}
+
+line.anno-leader {
+    stroke: #ccc;
+    stroke-width: 1px;
+}
+
+.pres-labels text {
+    font-size: 12px;
+    fill: #999;
+    text-anchor: middle;
+    -webkit-font-smoothing: antialiased;
+
+    @media screen and (max-width: 500px) {
+        font-size: 11px;
+
+        &.ghw-bush {
+            text-anchor: end;
+        }
+    }
+
+    &.obama {
+        font-weight: bold;
+        fill: #666;
+    }
+}

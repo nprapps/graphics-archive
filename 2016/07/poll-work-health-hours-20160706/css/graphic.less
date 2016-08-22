@@ -1,0 +1,23 @@
+@import "base";
+
+// Add custom styles here
+#graphic {
+    .clearfix();
+}
+
+.graphic {
+    @media screen and (min-width: 501px) {
+        width: 48%;
+        margin: 0 0 22px;
+        float: left;
+
+        &:nth-child(2n) {
+            margin-left: 4%;
+        }
+    }
+}
+
+.bars rect {
+    fill: @teal4;
+}
+

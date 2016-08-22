@@ -1,0 +1,100 @@
+@import "base";
+
+dl {
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 650px;
+}
+
+dt {
+    font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    color: #333;
+
+    width: 110px;
+    // text-align: right;
+    float: left;
+    clear: left;
+}
+
+dd {
+    margin-left: 121px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+
+    &.milestone {
+        background-color: #f1f1f1;
+        border-color: #fff;
+    }
+
+    .keyword {
+        display: block;
+        margin-top: 4px;
+
+        b {
+            padding: 3px 7px;
+            margin-right: 5px;
+            border-radius: 4px;
+            color: #999;
+            font-size: 11px;
+            background-color: #f1f1f1;
+            font-weight: normal;
+            font-style: normal;
+            white-space: nowrap;
+        }
+
+        &.milestone b {
+            background-color: @red3;
+            color: #fff;
+        }
+        &.fec-report b {
+            background-color: @yellow6;
+            color: @yellow2;
+            border: 1px solid @yellow5;
+        }
+    }
+
+    strong { color: #333; }
+}
+
+dt, dd {
+    border-top: 1px solid #eee;
+    padding-top: 14px;
+
+    &.divider,
+    &.milestone.divider.nobr {
+        border-top: 2px solid #ccc;
+        padding-top: 13px;
+    }
+}
+
+.source {
+    opacity: 0.7;
+    font-size: 90%;
+    font-style: italic;
+    color: #999;
+}
+
+@media screen and (max-width: 500px) {
+    dt { width: 80px; }
+    dd {
+        margin-left: 100px;
+
+        &.milestone b,
+        &.milestone.fundraising b {
+            padding: 0;
+            display: block;
+            background: none;
+            margin-bottom: 1px;
+            font-weight: bold;
+        }
+        &.milestone b { color: @red3; }
+        &.milestone.fundraising b { color: @teal4; }
+    }
+}

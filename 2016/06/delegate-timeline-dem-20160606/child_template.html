@@ -1,0 +1,34 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline_dem %}<h1>{{ COPY.labels.headline_dem|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed_dem %}<h2>{{ render(COPY.labels.subhed_dem)|smarty }}</h2>{% endif %}
+
+    <div id="line-chart" class="graphic">
+        <div class="chart dem">
+            <!-- <h3>{{ COPY.labels.hed_dem }}</h3> -->
+            <div id="dem"></div>
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var DATA_D = {{ COPY.data_d.json() }};
+        var DATA_R = {{ COPY.data_r.json() }};
+        var TOTAL_CLINTON = {{ COPY.labels.clinton_total }};
+        var TOTAL_SANDERS = {{ COPY.labels.sanders_total }};
+    </script>
+
+{% endblock content %}

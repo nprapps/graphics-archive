@@ -1,0 +1,66 @@
+@import "base";
+
+.meta {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+// chart
+#timeline {
+    margin-bottom: 22px;
+
+    .chart {
+        margin-bottom: 11px;
+
+        &:last-child { margin-bottom: 0; }
+
+        .header {
+            .clearfix();
+            margin-bottom: 11px;
+        }
+    }
+
+    .spirals rect { fill: #f1f1f1; }
+
+    .events {
+        line {
+            stroke-opacity: 0.5;
+            stroke-width: 2px;
+        }
+        circle {
+            stroke-width: 1px;
+            stroke-opacity: 0.3;
+            fill-opacity: 0.3;
+        }
+        &.fines circle {
+            fill: @blue2;
+            stroke: @blue2;
+        }
+        &.resolved circle {
+            fill: @yellow3;
+            stroke: @yellow2;
+            fill-opacity: 0.4;
+            stroke-opacity: 0.4;
+        }
+    }
+
+}
+
+// Desktop-only styles
+@media screen and (min-width: 501px) {
+    #timeline .header {
+        h3,
+        .key {
+            margin: 0 18px 0 0;
+            display: inline-block;
+        }
+    }
+}
+
+// Mobile-only styles
+@media screen and (max-width: 500px) {
+    #timeline .header {
+        h3 { margin: 0; }
+        .key { margin: 3px 0 0 0; }
+    }
+}

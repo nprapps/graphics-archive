@@ -1,0 +1,67 @@
+@import "base";
+
+h1 {
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.labels li.overall {
+    font-weight: bold;
+    color: #333;
+}
+
+.guide-bars line {
+    fill: none;
+    stroke-width: 1px;
+    stroke: #eee;
+}
+
+.bars line {
+    fill: none;
+    stroke-width: 40px;
+    stroke: @teal5;
+
+    &.overall { stroke: @teal2; }
+}
+
+.value {
+    text {
+        font-size: 10px;
+        text-anchor: middle;
+        fill: #454545;
+
+        &.val { font-weight: bold; }
+        &.year-label { fill: #999; }
+    }
+
+    &.y-2008 text.val {
+        fill: #787878;
+        font-size: 11px;
+    }
+    &.y-2014 text.val {
+        fill: #454545;
+        font-size: 13px;
+    }
+}
+
+.x.axis {
+    text {
+        fill: #666;
+        font-size: 12px;
+    }
+    .tick:first-child text {
+        fill: #333;
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .bars line { stroke-width: 30px; }
+
+    .value {
+        &.y-2008 text.val { font-size: 10px; }
+        &.y-2014 text.val { font-size: 12px; }
+    }
+
+    .x.axis text { font-size: 11px; }
+}

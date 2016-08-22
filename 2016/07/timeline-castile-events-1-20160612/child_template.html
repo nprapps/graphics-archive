@@ -1,0 +1,77 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels_timeline.headline %}<h1>{{ COPY.labels_timeline.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels_timeline.subhed %}<h2>{{ render(COPY.labels_timeline.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        {% for timeline in COPY.events|groupby('chart') %}
+        {% if timeline.grouper == '1' %}
+        <h1>Timeline: {{ COPY.labels_timeline[ 'hed_timeline_' + timeline.grouper ]}}</h1>
+
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th class="date">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels_timeline.hdr_date }}</div>
+                    </th>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels_timeline.hdr_description }}</div>
+                    </th>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels_timeline.hdr_cleared }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in timeline.list %}
+            <tr class="{{ row.type|classify }} {% if row.violation %}{{ row.violation|classify }}{% endif %} {{ row.rank|classify }}">
+                <td data-title="{{ COPY.labels_timeline.hdr_date }}" class="date">{% if row.rank == 'primary' %}{{ row.date_fmt }}{% endif %}</td>
+                <td data-title="{{ COPY.labels_timeline.hdr_description }}" class="description">
+                    {% if row.rank == 'primary' and (row.type == 'Traffic stop' or row.type == 'Parking ticket') %}<b class="{{ row.type|classify }}">{{ row.type }}</b>{% endif %}
+                    {% if row.rank != 'primary' and row.date_fmt %}{{ row.date_fmt }}: {% endif %}
+                    {{ row.description }}
+                </td>
+                <td data-title="{{ COPY.labels_timeline.hdr_cleared }}" class="result">
+                    {% if row.cleared %}<b class="{{ row.cleared|classify }}">{{ row.cleared }}</b>{% endif %}
+                    {% if row.violation %}<b class="{{ row.violation|classify }}">{{ row.violation }}</b>{% endif %}
+                    {% if row.fine %}<b class="fine">Fined {{ row.fine }}</b>{% endif %}
+                    {% if row.license %}<b class="{{ row.license|classify }}">{{ row.license }}</b>{% endif %}
+                    {% if row.probation %}<b class="{{ row.probation|classify }}">{{ row.probation }}</b>{% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels_timeline.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels_timeline.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels_timeline.source %}<p>Source: {{ COPY.labels_timeline.source|smarty }}</p>{% endif %}
+        {% if COPY.labels_timeline.credit %}<p>Credit: {{ COPY.labels_timeline.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <div id="expand">{{ COPY.labels_timeline.hed_expand }}</div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/d3.min.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

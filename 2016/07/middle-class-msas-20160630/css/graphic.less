@@ -1,0 +1,89 @@
+@import "base";
+
+h2 strong { color: #333; }
+
+.key {
+    margin-bottom: 15px;
+}
+
+.group {
+    rect {
+        fill-opacity: 0.2;
+        stroke-opacity: 0.4;
+        stroke-width: 1px;
+
+        &.middle-income {
+            fill-opacity: 0.5;
+            stroke-opacity: 0.7;
+        }
+    }
+
+    .values text {
+        font-size: 11px;
+        fill: #454545;
+        text-anchor: middle;
+        font-style: italic;
+    }
+
+    .median-line {
+        stroke: #777;
+        stroke-width: 2px;
+        stroke-dasharray: 0px 4px;
+        stroke-linecap: round;
+        shape-rendering: auto;
+    }
+
+    .median-label {
+        font-size: 11px;
+        fill: #787878;
+        text-anchor: middle;
+        font-style: italic;
+    }
+}
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.labels {
+    li span {
+        vertical-align: bottom;
+    }
+    b {
+        font-weight: normal;
+        display: block;
+        margin-bottom: 3px;
+        color: #333;
+
+        @media screen and (max-width: 500px) {
+            font-size: 11px;
+        }
+    }
+    i {
+        font-style: normal;
+        display: block;
+        font-size: 11px;
+        color: #999;
+    }
+}
+
+#arrowhead-up, #arrowhead-down {
+    fill: #999;
+}
+
+.share-key {
+    line {
+        stroke: #999;
+        stroke-width: 2px;
+    }
+
+    text {
+        fill: #999;
+        font-style: italic;
+        font-size: 11px;
+    }
+}

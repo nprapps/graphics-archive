@@ -1,0 +1,26 @@
+@import "base";
+
+.bar text {
+    fill: #fff;
+    font-size: 11px;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.annotation-box {
+    display: none;
+    fill: #f1f1f1;
+}
+
+text.annotation {
+    fill: #666;
+    font-size: 12px;
+    font-style: italic;
+}
+
+@media screen and (max-width: 500px) {
+    text.annotation { font-size: 10px; }
+    .bar text { font-size: 10px; }
+}
