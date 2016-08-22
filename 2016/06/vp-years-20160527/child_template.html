@@ -1,0 +1,83 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th class="year">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_year }}</div>
+                    </th>
+                    <th class="party">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_party }}</div>
+                    </th>
+                    <th class="candidate">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_cand }}</div>
+                    </th>
+                    <th class="tenure">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_years1 }}</div>
+                    </th>
+                    <th class="mate">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_mate }}</div>
+                    </th>
+                    <th class="tenure">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_years2 }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="party-{{ row.party|classify }}">
+                <td data-title="{{ COPY.labels.hdr_year }}" class="year">{{ row.year }}</td>
+                <td data-title="{{ COPY.labels.hdr_party }}" class="party">{{ row.party }}</td>
+                <td data-title="{{ COPY.labels.hdr_cand }}" class="candidate {% if row.years1 == '0' %}none{% endif %}">{{ row.cand }}</td>
+                <td data-title="{{ COPY.labels.hdr_years1 }}" class="tenure"><div class="bar-wrapper">
+                        <div class="bar" style="width: {{ (( row.years1|float / 50) * 100)|round(1) }}%"></div>
+                        <span class="value {% if row.years1 == '0' %}none{% endif %}">{{ row.years1 }}</span>
+                    </div>
+                </td>
+                <td data-title="{{ COPY.labels.hdr_mate }}" class="mate {% if row.years2 == '0' %}none{% endif %}">{{ row.mate }}</td>
+                <td data-title="{{ COPY.labels.hdr_years2 }}" class="tenure"><div class="bar-wrapper">
+                        <div class="bar" style="width: {{ (( row.years2|float / 50) * 100)|round(1) }}%"></div>
+                        <span class="value {% if row.years2 == '0' %}none{% endif %}">{{ row.years2 }}</span>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

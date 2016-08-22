@@ -1,0 +1,18 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="graphic" class="graphic">
+        <div class="overlay">
+            <h1 class="instructions"><i class="icon icon-headphones"></i></h1>
+        </div>
+        <img src="assets/{{ COPY.labels.image }}">
+        <audio src="assets/{{ COPY.labels.audio }}" loop></audio>
+    </div>
+
+    <div class="footer">
+        <p class="caption">{{ COPY.labels.caption }}</p>
+        <p class="source">{{ COPY.labels.source }}</p>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,70 @@
+@import "base";
+
+@good: #8bc0b0;
+@moderate: #f7e39b;
+@unhealthy-for-sensitive-groups: #f1c696;
+@unhealthy: #eca395;
+@very-unhealthy: #bb92ab;
+@hazardous: #927e99;
+
+
+.lines {
+    fill: none;
+    stroke-width: 1.2px;
+    stroke: #ccc;
+    shape-rendering: auto;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+
+    &.seoul { fill: #000; }
+    &.new-york { fill: #999; }
+}
+
+.axis.y text {
+    fill: #fff;
+    text-anchor: end;
+}
+
+.grid .tick { stroke: #fff; }
+
+.hazard-ranges {
+    rect {
+        &.good { fill: @good; }
+        &.moderate { fill: @moderate; }
+        &.unhealthy-sensitive-groups { fill: @unhealthy-for-sensitive-groups; }
+        &.unhealthy { fill: @unhealthy; }
+
+        &.axis-key {
+            fill-opacity: 1;
+
+            &.good { fill: darken(@good, 15%); }
+            &.moderate { fill: darken(@moderate, 15%); }
+            &.unhealthy-sensitive-groups { fill: darken(@unhealthy-for-sensitive-groups, 15%); }
+            &.unhealthy { fill: darken(@unhealthy, 15%); }
+            &.very-unhealthy { fill: darken(@very-unhealthy, 15%); }
+            &.hazardous { fill: darken(@hazardous, 15%); }
+        }
+        &.bg { fill-opacity: 0.3; }
+    }
+
+    text {
+        fill: #999;
+        font-size: 10px;
+        text-anchor: end;
+        -webkit-font-smoothing: antialiased;
+
+        &.hidden { display: none; }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text { font-size: 11px; }
+}
+
+@media screen and (min-width: 500px) {
+    .key { display: none; }
+}

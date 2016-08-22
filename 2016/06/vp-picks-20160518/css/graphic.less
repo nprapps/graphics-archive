@@ -1,0 +1,208 @@
+@import "base";
+@import "fontello.css";
+
+// Key styles
+.key {
+    margin-bottom: 11px;
+
+    .swing {
+        b { background-color: #f1f1f1; }
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+    }
+}
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+
+    tr.d {
+        // background-color: @blue6;
+        &.y {
+            background-color: #f1f1f1;
+            color: #333;
+            font-weight: bold;
+        }
+    }
+
+    tr.r {
+        // background-color: @red6;
+        &.y {
+            background-color: #f1f1f1;
+            color: #333;
+            font-weight: bold;
+        }
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 0 10px 10px 10px;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    th,
+    td {
+        &.amt {
+            text-align: right;
+        }
+        &.candidate {
+            border-right: 1px solid #eee;
+        }
+        &.y {
+            color: @teal3;
+        }
+        &.n {
+            color: @orange3;
+        }
+    }
+}
+
+// Tablesorter styles
+table {
+    th {
+        &.sort-header {
+            cursor: pointer;
+
+            &::-moz-selection,
+            &::selection {
+                background: transparent;
+            }
+
+            .sorter {
+                border-top: 2px solid #404040;
+                visibility: hidden;
+
+                .icon {
+                    content: '';
+                    width: 1px;
+                    margin: 3px auto 7px auto;
+                    border-width: 0 4px 4px;
+                    border-style: solid;
+                    border-color: #404040 transparent;
+                }
+            }
+
+            &:hover .sorter {
+                visibility: visible;
+            }
+        }
+
+        &.sort-up .sorter,
+        &.sort-down .sorter,
+        &.sort-down:hover .sorter {
+            visibility: visible;
+            opacity: 0.4;
+        }
+
+        &.sort-up .sorter .icon {
+            border-bottom: none;
+            border-width: 4px 4px 0;
+        }
+    }
+}
+
+// desktop-only styles
+@media screen and (min-width: 501px) {
+    table th,
+    table td {
+        width: 22.5%;
+
+        &.year,
+        &.state,
+        &.win {
+            width: 10%;
+        }
+        &.win {
+            text-align: center;
+        }
+    }
+    table tr.y {
+        td { border-color: #fff; }
+    }
+}
+// Mobile styles
+@media screen and (max-width: 500px) {
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        thead { display: none; }
+
+        tr,
+        th,
+        th.amt,
+        td,
+        td.amt {
+            display: block;
+            padding: 0;
+            white-space: normal;
+        }
+
+        tr {
+            border-bottom: 1px solid #eee;
+            padding: 10px 10px;
+
+            &:first-child { border-top: 1px solid #eee; }
+            &.y { border-color: #fff; }
+        }
+
+        td,
+        td.amt {
+            border: none;
+            margin-bottom: 6px;
+            text-align: left;
+
+            &:empty { display: none; }
+        }
+
+        th[data-title]:before,
+        td[data-title]:before {
+            content: attr(data-title) ":\00A0";
+            display: inline-block;
+            width: 50%;
+        }
+
+        tr td:first-child {
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #333;
+            font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+
+            &:before {
+                content: '';
+                display: none;
+            }
+        }
+    }
+}

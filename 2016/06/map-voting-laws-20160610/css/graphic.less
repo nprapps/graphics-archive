@@ -1,0 +1,107 @@
+@import "base";
+
+h1 { margin-bottom: 22px; }
+
+#identification,
+#registration {
+    .clearfix();
+}
+#identification {
+    margin-bottom: 33px;
+}
+
+.graphic {
+    h3 {
+        margin: 0 0 11px 0;
+        font-size: 16px;
+        color: #454545;
+        font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+        font-weight: 700;
+        text-transform: none;
+        letter-spacing: 0;
+        -webkit-font-smoothing: antialiased;
+    }
+    p {
+        font-weight: normal;
+        color: #777;
+        font-size: 12px;
+        margin: 0 0 22px 0;
+        line-height: 1.6;
+    }
+    h4 {
+        margin: 0 0 15px 0;
+        font-family: 'Knockout 31 4r';
+        font-weight: normal;
+        text-transform: uppercase;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+        font-size: 12px;
+        color: #454545;
+    }
+}
+
+/* Key
+========================================*/
+.key {
+    margin: 0 0 18px 0;
+    padding: 0;
+    list-style-type: none;
+}
+.key .key-item {
+    display: inline-block;
+    margin: 0 18px 0 0;
+    padding: 0;
+    line-height: 15px;
+}
+.key .key-item b {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
+    float: left;
+}
+.key .key-item label {
+    white-space: nowrap;
+    font-size: 12px;
+    color: #666;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Grid Map
+========================================*/
+
+.tile-grid-map {
+    margin-bottom: 33px;
+}
+
+.state { fill: #eee; }
+
+.label {
+    font-family: 'Knockout 31 4r';
+    font-size: 14px;
+    // font-size: 8px;
+    fill: #979797;
+}
+.label-active { fill: #fff; }
+
+// @media screen and (max-width: 500px){
+//     .label {
+//         font-size: 15px;
+//     }
+// }
+//
+// @media screen and (min-width: 500px){
+//     .label {
+//         font-size: 8px;
+//     }
+// }
+
+@media screen and (max-width: 500px){
+    #photoid,
+    #onlineregistration {
+        padding-bottom: 33px;
+    }
+}

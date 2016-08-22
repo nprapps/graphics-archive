@@ -1,0 +1,385 @@
+geo_address,latitude,longitude,count
+"Minneapolis / St. Paul, Minnesota",46.453909,-92.768636,526
+"Oklahoma City, Oklahoma",35.473000,-97.517100,521
+"Cincinnati, Ohio",39.101500,-84.512500,351
+"Columbus, Ohio",39.962300,-83.000700,338
+"St. Louis, Missouri",38.630000,-90.190000,298
+"Colorado Springs, Colorado",38.834000,-104.825300,274
+"Tulsa, Oklahoma",36.101200,-95.925100,263
+"Denver, Colorado",39.734800,-104.965300,243
+"Raleigh / Durham / CH, North Carolina",35.780400,-78.639100,243
+"Springfield, Missouri",37.215300,-93.298300,242
+"Charlotte, North Carolina",35.227100,-80.843100,234
+"Chicago, Illinois",41.875600,-87.624400,233
+"Tampa/St. Pete, Florida",27.947800,-82.458400,227
+"Dallas, Texas",32.776300,-96.796900,226
+"Knoxville, Tennessee",35.960400,-83.921000,216
+"Richmond, Virginia",37.538500,-77.434300,204
+"Seattle, Washington",47.603800,-122.330100,200
+"Indianapolis, Indiana",39.768300,-86.158400,191
+"Cleveland, Ohio",41.505200,-81.693400,184
+"Atlanta, Georgia",33.749100,-84.390200,181
+Ohio,40.358615,-82.706838,177
+"Dayton, Ohio",39.758900,-84.191600,172
+"Detroit, Michigan",42.348700,-83.056700,164
+"Reno, Nevada",39.529300,-119.813700,163
+"Northern Virginia, Virginia",38.789860,-77.516773,160
+"Wichita, Kansas",37.692200,-97.337500,152
+"Greenville, South Carolina",34.851400,-82.398500,151
+"Hickory / Lenoir, North Carolina",35.733200,-81.341200,150
+"Louisville, Kentucky",38.254200,-85.759400,142
+"Birmingham, Alabama",33.520700,-86.802400,142
+"Phoenix, Arizona",33.448600,-112.077300,139
+"Winston Salem, North Carolina",36.099900,-80.244200,134
+South Carolina,33.627451,-80.531492,134
+"Nashville, Tennessee",36.162200,-86.774400,133
+"Houston, Texas",29.758900,-95.367700,133
+"Columbia, South Carolina",34.000700,-81.034300,128
+"Tacoma, Washington",47.249600,-122.439900,117
+"Orlando, Florida",28.542100,-81.379000,115
+Massachusetts,42.038046,-71.457543,115
+"Pittsburgh, Pennsylvania",40.441700,-79.990100,114
+"Lexington, Kentucky",38.046400,-84.497000,106
+"Akron, Ohio",41.083100,-81.518500,105
+"Portland, Oregon",45.520200,-122.674200,104
+"Toledo, Ohio",41.678700,-83.512700,103
+"Milwaukee, Wisconsin",43.011500,-87.973500,102
+"San Antonio, Texas",29.424600,-98.495100,98
+"Albuquerque, New Mexico",35.084100,-106.651000,96
+"Huntsville, Alabama",34.729800,-86.585900,95
+"Hampton Roads, Virginia",36.766665,-76.251509,93
+North Carolina,35.170131,-78.568726,92
+"Greensboro, North Carolina",36.072600,-79.792000,90
+"Southwest Washington, Washington",38.856500,-77.010800,85
+"Jacksonville, Florida",30.332200,-81.655700,84
+"Northern Kentucky, Kentucky",39.018740,-84.575626,83
+"Fayetteville, North Carolina",35.053000,-78.878700,82
+"Grand Rapids, Michigan",42.963200,-85.667900,82
+"Broward, Florida",30.459740,-81.456737,81
+"Tri-cities, Tennessee",36.596101,-82.181698,79
+"Bend, Oregon",44.058200,-121.315300,78
+"Madison, Wisconsin",43.074800,-89.383800,75
+Florida,27.701560,-81.558481,72
+"Los Angeles, California",34.054400,-118.243900,70
+"Charleston, South Carolina",32.787600,-79.940300,67
+Alabama,32.576449,-86.724499,64
+"Fort Collins, Colorado",40.550900,-105.066800,64
+Kentucky,37.823816,-84.728711,63
+Wisconsin,44.899726,-89.721330,61
+Michigan,44.978718,-84.515887,61
+Washington,47.268997,-120.691746,59
+Illinois,39.739182,-89.451439,59
+Indiana,39.690617,-86.173619,59
+"Sacramento, California",38.581600,-121.494400,59
+"Everett, Washington",47.967300,-122.201400,58
+"Fort Wayne, Indiana",41.080000,-85.138600,57
+"Kansas City, Missouri",39.084500,-94.563000,55
+"Southeastern PA, Pennsylvania",40.235518,-75.535534,55
+"South West Florida, Florida",26.578719,-81.857720,54
+"Lincoln, Nebraska",40.800100,-96.667400,54
+"Fayetteville, Arkansas",36.062600,-94.157400,52
+"Chattanooga, Tennessee",35.045600,-85.309700,52
+"Champaign / Urbana, Illinois",40.113733,-88.207709,52
+Oklahoma,35.330506,-97.216830,51
+"Harrisburg, Pennsylvania",40.266300,-76.886100,51
+"Kenosha, Wisconsin",42.584700,-87.821200,51
+"Inland Empire, California",34.097198,-117.295933,49
+"Jacksonville, North Carolina",34.754100,-77.430200,49
+"Las Vegas, Nevada",36.166300,-115.149200,48
+"Green Bay, Wisconsin",44.529900,-88.024800,46
+New Hampshire,43.998844,-71.553529,46
+Georgia,32.674684,-83.250660,45
+"Pensacola, Florida",30.421300,-87.216900,45
+Colorado,38.999983,-105.549558,45
+New Jersey,40.073189,-74.436238,44
+"Northern Lower Peninsula, Michigan",43.750096,-85.144740,43
+"Youngstown, Ohio",41.099800,-80.649500,43
+Virginia,38.002340,-78.224935,43
+"Springfield, Illinois",39.799000,-89.644400,43
+"Lansing, Michigan",42.733800,-84.555400,41
+"Eau Claire, Wisconsin",44.811300,-91.498500,41
+"Savannah, Georgia",32.083500,-81.099800,39
+"Buffalo, New York",42.933300,-78.877000,39
+Texas,31.169256,-99.683282,39
+"Memphis, Tennessee",35.149000,-90.051600,38
+Vermont,43.872754,-72.772265,38
+"San Diego, California",32.717400,-117.162800,37
+"Appleton, Wisconsin",44.261100,-88.406800,37
+"Mobile, Alabama",30.648800,-88.194600,36
+"Wilmington, North Carolina",34.225700,-77.944700,36
+"Miami-Dade, Florida",25.831634,-80.233246,35
+"Rock Hill, South Carolina",34.924900,-81.025100,35
+"Allentown, Pennsylvania",40.602200,-75.471300,34
+"Roanoke, Virginia",37.271000,-79.941400,32
+"Lafayette, Indiana",40.416700,-86.875300,32
+"Austin, Texas",30.271100,-97.743700,32
+"Eugene, Oregon",44.050500,-123.095100,32
+"Columbia, Missouri",38.951900,-92.333700,32
+"Olympia, Washington",47.045000,-122.894900,31
+"Tucson, Arizona",32.221700,-110.926500,31
+"Kansas City, Kansas",39.114700,-94.749500,30
+"Janesville, Wisconsin",42.715200,-88.990800,30
+"Asheville, North Carolina",35.600900,-82.554000,30
+"Spokane, Washington",47.658900,-117.424700,30
+"Little Rock, Arkansas",34.746500,-92.289600,29
+Pennsylvania,41.118899,-77.737766,28
+"Evansville, Indiana",37.974800,-87.555800,28
+"Jackson, Tennessee",35.614500,-88.813900,28
+"Boise, Idaho",43.615000,-116.204400,28
+"Salem, Oregon",44.939200,-123.033100,28
+"Medford, Oregon",42.326400,-122.871900,28
+"Rochester, New York",43.157300,-77.615200,28
+Minnesota,46.443226,-94.503809,28
+"Clarksville, Tennessee",36.528600,-87.309900,27
+"East Texas, Texas",32.208767,-95.874057,27
+"South Bend, Indiana",41.683400,-86.250000,27
+"Lima, Ohio",40.742600,-84.105200,27
+"Jackson, Mississippi",32.299000,-90.184800,26
+"Palm Beach, Florida",26.705600,-80.036500,26
+Missouri,38.294958,-92.492359,26
+"Lawton, Oklahoma",34.608700,-98.390300,25
+"Des Moines, Iowa",41.591100,-93.603700,25
+"Omaha, Nebraska",41.258700,-95.937900,25
+Tennessee,35.832308,-86.317786,25
+"Murfreesboro, Tennessee",35.846000,-86.392000,24
+"St. Cloud, Minnesota",45.561600,-94.164200,24
+"Northern WI, Wisconsin",44.287184,-88.407985,24
+"Ocala, Florida",29.187200,-82.140100,23
+Iowa,41.939465,-93.151539,22
+"Bloomington, Indiana",39.167000,-86.534300,22
+"Montgomery, Alabama",32.367000,-86.300600,22
+Kansas,38.642763,-98.327818,22
+"Bozeman, Montana",45.680000,-111.044700,22
+"Orange County, California",33.602502,-117.691318,21
+"Joplin, Missouri",37.084200,-94.513300,21
+"Concord, New Hampshire",43.207100,-71.537000,21
+"Topeka, Kansas",39.049000,-95.677600,21
+"Wausau, Wisconsin",44.959600,-89.629800,21
+"Myrtle Beach, South Carolina",33.695600,-78.890000,20
+"Hartford, Connecticut",41.763500,-72.683100,20
+"Charleston, West Virginia",38.350600,-81.633300,20
+"San Francisco, California",37.764800,-122.463000,20
+"Flint, Michigan",43.017200,-83.723600,19
+"Muncie, Indiana",40.193700,-85.386500,19
+"Burlington, Vermont",44.472400,-73.211500,19
+"Athens, Georgia",33.959600,-83.376700,19
+"Tuscaloosa, Alabama",33.266800,-87.486200,19
+Maryland,38.841628,-76.349402,19
+"Peoria, Illinois",40.693900,-89.589100,19
+"Baltimore, Maryland",39.290900,-76.610800,19
+"Columbus GA, Georgia",32.566299,-84.964701,19
+"Harrisonburg, Virginia",38.449300,-78.868900,18
+"Gainesville, Florida",29.651900,-82.324800,18
+Arkansas,34.752088,-92.494942,17
+"Dothan, Alabama",31.223200,-85.390500,17
+"Billings, Montana",45.787500,-108.496100,17
+"Missoula, Montana",46.870100,-113.995300,16
+"Cedar Rapids, Iowa",41.975900,-91.670400,16
+"Kalamazoo, Michigan",42.291700,-85.587200,16
+South Dakota,44.371852,-100.253960,16
+"Manchester, New Hampshire",42.995600,-71.454800,16
+Delaware,39.118972,-75.483152,16
+"Western Slope, Colorado",39.627747,-106.047199,16
+"Greenville, North Carolina",35.612700,-77.366400,15
+"Gadsden, Alabama",34.014400,-86.006700,15
+"Lancaster, Pennsylvania",40.038100,-76.305700,15
+Idaho,45.494716,-115.464968,15
+Oregon,44.147211,-120.550103,15
+"Wilkes-Barre/Scranton, Pennsylvania",41.240127,-75.848283,14
+"Bremerton, Washington",47.531200,-122.734000,14
+"Syracuse, New York",43.048100,-76.147400,14
+"Crown Point, Indiana",41.417000,-87.365300,14
+"Sandusky, Ohio",41.448900,-82.708000,14
+"Morgantown, West Virginia",39.629500,-79.955900,14
+"Coeur D' Alene, Idaho",47.677700,-116.780500,14
+"Mount Vernon, Washington",48.420000,-122.326400,13
+"Cumberland Valley, Pennsylvania",40.236149,-76.927200,13
+"Western Iowa, Iowa",41.660504,-95.320630,13
+"Portsmouth, New Hampshire",43.071800,-70.762600,13
+"Sheboygan, Wisconsin",43.750800,-87.714500,13
+"Riverside, California",33.953400,-117.396200,13
+"Helena, Montana",46.592700,-112.036100,13
+"Southern Illinois, Illinois",38.777136,-89.955691,13
+"Augusta, Georgia",33.471000,-81.974800,13
+"Greenwood, South Carolina",34.195400,-82.161800,13
+"Bloomington, Minnesota",44.824739,-93.288744,13
+Montana,46.681628,-109.341455,13
+New Mexico,34.299865,-106.044864,12
+Connecticut,41.519813,-72.661742,12
+Nevada,38.561397,-116.708430,12
+"Terre Haute, Indiana",39.466700,-87.413900,12
+"Lynchburg, Virginia",37.413800,-79.142200,12
+"El Paso, Texas",31.806400,-106.222100,12
+"Bowling Green, Kentucky",36.990300,-86.443600,12
+"Okaloosa County, Florida",30.389571,-86.482732,12
+"Pueblo, Colorado",38.254400,-104.609100,12
+"Gulfport / Biloxi, Mississippi",30.367400,-89.092800,12
+"Valparaiso, Indiana",41.473100,-87.061100,11
+"St. Louis, Illinois",39.739182,-89.451439,11
+Wyoming,42.983286,-107.548667,11
+"Nashua, New Hampshire",42.765400,-71.467600,11
+"Macon, Georgia",32.840700,-83.632400,11
+"Rochester MN, Minnesota",43.974577,-92.461156,11
+"Brainerd, Minnesota",46.358000,-94.200800,11
+Maine,45.188930,-69.244905,11
+"Fresno, California",36.671400,-119.815500,11
+"Idaho Falls, Idaho",43.493100,-112.044300,10
+"Cookeville, Tennessee",36.162800,-85.501600,10
+"Panama City, Florida",30.160100,-85.654600,10
+"Hudson Valley, New York",40.751660,-73.989777,10
+"Auburn, Alabama",32.609900,-85.480800,10
+Arizona,34.168451,-111.668128,10
+"Tallahassee, Florida",30.438100,-84.280900,10
+"Fort Smith, Arkansas",35.387200,-94.424900,10
+"Bellingham, Washington",48.754400,-122.478900,10
+"Erie, Pennsylvania",42.129100,-80.085200,10
+Rhode Island,41.599530,-71.462903,10
+"New Bern, North Carolina",35.108500,-77.044100,9
+"State College, Pennsylvania",40.794000,-77.860700,9
+"Great Falls, Montana",47.504900,-111.291900,9
+"Corvallis / Albany, Oregon",44.564600,-123.262000,9
+"Waterbury, Connecticut",41.558200,-73.051500,9
+"Racine, Wisconsin",42.726100,-87.782500,8
+"Anchorage, Alaska",61.216300,-149.894900,8
+"Long Island, New York",40.716605,-73.334810,8
+"North West Mississippi, Mississippi",33.197100,-89.777300,8
+"Cheyenne, Wyoming",41.140000,-104.820200,8
+"Amarillo, Texas",35.207200,-101.833800,8
+"Hilton Head, South Carolina",32.214729,-80.704974,8
+"Olympic Peninsula, Washington",47.798300,-123.618000,8
+"Anderson, Indiana",40.105300,-85.680300,8
+"Kokomo, Indiana",40.486400,-86.133600,8
+"Martinsburg, West Virginia",39.456100,-77.963800,8
+"Cape Girardeau, Missouri",37.305900,-89.518100,8
+"Charlottesville, Virginia",38.029300,-78.476700,8
+"New Haven, Connecticut",41.308200,-72.925100,8
+"Vancouver, Washington",45.630700,-122.674500,8
+"Meadville / Grove City, Pennsylvania",41.641400,-80.151400,8
+"Kalispell, Montana",48.202300,-114.316700,8
+"North East Mississippi, Mississippi",31.228230,-91.296000,7
+West Virginia,38.921511,-80.294105,7
+"New Orleans, Louisiana",29.949900,-90.070100,7
+Mississippi,32.568011,-89.724161,7
+"Prescott Valley, Arizona",34.610000,-112.315700,7
+"Ventura, California",34.278300,-119.293200,7
+"Fairbanks, Alaska",64.837800,-147.716400,7
+"Rockford, Illinois",42.271400,-89.094000,7
+"Port Huron, Michigan",42.981600,-82.440500,7
+"Lawrenceburg, Indiana",39.090900,-84.850000,7
+"Ft. Riley, Kansas",39.069700,-96.780200,7
+Nebraska,41.497066,-100.031645,7
+"Lake Charles, Louisiana",30.226600,-93.217400,7
+"Casper, Wyoming",42.866600,-106.313100,7
+"Hattiesburg, Mississippi",31.327100,-89.290300,7
+"Yakima, Washington",46.601600,-120.510800,6
+"Midland, Texas",31.836900,-102.010400,6
+"Las Cruces, New Mexico",32.314000,-106.779800,6
+"New Albany, Indiana",38.285600,-85.824100,6
+"Maui, Hawaii",33.917527,-117.900205,6
+"Davenport, Iowa",41.523600,-90.577600,6
+Louisiana,30.935711,-91.638946,6
+"Boone, North Carolina",36.216800,-81.674600,6
+"Roseburg, Oregon",43.216500,-123.341700,6
+"Texoma, Oklahoma",35.754879,-95.309004,6
+"Oregon Coast, Oregon",44.638828,-124.060826,5
+Utah,39.515509,-111.549668,5
+"Laramie, Wyoming",41.311400,-105.591100,5
+"Barre, Vermont",44.197000,-72.502000,5
+"Shreveport, Louisiana",32.522200,-93.765200,5
+"La Crosse, Wisconsin",43.801400,-91.239600,5
+"Duluth, Minnesota",46.772900,-92.125100,5
+"St. Joseph, Missouri",39.768600,-94.846600,5
+"Northwest OK, Oklahoma",35.529424,-97.571389,5
+"El Reno, Oklahoma",35.532200,-97.955100,5
+"Dalton, Georgia",34.769200,-84.970200,5
+"Santa Fe, New Mexico",35.687000,-105.937800,5
+"Meridian, Mississippi",32.364300,-88.703700,5
+"Tri-Cities, Washington",47.791375,-122.337941,5
+"Bloomington, Illinois",40.473100,-88.994100,5
+"Gillette, Wyoming",44.290600,-105.501900,5
+"Grand Forks, North Dakota",47.907800,-97.059200,4
+"Abilene, Texas",32.446500,-99.733300,4
+"McAllen, Texas",26.204400,-98.230100,4
+"South West Mississippi, Mississippi",30.367634,-89.117921,4
+"Redding, California",40.586400,-122.391700,4
+"Phenix City, Alabama",32.471000,-85.000800,4
+Alaska,62.892697,-152.965831,4
+"Lubbock, Texas",33.577900,-101.855200,4
+California,37.260516,-120.019377,4
+"Alamogordo, New Mexico",32.899800,-105.960300,4
+"Keene, New Hampshire",42.933600,-72.278400,4
+"Jonesboro, Arkansas",35.842900,-90.703500,4
+"Mankato, Minnesota",44.163500,-93.999400,4
+"Huntington / Ashland, West Virginia",38.397982,-82.451861,4
+"New London, Connecticut",41.355700,-72.099500,4
+"Florence, South Carolina",34.198400,-79.767200,4
+"Albany, New York",42.651200,-73.755000,4
+"East Stroudsburg, Pennsylvania",40.999500,-75.181300,4
+"Mooresville, North Carolina",35.584900,-80.810100,4
+"Salt Lake City, Utah",40.767000,-111.890400,4
+North Dakota,47.469409,-100.452392,4
+"Fargo, North Dakota",46.877200,-96.789800,4
+"York, Pennsylvania",39.962400,-76.727400,4
+"Corpus Christi, Texas",27.800300,-97.395600,4
+"Gary, Indiana",41.602100,-87.337100,4
+"La Salle, Illinois",41.333400,-89.091700,3
+"Twin Falls, Idaho",42.563000,-114.460900,3
+"Flagstaff, Arizona",35.199500,-111.651400,3
+"Rome, Georgia",34.257000,-85.164700,3
+"San Luis Obispo, California",35.282800,-120.659600,3
+"Lewiston, Idaho",46.416600,-117.017700,3
+"Fort Campbell, Kentucky",36.653600,-87.459700,3
+"Muscle Shoals Area, Alabama",34.745200,-87.668700,3
+"North Central PA, Pennsylvania",41.121546,-78.752895,3
+"Rutland, Vermont",43.610600,-72.972600,3
+"Albany, Georgia",31.578200,-84.155700,3
+"Baton Rouge, Louisiana",30.450700,-91.154600,3
+"Upper Peninsula, Michigan",47.122474,-88.569540,3
+"Sierra Vista, Arizona",31.554500,-110.303700,3
+"Owensboro, Kentucky",37.774200,-87.113300,3
+"White Mountains, Arizona",34.125322,-110.043719,3
+"Yuma, Arizona",32.725300,-114.624400,3
+"Oahu, Hawaii",21.293233,-157.843633,3
+"Fort Leonard Wood, Missouri",37.705700,-92.157200,3
+"San Angelo, Texas",31.464800,-100.439800,2
+"Altoona / Johnstown, Pennsylvania",40.326700,-78.922000,2
+"Pullman, Washington",46.730400,-117.173900,2
+"Havre, Montana",48.550000,-109.684100,2
+"Grand Island, Nebraska",40.924300,-98.338700,2
+"Greenville, Mississippi",33.400100,-91.055100,2
+"Wichita Falls, Texas",33.913700,-98.493400,2
+"Bristol, Virginia",36.668847,-81.963171,2
+"Valdosta, Georgia",30.832700,-83.278500,2
+"Stamford, Connecticut",41.053400,-73.538700,2
+"Texarkana, Arkansas",33.441800,-94.037700,2
+"Bellevue, Nebraska",41.136600,-95.890700,2
+"Western KY, Kentucky",37.074391,-88.682389,2
+"Western Illinois, Illinois",40.374813,-90.749531,2
+"Northwest KS, Kansas",39.130300,-94.661900,2
+"Richlands, North Carolina",34.899300,-77.546600,2
+"Waterloo, Iowa",42.498300,-92.336900,2
+"Outer Banks, North Carolina",34.609672,-79.083030,2
+"Bakersfield, California",35.373900,-119.019500,2
+"Hawaii Island, Hawaii",21.291939,-157.823932,1
+"Decatur, Illinois",39.845400,-88.952400,1
+"Payson, Arizona",34.230900,-111.325100,1
+"Elko, Nevada",40.832400,-115.763100,1
+"Adirondacks, New York",42.773969,-76.182169,1
+"St. Joseph, Michigan",42.109600,-86.480000,1
+New York,42.773969,-76.182169,1
+"Provo, Utah",40.233800,-111.658500,1
+"Fort Smith AR, Oklahoma",35.387200,-94.424900,1
+"Kearney, Nebraska",40.699500,-99.081900,1
+"Binghamton, New York",42.097000,-75.914300,1
+"Gallup, New Mexico",35.528400,-108.743900,1
+"Quad Cities, Illinois",41.509232,-90.565582,1
+"Southeast KS, Kansas",39.124252,-94.834244,1
+"Superior, Wisconsin",46.720800,-92.104100,1
+"Salem, New Hampshire",42.788400,-71.200900,1
+"Juneau, Alaska",58.301900,-134.419700,1
+"Bridgeport, Connecticut",41.167000,-73.204800,1
+"West PA, Pennsylvania",41.118899,-77.737766,1
+"Klamath falls, Oregon",42.224900,-121.781700,1
+"Jacksonboro, South Carolina",32.770200,-80.454500,1
+"Mohave Valley, Arizona",34.933100,-114.588900,1
+"East Oregon, Oregon",45.516750,-122.678920,1

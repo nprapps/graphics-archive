@@ -1,0 +1,41 @@
+@import "base";
+
+.graphic { margin-bottom: 22px; }
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.dots {
+    circle {
+        stroke: #fff;
+        stroke-width: 1.5px;
+    }
+
+    text {
+        font-size: 12px;
+        fill: #999;
+        font-weight: bold;
+    }
+}
+
+.chart-label {
+    fill: #999;
+    font-style: italic;
+    font-size: 12px;
+    text-anchor: middle;
+    letter-spacing: .3px;
+}
+
+@media screen and (max-width: 500px) {
+    .chart-label { font-size: 11px; }
+    .dots text {
+        font-size: 10px;
+        font-weight: normal;
+    }
+}
+
+@media screen and (min-width: 500px) {
+}

@@ -1,0 +1,37 @@
+@import "base";
+
+// Add custom styles here
+.bar.Sanders {
+    fill: @orange3;
+}
+
+.bar.Clinton {
+    fill: @teal3;
+}
+
+.bar.none {
+    fill: #ddd;
+}
+
+.key .Clinton {
+    b {
+        background-color: @teal3;
+        margin-right: 2px;
+    }
+}
+
+.key .Sanders {
+    b {
+        background-color: @orange3;
+        margin-right: 2px;
+    }
+}
+
+.annotations text {
+    font-size: 11px;
+    fill: #999;
+    font-style: italic;
+
+    &.less { text-anchor: end; }
+    &.more { text-anchor: start; }
+}

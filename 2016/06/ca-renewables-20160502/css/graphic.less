@@ -1,0 +1,49 @@
+@import "base";
+
+.areas path { fill-opacity: 0.85; }
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+
+    .usage {
+        stroke: #121212;
+        stroke-dasharray: 4px 2px;
+    }
+}
+
+.value text {
+    font-size: 12px;
+    fill: #999;
+
+    &.solar {
+        text-anchor: middle;
+        fill: @orange1;
+        font-weight: bold;
+    }
+    &.wind { fill: @orange1; }
+    &.excess-power {
+        text-anchor: end;
+        fill: @red1;
+        font-style: italic;
+        font-weight: bold;
+    }
+    &.usage {
+        fill: #333;
+        font-weight: bold;
+        // text-transform: uppercase;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

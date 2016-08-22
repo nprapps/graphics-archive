@@ -1,0 +1,80 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+    <ul class="key">
+        <li class="key-item swing"><b></b><label>{{ COPY.labels.key_swing }}</label></li>
+    </ul>
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th class="year">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_year }}</div>
+                    </th>
+                    <th class="candidate">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_candidate }}</div>
+                    </th>
+                    <!-- <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_candstate }}</div>
+                    </th> -->
+                    <th class="running-mate">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_mate }}</div>
+                    </th>
+                    <th class="state">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_matestate }}</div>
+                    </th>
+                    <th class="win">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_win }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="{{ row.party|classify }} {{ row.swing|classify }}">
+                <td class="year" data-title="{{ COPY.labels.hdr_year }}">{{ row.year }}</td>
+                <td class="candidate" data-title="{{ COPY.labels.hdr_candidate }}">{{ row.candidate }}</td>
+                <!-- <td class="cstate" data-title="{{ COPY.labels.hdr_candstate }}">{{ row.candstate|ap_state }}</td> -->
+                <td class="running-mate" data-title="{{ COPY.labels.hdr_mate }}">{{ row.mate }}</td>
+                <td class="state" data-title="{{ COPY.labels.hdr_matestate }}">{{ row.matestate|ap_state }}</td>
+                <td class="win {{ row.win|classify }}" data-title="{{ COPY.labels.hdr_win }}">
+                    {% if row.win == 'Y' %}<i class="icon-ok"></i>
+                    {% elif row.win == 'N' %}<i class="icon-cancel"></i>
+                    {% else %}{{ row.win }}{% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

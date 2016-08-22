@@ -1,0 +1,29 @@
+@import "base";
+
+.bars rect {
+    fill: @orange5;
+
+    &.child-care-workers,
+    &.head-start-teachers,
+    &.preschool-teachers {
+        fill: @orange3;
+    }
+}
+
+.labels li {
+    &.child-care-workers,
+    &.head-start-teachers,
+    &.preschool-teachers {
+        font-weight: bold;
+        color: #333;
+    }
+}
+
+.value text {
+    &.child-care-workers,
+    &.head-start-teachers,
+    &.preschool-teachers {
+        font-weight: bold;
+        fill: #454545;
+    }
+}
