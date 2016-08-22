@@ -1,0 +1,95 @@
+var DATA_URL = 'assets/results-20160201.json'
+
+/*
+ * Initialize the graphic.
+ */
+var onWindowLoaded = function() {
+    loadData();
+    // render data
+
+    pymChild = new pym.Child({});
+}
+
+
+/*
+ * Load data
+ */
+var loadData = function() {
+    d3.json(DATA_URL, function(error, data) {
+      if (error) {
+          return console.warn(error);
+      }
+      renderData(data);
+    });}
+
+
+/*
+ * Display data
+ */
+var renderData = function(data) {
+    var parties = d3.keys(data);
+
+    parties.forEach(function(d,i) {
+        var containerElement = d3.select('.results.' + d);
+        var partyData = data[d];
+        var partyResults = partyData['results'].sort(function(a, b) {
+            return d3.descending(a['votecount'], b['votecount']);
+        });
+
+        var lastUpdated = containerElement.select('.last-updated')
+            .text('As of ' + partyData['lastupdated'] + ' EST');
+
+        var precincts = containerElement.select('.precincts')
+            .text(function() {
+                var p = partyResults[0];
+                // 0.0% of precincts reporting (0 of 1,681)
+                return p['precinctsreportingpct'] + '% of precincts reporting (' + fmtComma(p['precinctsreporting']) + ' of ' + fmtComma(p['precinctstotal']) + ')';
+            });
+
+        var resultsTable = containerElement.select('tbody');
+        resultsTable.html('');
+
+        partyResults.forEach(function(v, k) {
+            var resultsRow = resultsTable.append('tr');
+            if (v['winner'] == true) {
+                resultsRow.classed('winner', true);
+            }
+            resultsRow.append('td')
+                .html(function() {
+                    var candidate = '';
+                    if (v['first']) {
+                        candidate += v['first'] + ' ';
+                    }
+                    if (v['last']) {
+                        candidate += v['last'];
+                    }
+                    if (v['winner'] == true) {
+                        candidate += ' <b class="icon icon-ok"></b>';
+                    }
+                    return candidate;
+                });
+            resultsRow.append('td')
+                .text(fmtComma(v['votecount']))
+                .classed('votes', true);
+            resultsRow.append('td')
+                .text(function() {
+                    var pct = v['votepct'] * 100;
+                    return pct.toFixed(1) + '%';
+                })
+                .classed('pct', true);
+        });
+
+        // Update iframe
+        if (pymChild) {
+            pymChild.sendHeight();
+        }
+    });
+}
+
+
+/*
+ * Initially load the graphic
+ * (NB: Use window.load instead of document.ready
+ * to ensure all images have loaded)
+ */
+window.onload = onWindowLoaded;

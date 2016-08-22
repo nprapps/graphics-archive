@@ -1,0 +1,16 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div class="photo">
+        <img src="fallback.png" alt="[Illustration]" class="fallback" />
+    </div>
+
+    {% if COPY.labels.caption %}
+    <div class="caption">
+        <p>{{ render(COPY.labels.caption)|smarty }}</p>
+        <p class="credit">{{ COPY.labels.credit|smarty }}</p>
+    </div>
+    {% endif %}
+
+{% endblock content %}

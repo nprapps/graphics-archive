@@ -1,0 +1,136 @@
+{% extends 'base_template.html' %}
+
+{% block fonts %}
+<!-- Fonts -->
+<script src="http://apps.npr.org/dailygraphics/graphics/fonts/js/lib/webfont.js"></script>
+<script>
+WebFont.load({
+    custom: {
+        families: [
+            'Gotham SSm:n4,n7',
+            'Knockout 31 4r:n4',
+            'StateFaceRegular',
+            'elections'
+        ],
+        urls: [
+            'http://s.npr.org/templates/css/fonts/GothamSSm.css',
+            'http://s.npr.org/templates/css/fonts/Knockout.css',
+            '../fonts/assets/stateface.css',
+            'css/elections.css'
+        ]
+    },
+    timeout: 10000
+});
+</script>
+{% endblock %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+
+        <!--
+        <h4 id="jump-links">Jump to: <a id="jump-upcoming">{{ COPY.labels.hed_upcoming }}</a> | <a id="jump-past">{{ COPY.labels.hed_past }}</a></h4>
+        -->
+
+        {% for row in COPY.data|groupby('status') %}
+
+        {% if row.grouper == 'past' %}
+        <h3 id="past">{{ COPY.labels.hed_past }}</h3>
+        {% else %}
+        <h3 id="upcoming">{{ COPY.labels.hed_upcoming }}</h3>
+        {% endif %}
+
+        <table class="state-table {{ row.grouper|classify }}">
+            {% for election in row.list %}
+            <tr class="{{ election.row_type }} {{ election.state_abbr|classify }}">
+                {% if election.row_type == 'header' %}
+                <th colspan="5">{{ election.date }}{% if election.event %} &mdash; {{ election.event }}{% endif %}</th>
+                {% else %}
+                <td class="state"><b class="stateface stateface-replace stateface-{{ election.state_abbr|lower }}">&nbsp;</b> <span class="desktop">{{ election.state_name }}</span><span class="mobile">{{ election.state_abbr|ap_state }}</span></td>
+                <td class="party {% if election.dem %}dem{% endif %}">
+                    {% if election.dem %}
+                        <span class="format">{{ election.dem }}</span>
+                        <span class="delegates"><b>{{ election.dem_dels }}</b> delegates</span>
+
+                        {% for result in COPY.results %}
+                        {% if (result.date == election.date) and (result.state_name == election.state_name) and (result.dem_name_1) %}
+                        <ul class="results">
+                            <li class="{% if result.dem_winner_1 %}winner{% endif %}">
+                                <span class="candidate">{{ result.dem_name_1|smarty }}{% if result.dem_winner_1 %} <b class="icon icon-ok"></b>{% endif %}</span>
+                                <span class="pct">{% if result.dem_pct_1 %}{{ result.dem_pct_1 }}%{% endif %}</span>
+                            </li>
+                            <li>
+                                <span class="candidate">{{ result.dem_name_2|smarty }}</span>
+                                <span class="pct">{% if result.dem_pct_2 %}{{ result.dem_pct_2 }}%{% endif %}</span>
+                            </li>
+                            {% if result.dem_name_3 %}
+                            <li>
+                                <span class="candidate">{{ result.dem_name_3|smarty }}</span>
+                                <span class="pct">{% if result.dem_pct_3 %}{{ result.dem_pct_3 }}%{% endif %}</span>
+                            </li>
+                            {% endif %}
+                        </ul>
+                        {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </td>
+                <td class="party {% if election.gop %}gop{% endif %}">
+                    {% if election.gop %}
+                        <span class="format">{{ election.gop }}</span>
+                        <span class="delegates"><b>{{ election.gop_dels }}</b> delegates</span>
+
+                        {% for result in COPY.results %}
+                        {% if (result.date == election.date) and (result.state_name == election.state_name) and (result.gop_name_1) %}
+                        <ul class="results">
+                            <li class="{% if result.gop_winner_1 %}winner{% endif %}">
+                                <span class="candidate">{{ result.gop_name_1 }}{% if result.gop_winner_1 %} <b class="icon icon-ok"></b>{% endif %}</span>
+                                <span class="pct">{% if result.gop_pct_1 %}{{ result.gop_pct_1 }}%{% endif %}</span>
+                            </li>
+                            <li>
+                                <span class="candidate">{{ result.gop_name_2 }}</span>
+                                <span class="pct">{% if result.gop_pct_2 %}{{ result.gop_pct_2 }}%{% endif %}</span>
+                            </li>
+                            {% if result.gop_name_3 %}
+                            <li>
+                                <span class="candidate">{{ result.gop_name_3|smarty }}</span>
+                                <span class="pct">{% if result.gop_pct_3 %}{{ result.gop_pct_3 }}%{% endif %}</span>
+                            </li>
+                            {% endif %}
+                        </ul>
+                        {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+        {% endfor %}
+
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/d3.min.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

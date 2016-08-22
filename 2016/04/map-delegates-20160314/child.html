@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <base target="_blank">
+
+    
+
+    <!-- Fonts -->
+    <script src="http://apps.npr.org/dailygraphics/graphics/fonts/js/lib/webfont.js"></script>
+    <script>
+    WebFont.load({
+        custom: {
+            families: [
+                'Gotham SSm:n4,n7',
+                'Knockout 31 4r:n4'
+            ],
+            urls: [
+                'http://s.npr.org/templates/css/fonts/GothamSSm.css',
+                'http://s.npr.org/templates/css/fonts/Knockout.css'
+            ]
+        },
+        timeout: 10000
+    });
+    </script>
+
+    
+
+    <!-- Configuration -->
+    <script type="text/javascript">
+        GOOGLE_ANALYTICS_ACCOUNT_ID = 'UA-5828686-75';
+        GOOGLE_ANALYTICS_PROJECT_SLUG = 'map-delegates-20160314';
+    </script>
+
+    <!-- CSS + LESS -->
+    
+    <link rel="stylesheet" type="text/css" href="css/graphic-header.css?1459281837" />
+</head>
+<body>
+    <!-- Analytics -->
+    
+    
+    <script type="text/javascript" src="js/graphic-header.js?1459281837"></script>
+
+    
+
+    <h1>The Delegate Map</h1>
+    <h2>In these maps, states are sized by the number of delegates at stake, while the red and blue boxes indicate how many of those delegates each candidate has won so far this primary season. For <a href="http://www.npr.org/2016/03/02/468641509/elections-2016-democratic-and-republican-delegate-tracker">detailed delegate breakdowns by state</a>, including pledged delegates, superdelegates and delegates left to be awarded, see NPR&#8217;s <a href="http://www.npr.org/2016/03/02/468641509/elections-2016-democratic-and-republican-delegate-tracker">Democratic and Republican Delegate&nbsp;Tracker</a>.</h2>
+
+    <div id="graphic" class="graphic">
+        <img src="fallback.png" alt="[Chart]" class="fallback" />
+    </div>
+
+    
+
+    <div class="footer">
+        <p>Source: AP estimates</p>
+        <p>Credit: Alyson Hurt/NPR</p>
+    </div>
+
+    <script type="text/javascript">
+        var DATA_DEM = [{"date": "Feb. 1", "state": "Iowa", "usps": "IA", "pledged_dels": "44.0", "super_dels": "8.0", "total_dels": "52", "winner": "Clinton"}, {"date": "Feb. 9", "state": "New Hampshire", "usps": "NH", "pledged_dels": "24.0", "super_dels": "8.0", "total_dels": "32", "winner": "Sanders"}, {"date": "Feb. 20", "state": "Nevada", "usps": "NV", "pledged_dels": "35.0", "super_dels": "8.0", "total_dels": "43", "winner": "Clinton"}, {"date": "Feb. 27", "state": "South Carolina", "usps": "SC", "pledged_dels": "53.0", "super_dels": "6.0", "total_dels": "59", "winner": "Clinton"}, {"date": "March 1", "state": "Alabama", "usps": "AL", "pledged_dels": "53.0", "super_dels": "7.0", "total_dels": "60", "winner": "Clinton"}, {"date": "March 1", "state": "American Samoa", "usps": "AS", "pledged_dels": "6.0", "super_dels": "5.0", "total_dels": "11", "winner": "Clinton"}, {"date": "March 1", "state": "Arkansas", "usps": "AR", "pledged_dels": "32.0", "super_dels": "5.0", "total_dels": "37", "winner": "Clinton"}, {"date": "March 1", "state": "Colorado", "usps": "CO", "pledged_dels": "66.0", "super_dels": "12.0", "total_dels": "78", "winner": "Sanders"}, {"date": "March 1", "state": "Democrats Abroad", "usps": "DA", "pledged_dels": "13.0", "super_dels": "4.0", "total_dels": "17", "winner": "Sanders"}, {"date": "March 1", "state": "Georgia", "usps": "GA", "pledged_dels": "102.0", "super_dels": "15.0", "total_dels": "117", "winner": "Clinton"}, {"date": "March 1", "state": "Massachusetts", "usps": "MA", "pledged_dels": "91.0", "super_dels": "25.0", "total_dels": "116", "winner": "Clinton"}, {"date": "March 1", "state": "Minnesota", "usps": "MN", "pledged_dels": "77.0", "super_dels": "16.0", "total_dels": "93", "winner": "Sanders"}, {"date": "March 1", "state": "Oklahoma", "usps": "OK", "pledged_dels": "38.0", "super_dels": "4.0", "total_dels": "42", "winner": "Sanders"}, {"date": "March 1", "state": "Tennessee", "usps": "TN", "pledged_dels": "67.0", "super_dels": "8.0", "total_dels": "75", "winner": "Clinton"}, {"date": "March 1", "state": "Texas", "usps": "TX", "pledged_dels": "222.0", "super_dels": "29.0", "total_dels": "251", "winner": "Clinton"}, {"date": "March 1", "state": "Vermont", "usps": "VT", "pledged_dels": "16.0", "super_dels": "10.0", "total_dels": "26", "winner": "Sanders"}, {"date": "March 1", "state": "Virginia", "usps": "VA", "pledged_dels": "95.0", "super_dels": "14.0", "total_dels": "109", "winner": "Clinton"}, {"date": "March 5", "state": "Kansas", "usps": "KS", "pledged_dels": "33.0", "super_dels": "4.0", "total_dels": "37", "winner": "Sanders"}, {"date": "March 5", "state": "Louisiana", "usps": "LA", "pledged_dels": "51.0", "super_dels": "8.0", "total_dels": "59", "winner": "Clinton"}, {"date": "March 5", "state": "Nebraska", "usps": "NE", "pledged_dels": "25.0", "super_dels": "5.0", "total_dels": "30", "winner": "Sanders"}, {"date": "March 6", "state": "Maine", "usps": "ME", "pledged_dels": "25.0", "super_dels": "5.0", "total_dels": "30", "winner": "Sanders"}, {"date": "March 8", "state": "Michigan", "usps": "MI", "pledged_dels": "130.0", "super_dels": "17.0", "total_dels": "147", "winner": "Sanders"}, {"date": "March 8", "state": "Mississippi", "usps": "MS", "pledged_dels": "36.0", "super_dels": "5.0", "total_dels": "41", "winner": "Clinton"}, {"date": "March 12", "state": "Northern Mariana Islands", "usps": "MP", "pledged_dels": "6.0", "super_dels": "5.0", "total_dels": "11", "winner": "Clinton"}, {"date": "March 15", "state": "Florida", "usps": "FL", "pledged_dels": "214.0", "super_dels": "32.0", "total_dels": "246", "winner": "Clinton"}, {"date": "March 15", "state": "Illinois", "usps": "IL", "pledged_dels": "156.0", "super_dels": "26.0", "total_dels": "182", "winner": "Clinton"}, {"date": "March 15", "state": "Missouri", "usps": "MO", "pledged_dels": "71.0", "super_dels": "13.0", "total_dels": "84", "winner": "Clinton"}, {"date": "March 15", "state": "North Carolina", "usps": "NC", "pledged_dels": "107.0", "super_dels": "14.0", "total_dels": "121", "winner": "Clinton"}, {"date": "March 15", "state": "Ohio", "usps": "OH", "pledged_dels": "143.0", "super_dels": "17.0", "total_dels": "160", "winner": "Clinton"}, {"date": "March 22", "state": "Arizona", "usps": "AZ", "pledged_dels": "75.0", "super_dels": "10.0", "total_dels": "85", "winner": "Clinton"}, {"date": "March 22", "state": "Idaho", "usps": "ID", "pledged_dels": "23.0", "super_dels": "4.0", "total_dels": "27", "winner": "Sanders"}, {"date": "March 22", "state": "Utah", "usps": "UT", "pledged_dels": "33.0", "super_dels": "4.0", "total_dels": "37", "winner": "Sanders"}, {"date": "March 26", "state": "Alaska", "usps": "AK", "pledged_dels": "16.0", "super_dels": "4.0", "total_dels": "20", "winner": "Sanders"}, {"date": "March 26", "state": "Hawaii", "usps": "HI", "pledged_dels": "25.0", "super_dels": "10.0", "total_dels": "35", "winner": "Sanders"}, {"date": "March 26", "state": "Washington", "usps": "WA", "pledged_dels": "101.0", "super_dels": "17.0", "total_dels": "118", "winner": "Sanders"}, {"date": "April 5", "state": "Wisconsin", "usps": "WI", "pledged_dels": "86.0", "super_dels": "10.0", "total_dels": "96", "winner": null}, {"date": "April 9", "state": "Wyoming", "usps": "WY", "pledged_dels": "14.0", "super_dels": "4.0", "total_dels": "18", "winner": null}, {"date": "April 19", "state": "New York", "usps": "NY", "pledged_dels": "247.0", "super_dels": "44.0", "total_dels": "291", "winner": null}, {"date": "April 26", "state": "Connecticut", "usps": "CT", "pledged_dels": "55.0", "super_dels": "16.0", "total_dels": "71", "winner": null}, {"date": "April 26", "state": "Delaware", "usps": "DE", "pledged_dels": "21.0", "super_dels": "10.0", "total_dels": "31", "winner": null}, {"date": "April 26", "state": "Maryland", "usps": "MD", "pledged_dels": "95.0", "super_dels": "23.0", "total_dels": "118", "winner": null}, {"date": "April 26", "state": "Pennsylvania", "usps": "PA", "pledged_dels": "189.0", "super_dels": "21.0", "total_dels": "210", "winner": null}, {"date": "April 26", "state": "Rhode Island", "usps": "RI", "pledged_dels": "24.0", "super_dels": "9.0", "total_dels": "33", "winner": null}, {"date": "May 3", "state": "Indiana", "usps": "IN", "pledged_dels": "83.0", "super_dels": "9.0", "total_dels": "92", "winner": null}, {"date": "May 7", "state": "Guam", "usps": "GU", "pledged_dels": "7.0", "super_dels": "5.0", "total_dels": "12", "winner": null}, {"date": "May 10", "state": "West Virginia", "usps": "WV", "pledged_dels": "29.0", "super_dels": "8.0", "total_dels": "37", "winner": null}, {"date": "May 17", "state": "Kentucky", "usps": "KY", "pledged_dels": "55.0", "super_dels": "5.0", "total_dels": "60", "winner": null}, {"date": "May 17", "state": "Oregon", "usps": "OR", "pledged_dels": "61.0", "super_dels": "13.0", "total_dels": "74", "winner": null}, {"date": "June 4", "state": "Virgin Islands", "usps": "VI", "pledged_dels": "7.0", "super_dels": "5.0", "total_dels": "12", "winner": null}, {"date": "June 5", "state": "Puerto Rico", "usps": "PR", "pledged_dels": "60.0", "super_dels": "7.0", "total_dels": "67", "winner": null}, {"date": "June 7", "state": "California", "usps": "CA", "pledged_dels": "475.0", "super_dels": "73.0", "total_dels": "548", "winner": null}, {"date": "June 7", "state": "Montana", "usps": "MT", "pledged_dels": "21.0", "super_dels": "6.0", "total_dels": "27", "winner": null}, {"date": "June 7", "state": "New Jersey", "usps": "NJ", "pledged_dels": "126.0", "super_dels": "16.0", "total_dels": "142", "winner": null}, {"date": "June 7", "state": "New Mexico", "usps": "NM", "pledged_dels": "34.0", "super_dels": "9.0", "total_dels": "43", "winner": null}, {"date": "June 7", "state": "North Dakota", "usps": "ND", "pledged_dels": "18.0", "super_dels": "5.0", "total_dels": "23", "winner": null}, {"date": "June 7", "state": "South Dakota", "usps": "SD", "pledged_dels": "20.0", "super_dels": "5.0", "total_dels": "25", "winner": null}, {"date": "June 14", "state": "District of Columbia", "usps": "DC", "pledged_dels": "20.0", "super_dels": "26.0", "total_dels": "46", "winner": null}, {"date": "n/a", "state": "Unassigned", "usps": "UN", "pledged_dels": null, "super_dels": "1.0", "total_dels": "1", "winner": null}];
+        var DATA_GOP = [{"date": "Feb. 1", "state": "Iowa", "usps": "IA", "total_dels": "30", "winner": "Cruz"}, {"date": "Feb. 9", "state": "New Hampshire", "usps": "NH", "total_dels": "23", "winner": "Trump"}, {"date": "Feb. 20", "state": "South Carolina", "usps": "SC", "total_dels": "50", "winner": "Trump"}, {"date": "Feb. 23", "state": "Nevada", "usps": "NV", "total_dels": "30", "winner": "Trump"}, {"date": "March 1", "state": "Alabama", "usps": "AL", "total_dels": "50", "winner": "Trump"}, {"date": "March 1", "state": "Alaska", "usps": "AK", "total_dels": "28", "winner": "Cruz"}, {"date": "March 1", "state": "Arkansas", "usps": "AR", "total_dels": "40", "winner": "Trump"}, {"date": "March 1", "state": "Colorado", "usps": "CO", "total_dels": "37.0", "winner": null}, {"date": "March 1", "state": "Georgia", "usps": "GA", "total_dels": "76", "winner": "Trump"}, {"date": "March 1", "state": "Massachusetts", "usps": "MA", "total_dels": "42", "winner": "Trump"}, {"date": "March 1", "state": "Minnesota", "usps": "MN", "total_dels": "38", "winner": "Rubio"}, {"date": "March 1", "state": "Oklahoma", "usps": "OK", "total_dels": "43", "winner": "Cruz"}, {"date": "March 1", "state": "Tennessee", "usps": "TN", "total_dels": "58", "winner": "Trump"}, {"date": "March 1", "state": "Texas", "usps": "TX", "total_dels": "155", "winner": "Cruz"}, {"date": "March 1", "state": "Vermont", "usps": "VT", "total_dels": "16", "winner": "Trump"}, {"date": "March 1", "state": "Virginia", "usps": "VA", "total_dels": "49", "winner": "Trump"}, {"date": "March 5", "state": "Kansas", "usps": "KS", "total_dels": "40", "winner": "Cruz"}, {"date": "March 5", "state": "Kentucky", "usps": "KY", "total_dels": "46", "winner": "Trump"}, {"date": "March 5", "state": "Louisiana", "usps": "LA", "total_dels": "46", "winner": "Trump"}, {"date": "March 5", "state": "Maine", "usps": "ME", "total_dels": "23", "winner": "Cruz"}, {"date": "March 6", "state": "Puerto Rico", "usps": "PR", "total_dels": "23", "winner": "Rubio"}, {"date": "March 8", "state": "Hawaii", "usps": "HI", "total_dels": "19", "winner": "Trump"}, {"date": "March 8", "state": "Idaho", "usps": "ID", "total_dels": "32", "winner": "Cruz"}, {"date": "March 8", "state": "Michigan", "usps": "MI", "total_dels": "59", "winner": "Trump"}, {"date": "March 8", "state": "Mississippi", "usps": "MS", "total_dels": "40", "winner": "Trump"}, {"date": "March 10", "state": "Virgin Islands", "usps": "VI", "total_dels": "9", "winner": null}, {"date": "March 12", "state": "District of Columbia", "usps": "DC", "total_dels": "19", "winner": "Rubio"}, {"date": "March 12", "state": "Guam", "usps": "GU", "total_dels": "9", "winner": null}, {"date": "March 12", "state": "Wyoming", "usps": "WY", "total_dels": "29", "winner": null}, {"date": "March 15", "state": "Florida", "usps": "FL", "total_dels": "99", "winner": "Trump"}, {"date": "March 15", "state": "Illinois", "usps": "IL", "total_dels": "69", "winner": "Trump"}, {"date": "March 15", "state": "Missouri", "usps": "MO", "total_dels": "52", "winner": null}, {"date": "March 15", "state": "North Carolina", "usps": "NC", "total_dels": "72", "winner": "Trump"}, {"date": "March 15", "state": "Ohio", "usps": "OH", "total_dels": "66", "winner": "Kasich"}, {"date": "March 15", "state": "Northern Mariana Islands", "usps": "MP", "total_dels": "9", "winner": "Trump"}, {"date": "March 22", "state": "Arizona", "usps": "AZ", "total_dels": "58", "winner": "Trump"}, {"date": "March 22", "state": "Utah", "usps": "UT", "total_dels": "40", "winner": "Cruz"}, {"date": "March 22", "state": "American Samoa", "usps": "AS", "total_dels": "9", "winner": null}, {"date": "April 1", "state": "North Dakota", "usps": "ND", "total_dels": "28.0", "winner": null}, {"date": "April 5", "state": "Wisconsin", "usps": "WI", "total_dels": "42", "winner": null}, {"date": "April 19", "state": "New York", "usps": "NY", "total_dels": "95", "winner": null}, {"date": "April 26", "state": "Connecticut", "usps": "CT", "total_dels": "28", "winner": null}, {"date": "April 26", "state": "Delaware", "usps": "DE", "total_dels": "16", "winner": null}, {"date": "April 26", "state": "Maryland", "usps": "MD", "total_dels": "38", "winner": null}, {"date": "April 26", "state": "Pennsylvania", "usps": "PA", "total_dels": "71", "winner": null}, {"date": "April 26", "state": "Rhode Island", "usps": "RI", "total_dels": "19", "winner": null}, {"date": "May 3", "state": "Indiana", "usps": "IN", "total_dels": "57", "winner": null}, {"date": "May 10", "state": "Nebraska", "usps": "NE", "total_dels": "36", "winner": null}, {"date": "May 10", "state": "West Virginia", "usps": "WV", "total_dels": "34", "winner": null}, {"date": "May 17", "state": "Oregon", "usps": "OR", "total_dels": "28", "winner": null}, {"date": "May 24", "state": "Washington", "usps": "WA", "total_dels": "44", "winner": null}, {"date": "June 7", "state": "California", "usps": "CA", "total_dels": "172", "winner": null}, {"date": "June 7", "state": "Montana", "usps": "MT", "total_dels": "27", "winner": null}, {"date": "June 7", "state": "New Jersey", "usps": "NJ", "total_dels": "51", "winner": null}, {"date": "June 7", "state": "New Mexico", "usps": "NM", "total_dels": "24", "winner": null}, {"date": "June 7", "state": "South Dakota", "usps": "SD", "total_dels": "29", "winner": null}];
+    </script>
+
+    <div id="gop-map" style="display: none;">
+        <?xml version="1.0" encoding="utf-8"?>
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        	 viewBox="0 0 623 480" style="enable-background:new 0 0 623 480;" xml:space="preserve">
+        <g class="ia">
+        	<rect x="220" y="151" class="total" width="30" height="30"/>
+        	<text>IA</text>
+        </g>
+        <g class="sc">
+        	<rect x="387.1" y="261" class="total" width="38" height="38"/>
+        	<text>SC</text>
+        </g>
+        <g class="nv">
+        	<rect x="81" y="224" class="total" width="30" height="30"/>
+        	<text>NV</text>
+        </g>
+        <g class="al">
+        	<rect x="344.1" y="304" class="total" width="38" height="38"/>
+        	<text>AL</text>
+        </g>
+        <g class="ak">
+        	<rect x="7" y="25" class="total" width="28" height="28"/>
+        	<text>AK</text>
+        </g>
+        <g class="ar">
+        	<rect x="263.1" y="257.7" class="total" width="34" height="34"/>
+        	<text>AR</text>
+        </g>
+        <g class="ga">
+        	<rect x="387.1" y="304" class="total" width="47" height="47"/>
+        	<text>GA</text>
+        </g>
+        <g class="mn">
+        	<rect x="217" y="104" class="total" width="33" height="33"/>
+        	<text>MN</text>
+        </g>
+        <g class="ok">
+        	<rect x="202.5" y="263" class="total" width="35" height="35"/>
+        	<text>OK</text>
+        </g>
+        <g class="tn">
+        	<rect x="305" y="251.7" class="total" width="41" height="41"/>
+        	<text>TN</text>
+        </g>
+        <g class="tx">
+        	<rect x="190.1" y="303" class="total" width="68" height="68"/>
+        	<text>TX</text>
+        </g>
+        <g class="va">
+        	<rect x="417.8" y="200" class="total" width="38" height="38"/>
+        	<text>VA</text>
+        </g>
+        <g class="ks">
+        	<rect x="194.7" y="220.2" class="total" width="34" height="34"/>
+        	<text>KS</text>
+        </g>
+        <g class="ky">
+        	<rect x="307" y="203.3" class="total" width="37" height="37"/>
+        	<text>KY</text>
+        </g>
+        <g class="la">
+        	<rect x="263.1" y="303" class="total" width="37" height="37"/>
+        	<text>LA</text>
+        </g>
+        <g class="hi">
+        	<rect x="5" y="356" class="total" width="23" height="23"/>
+        	<text>HI</text>
+        </g>
+        <g class="id">
+        	<rect x="89.7" y="154.6" class="total" width="30" height="30"/>
+        	<text>ID</text>
+        </g>
+        <g class="mi">
+        	<rect x="351" y="104" class="total" width="42" height="42"/>
+        	<text>MI</text>
+        </g>
+        <g class="ms">
+        	<rect x="305.1" y="304" class="total" width="34" height="34"/>
+        	<text>MS</text>
+        </g>
+        <g class="dc">
+        	<rect x="460.8" y="200" class="total" width="23" height="23"/>
+        	<text>DC</text>
+        </g>
+        <g class="wy">
+        	<rect x="133.3" y="182.5" class="total" width="29" height="29"/>
+        	<text>WY</text>
+        </g>
+        <g class="fl">
+        	<rect x="396.1" y="356" class="total" width="54" height="54"/>
+        	<text>FL</text>
+        </g>
+        <g class="il">
+        	<rect x="255" y="151" class="total" width="45" height="45"/>
+        	<text>IL</text>
+        </g>
+        <g class="mo">
+        	<rect x="248.4" y="207.3" class="total" width="39" height="39"/>
+        	<text>MO</text>
+        </g>
+        <g class="nc">
+        	<rect x="430.1" y="243" class="total" width="46" height="46"/>
+        	<text>NC</text>
+        </g>
+        <g class="oh">
+        	<rect x="351" y="151" class="total" width="44" height="44"/>
+        	<text>OH</text>
+        </g>
+        <g class="az">
+        	<rect x="109" y="263" class="total" width="41" height="41"/>
+        	<text>AZ</text>
+        </g>
+        <g class="ut">
+        	<rect x="116" y="224" class="total" width="34" height="34"/>
+        	<text>UT</text>
+        </g>
+        <g class="wi">
+        	<rect x="255" y="104" class="total" width="35" height="35"/>
+        	<text>WI</text>
+        </g>
+        <g class="de">
+        	<rect x="488.8" y="189" class="total" width="21" height="21"/>
+        	<text>DE</text>
+        </g>
+        <g class="md">
+        	<rect x="450.8" y="162" class="total" width="33" height="33"/>
+        	<text>MD</text>
+        </g>
+        <g class="pa">
+        	<rect x="399.8" y="149" class="total" width="46" height="46"/>
+        	<text>PA</text>
+        </g>
+        <g class="ny">
+        	<rect x="474.8" y="87" class="total" width="53" height="53"/>
+        	<text>NY</text>
+        </g>
+        <g class="nh">
+        	<rect x="558.8" y="56" class="total" width="26" height="26"/>
+        	<text>NH</text>
+        </g>
+        <g class="ma">
+        	<rect x="532.8" y="87" class="total" width="35" height="35"/>
+        	<text>MA</text>
+        </g>
+        <g class="vt">
+        	<rect x="532.8" y="61" class="total" width="21" height="21"/>
+        	<text>VT</text>
+        </g>
+        <g class="me">
+        	<rect x="572.8" y="25" class="total" width="26" height="26"/>
+        	<text>ME</text>
+        </g>
+        <g class="ct">
+        	<rect x="532.8" y="127" class="total" width="28" height="28"/>
+        	<text>CT</text>
+        </g>
+        <g class="ri">
+        	<rect x="565.8" y="127" class="total" width="23" height="23"/>
+        	<text>RI</text>
+        </g>
+        <g class="in">
+        	<rect x="305" y="151" class="total" width="41" height="41"/>
+        	<text>IN</text>
+        </g>
+        <g class="ne">
+        	<rect x="176" y="179.5" class="total" width="32" height="32"/>
+        	<text>NE</text>
+        </g>
+        <g class="wv">
+        	<rect x="365.8" y="207" class="total" width="31" height="31"/>
+        	<text>WV</text>
+        </g>
+        <g class="wa">
+        	<rect x="40" y="104" class="total" width="36" height="36"/>
+        	<text>WA</text>
+        </g>
+        <g class="or">
+        	<rect x="48" y="156.6" class="total" width="28" height="28"/>
+        	<text>OR</text>
+        </g>
+        <g class="ca">
+        	<rect x="5" y="201.2" class="total" width="71" height="71"/>
+        	<text>CA</text>
+        </g>
+        <g class="mt">
+        	<rect x="112" y="104" class="total" width="28" height="28"/>
+        	<text>MT</text>
+        </g>
+        <g class="nj">
+        	<rect x="488.8" y="145" class="total" width="39" height="39"/>
+        	<text>NJ</text>
+        </g>
+        <g class="nm">
+        	<rect x="155" y="263" class="total" width="26" height="26"/>
+        	<text>NM</text>
+        </g>
+        <g class="sd">
+        	<rect x="176" y="141.8" class="total" width="29" height="29"/>
+        	<text>SD</text>
+        </g>
+        <g class="nd">
+            <rect x="176" y="104" class="total" width="28" height="28"/>
+        	<text>ND</text>
+        </g>
+        <g class="co">
+            <rect x="155" y="225" class="total" width="33" height="33"/>
+        	<text>CO</text>
+        </g>
+        <g class="as">
+        	<rect x="5" y="444" class="total" width="16" height="16"/>
+        	<text>AS</text>
+        </g>
+        <g class="gu">
+        	<rect x="26" y="444" class="total" width="16" height="16"/>
+        	<text>GU</text>
+        </g>
+        <g class="mp">
+        	<rect x="47" y="444" class="total" width="16" height="16"/>
+        	<text>MP</text>
+        </g>
+        <g class="pr">
+        	<rect x="69" y="444" class="total" width="26" height="26"/>
+        	<text>PR</text>
+        </g>
+        <g class="vi">
+        	<rect x="100" y="444" class="total" width="16" height="16"/>
+        	<text>VI</text>
+        </g>
+        <text class="territories" x="0" y="435">Territories</text>
+        </svg>
+    </div>
+
+    <div id="dem-map" style="display: none;">
+        <?xml version="1.0" encoding="utf-8"?>
+        <!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        	 viewBox="0 0 767 635" style="enable-background:new 0 0 767 635;" xml:space="preserve">
+        <g class="sd">
+        	<rect class="total" x="211.8" y="222" width="27" height="27"/>
+        	<text>SD</text>
+        </g>
+        <g class="nd">
+        	<rect class="total" x="212.3" y="164" width="26" height="26"/>
+        	<text>ND</text>
+        </g>
+        <g class="mt">
+        	<rect class="total" x="158.7" y="164" width="28" height="28"/>
+        	<text>MT</text>
+        </g>
+        <g class="wv">
+        	<rect class="total" x="471" y="295.5" width="33" height="33"/>
+        	<text>WV</text>
+        </g>
+        <g class="ak">
+        	<rect class="total" x="5" y="43" width="24" height="24"/>
+        	<text>AK</text>
+        </g>
+        <g class="ut">
+        	<rect class="total" x="179" y="336" width="33" height="33"/>
+        	<text>UT</text>
+        </g>
+        <g class="id">
+        	<rect class="total" x="158.7" y="222" width="28" height="28"/>
+        	<text>ID</text>
+        </g>
+        <g class="ms">
+        	<rect class="total" x="362.1" y="415" width="35" height="35"/>
+        	<text>MS</text>
+        </g>
+        <g class="mi">
+        	<rect class="total" x="403.5" y="151" width="66" height="66"/>
+        	<text>MI</text>
+        </g>
+        <g class="ne">
+        	<rect class="total" x="241.2" y="271.6" width="30" height="30"/>
+        	<text>NE</text>
+        </g>
+        <g class="la">
+        	<rect class="total" x="315.1" y="414" width="42" height="42"/>
+        	<text>LA</text>
+        </g>
+        <g class="ks">
+        	<rect class="total" x="273.5" y="324.2" width="33" height="33"/>
+        	<text>KS</text>
+        </g>
+        <g class="va">
+        	<rect class="total" x="529" y="271" width="57" height="57"/>
+        	<text>VA</text>
+        </g>
+        <g class="tx">
+        	<rect class="total" x="224.1" y="414" width="86" height="86"/>
+        	<text>TX</text>
+        </g>
+        <g class="tn">
+        	<rect class="total" x="377.4" y="350.7" width="47" height="47"/>
+        	<text>TN</text>
+        </g>
+        <g class="ok">
+        	<rect class="total" x="275.1" y="374" width="35" height="35"/>
+        	<text>OK</text>
+        </g>
+        <g class="mn">
+        	<rect class="total" x="264" y="164" width="52" height="52"/>
+        	<text>MN</text>
+        </g>
+        <g class="ga">
+        	<rect class="total" x="449.1" y="415" width="59" height="59"/>
+        	<text>GA</text>
+        </g>
+        <g class="co">
+        	<rect class="total" x="217" y="321" width="48" height="48"/>
+        	<text>CO</text>
+        </g>
+        <g class="ar">
+        	<rect class="total" x="315.1" y="376" width="33" height="33"/>
+        	<text>AR</text>
+        </g>
+        <g class="al">
+        	<rect class="total" x="402.1" y="415" width="42" height="42"/>
+        	<text>AL</text>
+        </g>
+        <g class="nv">
+        	<rect class="total" x="138" y="334" width="35" height="35"/>
+        	<text>NV</text>
+        </g>
+        <g class="ia">
+        	<rect class="total" x="270.5" y="222" width="39" height="39"/>
+        	<text>IA</text>
+        </g>
+        <g class="sc">
+        	<rect class="total" x="449.1" y="368" width="42" height="42"/>
+        	<text>SC</text>
+        </g>
+        <g class="fl">
+        	<rect class="total" x="471.1" y="479" width="85" height="85"/>
+        	<text>FL</text>
+        </g>
+        <g class="il">
+        	<rect class="total" x="321" y="222" width="73" height="73"/>
+        	<text>IL</text>
+        </g>
+        <g class="mo">
+        	<rect class="total" x="315.1" y="310.5" width="50" height="50"/>
+        	<text>MO</text>
+        </g>
+        <g class="nc">
+        	<rect class="total" x="496.1" y="333" width="60" height="60"/>
+        	<text>NC</text>
+        </g>
+        <g class="oh">
+        	<rect class="total" x="456" y="222" width="69" height="69"/>
+        	<text>OH</text>
+        </g>
+        <g class="az">
+        	<rect class="total" x="162" y="374" width="50" height="50"/>
+        	<text>AZ</text>
+        </g>
+        <g class="wa">
+        	<rect class="total" x="74" y="164" width="59" height="59"/>
+        	<text>WA</text>
+        </g>
+        <g class="wi">
+        	<rect class="total" x="321" y="164" width="53" height="53"/>
+        	<text>WI</text>
+        </g>
+        <g class="wy">
+        	<rect class="total" x="190.3" y="274" width="23" height="23"/>
+        	<text>WY</text>
+        </g>
+        <g class="in">
+        	<rect class="total" x="399" y="222" width="52" height="52"/>
+        	<text>IN</text>
+        </g>
+        <g class="ky">
+        	<rect class="total" x="404" y="291.3" width="42" height="42"/>
+        	<text>KY</text>
+        </g>
+        <g class="or">
+        	<rect class="total" x="86" y="228" width="47" height="47"/>
+        	<text>OR</text>
+        </g>
+        <g class="ca">
+        	<rect class="total" x="5" y="280" width="128" height="128"/>
+        	<text>CA</text>
+        </g>
+        <g class="pa">
+        	<rect class="total" x="499" y="123" width="79" height="79"/>
+        	<text>PA</text>
+        </g>
+        <g class="ny">
+        	<rect class="total" x="583" y="109" width="93" height="93"/>
+        	<text>NY</text>
+        </g>
+        <g class="ma">
+        	<rect class="total" x="681" y="93" width="58" height="58"/>
+        	<text>MA</text>
+        </g>
+        <g class="me">
+        	<rect class="total" x="727" y="23" width="30" height="30"/>
+        	<text>ME</text>
+        </g>
+        <g class="vt">
+        	<rect class="total" x="681" y="61" width="27" height="27"/>
+        	<text>VT</text>
+        </g>
+        <g class="nh">
+        	<rect class="total" x="713" y="58" width="30" height="30"/>
+        	<text>NH</text>
+        </g>
+        <g class="ct">
+        	<rect class="total" x="681" y="156" width="46" height="46"/>
+        	<text>CT</text>
+        </g>
+        <g class="ri">
+        	<rect class="total" x="732" y="156" width="31" height="31"/>
+        	<text>RI</text>
+        </g>
+        <g class="de">
+        	<rect class="total" x="594" y="207" width="30" height="30"/>
+        	<text>DE</text>
+        </g>
+        <g class="md">
+        	<rect class="total" x="530" y="207" width="59" height="59"/>
+        	<text>MD</text>
+        </g>
+        <g class="nj">
+        	<rect class="total" x="629" y="207" width="65" height="65"/>
+        	<text>NJ</text>
+        </g>
+        <g class="nm">
+        	<rect class="total" x="217" y="374" width="35" height="35"/>
+        	<text>NM</text>
+        </g>
+        <g class="dc">
+        	<rect class="total" x="591" y="281" width="37" height="37"/>
+        	<text>DC</text>
+        </g>
+        <g class="hi">
+        	<rect class="total" x="5" y="490.8" width="32" height="32"/>
+        	<text>HI</text>
+        </g>
+        <g class="as">
+        	<rect class="total" x="5" y="586" width="18" height="18"/>
+        	<text>AS</text>
+        </g>
+        <g class="da">
+        	<rect class="total" x="34" y="586" width="22" height="22"/>
+        	<text>DA</text>
+        </g>
+        <g class="gu">
+        	<rect class="total" x="67" y="586" width="18" height="18"/>
+        	<text>GU</text>
+        </g>
+        <g class="mp">
+        	<rect class="total" x="96" y="586" width="18" height="18"/>
+        	<text>MP</text>
+        </g>
+        <g class="pr">
+        	<rect class="total" x="125" y="586" width="44" height="44"/>
+        	<text>PR</text>
+        </g>
+        <g class="vi">
+        	<rect class="total" x="175" y="586" width="18" height="18"/>
+        	<text>VI</text>
+        </g>
+        <g class="un">
+        	<rect class="total" x="201" y="586" width="5" height="5"/>
+        	<text>UN</text>
+        </g>
+        <text class="territories" x="0" y="575">Territories/Other</text>
+        </svg>
+    </div>
+
+
+
+    
+
+        
+        
+        
+        
+        
+        
+        <script type="text/javascript" src="js/graphic-footer.js?1459281838"></script>
+
+    
+</body>
+</html>

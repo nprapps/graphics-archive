@@ -1,0 +1,31 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <img src="assets/theranos_01_desktop.jpg" alt="theranos_01" />
+        <img src="assets/theranos_02_desktop.jpg" alt="theranos_02" />
+        <img src="assets/theranos_03_desktop.jpg" alt="theranos_03" />
+        <img src="assets/theranos_04_desktop.jpg" alt="theranos_04" />
+        <img src="assets/theranos_05_desktop.jpg" alt="theranos_05" />
+        <img src="assets/theranos_06_desktop.jpg" alt="theranos_06r" />
+        <a href="https://www.theranos.com/news/posts/theranos-statement-on-cms-findings" target="_blank"><img src="assets/theranos_07_desktop.jpg" alt="theranos_07" usemap="#theranos" /></a>
+        <img src="assets/theranos_08_desktop.jpg" alt="theranos_08" />
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

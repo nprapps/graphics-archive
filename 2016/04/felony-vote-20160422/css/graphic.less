@@ -1,0 +1,66 @@
+@import "base";
+
+/* Key
+========================================*/
+.key {
+    margin: 0 0 18px 0;
+    padding: 0;
+    list-style-type: none;
+}
+.key .key-item {
+    display: block;
+    margin: 0 18px 5px 0;
+    padding: 0;
+    line-height: 15px;
+}
+.key .key-item b {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
+    float: left;
+}
+.key .key-item label {
+    white-space: normal;
+    font-size: 12px;
+    color: #666;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Grid Map
+========================================*/
+
+.tile-grid-map {
+    margin-bottom: 33px;
+}
+
+.state {
+    fill: #eee;
+}
+
+.label {
+    font-family: 'Knockout 31 4r';
+    font-size: 12px;
+    fill: #979797;
+}
+
+.label-active {
+    fill: #fff;
+}
+
+.label-active.label5 {
+    fill: #aaa;
+}
+
+@media screen and (max-width: 500px){
+    .label {
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width: 500px){
+    .label {
+        font-size: 8px;
+    }
+}

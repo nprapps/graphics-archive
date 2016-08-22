@@ -1,0 +1,30 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="stacked-bar-chart" class="graphic">
+        <div class="chart dem">
+            <h3>{{ COPY.labels.hed_totals_dem }}</h3>
+            <div class="wrapper"></div>
+        </div>
+        <div class="chart gop">
+            <h3>{{ COPY.labels.hed_totals_gop }}</h3>
+            <div class="wrapper"></div>
+        </div>
+    </div>
+
+    <!-- {% if COPY.labels.footnote_summary %}
+    <div class="footnotes gop">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote_summary|smarty }}</p>
+    </div>
+    {% endif %} -->
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit_summary %}<p>Credit: {{ COPY.labels.credit_summary|smarty }}</p>{% endif %}
+    </div>
+{% endblock content %}
