@@ -1,0 +1,78 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline_tables %}<h1>{{ COPY.labels.headline_tables|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed_tables %}<h2>{{ render(COPY.labels.subhed_tables)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="school-table">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_school }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_schoolvalue }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.schools %}
+            <tr>
+                <td data-title="{{ COPY.labels.hdr_school }}">{{ row.name }}</td>
+                <td data-title="{{ COPY.labels.hdr_schoolvalue }}" class="amt">{{ row.value }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        <table id="town-table">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_hometown }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_hometownvalue }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.hometowns %}
+            <tr>
+                <td data-title="{{ COPY.labels.hdr_hometown }}">{{ row.name }}</td>
+                <td data-title="{{ COPY.labels.hdr_hometownvalue }}" class="amt">{{ row.value }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

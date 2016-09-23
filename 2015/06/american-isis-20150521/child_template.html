@@ -1,0 +1,96 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+        {% set groups = COPY.data|groupby(attribute='state') %}
+        <!-- <ul id="state-links">
+        {% for group in groups %}
+            <li>
+                <a href="#{{ group.grouper|lower|replace(' ', '') }}">{{ group.grouper }}</a>
+            </li>
+        {% endfor %}
+        </ul> -->
+
+        {% for group in groups %}
+        <h3 id="{{ group.grouper|lower|replace(' ', '') }}">{{ group.grouper }}</h3>
+
+        {% set description = COPY.places[group.grouper] %}
+        {% if description %}
+        <p>{{ description }}</p>
+        {% endif %}
+
+        <div class="fold-wrapper">
+            <div class="fold">
+                <a href="#" class="show">Show list of suspects from {{ group.grouper }} &raquo;</a>
+                <a href="#" class="hide">&laquo; Hide list of suspects from {{ group.grouper }}</a>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th class="city">{{ COPY.labels.hdr_city }}</th>
+                        <th class="name">{{ COPY.labels.hdr_name }}</th>
+                        <th class="amt age">{{ COPY.labels.hdr_age }}</th>
+                        <th class="gender">{{ COPY.labels.hdr_gender }}</th>
+                        <th class="amt date">{{ COPY.labels.hdr_date_left }}</th>
+                        <th class="link">{{ COPY.labels.hdr_link }}</th>
+                    </tr>
+                </thead>
+
+                {% for row in group.list %}
+                <tr>
+                    <td data-title="{{ COPY.labels.hdr_name }}" class="name mobile">{{ row.name or 'Unknown' }}</td>
+                    <td data-title="{{ COPY.labels.hdr_city }}" class="city">{{ row.city or 'Unknown' }}</td>
+                    <td class="name no-mobile">{{ row.name or 'Unknown' }}</td>
+                    <td data-title="{{ COPY.labels.hdr_age }}" class="amt age">{{ row.age or 'Unknown' }}</td>
+                    <td data-title="{{ COPY.labels.hdr_gender }}" class="gender">
+                    {%- if row.gender == 'M' -%}
+                        Male
+                    {%- elif row.gender == 'F' -%}
+                        Female
+                    {%- else -%}
+                        Unknown
+                    {%- endif %}
+                    </td>
+                    <td data-title="{{ COPY.labels.hdr_date_left }}" class="amt date">{{ row.date_of_departure_or_arrest or 'Unknown' }}</td>
+                    <td data-title="{{ COPY.labels.hdr_link }}" class="link">
+                    {%- if row.link -%}
+                        <a href="{{ row.link }}" target="_blank">{{ row.link_type }}</a>{% if row.is_pdf == 'True' %} (PDF){% endif %}
+                    {%- else -%}
+                        Unavailable
+                    {%- endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

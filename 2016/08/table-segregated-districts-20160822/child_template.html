@@ -1,0 +1,85 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_state }}</div>
+                    </th>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_district }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_poverty }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_enrollment }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_property }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_income }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            {% if loop.index < 11 %}
+            <tr class="state-{{ row.state|classify }} rank-{{ row.rank }} first">
+                <td data-title="{{ COPY.labels.hdr_state }}" class="state">{{ row.rank }}. {{ row.state }}</td>
+                <td class="district">{{ row.district_high }}</td>
+                <td data-title="{{ COPY.labels.hdr_poverty }}" class="amt">{{ row.district_high_poverty }}</td>
+                <td data-title="{{ COPY.labels.hdr_enrollment }}" class="amt">{{ row.district_high_enrollment|comma }}</td>
+                <td data-title="{{ COPY.labels.hdr_property }}" class="amt">${{ row.district_high_property|comma }}</td>
+                <td data-title="{{ COPY.labels.hdr_income }}" class="amt">${{ row.district_high_income|comma }}</td>
+            </tr>
+            <tr class="state-{{ row.state|classify }} rank-{{ row.rank }} second">
+                <td></td>
+                <td class="district">{{ row.district_low }}</td>
+                <td data-title="{{ COPY.labels.hdr_poverty }}" class="amt">{{ row.district_low_poverty }}</td>
+                <td data-title="{{ COPY.labels.hdr_enrollment }}" class="amt">{{ row.district_low_enrollment|comma }}</td>
+                <td data-title="{{ COPY.labels.hdr_property }}" class="amt">${{ row.district_low_property|comma }}</td>
+                <td data-title="{{ COPY.labels.hdr_income }}" class="amt">${{ row.district_low_income|comma }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

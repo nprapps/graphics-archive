@@ -1,0 +1,151 @@
+@import "base";
+
+h1 {
+    margin-bottom: 22px;
+}
+
+.graphic-wrapper {
+    .clearfix();
+}
+
+.section-wrapper {
+    .clearfix();
+    margin-bottom: 16px;
+
+    .section-text, .graphic {
+        width: 46%;
+        float: left;
+    }
+
+    .section-text {
+        margin-right: 6%;
+
+        h2 {
+            margin-top: 0;
+            font-size: 13px;
+
+            .text-highlight {
+                color: white;
+                padding: 2px 5px;
+                border-radius: 2px;
+
+                &.highlight-poverty {
+                    background-color: #aaa;
+                }
+
+                &.highlight-tanf {
+                    background-color: #79963c;
+                }
+            }
+        }
+    }
+}
+
+/* Line chart
+========================================*/
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+/* Key
+========================================*/
+#map-wrapper {
+    .key {
+        padding: 0;
+        margin-bottom: 11px;
+        list-style-type: none;
+
+        .key-item {
+            display: inline-block;
+            margin: 0 0 11px;
+            line-height: 17px;
+
+            label {
+                white-space: normal;
+                font-size: 13px;
+                color: #777;
+                font-weight: normal;
+                -webkit-font-smoothing: auto;
+
+                .label-highlight {
+                    padding: 3px 5px;
+                    border-radius: 2px;
+                    color: white;
+                }
+
+                strong {
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+}
+
+/* Grid Map
+========================================*/
+.tile-grid-map {
+    margin-bottom: 33px;
+}
+
+.state-district-of-columbia {
+    display: none;
+}
+
+.state {
+    fill: #eee;
+}
+
+.label {
+    font-family: 'Knockout 31 4r';
+    font-size: 12px;
+    fill: #979797;
+}
+
+.label-active {
+    fill: #fff;
+}
+
+@media screen and (max-width: 500px){
+    .section-wrapper {
+        .section-text, .graphic {
+            width: 100%;
+            float: none;
+        }
+
+        .section-text {
+            margin-right: 0;
+
+            h2 {
+                font-size: 12px;
+            }
+        }
+    }
+
+    #map-wrapper {
+        .key .key-item label {
+            font-size: 12px;
+        }
+    }
+
+    .label {
+        font-size: 15px;
+    }
+
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px){
+    /*.label {*/
+        /*font-size: 8px;*/
+    /*}*/
+}

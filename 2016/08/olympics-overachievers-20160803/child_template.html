@@ -1,0 +1,89 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="best-table">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_bestcountries }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_bestpop }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_bestmedals }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.best %}
+            <tr class="state-{{ row.usps|classify }}">
+                <td data-title="{{ COPY.labels.hdr_bestcountries }}">{{ row.country }}</td>
+                <td data-title="{{ COPY.labels.hdr_bestpop }}" class="amt">{{ row.pop }}</td>
+                <td data-title="{{ COPY.labels.hdr_bestmedals }}" class="amt">{{ row.medals }}</td>
+
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        <table id="worst-table">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_worstcountries }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_worstpop }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_worstmedals }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.worst %}
+            <tr class="state-{{ row.usps|classify }}">
+                <td data-title="{{ COPY.labels.hdr_worstcountries }}">{{ row.country }}</td>
+                <td data-title="{{ COPY.labels.hdr_worstpop }}" class="amt">{{ row.pop }}</td>
+                <td data-title="{{ COPY.labels.hdr_worstmedals }}" class="amt">{{ row.medals }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

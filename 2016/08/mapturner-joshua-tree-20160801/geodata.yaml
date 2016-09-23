@@ -1,0 +1,56 @@
+bbox: '-119 35 -113.55 32'
+layers:
+    countries:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip'
+        id-property: 'NAME'
+        properties:
+            - 'country=NAME'
+
+    cities:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_populated_places_simple.zip'
+        id-property: 'name'
+        properties:
+            - 'featurecla'
+            - 'city=name'
+            - 'scalerank'
+        where: scalerank <= 10
+
+    neighbors:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_populated_places_simple.zip'
+        id-property: 'name'
+        properties:
+            - 'featurecla'
+            - 'city=name'
+            - 'scalerank'
+        where: scalerank <= 2
+
+    roads:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_roads.zip'
+        id-property: 'name'
+        where: sov_a3 = 'USA' AND expressway = 1
+
+    lakes:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/physical/ne_10m_lakes.zip'
+
+    rivers:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/physical/ne_10m_rivers_lake_centerlines.zip'
+        where: featurecla = 'River' AND scalerank < 8
+
+    park:
+        type: 'shp'
+        path: 'data/nps_boundary.zip'
+        where: UNIT_NAME = 'Joshua Tree National Park'
+
+    trees1:
+        type: 'shp'
+        path: 'data/trees-1.zip'
+
+    trees2:
+        type: 'shp'
+        path: 'data/trees-2.zip'

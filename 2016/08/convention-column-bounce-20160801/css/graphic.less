@@ -1,0 +1,18 @@
+@import "base";
+
+.republican .bars rect {
+    fill: @red5;
+
+    &.bar-2016 { fill: @red3; }
+}
+.democrat .bars rect {
+    fill: @blue5;
+
+    &.bar-2016 { fill: @blue3; }
+}
+
+.value-2016 { font-weight: bold; }
+
+@media screen and (max-width: 500px) {
+    .chart.republican { margin-bottom: 22px; }
+}

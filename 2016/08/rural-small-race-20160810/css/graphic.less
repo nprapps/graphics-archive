@@ -1,0 +1,32 @@
+@import "base";
+
+.labels li.us-overall {
+    color: #999;
+    font-style: italic;
+}
+.value text.us-overall { font-style: italic; }
+
+.white .bars rect {
+    fill: @teal3;
+
+    &.us-overall { fill: @teal5; }
+}
+.hispanic .bars rect {
+    fill: @yellow3;
+
+    &.us-overall { fill: @yellow5; }
+}
+.african-american .bars rect {
+    fill: @red3;
+
+    &.us-overall { fill: @red5; }
+}
+.asian .bars rect {
+    fill: @blue3;
+
+    &.us-overall { fill: @blue5 }
+}
+
+@media screen and (max-width: 500px) {
+    .chart { margin-bottom: 22px; }
+}

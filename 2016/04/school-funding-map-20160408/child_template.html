@@ -1,0 +1,90 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <p id="geo-text" class="text-hidden">You can search for a district by name below.</p>
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <div class="top-wrapper clearfix">
+            <div class="lookup-wrap">
+                <input class="typeahead" type="text" placeholder="Search for your school district" />
+                <p id="level-show">Showing: 
+                    <a href="#" data-level="G5400" id="show-primary" class="level-selected">Primary and unified districts</a> 
+                    <a href="#" data-level="G5410" id="show-secondary">Secondary and unified districts</a></p>
+            </div>
+            <p class="fallback-note">Your browser does not have WebGL enabled and will not be able to render the interactive map.</p>
+        </div>
+        <div class="map-wrapper">
+            <div class="map" id="map"></div>
+            <div id="map-mobile">
+                <img src="m-fallback.png" />
+            </div>
+            <div class="legend">
+                <h3>School district spending per student</h3>
+                <ul class="key">
+                    <li class="key-item">
+                        <b class="bin1"></b>
+                    </li>
+                    <li class="key-item">
+                        <b class="bin2"></b>
+                        <label>-33%</label>
+                    </li>
+                    <li class="key-item">
+                        <b class="bin3"></b>
+                        <label>-10%</label>
+                        <span class="avg-label"><strong>U.S. average:</strong> $11,841</span>
+                        <span class="avg-arrow"></span>
+                    </li>
+                    <li class="key-item">
+                        <b class="bin4"></b>
+                        <label>+10%</label>
+                    </li>
+                    <li class="key-item">
+                        <b class="bin5"></b>
+                        <label>+33% of U.S. average</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="tooltip tooltip-hidden" id="map-tooltip"></div>
+            <div class="map-nav clearfix" id="map-nav">
+                <a href="#" id="zoom-in" class="map-controls enabled">+</a>
+                <a href="#" id="zoom-out" class="map-controls enabled">&ndash;</a>
+                <a href="#" id="nav-us" class="map-controls stateface stateface-us enabled"></a>
+            </div>
+        </div>
+        <div class="detail-wrapper clearfix">
+            <h3>What districts spend across the U.S.</h3>
+            <div id="us-histogram" class="chart-canvas"></div>
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/template" id="geotext-template">
+In <strong><%= state %></strong>, which is our best guess for the state you&rsquo;re currently in, the <% if (isSingleDistrict == true) { %>state&rsquo;s sole<% } else { %>average<% } %> district spends <strong>$<%= stateAverage %></strong> per student, <%= stateComparison %> the nationwide average. You can explore further or search for a district by name below.
+    </script>
+    
+    <script type="text/template" id="tooltip-template">
+        <p><strong><%= districtName %></strong>, spends <strong>$<%= amount %></strong> per student.</p>
+        <div class="detail-charts <% if (isSingleDistrict == true) { %>detail-single<% } %>">
+            <h3 class="state-hed">Compared to <%= state %> districts</h3>
+            <div id="state-histogram" class="chart-canvas"></div>
+        </div>
+    </script>
+    <script type="text/javascript">
+        var STATE_AVERAGES = {{ COPY.data.json()|safe }}
+    </script>
+    {% endblock content %}

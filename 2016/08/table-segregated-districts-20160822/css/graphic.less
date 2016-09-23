@@ -1,0 +1,131 @@
+@import "base";
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 11px;
+
+    tr.shadedrow,
+    tr.rank-1,
+    tr.rank-3,
+    tr.rank-5,
+    tr.rank-7,
+    tr.rank-9 {
+        background-color: #f1f1f1;
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 0 10px 10px 10px;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    th,
+    td {
+        &.amt {
+            text-align: right;
+        }
+    }
+}
+
+// Desktop-only styles
+@media screen and (min-width: 501px) {
+    table {
+        .first td {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .second td {
+            padding-top: 5px;
+            border-width: 2px;
+        }
+        td.state { white-space: nowrap; }
+        .amt { width: 15%; }
+
+        .state {
+            font-weight: bold;
+            color: #333;
+        }
+    }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        thead { display: none; }
+
+        tr,
+        th,
+        th.amt,
+        td,
+        td.amt {
+            display: block;
+            padding: 0;
+            white-space: normal;
+        }
+
+        tr {
+            &.first { padding: 15px 10px 10px 10px; }
+            &.second { padding: 0 10px 15px 10px; }
+            &:last-child { border-bottom: 1px solid #eee; }
+        }
+
+        td,
+        td.amt {
+            border: none;
+            margin-bottom: 3px;
+            text-align: left;
+
+            &:empty { display: none; }
+            &.district {
+                font-weight: bold;
+                color: #333;
+            }
+        }
+
+        th[data-title]:before,
+        td[data-title]:before {
+            content: "-\00A0" attr(data-title) ":\00A0";
+            display: inline-block;
+            width: 65%;
+        }
+
+        tr td:first-child {
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #333;
+            font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+
+            &:before {
+                content: '';
+                display: none;
+            }
+        }
+    }
+}

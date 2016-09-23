@@ -1,0 +1,42 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-08-24T15:03:40.000Z,67.1566,-143.1224,5,2.8,ml,,,,0.19,ak,ak13877833,2016-08-24T15:09:01.553Z,"115km NE of Fort Yukon, Alaska",earthquake,0.3,0.5,,,automatic,ak,ak
+2016-08-24T14:18:21.350Z,-22.0454,168.9981,10,5,mb,,110,1.06,1.39,us,us10006gfa,2016-08-24T15:12:45.040Z,"127km ESE of Tadine, New Caledonia",earthquake,6.5,1.8,0.066,73,reviewed,us,us
+2016-08-24T13:48:44.380Z,-2.9567,100.0549,17.15,5.8,mb,,58,3.213,1.09,us,us10006gf0,2016-08-24T14:13:25.893Z,"176km WSW of Sungaipenuh, Indonesia",earthquake,7.1,3.2,0.05,146,reviewed,us,us
+2016-08-24T13:06:49.770Z,-18.4186,167.5577,10.2,4.9,mb,,57,2.365,0.93,us,us10006geu,2016-08-24T13:25:27.040Z,"110km SW of Port-Vila, Vanuatu",earthquake,4.5,5.5,0.115,24,reviewed,us,us
+2016-08-24T11:50:31.920Z,42.8782,13.1098,10,4.9,mb,,26,0.567,1.01,us,us10006gee,2016-08-24T14:26:55.418Z,"5km SSE of Visso, Italy",earthquake,5,1.9,0.039,213,reviewed,us,us
+2016-08-24T11:13:50.000Z,67.1998,-142.9781,5,2.8,ml,,,,0.65,ak,ak13877155,2016-08-24T11:28:12.235Z,"123km NE of Fort Yukon, Alaska",earthquake,0.3,0.3,,,automatic,ak,ak
+2016-08-24T11:08:36.000Z,67.2292,-142.9896,11.4,3.8,ml,,,,0.93,ak,ak13877140,2016-08-24T14:22:33.040Z,"124km NE of Fort Yukon, Alaska",earthquake,0.7,0.4,,,reviewed,ak,ak
+2016-08-24T10:34:55.000Z,20.9192,94.5789,84.07,6.8,mwp,,24,1.797,1.35,us,us10006gbf,2016-08-24T15:02:40.146Z,"25km W of Chauk, Burma",earthquake,5.2,3.7,0.02,287,reviewed,us,us
+2016-08-24T10:08:56.450Z,36.0798,-96.7672,5,3.4,mb_lg,,51,0.103,0.44,us,us10006gau,2016-08-24T13:36:51.293Z,"7km WSW of Yale, Oklahoma",earthquake,1.3,2,0.049,108,reviewed,us,us
+2016-08-24T10:02:03.070Z,-19.5743,169.5848,28.43,4.7,mb,,83,2.391,0.61,us,us10006gas,2016-08-24T10:32:20.040Z,"33km E of Isangel, Vanuatu",earthquake,8.7,3.8,0.092,36,reviewed,us,us
+2016-08-24T08:21:01.290Z,32.0056667,-116.2381667,5.2,2.88,ml,19,217,0.3876,0.2,ci,ci37670408,2016-08-24T13:14:37.643Z,"39km ENE of Ensenada, B.C., MX",earthquake,0.61,31.61,0.129,98,reviewed,ci,ci
+2016-08-24T07:22:35.500Z,17.8738,-65.6491,11,2.5,Md,8,219.6,0.23985018,0.23,pr,pr16237002,2016-08-24T11:51:31.958Z,"28km ESE of Emajagua, Puerto Rico",earthquake,0.8,0.8,0,8,reviewed,pr,pr
+2016-08-24T04:16:50.980Z,5.9494,124.1084,528.84,4.6,mb,,84,1.836,0.96,us,us10006g8p,2016-08-24T04:27:22.040Z,"30km SSW of Palimbang, Philippines",earthquake,11.4,9.5,0.141,15,reviewed,us,us
+2016-08-24T04:06:53.180Z,42.7545,13.0332,10,4.5,mwr,,49,0.485,1.27,us,us10006g8k,2016-08-24T08:25:28.238Z,"4km NNE of Cascia, Italy",earthquake,4.4,1.9,0.057,30,reviewed,us,us
+2016-08-24T03:40:11.540Z,42.6328,13.2398,10.72,4.3,mb,,64,0.221,0.63,us,us10006g8a,2016-08-24T08:22:08.116Z,"4km W of Amatrice, Italy",earthquake,5.1,6,0.116,21,reviewed,us,us
+2016-08-24T03:34:22.000Z,60.0374,-152.2006,50,2.9,ml,,,,0.55,ak,ak13876352,2016-08-24T03:55:36.165Z,"35km NW of Anchor Point, Alaska",earthquake,0.3,0.4,,,automatic,ak,ak
+2016-08-24T03:13:18.000Z,19.1303,-65.9804,42,3.2,Md,13,259.2,0.82195848,0.34,pr,pr16237000,2016-08-24T03:43:41.801Z,"74km N of San Juan, Puerto Rico",earthquake,2.2,8.6,0,9,reviewed,pr,pr
+2016-08-24T02:59:35.900Z,42.821,13.0995,6.31,4.3,mb,,46,0.016,0.68,us,us10006g84,2016-08-24T03:19:56.040Z,"3km N of Norcia, Italy",earthquake,4.3,5.1,0.103,27,reviewed,us,us
+2016-08-24T02:37:51.150Z,-19.9531,-177.4594,522.01,4.4,mb,,75,4.783,0.99,us,us10006g81,2016-08-24T04:32:03.040Z,"150km ENE of Ndoi Island, Fiji",earthquake,12.6,4.2,0.074,53,reviewed,us,us
+2016-08-24T02:33:30.640Z,42.8223,13.1257,10,5.5,mb,,23,0.511,0.82,us,us10006g7w,2016-08-24T14:08:07.378Z,"4km NE of Norcia, Italy",earthquake,4.5,1.3,0.025,543,reviewed,us,us
+2016-08-24T02:19:44.990Z,42.6196,13.0957,7.75,4,mb,,125,0.35,0.82,us,us10006g7u,2016-08-24T03:03:05.040Z,"9km SSE of Maltignano, Italy",earthquake,4.9,4,0.367,2,reviewed,us,us
+2016-08-24T02:05:57.670Z,42.7347,13.2367,10,4.1,mb,,84,0.4,0.92,us,us10006g7m,2016-08-24T04:10:16.040Z,"6km SW of Arquata del Tronto, Italy",earthquake,5.3,1.9,0.145,13,reviewed,us,us
+2016-08-24T01:56:02.330Z,42.6399,13.1651,10,4.6,mb,,46,0.336,0.83,us,us10006g7j,2016-08-24T03:09:59.918Z,"10km W of Amatrice, Italy",earthquake,4.3,1.9,0.088,38,reviewed,us,us
+2016-08-24T01:36:33.590Z,42.714,13.1719,10,6.2,mwp,,35,0.126,0.69,us,us10006g7d,2016-08-24T15:17:39.461Z,"10km SE of Norcia, Italy",earthquake,5,1.8,0.016,440,reviewed,us,us
+2016-08-24T01:12:24.000Z,68.5037,-147.0407,5,2.5,ml,,,,0.79,ak,ak13876239,2016-08-24T01:34:18.901Z,"74km NW of Arctic Village, Alaska",earthquake,0.4,0.3,,,automatic,ak,ak
+2016-08-24T00:13:40.340Z,-4.5144,126.2058,397.25,4.2,mb,,72,5.55,0.87,us,us10006g77,2016-08-24T00:37:33.040Z,"88km SSW of Leksula, Indonesia",earthquake,10.3,7.5,0.088,36,reviewed,us,us
+2016-08-23T23:36:23.000Z,62.302,-133.483,2,4.1,ml,,,,0.85,ak,ak13876210,2016-08-24T05:44:09.279Z,"10km NW of Faro, Canada",earthquake,0.4,0.3,,,reviewed,ak,ak
+2016-08-23T22:37:10.490Z,35.9654,69.6909,110.16,4.5,mb,,74,1.517,0.76,us,us10006g6t,2016-08-23T22:55:14.040Z,"51km ESE of Nahrin, Afghanistan",earthquake,6,9.3,0.135,16,reviewed,us,us
+2016-08-23T22:02:08.580Z,29.2447,130.4695,45.78,4.8,mb,,114,2.257,1,us,us10006g6i,2016-08-23T22:21:31.040Z,"136km NE of Naze, Japan",earthquake,7.5,7.9,0.069,66,reviewed,us,us
+2016-08-23T22:00:13.610Z,29.2609,130.5674,21.17,4.5,mb,,76,2.243,1.17,us,us10006g6m,2016-08-23T22:47:11.040Z,"144km NE of Naze, Japan",earthquake,8.1,6.7,0.124,19,reviewed,us,us
+2016-08-23T20:47:17.040Z,37.0523333,-112.8721667,10.07,2.8,ml,20,122,0.0537,0.24,uu,uu60159237,2016-08-23T21:23:49.040Z,"10km ENE of Hildale, Utah",earthquake,0.67,1.04,0.195,12,reviewed,uu,uu
+2016-08-23T20:36:39.000Z,59.8081,-152.5377,50,3,ml,,,,0.54,ak,ak13875709,2016-08-23T20:52:56.211Z,"39km W of Anchor Point, Alaska",earthquake,0.3,0.4,,,automatic,ak,ak
+2016-08-23T20:29:38.480Z,-3.4504,99.5387,28.77,4.7,mb,,137,3.527,1,us,us10006g5c,2016-08-23T20:59:53.040Z,"208km S of Muara Siberut, Indonesia",earthquake,9,5.2,0.073,57,reviewed,us,us
+2016-08-23T20:15:44.770Z,-4.8592,153.113,56.39,5.2,mb,,51,1.155,0.8,us,us10006g4w,2016-08-23T20:32:27.236Z,"44km SSE of Taron, Papua New Guinea",earthquake,7.6,1.6,0.049,135,reviewed,us,us
+2016-08-23T20:13:32.930Z,19.408,-155.6305,3.392,3.15,ml,48,87,0.005902,0.16,hv,hv61385226,2016-08-23T21:03:33.210Z,"25km ESE of Honaunau-Napoopoo, Hawaii",earthquake,0.26,0.33,0.174,41,reviewed,hv,hv
+2016-08-23T19:39:44.220Z,-7.283,122.4506,528.18,6,mb,,17,1.36,0.89,us,us10006g2n,2016-08-24T01:58:16.000Z,"132km N of Nebe, Indonesia",earthquake,9.1,5.8,0.041,221,reviewed,us,us
+2016-08-23T17:47:46.920Z,-1.2487,-15.8264,29.53,4.9,mb,,39,6.798,0.67,us,us10006g1c,2016-08-24T14:44:02.040Z,"North of Ascension Island",earthquake,9.3,4.6,0.063,79,reviewed,us,us
+2016-08-23T16:56:11.720Z,36.992,-104.9418,4.51,3.9,mwr,,64,0.449,1.37,us,us10006g0b,2016-08-24T14:08:19.324Z,"43km WSW of Trinidad, Colorado",earthquake,3.2,5.2,0.063,24,reviewed,us,us
+2016-08-23T16:26:21.000Z,63.2622,-143.2209,15,2.6,ml,,,,1.13,ak,ak13874179,2016-08-23T16:37:38.072Z,"14km SW of Tok, Alaska",earthquake,0.5,0.4,,,automatic,ak,ak
+2016-08-23T15:49:44.700Z,18.1033,-68.8768,139,4,Md,18,190.8,0.62253249,0.77,pr,pr16236007,2016-08-23T20:06:22.040Z,"37km SSE of La Romana, Dominican Republic",earthquake,10.1,4.9,0,17,reviewed,pr,pr
+2016-08-23T15:34:45.600Z,19.2481,-67.7393,25,3,Md,6,331.2,0.89382371,0.23,pr,pr16236012,2016-08-23T20:12:16.040Z,"101km NE of Punta Cana, Dominican Republic",earthquake,2.7,18.3,0,5,reviewed,pr,pr

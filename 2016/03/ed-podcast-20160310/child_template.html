@@ -1,0 +1,78 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <p class="comic-text"><strong>A Traveler&rsquo;s Nightmare</strong></p>
+        <p class="comic-text">Ben Armstrong is walking down a dark street in a strange city. In his backpack: his laptop with his work, his photos, his whole life.</p>
+        <p class="comic-text">Suddenly …</p>
+        <div class="comic-wrapper show-desktop">
+        {% for row in COPY.data %}
+            {% if row['paneltype'] == 'desktop' %}
+                <div class="panel-wrapper">
+                    <img src="assets/d/benandfirnus-{{ row.num }}-desktop.png"
+                         alt="{% if row.wide_alt_text %}{{ row.wide_alt_text|smarty }}{% endif %} {% if row.wide_dialogue %}
+{{ row.wide_dialogue|smarty }}{% endif %}"
+                         />
+                </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+        <div class="comic-wrapper show-mobile">
+        {% for row in COPY.data %}
+            {% if row['paneltype'] == 'mobile' %}
+                <div class="panel-wrapper">
+                    <img src="assets/m/benandfirnus-{{ row.num }}-web.png"
+                         alt="{% if row.wide_alt_text %}{{ row.wide_alt_text|smarty }}{% endif %} {% if row.wide_dialogue %}
+{{ row.wide_dialogue|smarty }}{% endif %}"
+                         />
+                </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+        <div id="bottom-text" class="audio-hide">
+            <p class="comic-text">A few months later, Ben’s back home in the U.S. A suspicious email pops up. It says: I have your computer and all of your documents.</p>
+            <p class="comic-text"><strong>What would you do?</strong></p>
+            <ul id="poll-wrapper" class="clearfix">
+                <li class="q-choice" data-answer="false"><a href="#">Delete the email.</a></li>
+                <li class="q-choice" data-answer="false"><a href="#">Call the police.</a></li>
+                <li class="q-choice" data-answer="true"><a href="#">Write back.</a></li>
+            </ul>
+            <div id="poll-answer-wrapper">
+                <p id="poll-answer-text" class="comic-text">You chose XXXXX answer, but that’s not what Ben did. He wrote back. Then, things got really strange. Still, he took a risk, and it changed his life.</p>
+                <p class="comic-text"><i class="fa fa-headphones"></i> <strong>Click below to find out what happened.</strong></p>
+                <div id="player-wrapper">
+                    <div class="btn-wrap">
+                        <div class="btn play"></div>
+                    </div>
+                    <div class="player-wrap">
+                        <div class="player init-play">
+                            <div class="progress"></div>
+                            <div class="txt">
+                                <span class="time-passed">--</span> /
+                                <span class="time-full">20:02</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="audio"></div>
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

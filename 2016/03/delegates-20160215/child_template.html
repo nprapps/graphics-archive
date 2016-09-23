@@ -1,0 +1,601 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <ul class="tabs">
+        <li class="dem">{{ COPY.labels.tab_dem }}</li>
+        <li class="gop">{{ COPY.labels.tab_gop }}</li>
+    </ul>
+
+    <div id="stacked-bar-chart" class="graphic">
+        <div class="chart dem">
+            <h3>{{ COPY.labels.hed_totals }}</h3>
+            <div class="wrapper"></div>
+        </div>
+        <div class="map dem">
+            <h3>{{ COPY.labels.hed_map }}</h3>
+            <p class="desc">{{ COPY.labels.desc_map }}</p>
+            <div class="wrapper"></div>
+        </div>
+        <div class="detail dem">
+            <h3>{{ COPY.labels.hed_state }}</h3>
+            <table>
+                <thead>
+                    <th>State</th>
+                    <th class="total unassigned"><div><span>Unassigned</span></div></th>
+                    <th class="unassigned pledged"><div><span>Pledged +<br />Super-<br />Delegates<span></div></th>
+                    {% for candidate in COPY.candidates %}
+                    {% if candidate.party == 'dem' %}
+                        <th class="total {{ candidate.name|classify }}"><div><span>{{ candidate.name }}</span></div></th>
+                        <th class="pledged {{ candidate.name|classify }}"><div><span>Pledged +<br />Super-<br />Delegates</span></div></th>
+                    {% endif %}
+                    {% endfor %}
+                </thead>
+                <tbody>
+                    {% for state in COPY.dem %}
+                    <tr class="{{ state.usps }}">
+                        <td class="state">
+                            <span class="desktop">{{ state.state }}</span><span class="mobile">{{ state.usps|ap_state }}</span>
+                            <span class="date">{{ state.date }}</span>
+                        </td>
+                        <td class="unassigned total">{{ state.total_dels }}</th>
+                        <td class="unassigned pledged">
+                            <b class="pledged">{{ state.pledged_dels|int }}</b> +
+                            <b class="super">{{ state.super_dels|int }}</b>
+                        </td>
+                        {% for candidate in COPY.candidates %}
+                        {% if candidate.party == 'dem' %}
+                            <td class="total {{ candidate.name|classify }}{% if candidate.name == state.winner %} winner{% endif %}"></td>
+                            <td class="pledged {{ candidate.name|classify }}">
+                                <b class="pledged"></b> +
+                                <b class="super"></b>
+                            </td>
+                        {% endif %}
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="chart gop">
+            <h3>{{ COPY.labels.hed_totals }}</h3>
+            <div class="wrapper"></div>
+        </div>
+        <div class="map gop">
+            <h3>{{ COPY.labels.hed_map }}</h3>
+            <p class="desc">{{ COPY.labels.desc_map }}</p>
+            <div class="wrapper"></div>
+        </div>
+        <div class="detail gop">
+            <h3>{{ COPY.labels.hed_state }}</h3>
+            <table>
+                <thead>
+                    <th>State</th>
+                    <th class="total unassigned"><div><span>Unassigned</span></div></th>
+                    {% for candidate in COPY.candidates %}
+                    {% if candidate.party == 'gop' %}
+                        <th class="total {{ candidate.name|classify }}"><div><span>{{ candidate.name }}</span></div></th>
+                    {% endif %}
+                    {% endfor %}
+                </thead>
+                <tbody>
+                    {% for state in COPY.gop %}
+                    <tr class="{{ state.usps }}">
+                        <td class="state">
+                            <span class="desktop">{{ state.state }}</span><span class="mobile">{{ state.usps|ap_state }}</span>
+                            <span class="date">{{ state.date }}</span>
+                        </td>
+                        <td class="unassigned total">{{ state.total_dels }}</th>
+                        {% for candidate in COPY.candidates %}
+                        {% if candidate.party == 'gop' %}
+                            <td class="total {{ candidate.name|classify }}{% if candidate.name == state.winner %} winner{% endif %}"></td>
+                        {% endif %}
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes gop">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var CANDIDATES = {{ COPY.candidates.json() }};
+        var DEM_DATES = {{ COPY.dem.json() }};
+        var GOP_DATES = {{ COPY.gop.json() }};
+        var DATA_DEM = {{ COPY.dem.json() }};
+        var DATA_GOP = {{ COPY.gop.json() }};
+    </script>
+
+    <div id="gop-map" class="map-container" style="display: none;">
+        <div class="map-container">
+            <?xml version="1.0" encoding="utf-8"?>
+            <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 623 480">
+            <g class="ia">
+            	<rect x="220" y="151" class="total" width="30" height="30"/>
+            	<text>IA</text>
+            </g>
+            <g class="sc">
+            	<rect x="387.1" y="261" class="total" width="38" height="38"/>
+            	<text>SC</text>
+            </g>
+            <g class="nv">
+            	<rect x="81" y="224" class="total" width="30" height="30"/>
+            	<text>NV</text>
+            </g>
+            <g class="al">
+            	<rect x="344.1" y="304" class="total" width="38" height="38"/>
+            	<text>AL</text>
+            </g>
+            <g class="ak">
+            	<rect x="7" y="25" class="total" width="28" height="28"/>
+            	<text>AK</text>
+            </g>
+            <g class="ar">
+            	<rect x="263.1" y="257.7" class="total" width="34" height="34"/>
+            	<text>AR</text>
+            </g>
+            <g class="ga">
+            	<rect x="387.1" y="304" class="total" width="47" height="47"/>
+            	<text>GA</text>
+            </g>
+            <g class="mn">
+            	<rect x="217" y="104" class="total" width="33" height="33"/>
+            	<text>MN</text>
+            </g>
+            <g class="ok">
+            	<rect x="202.5" y="263" class="total" width="35" height="35"/>
+            	<text>OK</text>
+            </g>
+            <g class="tn">
+            	<rect x="305" y="251.7" class="total" width="41" height="41"/>
+            	<text>TN</text>
+            </g>
+            <g class="tx">
+            	<rect x="190.1" y="303" class="total" width="68" height="68"/>
+            	<text>TX</text>
+            </g>
+            <g class="va">
+            	<rect x="417.8" y="200" class="total" width="38" height="38"/>
+            	<text>VA</text>
+            </g>
+            <g class="ks">
+            	<rect x="194.7" y="220.2" class="total" width="34" height="34"/>
+            	<text>KS</text>
+            </g>
+            <g class="ky">
+            	<rect x="307" y="203.3" class="total" width="37" height="37"/>
+            	<text>KY</text>
+            </g>
+            <g class="la">
+            	<rect x="263.1" y="303" class="total" width="37" height="37"/>
+            	<text>LA</text>
+            </g>
+            <g class="hi">
+            	<rect x="5" y="356" class="total" width="23" height="23"/>
+            	<text>HI</text>
+            </g>
+            <g class="id">
+            	<rect x="89.7" y="154.6" class="total" width="30" height="30"/>
+            	<text>ID</text>
+            </g>
+            <g class="mi">
+            	<rect x="351" y="104" class="total" width="42" height="42"/>
+            	<text>MI</text>
+            </g>
+            <g class="ms">
+            	<rect x="305.1" y="304" class="total" width="34" height="34"/>
+            	<text>MS</text>
+            </g>
+            <g class="dc">
+            	<rect x="460.8" y="200" class="total" width="23" height="23"/>
+            	<text>DC</text>
+            </g>
+            <g class="wy">
+            	<rect x="133.3" y="182.5" class="total" width="29" height="29"/>
+            	<text>WY</text>
+            </g>
+            <g class="fl">
+            	<rect x="396.1" y="356" class="total" width="54" height="54"/>
+            	<text>FL</text>
+            </g>
+            <g class="il">
+            	<rect x="255" y="151" class="total" width="45" height="45"/>
+            	<text>IL</text>
+            </g>
+            <g class="mo">
+            	<rect x="248.4" y="207.3" class="total" width="39" height="39"/>
+            	<text>MO</text>
+            </g>
+            <g class="nc">
+            	<rect x="430.1" y="243" class="total" width="46" height="46"/>
+            	<text>NC</text>
+            </g>
+            <g class="oh">
+            	<rect x="351" y="151" class="total" width="44" height="44"/>
+            	<text>OH</text>
+            </g>
+            <g class="az">
+            	<rect x="109" y="263" class="total" width="41" height="41"/>
+            	<text>AZ</text>
+            </g>
+            <g class="ut">
+            	<rect x="116" y="224" class="total" width="34" height="34"/>
+            	<text>UT</text>
+            </g>
+            <g class="wi">
+            	<rect x="255" y="104" class="total" width="35" height="35"/>
+            	<text>WI</text>
+            </g>
+            <g class="de">
+            	<rect x="488.8" y="189" class="total" width="21" height="21"/>
+            	<text>DE</text>
+            </g>
+            <g class="md">
+            	<rect x="450.8" y="162" class="total" width="33" height="33"/>
+            	<text>MD</text>
+            </g>
+            <g class="pa">
+            	<rect x="399.8" y="149" class="total" width="46" height="46"/>
+            	<text>PA</text>
+            </g>
+            <g class="ny">
+            	<rect x="474.8" y="87" class="total" width="53" height="53"/>
+            	<text>NY</text>
+            </g>
+            <g class="nh">
+            	<rect x="558.8" y="56" class="total" width="26" height="26"/>
+            	<text>NH</text>
+            </g>
+            <g class="ma">
+            	<rect x="532.8" y="87" class="total" width="35" height="35"/>
+            	<text>MA</text>
+            </g>
+            <g class="vt">
+            	<rect x="532.8" y="61" class="total" width="21" height="21"/>
+            	<text>VT</text>
+            </g>
+            <g class="me">
+            	<rect x="572.8" y="25" class="total" width="26" height="26"/>
+            	<text>ME</text>
+            </g>
+            <g class="ct">
+            	<rect x="532.8" y="127" class="total" width="28" height="28"/>
+            	<text>CT</text>
+            </g>
+            <g class="ri">
+            	<rect x="565.8" y="127" class="total" width="23" height="23"/>
+            	<text>RI</text>
+            </g>
+            <g class="in">
+            	<rect x="305" y="151" class="total" width="41" height="41"/>
+            	<text>IN</text>
+            </g>
+            <g class="ne">
+            	<rect x="176" y="179.5" class="total" width="32" height="32"/>
+            	<text>NE</text>
+            </g>
+            <g class="wv">
+            	<rect x="365.8" y="207" class="total" width="31" height="31"/>
+            	<text>WV</text>
+            </g>
+            <g class="wa">
+            	<rect x="40" y="104" class="total" width="36" height="36"/>
+            	<text>WA</text>
+            </g>
+            <g class="or">
+            	<rect x="48" y="156.6" class="total" width="28" height="28"/>
+            	<text>OR</text>
+            </g>
+            <g class="ca">
+            	<rect x="5" y="201.2" class="total" width="71" height="71"/>
+            	<text>CA</text>
+            </g>
+            <g class="mt">
+            	<rect x="112" y="104" class="total" width="28" height="28"/>
+            	<text>MT</text>
+            </g>
+            <g class="nj">
+            	<rect x="488.8" y="145" class="total" width="39" height="39"/>
+            	<text>NJ</text>
+            </g>
+            <g class="nm">
+            	<rect x="155" y="263" class="total" width="26" height="26"/>
+            	<text>NM</text>
+            </g>
+            <g class="sd">
+            	<rect x="176" y="141.8" class="total" width="29" height="29"/>
+            	<text>SD</text>
+            </g>
+            <g class="nd">
+                <rect x="176" y="104" class="total" width="28" height="28"/>
+            	<text>ND</text>
+            </g>
+            <g class="co">
+                <rect x="155" y="225" class="total" width="33" height="33"/>
+            	<text>CO</text>
+            </g>
+            <g class="as">
+            	<rect x="5" y="444" class="total" width="16" height="16"/>
+            	<text>AS</text>
+            </g>
+            <g class="gu">
+            	<rect x="26" y="444" class="total" width="16" height="16"/>
+            	<text>GU</text>
+            </g>
+            <g class="mp">
+            	<rect x="47" y="444" class="total" width="16" height="16"/>
+            	<text>MP</text>
+            </g>
+            <g class="pr">
+            	<rect x="69" y="444" class="total" width="26" height="26"/>
+            	<text>PR</text>
+            </g>
+            <g class="vi">
+            	<rect x="100" y="444" class="total" width="16" height="16"/>
+            	<text>VI</text>
+            </g>
+            <text class="territories" x="0" y="435">Territories</text>
+            </svg>
+        </div>
+    </div>
+
+    <div id="dem-map" style="display: none;">
+        <div class="map-container">
+            <?xml version="1.0" encoding="utf-8"?>
+            <!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+            <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 767 635">
+            <g class="sd">
+            	<rect class="total" x="211.8" y="222" width="27" height="27"/>
+            	<text>SD</text>
+            </g>
+            <g class="nd">
+            	<rect class="total" x="212.3" y="164" width="26" height="26"/>
+            	<text>ND</text>
+            </g>
+            <g class="mt">
+            	<rect class="total" x="158.7" y="164" width="28" height="28"/>
+            	<text>MT</text>
+            </g>
+            <g class="wv">
+            	<rect class="total" x="471" y="295.5" width="33" height="33"/>
+            	<text>WV</text>
+            </g>
+            <g class="ak">
+            	<rect class="total" x="5" y="43" width="24" height="24"/>
+            	<text>AK</text>
+            </g>
+            <g class="ut">
+            	<rect class="total" x="179" y="336" width="33" height="33"/>
+            	<text>UT</text>
+            </g>
+            <g class="id">
+            	<rect class="total" x="158.7" y="222" width="28" height="28"/>
+            	<text>ID</text>
+            </g>
+            <g class="ms">
+            	<rect class="total" x="362.1" y="415" width="35" height="35"/>
+            	<text>MS</text>
+            </g>
+            <g class="mi">
+            	<rect class="total" x="403.5" y="151" width="66" height="66"/>
+            	<text>MI</text>
+            </g>
+            <g class="ne">
+            	<rect class="total" x="241.2" y="271.6" width="30" height="30"/>
+            	<text>NE</text>
+            </g>
+            <g class="la">
+            	<rect class="total" x="315.1" y="414" width="42" height="42"/>
+            	<text>LA</text>
+            </g>
+            <g class="ks">
+            	<rect class="total" x="273.5" y="324.2" width="33" height="33"/>
+            	<text>KS</text>
+            </g>
+            <g class="va">
+            	<rect class="total" x="529" y="271" width="57" height="57"/>
+            	<text>VA</text>
+            </g>
+            <g class="tx">
+            	<rect class="total" x="224.1" y="414" width="86" height="86"/>
+            	<text>TX</text>
+            </g>
+            <g class="tn">
+            	<rect class="total" x="377.4" y="350.7" width="47" height="47"/>
+            	<text>TN</text>
+            </g>
+            <g class="ok">
+            	<rect class="total" x="275.1" y="374" width="35" height="35"/>
+            	<text>OK</text>
+            </g>
+            <g class="mn">
+            	<rect class="total" x="264" y="164" width="52" height="52"/>
+            	<text>MN</text>
+            </g>
+            <g class="ga">
+            	<rect class="total" x="449.1" y="415" width="59" height="59"/>
+            	<text>GA</text>
+            </g>
+            <g class="co">
+            	<rect class="total" x="217" y="321" width="48" height="48"/>
+            	<text>CO</text>
+            </g>
+            <g class="ar">
+            	<rect class="total" x="315.1" y="376" width="33" height="33"/>
+            	<text>AR</text>
+            </g>
+            <g class="al">
+            	<rect class="total" x="402.1" y="415" width="42" height="42"/>
+            	<text>AL</text>
+            </g>
+            <g class="nv">
+            	<rect class="total" x="138" y="334" width="35" height="35"/>
+            	<text>NV</text>
+            </g>
+            <g class="ia">
+            	<rect class="total" x="270.5" y="222" width="39" height="39"/>
+            	<text>IA</text>
+            </g>
+            <g class="sc">
+            	<rect class="total" x="449.1" y="368" width="42" height="42"/>
+            	<text>SC</text>
+            </g>
+            <g class="fl">
+            	<rect class="total" x="471.1" y="479" width="85" height="85"/>
+            	<text>FL</text>
+            </g>
+            <g class="il">
+            	<rect class="total" x="321" y="222" width="73" height="73"/>
+            	<text>IL</text>
+            </g>
+            <g class="mo">
+            	<rect class="total" x="315.1" y="310.5" width="50" height="50"/>
+            	<text>MO</text>
+            </g>
+            <g class="nc">
+            	<rect class="total" x="496.1" y="333" width="60" height="60"/>
+            	<text>NC</text>
+            </g>
+            <g class="oh">
+            	<rect class="total" x="456" y="222" width="69" height="69"/>
+            	<text>OH</text>
+            </g>
+            <g class="az">
+            	<rect class="total" x="162" y="374" width="50" height="50"/>
+            	<text>AZ</text>
+            </g>
+            <g class="wa">
+            	<rect class="total" x="74" y="164" width="59" height="59"/>
+            	<text>WA</text>
+            </g>
+            <g class="wi">
+            	<rect class="total" x="321" y="164" width="53" height="53"/>
+            	<text>WI</text>
+            </g>
+            <g class="wy">
+            	<rect class="total" x="190.3" y="274" width="23" height="23"/>
+            	<text>WY</text>
+            </g>
+            <g class="in">
+            	<rect class="total" x="399" y="222" width="52" height="52"/>
+            	<text>IN</text>
+            </g>
+            <g class="ky">
+            	<rect class="total" x="404" y="291.3" width="42" height="42"/>
+            	<text>KY</text>
+            </g>
+            <g class="or">
+            	<rect class="total" x="86" y="228" width="47" height="47"/>
+            	<text>OR</text>
+            </g>
+            <g class="ca">
+            	<rect class="total" x="5" y="280" width="128" height="128"/>
+            	<text>CA</text>
+            </g>
+            <g class="pa">
+            	<rect class="total" x="499" y="123" width="79" height="79"/>
+            	<text>PA</text>
+            </g>
+            <g class="ny">
+            	<rect class="total" x="583" y="109" width="93" height="93"/>
+            	<text>NY</text>
+            </g>
+            <g class="ma">
+            	<rect class="total" x="681" y="93" width="58" height="58"/>
+            	<text>MA</text>
+            </g>
+            <g class="me">
+            	<rect class="total" x="727" y="23" width="30" height="30"/>
+            	<text>ME</text>
+            </g>
+            <g class="vt">
+            	<rect class="total" x="681" y="61" width="27" height="27"/>
+            	<text>VT</text>
+            </g>
+            <g class="nh">
+            	<rect class="total" x="713" y="58" width="30" height="30"/>
+            	<text>NH</text>
+            </g>
+            <g class="ct">
+            	<rect class="total" x="681" y="156" width="46" height="46"/>
+            	<text>CT</text>
+            </g>
+            <g class="ri">
+            	<rect class="total" x="732" y="156" width="31" height="31"/>
+            	<text>RI</text>
+            </g>
+            <g class="de">
+            	<rect class="total" x="594" y="207" width="30" height="30"/>
+            	<text>DE</text>
+            </g>
+            <g class="md">
+            	<rect class="total" x="530" y="207" width="59" height="59"/>
+            	<text>MD</text>
+            </g>
+            <g class="nj">
+            	<rect class="total" x="629" y="207" width="65" height="65"/>
+            	<text>NJ</text>
+            </g>
+            <g class="nm">
+            	<rect class="total" x="217" y="374" width="35" height="35"/>
+            	<text>NM</text>
+            </g>
+            <g class="dc">
+            	<rect class="total" x="591" y="281" width="37" height="37"/>
+            	<text>DC</text>
+            </g>
+            <g class="hi">
+            	<rect class="total" x="5" y="490.8" width="32" height="32"/>
+            	<text>HI</text>
+            </g>
+            <g class="as">
+            	<rect class="total" x="5" y="586" width="18" height="18"/>
+            	<text>AS</text>
+            </g>
+            <g class="da">
+            	<rect class="total" x="34" y="586" width="22" height="22"/>
+            	<text>DA</text>
+            </g>
+            <g class="gu">
+            	<rect class="total" x="67" y="586" width="18" height="18"/>
+            	<text>GU</text>
+            </g>
+            <g class="mp">
+            	<rect class="total" x="96" y="586" width="18" height="18"/>
+            	<text>MP</text>
+            </g>
+            <g class="pr">
+            	<rect class="total" x="125" y="586" width="44" height="44"/>
+            	<text>PR</text>
+            </g>
+            <g class="vi">
+            	<rect class="total" x="175" y="586" width="18" height="18"/>
+            	<text>VI</text>
+            </g>
+            <g class="un">
+            	<rect class="total" x="201" y="586" width="5" height="5"/>
+            	<text>UN</text>
+            </g>
+            <text class="territories" x="0" y="575">Territories/Other</text>
+            </svg>
+        </div>
+    </div>
+{% endblock content %}

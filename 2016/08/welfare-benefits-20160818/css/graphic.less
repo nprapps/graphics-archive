@@ -1,0 +1,47 @@
+@import "base";
+
+.bars rect {
+    &.clr-0 { fill: #efc637; }
+    &.clr-250 { fill: #b7af57; }
+    &.clr-500 { fill: #7b976c; }
+    &.clr-750 { fill: #17807e; }
+    // http://gka.github.io/palettes/#colors=#17807E,#EFC637|steps=4|bez=1|coL=1
+}
+
+.annotations {
+    text {
+        font-size: 12px;
+        fill: #666;
+        text-anchor: start;
+
+        &.label-la { text-anchor: middle; }
+    }
+    line {
+        stroke: #999;
+        stroke-width: 1px;
+    }
+}
+
+@media screen and (min-width: 501px) and (max-width: 600px) {
+    .x.axis { font-size: 10px; }
+}
+
+@media screen and (max-width: 500px) {
+    .labels li {
+        font-size: 11px;
+        color: #787878;
+
+        &.annotate {
+            font-weight: bold;
+            color: #333;
+        }
+    }
+    .value text {
+        fill: #787878;
+
+        &.annotate.out {
+            font-weight: bold;
+            fill: #333;
+        }
+    }
+}

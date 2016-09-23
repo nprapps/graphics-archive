@@ -1,0 +1,47 @@
+@import "base";
+// fonts
+.knockout() {
+    font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+}
+
+@accent2        : #498dcb; // blue in comps
+
+body {
+    padding: 5px 0;
+}
+
+// Add custom styles here
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.graphic {
+    text-align: center;
+
+    img {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        max-width: 400px;
+        padding: 0 15px;
+        margin: 0 auto 10px;
+    }
+
+    .map-button {
+        border: none;
+        font-size: 1.1em;
+        padding: 11px 15px;
+        .knockout();
+        text-transform: uppercase;
+        line-height: 33px;
+        background-color: @accent2;
+        color: #fff;
+        -webkit-font-smoothing: antialiased;
+        cursor: pointer;
+    }
+
+    &:hover .map-button {
+        opacity: 0.7;
+    }
+}
