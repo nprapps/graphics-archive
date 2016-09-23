@@ -10,4 +10,5 @@ graphics.sublime-*
 */index.html
 */graphic_config.pyc
 */assets/*
+*/*/assets/*
 !*/assets/assetsignore
