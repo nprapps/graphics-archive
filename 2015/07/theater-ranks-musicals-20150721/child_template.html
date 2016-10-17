@@ -6,18 +6,74 @@
     {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
 
     <div id="graphic">
-    
+
         <div class="group">
-            {% for decade in COPY.data|groupby('decade') %}
-            <ul class="d{{ decade.grouper }}">
-                <li class="hed">{{ decade.grouper }}</li>
-                {% for play in decade.list %}
-                    <li class="activity {{ play.play|lower|replace(' ', '-')|replace('*', '')|replace('\'', '')|replace('.', '')|replace(',', '')|replace('/', '-')|replace('!', '')|replace('?', '') }}">
-                        <span class="sport">{{ play.play }}</span>
-                    </li>
+            <ul class="d1960">
+                <li class="hed">1960</li>
+                {% for play in COPY.musicals_data|sort(attribute='1960_rank') %}
+                {% if play['1960_rank'] != 'n/a' %}
+                <li class="activity {{ play.play|classify }}">
+                    <span class="sport">{{ play.play }}</span>
+                </li>
+                {% endif %}
                 {% endfor %}
             </ul>
-            {% endfor %}
+
+            <ul class="d1970">
+                <li class="hed">1970</li>
+                {% for play in COPY.musicals_data|sort(attribute='1970_rank') %}
+                {% if play['1970_rank'] != 'n/a' %}
+                <li class="activity {{ play.play|classify }}">
+                    <span class="sport">{{ play.play }}</span>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+            <ul class="d1980">
+                <li class="hed">1980</li>
+                {% for play in COPY.musicals_data|sort(attribute='1980_rank') %}
+                {% if play['1980_rank'] != 'n/a' %}
+                <li class="activity {{ play.play|classify }}">
+                    <span class="sport">{{ play.play }}</span>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+            <ul class="d1990">
+                <li class="hed">1990</li>
+                {% for play in COPY.musicals_data|sort(attribute='1990_rank') %}
+                {% if play['1990_rank'] != 'n/a' %}
+                <li class="activity {{ play.play|classify }}">
+                    <span class="sport">{{ play.play }}</span>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+            <ul class="d2000">
+                <li class="hed">2000</li>
+                {% for play in COPY.musicals_data|sort(attribute='2000_rank') %}
+                {% if play['2000_rank'] != 'n/a' %}
+                <li class="activity {{ play.play|classify }}">
+                    <span class="sport">{{ play.play }}</span>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+            <ul class="d2010">
+                <li class="hed">2010</li>
+                {% for play in COPY.musicals_data|sort(attribute='2010_rank') %}
+                {% if play['2010_rank'] != 'n/a' %}
+                <li class="activity {{ play.play|classify }}">
+                    <span class="sport">{{ play.play }}</span>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 
     {% if COPY.labels.footnote %}

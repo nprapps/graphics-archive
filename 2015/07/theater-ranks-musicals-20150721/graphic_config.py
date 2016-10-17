@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
-COPY_GOOGLE_DOC_KEY = '1dd8n6Avdw99wwnnmMBGZWl4e1quxjFpPsX0R4lvE6kg'
+import base_filters
+
+COPY_GOOGLE_DOC_KEY = '1rGwQroE780kpXjxXfVUxfI8ymeHSC_ry9CPWjrFQKd4'
 
 USE_ASSETS = False
 
@@ -8,9 +10,4 @@ USE_ASSETS = False
 # DEFAULT_MAX_AGE = 20
 # ASSETS_MAX_AGE = 300
 
-# def classify(value):
-#     return value|lower|replace(' ', '-')|replace('\'', '')|replace('.', '')|replace('/', '-')|replace('!', '')|replace('?', '')
-# 
-# JINJA_FILTER_FUNCTIONS = [
-#     classify
-# ]
+JINJA_FILTER_FUNCTIONS = base_filters.FILTERS

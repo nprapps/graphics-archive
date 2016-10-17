@@ -1,0 +1,67 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr class="hdr-known">
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th colspan="2">{{ COPY.labels.hdr_known }}</th>
+                </tr>
+                <tr>
+                    <th class="religion">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_religion }}</div>
+                    </th>
+                    <th class="amt overall">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_overall }}</div>
+                    </th>
+                    <th class="amt known-yes">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_yes }}</div>
+                    </th>
+                    <th class="amt known-no">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_no }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="state-{{ row.religion|classify }}">
+                <td data-title="{{ COPY.labels.hdr_religion }}" class="religion">{{ row.religion }}</td>
+                <td data-title="{{ COPY.labels.hdr_overall }}" class="amt overall">{{ row.overall }}</td>
+                <td data-title="{{ COPY.labels.hdr_mobile_yes }}" class="amt known-yes">{{ row.known_yes }}</td>
+                <td data-title="{{ COPY.labels.hdr_mobile_no }}" class="amt known-no">{{ row.known_no }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

@@ -1,0 +1,127 @@
+@import "base";
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 10px 10px 10px 10px;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .hdr-known th {
+        border: none;
+        text-align: center;
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    th,
+    td {
+        &.amt { text-align: center; }
+    }
+}
+
+// Mobile styles
+@media screen and (min-width: 251px) {
+    th,
+    td {
+        &.overall {
+            background-color: #f1f1f1;
+            border-color: #fff;
+        }
+        &.amt { width: 25%; }
+        &.known-no { border-left: 1px solid #eee; }
+        &:nth-child(1) { padding-left: 0; }
+        &:nth-child(4) { padding-right: 0; }
+    }
+}
+@media screen and (max-width: 250px) {
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        thead { display: none; }
+
+        tr,
+        th,
+        th.amt,
+        td,
+        td.amt {
+            display: block;
+            padding: 0;
+            white-space: normal;
+            font-size: 11px;
+        }
+
+        tr {
+            // border-bottom: 1px solid #eee;
+            padding: 10px 0;
+
+            // &:first-child { border-top: 1px solid #eee; }
+        }
+
+        td,
+        td.amt {
+            padding-bottom: 3px;
+            margin-bottom: 3px;
+            text-align: left;
+
+            &:empty { display: none; }
+        }
+        td.overall {
+            font-weight: bold;
+            background: none;
+            border-color: #eee;
+        }
+
+        th[data-title]:before,
+        td[data-title]:before {
+            content: attr(data-title) ":\00A0";
+            display: inline-block;
+            width: 150px;
+            padding-right: 10px;
+        }
+
+        tr td:first-child {
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #333;
+            font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+
+            &:before {
+                content: '';
+                display: none;
+            }
+        }
+    }
+}
