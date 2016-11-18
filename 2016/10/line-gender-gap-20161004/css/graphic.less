@@ -1,0 +1,43 @@
+@import "base";
+
+.graphic { margin-bottom: 11px; }
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.dots circle {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+path.area {
+    fill: @teal6;
+    fill-opacity: 0.5
+}
+
+path.area2 {
+    fill: @teal1;
+    fill-opacity: 0.6;
+}
+
+
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .chart.wages { margin-bottom: 22px; }
+    .value text {
+        font-size: 11px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+}
+

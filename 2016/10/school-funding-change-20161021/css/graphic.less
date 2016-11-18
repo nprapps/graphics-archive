@@ -1,0 +1,25 @@
+@import "base";
+
+.bars rect {
+    &.negative { fill: @red3; }
+    &.positive { fill: #666; }
+}
+
+.labels li {
+    font-size: 11px;
+}
+
+.annotations {
+    text {
+        font-size: 11px;
+        fill: #666;
+        text-anchor: start;
+        -webkit-font-smoothing: antialiased;
+
+        &.nd { text-anchor: end; }
+    }
+    line {
+        stroke: #999;
+        stroke-width: 1px;
+    }
+}

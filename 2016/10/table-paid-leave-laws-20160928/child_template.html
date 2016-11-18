@@ -1,0 +1,164 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+
+<div class ="table-list">
+    <div class="section-wrapper section-law">
+         <div class="header">{{ COPY.labels.hdr_Law_Category}}</div>
+        <div class ="section-table">
+            <div class="list-wrapper" id="Paid-table">
+                    <h3>
+                       {{COPY.labels.hdr_Paid}}
+                    </h3>
+                <ul>
+                    {% for row in COPY.data %}
+                    {% if row.Paid %}
+                        <li>{{ row.Paid }}</li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="list-wrapper" id="Roll-table">
+                    <h3>
+                       {{COPY.labels.hdr_Roll}}
+                    </h3>
+                <ul>
+                    {% for row in COPY.data %}
+                    {% if row.Roll %}
+                        <li>{{ row.Roll }}</li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+
+           <div class="list-wrapper" id="Expanded-table">
+                    <h3>
+                       {{COPY.labels.hdr_Expanded}}
+                    </h3>
+                <ul>
+                    {% for row in COPY.data %}
+                    {% if row.Expanded %}
+                        <li>{{ row.Expanded }}</li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="section-wrapper section-considering">
+        <div class="header">{{ COPY.labels.hdr_Considering_Category}}</div>
+        <div class ="section-table">
+            <div class="list-wrapper" id="Considering-table">
+                    <h3>
+                       {{COPY.labels.hdr_Considering}}
+                    </h3>
+                <ul>
+                    {% for row in COPY.data %}
+                    {% if row.Considering %}
+                        <li>{{ row.Considering }}</li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="list-wrapper" id="Considering_Public-table">
+                    <h3>
+                       {{COPY.labels.hdr_Considering_Public}}
+                    </h3>
+                <ul>
+                    {% for row in COPY.data %}
+                    {% if row.Considering_Public %}
+                        <li>{{ row.Considering_Public }}</li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--
+    <div class="graphic">
+        <div id="state-table">
+            <thead>
+            
+                <tr class="hdr-law">
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th colspan="3">{{ COPY.labels.hdr_Law }}</th>
+                </tr>
+                <tr class="hdr-bill">
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th colspan="3">{{ COPY.labels.hdr_Bill }}</th>
+                </tr>
+             
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_Expanded }}</div>
+                    </th>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_Paid }}</div>
+                    </th>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_Roll}}</div>
+                    </th>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_Public}}</div>
+                    </th>
+                     <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_Considering}}</div>
+                    </th> 
+                    <th>                                       
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_Considering_Public}}</div>
+                    </th> 
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="state-{{ row.usps|classify }}">
+                <td data-title="{{ COPY.labels.hdr_Expanded }}">{{ row.Expanded }}</td>
+                <td data-title="{{ COPY.labels.hdr_Paid}}">{{ row.Paid }}</td>
+                <td data-title="{{ COPY.labels.hdr_Roll}}">{{ row.Roll }}</td>
+                <td data-title="{{ COPY.labels.hdr_Public}}">{{ row.Public }}</td>
+                <td data-title="{{ COPY.labels.hdr_Considering}}">{{ row.Considering}}</td>
+                <td data-title="{{ COPY.labels.hdr_Considering_Public}}">{{ row.Considering_Public}}</td>
+            </tr>
+            {% endfor %}
+
+        </div>
+    </div>
+
+-->
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.sources %}<p>Sources: {{ COPY.labels.sources|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

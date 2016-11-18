@@ -1,0 +1,21 @@
+@import "base";
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+
+    &.left { text-anchor: start; }
+    &.right { text-anchor: end; }
+    &.too-small {
+        fill: #999;
+        font-style: italic;
+        text-anchor: start;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text { font-size: 9px; }
+}

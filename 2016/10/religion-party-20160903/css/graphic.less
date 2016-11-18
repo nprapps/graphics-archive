@@ -1,0 +1,55 @@
+@import "base";
+
+.axis {
+    fill: #666;
+    font-weight: bold;
+    font-size: 12px;
+
+    path { display: none; }
+}
+
+.lines line {
+    stroke-width: 3px;
+    stroke: #ddd;
+    shape-rendering: auto;
+
+    &.rep {
+        &.up { stroke: @red2; }
+        &.even { stroke: @red3; }
+        &.down { stroke: @red5; }
+    }
+
+    &.dem {
+        &.up { stroke: @blue2; }
+        &.even { stroke: @blue3; }
+        &.down { stroke: @blue5; }
+    }
+}
+
+.dots circle {
+//    fill: #ddd;
+    stroke: #fff;
+    stroke-width: 1px;
+
+    &.rep {
+        &.up { fill: @red2; }
+        &.even { fill: @red3; }
+        &.down { fill: @red5; }
+    }
+
+    &.dem {
+        &.up { fill: @blue2; }
+        &.even { fill: @blue3; }
+        &.down { fill: @blue5; }
+    }
+}
+
+.value text {
+    font-size: 11px;
+    fill: #333;
+}
+
+.label text {
+    font-size: 11px;
+    fill: #333;
+}

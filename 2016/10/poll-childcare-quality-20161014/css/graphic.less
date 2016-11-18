@@ -1,0 +1,25 @@
+@import "base";
+
+// Add custom styles here
+.bars rect {
+    fill: @orange3;
+}
+
+sup {
+    line-height: 0;
+    color: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .labels {
+        li {
+            text-align: left;
+            line-height: 1em;
+
+            span {
+                vertical-align: bottom;
+                padding-bottom: 5px;
+            }
+        }
+    }
+}

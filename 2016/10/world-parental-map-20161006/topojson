@@ -1,0 +1,6 @@
+ogr2ogr -f GeoJSON data/world-geo.json ~/src/_basemaps/cultural/ne_10m_admin_0_countries_v3.1/ne_10m_admin_0_countries.shp
+
+#topojson -o data/world-topo.json -s 1E-5 --id-property ISO_N3 -p featurecla,city=name,country=NAME -- data/world-geo.json
+
+ogr2ogr -f GeoJSON data/world-geo.json ~/src/_basemaps/cultural/ne_10m_admin_0_map_units_v3.1.0/ne_10m_admin_0_map_units.shp
+topojson -o data/world-topo.json -s 1E-5 --id-property BRK_A3 -p ADM0_A3,BRK_A3 -- data/world-geo.json

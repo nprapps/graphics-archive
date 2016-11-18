@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Graphic : NPR</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex" />
+    <link rel="shortcut icon" href="http://media.npr.org/favicon.ico" />
+
+    <base target="_blank">
+
+    
+
+    <!-- Fonts -->
+    <script src="http://apps.npr.org/dailygraphics/graphics/fonts/js/lib/webfont.js"></script>
+    <script>
+    WebFont.load({
+        custom: {
+            families: [
+                'Gotham SSm:n4,n7',
+                'Knockout 31 4r:n4'
+            ],
+            urls: [
+                'http://s.npr.org/templates/css/fonts/GothamSSm.css',
+                'http://s.npr.org/templates/css/fonts/Knockout.css'
+            ]
+        },
+        timeout: 10000
+    });
+    </script>
+
+    
+
+    <!-- Configuration -->
+    <script type="text/javascript">
+        GOOGLE_ANALYTICS_ACCOUNT_ID = 'UA-5828686-75';
+        GOOGLE_ANALYTICS_PROJECT_SLUG = 'line-gender-gap-20161004';
+    </script>
+
+    <!-- CSS + LESS -->
+    
+    <link rel="stylesheet" type="text/css" href="css/graphic-header.css?1475859502" />
+</head>
+<body>
+    <!-- Analytics -->
+    
+    
+    <script type="text/javascript" src="js/graphic-header.js?1475859502"></script>
+
+    
+
+    <h1>The Gender Gap Expands Around Same Age As The Manager Gap</h1>
+    <h2>Visier, a workforce analytics company, looked at salary and employment data for 165,000 U.S.-based employees, typically working for companies with over 5,000 employees in industries such as health care, technology, finance, insurance and manufacturing. </h2>
+
+    <div id="line-chart" class="graphic">
+        <img src="fallback.png" alt="[Chart]" class="fallback" />
+    </div>
+
+    
+
+    <div class="footer">
+        <p>Source: <a href="http://www.visier.com/lp/visier-insights-gender-equity-report/">Visier</a> </p>
+        <p>Credit: Stephan Bisaha/NPR</p>
+    </div>
+
+    <script type="text/javascript">
+        var DATA = {
+            'wages': [{"age": "21", "Men": "27474.8585", "Women": "24308.92342"}, {"age": "23", "Men": "41279.53424", "Women": "37578.19628"}, {"age": "25", "Men": "50390.49375", "Women": "46766.42952"}, {"age": "27", "Men": "58910.37463", "Women": "53251.67811"}, {"age": "29", "Men": "66255.52214", "Women": "60187.8831"}, {"age": "31", "Men": "74634.72874", "Women": "69437.00425"}, {"age": "33", "Men": "81178.14668", "Women": "74612.56596"}, {"age": "35", "Men": "87297.67171", "Women": "76649.53022"}, {"age": "37", "Men": "93055.81822", "Women": "80670.27233"}, {"age": "39", "Men": "99845.51974", "Women": "83206.28408"}, {"age": "41", "Men": "104360.6365", "Women": "86160.45211"}, {"age": "43", "Men": "103468.2383", "Women": "84093.35223"}, {"age": "45", "Men": "104016.721", "Women": "85226.21773"}, {"age": "47", "Men": "105243.9501", "Women": "82935.60597"}, {"age": "49", "Men": "100743.1296", "Women": "80848.12822"}, {"age": "51", "Men": "98499.63602", "Women": "80107.7759"}, {"age": "53", "Men": "99221.55093", "Women": "75776.7113"}, {"age": "55", "Men": "94068.51842", "Women": "73520.44204"}, {"age": "57", "Men": "93459.85596", "Women": "72602.22192"}, {"age": "59", "Men": "86205.21231", "Women": "72847.50971"}],
+            'gap': [{"age": "27", "Men:": "3.8", "Women:": "5.7795699"}, {"age": "29", "Men:": "6.1285501", "Women:": "6.2633149"}, {"age": "31", "Men:": "8.3146627", "Women:": "9.5066619"}, {"age": "33", "Men:": "12.4944518", "Women:": "12.8661088"}, {"age": "35", "Men:": "14.8541714", "Women:": "13.5285914"}, {"age": "37", "Men:": "18.7298665", "Women:": "15.1791751"}, {"age": "39", "Men:": "22.4157178", "Women:": "16.6605906"}, {"age": "41", "Men:": "24.0908038", "Women:": "17.3469388"}, {"age": "43", "Men:": "25.3543667", "Women:": "16.7539267"}, {"age": "45", "Men:": "24.8846914", "Women:": "17.1320992"}, {"age": "47", "Men:": "25.1667078", "Women:": "16.0531697"}, {"age": "49", "Men:": "23.875803", "Women:": "16.4290805"}, {"age": "51", "Men:": "23.4135667", "Women:": "16.3181351"}, {"age": "53", "Men:": "23.5551664", "Women:": "13.7982196"}, {"age": "55", "Men:": "23.0066951", "Women:": "15.0019283"}, {"age": "57", "Men:": "20.9775967", "Women:": "12.0930233"}, {"age": "59", "Men:": "18.7419769", "Women:": "12.5469169"}]
+            //changed from gap to manager
+        };
+        var LABELS = {"headline": "The Gender Gap Expands Around Same Age As The Manager Gap", "subhed": "Visier, a workforce analytics company, looked at salary and employment data for 165,000 U.S.-based employees, typically working for companies with over 5,000 employees in industries such as health care, technology, finance, insurance and manufacturing. ", "footnote": "", "source": "<a href=\"http://www.visier.com/lp/visier-insights-gender-equity-report/\">Visier</a> ", "credit": "Stephan Bisaha/NPR", "hed_wages": "Average Worker Salary, By Age", "hed_gap": "Percent of Workers Who Are Managers, By Age", "": "Visier, a workforce analystics company, based on em"};
+    </script>
+
+
+
+    <script type="text/javascript" src="//pym.nprapps.org/pym.v1.min.js"></script>
+    
+        
+        
+        
+        
+        
+        <script type="text/javascript" src="js/graphic-footer.js?1475859502"></script>
+    
+</body>
+</html>

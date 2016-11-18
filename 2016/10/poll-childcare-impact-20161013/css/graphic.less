@@ -1,0 +1,44 @@
+@import "base";
+
+sup {
+    line-height: 0;
+    color: #999;
+}
+
+.bars line {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.dots circle {
+    stroke-width: 1px;
+    stroke: #fff;
+    fill: #ccc;
+
+    .mothers& { fill: @orange3; }
+    .fathers& { fill: @blue3; }
+}
+
+.value text {
+    font-size: 11px;
+    fill: #999;
+
+    .mothers& {
+        text-anchor: start;
+        fill: @orange2;
+    }
+    .fathers& {
+        text-anchor: end;
+        fill: @blue2;
+    }
+
+    &:first-child { font-weight: bold; }
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}

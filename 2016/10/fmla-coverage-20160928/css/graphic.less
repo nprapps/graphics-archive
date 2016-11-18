@@ -1,0 +1,52 @@
+@import "base";
+
+// Add custom styles here
+.graphic {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-height: 300px;
+
+    @media screen and (max-width: 600px) {
+        max-height: 400px;
+    }
+
+    @media screen and (max-width: 500px) {
+        max-height: none;
+    }
+}
+
+.graphic-section {
+    width: 50%;
+    box-sizing: border-box;
+    padding-right: 4%;
+    border-right: 1px solid #ddd;
+
+    &:last-child {
+        padding-right: 0;
+        padding-left: 4%;
+        border: none;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+
+    ul {
+        padding-left: 1.3em;
+        margin: 0 0 2em;
+        font-size: 0.9em;
+
+        li {
+            margin-bottom: 6px;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        &, &:last-child {
+            width: 100%;
+            padding: 0;
+            border: none;
+        }
+    }
+}
