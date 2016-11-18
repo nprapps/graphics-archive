@@ -1,0 +1,103 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div class="dropdown" id="cal-all">
+        {% if COPY.labels.headline %}<h2>{{ COPY.labels.headline|smarty }}</h2>{% endif %}
+        <select id="state-selector">
+            <option>Select a location&hellip;</option>
+            {% for state in COPY.data %}
+            <option value="{{ state.usps|lower }}">{{ state.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="graphic" id="calendar">
+        {% for state in COPY.data %}
+        <div class="state" id="cal-{{ state.usps|classify }}">
+            <div class="state-header">
+                <h1>{{ state.name }}</h1>
+                <p>
+                    {% if state.elections_link %}<a href="{{ state.elections_link }}">Website</a>{% endif %}{% if state.elections_phone %}&nbsp;&nbsp;|&nbsp;&nbsp;Phone: <a href="tel:{{ state.elections_phone }}" class="phone">{{ state.elections_phone }}</a></li>{% endif %}
+                </p>
+            </div>
+
+            <div class="chart"></div>
+            <div class="state-info">
+                <div class="voting-info">
+                    <h4>{% if state.voter_reg_deadline or state.absentee_request_deadline %}<b class="marker deadline"></b>{% endif %}Key Deadlines</h4>
+                    <ul>
+                        {% if state.voter_reg_deadline %}<li>Voter registration: <span class="election-date">{{ state.voter_reg_deadline }}</span>{% if state.voter_reg_new %} (<span class="election-date">{{ state.voter_reg_new }}</span> for new registrations){% endif %}</li>{% endif %}
+                        {% if state.absentee_request_note %}<li>Absentee ballot request: {{ state.absentee_request_note }}</li>
+                            {% elif state.absentee_request_deadline %}<li>Absentee ballot request: <span class="election-date">{{ state.absentee_request_deadline }}</span></li>{% endif %}
+                        <li>Election Day: <span class="election-date">11/8/2016</span></li>
+                    </ul>
+                </div>
+                <div class="early-voting">
+                    {% if state.all_mail != 'yes' or state.name == 'Colorado' %}
+                    <h4>{% if state.early_start %}<b class="marker early"></b>{% endif %}Early In-Person Voting<br />(No Excuse&nbsp;Required)</h4>
+                    <ul>
+                        {% if state.early_offered == 'no' and state.all_mail == 'no' %}<li>Not available</li>
+                            {% elif state.early_offered == 'no' and state.all_mail == 'yes' %}<li>Not applicable</li>
+                            {% elif state.early_offered == 'yes' %}<li>Available <span class="election-date">{{ state.early_start }}</span> through <span class="election-date">{{ state.early_end }}</span></li>{% endif %}
+                        {% if state.early_note %}<li>{{ state.early_note }}</li>{% endif %}
+                        {% if state.early_link %}<li><a href="{{ state.early_link }}">More information</a></li>{% endif %}
+                    </ul>
+                    {% endif %}
+
+                    {% if state.all_mail == 'yes' or state.all_mail == 'partial' %}
+                    <h4>{% if state.all_mail_sent %}<b class="marker mail"></b>{% endif %}
+                        {% if state.all_mail == 'partial' %}Vote-By-Mail
+                        {% else %}Statewide Vote-By-Mail{% endif %}
+                    </h4>
+                    <ul>
+                        {% if state.all_mail_note %}<li>{{ state.all_mail_note }}</li>{% endif %}
+                        {% if state.all_mail_sent %}<li>Ballots mailed to voters beginning on or around <span class="election-date">{{ state.all_mail_sent }}</span></li>{% endif %}
+                        {% if state.all_mail_deadline_note %}<li>Completed ballots due: {{ state.all_mail_deadline_note }}</li>{% endif %}
+                        {% if state.all_mail_link %}<li><a href="{{ state.all_mail_link }}">More information</a></li>{% endif %}
+                    </ul>
+                    {% endif %}
+                </div>
+                <div class="absentee-voting">
+                    <h4>{% if state.absentee_ballot_sent %}<b class="marker absentee"></b>{% endif %}Absentee Voting</h4>
+                    <ul>
+                        {% if state.absentee_excuse_required == 'no' %}<li>No excuse required</li>
+                            {% elif state.absentee_excuse_required == 'yes' %}<li>Excuse required</li>{% endif %}
+                        {% if state.absentee_ballot_sent %}<li>Ballots mailed to voters beginning on or around <span class="election-date">{{ state.absentee_ballot_sent }}</span></li>{% endif %}
+                        {% if state.absentee_return_note %}<li>Completed ballots due: {{ state.absentee_return_note }}</li>
+                            {% elif state.absentee_return_deadline and state.name != 'Puerto Rico' %}<li>Completed ballots due: <span class="election-date">{{ state.absentee_return_deadline }}</span></li>{% endif %}
+                        {% if state.absentee_link %}<li><a href="{{ state.absentee_link }}">More information</a></li>{% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var DATA = {{ COPY.data.json() }};
+    </script>
+{% endblock content %}
+
+{% block js %}
+    <script src="https://js.maxmind.com/js/apis/geoip2/v2.1/geoip2.js" type="text/javascript"></script>
+    {{ JS.push('js/lib/lscache.min.js') }}
+    {{ JS.push('js/lib/underscore.js') }}
+    {{ JS.push('js/lib/d3.min.js') }}
+    {{ JS.push('js/lib/modernizr.svg.min.js') }}
+    {{ JS.push('js/base.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+{% endblock js %}

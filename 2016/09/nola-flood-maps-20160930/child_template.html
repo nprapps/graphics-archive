@@ -1,0 +1,41 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <div class="img fema">
+            <div class="img-wrapper">
+                <img src="assets/fema.jpg" alt="Screenshot from FEMA's website" />
+            </div>
+            <div class="meta">
+                <div class="caption">{{ COPY.labels.caption_fema|smarty }}</div>
+                <div class="credit">{{ COPY.labels.credit_fema|smarty }}</div>
+            </div>
+        </div>
+        <div class="img insurer">
+            <div class="img-wrapper">
+                <img src="assets/insurer.jpg" alt="Screenshot from an insurer analysis" />
+            </div>
+            <div class="meta">
+                <div class="caption">{{ COPY.labels.caption_insurer|smarty }}</div>
+                <div class="credit">{{ COPY.labels.credit_insurer|smarty }}</div>
+            </div>
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

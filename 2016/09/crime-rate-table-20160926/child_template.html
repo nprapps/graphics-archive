@@ -1,0 +1,64 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th rowspan="2" class="city">{{ COPY.labels.hdr_city }}</th>
+                    <th rowspan="2" class="population amt">{{ COPY.labels.hdr_pop }}</th>
+                    <th colspan="3" class="murders header">{{ COPY.labels.hdr_murders }}</th>
+                    <th colspan="2" class="rate header">{{ COPY.labels.hdr_rate }}</th>
+                </tr>
+                <tr>
+                    <th class="murders y-2014 amt">{{ COPY.labels.hdr_2014 }}</th>
+                    <th class="murders y-2015 amt">{{ COPY.labels.hdr_2015 }}</th>
+                    <th class="murders change amt">{{ COPY.labels.hdr_change }}</th>
+                    <th class="rate y-2014 amt">{{ COPY.labels.hdr_2014 }}</th>
+                    <th class="rate y-2015 amt">{{ COPY.labels.hdr_2015 }}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            {% if row.murders_2014 %}
+            <tr class="state-{{ row.usps|classify }}">
+                <td data-title="{{ COPY.labels.hdr_city }}">{{ row.name }}, {{ row.state|ap_state }}</td>
+                <td data-title="{{ COPY.labels.hdr_pop }}" class="amt">{{ row.pop_2015|comma }}</td>
+                <td data-title="{{ COPY.labels.hdr_murders }} in {{ COPY.labels.hdr_2014 }}" class="amt murders y-2014">{{ row.murders_2014|float|comma }}</td>
+                <td data-title="{{ COPY.labels.hdr_murders }} in {{ COPY.labels.hdr_2015 }}" class="amt murders y-2015">{{ row.murders_2015|float|comma }}</td>
+                <td data-title="{{ COPY.labels.hdr_change }}" class="amt murders change {% if row.pct_change|float > 0 %}up{% endif %}">{{ row.pct_change|float|round(0)|int }}%</td>
+                <td data-title="{{ COPY.labels.hdr_rate }} in {{ COPY.labels.hdr_2014 }}" class="amt rate y-2014">{{ row.rate_2014|float|round(0)|int }}</td>
+                <td data-title="{{ COPY.labels.hdr_rate }} in {{ COPY.labels.hdr_2015 }}" class="amt rate y-2015">{{ row.rate_2015|float|round(0)|int }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

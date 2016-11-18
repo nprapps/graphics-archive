@@ -1,0 +1,51 @@
+@import "base";
+
+h1 { margin-bottom: 22px; }
+
+#graphic {
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        font-size: 13px;
+
+        > li {
+            margin: 0 0 11px 29px;
+            padding: 0;
+
+            .num {
+                display: inline-block;
+                background-color: #900;
+                color: #fff;
+                width: 20px;
+                text-align: center;
+                margin-right: 5px;
+                margin-left: -29px;
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width: 451px) {
+    #graphic {
+        display: table;
+        width: 100%;
+
+        > div {
+            display: table-cell;
+            vertical-align: top;
+
+            &.map { min-width: 300px; }
+            &.info { padding-left: 22px; }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #graphic {
+        div.map {
+            margin-bottom: 11px;
+        }
+    }
+}

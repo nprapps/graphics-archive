@@ -1,0 +1,33 @@
+@import "base";
+
+.chart.prices {
+    .lines {
+        fill: none;
+        stroke-width: 3px;
+        stroke: #ccc;
+    }
+
+    .value text {
+        font-size: 12px;
+        font-weight: bold;
+        fill: #999;
+    }
+
+    line.year-mark { stroke: #ccc; }
+}
+
+.chart.share {
+    .bars rect {
+        &.regular { fill: @red1; }
+        &.premium { fill: @red3; }
+        &.midgrade { fill: @red5; }
+        &.other { fill: #ccc; }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .chart.share { margin-bottom: 22px; }
+}
+
+@media screen and (min-width: 500px) {
+}

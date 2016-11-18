@@ -1,0 +1,52 @@
+@import "base";
+
+h1 { font-size: 18px; }
+
+.chart { margin-bottom: 22px; }
+
+rect.bg { fill: #f1f1f1; }
+
+.axis {
+    fill: #666;
+    font-weight: bold;
+    font-size: 12px;
+
+    path { display: none; }
+}
+
+.lines line {
+    stroke-width: 3px;
+    stroke: #ddd;
+    shape-rendering: auto;
+
+    &.negative { stroke: @teal5; }
+    &.positive { stroke: @teal1; }
+    &.active { stroke-opacity: 1; }
+    &.inactive { stroke-opacity: .4 }
+}
+
+.dots circle {
+    fill: #ddd;
+    stroke: #fff;
+    stroke-width: 1px;
+
+    &.negative { fill: @teal5; }
+    &.positive { fill: @teal1; }
+    &.active { opacity: 1; }
+    &.inactive { opacity: .4 }
+}
+
+.value text,
+.label text {
+    font-size: 11px;
+    fill: #333;
+    -webkit-font-smoothing: antialiased;
+
+    &.active {
+        opacity: 1;
+        font-weight: bold;
+    }
+    &.inactive { opacity: .4 }
+
+    &:hover { cursor: default; }
+}

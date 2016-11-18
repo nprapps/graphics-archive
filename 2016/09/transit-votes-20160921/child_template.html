@@ -1,0 +1,57 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div class="graphic">
+        <div class="header">
+            {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+            {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+        </div>
+
+        <div id="graphic" class="graphic">
+            <img src="fallback.png" alt="[Chart]" class="fallback" />
+        </div>
+    </div>
+
+    <div class="initiatives">
+        {% for state in COPY.data|groupby('state_full') %}
+        <div class="state">
+            <h3>{{ state.grouper }}</h3>
+            <div class="initiative-list">
+            {% for initiative in state.list %}
+                <div class="initiative {{ initiative.city|classify }}">
+                    <h4>{{ initiative.city }}</h4>
+                    <div class="info">
+                        <div class="amounts">
+                             {% if initiative.amt_billions %}<p class="amt"><strong>${{ initiative.amt_billions }} billion</strong>{% if initiative.tax_duration %} over {{ initiative.tax_duration }} years{% endif %}</p>{% endif %}
+                            {% if initiative.tax_type %}<p class="funding">Funded by: {{ initiative.tax_type }}{% if initiative.tax_amt %} ({{ initiative.tax_amt }}){% endif %}</p>{% endif %}
+                        </div>
+                        <div class="about">
+                            {% if initiative.desc %}<p class="desc">{{ initiative.desc }}</p>{% endif %}
+                            {% if initiative.story_link %}<p class="related">Related coverage: <a href="{{ initiative.story_link }}">&ldquo;{{ initiative.story_headline }}&rdquo;</a> <span class="source">({{ initiative.story_source }})</span></p>{% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var DATA = {{ COPY.data.json() }};
+    </script>
+
+{% endblock content %}
