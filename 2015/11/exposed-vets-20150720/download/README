@@ -1,0 +1,24 @@
+This file was downloaded from:
+
+http://www.npr.org/443411659
+
+The enclosed data was collected as part of an NPR investigation into veterans who had full-body exposure to mustard gas during WWII. Veterans on this list were identified from US Army and Navy records. Additional personal and service details were compiled by NPR research librarian Barbara Van Woerkom.
+
+If you have questions regarding this information, please email Caitlin Dickerson <cdickerson@npr.org>.
+
+Explanation of included columns:
+
+* npr_id:        A unique identifier assigned by NPR.
+* last_name:     Last name of the veteran.
+* first_name:    First name of the veteran.
+* middle_name:   Middle name of the veteran.
+* dob:           Date of birth.
+* city:          City of last known residence.
+* state:         State of last known residence.
+* dod:           Date of death.
+* branch:        Branch of military service.
+* enlist_date:   Date of enlistment.
+* enlist_city:   City of enlistment.
+* enlist_state:  State of enlistment.
+
+The available information varies for each individual. All fields may be blank.

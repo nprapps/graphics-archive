@@ -1,0 +1,23 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="graphic" class="photo"></div>
+
+    {% if COPY.labels.credit %}
+    <div class="caption">
+        <p class="credit">{{ COPY.labels.credit|smarty }}</p>
+    </div>
+    {% endif %}
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/d3.min.js') }}
+    {{ JS.push('js/lib/canvid.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

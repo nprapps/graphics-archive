@@ -1,0 +1,78 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="search">
+        <h3>{{ COPY.labels.search_prompt }}</h3>
+        <input value="new york"></input>
+        <p>Example: <a href="javascript:;">smith</a>, <a href="javascript:;">los angeles</a>, <a href="javascript:;">1924</a></p>
+    </div>
+
+    <div id="graphic">
+        <p id="results-text"></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="name">{{ COPY.labels.hdr_name }}</th>
+                    <th class="location">{{ COPY.labels.hdr_location }}</th>
+                    <th class="branch">{{ COPY.labels.hdr_branch }}</th>
+                    <th class="dob amt">{{ COPY.labels.hdr_dob }}</th>
+                    <th class="enlist amt">{{ COPY.labels.hdr_enlist }}</th>
+                    <th class="dod amt">{{ COPY.labels.hdr_dod }}</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for row in COPY.data %}
+                <tr id="ref-{{ row.id }}">
+                    <td class="name">{{ row.last_name }}, {{ row.first_name }}{% if row.middle_name %} {{ row.middle_name }}{% endif %}</td>
+                    <td class="location" data-city="{{ row.city }}" data-state="{% if row.state %}{{ row.state|usps_to_state }}{% endif %}">
+                        {%- if row.city and row.state -%}
+                            {{ row.city }}, {{ row.state|usps_to_ap_state }}
+                        {%- elif row.city -%}
+                            {{ row.city }}
+                        {%- elif row.state -%}
+                            {{ row.state|usps_to_state }}
+                        {%- endif -%}
+                    </td>
+                    <td class="branch">{{ row.branch }}</td>
+                    <td class="dob amt">{{ row.dob|ap_date }}</td>
+                    <td class="enlist amt">{{ row.enlist_date|ap_date }}</td>
+                    <td class="dod amt">{{ row.dod|ap_date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.download %}<p>Download: {{ COPY.labels.download }}</p>{% endif %}
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var LABELS = {{ COPY.labels.json() }};
+    </script>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/jquery.js') }}
+    {{ JS.push('js/lib/underscore.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/lib/lunr.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}
