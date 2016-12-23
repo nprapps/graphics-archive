@@ -1,0 +1,40 @@
+@import "base";
+
+// Add custom styles here
+
+@otherStates:      @teal6;
+@highlightStates:  @teal4;
+@highlightStates2: @orange3;
+@usAverage:        #787878;
+
+.bars rect { fill: @otherStates; }
+
+.bar.Y { fill: @highlightStates; }
+.bar.X { fill: @usAverage; }
+.bar.M { fill: @highlightStates2; }
+
+.key
+    &.early {
+        b {
+            background-color: @highlightStates;
+            margin-right: 2px;
+        }
+    }
+    &.mail {
+        b {
+            background-color: @highlightStates2;
+            margin-right:2px;
+        }
+    }
+    &.other {
+        b {
+            background-color: @otherStates;
+            margin-right:2px;
+        }
+    }
+    &.total {
+        b {
+            background-color: @usAverage;
+            margin-right:2px;
+        }
+    }

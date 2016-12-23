@@ -1,0 +1,40 @@
+@import "base";
+
+h2 strong { color: #666; }
+h3 { margin-bottom: 6px; }
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 11px;
+    // font-weight: bold;
+    fill: #787878;
+
+    &.vector-borne-diseases,
+    &.vaccine-preventable-diseases,
+    &.pathogens-with-drug-resistant-strains {
+        fill: #666;
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .chart {
+        margin-bottom: 22px;
+
+        &:nth-child(4) { margin-bottom: 0; }
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .chart {
+        &:nth-child(1),
+        &:nth-child(2) {
+            margin-bottom: 22px;
+        }
+    }
+}

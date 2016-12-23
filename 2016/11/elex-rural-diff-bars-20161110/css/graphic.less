@@ -1,0 +1,29 @@
+@import "base";
+
+@gop:                     #f05b4e;
+@gopDim:                  lighten(@gop, 20%);
+
+@dem:                     #498dcb;
+@demDim:                  lighten(@dem, 20%);
+
+@ind:                     #15b16e;
+@indDim:                  lighten(@ind, 20%);
+
+
+.grid {
+    .tick { stroke: #fff; }
+}
+
+h3 { text-align: center; }
+
+.bars rect {
+    .clinton & { fill: @dem; }
+    .trump & { fill: @gop; }
+    .other & { fill: @ind; }
+}
+
+.chart {
+    margin-bottom: 22px;
+
+    &:last-child { margin-bottom: 0; }
+}

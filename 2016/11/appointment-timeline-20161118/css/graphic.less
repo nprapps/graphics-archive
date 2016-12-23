@@ -1,0 +1,48 @@
+@import "base";
+
+.bars line {
+    fill: none;
+    stroke: #ddd;
+    stroke-opacity: 0.7;
+}
+
+.key {
+    .chief-of-staff b { background-color: @red3; }
+    .senior-adviser b { background-color: #333; }
+    .first-cabinet-secretary b { background-color: @teal3; }
+    .national-security-adviser b { background-color: @orange3; }
+    .press-secretary b { background-color: @blue3; }
+    .omb-director b { background-color: #999; }
+}
+
+.group rect {
+    &.chief-of-staff { fill: @red3; }
+    &.senior-adviser { fill: #333; }
+    &.first-cabinet-secretary { fill: @teal3; }
+    &.national-security-adviser { fill: @orange3; }
+    &.press-secretary { fill: @blue3; }
+    &.omb-director { fill: #999; }
+}
+
+.value text {
+    font-size: 11px;
+    fill: #999;
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}
+
+@media screen and (min-width: 501px) {
+    .key {
+        max-width: 530px;
+
+        .key-item {
+            width: 33%;
+            margin-right: 0;
+        }
+    }
+}

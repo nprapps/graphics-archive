@@ -1,0 +1,45 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th class="name">{{ COPY.labels.hdr_name }}</th>
+                    <th class="issue">{{ COPY.labels.hdr_issue }}</th>
+                    <th class="note">{{ COPY.labels.hdr_note }}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="issue-{{ loop.index }}">
+                <td class="name">{{ row.issue|smarty }}</td>
+                <td class="issue {% if row.trump_position == 'Yes' %}yes{% elif row.trump_position == 'No' %}no{% else %}other{% endif %}">
+                    {{ row.trump_position }}
+                </td>
+                <td class="note">
+                    {% if row.trump_footnote %}{{ row.trump_footnote }}{% if row.trump_link %}&nbsp;|&nbsp;{% endif %}{% endif %}{% if row.trump_link %}<a href="{{ row.trump_link }}">Source</a>{% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

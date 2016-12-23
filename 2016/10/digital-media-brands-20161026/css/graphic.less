@@ -1,0 +1,93 @@
+@import "base";
+
+@mobile-size: ~'screen and (max-width: 540px)';
+
+// Add custom styles here
+.section-wrapper {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0 20px;
+    margin-bottom: 10px;
+
+    .section-header, .brands-wrapper, .stake-wrapper {
+        display: table-cell;
+        box-sizing: border-box;
+        padding-right: 20px;
+    }
+
+    .section-header {
+        width: 25%;
+
+        @media @mobile-size {
+            display: block;
+            width: 100%;
+            padding-right: 0;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+            text-transform: none;
+            letter-spacing: 0;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 5px auto 5px;
+        }
+
+        p {
+            font-size: 0.9em;
+
+            @media @mobile-size {
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .brands-wrapper, .stake-wrapper {
+        width: 37.5%;
+
+        @media @mobile-size {
+            display: block;
+            width: 100%;
+            padding-right: 0;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            margin: 0 0 15px 0;
+            font-family: 'Knockout 31 4r';
+            font-weight: normal;
+            text-transform: uppercase;
+            padding-top: 0;
+            line-height: 1.2;
+            letter-spacing: 0.05em;
+            -webkit-font-smoothing: antialiased;
+            font-size: 12px;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                display: inline-block;
+                padding: 2px 7px;
+                border-radius: 2px;
+                margin: 0 3px 5px 0;
+                font-size: 0.9em;
+            }
+        }
+    }
+
+    .brands-wrapper ul li {
+        background: mix(@teal2, @teal3, 30%);
+        color: white;
+    }
+
+    .stake-wrapper ul li {
+        background: @teal6;
+        color: mix(@teal5, #111);
+    }
+}

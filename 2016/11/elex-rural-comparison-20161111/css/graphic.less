@@ -1,0 +1,51 @@
+@import "base";
+
+@gop:                     #f05b4e;
+@gopDim:                  lighten(@gop, 20%);
+
+@dem:                     #498dcb;
+@demDim:                  lighten(@dem, 20%);
+
+@ind:                     #15b16e;
+@indDim:                  lighten(@ind, 20%);
+
+// .group .column:first-child { opacity: .6; }
+
+.bar.y-2012 rect {
+    &.clinton { fill: @demDim; }
+    &.trump { fill: @gopDim; }
+    &.other { fill: @indDim; }
+}
+
+.bar.y-2016 rect {
+    &.clinton { fill: @dem; }
+    &.trump { fill: @gop; }
+    &.other { fill: @ind; }
+}
+
+.bar text {
+    fill: #fff;
+    font-size: 11px;
+    text-anchor: middle;
+
+    &.hidden { display: none; }
+}
+
+.x.axis.category {
+    text {
+        font-weight: bold;
+        fill: #454545;
+        text-anchor: middle;
+    }
+}
+
+.x.axis.bars {
+    path, line {
+        display: none;
+    }
+}
+
+// mobile styles
+@media screen and (max-width: 500px){
+    .bar text { font-size: 10px; }
+}

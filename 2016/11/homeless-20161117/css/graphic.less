@@ -1,0 +1,29 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.line-chart .value text {
+    font-size: 11px;
+    font-weight: bold;
+    fill: #999;
+
+    &:first-child { fill: #666; }
+}
+
+.bar-chart .bars rect {
+    &.sheltered { fill: @teal4; }
+    &.unsheltered { fill: @teal6; }
+}
+
+@media screen and (max-width: 500px) {
+    .line-chart { margin-bottom: 22px; }
+    .bar-chart .labels li { font-size: 11px; }
+}
+
+@media screen and (max-width: 280px) {
+    .line-chart .value text { font-size: 10px; }
+}

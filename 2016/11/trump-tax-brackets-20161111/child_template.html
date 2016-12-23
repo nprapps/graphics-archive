@@ -1,0 +1,104 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+      <div id="plan-table">
+        <h1 class="table-header">Trump's Plan</h1>
+          <table>
+              <thead>
+                  <tr>
+                      <th class="header-{{ COPY.labels.hdr_plan|classify }}">
+                          <div class="sorter"><div class="icon"></div></div>
+                          <div class="header">{{ COPY.labels.hdr_plan }}</div>
+                      </th>
+                      <th class="header-{{ COPY.labels.hdr_single|classify }} r-align">
+                          <div class="sorter"><div class="icon"></div></div>
+                          <div class="header">{{ COPY.labels.hdr_single }}</div>
+                      </th>
+                      <th class="header-{{ COPY.labels.hdr_hoh|classify }} r-align">
+                          <div class="sorter"><div class="icon"></div></div>
+                          <div class="header">{{ COPY.labels.hdr_hoh }}</div>
+                      </th>
+                      <th class="header-{{ COPY.labels.hdr_married|classify }} r-align">
+                          <div class="sorter"><div class="icon"></div></div>
+                          <div class="header">{{ COPY.labels.hdr_married }}</div>
+                      </th>
+                  </tr>
+              </thead>
+
+              {% for row in COPY.plan_data %}
+              <tr class="income-{{ row.plan|classify }}">
+                  <td data-title="{{ COPY.labels.hdr_plan }}">{{ row.plan }}</td>
+                  <td data-title="{{ COPY.labels.hdr_single }}" class="r-align">{{ row.p_single }}</td>
+                  <td data-title="{{ COPY.labels.hdr_hoh }}" class="r-align">{{ row.p_hoh }}</td>
+                  <td data-title="{{ COPY.labels.hdr_married }}" class="r-align">{{ row.p_married }}</td>
+              </tr>
+              {% endfor %}
+
+          </table>
+        </div>
+
+    <div id="current-table">
+      <h1 class="table-header">Current Plan</h1>
+        <table>
+          <thead>
+              <tr>
+                  <th class="header-{{ COPY.labels.hdr_plan|classify }}">
+                      <div class="sorter"><div class="icon"></div></div>
+                      <div class="header">{{ COPY.labels.hdr_plan }}</div>
+                  </th>
+                  <th class="header-{{ COPY.labels.hdr_single|classify }} r-align">
+                      <div class="sorter"><div class="icon"></div></div>
+                      <div class="header">{{ COPY.labels.hdr_single }}</div>
+                  </th>
+                  <th class="header-{{ COPY.labels.hdr_hoh|classify }} r-align">
+                      <div class="sorter"><div class="icon"></div></div>
+                      <div class="header">{{ COPY.labels.hdr_hoh }}</div>
+                  </th>
+                  <th class="header-{{ COPY.labels.hdr_married|classify }} r-align">
+                      <div class="sorter"><div class="icon"></div></div>
+                      <div class="header">{{ COPY.labels.hdr_married }}</div>
+                  </th>
+              </tr>
+          </thead>
+
+          {% for row in COPY.current_data %}
+          <tr class="income-{{ row.current|classify }}">
+              <td data-title="{{ COPY.labels.hdr_current }}">{{ row.current }}</td>
+              <td data-title="{{ COPY.labels.hdr_single }}" class="r-align">{{ row.c_single }}</td>
+              <td data-title="{{ COPY.labels.hdr_hoh }}" class="r-align">{{ row.c_hoh }}</td>
+              <td data-title="{{ COPY.labels.hdr_married }}" class="r-align">{{ row.c_married }}</td>
+          </tr>
+          {% endfor %}
+
+        </table>
+      </div>
+
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

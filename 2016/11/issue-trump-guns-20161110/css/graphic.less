@@ -1,0 +1,159 @@
+@import "base";
+
+/* table */
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 22px;
+}
+table th,
+table td {
+    padding: 10px;
+    text-align: left;
+}
+table th {
+    border-bottom: 2px solid #eee;
+    vertical-align: bottom;
+    font-family: 'Knockout 31 4r';
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+}
+table td {
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+}
+
+table th.amt,
+table td.amt {
+    text-align: right;
+}
+
+table tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+}
+
+table td.issue {
+    -webkit-font-smoothing: antialiased;
+    color: #999;
+
+    &.yes   {
+        color: @teal3;
+        font-weight: bold;
+    }
+    &.no    {
+        color: @orange3;
+        font-weight: bold;
+    }
+
+    sup {
+        line-height: 0;
+        color: #aaa;
+    }
+}
+
+table td.note a {
+    padding-bottom: 1px;
+    border-bottom: 1px solid #ddd;
+    color: #999;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+
+@media screen and (min-width: 501px) {
+    table th,
+    table td {
+        &.name {
+            width: 35%;
+            color: #333;
+            background-color: #f1f1f1;
+            border-color: #fff;
+        }
+
+        &.issue {
+            width: 25%;
+            text-align: center;
+        }
+        &.note {
+            width: 40%;
+            color: #787878;
+        }
+
+        // &:nth-child(1) { padding-left: 0; }
+        &:last-child { padding-right: 0; }
+    }
+    table th.name { font-weight: normal; }
+}
+
+/* responsive table */
+@media screen and (max-width: 500px) {
+    table,
+    tbody {
+        display: block;
+        width: 100%;
+    }
+    thead { display: none; }
+    table tr,
+    table th,
+    table td,
+    table td.amt {
+        display: block;
+        padding: 0;
+        text-align: left;
+        white-space: normal;
+    }
+    table td,
+    table td.amt {
+        border: none;
+        margin-bottom: 6px;
+    }
+    table td:empty { display: none; }
+
+    table tr {
+        border-bottom: 1px solid #eee;
+        padding: 15px 0;
+    }
+    table tr:first-child { border-top: 1px solid #eee; }
+
+    table th[data-title]:before,
+    table td[data-title]:before {
+        content: attr(data-title) ":\00A0";
+        display: inline-block;
+        width: 50%;
+        min-width: 140px;
+        padding-right: 11px;
+        text-align: left;
+    }
+
+    table tr td:first-child {
+        font-size: 14px;
+        margin-bottom: 11px;
+        color: #333;
+        font-family: 'Gotham', Helvetica,Arial,sans-serif;
+
+        &:before {
+            content: '';
+            display: none;
+        }
+    }
+
+    table td {
+        &.issue {
+            font-size: 150%;
+            margin-bottom: 11px;
+        }
+        &.note {
+            font-size: 11px;
+        }
+    }
+}

@@ -1,0 +1,126 @@
+@import "base";
+
+h2 strong { color: #454545; }
+
+rect {
+    &.changed {
+        stroke: #121212;
+        stroke-width: 3px;
+    }
+}
+
+text {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    .map & {
+        font-family: 'Knockout 31 4r';
+        font-weight: normal;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+        fill: #fff;
+        fill-opacity: 0.9;
+        text-anchor: middle;
+
+        &.votes {
+            fill-opacity: 0.65;
+        }
+    }
+
+    .me &,
+    .ne & {
+        fill: #999;
+        text-anchor: end;
+    }
+}
+.map text {
+    font-size: 17px;
+
+    &.small { font-size: 15px; }
+}
+
+
+// stacked bar chart
+
+.bar-labels {
+    fill: #fff;
+    text-anchor: middle;
+    -webkit-font-smoothing: antialiased;
+}
+
+.annotations {
+    line {
+        stroke: #666;
+        stroke-width: 1px;
+    }
+    .winner-line {
+        text-anchor: middle;
+        font-size: 11px;
+        fill: #666;
+    }
+    .candidate {
+        font-weight: bold;
+        font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+        -webkit-font-smoothing: antialiased;
+
+        &.dem {
+            text-anchor: begin;
+            fill: @blue1;
+        }
+        &.gop {
+            text-anchor: end;
+            fill: @red1;
+        }
+    }
+}
+
+
+// screen size-specific
+@media screen and (min-width: 501px) {
+    // .map text {
+    //     font-size: 13px;
+    //
+    //     &.small { font-size: 10px; }
+    //     &.votes { font-size: 75%; }
+    // }
+
+    .annotations .candidate { font-size: 18px; }
+    .bar-labels { font-size: 12px; }
+    .key {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 500px;
+        margin-bottom: 0;
+
+        .key-item { margin-right: 0; }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    // .map text {
+    //     font-size: 17px;
+    //
+    //     &.small { font-size: 15px; }
+    // }
+    // rect.changed { stroke-width: 3px; }
+
+    .bar-labels { font-size: 10px; }
+    .annotations .candidate { font-size: 14px; }
+    .key {
+        margin-bottom: 11px;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+
+        .key-item {
+            margin-right: 0;
+            width: 50%;
+        }
+    }
+}

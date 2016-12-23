@@ -1,0 +1,45 @@
+@import "base";
+
+.bars rect {
+    &.d-safelikely { fill: @blue2; }
+    &.d-lean { fill: @blue4; }
+    &.toss-up { fill: @yellow3; }
+    &.r-lean { fill: @red5; }
+    &.r-safelikely { fill: @red2; }
+}
+
+.annotations {
+    text {
+        font-size: 12px;
+        fill: #666;
+        text-anchor: start;
+    }
+    line {
+        stroke: #999;
+        stroke-width: 1px;
+    }
+}
+
+@media screen and (min-width: 501px) and (max-width: 600px) {
+    .x.axis { font-size: 10px; }
+}
+
+@media screen and (max-width: 500px) {
+    .labels li {
+        font-size: 11px;
+        color: #787878;
+
+        &.annotate {
+            font-weight: bold;
+            color: #333;
+        }
+    }
+    .value text {
+        fill: #787878;
+
+        &.annotate.out {
+            font-weight: bold;
+            fill: #333;
+        }
+    }
+}

@@ -1,0 +1,44 @@
+@import "base";
+
+@gop:                     #f05b4e;
+@gopDim:                  lighten(@gop, 20%);
+
+@dem:                     #498dcb;
+@demDim:                  lighten(@dem, 20%);
+
+@ind:                     #15b16e;
+@indDim:                  lighten(@ind, 20%);
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.group rect {
+    &.clinton { fill: @dem; }
+    &.trump { fill: @gop; }
+    &.other { fill: @ind; }
+}
+
+.annotations {
+    font-family: 'Knockout 31 4r';
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    fill: #333;
+
+    .header {
+        font-size: 11px;
+        fill: #666;
+    }
+
+    .clinton { text-anchor: start; }
+    .trump { text-anchor: end; }
+    .other { text-anchor: middle; }
+}

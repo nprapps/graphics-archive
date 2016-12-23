@@ -1,0 +1,36 @@
+@import "base";
+
+.axis {
+    fill: #666;
+    font-weight: bold;
+    font-size: 12px;
+
+    path { display: none; }
+}
+
+.lines line {
+    stroke-width: 3px;
+    stroke: #ddd;
+    shape-rendering: auto;
+
+    &.y-all-ages { stroke: #999; }
+    &.y-age-18-to-29 { stroke: @teal3; }
+}
+
+.dots circle {
+    fill: #ddd;
+    stroke: #fff;
+    stroke-width: 1px;
+
+    &.y-all-ages { fill: #999; }
+    &.y-age-18-to-29 { fill: @teal3; }
+}
+
+.label text,
+.value text {
+    font-size: 11px;
+    fill: #787878;
+    -webkit-font-smoothing: antialiased;
+
+    &.y-age-18-to-29 { fill: #333; }
+}

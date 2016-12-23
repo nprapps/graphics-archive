@@ -1,0 +1,34 @@
+@import "base";
+
+// Add custom styles here
+
+@otherStates:      @teal6;
+@highlightStates:  @teal4;
+@highlightStates2: @orange3;
+@usAverage:        #787878;
+
+.bars rect { fill: @otherStates; }
+
+.bar.Y { fill: @highlightStates; }
+.bar.X { fill: @usAverage; }
+
+.key {
+    .battleground {
+        b {
+            background-color: @highlightStates;
+            margin-right: 5px;
+        }
+    }
+    .other {
+        b {
+            background-color: @otherStates;
+            margin-right:5px;
+        }
+    }
+    .total {
+        b {
+            background-color: @usAverage;
+            margin-right:5px;
+        }
+    }
+}

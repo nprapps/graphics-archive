@@ -1,0 +1,41 @@
+@import "base";
+
+.value text {
+    fill: #fff;
+
+    &.hidden { display: none; }
+    &.out {
+        fill: #999;
+        text-anchor: start;
+        font-size: 9px;
+        font-style: italic;
+    }
+}
+
+.key .very {
+    b.good { background-color: @teal3; margin-right: 2px; }
+    b.poor { background-color: @orange3; margin-right: 2px; }
+}
+
+.key .fairly {
+    b.good { background-color: @teal5; margin-right: 2px; }
+    b.poor { background-color: @orange5; margin-right: 2px; }
+}
+
+.group.veryfairly-poor {
+    rect.very {
+        fill: @orange3;
+    }
+    rect.fairly {
+        fill: @orange5;
+    }
+}
+
+.group.veryfairly-good {
+    rect.very {
+        fill: @teal3;
+    }
+    rect.fairly {
+        fill: @teal5;
+    }
+}

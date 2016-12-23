@@ -1,0 +1,59 @@
+@import "base";
+
+// COLORS
+@dem: #498dcb;
+@gop: #f05b4e;
+
+.gotham() {
+    font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+}
+
+// Add custom styles here
+.graphic {
+    display: table;
+
+    @media screen and (max-width: 500px) {
+        display: block;
+    }
+}
+
+.map-wrapper {
+    width: 50%;
+    display: table-cell;
+    padding: 0 20px;
+    text-align: center;
+
+    @media screen and (max-width: 500px) {
+        width: 100%;
+        padding: 0;
+        margin: 0 0 20px;
+        display: block;
+        box-sizing: border-box;
+    }
+
+    p.legend-text {
+        .gotham();
+        color: #666;
+        margin: 0 auto 10px;
+
+        strong {
+            padding: 2px 4px;
+            background: #ccc;
+            color: #000;
+        }
+
+        &.text-D strong {
+            background: @dem;
+            color: white;
+        }
+
+        &.text-R strong {
+            background: @gop;
+            color: white;
+        }
+
+        @media screen and (max-width: 760px) {
+            font-size: 0.9em;
+        }
+    }
+}

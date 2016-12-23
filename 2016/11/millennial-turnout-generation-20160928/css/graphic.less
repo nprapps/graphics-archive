@@ -1,0 +1,39 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+
+    path.blank1,
+    path.blank2 {
+        stroke-width: 5px;
+    }
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #787878;
+
+    &.millennial { fill: #333; }
+
+    .shadow&,
+    .shadow&.millennial {
+        fill: #fff;
+        stroke: #fff;
+        stroke-width: 3px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

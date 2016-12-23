@@ -1,0 +1,30 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="graphic" class="graphic">
+        <div class="map-wrapper">
+            <p class="legend-text">Counties that <strong>voted more Democratic</strong> than&nbsp;in&nbsp;2012</p>
+            <p class="legend-text text-D">Counties that <strong>flipped Democratic</strong></p>
+            <img src="img/shift-D.png" alt="Map of U.S. counties showing Democratic flips" />
+        </div>
+        <div class="map-wrapper">
+            <p class="legend-text">Counties that <strong>voted more Republican</strong> than&nbsp;in&nbsp;2012</p>
+            <p class="legend-text text-R">Counties that <strong>flipped Republican</strong></p>
+            <img src="img/shift-R.png" alt="Map of U.S. counties showing Republican flips" />
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
