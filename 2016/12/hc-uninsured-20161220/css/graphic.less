@@ -1,0 +1,39 @@
+@import "base";
+
+.dots {
+    fill: @orange3;
+    stroke: #fff;
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+.annotations {
+    line { stroke: #999; }
+    text {
+        font-size: 11px;
+        font-style: italic;
+        fill: #999;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

@@ -1,0 +1,19 @@
+@import "base";
+
+.labels li.trump {
+    font-weight: bold;
+}
+
+.value text.trump { font-weight: bold; }
+
+.bars rect {
+    fill: @teal4;
+
+    &.bg { fill: #ddd; }
+
+    &.trump { fill: @teal2; }
+}
+
+@media screen and (max-width: 500px) {
+    .chart { margin-bottom: 22px; }
+}

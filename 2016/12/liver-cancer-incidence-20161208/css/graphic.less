@@ -1,0 +1,44 @@
+@import "base";
+
+.bars line {
+    fill: none;
+    stroke-width: 3px;
+    stroke: @teal6;
+}
+
+.leading-lines line {
+    fill: none;
+    stroke-width: 1px;
+    stroke: #eee;
+    stroke-dasharray: 4px 2px;
+}
+
+.dots circle {
+    stroke-width: 1px;
+    stroke: #fff;
+    fill: @teal3;
+}
+
+.value text {
+    font-size: 11px;
+    fill: #999;
+    text-anchor: middle;
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}
+
+.labels li {
+    text-align: left;
+
+    &:nth-child(10) { border-bottom: 1px solid #ccc; }
+    &.united-states {
+        font-weight: bold;
+        color: #333;
+    }
+    span { vertical-align: top; }
+}

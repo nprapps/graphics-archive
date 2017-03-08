@@ -1,0 +1,157 @@
+@import "base";
+
+body {
+    font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    padding: 0;
+
+    @media @screen-small {
+        font-size: 10px;
+    }
+}
+
+// Add custom styles here
+#grid {
+    max-width: 1240px;
+    margin: 0 auto;
+
+    .touch {
+        a.item-container {
+            opacity: 1;
+        }
+    }
+}
+
+.flex-row {
+    display: -webkit-flex;
+    display: flex;
+    display: -ms-flexbox;
+}
+
+a.item-container {
+    float: left;
+    cursor: pointer;
+    transition: all 0.2s;
+    opacity: 0.75;
+    -webkit-flex: 1 1 0;
+    flex: 1 1 0; // flex: flex-grow flex-shrink flex-basis;
+    -ms-flex: 1;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    p {
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .align-container {
+        margin: 0 1px;
+    }
+}
+
+.item {
+    height: 0;
+    background-size: cover;
+    padding-bottom: 70%;
+
+    &.feature {
+        padding-bottom: 58%;
+    }
+    &.feature-5 {
+        padding-bottom: 60%;
+    }
+}
+
+@media @screen-small {
+    .flex-row {
+        display: block;
+    }
+
+    a.item-container {
+        width: 25%;
+
+        p {
+            margin-top: 3px;
+            line-height: 11px;
+        }
+
+        .feature, .feature-5 {
+            padding-bottom: 70%;
+        }
+    }
+}
+
+@media screen and (max-width: 549px) {
+    a.item-container {
+        width: 33%;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    a.item-container {
+        width: 50%;
+    }
+}
+
+// Artists pictures
+.george-michael { .item { background-image: url( http://media.npr.org/music/in-memoriam2016/george-michael.jpg ); } p.name::after { content: "George Michael"; } }
+.pierre-boulez{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/pierre-boulez.jpg ); } p.name::after { content: "Pierre Boulez"; } }
+.david-bowie{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/david-bowie.jpg ); } p.name::after { content: "David Bowie"; } }
+.glenn-frey{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/glenn-frey.jpg ); } p.name::after { content: "Glenn Frey"; } }
+.maurice-white{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/maurice-white.jpg ); } p.name::after { content: "Maurice White"; } }
+.merle-haggard{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/merle-haggard.jpg ); } p.name::after { content: "Merle Haggard"; } }
+.prince{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/prince.jpg ); } p.name::after { content: "Prince"; } }
+.papa-wemba{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/papa-wemba.jpg ); } p.name::after { content: "Papa Wemba"; } }
+.ralph-stanley{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/ralph-stanley.jpg ); } p.name::after { content: "Ralph Stanley"; } }
+.juan-gabriel{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/juan-gabriel.jpg ); } p.name::after { content: "Juan Gabriel"; } }
+.toots-thielemans{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/toots-thielemans.jpg ); } p.name::after { content: "Toots Thielemans"; } }
+.leonard-cohen{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/leonard-cohen.jpg ); } p.name::after { content: "Leonard Cohen"; } }
+.paul-bley{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/paul-bley.jpg ); } p.name::after { content: "Paul Bley"; } }
+.paul-kantner{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/paul-kantner.jpg ); } p.name::after { content: "Paul Kantner"; } }
+.nikolaus-harnoncourt{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/nikolaus-harnoncourt.jpg ); } p.name::after { content: "Nikolaus Harnoncourt"; } }
+.george-martin{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/george-martin.jpg ); } p.name::after { content: "George Martin"; } }
+.nana-vasconcelos{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/nana-vasconcelos.jpg ); } p.name::after { content: "Nana Vasconcelos"; } }
+.keith-emerson{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/keith-emerson.jpg ); } p.name::after { content: "Keith Emerson"; } }
+.peter-maxwell-davies{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/peter-maxwell-davies.jpg ); } p.name::after { content: "Peter Maxwell Davies"; } }
+.phife-dawg{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/malik-taylor.jpg ); } p.name::after { content: "Phife Dawg"; } }
+.gato-barbieri{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/gato-barbieri.jpg ); } p.name::after { content: "Gato Barbieri"; } }
+.tony-conrad{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/tony-conrad.jpg ); } p.name::after { content: "Tony Conrad"; } }
+.guy-clark{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/guy-clark.jpg ); } p.name::after { content: "Guy Clark"; } }
+.amjad-sabri{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/amjad-sabri.jpg ); } p.name::after { content: "Amjad Sabri"; } }
+.bernie-worrell{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/bernie-worrell.jpg ); } p.name::after { content: "Bernie Worrell"; } }
+.einojuhani-rautavaara{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/einojuhani-rautavaara.jpg ); } p.name::after { content: "Einojuhani Rautavaara"; } }
+.bobby-hutcherson{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/bobby-hutcherson.jpg ); } p.name::after { content: "Bobby Hutcherson"; } }
+.jean-shepard{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/jean-shepard.jpg ); } p.name::after { content: "Jean Shepard"; } }
+.neville-marriner{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/neville-marriner.jpg ); } p.name::after { content: "Neville Marriner"; } }
+.rudy-van-gelder{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/rudy-van-gelder.jpg ); } p.name::after { content: "Rudy Van Gelder"; } }
+.leon-russell{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/leon-russell.jpg ); } p.name::after { content: "Leon Russell"; } }
+.mose-allison{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/mose-allison.jpg ); } p.name::after { content: "Mose Allison"; } }
+.sharon-jones{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/sharon-jones.jpg ); } p.name::after { content: "Sharon Jones"; } }
+.marni-nixon{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/marni-nixon.jpg ); } p.name::after { content: "Marni Nixon"; } }
+.scotty-moore{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/scotty-moore.jpg ); } p.name::after { content: "Scotty Moore"; } }
+.alan-vega{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/alan-vega.jpg ); } p.name::after { content: "Alan Vega"; } }
+.pauline-oliveros{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/pauline-oliveros.jpg ); } p.name::after { content: "Pauline Oliveros"; } }
+.russell-oberlin{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/russell-oberlin.jpg ); } p.name::after { content: "Russell Oberlin"; } }
+.jane-little{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/jane-little.jpg ); } p.name::after { content: "Jane Little"; } }
+.sam-spence{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/sam-spence.jpg ); } p.name::after { content: "Sam Spence"; } }
+.prince-buster{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/prince-buster.jpg ); } p.name::after { content: "Prince Buster"; } }
+.rod-temperton{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/rod-temperton.jpg ); } p.name::after { content: "Rod Temperton"; } }
+.greg-lake{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/greg-lake.jpg ); } p.name::after { content: "Greg Lake"; } }
+.esma-redzepova{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/esma-redzepova.jpg ); } p.name::after { content: "Esma Redzepova"; } }
+.joe-ligon{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/joe-ligon.jpg ); } p.name::after { content: "Joe Ligon"; } }
+.liz-swados{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/elizabeth-swados.jpg ); } p.name::after { content: "Elizabeth Swados"; } }
+.stanley-buckwheat-dural-jr{ .item { background-image: url( http://media.npr.org/music/in-memoriam2016/stanley-buckwheat-dural-jr.jpg ); } p.name::after { content: "Stanley Buckwheat Dural Jr."; } }
+.pulse-oakland{
+    .item {
+        background-image: url( http://media.npr.org/music/in-memoriam2016/pulse-oakland.jpg );
+    }
+    p.name::after {
+        content: "Orlando and Oakland Victims";
+
+        @media @screen-small {
+            content: "Orlando & Oakland Victims";
+        }
+    }
+}

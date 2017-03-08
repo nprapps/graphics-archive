@@ -1,0 +1,81 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <ul class="key">
+        <li class="key-item key-0"><label>Votes for:</label></li>
+        <li class="key-item key-1 dem"><b></b><label>Hillary Clinton</label></li>
+        <li class="key-item key-2 gop"><b></b><label>Donald Trump</label></li>
+        <li class="key-item key-3 other"><b></b><label>Another candidate</label></li>
+    </ul>
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th class="state">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_state }}</div>
+                    </th>
+                    <th class="winner">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_winner }}</div>
+                    </th>
+                    <th class="note">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_note }}</div>
+                    </th>
+                    <th class="success">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_success }}</div>
+                    </th>
+                    <th class="result">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_result }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="state-{{ row.name|classify }}">
+                <td class="state" data-title="{{ COPY.labels.hdr_state }}">{{ row.name }}</td>
+                <td class="winner" data-title="{{ COPY.labels.hdr_winner }}">{{ row.winner }}</td>
+                <td class="note" data-title="{{ COPY.labels.hdr_note }}">{{ row.note|smarty }}</td>
+                <td class="success" data-title="{{ COPY.labels.hdr_success }}">{{ row.success }}</td>
+                <td class="result" data-title="{{ COPY.labels.hdr_result }}">
+                    <ul>
+                        <li class="dem{% if row.result_dem != '0' %} has-result{% endif %}">{{ row.result_dem }}</li>
+                        <li class="gop{% if row.result_gop != '0' %} has-result{% endif %}">{{ row.result_gop }}</li>
+                        <li class="other{% if row.result_other != '0' %} has-result{% endif %}">{{ row.result_other }}</li>
+                    </ul>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <p><strong>Note:</strong> {{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

@@ -1,0 +1,44 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+
+        <div class="businesses">
+            <!-- <h3>Trump business interests: At least {{ COPY.data|length }}</h3> -->
+            <ul>
+            {% for business in COPY.golf %}
+                <li class="total-{{ business.income_class }}">
+                    <div class="business"><strong>{{ business['Name'] }}</strong></div>
+                    {% if business['underlying_fmt'] %}
+                    <div class="meta type"><b>Type:</b> {{ business['underlying_fmt'] }}</div>
+                    {% endif %}
+                    {% if business['location_fmt'] %}
+                    <div class="meta location"><b>Location:</b> {{ business['location_fmt'] }}</div>
+                    {% endif %}
+                    {% if business['income_fmt'] %}
+                    <div class="meta income"><b>Revenue:</b> {{ business['income_fmt'] }}{% if business['income_type_fmt'] %} ({{ business['income_type_fmt'] }}){% endif %}</div>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

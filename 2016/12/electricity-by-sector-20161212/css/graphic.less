@@ -1,0 +1,46 @@
+@import "base";
+
+.line {
+    fill: none;
+    stroke-width: 3px;
+    opacity: .3;
+
+    &.coal,
+    &.natural-gas,
+    &.nuclear,
+    &.hydro,
+    &.solar-and-wind,
+    &.other {
+        stroke-dasharray: 4px 2px;
+    }
+
+    &.coal_hist,
+    &.coal {
+        stroke-width: 3px;
+        opacity: 1;
+    }
+}
+
+
+.value text {
+    font-size: 12px;
+    fill: #999;
+
+    &.historic { display: none; }
+    &.coal {
+        fill: #666;
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

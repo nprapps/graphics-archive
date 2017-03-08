@@ -1,0 +1,66 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <ul class="key">
+        <li class="key-item key-0"><label>Most prominent prior job:</label></li>
+        <li class="key-item key-1 government"><b></b><label>Government</label></li>
+        <li class="key-item key-2 military"><b></b><label>Military</label></li>
+        <li class="key-item key-3 business"><b></b><label>Business</label></li>
+        <li class="key-item key-4 other"><b></b><label>Other</label></li>
+    </ul>
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th class="role"><div><span>{{ COPY.labels.hdr_role }}</span></div></th>
+                    <th class="administration"><div><span>{{ COPY.labels.hdr_reagan }}</span></div></th>
+                    <th class="administration"><div><span>{{ COPY.labels.hdr_ghw_bush }}</span></div></th>
+                    <th class="administration"><div><span>{{ COPY.labels.hdr_clinton }}</span></div></th>
+                    <th class="administration"><div><span>{{ COPY.labels.hdr_gw_bush }}</span></div></th>
+                    <th class="administration"><div><span>{{ COPY.labels.hdr_obama }}</span></div></th>
+                    <th class="administration"><div><span>{{ COPY.labels.hdr_trump }}</span></div></th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="{{ row.role|classify }}">
+                <td data-title="{{ COPY.labels.hdr_role }}" class="role">{{ row.role }}</td>
+                <td data-title="{{ COPY.labels.hdr_reagan }}" class="administration {{ row.reagan }}"><span>{{ row.reagan_name }}</span></td>
+                <td data-title="{{ COPY.labels.hdr_ghw_bush }}" class="administration {{ row.ghw_bush }}"><span>{{ row.ghw_bush_name }}</span></td>
+                <td data-title="{{ COPY.labels.hdr_clinton }}" class="administration {{ row.clinton }}"><span>{{ row.clinton_name }}</span></td>
+                <td data-title="{{ COPY.labels.hdr_gw_bush }}" class="administration {{ row.gw_bush }}"><span>{{ row.gw_bush_name }}</span></td>
+                <td data-title="{{ COPY.labels.hdr_obama }}" class="administration {{ row.obama }}"><span>{{ row.obama_name }}</span></td>
+                <td data-title="{{ COPY.labels.hdr_trump }}" class="administration {{ row.trump }}"><span>{{ row.trump_name }}</span></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

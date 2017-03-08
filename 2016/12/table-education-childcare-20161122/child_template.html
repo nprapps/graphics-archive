@@ -1,0 +1,82 @@
+{% extends 'base_template.html' %}
+
+{% block fonts %}
+<!-- Fonts -->
+<script src="//apps.npr.org/dailygraphics/graphics/fonts/js/lib/webfont.js"></script>
+<script>
+WebFont.load({
+    custom: {
+        families: [
+            'Gotham SSm:n4,n7',
+            'Knockout 31 4r:n4',
+            'StateFaceRegular'
+        ],
+        urls: [
+            '//s.npr.org/templates/css/fonts/GothamSSm.css',
+            '//s.npr.org/templates/css/fonts/Knockout.css',
+            '//apps.npr.org/dailygraphics/graphics/fonts/assets/stateface.css'
+        ]
+    },
+    timeout: 10000
+});
+</script>
+{% endblock %}
+
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th>{{ COPY.labels.hdr_state }}</th>
+                    <th>{{ COPY.labels.hdr_work }}</th>
+                    <th>{{ COPY.labels.hdr_education }}</th>
+                    <th>{{ COPY.labels.hdr_degree }}</th>
+                    <th>{{ COPY.labels.hdr_time }}</th>
+                    <th>{{ COPY.labels.hdr_progress }}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="{{ row.state|classify }} {% if row.req_count == "0" %}no-reqs{% endif %}">
+                <td data-title="{{ COPY.labels.hdr_state }}">
+                    <span class="stateface stateface-{{ row.state_abbr|lower }}">{{ row.state }}</span>
+                </td>
+                <td class="work-{% if row.work %}true{% else %}false{% endif %}" data-title="{% if row.work %}{{ COPY.labels.mobile_work }}{% endif %}">{% if row.work %}<b>&#10004;</b>{% endif %}</td>
+                <td class="education-{% if row.education %}true{% else %}false{% endif %}" data-title="{% if row.education %}{{ COPY.labels.mobile_education }}{% endif %}">{% if row.education %}<b>&#10004;</b>{% endif %}</td>
+                <td class="degree-{% if row.degree %}true{% else %}false{% endif %}" data-title="{% if row.degree %}{{ COPY.labels.mobile_degree }}{% endif %}">{% if row.degree %}<b>&#10004;</b>{% endif %}</td>
+                <td class="time-{% if row.time %}true{% else %}false{% endif %}" data-title="{% if row.time %}{{ COPY.labels.mobile_time }}{% endif %}">{% if row.time %}<b>&#10004;</b>{% endif %}</td>
+                <td class="progress-{% if row.progress %}true{% else %}false{% endif %}" data-title="{% if row.progress %}{{ COPY.labels.mobile_progress }}{% endif %}">{% if row.progress %}<b>&#10004;</b>{% endif %}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

@@ -1,0 +1,61 @@
+<!-- GRAPHIC.JS -->
+<!-- var attachEvents = function() {
+    d3.select('#grid').selectAll('a')
+        .on('click', function() {
+            d3.event.preventDefault();
+            var scrollTarget = d3.select(this).attr('data-scroll');
+            pymChild.scrollParentTo(scrollTarget);
+            // pymChild.sendMessage('scrollTo', scrollTarget);
+        });
+}; -->
+
+<!-- <div id="responsive-embed-music-in-memoriam-2016-20161206"></div>
+<script type=text/javascript> -->
+    // (function(jQuery) {
+    //     if (typeof jQuery !== 'undefined' && typeof jQuery.getScript === 'function') {
+    //         // add randomness to id to support for multiple graphic instances in one story
+    //         var el = document.getElementById("responsive-embed-music-in-memoriam-2016-20161206");
+    //         el.id = el.id + "-" + Math.random().toString(36).substr(2,5);
+    //         jQuery.getScript("//pym.nprapps.org/pym.v1.min.js").done(function () {
+    //             jQuery(function () { // Wait for page load
+    //                 var pymParent = new pym.Parent(
+    //                     el.id,
+    //                     // '//apps.npr.org/dailygraphics/graphics/music-in-memoriam-2016-20161206/child.html',
+    //                     '//localhost:8000/graphics/music-in-memoriam-2016-20161206/child.html',
+    //                     {}
+    //                 );
+    //
+    //                 var onScrollMessage = function(artist){
+    //                     console.log(document.getElementById(artist));
+    //                     $('html, body').animate({
+    //                         scrollTop: document.getElementsByName(artist)[0].getBoundingClientRect().top - 30
+    //                     }, 750);
+    //                 }
+    //                 pymParent.onMessage('scrollTo', onScrollMessage);
+    //
+    //                 jQuery.getScript("//carebot.nprapps.org/carebot-tracker.v0.min.js").done(function () {
+    //                     var tracker = new CarebotTracker.VisibilityTracker(el.id, function(result) {
+    //                         // Ignore Carebot events to empty embeds, keeps listening after unloading the page
+    //                         if (pymParent.el.getElementsByTagName('iframe').length !== 0) {
+    //                             pymParent.sendMessage('on-screen', result.bucket);
+    //                         }
+    //                     });
+    //                     // Check if there is already an scroll tracker somewhere on the page
+    //                     if (!document.querySelector("[data-carebot-scroll]")) {
+    //                         pymParent.el.setAttribute("data-carebot-scroll", "");
+    //                         var scrollTracker = new CarebotTracker.ScrollTracker('storytext', function(percent, seconds) {
+    //                             // Ignore Carebot events to empty embeds, keeps listening after unloading the page
+    //                             if (pymParent.el.getElementsByTagName('iframe').length !== 0) {
+    //                                 pymParent.sendMessage('scroll-depth', JSON.stringify({percent: percent,seconds: seconds}));
+    //                             }
+    //                         });
+    //                     }
+    //                 });
+    //
+    //             });
+    //         });
+    //     } else {
+    //         console.error('could not load graphic: jQuery is not on the page.');
+    //     }
+    // })(window.jQuery);
+<!-- </script> -->

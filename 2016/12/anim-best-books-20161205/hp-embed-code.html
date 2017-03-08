@@ -1,0 +1,22 @@
+<!-- this version excludes carebot tracking -->
+<div id="responsive-embed-anim-best-books-20161205"></div>
+<script type=text/javascript>
+    (function(jQuery) {
+        if (typeof jQuery !== 'undefined' && typeof jQuery.getScript === 'function') {
+            // add randomness to id to support for multiple graphic instances in one story
+            var el = document.getElementById("responsive-embed-anim-best-books-20161205");
+            el.id = el.id + "-" + Math.random().toString(36).substr(2,5);
+            jQuery.getScript("//pym.nprapps.org/pym.v1.min.js").done(function () {
+                jQuery(function () { // Wait for page load
+                    var pymParent = new pym.Parent(
+                        el.id,
+                        '//apps.npr.org/dailygraphics/graphics/anim-best-books-20161205/child.html',
+                        {}
+                    );
+                });
+            });
+        } else {
+            console.error('could not load graphic: jQuery is not on the page.');
+        }
+    })(window.jQuery);
+</script>

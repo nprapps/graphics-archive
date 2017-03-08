@@ -1,0 +1,196 @@
+@import "base";
+
+@dem:   #498dcb;
+@gop:   #f05b4e;
+@other: #15b16e;
+
+.key {
+    .key-0 {
+        margin-right: 6px;
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+    }
+    b { border-radius: 2px; }
+    .dem b { background-color: @dem; }
+    .gop b { background-color: @gop; }
+    .other b { background-color: @other; }
+}
+
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 11px;
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 0 10px 10px 10px;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    th,
+    td {
+        &.amt {
+            text-align: right;
+        }
+    }
+}
+
+.result ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: -webkit-flex;
+    display: flex;
+
+    li {
+        margin: 0;
+        padding: 2px 0;
+        width: 33%;
+        box-sizing: border-box;
+        text-align: center;
+        color: rgba(255, 255, 255, .5);
+        border-left: 1px solid #fff;
+        border-radius: 2px;
+        -webkit-font-smoothing: antialiased;
+
+        &:first-child { border-right: none; }
+
+        &.dem { background-color: @dem; }
+        &.gop { background-color: @gop; }
+        &.other { background-color: @other; }
+        &.has-result {
+            color: #fff;
+            font-weight: bold;
+        }
+    }
+}
+
+// Desktop-only styles
+@media screen and (min-width: 501px) {
+    table th,
+    table td {
+        &:first-child { padding-left: 0; }
+        &:last-child { padding-right: 0; }
+    }
+
+    th.result,
+    .success {
+        text-align: center;
+    }
+    td.state {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .state   { width: 15%; }
+    .winner  { width: 10%; white-space: nowrap; }
+    .note    { width: 45%; }
+    .success { width: 10%; }
+    .result  { width: 20%; }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    .key {
+        margin-bottom: 22px;
+
+        .key-item {
+            display: block;
+            margin-bottom: 3px;
+        }
+    }
+
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        thead { display: none; }
+
+        tr,
+        th,
+        th.amt,
+        td,
+        td.amt {
+            display: block;
+            padding: 0;
+            white-space: normal;
+        }
+
+        tr {
+            border-bottom: 1px solid #eee;
+            padding: 22px 0 11px 0;
+
+            &:first-child { border-top: 1px solid #eee; }
+        }
+
+        td,
+        td.amt {
+            border: none;
+            margin-bottom: 11px;
+            text-align: left;
+
+            &:empty { display: none; }
+        }
+
+        th[data-title]:before,
+        td[data-title]:before {
+            content: attr(data-title) ":\00A0";
+            float: left;
+            font-weight: bold;
+            color: #333;
+            width: 100px;
+        }
+        td.note:before {
+            display: block;
+            margin-bottom: 3px;
+            float: none;
+        }
+
+        tr td:first-child {
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #333;
+            font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+
+            &:before {
+                content: '';
+                display: none;
+            }
+        }
+    }
+
+    .result ul { max-width: 180px; }
+}

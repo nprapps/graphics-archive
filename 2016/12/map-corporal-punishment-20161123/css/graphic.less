@@ -1,0 +1,121 @@
+@import "base";
+
+/* Key
+========================================*/
+.key {
+    .clearfix();
+    margin: 0 0 18px 0;
+    padding: 0;
+    list-style-type: none;
+    max-width: 600px;
+    margin: 0 auto 18px;
+    text-align: center;
+}
+.key .key-item {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 33%;
+    margin: 0 0 5px 0;
+    padding-right: 20px;
+    line-height: 14px;
+    text-align: left;
+
+    b {
+        display: inline-block;
+        width: 20%;
+        height: 30px;
+        margin-right: 0;
+        text-align: center;
+        color: white;
+        border-radius: 2px;
+        font-size: 20px;
+        font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+        line-height: 30px;
+    }
+
+    &.key-cat-1 b { background: @blue3; }
+    &.key-cat-2 b { background: #999; }
+    &.key-cat-3 b { background: @orange3; }
+
+    span {
+        box-sizing: border-box;
+        padding-left: 6px;
+        float: left;
+        width: 80%;
+        display: block;
+    }
+
+    @media screen and (max-width: 600px) and (min-width: 421px) {
+        text-align: center;
+        display: block;
+        float: left;
+
+        b {
+            width: 36px;
+            display: inline-block;
+            float: none;
+        }
+
+        span {
+            float: none;
+            margin-top: 5px;
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 420px) {
+        width: 100%;
+        padding-right: 0;
+        display: block;
+        .clearfix();
+
+        b {
+            width: 15%;
+        }
+
+        span {
+            padding-left: 10px;
+            width: 70%;
+        }
+    }
+}
+.key .key-item label {
+    white-space: normal;
+    font-size: 12px;
+    color: #666;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Grid Map
+========================================*/
+
+.tile-grid-map {
+    margin-bottom: 33px;
+}
+
+.state {
+    fill: #eee;
+}
+
+.label {
+    font-family: 'Knockout 31 4r';
+    font-size: 12px;
+    fill: #979797;
+}
+
+.label-active {
+    fill: #fff;
+}
+
+@media screen and (max-width: 500px){
+    .label {
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width: 500px){
+    .label {
+        font-size: 8px;
+    }
+}

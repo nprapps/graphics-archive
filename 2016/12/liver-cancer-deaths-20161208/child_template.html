@@ -1,0 +1,28 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels_deaths.headline %}<h1>{{ COPY.labels_deaths.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels_deaths.subhed %}<h2>{{ render(COPY.labels_deaths.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="dot-chart" class="graphic">
+        <img src="fallback.png" alt="[Chart]" class="fallback" />
+    </div>
+
+    {% if COPY.labels_deaths.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels_deaths.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels_deaths.source %}<p>Source: {{ COPY.labels_deaths.source|smarty }}</p>{% endif %}
+        {% if COPY.labels_deaths.credit %}<p>Credit: {{ COPY.labels_deaths.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var DATA = {{ COPY.deaths.json() }};
+    </script>
+
+{% endblock content %}

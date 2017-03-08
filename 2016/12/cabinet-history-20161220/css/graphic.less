@@ -1,0 +1,197 @@
+@import "base";
+
+// @government:    @teal3;
+// @military:      @red3;
+// @business:      @blue3;
+// @other:         #666;
+// @government:    #17807e;
+@government:    @teal4;
+@military:      #e38d2c;
+// @business:      #e4c77f;
+@business:      #eaca79;
+// @other:         #999;
+@other:         #bbb;
+
+.key {
+    .key-0 {
+        margin-right: 12px;
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+    }
+
+    .government b { background-color: @government; }
+    .military b { background-color: @military; }
+    .business b { background-color: @business; }
+    .other b { background-color: @other; }
+}
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 0 3px 10px 3px;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        padding: 10px 3px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    th, td {
+        &.role { padding-left: 0; }
+        &.administration {
+            text-align: center;
+            width: 14%;
+        }
+    }
+
+    td.role,
+    td.administration {
+        vertical-align: middle;
+    }
+
+    td.role {
+        font-weight: bold;
+        color: #333;
+    }
+
+    td.administration {
+        color: #fff;
+        letter-spacing: 0.005em;
+        border-color: #fff;
+        border-left: 1px solid #fff;
+        text-shadow: 0 0 2px rgba(50, 50, 50, .6);
+
+        &.government    { background-color: @government; }
+        &.military      { background-color: @military; }
+        &.business      { background-color: @business; }
+        &.other         { background-color: @other; }
+
+        &.government-military {
+            background: -moz-linear-gradient(-45deg, @government 0%, @government 50%, @military 50%, @military 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(-45deg, @government 0%, @government 50%, @military 50%, @military 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(135deg, @government 0%, @government 50%, @military 50%, @military 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        }
+
+        &.government-business {
+            background: -moz-linear-gradient(-45deg, @government 0%, @government 50%, @business 50%, @business 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(-45deg, @government 0%, @government 50%, @business 50%, @business 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(135deg, @government 0%, @government 50%, @business 50%, @business 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        }
+
+        &.government-other {
+            background: -moz-linear-gradient(-45deg, @government 0%, @government 50%, @other 50%, @other 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(-45deg, @government 0%, @government 50%, @other 50%, @other 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(135deg, @government 0%, @government 50%, @other 50%, @other 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        }
+
+        &.government-military-business {
+            background: -moz-linear-gradient(-45deg, @government 0%, @government 33%, @military 33%, @military 66%, @business 66%, @business 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(-45deg, @government 0%, @government 33%, @military 33%, @military 66%, @business 66%, @business 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(135deg, @government 0%, @government 33%, @military 33%, @military 66%, @business 66%, @business 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        }
+
+        &.government-business-other {
+            background: -moz-linear-gradient(-45deg, @government 0%, @government 33%, @business 33%, @business 66%, @other 66%, @other 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(-45deg, @government 0%, @government 33%, @business 33%, @business 66%, @other 66%, @other 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(135deg, @government 0%, @government 33%, @business 33%, @business 66%, @other 66%, @other 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        }
+
+        &.business-military {
+            background: -moz-linear-gradient(-45deg, @business 0%, @business 50%, @military 50%, @military 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(-45deg, @business 0%, @business 50%, @military 50%, @military 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(135deg, @business 0%, @business 50%, @military 50%, @military 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        }
+
+        &.business-military-other {
+            background: -moz-linear-gradient(-45deg, @business 0%, @business 33%, @military 33%, @military 66%, @other 66%, @other 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(-45deg, @business 0%, @business 33%, @military 33%, @military 66%, @other 66%, @other 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(135deg, @business 0%, @business 33%, @military 33%, @military 66%, @other 66%, @other 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        }
+
+        &.military-other {
+            background: -moz-linear-gradient(-45deg, @military 0%, @military 50%, @other 50%, @other 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(-45deg, @military 0%, @military 50%, @other 50%, @other 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(135deg, @military 0%, @military 50%, @other 50%, @other 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        }
+
+        &.not-filled {
+            background-color: #f1f1f1;
+            color: #999;
+            text-shadow: none;
+        }
+    }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    .key {
+        margin-bottom: 22px;
+
+        .key-item {
+            width: 40%;
+            max-width: 150px;
+
+            &.key-0 {
+                display: block;
+                margin-bottom: 3px;
+            }
+        }
+    }
+
+    table {
+        font-size: 11px;
+
+        td.administration {
+            width: auto;
+            span { display: none; }
+        }
+
+        th.administration {
+            text-align: left;
+            line-height: 1;
+            padding: 0 0 5px 0;
+            width: 11%;
+
+            div {
+                position: relative;
+                height: 70px;
+                width: 100%;
+            }
+
+            span {
+                position: absolute;
+                bottom: 55%;
+                left: 50%;
+                -webkit-transform: translateX(-50%) translateY(50%) rotate(-90deg);
+                transform: translateX(-50%) translateY(50%) rotate(-90deg);
+                width: 70px;
+            }
+        }
+    }
+}
