@@ -1,0 +1,172 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <!-- <img src="fallback.png" alt="[Chart]" class="fallback" /> -->
+        <div class="container">
+            <!-- {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %} -->
+            <div id="usage"></div>
+            <div id="scenarios"></div>
+            <div id="table-totals" class="table-totals"></div>
+            <div class="main-content">
+                <div id="table-controls" class="table-controls"></div>
+                <div id="table-details" class="table-details"></div>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+
+    <script type="text/javascript">
+        var HEADERS = {{ COPY.headers.json() }};
+    </script>
+
+{% endblock content %}
+
+{% block extra_foot_js %}
+{% raw %}
+<script id="usage-template" type="text/ractive">
+    <div class="usage-wrapper" style="{{#unless interactive}}display: none;{{/unless}}">
+        {{{data.usage}}}
+    </div>
+</script>
+
+<script id="scenarios-template" type="text/ractive">
+    <div class="scenario-wrapper" style="{{#if interactive}}display: none;{{else}}{{#unless scenario}}display: none;{{/unless}}{{/if}}">
+        {{#if scenario === 'sce1'}}
+            <h2>{{{data.subhed_sce1}}}</h2>
+        {{elseif scenario === 'sce2'}}
+            <h2>{{{data.subhed_sce2}}}</h2>
+        {{elseif scenario === 'sce3'}}
+            <h2>{{{data.subhed_sce3}}}</h2>
+        {{elseif scenario === 'sce4'}}
+            <h2>{{{data.subhed_sce4}}}</h2>
+        {{/if}}
+    </div>
+</script>
+
+
+<script id="margin-table-template" type="text/ractive">
+    <div class="margin-table-wrapper">
+        <h3>Who Wins (And By How Much)</h3>
+        <table>
+            <tbody>
+                {{#each rows}}
+                <tr>
+                    {{#this}}
+                    <td class="{{winnerClass}} {{marginClass}}" data-tooltip="{{margin}}%">
+                    {{margin}}%
+                    </td>
+                    {{/this}}
+                    <th>{{@key}}</th>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</script>
+<script id="results-template" type="text/ractive">
+    <div class="dem">
+        {{#electoralVotes}}
+            <p><span class="dem-votes {{#if this.dem > 270}}winner{{/if}}">{{dem}}</span></p>
+        {{/electoralVotes}}
+        <p class="votes">Democratic<br />Electoral Votes</p>
+    </div>
+    <div class="gop">
+        {{#electoralVotes}}
+            <p><span class="gop-votes {{#if this.gop > 270}}winner{{/if}}">{{gop}}</span></p>
+        {{/electoralVotes}}
+        <p class="votes">Republican<br />Electoral Votes</p>
+    </div>
+</script>
+<script id="controls-template" type="text/ractive">
+    <div class='table-controls-wrapper {{#unless interactive}}disabled{{/unless}} {{#if mobile}}mobile{{/if}}'>
+        <div class="table-controls-header">
+            <h3>What Changes</h3>
+            <h5>Percentage point difference from&nbsp;2012</h5>
+        </div>
+
+
+        {{#each adjustments}}
+        <div class="{{@key}}-controls-div {{#if pct !== 0.0 || turnout !== 0.0}} adjusted{{/if}}">
+            <h4>{{label}}</h4>
+            {{#if interactive}}
+            <div class="control-group {{@key}}-pct-group">
+                <span class="control-label">Margin{{#unless mobile}} of victory{{/unless}}<span class="label-concat">: </span></span>
+                <div class="control-label-mobile">
+                    {{#if this.pct == 0}}
+                        <span class="control-label-mobile"><strong>+/- 0%</strong></span>
+                    {{elseif this.pct > 0}}
+                        <span class="gop-slider-label {{#if this.pct > 0}}gop-margin-winner{{/if}}">{{#if pct === 0.0}}{{elseif pct > 0}}+{{else}}-{{/if}}{{(Math.abs(pct * 100)).toFixed(0)}}% GOP</span>
+                    {{else}}
+                        <span class="dem-slider-label {{#if this.pct < 0}}dem-margin-winner{{/if}}">{{#if pct === 0.0}}{{elseif pct < 0}}+{{else}}-{{/if}}{{(Math.abs(pct * 100)).toFixed(0)}}% DEM</span>
+                    {{/if}}
+                </div>
+                <div class="slider-label label-dem">
+                    <span class="dem-slider-label {{#if this.pct < 0}}dem-margin-winner{{/if}}">{{#if pct === 0.0}}{{elseif pct < 0}}+{{else}}-{{/if}}{{(Math.abs(pct * 100)).toFixed(0)}}% DEM</span>
+                </div>
+                <div class="range-slider">
+                    <input id="{{@key}}-pct" type="range" step="0.01" value="{{this.pct}}" min="-0.20" max="0.20">
+                </div>
+                <div class="slider-label label-gop">
+                    <span class="gop-slider-label {{#if this.pct > 0}}gop-margin-winner{{/if}}">{{#if pct === 0.0}}{{elseif pct > 0}}+{{else}}-{{/if}}{{(Math.abs(pct * 100)).toFixed(0)}}% GOP</span>
+                </div>
+            </div>
+            <div class="control-group {{@key}}-turnout-group">
+                <span class="control-label turnout">Turnout: <strong>{{#if turnout === 0.0}}+/- {{elseif turnout > 0}}+{{/if}}{{(turnout * 100).toFixed(0)}}%</strong></span>
+                <input id="{{@key}}-turnout" type="range" step="0.01" value="{{this.turnout}}" min="-0.20" max="0.20">
+            </div>
+            {{else}}
+            <div class="control-group {{@key}}-pct-group">
+                <span class="control-label"><span class="control-label-inner">Margin{{#unless mobile}} of victory{{/unless}}</span><span class="label-concat">: </span></span>
+                <div class="control-label-mobile">
+                    {{#if this.pct == 0}}
+                        <span class="control-label-mobile"><strong>+/- 0%</strong></span>
+                    {{elseif this.pct > 0}}
+                        <span class="gop-slider-label {{#if this.pct > 0}}gop-margin-winner{{/if}}">{{#if pct === 0.0}}{{elseif pct > 0}}+{{else}}-{{/if}}{{(Math.abs(pct * 100)).toFixed(0)}}% GOP</span>
+                    {{else}}
+                        <span class="dem-slider-label {{#if this.pct < 0}}dem-margin-winner{{/if}}">{{#if pct === 0.0}}{{elseif pct < 0}}+{{else}}-{{/if}}{{(Math.abs(pct * 100)).toFixed(0)}}% DEM</span>
+                    {{/if}}
+                </div>
+                <div class="slider-label label-dem">
+                    <span class="dem-slider-label {{#if this.pct < 0}}dem-margin-winner{{/if}}">{{#if pct === 0.0}}{{elseif pct < 0}}+{{else}}-{{/if}}{{(Math.abs(pct * 100)).toFixed(0)}}% DEM</span>
+                </div>
+                <div class="range-slider">
+                    <input id="{{@key}}-pct" type="range" step="0.01" value="{{this.pct}}" min="-0.10" max="0.10">
+                </div>
+                <div class="slider-label label-gop">
+                    <span class="gop-slider-label {{#if this.pct > 0}}gop-margin-winner{{/if}}">{{#if pct === 0.0}}{{elseif pct > 0}}+{{else}}-{{/if}}{{(Math.abs(pct * 100)).toFixed(0)}}% GOP</span>
+                </div>
+            </div>
+            <div class="control-group {{@key}}-turnout-group">
+                <span class="control-label turnout"><span class="control-label-inner">Turnout: <strong>{{#if turnout === 0.0}}+/- {{elseif turnout > 0}}+{{/if}}{{(turnout * 100).toFixed(0)}}%</strong></span></span>
+                <input id="{{@key}}-turnout" type="range" step="0.01" value="{{this.turnout}}" min="-0.20" max="0.20">
+            </div>
+            {{/if}}
+            </div>
+        {{/each}}
+        {{#if interactive}}
+        <button class='controls-reset' on-click='restart'>Reset simulation</button>
+        {{/if}}
+    </div>
+</script>
+
+<script id="footer-template" type="text/ractive">
+    <div class="credits-wrapper" style="{{#unless footer}}display: none;{{/unless}}">
+        {{#if data.footnote}}
+        <div class="footnotes">
+            <h4>Notes</h4>
+                <p>{{{data.footnote}}}</p>
+        </div>
+        {{/if}}
+
+        <div class="footer">
+        {{#if data.source}}<p>Source: {{{ data.source }}}</p>{{/if}}
+        {{#if data.credit}}<p>Credit: {{{ data.credit }}}</p>{{/if}}
+        </div>
+    </div>
+</script>
+{% endraw %}
+{% endblock extra_foot_js%}
