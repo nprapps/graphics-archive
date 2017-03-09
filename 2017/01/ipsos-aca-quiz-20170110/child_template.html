@@ -1,0 +1,25 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="quiz-wrapper" class="graphic">
+        <div id="size-wrapper">
+            <p class="quiz-question">Since passage of the Affordable Care Act, has the number of uninsured Americans <strong>increased, decreased</strong> or <strong>stayed the same</strong>?</p>
+            <ul class="quiz-list">
+                <li class="quiz-option"><a href="#">Increased</a></li>
+                <li class="quiz-option"><a href="#">Decreased</a></li>
+                <li class="quiz-option"><a href="#">Stayed the same</a></li>
+                <li class="quiz-option"><a href="#">Don't know</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="response-wrapper">
+        <p class="user-response hidden invisible"></p>
+    </div>
+
+    <script id="response-template" type="text/template">
+You picked <strong>&ldquo;<%= user_response %>,&rdquo;</strong> <%= user_value %> In an NPR/Ipsos poll, <strong>49 percent</strong> of people got it right.
+    </script>
+
+{% endblock content %}

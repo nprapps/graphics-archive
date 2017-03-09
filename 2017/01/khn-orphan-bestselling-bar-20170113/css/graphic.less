@@ -1,0 +1,33 @@
+@import "base";
+
+// Add custom styles here
+
+@orphan: @teal2;
+
+h2 .orphan {
+    padding: 3px 5px;
+    border-radius: 3px;
+    background-color: @orphan;
+    color: #fff;
+}
+
+.labels li.orphan {
+    font-weight: bold;
+    color: #333;
+}
+
+.bars rect {
+    fill: @teal5;
+
+    &.orphan { fill: @orphan; }
+}
+
+.value text {
+    fill: #666;
+
+    &.orphan {
+        font-weight: bold;
+
+        &.out { fill: #333; }
+    }
+}

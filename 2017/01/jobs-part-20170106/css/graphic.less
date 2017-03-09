@@ -1,0 +1,57 @@
+@import "base";
+
+.graphic { margin-bottom: 22px; }
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.dots {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+line.obama-enter {
+    stroke: #999;
+    stroke-width: 1px;
+}
+
+.annotations {
+    circle {
+        stroke: #fff;
+        stroke-width: 1px;
+    }
+
+    text {
+        font-size: 12px;
+
+        &.obama-enter {
+            fill: #666;
+            font-style: italic;
+            font-size: 10px;
+            text-anchor: middle;
+        }
+
+        &.chart-label {
+            fill: #999;
+            font-style: italic;
+            font-size: 10px;
+            text-anchor: start;
+            letter-spacing: .3px;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text { font-size: 10px; }
+    .chart-label { font-size: 11px; }
+    .annotations text { font-size: 10px; }
+}
+
+// @media screen and (min-width: 500px) {
+//     .key {
+//         display: none;
+//     }
+// }

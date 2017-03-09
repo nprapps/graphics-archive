@@ -1,0 +1,73 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th class="topic">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_topic }}</div>
+                    </th>
+                    <th class="about">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_sentence }}</div>
+                    </th>
+                    <th class="then measure">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_2009_display }}</div>
+                    </th>
+                    <th class="now measure">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_2016_display }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY['Sheet1'] %}
+            {% if row['Area'] == 'Politics' %}
+            <tr class="{{ row['Topic']|classify }}">
+                <td class="topic">{{ row['Topic']|smarty }}</td>
+                <td class="about">
+                    {{ row['Sentence']|smarty }}
+                    <cite>({% if row['measure_fmt'] %}{{ row['measure_fmt']|smarty }}{% endif %}{% if (row['measure_fmt'] and row['Earlier source']) or (row['measure_fmt'] and row['Later source'])  %} | {% endif %}{% if row['Earlier source'] or row['Later source'] %}Sources: <a href="{{ row['Earlier source'] }}">1</a>,&nbsp;<a href="{{ row['Later source'] }}">2</a>{% endif %})</cite>
+                </td>
+                <td data-title="{{ COPY.labels.hdr_2009 }}" class="then measure">
+                    <strong>{{ row['January 2009'] }}</strong>
+                    <cite>({{ row['Timeframe Then'] }})</cite>
+                </td>
+                <td data-title="{{ COPY.labels.hdr_2016 }}" class="now measure improved-{{ row['improved'] }}">
+                    <strong>{{ row['Now'] }}</strong>
+                    <cite>({{ row['Current Timeframe'] }})</cite>
+                </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

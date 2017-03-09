@@ -1,0 +1,47 @@
+@import "base";
+
+.key { margin-bottom: 11px; }
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+line.obama-enter {
+    stroke: #999;
+    stroke-width: 1px;
+}
+
+.annotations {
+    circle {
+        stroke: #fff;
+        stroke-width: 1px;
+    }
+
+    text {
+        font-size: 12px;
+
+        &.obama-enter {
+            fill: #666;
+            font-style: italic;
+            font-size: 10px;
+            text-anchor: middle;
+        }
+
+        &.chart-label {
+            fill: #999;
+            font-style: italic;
+            font-size: 10px;
+            text-anchor: start;
+            letter-spacing: .3px;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .annotations text { font-size: 10px; }
+}
+
+@media screen and (min-width: 500px) {
+}
