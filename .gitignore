@@ -3,12 +3,18 @@
 *.xlsx
 .DS_Store
 .gzip
+*.bak
 
-dailygraphics.submlime-*
+dailygraphics.sublime-*
 graphics.sublime-*
 
-*/index.html
-*/graphic_config.pyc
-*/assets/*
-*/*/assets/*
-!*/assets/assetsignore
+**/index.html
+**/child.html
+**/assets/*
+**/*/assets/*
+!**/assets/assetsignore
+**/css/graphic-header.css
+**/js/parent-header.js
+**/js/parent-footer.js
+**/js/graphic-header.js
+**/js/graphic-footer.js
