@@ -7,15 +7,15 @@ var pymChild = null;
 
 var data = {
     'Coffee': [
-        { 'label': 'Coffee futures fund', 'amt': 21, 'url': 'http://www.npr.org/blogs/thesalt/2013/06/27/194204241/Uri-coffee-tk' }
+        { 'label': 'Coffee futures fund', 'amt': 21, 'url': 'https://www.npr.org/blogs/thesalt/2013/06/27/194204241/Uri-coffee-tk' }
     ],
     'Stock market': [
-        { 'label': 'U.S. broad market', 'amt': 26, 'url': 'http://www.npr.org/2013/06/05/188306471/resisting-the-temptation-to-win-when-investing' },
-        { 'label': 'U.S. dividend equity', 'amt': 19, 'url': 'http://www.npr.org/2013/06/05/188306471/resisting-the-temptation-to-win-when-investing' },
-        { 'label': 'Total world stock', 'amt': 16, 'url': 'http://www.npr.org/2013/06/05/188306471/resisting-the-temptation-to-win-when-investing' }
+        { 'label': 'U.S. broad market', 'amt': 26, 'url': 'https://www.npr.org/2013/06/05/188306471/resisting-the-temptation-to-win-when-investing' },
+        { 'label': 'U.S. dividend equity', 'amt': 19, 'url': 'https://www.npr.org/2013/06/05/188306471/resisting-the-temptation-to-win-when-investing' },
+        { 'label': 'Total world stock', 'amt': 16, 'url': 'https://www.npr.org/2013/06/05/188306471/resisting-the-temptation-to-win-when-investing' }
     ],
     'Real estate': [
-        { 'label': 'Real estate investment trust index', 'amt': 4, 'url': 'http://www.npr.org/2013/06/13/188979111/how-to-invest-in-real-estate-without-being-a-landlord' }
+        { 'label': 'Real estate investment trust index', 'amt': 4, 'url': 'https://www.npr.org/2013/06/13/188979111/how-to-invest-in-real-estate-without-being-a-landlord' }
     ],
 };
 

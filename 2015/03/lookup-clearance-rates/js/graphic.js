@@ -4,8 +4,8 @@ var graphicD3 = null;
 var pymChild = null;
 
 var STATE_NAMES_URL = 'state-names.csv';
-var DATA_URL = 'http://apps.npr.org/dailygraphics/graphics/lookup-clearance-rates/json/agency_names.csv';
-var AGENCY_DATA_PATH = 'http://apps.npr.org/dailygraphics/graphics/lookup-clearance-rates/json/';
+var DATA_URL = 'https://apps.npr.org/dailygraphics/graphics/lookup-clearance-rates/json/agency_names.csv';
+var AGENCY_DATA_PATH = 'https://apps.npr.org/dailygraphics/graphics/lookup-clearance-rates/json/';
 // var DATA_URL = 'output/agency_names.csv';
 // var AGENCY_DATA_PATH = 'output/';
 /*

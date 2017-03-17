@@ -168,7 +168,7 @@
         var require_map_wage_gap_20160204 = requirejs.config({
             context: 'map-wage-gap-20160204',
             paths: {
-                'pym': 'http://apps.npr.org/dailygraphics/graphics/map-wage-gap-20160204/js/lib/pym'
+                'pym': 'https://apps.npr.org/dailygraphics/graphics/map-wage-gap-20160204/js/lib/pym'
             },
     		shim: {
     			'pym': { exports: 'pym' }
@@ -180,7 +180,7 @@
             // Create pym parent
             var pymParent = new Pym.Parent(
                 'responsive-embed-map-wage-gap-20160204',
-                'http://apps.npr.org/dailygraphics/graphics/map-wage-gap-20160204/child.html',
+                'https://apps.npr.org/dailygraphics/graphics/map-wage-gap-20160204/child.html',
                 {}
             );
 
@@ -207,13 +207,13 @@
     // Require.js is not on the page, but jQuery is (old Seamus)
     } else if (typeof $ !== 'undefined' && typeof $.getScript === 'function') {
         // Load pym
-        $.getScript('http://apps.npr.org/dailygraphics/graphics/map-wage-gap-20160204/js/lib/pym.js').done(function () {
+        $.getScript('https://apps.npr.org/dailygraphics/graphics/map-wage-gap-20160204/js/lib/pym.js').done(function () {
             // Wait for page load
             $(function () {
                 // Create pym parent
                 var pymParent = new pym.Parent(
                     'responsive-embed-map-wage-gap-20160204',
-                    'http://apps.npr.org/dailygraphics/graphics/map-wage-gap-20160204/child.html',
+                    'https://apps.npr.org/dailygraphics/graphics/map-wage-gap-20160204/child.html',
                     {}
                 );
             });
@@ -230,7 +230,7 @@
 
 <!-- textarea contents -->
     <textarea readonly="readonly" rows="10" cols="50">
-<p data-pym-src="http://apps.npr.org/dailygraphics/graphics/map-wage-gap-20160204/child.html">&amp;nbsp;</p><script src="http://apps.npr.org/dailygraphics/graphics/map-wage-gap-20160204/js/lib/pym.js" type="text/javascript"></script>
+<p data-pym-src="https://apps.npr.org/dailygraphics/graphics/map-wage-gap-20160204/child.html">&amp;nbsp;</p><script src="https://apps.npr.org/dailygraphics/graphics/map-wage-gap-20160204/js/lib/pym.js" type="text/javascript"></script>
     </textarea>
 <!-- end textarea contents -->
 

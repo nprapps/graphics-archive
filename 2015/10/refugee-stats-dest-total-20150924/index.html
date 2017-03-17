@@ -167,7 +167,7 @@
         var require_ = requirejs.config({
             context: 'refugee-stats-dest-total-20150924',
             paths: {
-                'pym': 'http://apps.npr.org/dailygraphics/graphics/refugee-stats-dest-total-20150924/js/lib/pym'
+                'pym': 'https://apps.npr.org/dailygraphics/graphics/refugee-stats-dest-total-20150924/js/lib/pym'
             },
     		shim: {
     			'pym': { exports: 'pym' }
@@ -179,7 +179,7 @@
             // Create pym parent
             var pymParent = new Pym.Parent(
                 'responsive-embed-refugee-stats-dest-total-20150924',
-                'http://apps.npr.org/dailygraphics/graphics/refugee-stats-dest-total-20150924/child.html',
+                'https://apps.npr.org/dailygraphics/graphics/refugee-stats-dest-total-20150924/child.html',
                 {}
             );
 
@@ -206,13 +206,13 @@
     // Require.js is not on the page, but jQuery is (old Seamus)
     } else if (typeof $ !== 'undefined' && typeof $.getScript === 'function') {
         // Load pym
-        $.getScript('http://apps.npr.org/dailygraphics/graphics/refugee-stats-dest-total-20150924/js/lib/pym.js').done(function () {
+        $.getScript('https://apps.npr.org/dailygraphics/graphics/refugee-stats-dest-total-20150924/js/lib/pym.js').done(function () {
             // Wait for page load
             $(function () {
                 // Create pym parent
                 var pymParent = new pym.Parent(
                     'responsive-embed-refugee-stats-dest-total-20150924',
-                    'http://apps.npr.org/dailygraphics/graphics/refugee-stats-dest-total-20150924/child.html',
+                    'https://apps.npr.org/dailygraphics/graphics/refugee-stats-dest-total-20150924/child.html',
                     {}
                 );
             });
@@ -229,7 +229,7 @@
 
 <!-- textarea contents -->
     <textarea readonly="readonly" rows="10" cols="50">
-<p data-pym-src="http://apps.npr.org/dailygraphics/graphics/refugee-stats-dest-total-20150924/child.html">&amp;nbsp;</p><script src="http://apps.npr.org/dailygraphics/graphics/refugee-stats-dest-total-20150924/js/lib/pym.js" type="text/javascript"></script>
+<p data-pym-src="https://apps.npr.org/dailygraphics/graphics/refugee-stats-dest-total-20150924/child.html">&amp;nbsp;</p><script src="https://apps.npr.org/dailygraphics/graphics/refugee-stats-dest-total-20150924/js/lib/pym.js" type="text/javascript"></script>
     </textarea>
 <!-- end textarea contents -->
 

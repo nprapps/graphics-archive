@@ -5,9 +5,9 @@ body {margin: 0; padding: 0; }
 
 #pin{z-index:1000;}
 
-.pinPlus{width: 32px; height: 32px; background: url('http://media.npr.org/news/graphics/2012/04/fracking/images/pin.png') no-repeat; position:relative; z-index:3;}
+.pinPlus{width: 32px; height: 32px; background: url('https://media.npr.org/news/graphics/2012/04/fracking/images/pin.png') no-repeat; position:relative; z-index:3;}
 
-.pinPlus:hover{background:url('http://media.npr.org/news/graphics/2012/04/fracking/images/pin-hov.png') no-repeat;}
+.pinPlus:hover{background:url('https://media.npr.org/news/graphics/2012/04/fracking/images/pin-hov.png') no-repeat;}
 
 .pinTitle{background:#ffffff;padding:5px 5px 5px 20px;margin:5px 0 0 15px;font:11px arial, sans-serif; font-weight:bold; text-transform:uppercase;color:#333333; position:absolute;z-index:1;opacity:.8;top:0px;}
 
