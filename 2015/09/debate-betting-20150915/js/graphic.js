@@ -279,7 +279,7 @@ var renderLineChart = function(config) {
             'labelX': d3.time.format('%I:%M').parse('09:30'),
             'labelY': 0.35,
             'targetX': d3.time.format('%I:%M').parse('09:08'),
-            'targetY': 0.35
+            'targetY': 0.35,
             'text': 'Trump "face" exchange',
             'anchor': 'start',
             'baseline': 'below',
