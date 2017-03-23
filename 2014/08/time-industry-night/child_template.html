@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link rel="shortcut icon" href="https://media.npr.org/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 
     <style type="text/css">
         /* base styles */
@@ -115,7 +114,7 @@
             fill: #A8D5EF;
             /*stroke:#3D7FA6;*/
             stroke-width: 2px;
-            opacity: .8;    
+            opacity: .8;
         }
 
         .lines2 {
@@ -129,10 +128,10 @@
             fill: #F7E39B;
             /*stroke:#EFC637;*/
             opacity: .65;
-            stroke-width: 1; 
-            cursor: pointer;   
+            stroke-width: 1;
+            cursor: pointer;
         }
-       
+
 
 
         .selected {
@@ -161,7 +160,7 @@
           text-anchor: middle;
           color: #a0a0a0;
           text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
-        }      
+        }
 
         .dropdown {
            font-size: 12px;
@@ -189,14 +188,14 @@
 
        .annote-day-text {
             font-size: 12px;
-            fill: black;        
+            fill: black;
             opacity: .7;
             text-anchor: middle;
        }
 
        .annote-day-text2 {
             font-size: 12px;
-            stroke: #ccc;        
+            stroke: #ccc;
             stroke-width: .2;
             stroke-dasharray: 8, 5;
             text-anchor: start;
@@ -211,11 +210,11 @@
         }
         marker#arrow {
             fill: #666;
-        }       
+        }
 
         .workday {
             fill: #F1F1F1;
-        }        
+        }
 
 
     </style>
@@ -229,7 +228,7 @@
     {% if COPY.labels.subhed %}<h2>{{ COPY.labels.subhed }}</h2>{% endif %}
     {% if COPY.labels.directions %}<h3 class ="directions" >{{ COPY.labels.directions }}</h3>{% endif %}
 <ul class = "key">
-<select class = "dropdown" id = "occupation">    
+<select class = "dropdown" id = "occupation">
     <option value = "All Jobs" > All Jobs</option>
     <option value = "Architecture And Engineering" > Architecture And Engineering</option>
     <option value = "Arts, Entertainment, And Media" > Arts, Entertainment, And Media</option>
@@ -280,7 +279,7 @@
 </select>
 </ul>
     <div id="graphic"><img src="fallback.png" alt="[Chart]" /></div>
-    
+
     {% if COPY.labels.footnote %}
     <div class="footnotes">
         <h4>Notes</h4>
