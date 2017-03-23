@@ -54,7 +54,7 @@ var onWindowLoaded = function() {
          target: "timeline",
          title: "03:31",
          text: "Perry aspired to be a veterinarian, but he failed organic chemistry. ",
-         innerHTML: "<a href='http://www.npr.org/blogs/itsallpolitics/2011/08/05/139027418/rick-perrys-college-transcript-a-warning-to-all-future-politicians' target='blank'>Source: NPR</a>",
+         innerHTML: "<a href='https://www.npr.org/blogs/itsallpolitics/2011/08/05/139027418/rick-perrys-college-transcript-a-warning-to-all-future-politicians' target='blank'>Source: NPR</a>",
          direction: "up"
        })
        .timeline({

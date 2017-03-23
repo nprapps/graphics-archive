@@ -11,7 +11,7 @@ var onWindowLoaded = function() {
     d3.select('#promo-link').on('click', function(e) {
         d3.event.preventDefault();
         ANALYTICS.trackEvent('promo-click', 'clicked');
-        pymChild.navigateParentTo('http://www.npr.org/2016/04/18/474256366/why-americas-schools-have-a-money-problem#responsive-embed-school-funding-map-20160408');
+        pymChild.navigateParentTo('https://www.npr.org/2016/04/18/474256366/why-americas-schools-have-a-money-problem#responsive-embed-school-funding-map-20160408');
     });
 
     pymChild.onMessage('on-screen', function(bucket) {

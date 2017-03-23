@@ -16,9 +16,9 @@
 
         var regex = new RegExp("[\\?&]" + name + '=([^&#]*)');
         var results = regex.exec(location.search);;
-        
+
         return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, " "));
-    }    
+    }
 
     /*
      * Verify that the message came from a trustworthy domaine
@@ -26,7 +26,7 @@
     function isSafeMessage(e) {
         if (settings.xdomain !== '*') {
             var regex = new RegExp(settings.xdomain + '$');
-          
+
             if (!e.origin.match(regex)) {
                 // Not the origin we're listening for
                 return;
@@ -58,8 +58,8 @@
         }
 
         var width = parseInt(match[2]);
-        
-        console.log('child #' + childId + ' recieved width: ' + width);
+
+        // console.log('child #' + childId + ' recieved width: ' + width);
 
         if (width != parentWidth) {
             parentWidth = width;
@@ -67,7 +67,7 @@
             if (settings.renderCallback) {
                 settings.renderCallback(width);
             }
-                
+
             sendHeightToParent();
         }
     }
@@ -91,11 +91,11 @@
 
         // Unique child ID is sent as querystring parameter
         childId = parseInt(getParameterByName('childId'));
-        
+
         // Initial width is sent as querystring parameter
         var width = parseInt(getParameterByName('initialWidth'));
 
-        console.log('child #' + childId + ' received initial width: ' + width);
+        // console.log('child #' + childId + ' received initial width: ' + width);
 
         if (settings.renderCallback) {
             settings.renderCallback(width);

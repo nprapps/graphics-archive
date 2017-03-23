@@ -2,7 +2,7 @@
 var $graphic = null;
 var pymChild = null;
 
-var GRAPHIC_DATA_URL = 'http://apps.npr.org/dailygraphics/graphics/2014-wh-briefings/data.csv';
+var GRAPHIC_DATA_URL = 'https://apps.npr.org/dailygraphics/graphics/2014-wh-briefings/data.csv';
 var GRAPHIC_DEFAULT_WIDTH = 600;
 var GRID_MARGIN = 11;
 var MOBILE_THRESHOLD = 540;

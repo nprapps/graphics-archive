@@ -120,7 +120,7 @@ var initAudio = function($audioPlayer) {
     $audioPlayer.jPlayer({
         ready: function() {
             $(this).jPlayer('setMedia', {
-                mp3: 'http://pd.npr.org/anon.npr-mp3/npr/specials/2016/02/20160229_specials_firnus_and_ben__-_final_online_levels.mp3'
+                mp3: 'https://pd.npr.org/anon.npr-mp3/npr/specials/2016/02/20160229_specials_firnus_and_ben__-_final_online_levels.mp3'
             });
         },
         loop: false,
