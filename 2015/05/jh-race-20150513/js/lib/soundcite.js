@@ -21,7 +21,7 @@
         if (!(js = window.jQuery) || version > js.fn.jquery || cb(js)) {
             var script = document.createElement("script");
             script.type = "text/javascript";
-            script.src = "http://code.jquery.com/jquery-1.9.1.min.js";
+            script.src = "https://code.jquery.com/jquery-1.9.1.min.js";
             script.onload = script.onreadystatechange = function() {
                 if(!loaded_j && (!(d = this.readyState) || d == "loaded" || d == "complete")) {
                     js = window.jQuery.noConflict(1);

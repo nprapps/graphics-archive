@@ -38,22 +38,6 @@ var onWindowLoaded = function() {
     if (Modernizr.svg) {
         $graphic = $('#graphic');
 
-        d3.json("price.json", function(error, json) {
-          if (error) return console.warn(error);
-          // data = json;
-          graphicData = d3.entries(json);
-
-          graphicData.forEach(function(d) {
-            d['key'] = d3.time.format('%Y-%m-%d').parse(d['key']);
-          });
-
-          graphicData.sort(sortTheseKeys);
-
-          pymChild = new pym.Child({
-                renderCallback: render
-          });
-        });
-
         d3.csv(GRAPHIC_DATA_URL, function(error, data) {
             currentData = data;
             currentData.forEach(function(d) {
@@ -62,8 +46,20 @@ var onWindowLoaded = function() {
                 d['price'] = +d['price']
             });
 
-            pymChild = new pym.Child({
-                renderCallback: render
+            d3.json("price.json", function(error, json) {
+              if (error) return console.warn(error);
+              // data = json;
+              graphicData = d3.entries(json);
+
+              graphicData.forEach(function(d) {
+                d['key'] = d3.time.format('%Y-%m-%d').parse(d['key']);
+              });
+
+              graphicData.sort(sortTheseKeys);
+
+              pymChild = new pym.Child({
+                    renderCallback: render
+              });
             });
         });
     } else {
@@ -99,9 +95,6 @@ currentTime = currentData[0]['time']
 
 var deltaLevel = (199.91-currentPrice)*2
 var deltaPercent = Math.abs(d3.round(100*((199.91-currentPrice)/199.91),2)) + "%"
-
-console.log(currentPrice)
-console.log(deltaLevel)
 
 
 if (currentPrice > 199.91) {

@@ -115,7 +115,7 @@ var renderStackedColumnChart = function(config) {
     var barWidth = 20;
     var marginLeft = Math.floor((config['width'] - barWidth) * .4);
     var marginRight = Math.floor((config['width'] - barWidth) * .6);
-    
+
     var margins = {
         top: 5,
         right: marginRight,
@@ -210,8 +210,8 @@ var renderStackedColumnChart = function(config) {
             .attr('class', function(d) {
                 return classify(d['name']);
             });
-    
-    /* 
+
+    /*
      * add labels
      */
     var labelDX = 6;
@@ -257,7 +257,7 @@ var renderStackedColumnChart = function(config) {
                 return d['label'];
             })
             .call(wrapText, (margins['right'] - labelDX), labelLineHeight);
-        
+
     var labelsAnnual = chartElement.append('g')
         .attr('class', 'labels annual')
         .selectAll('text')
@@ -297,7 +297,6 @@ var wrapText = function(texts, width, lineHeight) {
 
         var dx = parseFloat(text.attr('dx'));
         var dy = parseFloat(text.attr('dy'));
-
         var tspan = text.text(null)
             .append('tspan')
             .attr('x', x)
@@ -315,7 +314,6 @@ var wrapText = function(texts, width, lineHeight) {
                 line = [word];
 
                 lineNumber += 1;
-
                 tspan = text.append('tspan')
                     .attr('x', x)
                     .attr('y', y)

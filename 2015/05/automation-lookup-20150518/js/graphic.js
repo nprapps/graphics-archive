@@ -499,8 +499,9 @@ var drawCharts = function() {
         }
 
         var width = isMobile ? containerWidth : containerWidth / 2;
-
-        drawDistributionChart('#' + trait['slug'] + '-chart', width, chartData[trait['slug']], highlight);
+        if (width) {
+            drawDistributionChart('#' + trait['slug'] + '-chart', width, chartData[trait['slug']], highlight);
+        }
     };
 
     if (pymChild) {

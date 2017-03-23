@@ -263,7 +263,7 @@ var renderMap = function(width){
         .selectAll("image")
             .data(tiles)
         .enter().append("image")
-            .attr("xlink:href", function(d) { return "http://" + ["a", "b", "c", "d"][Math.random() * 4 | 0] + ".tiles.mapbox.com/v3/npr.b7dmfgvi,npr.lkkv5cdi/" + d[2] + "/" + d[0] + "/" + d[1] + ".png"; })
+            .attr("xlink:href", function(d) { return "https://" + ["a", "b", "c", "d"][Math.random() * 4 | 0] + ".tiles.mapbox.com/v3/npr.b7dmfgvi,npr.lkkv5cdi/" + d[2] + "/" + d[0] + "/" + d[1] + ".png"; })
             .attr("width", Math.ceil(tiles.scale))
             .attr("height", Math.ceil(tiles.scale))
             .attr("x", function(d) { return Math.round((d[0] + tiles.translate[0]) * tiles.scale); })

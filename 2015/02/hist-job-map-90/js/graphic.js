@@ -80,7 +80,7 @@ var datesWide = [
     2010,
     2014
 ];
-                    
+
 var datesMobile  = [
     // 1970,
     1980,
@@ -93,42 +93,42 @@ var datesMobile  = [
 
 
 var jobsClassify = {
-"Farmer" : "farmer", 
-"Farm workers" : "farmer", 
-"Farm managers, except for horticultural farms" : "farmer", 
-"Farmers (owners and tenants)" : "farmer", 
-"Winding and twisting textile/apparel operatives" : "textile", 
-"Textile sewing machine operators" : "textile", 
-"Truck, delivery, and tractor drivers" : "trucker", 
-"Shoemaking machine operators" : "factory-s", 
-"Factory Worker" : "factory-s", 
-"Assemblers of electrical equipment" : "factory-e", 
-"Machine operators, n.e.c" : "machine", 
-"Production supervisors or foremen" : "foremen", 
-"Miners" : "miners", 
-"Production checkers and inspectors" : "inspectors", 
-"Carpenters" : "carpenter", 
-"Housekeepers, maids, butlers, stewards, and lodging quarters cleaners" : "housekeepers", 
-"Recreation facility attendants" : "recreation", 
-"Retail sales clerks" : "retail", 
-"Janitors" : "janitors", 
-"Cashiers" : "cashier", 
-"Customer service reps, investigators and adjusters, except insurance" : "customer-s", 
-"Nursing aides, orderlies, and attendants" : "nursing-aide", 
-"Registered nurses" : "registered-nurse", 
-"Cooks, variously defined" : "cooks", 
-"Managers of food-serving and lodging establishments" : "manager-h", 
-"Primary school teachers" : "teacher-p", 
-"Secondary school teachers" : "teacher-s", 
-"Bookkeepers and accounting and auditing clerks" : "bookkeepers", 
-"Lawyers" : "lawyers", 
-"Computer systems analysts and computer scientists" : "computer", 
-"Computer software developers" : "software-developer", 
-"Administrative support jobs, n.e.c" : "admin-s", 
-"Secretaries" : "secretaries", 
-"Real estate sales occupations" : "r-estate", 
-"Accountants and auditors" : "accountants", 
-"Insurance sales occupations" : "insurance", 
+"Farmer" : "farmer",
+"Farm workers" : "farmer",
+"Farm managers, except for horticultural farms" : "farmer",
+"Farmers (owners and tenants)" : "farmer",
+"Winding and twisting textile/apparel operatives" : "textile",
+"Textile sewing machine operators" : "textile",
+"Truck, delivery, and tractor drivers" : "trucker",
+"Shoemaking machine operators" : "factory-s",
+"Factory Worker" : "factory-s",
+"Assemblers of electrical equipment" : "factory-e",
+"Machine operators, n.e.c" : "machine",
+"Production supervisors or foremen" : "foremen",
+"Miners" : "miners",
+"Production checkers and inspectors" : "inspectors",
+"Carpenters" : "carpenter",
+"Housekeepers, maids, butlers, stewards, and lodging quarters cleaners" : "housekeepers",
+"Recreation facility attendants" : "recreation",
+"Retail sales clerks" : "retail",
+"Janitors" : "janitors",
+"Cashiers" : "cashier",
+"Customer service reps, investigators and adjusters, except insurance" : "customer-s",
+"Nursing aides, orderlies, and attendants" : "nursing-aide",
+"Registered nurses" : "registered-nurse",
+"Cooks, variously defined" : "cooks",
+"Managers of food-serving and lodging establishments" : "manager-h",
+"Primary school teachers" : "teacher-p",
+"Secondary school teachers" : "teacher-s",
+"Bookkeepers and accounting and auditing clerks" : "bookkeepers",
+"Lawyers" : "lawyers",
+"Computer systems analysts and computer scientists" : "computer",
+"Computer software developers" : "software-developer",
+"Administrative support jobs, n.e.c" : "admin-s",
+"Secretaries" : "secretaries",
+"Real estate sales occupations" : "r-estate",
+"Accountants and auditors" : "accountants",
+"Insurance sales occupations" : "insurance",
 "Chief executives and public administrators" : "ceo",
 "Salespersons, n.e.c." : "salespersons"
 };
@@ -367,7 +367,7 @@ var render = function(containerWidth) {
     if (!containerWidth) {
         containerWidth = GRAPHIC_DEFAULT_WIDTH;
     }
-    
+
     // check the container width; set mobile flag if applicable
     if (containerWidth <= MOBILE_THRESHOLD) {
         isMobile = true;
@@ -396,19 +396,19 @@ var drawMap = function(graphicWidth) {
     if (isLoaded) {
         pauseAnimation();
     }
-    
+
     // clear out existing graphics
     $graphic.empty();
-    
+
     // define or update map dimensions
     updateDimensions(graphicWidth);
 
     var jobID = d3.map();
     i = 0;
-    
+
     var margin = {
-        top: 0, 
-        right: 0, 
+        top: 0,
+        right: 0,
         left: 0,
         bottom: 10
     }
@@ -448,7 +448,7 @@ var drawMap = function(graphicWidth) {
         .selectAll('path')
         .data(topoData)
         .enter().append('path')
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return 'state d' + d['id'];
             })
             .attr('d', mapPath)
@@ -461,7 +461,7 @@ var drawMap = function(graphicWidth) {
             .attr('class', function(d) {
                 return 'state-id d' + d['id'];
             })
-            .attr('transform', function(d) { 
+            .attr('transform', function(d) {
                 return 'translate(' + mapPath.centroid(d) + ')';
             })
             .attr('dy', '.35em')
@@ -494,14 +494,14 @@ var drawMap = function(graphicWidth) {
             .tickPadding(5)
         )
         .attr('transform', 'translate(' + SLIDER_OFFSET['left'] + ',' + (mapHeight + SLIDER_OFFSET['top']) + ')');
-    
+
     var sliderBar = svg.append('g')
         .attr('class', 'xbar')
         .append('line')
         .attr('transform', 'translate('+ SLIDER_OFFSET['left'] + ',' + (mapHeight + SLIDER_OFFSET['top']) + ')')
         .attr('x1', x(1978))
         .attr('x2', x(2014));
-    
+
     var sliderBarHalo = svg.append('g')
         .attr('class', 'xbar-halo')
         .append('line')
@@ -527,7 +527,7 @@ var drawMap = function(graphicWidth) {
     sliderHandle = slider.append('svg:image')
         .attr('class', 'handle')
         .attr('transform', 'translate(0,' + mapHeight + ')')
-        .attr('xlink:href', 'slider.png')    
+        .attr('xlink:href', 'slider.png')
         .attr('width', 150)
         .attr('height', 20)
         .attr('x', x(1978)-75);
@@ -539,19 +539,19 @@ var drawMap = function(graphicWidth) {
         'width': TOGGLE_WIDTH + 'px'
     });
     $('#graphic').append(toggle);
-    
+
     $pauseButton = $('#btn-pause');
     $playButton = $('#btn-play');
-    
+
     $pauseButton.on('click', onPauseClicked);
     $playButton.on('click', onPlayClicked);
     $playButton.hide();
-    
+
 
     // get things going
     changeColor(selectedYear);
     startAnimation();
-    
+
     isLoaded = true;
 
     // hard-coded adjustments
@@ -632,217 +632,217 @@ var changeColor = function(year) {
 
 var changeClass = function(d) {
     switch(d['job']) {
-case "Machine operators, n.e.c" : 
+case "Machine operators, n.e.c" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Machine Operator');
     }
     d3.select('path.d' + d['id']).classed('machine',true);
     break;
-case "Secretaries" : 
+case "Secretaries" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Secretary');
     }
     d3.select('path.d' + d['id']).classed('secretaries',true);
     break;
-case "Farm workers" : 
+case "Farm workers" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Farmer');
     }
     d3.select('path.d' + d['id']).classed('farmer',true);
     break;
-case "Textile sewing machine operators" : 
+case "Textile sewing machine operators" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Factory Worker');
     }
     d3.select('path.d' + d['id']).classed('factory-e',true);
     break;
-case "Housekeepers, maids, butlers, stewards, and lodging quarters cleaners" : 
+case "Housekeepers, maids, butlers, stewards, and lodging quarters cleaners" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Housekeeper');
     }
     d3.select('path.d' + d['id']).classed('housekeepers',true);
     break;
-case "Truck, delivery, and tractor drivers" : 
+case "Truck, delivery, and tractor drivers" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Truck Driver');
     }
     d3.select('path.d' + d['id']).classed('trucker',true);
     break;
-case "Farmers (owners and tenants)" : 
+case "Farmers (owners and tenants)" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Farmer');
     }
     d3.select('path.d' + d['id']).classed('farmer',true);
     break;
-case "Recreation facility attendants" : 
+case "Recreation facility attendants" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Recreation Attendant');
     }
     d3.select('path.d' + d['id']).classed('recreation',true);
     break;
-case "Winding and twisting textile/apparel operatives" : 
+case "Winding and twisting textile/apparel operatives" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Textile Worker');
     }
     d3.select('path.d' + d['id']).classed('textile',true);
     break;
-case "Production supervisors or foremen" : 
+case "Production supervisors or foremen" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Foremen');
     }
     d3.select('path.d' + d['id']).classed('foremen',true);
     break;
-case "Bookkeepers and accounting and auditing clerks" : 
+case "Bookkeepers and accounting and auditing clerks" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Bookkeepers');
     }
     d3.select('path.d' + d['id']).classed('bookkeepers',true);
     break;
-case "Assemblers of electrical equipment" : 
+case "Assemblers of electrical equipment" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Factory Worker');
     }
     d3.select('path.d' + d['id']).classed('factory-e',true);
     break;
-case "Miners" : 
+case "Miners" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Miners');
     }
     d3.select('path.d' + d['id']).classed('miners',true);
     break;
-case "Retail sales clerks" : 
+case "Retail sales clerks" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Retail Clerk');
     }
     d3.select('path.d' + d['id']).classed('retail',true);
     break;
-case "Lawyers" : 
+case "Lawyers" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Lawyer');
     }
     d3.select('path.d' + d['id']).classed('lawyers',true);
     break;
-case "Production checkers and inspectors" : 
+case "Production checkers and inspectors" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Inspector');
     }
     d3.select('path.d' + d['id']).classed('inspectors',true);
     break;
-case "Shoemaking machine operators" : 
+case "Shoemaking machine operators" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Factory Worker');
     }
     d3.select('path.d' + d['id']).classed('factory-e',true);
     break;
-case "Primary school teachers" : 
+case "Primary school teachers" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Primary School Teacher');
     }
     d3.select('path.d' + d['id']).classed('teacher-p',true);
     break;
-case "Carpenters" : 
+case "Carpenters" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Carpenters');
     }
     d3.select('path.d' + d['id']).classed('carpenter',true);
     break;
-case "Janitors" : 
+case "Janitors" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Janitor');
     }
     d3.select('path.d' + d['id']).classed('janitors',true);
     break;
-case "Cooks, variously defined" : 
+case "Cooks, variously defined" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Cook');
     }
     d3.select('path.d' + d['id']).classed('cooks',true);
     break;
-case "Real estate sales occupations" : 
+case "Real estate sales occupations" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Real Estate');
     }
     d3.select('path.d' + d['id']).classed('r-estate',true);
     break;
-case "Accountants and auditors" : 
+case "Accountants and auditors" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Accountant');
     }
     d3.select('path.d' + d['id']).classed('accountants',true);
     break;
-case "Administrative support jobs, n.e.c" : 
+case "Administrative support jobs, n.e.c" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Admin. Support');
     }
     d3.select('path.d' + d['id']).classed('admin-s',true);
     break;
-case "Computer systems analysts and computer scientists" : 
+case "Computer systems analysts and computer scientists" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Computer Analyst');
     }
     d3.select('path.d' + d['id']).classed('computer',true);
     break;
-case "Secondary school teachers" : 
+case "Secondary school teachers" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Teacher');
     }
     d3.select('path.d' + d['id']).classed('teacher-s',true);
     break;
-case "Managers of food-serving and lodging establishments" : 
+case "Managers of food-serving and lodging establishments" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Manager-Hospitality');
     }
     d3.select('path.d' + d['id']).classed('manager-h',true);
     break;
-case "Insurance sales occupations" : 
+case "Insurance sales occupations" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Insurance');
     }
     d3.select('path.d' + d['id']).classed('insurance',true);
     break;
-case "Cashiers" : 
+case "Cashiers" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Cashier');
     }
     d3.select('path.d' + d['id']).classed('cashier',true);
     break;
-case "Customer service reps, investigators and adjusters, except insurance" : 
+case "Customer service reps, investigators and adjusters, except insurance" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Customer Service');
     }
     d3.select('path.d' + d['id']).classed('customer-s',true);
     break;
-case "Nursing aides, orderlies, and attendants" : 
+case "Nursing aides, orderlies, and attendants" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Nursing Aide');
     }
     d3.select('path.d' + d['id']).classed('nursing-aide',true);
     break;
-case "Registered nurses" : 
+case "Registered nurses" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Registered Nurse');
     }
     d3.select('path.d' + d['id']).classed('registered-nurse',true);
     break;
-case "Computer software developers" : 
+case "Computer software developers" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Software Developer');
     }
     d3.select('path.d' + d['id']).classed('software-developer',true);
     break;
-case "Chief executives and public administrators" : 
+case "Chief executives and public administrators" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('CEO');
     }
     d3.select('path.d' + d['id']).classed('ceo',true);
     break;
-case "Farm managers, except for horticultural farms" : 
+case "Farm managers, except for horticultural farms" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Farmer');
     }
     d3.select('path.d' + d['id']).classed('farmer',true);
     break;
-case "Salespersons, n.e.c" : 
+case "Salespersons, n.e.c" :
     if (!isMobile) {
     d3.select('.state-id.d' + d['id']).text('Sales And Retail');
     }
@@ -877,7 +877,7 @@ var startAnimation = function() {
 var pauseAnimation = function() {
     clearInterval(animationTimer);
     isAnimating = false;
-    
+
     $pauseButton.hide();
     $playButton.show();
 }
