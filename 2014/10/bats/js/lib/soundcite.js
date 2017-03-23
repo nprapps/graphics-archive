@@ -36,7 +36,7 @@
         if(!(js = window.Popcorn) || version > js.version || cb(js)) {
             var script = document.createElement("script");
             script.type = "text/javascript";
-            script.src = "http://popcornjs.org/code/dist/popcorn-complete.min.js";
+            script.src = "https://popcornjs.org/code/dist/popcorn-complete.min.js";
             script.onload = script.onreadystatechange = function() {
                 if(!loaded_p && (!(d = this.readyState) || d == "loaded" || d == "complete")) {
                     new_js = window.Popcorn;
@@ -58,7 +58,7 @@
         if(!(js = window.SC) || !js.Dialog || version > js._version || cb(js)) {
             var script = document.createElement("script");
             script.type = "text/javascript";
-            script.src = "http://connect.soundcloud.com/sdk-2.0.0.js";
+            script.src = "https://connect.soundcloud.com/sdk-2.0.0.js";
             script.onload = script.onreadystatechange = function() {
                 if(!loaded_s && (!(d = this.readyState) || d == "loaded" || d == "complete")) {
                     cb(window.SC, loaded_s = true);

@@ -49,7 +49,7 @@ var onWindowLoaded = function() {
                 d['date'] = d3.time.format('%Y').parse(d['Year']);
                 delete d['Year'];
             });
-            
+
             graphicDataKeys = d3.keys(graphicData[0]).filter(function(v) {
                 return v != 'date';
             });
@@ -58,7 +58,7 @@ var onWindowLoaded = function() {
                 d['begin'] = d3.time.format('%Y-%m-%d').parse(d['begin']);
                 d['end'] = d3.time.format('%Y-%m-%d').parse(d['end']);
             });
-            
+
             pymChild = new pym.Child({
                 renderCallback: render
             });
@@ -77,17 +77,17 @@ var render = function(containerWidth) {
     if (!containerWidth) {
         containerWidth = GRAPHIC_DEFAULT_WIDTH;
     }
-    
+
     // check the container width; set mobile flag if applicable
     if (containerWidth <= MOBILE_THRESHOLD) {
         isMobile = true;
     } else {
         isMobile = false;
     }
-    
+
     graphicWidth = (containerWidth - (GRAPHIC_GUTTER * (graphicDataKeys.length - 1)) - LABEL_WIDTH) / graphicDataKeys.length;
     graphicHeight = Math.ceil((graphicWidth * ASPECT_HEIGHT) / ASPECT_WIDTH);
-    
+
     // assign a color to each line
     colorD3.domain(graphicDataKeys);
 
@@ -115,10 +115,10 @@ var render = function(containerWidth) {
  * DRAW THE GRAPH
  */
 var drawGraph = function(graphicWidth, graphicHeight, id, graphicNum) {
-    var margin = { 
-    	top: 5, 
-    	right: 8, 
-    	bottom: 30, 
+    var margin = {
+    	top: 5,
+    	right: 8,
+    	bottom: 30,
     	left: 0
     };
     if (graphicNum == 0) {
@@ -128,7 +128,7 @@ var drawGraph = function(graphicWidth, graphicHeight, id, graphicNum) {
     var ticksX = 2;
     var ticksY;
 
-    // params that depend on the container width 
+    // params that depend on the container width
     if (isMobile) {
         ticksY = 2;
         tickValuesX = [ d3.time.format('%Y').parse('1993'),
@@ -178,27 +178,27 @@ var drawGraph = function(graphicWidth, graphicHeight, id, graphicNum) {
     // define the line(s)
     var line = d3.svg.line()
         .interpolate('monotone')
-        .x(function(d) { 
+        .x(function(d) {
             return x(d['date']);
         })
-        .y(function(d) { 
+        .y(function(d) {
             return y(d['amt']);
         });
 
     // parse data into columns
     var formattedData = {};
     for (var column in graphicData[0]) {
-        if (column != id || column != id2) continue;
+        if (column != id) continue;
         formattedData[column] = graphicData.map(function(d) {
             return { 'date': d['date'], 'amt': d[column] };
         });
     }
-    
+
     // set the data domain
-    x.domain(d3.extent(graphicData, function(d) { 
+    x.domain(d3.extent(graphicData, function(d) {
         return d['date'];
     }));
-    
+
     y.domain([ 0, 20 ]);
 
     // draw the chart
@@ -213,11 +213,11 @@ var drawGraph = function(graphicWidth, graphicHeight, id, graphicNum) {
             }
             return s;
         });
-    
+
     chart.append('h4')
         .attr('style', 'margin-left: ' + margin['left'] + 'px;')
         .text(id);
-    
+
     var svg = chart.append('svg')
 		.attr('width', width + margin['left'] + margin['right'])
 		.attr('height', height + margin['top'] + margin['bottom'])
@@ -247,7 +247,7 @@ var drawGraph = function(graphicWidth, graphicHeight, id, graphicNum) {
         .attr('class', 'x axis')
         .attr('transform', 'translate(0,' + height + ')')
         .call(xAxis);
-    
+
     // fix x-axis label alignment
     svg.selectAll('.x.axis .tick:nth-child(1) text')
         .attr('style', function(d) {
@@ -262,7 +262,7 @@ var drawGraph = function(graphicWidth, graphicHeight, id, graphicNum) {
     svg.append('g')
         .attr('class', 'y axis')
         .call(yAxis);
-    
+
     // x-axis gridlines
     svg.append('g')
         .attr('class', 'x grid')
@@ -271,15 +271,15 @@ var drawGraph = function(graphicWidth, graphicHeight, id, graphicNum) {
             .tickSize(-height, 0, 0)
             .tickFormat('')
         );
-    
+
     // y-axis gridlines
-    svg.append('g')         
+    svg.append('g')
         .attr('class', 'y grid')
         .call(yAxisGrid()
             .tickSize(-width, 0, 0)
             .tickFormat('')
         );
-    
+
     // draw the line(s)
     svg.append('g')
         .attr('class', 'lines')
