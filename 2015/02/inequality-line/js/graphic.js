@@ -162,15 +162,15 @@ var drawGraph = function(graphicWidth) {
         return key !== 'date';
     }));
 
-    console.log(graphicData)
+    // console.log(graphicData)
     var indexDate = graphicData[0]
     // parse data into columns
     var formattedData = {};
     for (var column in graphicData[0]) {
         if (column == 'date') continue;
         formattedData[column] = graphicData.map(function(d) {
-            console.log(indexDate['date'])
-            console.log(indexDate[column])
+            // console.log(indexDate['date'])
+            // console.log(indexDate[column])
             return { 'date': d['date'], 'amt': d[column]/indexDate[column]-1 };
 // filter out empty data. uncomment this if you have inconsistent data.
 //        }).filter(function(d) {
@@ -178,7 +178,7 @@ var drawGraph = function(graphicWidth) {
         });
     }
 
-    console.log(formattedData)
+    // console.log(formattedData)
 
     // set the data domain
     x.domain(d3.extent(graphicData, function(d) {
@@ -290,7 +290,7 @@ var drawGraph = function(graphicWidth) {
     //     .attr('x', x(fmtYearFull.parse('2012')))
     //     .attr('y', y(.4))
     //     .attr('dy', '-10px')
-    //     .attr('text-anchor', 'end')        
+    //     .attr('text-anchor', 'end')
     //     .text('After the recession, the two groups diverged')
     //     // .style('font-size', annoteSize);
 
@@ -299,7 +299,7 @@ var drawGraph = function(graphicWidth) {
     //     .attr('x', x(fmtYearFull.parse('2012')))
     //     .attr('y', y(.28))
     //     .attr('dy', '-10px')
-    //     .attr('text-anchor', 'end')        
+    //     .attr('text-anchor', 'end')
     //     .text('. Now the top 1% grew tk%, while the 99% only grew 150%')
     //     // .style('font-size', annoteSize);
 
@@ -309,7 +309,7 @@ var drawGraph = function(graphicWidth) {
     //     .attr("class", 'annotation group90')
     //     .attr('x', x(fmtYearFull.parse('2004')))
     //     .attr('y', y(-.1))
-    //     .attr('text-anchor', 'end')        
+    //     .attr('text-anchor', 'end')
     //     .text("..and don't meet up again until 2004")
     //     .style('font-size', annoteSize);
 

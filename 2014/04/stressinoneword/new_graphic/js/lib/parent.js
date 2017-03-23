@@ -6,13 +6,13 @@
 
     var nextChildId = 0;
 
-    /* 
+    /*
      * Verify that the message came from a trustworthy domain.
      */
     function isSafeMessage(e) {
         if (settings.xdomain !== '*') {
             var regex = new RegExp(settings.xdomain + '$');
-          
+
             if (!e.origin.match(regex)) {
                 // Not the origin we're listening for
                 return;
@@ -39,8 +39,8 @@
 
         var childId = match[1];
         var height = parseInt(match[2]);
-        
-        console.log('child #' + childId + ' sent height: ' + height);
+
+        // console.log('child #' + childId + ' sent height: ' + height);
 
         $('.responsive-iframe[data-child-id="' + childId + '"] iframe').css('height', height + 'px');
     }

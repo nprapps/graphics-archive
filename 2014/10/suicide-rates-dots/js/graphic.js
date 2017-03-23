@@ -26,7 +26,7 @@ var graphic_data = [
     { 'key': '≥ 65 years', 'value': [{ 'date': '2000', 'amt': 31.1 }, { 'date': '2010', 'amt': 29.0 }] }
 ];
 
-var graphic_data_key = [ 
+var graphic_data_key = [
     { 'key': '2000', 'color': colors['blue5'] },
     { 'key': '2010', 'color': colors['blue2'] }
 ];
@@ -53,12 +53,12 @@ function render(container_width) {
     } else {
         is_mobile = false;
     }
-    
+
     graphic_width = Math.floor((container_width - label_width));
-    
+
     // clear out existing graphics
     $graphic.empty();
-    
+
     draw_graph('all', (graphic_width + label_width));
 
     if (pymChild) {
@@ -99,7 +99,7 @@ function draw_graph(id, graphic_width) {
 
     width = graphic_width - margin['left'] - margin['right'];
     height = ((bar_height + bar_gap) * num_bars);
-    
+
     var x = d3.scale.linear()
         .range([ 0, width ])
         .domain([ 0,40 ]);
@@ -129,7 +129,7 @@ function draw_graph(id, graphic_width) {
         .orient('left')
         .scale(y)
         .ticks(0);
-    
+
     // draw the legend
     if (id == 'all') {
         var legend = d3.select('#graphic')
@@ -138,7 +138,7 @@ function draw_graph(id, graphic_width) {
                 .selectAll('g')
                     .data(graphic_data_key)
                 .enter().append('li')
-                    .attr('class', function(d, i) { 
+                    .attr('class', function(d, i) {
                         return 'key-item key-' + i + ' ' + classify(d['key']);
                     });
         legend.append('b')
@@ -168,20 +168,20 @@ function draw_graph(id, graphic_width) {
                 .data(graphic_data)
             .enter().append('text')
                 .attr('x', -margin['left'])
-                .attr('y', function(d, i) { 
+                .attr('y', function(d, i) {
                     return i * (bar_height + bar_gap);
                 })
                 .attr('dx', margin['left'] - 6)
                 .attr('dy', (bar_height / 2) + 4)
                 .attr('text-anchor', 'end')
-                .attr('class', function(d) { 
+                .attr('class', function(d) {
                     return classify(d['key'])
                 })
-                .text(function(d,i) { 
+                .text(function(d,i) {
                     return d['key']
                 });
     }
-    
+
     var shaded_rows = svg.append('g')
         .attr('class', 'rows')
         .selectAll('rect')
@@ -205,7 +205,7 @@ function draw_graph(id, graphic_width) {
         .attr('class', 'x axis')
         .attr('transform', 'translate(0,' + height + ')')
         .call(xAxis);
-    
+
     var yTop = svg.append('g') // Add the Y Axis
         .attr('class', 'y axis')
         .call(yAxis);
@@ -217,7 +217,7 @@ function draw_graph(id, graphic_width) {
             .tickSize(-height, 0, 0)
             .tickFormat('')
         );
-        
+
     var underbars = svg.append('g')
         .attr('class', 'underbars')
         .selectAll('rect')
@@ -246,14 +246,14 @@ function draw_graph(id, graphic_width) {
         .selectAll('circle')
             .data(graphic_data)
         .enter().append('circle')
-            .attr('cy', function(d,i) { 
+            .attr('cy', function(d,i) {
                 return ((bar_height + bar_gap) * i) + (bar_height / 2);
             })
-            .attr('cx', function(d) { 
+            .attr('cx', function(d) {
                 return x(d['value'][0]['amt']);
             })
             .attr('r', dot_radius)
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return classify(d['key']);
             })
             .attr('fill', colors['blue5']);
@@ -263,18 +263,18 @@ function draw_graph(id, graphic_width) {
         .selectAll('circle')
             .data(graphic_data)
         .enter().append('circle')
-            .attr('cy', function(d,i) { 
+            .attr('cy', function(d,i) {
                 return ((bar_height + bar_gap) * i) + (bar_height / 2);
             })
-            .attr('cx', function(d) { 
+            .attr('cx', function(d) {
                 return x(d['value'][1]['amt']);
             })
             .attr('r', dot_radius)
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return classify(d['key']);
             })
             .attr('fill', colors['blue2']);
-        
+
     var values_2000 = svg.append('g')
         .attr('class', 'value value-2000')
         .selectAll('text')
@@ -283,7 +283,7 @@ function draw_graph(id, graphic_width) {
             .attr('x', function(d) {
                 return x(d['value'][0]['amt']);
             })
-            .attr('y', function(d, i) { 
+            .attr('y', function(d, i) {
                 return ((bar_height + bar_gap) * i);
             })
             .attr('dx', function(d) {
@@ -301,10 +301,10 @@ function draw_graph(id, graphic_width) {
                     return 'end';
                 }
             })
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return classify(d['key'])
             })
-            .text(function(d,i) { 
+            .text(function(d,i) {
                 return d['value'][0]['amt'].toFixed(0);
             });
     var values_2010 = svg.append('g')
@@ -315,7 +315,7 @@ function draw_graph(id, graphic_width) {
             .attr('x', function(d) {
                 return x(d['value'][1]['amt']);
             })
-            .attr('y', function(d, i) { 
+            .attr('y', function(d, i) {
                 return ((bar_height + bar_gap) * i);
             })
             .attr('dx', function(d) {
@@ -333,10 +333,10 @@ function draw_graph(id, graphic_width) {
                     return 'begin';
                 }
             })
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return classify(d['key'])
             })
-            .text(function(d,i) { 
+            .text(function(d,i) {
                 return d['value'][1]['amt'].toFixed(0);
             });
 }
@@ -358,17 +358,17 @@ function classify(str) { // clean up strings to use as CSS classes
 $(window).load(function() {
     if (Modernizr.svg) {
         $graphic = $('#graphic');
-        
+
         graphic_data.forEach(function(v,k) {
-            console.log(v,k);
+            // console.log(v,k);
             var amt0 = v['value'][0]['amt'];
             var amt1 = v['value'][1]['amt'];
             var decrease = false;
-            
+
             if (amt1 < amt0) {
                 decrease = true;
             }
-            
+
             v['decrease'] = decrease;
         });
 

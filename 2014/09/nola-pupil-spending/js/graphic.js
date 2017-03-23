@@ -42,7 +42,7 @@ function render(container_width) {
     } else {
         is_mobile = false;
     }
-    
+
     // clear out existing graphics
     $graphic.empty();
 
@@ -60,7 +60,7 @@ function draw_graph(width) {
     var graphic_aspect_width;
     var height;
     var last_data_point = graphic_data.length - 1;
-    console.log(last_data_point);
+    // console.log(last_data_point);
     var margin = { top: 5, right: 50, bottom: 20, left: 60 };
     var num_x_ticks;
     var num_y_ticks = 6;
@@ -114,14 +114,14 @@ function draw_graph(width) {
 
     var line = d3.svg.line()
         .interpolate('monotone')
-        .x(function(d) { 
+        .x(function(d) {
             return x(d['date']);
         })
-        .y(function(d) { 
+        .y(function(d) {
             return y(d['amt']);
         });
-        
-    color.domain(d3.keys(graphic_data[0]).filter(function(key) { 
+
+    color.domain(d3.keys(graphic_data[0]).filter(function(key) {
         return key !== 'date';
     }));
 
@@ -135,18 +135,18 @@ function draw_graph(width) {
             return d['amt'] != null;
         });
     }
-    
-    
+
+
     // set the data domain
-    x.domain(d3.extent(graphic_data, function(d) { 
+    x.domain(d3.extent(graphic_data, function(d) {
         return d['date'];
     }));
 
-    y.domain([ 0, d3.max(d3.entries(formatted_data), function(c) { 
-            return d3.max(c['value'], function(v) { 
+    y.domain([ 0, d3.max(d3.entries(formatted_data), function(c) {
+            return d3.max(c['value'], function(v) {
                 var n = v['amt'];
                 return Math.ceil(n/5000) * 5000; // round to next 5K
-            }); 
+            });
         })
     ]);
 
@@ -158,7 +158,7 @@ function draw_graph(width) {
             .selectAll('g')
                 .data(d3.entries(formatted_data))
             .enter().append('li')
-                .attr('class', function(d, i) { 
+                .attr('class', function(d, i) {
                     return 'key-item key-' + i + ' ' + classify(d['key']);
                 });
     legend.append('b')
@@ -196,7 +196,7 @@ function draw_graph(width) {
             .tickFormat('')
         );
 
-    var yGrid = svg.append('g')         
+    var yGrid = svg.append('g')
         .attr('class', 'y grid')
         .call(y_axis_grid()
             .tickSize(-width, 0, 0)
@@ -228,13 +228,13 @@ function draw_graph(width) {
             .attr('class', function(d, i) {
                 return 'value-' + i + ' ' + classify(d['key']);
             })
-            .attr('x', function(d) { 
+            .attr('x', function(d) {
                 if (d['key'] == 'New Orleans 2' || d['key'] == 'Louisiana 2') {
                     var last_point = d['value'].length - 1;
                     return x(d['value'][last_point]['date']) + 6;
                 }
             })
-            .attr('y', function(d) { 
+            .attr('y', function(d) {
                 if (d['key'] == 'New Orleans 2' || d['key'] == 'Louisiana 2') {
                     var last_point = d['value'].length - 1;
                     var ypos = y(d['value'][last_point]['amt']);
@@ -243,7 +243,7 @@ function draw_graph(width) {
             })
             .attr('dy', 4)
             .attr('text-anchor', 'left')
-            .text(function(d) { 
+            .text(function(d) {
                 if (d['key'] == 'New Orleans 2' || d['key'] == 'Louisiana 2') {
                     var last_point = d['value'].length - 1;
                     var amt = +d['value'][last_point]['amt'];
@@ -269,7 +269,7 @@ function classify(str) { // clean up strings to use as CSS classes
 $(window).load(function() {
     if (Modernizr.svg) {
         $graphic = $('#graphic');
-        
+
         graphic_data.forEach(function(d) {
             d['date'] = d3.time.format('%Y').parse(d['date']);
         });

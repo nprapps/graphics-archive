@@ -24,7 +24,7 @@ var onWindowLoaded = function() {
 var loadJSON = function() {
     d3.json(GEO_DATA_URL, function(error, data) {
         geoData = data;
-        console.log(geoData);
+        // console.log(geoData);
 
         // recast amts as numbers
         DATA.forEach(function(d, i) {
@@ -96,7 +96,7 @@ var renderWorldMap = function(config) {
 
     for (var key in config['data']['objects']) {
         mapData[key] = topojson.feature(config['data'], config['data']['objects'][key]);
-        console.log(mapData[key]);
+        // console.log(mapData[key]);
     }
 
     /*

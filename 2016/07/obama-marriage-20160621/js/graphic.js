@@ -65,7 +65,7 @@ var render = function(containerWidth) {
                 colorRange = [ COLORS['blue2'], COLORS['blue4'] ];
                 break;
         }
-        console.log(colorRange);
+        // console.log(colorRange);
 
         // Render the map!
         renderStateGridMap({
@@ -115,7 +115,7 @@ var renderStateGridMap = function(config) {
     var colorScale = d3.scale.ordinal()
         .domain(categories)
         .range(config['colorRange']);
-    console.log(colorScale.range());
+    // console.log(colorScale.range());
 
     // Create legend
     var legendElement = containerElement.select('.key');

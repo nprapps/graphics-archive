@@ -12,7 +12,7 @@ var colors = {
 // "voting"
 function on_vote_button_pressed(evt) {
     var p = $(this).parents('div.prompt');
-    
+
     p.addClass('answered');
 
     if (pymChild) {
@@ -25,7 +25,7 @@ function on_vote_button_pressed(evt) {
  * to ensure all images have loaded
  */
 $(window).load(function() {
-    console.log(audio_files);
+    // console.log(audio_files);
 
     $btn_vote = $('.btn-vote');
 

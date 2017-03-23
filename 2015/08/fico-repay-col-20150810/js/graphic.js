@@ -161,10 +161,10 @@ var renderColumnChart = function(config) {
             if (isMobile) {
                 if (i%4==0) {
                 return d;
-                } 
+                }
             } else {
                 if (i%2==0) {
-                return d;                    
+                return d;
                 }
             }
         });
@@ -234,7 +234,7 @@ var renderColumnChart = function(config) {
                 return 'bar bar-' + d[labelColumn];
             })
             .attr('fill', function(d,i) {
-                console.log(i)
+                // console.log(i)
                 if(i<6) {
                     return COLORS['teal6']
                 } else if (i < 12) {
@@ -248,7 +248,7 @@ var renderColumnChart = function(config) {
                 } else {
                     return COLORS['teal1']
                 }
- 
+
             })
 
     /*

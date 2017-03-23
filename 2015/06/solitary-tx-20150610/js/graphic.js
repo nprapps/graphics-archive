@@ -61,7 +61,7 @@ var render = function(containerWidth) {
 
     var size = Math.floor((containerWidth - 40) / 2) - 1;
 
-    console.log(size);
+    // console.log(size);
 
     d3.select('.chart-wrapper.left')
         .style('width', size + 40 + 'px')

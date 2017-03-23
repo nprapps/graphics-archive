@@ -322,7 +322,7 @@ var renderLineChart = function(config) {
         .attr('transform', 'translate(' + (-margins['left'] + 11) + ', ' + ((chartHeight / 2) + margins['top']) + ') rotate(-90)')
         .attr('class', 'axis-label');
 
-    console.log(config['data']);
+    // console.log(config['data']);
     annotations.append('text')
         .text('Storage limit')
         .attr('transform', 'translate(6, ' + (yScale(config['data'][1]['values'][0]['amt']) - 6) + ')')

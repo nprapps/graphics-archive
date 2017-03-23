@@ -325,7 +325,7 @@ var renderLineChart = function(config) {
         .attr('class', 'top')
         .text('Express Scripts drops Advair.');
 
-    console.log(config['data'][0]['values'][30]);
+    // console.log(config['data'][0]['values'][30]);
 
     annotation.append('circle')
         .attr('cx', xScale(config['data'][0]['values'][30][dateColumn]))

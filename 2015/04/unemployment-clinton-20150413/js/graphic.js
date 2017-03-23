@@ -28,7 +28,7 @@ var fmtYearFull = d3.time.format('%Y');
 var onWindowLoaded = function() {
     if (Modernizr.svg) {
         $graphic = $('#graphic');
-        
+
         ADMINS_DATA.forEach(function(d) {
             d['date_begin'] = d3.time.format('%m/%d/%Y').parse(d['date_begin']);
         });
@@ -36,14 +36,14 @@ var onWindowLoaded = function() {
         GRAPHIC_DATA.forEach(function(d) {
             var thisMonth = d['Period'].slice(1,3);
             var thisYear = d['Year'];
-            
+
             d['date'] = d3.time.format('%m/%Y').parse(thisMonth + '/' + thisYear);
 
             delete d['Period'];
             delete d['Year'];
         });
-        
-        console.log(GRAPHIC_DATA[0]);
+
+        // console.log(GRAPHIC_DATA[0]);
 
         pymChild = new pym.Child({
             renderCallback: render
@@ -156,7 +156,7 @@ var drawGraph = function(graphicWidth) {
 
     // define the line(s)
     var line = d3.svg.line()
-        .defined(function(d) { 
+        .defined(function(d) {
             return d['amt'] != null;
         })
         .interpolate('monotone')
@@ -252,7 +252,7 @@ var drawGraph = function(graphicWidth) {
             .attr('class', function(d, i) {
                 return 'admin admin-' + i + ' ' + classify(d['president']);
             });
-    
+
     admins
         .append('line')
             .attr('x1', function(d) {

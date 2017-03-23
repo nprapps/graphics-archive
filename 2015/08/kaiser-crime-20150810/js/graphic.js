@@ -26,7 +26,7 @@ var loadLocalData = function(data) {
     graphicData = data;
 
     formatData();
-    
+
     pymChild = new pym.Child({
         renderCallback: render
     });
@@ -64,11 +64,11 @@ var formatData = function() {
  */
 var render = function(containerWidth) {
     var graphicWidth = null;
-    
+
     if (!containerWidth) {
         containerWidth = GRAPHIC_DEFAULT_WIDTH;
     }
-    
+
     if (containerWidth <= MOBILE_THRESHOLD) {
         isMobile = true;
         graphicWidth = containerWidth;
@@ -76,8 +76,8 @@ var render = function(containerWidth) {
         isMobile = false;
         graphicWidth = Math.floor((containerWidth - 22) / 2);
     }
-    
-    console.log(containerWidth, graphicWidth);
+
+    // console.log(containerWidth, graphicWidth);
 
     // Clear existing graphic (for redraw)
     var containerElement = d3.select('#graphic');
@@ -89,11 +89,11 @@ var render = function(containerWidth) {
         var questionContainer = containerElement.append('div')
             .attr('class', 'question')
             .attr('id', q);
-        
+
         if (!isMobile) {
             questionContainer.style('width', graphicWidth + 'px');
         }
-        
+
         renderBarChart({
             container: '#' + q,
             width: graphicWidth,
@@ -140,7 +140,7 @@ var renderBarChart = function(config) {
 
     // Define container element
     var containerElement = d3.select(config['container']);
-    
+
     // header
     containerElement.append('h3')
         .html(config['title']);
@@ -171,12 +171,12 @@ var renderBarChart = function(config) {
     var xScale = d3.scale.linear()
         .domain([ 0, 100 ])
         .range([0, chartWidth]);
-    
+
     // define color scale
     var colorScale = d3.scale.ordinal()
         .domain(_.pluck(config['data'], labelColumn))
         .range([ COLORS['teal1'], COLORS['teal3'], COLORS['teal5'] ]);
-    
+
     /*
      * Create D3 axes.
      */
@@ -328,9 +328,9 @@ var renderBarChart = function(config) {
             .attr('dy', (barHeight / 2) + 3)
 
     // Update iframe
-        console.log(pymChild);
+        // console.log(pymChild);
     if (pymChild) {
-        console.log('pymChild!');
+        // console.log('pymChild!');
         pymChild.sendHeight();
     }
 }

@@ -244,9 +244,9 @@ var drawGraph = function(graphicWidth, id, data) {
         .data(d3.entries(formattedData))
         .enter().append('text')
             .attr('x', function(d, i) {
-                console.log(d['value']);
+                // console.log(d['value']);
                 var last = d['value'][0];
-                console.log(last['date']);
+                // console.log(last['date']);
 
                 return x(last['date']) + 5;
             })
@@ -258,7 +258,7 @@ var drawGraph = function(graphicWidth, id, data) {
             })
             .text(function(d) {
                 var last = +d['value'][0]['amt'];
-                console.log(last);
+                // console.log(last);
                 return last.toFixed(0) + '%';
             });
 }

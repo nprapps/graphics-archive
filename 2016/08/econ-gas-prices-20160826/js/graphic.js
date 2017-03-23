@@ -75,7 +75,7 @@ var formatData = function() {
         });
     }
 
-    console.log(dataSeries);
+    // console.log(dataSeries);
 
     recession_dates.forEach(function(d) {
         d['begin'] = d3.time.format('%Y-%m-%d').parse(d['begin']);

@@ -59,7 +59,7 @@ for (var i = 1964; i <= 2014; i++) {
         datesWide.push(i);
     }
 }
-                    
+
 var datesMobile  = [
     // 1960,
     1970,
@@ -216,7 +216,7 @@ var onDataLoaded = function(error, data, topo) {
         d['year'] = +d['year'];
         d['value'] = +d['value'];
     });
-    console.log(topo)
+    // console.log(topo)
     topoData = topo['features'];
 
     pymChild = new pym.Child({
@@ -233,7 +233,7 @@ var render = function(containerWidth) {
     if (!containerWidth) {
         containerWidth = GRAPHIC_DEFAULT_WIDTH;
     }
-    
+
     // check the container width; set mobile flag if applicable
     if (containerWidth <= MOBILE_THRESHOLD) {
         isMobile = true;
@@ -262,19 +262,19 @@ var drawMap = function(graphicWidth) {
     if (isLoaded) {
         pauseAnimation();
     }
-    
+
     // clear out existing graphics
     $graphic.empty();
-    
+
     // define or update map dimensions
     updateDimensions(graphicWidth);
 
     var jobID = d3.map();
     i = 0;
-    
+
     var margin = {
-        top: 0, 
-        right: 0, 
+        top: 0,
+        right: 0,
         left: 0,
         bottom: 10
     }
@@ -314,7 +314,7 @@ var drawMap = function(graphicWidth) {
         .selectAll('path')
         .data(topoData)
         .enter().append('path')
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return 'state d' + d['id'];
             })
             .attr('d', mapPath)
@@ -329,7 +329,7 @@ var drawMap = function(graphicWidth) {
             .attr('class', function(d) {
                 return 'state-id d' + d['id'];
             })
-            .attr('transform', function(d) { 
+            .attr('transform', function(d) {
                 return 'translate(' + mapPath.centroid(d) + ')';
             })
             .attr('dy', '.35em')
@@ -359,7 +359,7 @@ var drawMap = function(graphicWidth) {
         )
         .attr('transform', 'translate(' + SLIDER_OFFSET['left'] + ',' + (mapHeight + SLIDER_OFFSET['top']) + ')');
 
-    
+
     var sliderBar = svg.append('g')
         .attr('class', 'xbar')
         .append('line')
@@ -372,8 +372,8 @@ var drawMap = function(graphicWidth) {
         .append('line')
         .attr('transform', 'translate(' + SLIDER_OFFSET['left'] + ',' + (mapHeight + SLIDER_OFFSET['top']) + ')')
         .attr('x1', x(1964))
-        .attr('x2', x(2014));        
-    
+        .attr('x2', x(2014));
+
     sliderBrush = d3.svg.brush()
         .x(x)
         .extent([1964,2014])
@@ -398,7 +398,7 @@ var drawMap = function(graphicWidth) {
     sliderHandle = slider.append('svg:image')
         .attr('class', 'handle')
         .attr('transform', 'translate(0,' + mapHeight + ')')
-        .attr('xlink:href', 'slider.png')    
+        .attr('xlink:href', 'slider.png')
         .attr('width', 150)
         .attr('height', 20)
         .attr('x', x(1964)-75);
@@ -410,19 +410,19 @@ var drawMap = function(graphicWidth) {
         'width': TOGGLE_WIDTH + 'px'
     });
     $('#graphic').append(toggle);
-    
+
     $pauseButton = $('#btn-pause');
     $playButton = $('#btn-play');
-    
+
     $pauseButton.on('click', onPauseClicked);
     $playButton.on('click', onPlayClicked);
     $playButton.hide();
-    
+
 
     // get things going
     changeColor(selectedYear);
     startAnimation();
-    
+
     isLoaded = true;
 
     // hard-coded adjustments
@@ -505,22 +505,22 @@ var changeClass = function(d) {
     // console.log(d)
 
     if (!isMobile) {
-        d3.select('.state-id.d' + d['id']).text(d['value'] + "%");    
+        d3.select('.state-id.d' + d['id']).text(d['value'] + "%");
     } else {
-        d3.select('.state-id.d' + d['id']).text(Math.round(d['value'],0) + "%");            
-    }   
+        d3.select('.state-id.d' + d['id']).text(Math.round(d['value'],0) + "%");
+    }
 
-    if (d['value'] <= 8) { 
+    if (d['value'] <= 8) {
         d3.select('path.d' + d['id']).classed('u0',true);
-    } else if (d['value'] > 8 && d['value'] <=13) { 
+    } else if (d['value'] > 8 && d['value'] <=13) {
         d3.select('path.d' + d['id']).classed('u5',true);
-    } else if (d['value'] > 13 && d['value'] <=18) { 
+    } else if (d['value'] > 13 && d['value'] <=18) {
         d3.select('path.d' + d['id']).classed('u10',true);
-    } else if (d['value'] > 18 && d['value'] <=24) { 
+    } else if (d['value'] > 18 && d['value'] <=24) {
         d3.select('path.d' + d['id']).classed('u15',true);
-    } else if (d['value'] > 24 && d['value'] <=31) { 
+    } else if (d['value'] > 24 && d['value'] <=31) {
         d3.select('path.d' + d['id']).classed('u20',true);
-    } else if (d['value'] > 31) { 
+    } else if (d['value'] > 31) {
         d3.select('path.d' + d['id']).classed('u25',true);
     }
  }
@@ -551,7 +551,7 @@ var startAnimation = function() {
 var pauseAnimation = function() {
     clearInterval(animationTimer);
     isAnimating = false;
-    
+
     $pauseButton.hide();
     $playButton.show();
 }

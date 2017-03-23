@@ -112,7 +112,7 @@ var renderCountdown = function() {
     parties.forEach(function(d,i) {
         var containerElement = d3.select('.results.' + d);
         var partyData = graphicData[d]['WI'][0];
-        console.log(partyData);
+        // console.log(partyData);
 
         var partyResults = partyData['results'].sort(function(a, b) {
             return d3.descending(a['votecount'], b['votecount']);

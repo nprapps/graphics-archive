@@ -333,7 +333,7 @@ var renderLineChart = function(config) {
             if (i > 0) {
                 return 14;
             } else {
-                console.log(d3.select(this));
+                // console.log(d3.select(this));
                 d3.select(this).attr('style', 'fill: #999');
             }
         });

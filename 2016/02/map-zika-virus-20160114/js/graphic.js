@@ -215,11 +215,11 @@ var renderLocatorMap = function(config) {
                     var id = d['id'];
                     // Does this country exist in the spreadsheet?
                     if (typeof config['dataIndexed'][id] == 'undefined') {
-                        console.log('no data for: ' + id);
+                        // console.log('no data for: ' + id);
                         return colorNoData;
                     // Is it null in the spreadsheet?
                     } else if (config['dataIndexed'][id][dataColumn] == null) {
-                        console.log('no data for: ' + config['dataIndexed'][id]['name']);
+                        // console.log('no data for: ' + config['dataIndexed'][id]['name']);
                         return colorNoData;
                     // Or does it have actual data?
                     } else {
@@ -272,11 +272,11 @@ var renderLocatorMap = function(config) {
                                 centroid = d3.geo.centroid(country[0][0]['__data__']);
                             // or maybe the point doesn't exist
                             } else {
-                                console.log('no centroid for: ' + d['name']);
+                                // console.log('no centroid for: ' + d['name']);
                             }
                         // or maybe the point doesn't exist
                         } else {
-                            console.log('no lat/lon info for: ' + d['name']);
+                            // console.log('no lat/lon info for: ' + d['name']);
                         }
 
                         return 'translate(' + projection(centroid) + ')'; }

@@ -38,7 +38,7 @@ function render(container_width) {
         is_mobile = false;
         graphic_width = Math.floor(container_width / 1.3);
     }
-    
+
     // clear out existing graphics
     $graphic.empty();
 
@@ -113,14 +113,14 @@ function draw_graph(id, graphic_width) {
 
     var line = d3.svg.line()
         .interpolate('linear')
-        .x(function(d) { 
+        .x(function(d) {
             return x(d['date']);
         })
-        .y(function(d) { 
+        .y(function(d) {
             return y(d['amt']);
         });
-        
-    color.domain(d3.keys(graphic_data[0]).filter(function(key) { 
+
+    color.domain(d3.keys(graphic_data[0]).filter(function(key) {
         return key == id;
     }));
 
@@ -134,26 +134,26 @@ function draw_graph(id, graphic_width) {
             return d['amt'].length > 0;
         });
     }
-    
-    
+
+
     // set the data domain
-    x.domain(d3.extent(graphic_data, function(d) { 
+    x.domain(d3.extent(graphic_data, function(d) {
         return d['date'];
     }));
 
     var min = 0;
     // var max = 0;
 
-    // if (id = 'tot') {min = 0} 
+    // if (id = 'tot') {min = 0}
     // if (id == 'tot') {
     //     console.log("tot");
-    //     min = 450} 
+    //     min = 450}
 
 
-    y.domain([ min, d3.max(d3.entries(formatted_data), function(c) { 
-            return d3.max(c['value'], function(v) { 
+    y.domain([ min, d3.max(d3.entries(formatted_data), function(c) {
+            return d3.max(c['value'], function(v) {
                 var n = v['amt'];
-                console.log(n)
+                // console.log(n)
                 switch(id) {
                     case 'tot':
                         return Math.ceil(n/300) * 300; // round to next 5
@@ -162,7 +162,7 @@ function draw_graph(id, graphic_width) {
                         return Math.ceil(n/100) * 100; // round to next 5
                         break;
                 }
-            }); 
+            });
         })
     ]);
 
@@ -176,10 +176,10 @@ console.log(formatted_data)
         .append('div')
             .attr('class', 'chart ' + id)
             .attr('style', 'width: ' + graphic_width + 'px;');
-    
+
     var header = chart.append('h1')
         .text(headers[id]);
-    
+
     var svg = chart.append('svg')
         .attr('width', width + margin['left'] + margin['right'])
         .attr('height', height + margin['top'] + margin['bottom'])
@@ -219,7 +219,7 @@ console.log(formatted_data)
             .tickFormat('')
         );
 
-    var yGrid = svg.append('g')         
+    var yGrid = svg.append('g')
         .attr('class', 'y grid')
         .call(y_axis_grid()
             .tickSize(-width, 0, 0)
@@ -275,7 +275,7 @@ $(window).load(function() {
             graphic_data.forEach(function(d) {
                 d['date'] = d3.time.format('%Y').parse(d['date']);
             });
-            
+
 
             var pymChild = new pym.Child({
                 renderCallback: render

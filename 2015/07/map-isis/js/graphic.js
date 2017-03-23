@@ -200,7 +200,7 @@ var renderMap = function(width){
     var width = width < 660 ? width : 660;
 
     aspectHeight = width <= 320 ? 6 : 4.5;
-    console.log(aspectHeight);
+    // console.log(aspectHeight);
     var height = Math.ceil((width * aspectHeight) / aspectWidth);
 
     d3.select('svg').remove();

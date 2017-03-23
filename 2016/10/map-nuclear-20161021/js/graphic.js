@@ -82,7 +82,7 @@ var renderStateGridMap = function(config) {
     });
 
     // Define color scale
-    console.log(categories);
+    // console.log(categories);
     var colorScale = d3.scale.ordinal()
         .domain(categories)
         .range(['#D3D3D3',COLORS['orange5'], COLORS['orange3'], COLORS['orange2'], COLORS['orange1'], COLORS['teal3']]);
@@ -91,7 +91,7 @@ var renderStateGridMap = function(config) {
     var legendElement = containerElement.select('.key');
 
     _.each(colorScale.domain(), function(key, i) {
-        console.log(key, i);
+        // console.log(key, i);
         var keyItem = legendElement.append('li')
             .attr('class', function() {
                 if (i===0) {

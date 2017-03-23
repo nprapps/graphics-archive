@@ -389,7 +389,7 @@ d3.selection.prototype.moveToFront = function() {
 
 
 var renderGraphic = function(config) {
-    console.log(config['data']);
+    // console.log(config['data']);
 
     var aspectWidth = 4;
     var aspectHeight = 3;

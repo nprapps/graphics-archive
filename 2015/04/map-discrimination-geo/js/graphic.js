@@ -87,12 +87,12 @@ var onDataLoaded = function(error, data, topo) {
 
     graphicData.forEach(function(d) {
         d['value'] = +d['value'];
-        
+
         var yearData = eval('graphicData' + d['year']);
 //        yearData.push(d);
         yearData[d['state']] = d['value'];
     });
-    
+
     topoData = topo['features'];
 
     pymChild = new pym.Child({
@@ -137,14 +137,14 @@ var render = function(containerWidth) {
  */
 var drawMap = function(graphicWidth) {
     var yearData = eval('graphicData' + selectedYear);
-    console.log(yearData);
+    // console.log(yearData);
 
     // define or update map dimensions
     updateDimensions(graphicWidth);
 
     var margin = {
-        top: 0, 
-        right: 0, 
+        top: 0,
+        right: 0,
         left: 0,
         bottom: 10
     }
@@ -152,7 +152,7 @@ var drawMap = function(graphicWidth) {
     color = d3.scale.threshold()
         .domain(color_bins) // bins
         .range(color_range); // color palette
-        
+
    colorLabels = d3.scale.threshold()
         .domain(color_bins) // bins
         .range(color_range_labels); // color palette
@@ -161,7 +161,7 @@ var drawMap = function(graphicWidth) {
 //     var legend = d3.select('#graphic')
 //         .append('ul')
 //             .attr('class', 'key');
-//     
+//
 //     var bins = legend.selectAll('g')
 //         .data(color_bins)
 //         .enter().append('li')
@@ -183,7 +183,7 @@ var drawMap = function(graphicWidth) {
 //             }
 //             return d['key'];
 //         });
-        
+
 //     var legend = d3.select('#graphic ul.key')
 //         .append('li')
 //             .attr('class', 'key-item key-' + color_bins_count);
@@ -216,7 +216,7 @@ var drawMap = function(graphicWidth) {
         .selectAll('path')
         .data(topoData)
         .enter().append('path')
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return 'state d' + d['id'];
             })
             .attr('d', mapPath)

@@ -54,15 +54,15 @@ var loadCSV = function(url) {
 var formatData = function() {
     var groups = _.pluck(graphicData, 'group');
     groups = d3.set(groups).values();
-    
+
     var group0 = [];
     var group1 = [];
     var group2 = [];
     var group3 = [];
-    
+
     graphicData.forEach(function(d) {
         var grpData = eval('group' + d['group_id']);
-        
+
         if (d['gdp_capita'] == undefined) {
             d['gdp_capita'] = 1;
         } else {
@@ -77,7 +77,7 @@ var formatData = function() {
     });
 
     formattedData = { 'country': 'UN climate negotiating groups',
-                      'children': [ 
+                      'children': [
                         { 'country': groups[0],
                           'children': group0 },
                         { 'country': groups[1],
@@ -88,7 +88,7 @@ var formatData = function() {
                           'children': group3 } ]
                     };
 
-    console.log(formattedData);
+    // console.log(formattedData);
 }
 
 /*
@@ -129,14 +129,14 @@ var renderCircleChart = function(config) {
     var pack = d3.layout.pack()
         .sort(null)
         .size([ diameter - 4, diameter - 4 ])
-        .value(function(d) { 
+        .value(function(d) {
 //            return d['gdp_capita'];
             return d['emissions'];
 //            return 10;
         });
-    
+
     var nodes = pack.nodes(config['data']);
-    
+
     var containerElement = d3.select(config['container']);
     containerElement.html('');
 
@@ -150,7 +150,7 @@ var renderCircleChart = function(config) {
         .selectAll('.node')
             .data(pack.nodes)
         .enter().append('g')
-        .attr('class', function(d) { 
+        .attr('class', function(d) {
             var c = classify(d['country']);
             if (d['children']) {
                 c += ' node';
@@ -159,12 +159,12 @@ var renderCircleChart = function(config) {
             }
             return c;
         })
-        .attr('transform', function(d) { 
+        .attr('transform', function(d) {
             return 'translate(' + d['x'] + ',' + d['y'] + ')';
         });
 
     node.append('title')
-        .text(function(d) { 
+        .text(function(d) {
             return d['country'] + (d['children'] ? '' : ': ' + format(d['group_id']));
         });
 
@@ -172,16 +172,16 @@ var renderCircleChart = function(config) {
         .attr('class', function(d) {
             return classify(d['country']);
         })
-        .attr('r', function(d) { 
+        .attr('r', function(d) {
             return d['r'];
         });
 
-//     node.filter(function(d) { 
-//         return !d['children']; 
+//     node.filter(function(d) {
+//         return !d['children'];
 //     }).append('text')
 //         .attr('dy', '.3em')
 //         .style('text-anchor', 'middle')
-//         .text(function(d) { 
+//         .text(function(d) {
 //             return d['country'].substring(0, d['r'] / 3);
 //         });
 }

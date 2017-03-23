@@ -68,7 +68,7 @@ var render = function(containerWidth) {
     if (!containerWidth) {
         containerWidth = GRAPHIC_DEFAULT_WIDTH;
     }
-    
+
     var graphicWidth = null;
     var gutterWidth = 22;
     var numAcross = null;
@@ -88,7 +88,7 @@ var render = function(containerWidth) {
 
     var categories = _.pluck(graphicData, 'label');
     var yDomain = [ 0, 100 ];
-    
+
     for (var c in categories) {
 //         if (categories[c] != 'Other') {
             var cData = graphicData.filter(function(d) {
@@ -109,7 +109,7 @@ var render = function(containerWidth) {
                     }
                     return s;
                 });
-        
+
             renderSlopegraph({
                 container: '#' + classify(categories[c]),
                 width: graphicWidth,
@@ -120,7 +120,7 @@ var render = function(containerWidth) {
             });
 //         }
     }
-    
+
     // Update iframe
     if (pymChild) {
         pymChild.sendHeight();
@@ -157,7 +157,7 @@ var renderSlopegraph = function(config) {
         bottom: 20,
         left: 30
     };
-    
+
     var ticksX = 2;
     var ticksY = 10;
     var roundTicksFactor = 4;
@@ -171,7 +171,7 @@ var renderSlopegraph = function(config) {
     // Clear existing graphic (for redraw)
     var containerElement = d3.select(config['container']);
     containerElement.html('');
-    
+
     containerElement.append('h3')
         .attr('style', function() {
             var s = '';
@@ -268,7 +268,7 @@ var renderSlopegraph = function(config) {
         coordinates.push({ 'x': xScale(xScale.domain()[1]),
                            'y': yScale(d[endColumn]) });
     }
-    console.log(coordinates);
+    // console.log(coordinates);
 
     chartElement.append('g')
         .attr('class', 'area')

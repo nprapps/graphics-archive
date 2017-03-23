@@ -321,7 +321,7 @@ var renderStackedBarChart = function(config) {
 var renderElectoralMap = function(config) {
     var dataColumn = config['dataCol'];
     var flagColumn = config['flagCol'];
-    console.log(dataColumn, flagColumn);
+    // console.log(dataColumn, flagColumn);
 
     // Copy map template
     var containerElement = d3.select(config['container'])

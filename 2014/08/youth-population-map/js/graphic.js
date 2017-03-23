@@ -38,7 +38,7 @@ function ready(error, data_countries, data_soda) {
     // uncompress topojson into geojson
     geo_countries = topojson.feature(data_countries, data_countries['objects']['countries']).features;
     geo_land = topojson.feature(data_countries, data_countries['objects']['land']);
-    
+
     data_soda.forEach(function(d) {
         if (d['rate'] != undefined && d['rate'].length > 0) {
             rate_by_id[d.id] = +d['rate'];
@@ -71,11 +71,11 @@ function draw_map(width) {
     color = d3.scale.threshold()
         .domain(color_bins) // bins
         .range(color_range); // color palette
-    
+
     projection = d3.geo.miller()
         .scale(scale) // zoom level or size
         .translate([width/2 * .97, height/2 * 1.27]);
-    
+
     path = d3.geo.path()
         .projection(projection); // apply projection to the map
 
@@ -104,7 +104,7 @@ function draw_map(width) {
             }
             return d['key'];
         });
-        
+
     var legend_no_data = d3.select('#graphic ul.key')
         .append('li')
             .attr('class', 'key-item key-' + color_bins_count);
@@ -118,7 +118,7 @@ function draw_map(width) {
     svg = d3.select('#graphic').append('svg')
         .attr('width', width)
         .attr('height', height);
-        
+
     defs = svg.append('defs');
     filter = defs.append('filter')
         .attr('id', 'dropshadow');
@@ -156,7 +156,7 @@ function draw_map(width) {
                     }
                 });
 /*                .on('mouseover', function(d) {
-                    console.log(rate_by_id[d['id']]);
+                    // console.log(rate_by_id[d['id']]);
                     d3.select(this).attr('class', 'active');
                 })
                 .on('mouseout', function(d) {
@@ -166,7 +166,7 @@ function draw_map(width) {
     if (pymChild) {
         pymChild.sendHeightToParent();
     }
-    
+
     init_load = true;
 }
 
@@ -195,7 +195,7 @@ function update_map() {
             .attr('d', path);
 
     svg.selectAll('circle')
-        .attr('transform', function(d) { 
+        .attr('transform', function(d) {
             return 'translate(' + path.centroid(d) + ')';
         })
 

@@ -278,7 +278,7 @@ var renderStackedColumnChart = function(config) {
         .data(config['data'])
         .enter().append('text')
             .text(function(d) {
-                console.log(d);
+                // console.log(d);
                 var val = d['total']/1000000;
 
                 return '$' + val.toFixed(1) + 'M';

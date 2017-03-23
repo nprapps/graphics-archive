@@ -82,7 +82,7 @@ function draw_graph(width, graphic_data, name) {
         num_y_ticks = 10;
     }
 
-    console.log(graphic_data,name)
+    // console.log(graphic_data,name)
     width = width - margin['left'] - margin['right'];
     height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin['top'] - margin['bottom'];
 
@@ -115,28 +115,28 @@ function draw_graph(width, graphic_data, name) {
 
     var line = d3.svg.line()
         .interpolate('basis')
-        .x(function(d) { 
+        .x(function(d) {
             return x(d['date']);
         })
-        .y(function(d) { 
+        .y(function(d) {
             return y(d['amt']);
         });
-        
-    color.domain(d3.keys(graphic_data[0]).filter(function(key) { 
+
+    color.domain(d3.keys(graphic_data[0]).filter(function(key) {
         return key !== 'date';
     }));
 
 
-    
+
     // set the data domain
-    x.domain(d3.extent(graphic_data, function(d) { 
+    x.domain(d3.extent(graphic_data, function(d) {
         return d['date'];
     }));
 
-    y.domain([ 0, d3.max(graphic_data, function(c) { 
+    y.domain([ 0, d3.max(graphic_data, function(c) {
                 var n = c['amt'];
                 return Math.ceil(n/5) * 5; // round to next 5
-            }) 
+            })
     ]);
 
 console.log('graphic_data', d3.entries(graphic_data))
@@ -148,7 +148,7 @@ console.log('graphic_data', d3.entries(graphic_data))
     //         .selectAll('g')
     //             .data(d3.entries(graphic_data))
     //         .enter().append('li')
-    //             .attr('class', function(d, i) { 
+    //             .attr('class', function(d, i) {
     //                 return 'key-item key-' + i + ' ' + classify(d['key']);
     //             });
     // legend.append('b')
@@ -186,7 +186,7 @@ console.log('graphic_data', d3.entries(graphic_data))
             .tickFormat('')
         );
 
-    var yGrid = svg.append('g')         
+    var yGrid = svg.append('g')
         .attr('class', 'y grid')
         .call(y_axis_grid()
             .tickSize(-width, 0, 0)
@@ -232,7 +232,7 @@ $(window).load(function() {
             graphic_data.forEach(function(d) {
                 d['date'] = d3.time.format('%Y').parse(d['date']);
             });
-            
+
             var pymChild = new pym.Child({
                 renderCallback: render
             });

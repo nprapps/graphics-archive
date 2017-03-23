@@ -45,7 +45,7 @@ var colors = {
  */
 function render(container_width) {
     var graphic_width;
-    console.log('container_width',container_width)
+    // console.log('container_width',container_width)
 
     if (!container_width) {
         container_width = graphic_default_width;
@@ -57,7 +57,7 @@ function render(container_width) {
         is_mobile = false;
     }
 console.log('container_width1',container_width)
-    
+
     // clear out existing graphics
     $graphic.empty();
 
@@ -74,11 +74,11 @@ function draw_graph(width) {
     var graphic_aspect_height;
     var graphic_aspect_width;
     var height;
-    
+
     if (is_mobile) {
         var margin = { top: 15, right: 60, bottom: 30, left: 60 };
         } else {
-        var margin = { top: 15, right: 15, bottom: 30, left: 60 }; 
+        var margin = { top: 15, right: 15, bottom: 30, left: 60 };
     }
 
     var num_x_ticks;
@@ -136,13 +136,13 @@ function draw_graph(width) {
 
         line = d3.svg.line()
         .interpolate('monotone')
-        .x(function(d) { 
+        .x(function(d) {
             return x(d['date']);
         })
-        .y(function(d) { 
+        .y(function(d) {
             return y(d['amt']);
         });
-      
+
 
     color.domain(d3.keys(graphic_data[0]).filter(function(key) {
         return key !== 'date';
@@ -155,33 +155,33 @@ function draw_graph(width) {
         formatted_data[column] = graphic_data.map(function(d,i) {
             rawgroup = parseInt(column.substring(0,2));
             rawgroupExtent = (rawgroup<=20) ? "Bottom Quartile"
-            : (rawgroup>20 && rawgroup<=40) ? "Second Quartile"                    
-            : (rawgroup>40 && rawgroup<=60) ? "Middle Quartile"                    
-            : (rawgroup>60 && rawgroup<=80) ? "Fourth Quartile"                    
-            : (rawgroup>80 && rawgroup<=100) ? "Top Quartile"                    
+            : (rawgroup>20 && rawgroup<=40) ? "Second Quartile"
+            : (rawgroup>40 && rawgroup<=60) ? "Middle Quartile"
+            : (rawgroup>60 && rawgroup<=80) ? "Fourth Quartile"
+            : (rawgroup>80 && rawgroup<=100) ? "Top Quartile"
             : "none";
             groupD = (rawgroup<=20) ? "20th"
-            : (rawgroup>20 && rawgroup<=40) ? "40th"                    
-            : (rawgroup>40 && rawgroup<=60) ? "60th"                    
-            : (rawgroup>60 && rawgroup<=80) ? "80th"                    
-            : (rawgroup>80 && rawgroup<=100) ? "100th"                    
+            : (rawgroup>20 && rawgroup<=40) ? "40th"
+            : (rawgroup>40 && rawgroup<=60) ? "60th"
+            : (rawgroup>60 && rawgroup<=80) ? "80th"
+            : (rawgroup>80 && rawgroup<=100) ? "100th"
             : "none";
-            return { 'date': d['date'], 
-                    'amt': d[column], 
-                    'percentile': classify(column), 
-                    'percentile-long':column, 
-                    'percentile-long2':rawgroup + "th percentile", 
-                    'amt-long':d[column], 
-                    'group':groupD, 
+            return { 'date': d['date'],
+                    'amt': d[column],
+                    'percentile': classify(column),
+                    'percentile-long':column,
+                    'percentile-long2':rawgroup + "th percentile",
+                    'amt-long':d[column],
+                    'group':groupD,
                     'raw-group':rawgroup,
                     'raw-groupExtent':rawgroupExtent};
         }).filter(function(d) {
             return d['amt'].length > 0;
         });
     }
-    
+
     // set the data domain
-    x.domain(d3.extent(graphic_data, function(d) { 
+    x.domain(d3.extent(graphic_data, function(d) {
         return d['date'];
     }));
 
@@ -189,13 +189,13 @@ function draw_graph(width) {
 
 
 
-    formatted_data2 = d3.entries(formatted_data).filter(function(d){return d['key'] !="clear "}); 
+    formatted_data2 = d3.entries(formatted_data).filter(function(d){return d['key'] !="clear "});
 
     if (is_mobile) {;} else {
         var voronoi = d3.geom.voronoi()
             .x(function(d) { return x(d['date']); })
             .y(function(d) { return y(d['amt']); })
-            .clipExtent([[-margin.left, -margin.top], [width + margin.right, height + margin.bottom]]); 
+            .clipExtent([[-margin.left, -margin.top], [width + margin.right, height + margin.bottom]]);
     }
 
         // draw the chart
@@ -242,13 +242,13 @@ function draw_graph(width) {
             .append('path')
                 .attr('class', function(d, i) {
                     group = (i<=3) ? "20th"
-                            : (i>3 && i<=7) ? "40th"                    
-                            : (i>7 && i<=11) ? "60th"                    
-                            : (i>11 && i<=15) ? "80th"                    
-                            : (i>15 && i<=19) ? "100th"                    
+                            : (i>3 && i<=7) ? "40th"
+                            : (i>7 && i<=11) ? "60th"
+                            : (i>11 && i<=15) ? "80th"
+                            : (i>15 && i<=19) ? "100th"
                             : "none";
                     return "percentile-" + group + ' line line-' + classify(d['key']);
-                    
+
                 })
                 .attr('d', function(d) {
                     return line(d['value']);
@@ -269,30 +269,30 @@ function draw_graph(width) {
                 .attr('class','info-circle-focus')
                 .attr("cx", x(formatted_data['5 percentile'][0]['date']))
                 .attr("cy", y(1000000))
-                .attr("r", 6);   
+                .attr("r", 6);
 
         circle1 = svg.append('circle')
                 .attr('class','info-circle')
                 .attr("cx", x(formatted_data['5 percentile'][0]['date']))
                 .attr("cy", y(1000000))
-                .attr("r", 6);   
+                .attr("r", 6);
         circle2 = svg.append('circle')
                 .attr('class','info-circle')
                 .attr("cx", x(formatted_data['5 percentile'][40]['date']))
                 .attr("cy", y(1000000))
-                .attr("r", 6); 
+                .attr("r", 6);
         circle3 = svg.append('circle')
                 .attr('class','info-circle-highlight')
                 .attr("cx", x(formatted_data['5 percentile'][0]['date']))
                 .attr("cy", y(1000000))
-                .attr("r", 6);   
+                .attr("r", 6);
         circle4 = svg.append('circle')
                 .attr('class','info-circle-highlight')
                 .attr("cx", x(formatted_data['5 percentile'][40]['date']))
                 .attr("cy", y(1000000))
-                .attr("r", 6);   
+                .attr("r", 6);
 
-            
+
         if (!is_mobile) {
 
              	var tooltip = d3.select('#graphic')
@@ -312,8 +312,8 @@ function draw_graph(width) {
                   .datum(function(d) { return d.point; })
                   .on("mouseover", mouseover)
                   .on("mouseout", mouseout)
-                  // .on("click", zoomed);         
-                  .on("click", selected);      
+                  // .on("click", zoomed);
+                  .on("click", selected);
 
         };
 
@@ -350,7 +350,7 @@ function draw_graph(width) {
         d3.selectAll('.line-50-percentile').style('opacity','1').classed('selected-percentile',true)
         d3.selectAll('.line-95-percentile').style('opacity','1').classed('selected-percentile',true)
         d3.selectAll('.line-20-percentile').style('opacity','1').classed('selected-percentile',true)
-            
+
 
             circle95 = svg.append('circle')
                     .attr('class','info-circle')
@@ -358,20 +358,20 @@ function draw_graph(width) {
                     .attr("cy", y(formatted_data['95 percentile'][40]['amt']))
                     .attr("r", 6)
                     .attr('stroke', colors['blue3']);
-                      
-                      
+
+
             circle20 = svg.append('circle')
                     .attr('class','info-circle')
                     .attr("cx", x(formatted_data['20 percentile'][40]['date']))
                     .attr("cy", y(formatted_data['20 percentile'][40]['amt']))
                     .attr("r", 6)
-                    .attr('stroke', colors['red2']);                    
+                    .attr('stroke', colors['red2']);
             circle50 = svg.append('circle')
                     .attr('class','info-circle')
                     .attr("cx", x(formatted_data['50 percentile'][40]['date']))
                     .attr("cy", y(formatted_data['50 percentile'][40]['amt']))
                     .attr("r", 6)
-                    .attr('stroke', colors['yellow2']);   
+                    .attr('stroke', colors['yellow2']);
         }
 
     function mouseover(d) {
@@ -382,7 +382,7 @@ function draw_graph(width) {
 		var tt_height = 95;
 		var tt_width = 155;
     	var tt_text = '';
-    	
+
 		d3.select('.line-' + d['percentile'])
 			.classed('percentile-hover',true)
 			// .attr('stroke', function(d) { return hsl.darker().toString() ; })
@@ -392,8 +392,8 @@ function draw_graph(width) {
 		tt_text += '<strong>$' + fmt_commas(d['amt-long']) + '</strong><br />';
 		tt_text += d['percentile-long2'] + ' - ' + fmt_year_full(d['date']) + '<br />';
 		tt_text += '<em>(Click to zoom in)</em>';
-		
-		// define tooltip position 
+
+		// define tooltip position
 		tt_top = dot_y - tt_height;
 		if (tt_top < margin['top']) {
 			tt_top = margin['top'];
@@ -415,7 +415,7 @@ function draw_graph(width) {
 			.style('top', tt_top + 'px')
 			.style('left', tt_left + 'px')
 			.classed('active', true);
-		
+
         circlefocus
             .attr('cy', y(d['amt']))
             .attr('cx', x(d['date']));
@@ -429,21 +429,21 @@ function draw_graph(width) {
 
 
     function selected(d) {
-        d3.select(".line-" + d['percentile']).classed("percentile-hover", false);        
+        d3.select(".line-" + d['percentile']).classed("percentile-hover", false);
         d3.select('.voronoi').remove();
         circlefocus
-            .attr("cy", y(1000000));            
+            .attr("cy", y(1000000));
         tooltip.classed('active', false);
 
         var groupSelect = d['long-group'];
         var groupselectWordy = d['group'];
         var bounds = (groupselectWordy =="20th") ? [ 0, 25000]
-                 : (groupselectWordy =="40th") ? [ 20000, 44000]  
-                 : (groupselectWordy =="60th") ? [ 37000, 70000]   
-                 : (groupselectWordy =="80th") ? [ 55000, 115000]  
+                 : (groupselectWordy =="40th") ? [ 20000, 44000]
+                 : (groupselectWordy =="60th") ? [ 37000, 70000]
+                 : (groupselectWordy =="80th") ? [ 55000, 115000]
                  : (groupselectWordy =="100th") ? [ 80000, 220000]
                  : [ 0, 500000];
-     
+
 //rescale y axis
          y = d3.scale.linear().range([ height, 0 ]).domain(bounds);
          yAxis = d3.svg.axis()
@@ -460,20 +460,20 @@ function draw_graph(width) {
 
          yTop.transition().duration(300).ease('cubic-in-out').call(yAxis);
 
-         y_axis_grid = function() { return yAxis; };     
+         y_axis_grid = function() { return yAxis; };
          yGrid.call(y_axis_grid()
             .tickSize(-width, 0, 0)
             .tickFormat('')
-         );     
-        
+         );
+
 
     //redraw lines
         lines.transition().duration(300).ease('cubic-in-out').attr('d', function(d) {
-            
+
             return line(d['value']);
         });
 
-    //remove other lines        
+    //remove other lines
             // d3.select(".lines").selectAll("*:not(.percentile-"+ groupselectWordy + ")").classed("off",true)
         d3.select(".lines").selectAll("*:not(.percentile-"+ groupselectWordy + ")").remove();
 
@@ -484,7 +484,7 @@ function draw_graph(width) {
         d3.select(".line-" + d['raw-group'] + "-percentile")
         .classed("selected-quartile", false);
 
-        
+
         d3.select(".line-" + d['raw-group'] + "-percentile")
         .classed("selected-percentile", true);
 
@@ -495,7 +495,7 @@ function draw_graph(width) {
             .attr("class", "perGroup")
             .append("text")
             .text("The " + d['raw-groupExtent'] + " Of")
-            .attr('text-anchor', 'start')          
+            .attr('text-anchor', 'start')
             .attr("fill", function(d,i) {
                         hueValueSelected = (groupselectWordy=="20th") ? colors['red2']
                             : (groupselectWordy=="40th") ? colors['orange3']
@@ -505,16 +505,16 @@ function draw_graph(width) {
                             : "none";
                     return hueValueSelected ;
 
-                });          
+                });
 
 
          var perGroup2 = svg.append("g")
             .attr("transform", "translate(" + width*.01 + ", 22)")
             .attr("class", "perGroup")
-            .append("text")          
+            .append("text")
             .attr('text-anchor', 'start')
             .text("All Household Incomes")
-            .attr('fill', function(d) { return hueValueSelected;});  
+            .attr('fill', function(d) { return hueValueSelected;});
 
         var selectedPercentile = d['percentile-long'];
 
@@ -531,7 +531,7 @@ function draw_graph(width) {
           .attr("y", y(amtStart)-15)
           .attr("class", "annote")
           .attr('text-anchor', 'start')
-          .text("$" + fmt_commas(amtStart));     
+          .text("$" + fmt_commas(amtStart));
 
         var annoteEndVal = svg.append("text")
           .attr("x", x(dateEnd)+5)
@@ -540,14 +540,14 @@ function draw_graph(width) {
           .attr('text-anchor', 'end')
           .text("$" + fmt_commas(amtEnd));//year labels
 
-    //year labels     
+    //year labels
         var annoteStartYr = svg.append("text")
           .attr("x", x(dateStart)-5)
           .attr("y", y(amtStart)-35)
           .attr("class", "annote")
           .attr("class", "year")
           .attr('text-anchor', 'start')
-          .text(fmt_year_full(dateStart));     
+          .text(fmt_year_full(dateStart));
 
         var annoteEndYr = svg.append("text")
           .attr("x", x(dateEnd)+5)
@@ -559,7 +559,7 @@ function draw_graph(width) {
 
         var incomeGrowth = 100*((parseInt(amtEnd)-parseInt(amtStart))/parseInt(amtStart))
 
-    //explanation          
+    //explanation
         var perLabel = svg.append("text")
             .attr("x", x(dateMid))
             .attr("y", y(amtMid)-46)
@@ -575,7 +575,7 @@ function draw_graph(width) {
 
             perLabel
                 .append('tspan')
-                .text("saw their"); 
+                .text("saw their");
 
         var perLabel2 = svg.append("text")
             .attr("x", x(dateMid))
@@ -588,7 +588,7 @@ function draw_graph(width) {
 
             perLabel2
                 .append("tspan").style('font-weight','bold')
-                .text(function(d) { 
+                .text(function(d) {
                     if (d3.round(incomeGrowth) > 0) {
                         return " grow " + d3.round(incomeGrowth) + "% ";
                     } else if (d3.round(incomeGrowth) == 0) {
@@ -601,11 +601,11 @@ function draw_graph(width) {
             perLabel2
                 .append('tspan')
                 .text('over the last 40 years.');
-          
+
 
 
 // //draw circles for selected line
-        
+
         circle1.attr("cy", y(amtStart))
             .attr('stroke', hueValueSelected);
         circle2.attr("cy", y(amtEnd))
@@ -618,7 +618,7 @@ function draw_graph(width) {
      //      .append("rect")
      //      .attr('width', 120)
      //      .attr('height', 40)
-     //      .on('click', reset);  
+     //      .on('click', reset);
 
 		var backLarge = svg.append('g')
 			.attr('transform', 'translate(0, 0)')
@@ -699,7 +699,7 @@ $(window).load(function() {
             graphic_data.forEach(function(d) {
                 d['date'] = d3.time.format('%Y').parse(d['date']);
             });
-            
+
             pymChild = new pym.Child({
                 renderCallback: render
             });

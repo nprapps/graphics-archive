@@ -88,7 +88,7 @@ function render_bar_chart(data, container_width) {
         })]);
 //        .domain([0, 800000000]);
 
-    console.log(y.domain());
+    // console.log(y.domain());
 
     var xAxis = d3.svg.axis()
         .scale(x)
@@ -192,7 +192,7 @@ $(window).load(function() {
         $graphic = $('#graphic');
 
         d3.json(graphic_data_url, function(error, data) {
-            console.log(data.length);
+            // console.log(data.length);
 
             data.forEach(function(d) {
                 if (d['2006'] != null || d['2007'] != null || d['2008'] != null || d['2009'] != null || d['2010'] != null || d['2011'] != null || d['2012'] != null || d['2013'] != null || d['2014'] != null) {

@@ -233,7 +233,7 @@ var renderColumnChart = function(config) {
                 return 'bar bar-' + d[labelColumn];
             })
             .attr('fill', function(d,i) {
-                console.log(i)
+                // console.log(i)
                 if(i<6) {
                     return COLORS['orange1']
                 } else if (i < 12) {
@@ -247,8 +247,8 @@ var renderColumnChart = function(config) {
                 } else {
                     return COLORS['orange6']
                 }
- 
-            })            
+
+            })
 
     /*
      * Render 0 value line.

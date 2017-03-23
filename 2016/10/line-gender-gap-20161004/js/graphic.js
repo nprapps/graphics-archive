@@ -143,7 +143,7 @@ var renderLineChart = function(config) {
      * Setup
      */
 
-    console.log(config['data']);
+    // console.log(config['data']);
 
     var ageColumn = 'age';
     var valueColumn = 'amt';

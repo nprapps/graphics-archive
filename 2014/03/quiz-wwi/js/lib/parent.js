@@ -4,13 +4,13 @@
         xdomain: '*'
     };
 
-    /* 
+    /*
      * Verify that the message came from a trustworthy domain.
      */
     function isSafeMessage(e) {
         if (settings.xdomain !== '*') {
             var regex = new RegExp(settings.xdomain + '$');
-          
+
             if (!e.origin.match(regex)) {
                 // Not the origin we're listening for
                 return;
@@ -24,7 +24,7 @@
      * Process a new message from a child iframe.
      */
     function processMessage($elem, e) {
-        console.log('parent got height: ' + e.data);
+        // console.log('parent got height: ' + e.data);
 
         if (!isSafeMessage(e)) {
             return;

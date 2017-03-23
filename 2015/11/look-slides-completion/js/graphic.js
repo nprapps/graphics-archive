@@ -57,7 +57,7 @@ var loadCSV = function(url) {
  */
 var formatData = function() {
     graphicData.forEach(function(d) {
-        console.log(d);
+        // console.log(d);
         d['slides'] = +d['slides'];
         d['completion'] = +d['completion'];
 

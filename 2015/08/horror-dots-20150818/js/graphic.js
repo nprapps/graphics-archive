@@ -220,27 +220,27 @@ var renderDotChart = function(config) {
         .data(config['data'])
         .enter().append('circle')
             .attr('class', function(d) {
-                console.log(d)
+                // console.log(d)
                 return classify(d['genre']) + " " + classify(d[labelColumn]);
-            })        
+            })
             .attr('cx', function(d, i) {
                 return xScale(d[valueColumn]);
             })
             .attr('cy', function(d, i) {
                 if (d['genre'] == "Horror") {
-                return barHeight/2 + labelHeight*(2/6);                    
+                return barHeight/2 + labelHeight*(2/6);
                 } else if (d['genre'] == "Comedy") {
-                return barHeight/2 + labelHeight*(3/6);                    
+                return barHeight/2 + labelHeight*(3/6);
                 } else if (d['genre'] == "Drama") {
-                return barHeight/2 + labelHeight*(4/6);                    
+                return barHeight/2 + labelHeight*(4/6);
                 } else {
-                return barHeight/2 + labelHeight*(5/6);                        
+                return barHeight/2 + labelHeight*(5/6);
                 }
             })
             .attr('r', function(d, i) {
                 return yScale(d['area']);
             })
-    
+
 
     chartElement.append('circle')
         .attr('class', 'reference-dots')
@@ -264,7 +264,7 @@ var renderDotChart = function(config) {
         .attr('r', function(d, i) {
                 return yScale(15811);
         })
-    
+
     chartElement.append('text')
         .attr('class', 'reference-label')
         .attr('x', function(d, i) {
@@ -277,7 +277,7 @@ var renderDotChart = function(config) {
                 return yScale(15811) + 12;
         })
         .attr('text-anchor', 'middle' )
-        .text('$250 Million')    
+        .text('$250 Million')
 
     chartElement.append('text')
         .attr('class', 'reference-label')
@@ -302,7 +302,7 @@ var renderDotChart = function(config) {
                 return -5 + 'px';
         })
         .attr('text-anchor', 'middle' )
-        .text("Gross Revenue For Each Film")    
+        .text("Gross Revenue For Each Film")
 
 
     d3.selectAll('.horror').moveToFront();
@@ -316,7 +316,7 @@ var renderDotChart = function(config) {
         .enter().append('text')
         .attr('class', function(d) {
             return classify(d);
-        })        
+        })
         .attr('x', function(){
             if(!isMobile) {
                 return  15;
@@ -325,9 +325,9 @@ var renderDotChart = function(config) {
             }
         })
         .attr('y', function(d, i) {
-            return barHeight/2 + labelHeight*((i+2)/6);                    
+            return barHeight/2 + labelHeight*((i+2)/6);
         })
-        .attr('text-anchor', 'end')    
+        .attr('text-anchor', 'end')
         .text(function(d) {
             return d;
         });
@@ -342,20 +342,20 @@ var renderDotChart = function(config) {
             .enter().append('text')
             .attr('class', function(d) {
                 return 'movie-label ' + classify(d[labelColumn]);
-            })                    
+            })
                 .attr('x', function(d, i) {
                     return xScale(d[valueColumn]) + 6 + "px";
                 })
                 .attr('y', function(d,i) {
                 if (d['genre'] == "Horror") {
-                    return barHeight/2 + labelHeight*(2/6);                    
+                    return barHeight/2 + labelHeight*(2/6);
                     } else if (d['genre'] == "Comedy") {
-                    return barHeight/2 + labelHeight*(3/6);                    
+                    return barHeight/2 + labelHeight*(3/6);
                     } else if (d['genre'] == "Drama") {
-                    return barHeight/2 + labelHeight*(4/6);                    
+                    return barHeight/2 + labelHeight*(4/6);
                     } else {
-                    return barHeight/2 + labelHeight*(5/6);                        
-                    }                
+                    return barHeight/2 + labelHeight*(5/6);
+                    }
                 })
                 .text(function(d) {
                     return d[labelColumn];
@@ -382,26 +382,26 @@ var renderDotChart = function(config) {
             .enter().append('line')
             .attr('class', function(d) {
                 return 'movie-label-line ' + classify(d[labelColumn]);
-            })                    
+            })
             .attr('x1', function(d, i) {
                 return xScale(d[valueColumn]) + "px";
-            })                
+            })
             .attr('x2', function(d, i) {
                 return xScale(d[valueColumn]) + "px";
             })
             .attr('y1', function(d,i) {
                 if (d['genre'] == "Horror") {
-                return barHeight/2 + labelHeight*(2/6)-20;                    
+                return barHeight/2 + labelHeight*(2/6)-20;
                 } else if (d['genre'] == "Comedy") {
-                return barHeight/2 + labelHeight*(3/6);                    
+                return barHeight/2 + labelHeight*(3/6);
                 } else if (d['genre'] == "Drama") {
-                return barHeight/2 + labelHeight*(4/6);                    
+                return barHeight/2 + labelHeight*(4/6);
                 } else {
-                return barHeight/2 + labelHeight*(5/6);                        
+                return barHeight/2 + labelHeight*(5/6);
                 }
             })
             .attr('y2', function(d,i) {
-                return barHeight/2 + labelHeight*(2/6);                    
+                return barHeight/2 + labelHeight*(2/6);
             });
 
             shortenLabel('the-conjuring', -40, -40 )
@@ -429,8 +429,8 @@ var renderDotChart = function(config) {
                 .attr("y", (barHeight*(2/3) + labelHeight*(6/6)))
                 .attr('dy', -15)
                 .attr('text-anchor', 'middle' )
-                .text('Better Investment') 
-    
+                .text('Better Investment')
+
     d3.select(".grid:nth-child(1)").select('g').select('.tick').style('opacity', 0)
 
 

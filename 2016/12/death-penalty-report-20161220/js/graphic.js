@@ -32,10 +32,10 @@ var onWindowLoaded = function() {
  */
 var formatData = function() {
     charts = d3.keys(DATA);
-    console.log(charts);
+    // console.log(charts);
 
     charts.forEach(function(v,k) {
-        console.log(k);
+        // console.log(k);
         var chartData = DATA[v];
         annotations[v] = [];
 

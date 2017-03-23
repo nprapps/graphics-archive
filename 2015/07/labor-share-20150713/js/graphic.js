@@ -64,7 +64,7 @@ var formatData = function() {
             }
         }
     });
-    console.log(graphicData);
+    // console.log(graphicData);
 }
 
 /*

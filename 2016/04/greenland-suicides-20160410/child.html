@@ -43,32 +43,37 @@
 
     <!-- CSS + LESS -->
     
-    <link rel="stylesheet" type="text/css" href="css/graphic-header.css?1460277888" />
+    <link rel="stylesheet" type="text/css" href="css/graphic-header.css?1490142751" />
 </head>
 <body>
     <!-- Analytics -->
     
     
-    <script type="text/javascript" src="js/graphic-header.js?1460277888"></script>
+    <script type="text/javascript" src="js/graphic-header.js?1490142751"></script>
 
     
 
-    <h1>Headline TK TK TK</h1>
-    <h2>Suicides per 100,000 person-years</h2>
+    <h1>Suicide Rates In Greenland And The U.S.</h1>
+    <h2>Suicides per 100,000, by year</h2>
 
-    <div id="column-chart" class="graphic">
+    <div id="line-chart" class="graphic">
         <img src="fallback.png" alt="[Chart]" class="fallback" />
     </div>
 
     
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>Analysis of suicides through 2010 in Greenland came from the International Journal of Circumpolar Health, which reported suicide rates for five-year periods. This rate has been standardized to compare to an annual figure. Additional data came from mortality reports by the Greenland Police.</p>
+    </div>
+    
 
     <div class="footer">
-        <p>Source: <em><a href="http://www.circumpolarhealthjournal.net/index.php/ijch/article/view/26053">International Journal of Circumpolar Health</a></em>, police mortality reports</p>
-        <p>Credit: NPR</p>
+        <p>Source: <em><a href="http://www.circumpolarhealthjournal.net/index.php/ijch/article/view/26053">International Journal of Circumpolar Health</a></em>, <a href="https://data.oecd.org/healthstat/suicide-rates.htm">Organisation for Economic Co-operation and Development</a>, <a href="http://www.cdc.gov/injury/wisqars/leadingcauses.html">Centers for Disease Control and Prevention</a>, Greenland Police mortality reports</p>
+        <p>Credit: Rebecca Hersher and Katie Park/NPR</p>
     </div>
 
     <script type="text/javascript">
-        var DATA = [{"label": "1955-1959", "amt": "0", "": null}, {"label": "1960-1964", "amt": "14.4", "": null}, {"label": "1965-1969", "amt": "18.1", "": null}, {"label": "1970-1974", "amt": "28.3", "": null}, {"label": "1975-1979", "amt": "45", "": null}, {"label": "1980-1984", "amt": "96.5", "": null}, {"label": "1985-1989", "amt": "117.2", "": null}, {"label": "1990-1994", "amt": "101", "": null}, {"label": "1995-1999", "amt": "100.3", "": null}, {"label": "2000-2004", "amt": "91.2", "": null}, {"label": "2005-2009", "amt": "84", "": null}, {"label": "2010-2014", "amt": "82.8", "": null}];
+        var DATA = [{"date": "1/1/1959", "U.S.": "12.3", "Greenland": "0"}, {"date": "1/1/1964", "U.S.": "13.5", "Greenland": "14.4"}, {"date": "1/1/1969", "U.S.": "13.5", "Greenland": "18.1"}, {"date": "1/1/1974", "U.S.": "13.9", "Greenland": "28.3"}, {"date": "1/1/1979", "U.S.": "13.1", "Greenland": "45.0"}, {"date": "1/1/1984", "U.S.": "13.2", "Greenland": "96.5"}, {"date": "1/1/1989", "U.S.": "12.8", "Greenland": "117.2"}, {"date": "1/1/1994", "U.S.": "12.5", "Greenland": "101.0"}, {"date": "1/1/1999", "U.S.": "11.1", "Greenland": "100.3"}, {"date": "1/1/2004", "U.S.": "11.3", "Greenland": "91.2"}, {"date": "1/1/2009", "U.S.": "12.2", "Greenland": "84.0"}, {"date": "1/1/2014", "U.S.": "13.4", "Greenland": "82.8"}];
     </script>
 
 
@@ -81,7 +86,7 @@
         
         
         
-        <script type="text/javascript" src="js/graphic-footer.js?1460277888"></script>
+        <script type="text/javascript" src="js/graphic-footer.js?1490142752"></script>
 
     
 </body>

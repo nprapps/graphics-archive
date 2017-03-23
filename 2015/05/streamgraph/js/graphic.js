@@ -38,16 +38,16 @@ var modelDates = {1850 : 0,
                    2010 : 16,
                    2013 : 17 }
 
-var dates =  [      1850, 
-                    1860, 
-                    1870, 
-                    1880, 
-                    1900, 
-                    1910, 
-                    1920, 
-                    1930, 
-                    1940, 
-                    1950, 
+var dates =  [      1850,
+                    1860,
+                    1870,
+                    1880,
+                    1900,
+                    1910,
+                    1920,
+                    1930,
+                    1940,
+                    1950,
                     1960,
                     1970,
                     1980,
@@ -109,9 +109,9 @@ var domain1,
     xAxis,
     xgrid,
     xAxisGrid,
-    yAxis,    
+    yAxis,
     yAxisGrid,
-    ygrid,    
+    ygrid,
     yaxis,
     height,
     percentFormat,
@@ -154,7 +154,7 @@ var onWindowLoaded = function() {
             graphicData = data;
             graphicData.forEach(function(d) {
             });
-            
+
             pymChild = new pym.Child({
                 renderCallback: render
             });
@@ -199,15 +199,15 @@ var draw_graph = function(graphicWidth) {
     var aspectHeight,
         aspectWidth;
     var graph = d3.select('#graphic');
-    // params that depend on the container width 
+    // params that depend on the container width
     if (isMobile) {
-        margin = { top: 30, right: 30, bottom: 30, left: 70 };            
+        margin = { top: 30, right: 30, bottom: 30, left: 70 };
         aspectWidth = 4;
         aspectHeight = 3;
         ticksX = 5;
         ticksY = 3;
     } else {
-        margin = { top: 30, right: 10, bottom: 30, left: 80 };            
+        margin = { top: 30, right: 10, bottom: 30, left: 80 };
         aspectWidth = 4;
         aspectHeight = 3;
         ticksX = 15;
@@ -224,7 +224,7 @@ var draw_graph = function(graphicWidth) {
         y  = d3.scale.linear()
         .rangeRound([ height, 0 ])
         .nice(true);
-    
+
     percentFormat = d3.format(".0%");
 
     // define axis and grid
@@ -249,7 +249,7 @@ var draw_graph = function(graphicWidth) {
         .scale(y)
         .tickFormat(function(d) {
             if (graph_status != 'default1') {
-            return formatPercent(d);         
+            return formatPercent(d);
             } else {
             return d/1000000 + ' million'
             }
@@ -266,7 +266,7 @@ var draw_graph = function(graphicWidth) {
     stack = d3.layout.stack()
         .offset(graph_status)
         .order('reverse')
-        .values(function(d) { return d['values']; });    
+        .values(function(d) { return d['values']; });
 
     line = d3.svg.line()
         .interpolate("basis")
@@ -278,8 +278,8 @@ var draw_graph = function(graphicWidth) {
         .defined(line.defined())
         .x(function(d) { return x(d['year']); })
         .y0(function(d) { return y(d['y0']); })
-        .y1(function(d) { return y(d['y0'] + d['y']); });        
-    
+        .y1(function(d) { return y(d['y0'] + d['y']); });
+
     names = d3.keys(graphicData[0]).filter(function(key) { return key !== "year"; });
 
     dataTransform();
@@ -305,7 +305,7 @@ var draw_graph = function(graphicWidth) {
     .attr('width', 4)
     .attr('height', 4)
   .append('path')
-  
+
     // .attr('d', ' M0,1 l2,-2 ')
     .attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
     .attr('stroke', function(d) {return COLOR3;})
@@ -322,10 +322,10 @@ var draw_graph = function(graphicWidth) {
     yaxis = svg.append('g')
         .attr('transform', 'translate(-1,0)')
         .attr('class', 'y axis')
-        .call(yAxis); 
+        .call(yAxis);
 
     // y-axis gridlines
-    ygrid = svg.append('g')         
+    ygrid = svg.append('g')
         .attr('class', 'y grid')
         .call(yAxisGrid()
             .tickSize(-width, 0, 0)
@@ -346,8 +346,8 @@ var draw_graph = function(graphicWidth) {
         .selectAll("path")
         .data(formattedData)
       .enter().append("path")
-        .attr('class', function(d) { 
-            return  'layers ' + classify(d.name)})      
+        .attr('class', function(d) {
+            return  'layers ' + classify(d.name)})
         .attr("d", function(d) { return area(d.values); })
         .style("fill", function(d) { return majorColor(d.name); })
         .on('mousemove', function(d){
@@ -373,7 +373,7 @@ var draw_graph = function(graphicWidth) {
 
     groupLabels
     .append('text')
-    .attr('class', 'group-label group-other')        
+    .attr('class', 'group-label group-other')
     .attr('x', width/2)
     .attr('y', y(.05) )
     .text('Other');
@@ -381,7 +381,7 @@ var draw_graph = function(graphicWidth) {
 
     groupLabels
     .append('text')
-    .attr('class', 'group-label group-farmers')    
+    .attr('class', 'group-label group-farmers')
     .attr('x', width/6)
     .attr('y', y(.85) )
     .text('Farming');
@@ -389,22 +389,22 @@ var draw_graph = function(graphicWidth) {
 
     groupLabels
     .append('text')
-    .attr('class', 'group-label group-service')        
+    .attr('class', 'group-label group-service')
     .attr('x', 3*width/4)
     .attr('y', y(.61) )
-    .text('Services')   
+    .text('Services')
 
 
     groupLabels
     .append('text')
-    .attr('class', 'group-label group-blue-collar')        
+    .attr('class', 'group-label group-blue-collar')
     .attr('x', width/2)
     .attr('y', y(.65) )
     .text('Blue Collar')
-    
+
     groupLabels
     .append('text')
-    .attr('class', 'group-label group-white-collar')        
+    .attr('class', 'group-label group-white-collar')
     .attr('x', width/1.5)
     .attr('y', y(.2) )
     .text('White Collar')
@@ -423,7 +423,7 @@ var draw_graph = function(graphicWidth) {
             d3.select('.group-service')
             .attr('x', 3*width/4)
             .attr('y', y(.51) )
-            .text('Services'); 
+            .text('Services');
 
             d3.select('.group-blue-collar')
             .attr('x', width/2)
@@ -431,7 +431,7 @@ var draw_graph = function(graphicWidth) {
 
             d3.select('.group-white-collar')
             .attr('x', width/1.5)
-            .attr('y', y(.2) );        
+            .attr('y', y(.2) );
     }
 
         if (isMobile) {
@@ -453,14 +453,14 @@ var draw_graph = function(graphicWidth) {
 
  function updateLabels() {
     d3.selectAll('.text-labels')
-        .attr('startOffset', '95%')        
-        .attr('class', function(d) { 
-            console.log(classify(d.name))
-            return  'label-' + classify(d.name)})      
+        .attr('startOffset', '95%')
+        .attr('class', function(d) {
+            // console.log(classify(d.name))
+            return  'label-' + classify(d.name)})
         .attr('xlink:href', function(d) { return '#path-'+ classify(d.name); })
         .attr('text-anchor', 'end')
         .text(function(d) {
-            console.log(d)
+            // console.log(d)
             return (d['name'])});
 
  }
@@ -468,8 +468,8 @@ var draw_graph = function(graphicWidth) {
  function selected(data) {
     mouseX = d3.mouse(document.querySelector(".svg-container"))[0]
     mouseY = d3.mouse(document.querySelector(".svg-container"))[1]
-    invertedX = x.invert(mouseX);    
-    invertedY = y.invert(d3.mouse(document.querySelector(".svg-container"))[1]);    
+    invertedX = x.invert(mouseX);
+    invertedY = y.invert(d3.mouse(document.querySelector(".svg-container"))[1]);
     hoverBox(data, mouseX, mouseY, invertedX, invertedY)
 
     var selectedMajor = classify(data['name']);
@@ -495,7 +495,7 @@ function hoverBox(d, mouseX, mouseY, positionX, positionY) {
         var nearestDate = d3.time.format('%Y').parse(nearestYear.toString());
         var workerValue = d['values'][nearestObs]['y'];
         var workervalueStart = d['values'][nearestObs]['y0'];
-        var workerValueFormatted = (graph_status != 'expand') ? fmtComma(d3.round(workerValue,0)) : formatPercent(d3.round(workerValue,3)); 
+        var workerValueFormatted = (graph_status != 'expand') ? fmtComma(d3.round(workerValue,0)) : formatPercent(d3.round(workerValue,3));
 
         d3.selectAll('.year').classed('selected-year', false)
         d3.select('.year')
@@ -512,27 +512,27 @@ function hoverBox(d, mouseX, mouseY, positionX, positionY) {
                         tt_text += '<strong>' + workerValueFormatted + '</strong> people <br/> worked in ' + d.name.toLowerCase() + ' <br/>sectors of the economy<br/>';
                     } else {
                         tt_text += 'In ' + nearestYear + '<br />';
-                        tt_text += '<strong>' + workerValueFormatted + '</strong><br/> of workers were in ' + d.name.toLowerCase() + " industries" ;            
-                    }        
+                        tt_text += '<strong>' + workerValueFormatted + '</strong><br/> of workers were in ' + d.name.toLowerCase() + " industries" ;
+                    }
         } else if (graph_status != 'expand') {
             tt_text += 'In ' + nearestYear + '<br />';
             tt_text += 'there were </br><strong>' + workerValueFormatted + '</strong><br/>' + d.name.toLowerCase() + ' <br/> workers in the the economy<br/>';
         } else {
             tt_text += 'In ' + nearestYear + '<br />';
-            tt_text += '<strong>' + workerValueFormatted + '</strong><br/> of workers were in ' + d.name.toLowerCase() + " jobs" ;            
-        }        
-        
+            tt_text += '<strong>' + workerValueFormatted + '</strong><br/> of workers were in ' + d.name.toLowerCase() + " jobs" ;
+        }
+
         tt_top = dotY - tt_height;
         tt_left = dotX - (tt_width/3);
 
-        // define tooltip position 
+        // define tooltip position
         if (tt_top < margin['top']) {
             // if (!isMobile) {
                 tt_top = margin['top'];
             // } else {
                 // tt_top = margin['top']/2;
-            // }            
-            
+            // }
+
         }
         if ((tt_top + tt_height) > dotY) {
             if (!isMobile) {
@@ -553,14 +553,14 @@ function hoverBox(d, mouseX, mouseY, positionX, positionY) {
             } else {
                 tt_left = width - tt_width/3;
             }
-        }        
+        }
 
         // if (!isMobile) {
         tooltip
             .html(tt_text)
             .style('top', tt_top + 'px')
             .style('left', tt_left + 'px')
-            .classed('active', true);    
+            .classed('active', true);
         // }
 }
 
@@ -573,7 +573,7 @@ function dataTransform() {
                 return {x: +d['year'], y: +d[name], year: d3.time.format('%Y').parse(d['year'])} ;
             })
         };
-    }));    
+    }));
 
 
     if (graph_status == "expand") {
@@ -588,16 +588,16 @@ function dataTransform() {
 
 //default or expand
 function graphTransition() {
-    dataTransform();   
+    dataTransform();
 
     yAxis.tickFormat(function(d) {
             if (graph_status == 'expand') {
-            return formatPercent(d);         
+            return formatPercent(d);
             } else {
             return d/1000000 + ' million'
             }
         });
-    
+
 
 if (!isMobile) {
 
@@ -645,9 +645,9 @@ if (!isMobile) {
             .duration(800)
             .attr('x', 4*width/5)
             .attr('y', y(20000000) )
-        
+
         } else {
-        
+
             d3.select('.group-other')
             .transition()
             .duration(800)
@@ -665,7 +665,7 @@ if (!isMobile) {
             .duration(800)
             .attr('x', 3*width/4)
             .attr('y', y(.61) )
-            .text('Service'); 
+            .text('Service');
 
             d3.select('.group-blue-collar')
             .transition()
@@ -716,9 +716,9 @@ if (!isMobile) {
             d3.select('.group-white-collar')
             .attr('x', 4*width/5)
             .attr('y', y(20000000) )
-        
+
         } else {
-        
+
             d3.select('.group-other')
             .attr('x', width/2)
             .attr('y', y(.05) );
@@ -730,7 +730,7 @@ if (!isMobile) {
             d3.select('.group-service')
             .attr('x', 3*width/4)
             .attr('y', y(.51) )
-            .text('Service'); 
+            .text('Service');
 
             d3.select('.group-blue-collar')
             .attr('x', width/2)
@@ -771,19 +771,19 @@ function majorColor(name) {
 
 function stretchBottomAxis() {
     heightAdj = height-50
-    
+
     //push x axis
     xgrid
         .transition()
         .duration(800)
         .attr('transform', 'translate(0,' + heightAdj + ')')
         .call(xAxisGrid);
-    
+
     xaxis
         .transition()
         .duration(800)
         .attr('transform', 'translate(0,' + heightAdj + ')');
-    
+
     //hide yaxis for now.
     yaxis.style('display','none')
     xaxis.style('display','none')
@@ -795,7 +795,7 @@ function stretchBottomAxis() {
 
 function changeState(status) {
     graph_status = status
-    console.log(graph_status)
+    // console.log(graph_status)
 
     yAdj = graph_status != 'expand' ? 5 : 1;
     graphTransition()

@@ -112,7 +112,7 @@ var renderStackedColumnChart = function(config) {
     /*
      * Setup
      */
-     console.log(graphicData)
+     // console.log(graphicData)
     var labelColumn = 'label';
 
     var aspectWidth = 16;
@@ -217,7 +217,7 @@ var renderStackedColumnChart = function(config) {
         })
 
         // .tickFormat(function(d,i) {
-        //     if (isMobile) { 
+        //     if (isMobile) {
         //         if (i%4==0) {
         //             console.log(i,'run')
         //             return d;
@@ -225,7 +225,7 @@ var renderStackedColumnChart = function(config) {
         //     } else {
         //         if (i%2==0) {
         //             return d;
-        //         }                
+        //         }
         //     }
         // });
     var yAxis = d3.svg.axis()

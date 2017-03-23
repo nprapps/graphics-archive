@@ -22,7 +22,7 @@ var onWindowLoaded = function() {
 var sketchBoxes = function() {
     var svg = d3.select('#graphic').append('svg');
 
-    console.log(DATA);
+    // console.log(DATA);
 
     var xScale = d3.scale.sqrt()
         .domain([0, d3.max(DATA, function(d) {
@@ -34,7 +34,7 @@ var sketchBoxes = function() {
         .domain([0, 67])
         .range([COLORS['orange6'], COLORS['orange3']]);
 
-    console.log(xScale.domain());
+    // console.log(xScale.domain());
 
     //var xScale = function(d) {
         //return Math.sqrt(d * 100);
@@ -43,7 +43,7 @@ var sketchBoxes = function() {
     svg
         .attr('width', 600)
         .attr('height', d3.sum(DATA, function(d) {
-            console.log(+d['Number of cases'], xScale(+d['Number of cases']), xScale(+d['Number of cases']) * xScale(+d['Number of cases']));
+            // console.log(+d['Number of cases'], xScale(+d['Number of cases']), xScale(+d['Number of cases']) * xScale(+d['Number of cases']));
             return xScale(+d['Number of cases']) + 10;
         }));
 

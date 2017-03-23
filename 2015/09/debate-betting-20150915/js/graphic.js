@@ -162,7 +162,7 @@ var renderLineChart = function(config) {
             return d[dateColumn];
         }))
         .range([ 0, chartWidth ])
-    console.log(xScale.domain());
+    // console.log(xScale.domain());
 
     var yScale = d3.scale.linear()
         .domain([ 0, d3.max(d3.entries(formattedData), function(c) {

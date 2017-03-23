@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>production : popup-politics-20120118</title>
+    <title>staging : popup-politics-20120118</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="shortcut icon" href="https://media.npr.org/favicon.ico" />
     <style type="text/css">
         /* Basic styles */
         body {
@@ -123,7 +125,7 @@
 
     <header class="parent-header">
         <div class="segment">
-            <h1 class="production">production</h1>
+            <h1 class="staging">staging</h1>
         </div>
 
         <div class="segment">
@@ -145,6 +147,28 @@
         <div class="right">
 
             
+                
+                <div class="segment">
+                    <a class="btn localhost" href="http://localhost:8000/graphics/popup-politics-20120118/">localhost &raquo;</a>
+                </div>
+                
+
+                
+
+                
+                <div class="segment">
+                    <a class="btn production" href="https://apps.npr.org/dailygraphics/graphics/popup-politics-20120118/" target="_blank">production &raquo;</a>
+                </div>
+                
+
+                
+                
+                <div class="segment">
+                    <a class="btn" href="https://docs.google.com/spreadsheets/d/1gohxftSXe0MjkliAEXr1t5V3MDDIgOnrmqB_f9o3poo/edit" target="_blank">spreadsheet &raquo;</a>
+                </div>
+                
+                
+            
         </div>
     </header>
 
@@ -157,70 +181,34 @@
 
         <h2><span class="production">Production</span> embed code (for Seamus)</h2>
 
+        <h2><span class="production">This has been redeployed from a custom location. Check thoroughly before using in a new graphic.</span></h2>
+
+
 <!-- textarea contents -->
     <textarea readonly="readonly" rows="10" cols="50">
 <div id="responsive-embed-popup-politics-20120118"></div>
-<script type="text/javascript">
-    // Require.js is on the page (new Seamus)
-    if (typeof requirejs !== 'undefined') {
-        // Create a local require.js namespace
-        var require_popup_politics_20120118 = requirejs.config({
-            context: 'popup-politics-20120118',
-            paths: {
-                'pym': 'https://apps.npr.org/dailygraphics/graphics/popup-politics-20120118/js/lib/pym'
-            },
-    		shim: {
-    			'pym': { exports: 'pym' }
-    		}
-        });
+<script type=text/javascript>
+    (function(jQuery) {
+        if (typeof jQuery !== 'undefined' && typeof jQuery.getScript === 'function') {
+            // add randomness to id to support for multiple graphic instances in one story
+            var el = document.getElementById("responsive-embed-popup-politics-20120118");
+            el.id = el.id + "-" + Math.random().toString(36).substr(2,5);
 
-        // Load pym into locale namespace
-        require_popup_politics_20120118(['require', 'pym'], function (require, Pym) {
-            // Create pym parent
-            var pymParent = new Pym.Parent(
-                'responsive-embed-popup-politics-20120118',
-                'https://apps.npr.org/dailygraphics/graphics/popup-politics-20120118/child.html',
-                {}
-            );
+            jQuery.getScript("js/lib/pym.js").done(function () {
 
-            // Unbind events when the page changes
-            document.addEventListener('npr:pageUnload', function (e) {
-                // Unbind *this* event once its run once
-                e.target.removeEventListener(e.type, arguments.callee);
+                jQuery(function () { // Wait for page load
+                    var pymParent = new pym.Parent(
+                        el.id,
+                        'https://apps.npr.org/dailygraphics/graphics/popup-politics-20120118/child.html',
+                        {}
+                    );
 
-                // Pym versions with "remove"
-                if (typeof pymParent.remove == 'function') {
-                    pymParent.remove();
-                // Pym version without "remove"
-                } else {
-                    // Unbind pym events
-                    window.removeEventListener('message', pymParent._processMessage);
-                    window.removeEventListener('resize', pymParent._onResize);
-                }
-
-                // Explicitly unload pym library
-                require_popup_politics_20120118.undef('pym');
-                require_popup_politics_20120118 = null;
-            })
-        });
-    // Require.js is not on the page, but jQuery is (old Seamus)
-    } else if (typeof $ !== 'undefined' && typeof $.getScript === 'function') {
-        // Load pym
-        $.getScript('https://apps.npr.org/dailygraphics/graphics/popup-politics-20120118/js/lib/pym.js').done(function () {
-            // Wait for page load
-            $(function () {
-                // Create pym parent
-                var pymParent = new pym.Parent(
-                    'responsive-embed-popup-politics-20120118',
-                    'https://apps.npr.org/dailygraphics/graphics/popup-politics-20120118/child.html',
-                    {}
-                );
+                });
             });
-        });
-    // Neither require.js nor jQuery are on the page
-    } else {
-        console.error('Could not load popup-politics-20120118! Neither require.js nor jQuery are on the page.');
-    }
+        } else {
+            console.error('could not load graphic: jQuery is not on the page.');
+        }
+    })(window.jQuery);
 </script>
     </textarea>
 <!-- end textarea contents -->
@@ -229,13 +217,16 @@
 
 <!-- textarea contents -->
     <textarea readonly="readonly" rows="10" cols="50">
-<p data-pym-src="https://apps.npr.org/dailygraphics/graphics/popup-politics-20120118/child.html">&amp;nbsp;</p><script src="https://apps.npr.org/dailygraphics/graphics/popup-politics-20120118/js/lib/pym.js" type="text/javascript"></script>
+<p data-pym-src="https://apps.npr.org/dailygraphics/graphics/popup-politics-20120118/child.html">Loading...</p><script src="https://pym.nprapps.org/pym-loader.v1.min.js" type="text/javascript"></script>
     </textarea>
 <!-- end textarea contents -->
 
     </div>
 
     <script type="text/javascript" src="js/lib/pym.js"></script>
+
+
+
 
     <script type="text/javascript">
         var resizeSidebarEl = document.querySelector('#resize-sidebar');
@@ -291,6 +282,7 @@
         }
 
         var pymParent = new pym.Parent('preview', 'child.html', {});
+
     </script>
 </body>
 </html>

@@ -113,7 +113,7 @@ var onCheckboxClick = function(e) {
         $answers.eq(i).find('.checkbox').addClass('selected');
         var answerCheck = $answers.eq(i).find('.player').data('answer');
         var answerSrc = shuffledQuiz[questionIndex]['answers'][answerCheck];
-        console.log(answerSrc);
+        // console.log(answerSrc);
         var slug = answerSrc.split('.')[0].split('-');
         var quality = slug.pop();
 

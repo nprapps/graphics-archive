@@ -60,7 +60,7 @@ var render = function(containerWidth) {
 
         states.forEach(function(v,k) {
             stateData = partyData[v][0];
-            console.log(stateData);
+            // console.log(stateData);
 
             var stateResults = stateData['results'].sort(function(a, b) {
                 return d3.descending(a['votecount'], b['votecount']);

@@ -260,7 +260,7 @@ var renderLocatorMap = function(config) {
                     if (centroid[0] != 0 && centroid[1]!= 0) {
                         return 'translate(' + projection(centroid) + ')';
                     } else {
-                        console.log(d);
+                        // console.log(d);
                     }
                 })
                 .attr('r', 0)

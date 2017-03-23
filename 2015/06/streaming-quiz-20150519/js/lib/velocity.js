@@ -2304,7 +2304,7 @@ return function (global, window, document, undefined) {
                     if (promiseData.promise) {
                         promiseData.rejecter(new Error(abortError));
                     } else {
-                        console.log(abortError);
+                        // console.log(abortError);
                     }
 
                     return getChain();

@@ -37,13 +37,13 @@ var color_bins_count = color_bins.length;
 function ready(error, data_states, graphic_data) {
     data = graphic_data;
     geo_states = data_states['features'];
-    
+
     data.forEach(function(d) {
         if (d['difference_multiplier'] != undefined && d['difference_multiplier'].length > 0) {
             rate_by_id[d['state_name']] = +d['difference_multiplier'];
         }
     });
-    
+
     // setup pym
     pymChild = new pym.Child({
         renderCallback: render
@@ -67,11 +67,11 @@ function draw_map(width) {
     color = d3.scale.threshold()
         .domain(color_bins) // bins
         .range(color_range); // color palette
-    
+
     projection = d3.geo.albersUsa()
         .scale(scale) // zoom level or size
         .translate([width/2, height/2]);
-    
+
     path = d3.geo.path()
         .projection(projection); // apply projection to the map
 
@@ -89,7 +89,7 @@ function draw_map(width) {
         .style('background-color', function(d,i) {
             return color_range[i];
         });
-    
+
     d3.select(legend[0][0]).insert('label','b')
         .text('Fewer');
 
@@ -101,7 +101,7 @@ function draw_map(width) {
     svg = d3.select('#graphic').append('svg')
         .attr('width', width)
         .attr('height', height);
-    
+
     svg.append('g')
         .attr('class', 'states')
         .selectAll('path')
@@ -123,7 +123,7 @@ function draw_map(width) {
                 .style('stroke', '#666');
                 /*
                 .on('mouseover', function(d) {
-                    console.log(d['properties']['name'], rate_by_id[d['properties']['name']]);
+                    // console.log(d['properties']['name'], rate_by_id[d['properties']['name']]);
                 })
                 .on('mouseout', function(d) {
                 });*/
@@ -139,7 +139,7 @@ function draw_map(width) {
     if (pymChild) {
         pymChild.sendHeightToParent();
     }
-    
+
     init_load = true;
 }
 

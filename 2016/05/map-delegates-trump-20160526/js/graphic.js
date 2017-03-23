@@ -430,7 +430,7 @@ d3.selection.prototype.moveToFront = function() {
  * Render a bar chart.
  */
 var renderBarChart = function(config) {
-    console.log(config['data']);
+    // console.log(config['data']);
 
     /*
      * Setup

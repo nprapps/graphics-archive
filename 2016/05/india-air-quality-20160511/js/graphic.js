@@ -175,7 +175,7 @@ var renderStackedColumnChart = function(config) {
         .domain([min, max])
         .rangeRound([chartHeight, 0]);
 
-    console.log(config['data']);
+    // console.log(config['data']);
     var colorScale = d3.scale.ordinal()
         .domain(config['data'][0]['values'].map(function(d) { return d['name']; }))
         .range(['#8bc0b0', '#f7e39b', '#f1c696', '#eca395', '#bb92ab', '#927e99']);

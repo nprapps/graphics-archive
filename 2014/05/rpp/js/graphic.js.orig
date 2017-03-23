@@ -71,7 +71,7 @@ var colors = {
 
 function test(d) {
     var testt = $('ul.typeahead li.active').data('value');
-    console.log(testt);
+    // console.log(testt);
 }
 
 
@@ -112,7 +112,7 @@ function substringMatcher(strs) {
 }
 
 function on_typeahead_selected(event, selection) {
-    //   .attr('class', function(d) { 
+    //   .attr('class', function(d) {
     //     return   d.key.replace(/\W+/g, '-').toLowerCase();
     // })
     // console.log(selection)
@@ -121,17 +121,17 @@ function on_typeahead_selected(event, selection) {
     d3.selectAll("#text-highlight").attr('id','blank-label');
     d3.selectAll("#line-highlight").attr('id','blank-path');
 
-    console.log(selection.value)
+    // console.log(selection.value)
 
     var testtt = selection.value;
     var test3 = testtt.replace(/\W+/g, '-').toLowerCase();
 
-    console.log(test3)              
+    // console.log(test3)
 
-    var selectHighlight = selection.value.replace(/\W+/g, '-').toLowerCase();              
+    var selectHighlight = selection.value.replace(/\W+/g, '-').toLowerCase();
 
-    console.log(".line." + selectHighlight)
-    console.log("." + selectHighlight + "")
+    // console.log(".line." + selectHighlight)
+    // console.log("." + selectHighlight + "")
 
     d3.selectAll("." + selectHighlight )
         .attr('id','text-highlight').moveToFront();
@@ -165,7 +165,7 @@ function render(width) {
     // console.log(graphic_data)
     // if (Modernizr.svg) {
         var margin = {top: 75, right: 350, bottom: 25, left: 350};
-        
+
         if (width < mobile_threshold){
             is_mobile = true;
         } else {
@@ -175,7 +175,7 @@ function render(width) {
 console.log(is_mobile)
 
         if (width < mobile_threshold) {
-            var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;        
+            var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;
             num_ticks = 5;
             margin.left = 125;
             margin.right = 125;
@@ -185,7 +185,7 @@ console.log(is_mobile)
 
 
         } else {
-            var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;        
+            var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;
             num_ticks = 10;
             margin.left = 200;
             margin.right = 200;
@@ -203,7 +203,7 @@ console.log(is_mobile)
 
         var y = d3.scale.linear()
             .range([height, 0]);
-        
+
         var line = d3.svg.line()
             .x(function(d) { return x(d.msa); })
             .y(function(d) { return y(d.amt); });
@@ -215,8 +215,8 @@ console.log(is_mobile)
             // .clipExtent([[-margin.left, -margin.top], [width + margin.right, height + margin.bottom]]);
 
 
-        var xMap = function(d) { return d.msa;}; 
-        var yMap = function(d) { return d.amt;}; 
+        var xMap = function(d) { return d.msa;};
+        var yMap = function(d) { return d.amt;};
 
             // var xVal = function(d) { return d.size;};
 
@@ -232,19 +232,19 @@ console.log(is_mobile)
         for (var column in graphic_data[0]) {
             if (column == 'msa') continue;
             lines[column] = graphic_data.map(function(d) {
-                return { 
-                    'msa': d.msa, 
+                return {
+                    'msa': d.msa,
                     'amt': d[column]
                 };
             });
         }
-       
+
         var svg = d3.select('#graphic').append('svg')
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-        
+
         x.domain(d3.extent(graphic_data, function(d) { return d.msa; }));
 
         y.domain([17500,45000])
@@ -260,8 +260,8 @@ console.log(is_mobile)
                 } else {
                     return 'nonblank-path';
                 }
-            })            
-            .attr('class', function(d) { 
+            })
+            .attr('class', function(d) {
                 return 'line ' + d.key.replace(/\W+/g, '-').toLowerCase()
             })
             .attr('d', function(d) {
@@ -283,7 +283,7 @@ console.log(is_mobile)
             .enter()
             .append('path')
             .attr('id', 'hidden-path')
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return d.key.replace(/\W+/g, '-').toLowerCase()
             })
             .attr('d', function(d) {
@@ -304,7 +304,7 @@ console.log(is_mobile)
                     return 'nonblank-label';
                 }
             })
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return   d.key.replace(/\W+/g, '-').toLowerCase();
             })
             .attr("x",function(d) {
@@ -324,7 +324,7 @@ console.log(is_mobile)
                     } else {
                     return  d.key + "\u00A0" + "      " + "$" + thousandFormat(d['value'][0]['amt']);
                     }
-                })                    
+                })
             .style('font-size', function(d) {
                 if (is_mobile) {
                     return "10px";
@@ -343,7 +343,7 @@ console.log(is_mobile)
             .append('rect')
             // console.log(d.key)
             .attr('id', "whitebox")
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return   "box" + d.key.replace(/\W+/g, '-').toLowerCase();
             })
             // .attr("x","-19%")
@@ -373,7 +373,7 @@ console.log(is_mobile)
                     return 'dead';
                 }
             })
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return   d.key.replace(/\W+/g, '-').toLowerCase();
             })
             .attr("x",function(d) {
@@ -393,7 +393,7 @@ console.log(is_mobile)
                     } else {
                     return  d.key + "\u00A0" + "      " + "$" + thousandFormat(d['value'][0]['amt']);
                     }
-                })                    
+                })
 =======
 function on_mouseover(d, i) {
     if (this.getAttribute('id') == 'nonblank-label') {
@@ -431,7 +431,7 @@ function on_mouseover(d, i) {
                     return 'nonblank-label';
                 }
             })
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return d.key.replace(/\W+/g, '-').toLowerCase();
             })
             .attr("x",function(d) {
@@ -450,7 +450,7 @@ function on_mouseover(d, i) {
                 } else {
                     return "12px";
                 }
-            })            
+            })
             .on('mouseover', mouseover)
             .on('mouseout',mouseoutSVG);
 
@@ -461,7 +461,7 @@ function on_mouseover(d, i) {
             .append('rect')
             // console.log(d.key)
             .attr('id', "whitebox")
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return   "box" + d.key.replace(/\W+/g, '-').toLowerCase();
             })
             // .attr("x","-19%")
@@ -474,7 +474,7 @@ function on_mouseover(d, i) {
             .attr("width", "12em")
             .attr("height", "1em")
             .attr("dy", ".3em");
-            // .attr("dx", "10px");   
+            // .attr("dx", "10px");
 
 
 //right text
@@ -490,7 +490,7 @@ function on_mouseover(d, i) {
                     return 'dead';
                 }
             })
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return d.key.replace(/\W+/g, '-').toLowerCase();
             })
             .attr("x",function(d) {
@@ -509,7 +509,7 @@ function on_mouseover(d, i) {
                 } else {
                     return "12px";
                 }
-            })            
+            })
             .on('mouseover', mouseover)
             .on('mouseout',mouseoutSVG);
 =======
@@ -523,8 +523,8 @@ function on_mouseover(d, i) {
         // console.log(test)
 
 <<<<<<< HEAD
-d3.selectAll("#dead").remove();            
-         
+d3.selectAll("#dead").remove();
+
 =======
         d3.selectAll('.line.' + this.getAttribute('class'))
             .style('stroke-width', '2px')
@@ -576,16 +576,16 @@ function render(container_width) {
     var margin = {top: 75, right: 350, bottom: 25, left: 350};
     var msaKeep;
     var width;
-    
+
     if (container_width < mobile_threshold){
-        height = Math.ceil((container_width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;        
+        height = Math.ceil((container_width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;
         is_mobile = true;
         margin.left = 125;
         margin.right = 125;
         msaKeep = msaKeepmobile;
         num_ticks = 5;
     } else {
-        height = Math.ceil((container_width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;        
+        height = Math.ceil((container_width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;
         is_mobile = false;
         margin.left = 200;
         margin.right = 200;
@@ -603,7 +603,7 @@ function render(container_width) {
 
     var y = d3.scale.linear()
         .range([height, 0]);
-    
+
     var line = d3.svg.line()
         .x(function(d) { return x(d.msa); })
         .y(function(d) { return y(d.amt); });
@@ -615,8 +615,8 @@ function render(container_width) {
         // .clipExtent([[-margin.left, -margin.top], [width + margin.right, height + margin.bottom]]);
 
 
-    var xMap = function(d) { return d.msa;}; 
-    var yMap = function(d) { return d.amt;}; 
+    var xMap = function(d) { return d.msa;};
+    var yMap = function(d) { return d.amt;};
 
     // var xVal = function(d) { return d.size;};
 
@@ -627,26 +627,26 @@ function render(container_width) {
             '#0B403F',  '#11605E',  '#17807E',  '#51A09E',  '#8BC0BF',  '#C5DFDF',
             '#28556F',  '#3D7FA6',  '#51AADE',  '#7DBFE6',  '#A8D5EF',  '#D3EAF7']); // colors
 
-    var test = $("input").val()    
-    console.log(test)
+    var test = $("input").val()
+    // console.log(test)
 
     var lines = {};
     for (var column in graphic_data[0]) {
         if (column == 'msa') continue;
         lines[column] = graphic_data.map(function(d) {
-            return { 
-                'msa': d.msa, 
+            return {
+                'msa': d.msa,
                 'amt': d[column]
             };
         });
     }
-   
+
     var svg = d3.select('#graphic').append('svg')
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    
+
     x.domain(d3.extent(graphic_data, function(d) { return d.msa; }));
 
     y.domain([17500,45000])
@@ -662,8 +662,8 @@ function render(container_width) {
             } else {
                 return 'nonblank-path';
             }
-        })            
-        .attr('class', function(d) { 
+        })
+        .attr('class', function(d) {
             return 'line ' + d.key.replace(/\W+/g, '-').toLowerCase()
         })
         .attr('d', function(d) {
@@ -685,7 +685,7 @@ function render(container_width) {
         .enter()
         .append('path')
         .attr('id', 'hidden-path')
-        .attr('class', function(d) { 
+        .attr('class', function(d) {
             return d.key.replace(/\W+/g, '-').toLowerCase()
         })
         .attr('d', function(d) {
@@ -700,7 +700,7 @@ function render(container_width) {
         .append('rect')
         // console.log(d.key)
         .attr('id', "whitebox")
-        .attr('class', function(d) { 
+        .attr('class', function(d) {
             return   "box" + d.key.replace(/\W+/g, '-').toLowerCase();
         })
         // .attr("x","-19%")
@@ -730,7 +730,7 @@ function render(container_width) {
                 return 'nonblank-label';
             }
         })
-        .attr('class', function(d) { 
+        .attr('class', function(d) {
             return   d.key.replace(/\W+/g, '-').toLowerCase();
         })
         .attr("x",function(d) {
@@ -750,7 +750,7 @@ function render(container_width) {
                 } else {
                 return  d.key + "\u00A0" + "      " + "$" + thousandFormat(d['value'][0]['amt']);
                 }
-            })                    
+            })
         .style('font-size', function(d) {
             if (is_mobile) {
                 return "10px";
@@ -768,7 +768,7 @@ function render(container_width) {
         .append('rect')
         // console.log(d.key)
         .attr('id', "whitebox")
-        .attr('class', function(d) { 
+        .attr('class', function(d) {
             return   "box" + d.key.replace(/\W+/g, '-').toLowerCase();
         })
         // .attr("x","-19%")
@@ -781,7 +781,7 @@ function render(container_width) {
         .attr("width", "12em")
         .attr("height", "1em")
         .attr("dy", ".3em");
-        // .attr("dx", "10px");   
+        // .attr("dx", "10px");
 
 
     //right text
@@ -797,7 +797,7 @@ function render(container_width) {
                 return 'nonblank-label';
             }
         })
-        .attr('class', function(d) { 
+        .attr('class', function(d) {
             return d.key.replace(/\W+/g, '-').toLowerCase();
         })
         .attr("x",function(d) {
@@ -816,7 +816,7 @@ function render(container_width) {
             } else {
                 return "12px";
             }
-        })            
+        })
         .on('mouseover', on_mouseover)
         .on('mouseout', on_mouseout);
 
@@ -831,7 +831,7 @@ function render(container_width) {
             } else {
                 return "-.75em";
             }
-        })            
+        })
         .attr("text-anchor", "end")
         .style('font-size', function(d) {
             if (is_mobile) {
@@ -839,7 +839,7 @@ function render(container_width) {
             } else {
                 return "14px";
             }
-        })            
+        })
         .text("Median Income")
 
 
@@ -857,26 +857,26 @@ function render(container_width) {
             } else {
                 return "14px";
             }
-        })             
+        })
         .text("What It Feels Like");
 
 
     // finesse label placement
-    console.log(d3.keys(lines))
+    // console.log(d3.keys(lines))
     d3.selectAll('.boston-ma')
-        .attr('dy', '.5em');    
+        .attr('dy', '.5em');
     d3.selectAll('.danville-il')
-        .attr('dy', '-.3em');    
+        .attr('dy', '-.3em');
     d3.selectAll('.lebanon-pa')
-        .attr('dy', '1em');    
+        .attr('dy', '1em');
     d3.selectAll('.rochester-mn')
-        .attr('dy', '-.3em');    
+        .attr('dy', '-.3em');
     d3.selectAll('.dallas-fort-worth-tx')
-        .attr('dy', '-.15em');    
+        .attr('dy', '-.15em');
     d3.selectAll('.houston-tx')
-        .attr('dy', '-.15em');      
+        .attr('dy', '-.15em');
     d3.selectAll('#nonblank-label')
-        .moveToFront();    
+        .moveToFront();
 
 
 <<<<<<< HEAD
@@ -895,12 +895,12 @@ function render(container_width) {
                 // console.log(msas[x])
                 // console.log(found)
                 msaval.push(msas[x])
-              } 
+              }
         }
 
         // console.log(msaval)
 
-        
+
         $('#msa-field .typeahead').typeahead({
             hint: true,
             highlight: true,

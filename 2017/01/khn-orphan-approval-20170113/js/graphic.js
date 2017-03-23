@@ -311,7 +311,7 @@ var renderStackedColumnChart = function(config) {
                     else{
                         d3.select(this).classed('raised', true);
                         var cL = barCenter + textHeight / 2;
-                        console.log(cL);
+                        // console.log(cL);
                         return cL;
 
 

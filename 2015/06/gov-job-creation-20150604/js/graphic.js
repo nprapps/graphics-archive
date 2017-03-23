@@ -30,8 +30,8 @@ var onWindowLoaded = function() {
             d['state'] = +d['state_change'];
             d['us'] = +d['us_change'];
         });
-        
-        console.log(GRAPHIC_DATA);
+
+        // console.log(GRAPHIC_DATA);
 
         pymChild = new pym.Child({
             renderCallback: render
@@ -115,7 +115,7 @@ var drawGraph = function(graphicWidth) {
     // draw the legend
     var legend = graph.append('ul')
         .attr('class', 'key');
-    
+
     var keyState = legend.append('li')
         .attr('class', 'key-item key-0 state');
     keyState.append('b')
@@ -124,14 +124,14 @@ var drawGraph = function(graphicWidth) {
         .attr('class', 'r');
     keyState.append('label')
         .text('State job growth during term');
-    
+
     var keyUS = legend.append('li')
         .attr('class', 'key-item key-0 state');
     keyUS.append('b')
         .attr('class', 'us');
     keyUS.append('label')
         .text('U.S. job growth during term');
-    
+
     var chart = graph.append('div')
         .attr('class', 'wrapper');
 

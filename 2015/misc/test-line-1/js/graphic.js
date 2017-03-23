@@ -59,14 +59,14 @@ var render = function(containerWidth) {
     if (!containerWidth) {
         containerWidth = GRAPHIC_DEFAULT_WIDTH;
     }
-    
+
     // check the container width; set mobile flag if applicable
     if (containerWidth <= MOBILE_THRESHOLD) {
         isMobile = true;
     } else {
         isMobile = false;
     }
-    
+
     // clear out existing graphics
     $graphic.empty();
 
@@ -88,16 +88,16 @@ var drawGraph = function(graphicWidth) {
     var aspectHeight;
     var aspectWidth;
     var graph = d3.select('#graphic');
-    var margin = { 
-    	top: 5, 
-    	right: 10, 
-    	bottom: 30, 
+    var margin = {
+    	top: 5,
+    	right: 10,
+    	bottom: 30,
     	left: 53
     };
     var ticksX;
     var ticksY;
 
-    // params that depend on the container width 
+    // params that depend on the container width
     if (isMobile) {
         aspectWidth = 4;
         aspectHeight = 3;
@@ -149,15 +149,15 @@ var drawGraph = function(graphicWidth) {
     // define the line(s)
     var line = d3.svg.line()
         .interpolate('monotone')
-        .x(function(d) { 
+        .x(function(d) {
             return x(d['date']);
         })
-        .y(function(d) { 
+        .y(function(d) {
             return y(d['amt']);
         });
 
     // assign a color to each line
-    colorD3.domain(d3.keys(graphicData[0]).filter(function(key) { 
+    colorD3.domain(d3.keys(graphicData[0]).filter(function(key) {
         return key !== 'date';
     }));
 
@@ -169,18 +169,18 @@ var drawGraph = function(graphicWidth) {
             return { 'date': d['date'], 'amt': d[column] };
         });
     }
-    
-    console.log(formattedData)
+
+    // console.log(formattedData)
     // set the data domain
-    x.domain(d3.extent(graphicData, function(d) { 
+    x.domain(d3.extent(graphicData, function(d) {
         return d['date'];
     }));
 
-    y.domain([ 0, d3.max(d3.entries(formattedData), function(c) { 
-            return d3.max(c['value'], function(v) { 
+    y.domain([ 0, d3.max(d3.entries(formattedData), function(c) {
+            return d3.max(c['value'], function(v) {
                 var n = v['amt'];
                 return Math.ceil(n/20000) * 20000; // round to next 20K
-            }); 
+            });
         })
     ]);
 
@@ -190,7 +190,7 @@ var drawGraph = function(graphicWidth) {
 		.selectAll('g')
 			.data(d3.entries(formattedData))
 		.enter().append('li')
-			.attr('class', function(d, i) { 
+			.attr('class', function(d, i) {
 				return 'key-item key-' + i + ' ' + classify(d['key']);
 			});
     legend.append('b')
@@ -208,7 +208,7 @@ var drawGraph = function(graphicWidth) {
 		.attr('height', height + margin['top'] + margin['bottom'])
         .append('g')
             .attr('transform', 'translate(' + margin['left'] + ',' + margin['top'] + ')');
-            
+
     // x-axis (bottom)
     svg.append('g')
         .attr('class', 'x axis')
@@ -219,7 +219,7 @@ var drawGraph = function(graphicWidth) {
     svg.append('g')
         .attr('class', 'y axis')
         .call(yAxis);
-    
+
     // x-axis gridlines
     svg.append('g')
         .attr('class', 'x grid')
@@ -228,15 +228,15 @@ var drawGraph = function(graphicWidth) {
             .tickSize(-height, 0, 0)
             .tickFormat('')
         );
-    
+
     // y-axis gridlines
-    svg.append('g')         
+    svg.append('g')
         .attr('class', 'y grid')
         .call(yAxisGrid()
             .tickSize(-width, 0, 0)
             .tickFormat('')
         );
-    
+
     // draw the line(s)
     svg.append('g')
         .attr('class', 'lines')

@@ -67,23 +67,23 @@ function substringMatcher(strs) {
 function render(width) {
 var graphic_width;
 var margin = { top: 30, right: 50, bottom: 30, left: 10 };
- 
+
  if (width <= mobile_threshold) {
  is_mobile = true;
  }
- 
+
  if (is_mobile) {
  graphic_aspect_width  = 3;
  graphic_aspect_height = 4;
  margin                = { top: 30, right: 30, bottom: 30, left: 10 };
- 
+
  graphic_width         = Math.floor(((width - 11) ) - margin.left - margin.right);
  } else {
  graphic_width         = Math.floor((width - 10) - margin.left - margin.right);
  }
- 
+
  drawBigGraph(graphic_width, is_mobile);
- 
+
  if (pymChild) {
  pymChild.sendHeightToParent();
  }
@@ -91,7 +91,7 @@ var margin = { top: 30, right: 50, bottom: 30, left: 10 };
 
 
 function drawBigGraph(width, is_mobile) {
-    console.log(graphic_data)
+    // console.log(graphic_data)
 
     var color = d3.scale.ordinal()
                  .range(['#6C2315', '#A23520', '#D8472B', '#E27560', '#ECA395', '#F5D1CA',
@@ -103,10 +103,10 @@ function drawBigGraph(width, is_mobile) {
     if (is_mobile) {
         var margin = { top: -30, right: 130, bottom: 30, left: 30 };
         var num_x_ticks = 5;
-        var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width*1.7) - margin.top - margin.bottom;        
+        var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width*1.7) - margin.top - margin.bottom;
     } else {
-        var margin = { top: -30, right: 40, bottom: 30, left: 30 };            
-        var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;        
+        var margin = { top: -30, right: 40, bottom: 30, left: 30 };
+        var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width) - margin.top - margin.bottom;
         // var num_ticks = 5;
         var num_x_ticks = 10;
     }
@@ -129,7 +129,7 @@ function drawBigGraph(width, is_mobile) {
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient('bottom')
-        .ticks(num_x_ticks)            
+        .ticks(num_x_ticks)
         .tickSize(5);
 
     var x_axis_grid = function() { return xAxis; };
@@ -175,25 +175,25 @@ function drawBigGraph(width, is_mobile) {
             if (found == 0 ) {
                 return 'special-lines';
             } else {
-            
+
             average = d3.mean(d.values,function(d) { return +d.indexed});
-            
+
                 if (average > 4) {
-                    return 'top-10' ; 
+                    return 'top-10' ;
                   } else if (average < 1) {
                     return 'bottom-10';
                   } else {
                     return 'lines'; }
 
             }
-        })                
+        })
         .attr('id', function(d) { return d.name.replace(/\W+/g, '-').toLowerCase(); })
         .attr("d", function(d) { return line(d.values); });
 
      var newline = svg.selectAll('path2')
             .data(quintiles.filter(function(d){ return d.name  == "United States"; }))
             .enter().append('path')
-            .attr('class', "secondspecial")            
+            .attr('class', "secondspecial")
             .attr('id', function(d) { return d.name; })
             .attr("d", function(d) { return line(d.values); });
 
@@ -214,28 +214,28 @@ function drawBigGraph(width, is_mobile) {
         }))
         .enter().append('text')
         .attr('class', function(d) {
-                    return 'top-10-text ' + d.name.replace(/\W+/g, '-').toLowerCase() ; 
+                    return 'top-10-text ' + d.name.replace(/\W+/g, '-').toLowerCase() ;
             })
         .attr('id', function(d) {  return d.name.replace(/\W+/g, '-').toLowerCase()})
         .attr('x', 3)
         .attr('dy', '.3em')
         .text(function(d) {return d.name})
-        // .text(function(d) { 
+        // .text(function(d) {
 
         //         average = d3.mean(d.values,function(d) { return +d.indexed});
-            
+
         //         if (average > 3.89) {
-        //             return d.name; 
+        //             return d.name;
         //           } else if (average < 1) {
         //             return d.name;
         //           } else {
-        //             return null; 
+        //             return null;
         //         }
         //     })
-        .datum(function(d) { 
+        .datum(function(d) {
             return {
-                name: d.name, 
-                value: d.values[0]}; 
+                name: d.name,
+                value: d.values[0]};
             })
         .attr('transform', function(d) { return 'translate(' + x(d.value.date) + ',' + y(d.value.indexed) + ')'; });
 
@@ -249,35 +249,35 @@ function drawBigGraph(width, is_mobile) {
         .attr('class',"bottom-10-text")
         // .attr('class', function(d) {
         //         average = d3.mean(d.values,function(d) { return +d.indexed});
-            
+
         //         if (average > 3.89) {
-        //             return 'top-10-text ' + d.name.replace(/\s+/g, '-').toLowerCase() ; 
+        //             return 'top-10-text ' + d.name.replace(/\s+/g, '-').toLowerCase() ;
         //           } else if (average < 1) {
         //             return 'bottom-10-text ' + d.name.replace(/\s+/g, '-').toLowerCase();
         //           } else {
-        //             return 'y-label-text'; 
+        //             return 'y-label-text';
         //         }
         //     })
         .attr('id', function(d) {  return d.name.replace(/\W+/g, '-').toLowerCase()})
         .attr('x', 3)
         .attr('dy', '.3em')
         .text(function(d) {return d.name})
-        // .text(function(d) { 
+        // .text(function(d) {
 
         //         average = d3.mean(d.values,function(d) { return +d.indexed});
-            
+
         //         if (average > 3.89) {
-        //             return d.name; 
+        //             return d.name;
         //           } else if (average < 1) {
         //             return d.name;
         //           } else {
-        //             return null; 
+        //             return null;
         //         }
         //     })
-        .datum(function(d) { 
+        .datum(function(d) {
             return {
-                name: d.name, 
-                value: d.values[0]}; 
+                name: d.name,
+                value: d.values[0]};
             })
         .attr('transform', function(d) { return 'translate(' + x(d.value.date) + ',' + y(d.value.indexed) + ')'; });
 
@@ -285,28 +285,28 @@ function drawBigGraph(width, is_mobile) {
     var uslabel = svg.selectAll('text2')
         .data(quintiles.filter(function(d){ return d.name == "United States"; }))
         .enter().append('text')
-        // .filter(function(d) { 
+        // .filter(function(d) {
         //         var found = $.inArray(d.name, Keep);
         //         if (found == 0 ) {
 
         // return d.name < 400 })        // <== This line
-        .datum(function(d) { 
+        .datum(function(d) {
             return {
-                name: d.name, 
-                value: d.values[0]}; 
+                name: d.name,
+                value: d.values[0]};
             })
         .attr('class','y-label-text')
-        .attr('id', function(d) { 
+        .attr('id', function(d) {
                 var found = $.inArray(d.name, Keep);
                 if (found == 0) {return "us-label"; }
-                })        
+                })
         .attr('transform', function(d) { return 'translate(' + x(d.value.date) + ',' + y(d.value.indexed) + ')'; })
         .attr('x', 3)
         .attr('dy', '-1.2em')
-        .text(function(d) { 
+        .text(function(d) {
                 var found = $.inArray(d.name, Keep);
                 if (found == 0) {
-                    return d.name; 
+                    return d.name;
                 }
             });
 
@@ -320,7 +320,7 @@ function drawBigGraph(width, is_mobile) {
         .attr('transform', 'translate(' + -width/100 + ',0)')
         .call(yAxis);
 
-    var yGrid = svg.append('g')         
+    var yGrid = svg.append('g')
         .attr('class', 'y grid')
         .call(y_axis_grid()
             .tickSize(-width, 0, 0)
@@ -339,7 +339,7 @@ function drawBigGraph(width, is_mobile) {
         var location = d3.keys(graphic_data[0]);
         var index = location.indexOf('date');
 
-        console.log('location', location)
+        // console.log('location', location)
 
         if (index > -1) {
             location.splice(index, 1);
@@ -364,7 +364,7 @@ function drawBigGraph(width, is_mobile) {
 
 
 function on_typeahead_selected(event, selection) {
-    console.log(selection.value)
+    // console.log(selection.value)
 
     d3.selectAll('.small-line').remove()
     d3.selectAll('.small-area').remove()
@@ -388,8 +388,8 @@ function top10(d) {
 
     d3.selectAll(".bottom-10").transition().duration(160).style("stroke","#c2dcf5")
     d3.selectAll(".bottom-10-text").transition().duration(160).style("opacity","0")
-    d3.selectAll(".top-10").transition().duration(160).style("stroke","#23692e").transition().duration(160).style("opacity",".7")    
-    d3.selectAll(".top-10-text").transition().duration(160).style("opacity",".7")    
+    d3.selectAll(".top-10").transition().duration(160).style("stroke","#23692e").transition().duration(160).style("opacity",".7")
+    d3.selectAll(".top-10-text").transition().duration(160).style("opacity",".7")
 
      d3.select('text#honolulu-hi').attr("dx","9.6em").attr("dy","-2em").on('mouseover', mouseover).on('mouseout', mouseout);
      d3.select('text#san-francisco-ca').attr("dx","14.6em").attr("dy","-6em").on('mouseover', mouseover).on('mouseout', mouseout);
@@ -398,16 +398,16 @@ function top10(d) {
 }
 
 function bottom10(d) {
-    d3.selectAll(".top-10").transition().duration(160).style("stroke","#c2dcf5")    
+    d3.selectAll(".top-10").transition().duration(160).style("stroke","#c2dcf5")
     d3.selectAll(".top-10-text").transition().duration(160).style("opacity","0")
-    d3.selectAll(".bottom-10").transition().duration(160).style("stroke","#69312a").transition().duration(160).style("opacity",".7")    
+    d3.selectAll(".bottom-10").transition().duration(160).style("stroke","#69312a").transition().duration(160).style("opacity",".7")
     d3.selectAll(".bottom-10-text").transition().duration(160).style("opacity",".7")
 }
 
 function clearall(d) {
-    d3.selectAll(".top-10").transition().duration(160).style("stroke","#c2dcf5")    
+    d3.selectAll(".top-10").transition().duration(160).style("stroke","#c2dcf5")
     d3.selectAll(".top-10-text").transition().duration(160).style("opacity","0")
-    d3.selectAll(".bottom-10").transition().duration(160).style("stroke","#c2dcf5")    
+    d3.selectAll(".bottom-10").transition().duration(160).style("stroke","#c2dcf5")
     d3.selectAll(".bottom-10-text").transition().duration(160).style("opacity","0")
 }
 
@@ -428,14 +428,14 @@ function selected(what) {
 
    // var smallArea = small.filter(function(d) { return d.name == what})
    //      .attr('id','small-area')
-   //      .attr('class', function(d) { 
+   //      .attr('class', function(d) {
    //          return d.name.replace(/\s+/g, '-').toLowerCase()
    //      })
-   //      .attr('d', function(d) { 
-   //          last = d.values[0]['indexed'];              
+   //      .attr('d', function(d) {
+   //          last = d.values[0]['indexed'];
    //          average = d3.mean(d.values.slice(0,64),function(d) { return +d.indexed});
-   //          diff1 = last - average;           
-   //          area.y0(function(d) {return y(average);})   
+   //          diff1 = last - average;
+   //          area.y0(function(d) {return y(average);})
    //          return area(d.values);
    //      })
    //      .transition()
@@ -443,11 +443,11 @@ function selected(what) {
    //      .ease('elastic')
    //      .style('fill', function(d) {
    //           if (diff1 > .1) {
-   //              return '#3ea148'; 
+   //              return '#3ea148';
    //          } else if (diff1 < -.1) {
-   //              return '#a12b31'; 
+   //              return '#a12b31';
    //          } else {return '#bab237';}
-   //      });    
+   //      });
 
     small = svg.selectAll('.small-area')
         .data(quintiles.filter(function(d){ return d.name  == what; }))
@@ -465,10 +465,10 @@ function selected(what) {
         .append('text')
         .attr('class', 'smallLabel')
         .text(function(d) { return d.name ;})
-        .datum(function(d) { 
+        .datum(function(d) {
             return {
-                name: d.name, 
-                value: d.values[0]}; 
+                name: d.name,
+                value: d.values[0]};
             })
         .attr('transform', function(d) { return 'translate(' + x(d.value.date) + ',' + y(d.value.indexed) + ')'; })
         .attr('x', 3)
@@ -484,12 +484,12 @@ var test;
 console.log(test);
    var secondline = smallLine.filter(function(d) { return d.name == what})
         .attr('class','lines2')
-        .attr("d", function(d) { 
+        .attr("d", function(d) {
              test = line2(d.values);
-            return  null ; });     
+            return  null ; });
 
 usLine.transition().duration(1900).ease('elastic')
-    .attr('d', test)        
+    .attr('d', test)
     .style('stroke-width',"3.2")
     .style('stroke',"#334da0");
     // .stroke-width: 2px;
@@ -500,11 +500,11 @@ usLine.transition().duration(1900).ease('elastic')
         // .ease('elastic')
         // .style('fill', function(d) {
         //      if (diff1 > .1) {
-        //         return '#3ea148'; 
+        //         return '#3ea148';
         //     } else if (diff1 < -.1) {
-        //         return '#a12b31'; 
+        //         return '#a12b31';
         //     } else {return '#bab237';}
-        // });   
+        // });
 
 
         // // .style('fill', 'm');
@@ -513,7 +513,7 @@ usLine.transition().duration(1900).ease('elastic')
         // }
         //     '#48ba5b');
         // .style('fill', function(d) { return color(d.name); });
-    
+
     // hline
     //     .transition().duration(1300).ease("elastic").attr('y',y(average))
 
@@ -523,43 +523,43 @@ usLine.transition().duration(1900).ease('elastic')
     //     .append('text')
     //     .attr('class','y-label-value2')
     //     .attr('id', function(d) {return 'selected'})
-    //     .attr('transform', function(d) { 
+    //     .attr('transform', function(d) {
     //             return  'translate(' + x(d.values[0]['date']) + ',' + y(average)+ ')';
     //         })
     //     // .attr('dx','5em')
     //     .attr('dy','2em')
-    //     .html(function(d) { 
+    //     .html(function(d) {
     //             if (is_mobile) {
     //             return 'historical ave: ' + d3.round(average,1) ;
     //              } else {
-    //             return 'historical average (1990-2004): ' + d3.round(average,1) ;                    
+    //             return 'historical average (1990-2004): ' + d3.round(average,1) ;
     //             }
     //         })
-    //     .style('font-size','12px');      
+    //     .style('font-size','12px');
 
     // var ylabelValue =  smallLabel.filter(function(d) { return d.name == what})
     //     .append('text')
     //     .attr('class',function(d) {
     //         if (is_mobile) {
-    //          return 'y-label-value2';                
+    //          return 'y-label-value2';
     //         } else {
-    //          return 'y-label-value';                                
+    //          return 'y-label-value';
     //         }
     //         })
-    //     .datum(function(d) { 
+    //     .datum(function(d) {
     //         if (is_mobile) {
-    //             return {name: d.name, value: d.values[0]}; 
-    //         } 
+    //             return {name: d.name, value: d.values[0]};
+    //         }
     //         else {
-    //             return {name: d.name, value: d.values[0]};                 
+    //             return {name: d.name, value: d.values[0]};
     //         }
     //         })
     //     .attr('id', function(d) {
     //         if(d.name==what) {
     //             return 'selected1'
     //         }
-    //     })        
-    //     .text(function(d) { 
+    //     })
+    //     .text(function(d) {
     //             if (d.name == what) {
     //                 if (diff1 > 0.1) {
     //                     return 'The home price ratio is above average';
@@ -570,16 +570,16 @@ usLine.transition().duration(1900).ease('elastic')
     //                 }
     //             }
     //         })
-    //     .attr('transform', function(d) { 
-    //             return 'translate(' + x(d.value.date) + ',' + y(5.5) + ')';                 
+    //     .attr('transform', function(d) {
+    //             return 'translate(' + x(d.value.date) + ',' + y(5.5) + ')';
     //     })
     //     .attr('dy', function(d) {
     //         if (diff1 == 0) {
     //             return '.75em';
     //         } else if (diff1 > 0) {
-    //             return '.75em'; 
+    //             return '.75em';
     //         } else if (diff1 < 0) {
-    //             return '-.75em'; 
+    //             return '-.75em';
     //         }
     //     });
 
@@ -587,9 +587,9 @@ usLine.transition().duration(1900).ease('elastic')
     // var msaname = svg.append('text')
     //     .attr('transform', 'translate(10,' + y(6) + ')')
     //     .attr('class','msa-name')
-    //     .text(what);                 
+    //     .text(what);
 
-    
+
 
 
     d3.selectAll('#selected').moveToFront()

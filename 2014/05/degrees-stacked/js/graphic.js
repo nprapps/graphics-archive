@@ -524,7 +524,7 @@ quint.selectAll(".layer")
             })
             .style("opacity","1");
 
-            console.log(testname)
+            // console.log(testname)
 
             if (testname == ".quint-communications-and-journalism"){
                 d3.selectAll(".quint-communications-and-journalism2")
@@ -640,7 +640,7 @@ quint.selectAll(".layer")
             .style("stroke-width", "1")
 
 
-            console.log(y(20))
+            // console.log(y(20))
 
             small.append("text")
             .attr('class',"small-graph-degree")
@@ -671,7 +671,7 @@ quint.selectAll(".layer")
             // .attr('x',x(2011))
             .attr('x', function(d) {
                 if(d.name==smallWhat) {
-                    console.log(d.values[lastNum]['yr'])
+                    // console.log(d.values[lastNum]['yr'])
                        if (is_mobile) {
                         return x(d.values[lastNum]['yr']) ;
                         } else {
@@ -681,7 +681,7 @@ quint.selectAll(".layer")
             })
             .attr('y', function(d) {
                 if(d.name==smallWhat) {
-                    console.log(d.values[lastNum]['y']*100)
+                    // console.log(d.values[lastNum]['y']*100)
                     return y(d.values[lastNum]['y']) - 7;
                     // return y(d.values[lastNum]['y']*100);
                 }
@@ -689,8 +689,8 @@ quint.selectAll(".layer")
             .text(function(d) {
                 if(d.name==smallWhat) {
                     var smallval = d.values[lastNum]['y']*100;
-                    console.log(d.values[lastNum]['y'])
-                    console.log(d3.round(smallval))
+                    // console.log(d.values[lastNum]['y'])
+                    // console.log(d3.round(smallval))
                     if (d3.round(smallval) == 0) {
                     return '~' + d3.round(smallval) + '%'
                     }
@@ -715,7 +715,7 @@ quint.selectAll(".layer")
             .attr('class',"first-val")
             .attr('x', function(d) {
                 if(d.name==smallWhat) {
-                    console.log(d.values[firstNum]['yr'])
+                    // console.log(d.values[firstNum]['yr'])
                        if (is_mobile) {
                         return x(d.values[firstNum]['yr']) ;
                         } else {
@@ -725,15 +725,15 @@ quint.selectAll(".layer")
             })
             .attr('y', function(d) {
                 if(d.name==smallWhat) {
-                    console.log(d.values[firstNum]['y']*100)
+                    // console.log(d.values[firstNum]['y']*100)
                     return y(d.values[firstNum]['y']) - 7;
                 }
             })
             .text(function(d) {
                 if(d.name==smallWhat) {
                     var smallval = d.values[firstNum]['y']*100;
-                    console.log(d.values[firstNum]['y'])
-                    console.log(d3.round(smallval))
+                    // console.log(d.values[firstNum]['y'])
+                    // console.log(d3.round(smallval))
                     if (d3.round(smallval) == 0) {
                     return '~' + d3.round(smallval) + '%'
                     }

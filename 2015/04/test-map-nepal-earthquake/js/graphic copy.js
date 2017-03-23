@@ -65,18 +65,18 @@ var onWindowLoaded = function() {
  * RENDER THE GRAPHIC
  */
 var ready = function(error, data_test, data_countries, graphic_data) {
-    console.log('READY');
+    // console.log('READY');
     // uncompress topojson into geojson
 //    console.log(data_test);
-    console.log('data_test original', data_test['objects']['output']['geometries'][0]);
-    console.log('data_countries original', data_countries['objects']['land']);
+    // console.log('data_test original', data_test['objects']['output']['geometries'][0]);
+    // console.log('data_countries original', data_countries['objects']['land']);
 
     geoTest = topojson.feature(data_test, data_test['objects']['output']['geometries'][0]);
 //    geoTest = data_test['features'][0];
     geoLand = topojson.feature(data_countries, data_countries['objects']['land']);
-    console.log('geoTest', geoTest);
-    console.log('geoLand', geoLand);
-    
+    // console.log('geoTest', geoTest);
+    // console.log('geoLand', geoLand);
+
     // setup pym
     pymChild = new pym.Child({
         renderCallback: render
@@ -102,7 +102,7 @@ var render = function(width) {
  * DRAW THE MAP
  */
 function draw_map(width) {
-    console.log('DRAW_MAP');
+    // console.log('DRAW_MAP');
 
     $graphic.empty();
 
@@ -111,12 +111,12 @@ function draw_map(width) {
     color = d3.scale.threshold()
         .domain(color_bins) // bins
         .range(color_range); // color palette
-    
+
     mapProjection = d3.geo.mercator()
         .scale(mapScale) // zoom level or size
         .center(MAP_CENTROID);
 //        .translate([mapWidth/2 * .97, mapHeight/2 * 1.27]);
-    
+
     path = d3.geo.path()
         .projection(mapProjection); // apply projection to the map
 
@@ -124,7 +124,7 @@ function draw_map(width) {
     svg = d3.select('#graphic').append('svg')
         .attr('width', mapWidth)
         .attr('height', mapHeight);
-    
+
 //     var land = svg.append('path')
 //         .attr('class', 'land')
 //         .datum(geoLand)
@@ -137,7 +137,7 @@ function draw_map(width) {
         .attr('d', path)
         .style('fill', '#ddd')
         .style('stroke', '#fff');
-    
+
     initLoad = true;
 }
 
@@ -150,7 +150,7 @@ function update_dimensions() {
 }
 
 function update_map() {
-    console.log('UPDATE_MAP');
+    // console.log('UPDATE_MAP');
 
     update_dimensions();
 
@@ -167,7 +167,7 @@ function update_map() {
             .attr('d', path);
 
 //     svg.selectAll('circle')
-//         .attr('transform', function(d) { 
+//         .attr('transform', function(d) {
 //             return 'translate(' + path.centroid(d) + ')';
 //         })
 }

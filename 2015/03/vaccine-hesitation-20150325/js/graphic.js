@@ -41,19 +41,19 @@ var onWindowLoaded = function() {
             .domain(d3.keys(GRAPHIC_DATA[0]).filter(function(d) {
                 return d != 'label';
             }));
-        
+
         GRAPHIC_DATA.forEach(function(d) {
             var x0 = 0;
-            d['values'] = colorD3.domain().map(function(name) { 
-                return { 
-                    name: name, 
-                    x0: x0, 
-                    x1: x0 += +d[name], 
+            d['values'] = colorD3.domain().map(function(name) {
+                return {
+                    name: name,
+                    x0: x0,
+                    x1: x0 += +d[name],
                     val: d[name]
                 };
             });
         });
-        
+
         // setup pym
         pymChild = new pym.Child({
             renderCallback: render
@@ -72,14 +72,14 @@ var render = function(containerWidth) {
     if (!containerWidth) {
         containerWidth = GRAPHIC_DEFAULT_WIDTH;
     }
-    
+
     // check the container width; set mobile flag if applicable
     if (containerWidth <= MOBILE_THRESHOLD) {
         isMobile = true;
     } else {
         isMobile = false;
     }
-    
+
     // clear out existing graphics
     $graphic.empty();
 
@@ -98,15 +98,15 @@ var render = function(containerWidth) {
  * DRAW THE GRAPH
  */
 var drawGraph = function(graphicWidth) {
-    var margin = { 
-        top: 0, 
-        right: 15, 
-        bottom: 30, 
+    var margin = {
+        top: 0,
+        right: 15,
+        bottom: 30,
         left: (LABEL_WIDTH + LABEL_MARGIN)
     };
     var numBars = GRAPHIC_DATA.length;
     var ticksX;
-    
+
     if (isMobile) {
         ticksX = 2;
     } else {
@@ -116,17 +116,17 @@ var drawGraph = function(graphicWidth) {
     // define chart dimensions
     var width = graphicWidth - margin['left'] - margin['right'];
     var height = ((BAR_HEIGHT + BAR_GAP) * numBars);
-    
+
     var x = d3.scale.linear()
         .domain([ 0, 100 ])
         .rangeRound([0, width]);
-        
+
     var y = d3.scale.ordinal()
-        .domain(GRAPHIC_DATA.map(function(d) { 
+        .domain(GRAPHIC_DATA.map(function(d) {
             return d['values'];
         }))
         .rangeRoundBands([0, height], .1);
-        
+
     // define axis and grid
     var xAxis = d3.svg.axis()
         .scale(x)
@@ -135,11 +135,11 @@ var drawGraph = function(graphicWidth) {
         .tickFormat(function(d) {
             return d + '%';
         });
-        
+
     var x_axis_grid = function() { return xAxis; }
-    
-    console.log(colorD3.domain());
-    
+
+    // console.log(colorD3.domain());
+
     // draw the legend
     var legend = graphicD3.append('ul')
 		.attr('class', 'key')
@@ -161,13 +161,13 @@ var drawGraph = function(graphicWidth) {
     // draw the chart
     var chart = graphicD3.append('div')
         .attr('class', 'chart');
-    
+
     var svg = chart.append('svg')
         .attr('width', width + margin['left'] + margin['right'])
         .attr('height', height + margin['top'] + margin['bottom'])
         .append('g')
         .attr('transform', 'translate(' + margin['left'] + ',' + margin['top'] + ')');
-    
+
     svg.append('g')
         .attr('class', 'x axis')
         .attr('transform', 'translate(0,' + height + ')')
@@ -180,44 +180,44 @@ var drawGraph = function(graphicWidth) {
             .tickSize(-height, 0, 0)
             .tickFormat('')
         );
-        
+
     var group = svg.selectAll('.group')
         .data(GRAPHIC_DATA)
         .enter().append('g')
             .attr('class', function(d) {
                 return 'group ' + classify(d['label']);
             })
-            .attr('transform', function(d,i) { 
+            .attr('transform', function(d,i) {
                 return 'translate(0,' + (i * (BAR_HEIGHT + BAR_GAP)) + ')';
             });
-            
+
     group.selectAll('rect')
-        .data(function(d) { 
+        .data(function(d) {
             return d['values'];
         })
         .enter().append('rect')
             .attr('height', BAR_HEIGHT)
-            .attr('x', function(d) { 
-                return x(d['x0']); 
+            .attr('x', function(d) {
+                return x(d['x0']);
             })
-            .attr('width', function(d) { 
+            .attr('width', function(d) {
                 return x(d['x1']) - x(d['x0']);
             })
-            .style('fill', function(d) { 
+            .style('fill', function(d) {
                 return colorD3(d['name']);
             })
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return classify(d['name']);
             });
 
     group.append('g')
         .attr('class', 'value')
         .selectAll('text')
-            .data(function(d) { 
+            .data(function(d) {
                 return d['values'];
             })
         .enter().append('text')
-            .attr('x', function(d, i) { 
+            .attr('x', function(d, i) {
 				return x(d['x1']);
             })
             .attr('dx', function(d, i) {
@@ -227,18 +227,18 @@ var drawGraph = function(graphicWidth) {
             .attr('text-anchor', function(d, i) {
 				return 'end';
             })
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return classify(d['name']);
             })
-            .text(function(d) { 
-                console.log(d);
+            .text(function(d) {
+                // console.log(d);
                 if (d['val'] > 0) {
                     var v = d['val'] + '%';
                     return v;
                 }
             });
 
-    
+
     // draw labels for each bar
     var labels = chart.append('ul')
         .attr('class', 'labels')

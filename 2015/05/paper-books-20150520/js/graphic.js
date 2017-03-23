@@ -73,7 +73,7 @@ var drawGraph = function(graphicWidth, container, graphicData) {
         left: 40
     };
 
-    console.log(GRAPHIC_DATA);
+    // console.log(GRAPHIC_DATA);
 
     var ticksY = 4;
     var width = graphicWidth - margin['left'] - margin['right'];

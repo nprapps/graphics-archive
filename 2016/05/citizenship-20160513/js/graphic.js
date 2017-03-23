@@ -309,7 +309,7 @@ var renderLineChart = function(config) {
         config['data'][0]['values'][lastValue]
     ];
 
-    console.log(valuesShown);
+    // console.log(valuesShown);
 
     chartElement.append('g')
         .attr('class', 'dots')

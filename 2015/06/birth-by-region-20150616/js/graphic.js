@@ -58,7 +58,7 @@ var formatData = function() {
             graphicData.push(d);
         }
     });
-    
+
     COUNTRY_DATA.forEach(function(d) {
         if (d['pct_registered'] != 'n/a' && d['flag'] != 'exclude' && d['region'] != null) {
             d['pct_registered'] = +d['pct_registered'];
@@ -135,7 +135,7 @@ var renderBarChart = function(config) {
      */
     var legend = containerElement.append('ul')
         .attr('class', 'key');
-    
+
     var avg = legend.append('li')
         .attr('class', 'key-item key-0 regional-average');
     avg.append('b');
@@ -237,7 +237,7 @@ var renderBarChart = function(config) {
         .attr('height', 11)
         .attr('y', function(d) {
             var newY = parseInt(d3.select(this).attr('y')) + ((barHeight - 10) / 2);
-            console.log(newY);
+            // console.log(newY);
             return newY;
         });
 
@@ -273,7 +273,7 @@ var renderBarChart = function(config) {
         .attr('class', 'regions')
         .selectAll('line')
             .data(config['data'].filter(function(d) {
-                console.log(d);
+                // console.log(d);
                 if (!isNaN(d['pct_registered'])) {
                     return d;
                 }

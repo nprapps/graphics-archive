@@ -246,7 +246,7 @@ var renderLocatorMap = function(config) {
                             centroid = d3.geo.centroid(country[0][0]['__data__']);
                         // or maybe the point doesn't exist
                         } else {
-                            console.log('no centroid for: ' + d['name']);
+                            // console.log('no centroid for: ' + d['name']);
                         }
                     }
                     return 'translate(' + projection(centroid) + ')'; }

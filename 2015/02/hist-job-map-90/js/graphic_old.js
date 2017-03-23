@@ -73,9 +73,9 @@ var datesWide = [
     2000,
     2013
 ];
-                    
+
 var datesMobile  = [
-    1970, 
+    1970,
     2000
 ];
 
@@ -251,7 +251,7 @@ var render = function(containerWidth) {
     if (!containerWidth) {
         containerWidth = GRAPHIC_DEFAULT_WIDTH;
     }
-    
+
     // check the container width; set mobile flag if applicable
     if (containerWidth <= MOBILE_THRESHOLD) {
         isMobile = true;
@@ -277,19 +277,19 @@ var drawMap = function(graphicWidth) {
     if (isLoaded) {
         pauseAnimation();
     }
-    
+
     // clear out existing graphics
     $graphic.empty();
-    
+
     // define or update map dimensions
     updateDimensions(graphicWidth);
 
     var jobID = d3.map();
     i = 0;
-    
+
     var margin = {
-        top: 0, 
-        right: 0, 
+        top: 0,
+        right: 0,
         left: 0,
         bottom: 10
     }
@@ -297,8 +297,8 @@ var drawMap = function(graphicWidth) {
     var jobs = graphicData.map(function(d) {
             return d['job']
         }).filter(function(d) {
-            return d!='None'; 
-        });     
+            return d!='None';
+        });
 
 
     // legend
@@ -319,7 +319,7 @@ var drawMap = function(graphicWidth) {
         .text(function(d) {
             return d;
         });
-    
+
 
     // create the SVG
     var svg = graphicD3.append('svg')
@@ -356,7 +356,7 @@ var drawMap = function(graphicWidth) {
         .selectAll('path')
         .data(topoData)
         .enter().append('path')
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return 'state d' + d['id'];
             })
             .attr('d', mapPath)
@@ -369,7 +369,7 @@ var drawMap = function(graphicWidth) {
             .attr('class', function(d) {
                 return 'state-id d' + d['id'];
             })
-            .attr('transform', function(d) { 
+            .attr('transform', function(d) {
 //                console.log(d);
                 return 'translate(' + mapPath.centroid(d) + ')';
             })
@@ -404,14 +404,14 @@ var drawMap = function(graphicWidth) {
             .tickPadding(5)
         )
         .attr('transform', 'translate(' + SLIDER_OFFSET['left'] + ',' + (mapHeight + SLIDER_OFFSET['top']) + ')');
-    
+
     var sliderBar = svg.append('g')
         .attr('class', 'xbar')
         .append('line')
         .attr('transform', 'translate('+ SLIDER_OFFSET['left'] + ',' + (mapHeight + SLIDER_OFFSET['top']) + ')')
         .attr('x1', x(1970))
         .attr('x2', x(2013));
-    
+
     var sliderBarHalo = svg.append('g')
         .attr('class', 'xbar-halo')
         .append('line')
@@ -437,7 +437,7 @@ var drawMap = function(graphicWidth) {
     sliderHandle = slider.append('svg:image')
         .attr('class', 'handle')
         .attr('transform', 'translate(0,' + mapHeight + ')')
-        .attr('xlink:href', 'slider.png')    
+        .attr('xlink:href', 'slider.png')
         .attr('width', 150)
         .attr('height', 20)
         .attr('x', x(1970)-75);
@@ -449,19 +449,19 @@ var drawMap = function(graphicWidth) {
         'width': TOGGLE_WIDTH + 'px'
     });
     $('#graphic').append(toggle);
-    
+
     $pauseButton = $('#btn-pause');
     $playButton = $('#btn-play');
-    
+
     $pauseButton.on('click', onPauseClicked);
     $playButton.on('click', onPlayClicked);
     $playButton.hide();
-    
+
 
     // get things going
     changeColor(selectedYear);
     startAnimation();
-    
+
     isLoaded = true;
 
    // d3.select('table').on('click', function(d) {
@@ -507,7 +507,7 @@ var changeColor = function(year) {
 
 
 var changeClass = function(d) {
-  console.log(d)
+  // console.log(d)
     switch(d['job']) {
 case "Machine operators, n.e.c"                         :
     if (!isMobile) {
@@ -598,7 +598,7 @@ var onPlayClicked = function() {
 }
 
 var startAnimation = function() {
-    console.log('play fired');
+    // console.log('play fired');
     isAnimating = true;
     animationTimer = setInterval(function() {
         var year = dates[i];
@@ -614,10 +614,10 @@ var startAnimation = function() {
 }
 
 var pauseAnimation = function() {
-    console.log('pause fired')
+    // console.log('pause fired')
     clearInterval(animationTimer);
     isAnimating = false;
-    
+
     $pauseButton.hide();
     $playButton.show();
 }

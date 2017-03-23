@@ -97,10 +97,10 @@ var renderBarChart = function(config) {
     var barGap = 2;
     if (!isMobile) {
         var labelWidth = 120;
-        var labelMargin = 6;        
+        var labelMargin = 6;
     } else {
         var labelWidth = 70;
-        var labelMargin = 6;        
+        var labelMargin = 6;
 
     }
     var valueMinWidth = 30;
@@ -266,11 +266,11 @@ var renderBarChart = function(config) {
                 return c;
             })
             .text(function(d) {
-                console.log(d)
+                // console.log(d)
                 if(d[valueColumn]<1) {
                     return '$' + Math.round(d[valueColumn]/1000);
                 } else {
-                    return '$' + Math.round(d[valueColumn]/1000) + 'k';                    
+                    return '$' + Math.round(d[valueColumn]/1000) + 'k';
                 }
             });
 }

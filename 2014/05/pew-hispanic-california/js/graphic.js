@@ -35,12 +35,12 @@ function draw_graphic(width) {
 
     var y = d3.scale.linear()
         .range([height, 0]);
-    
+
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom")
         .ticks(num_ticks);
-        
+
     var x_axis_grid = function() { return xAxis; }
 
     var yAxis = d3.svg.axis()
@@ -50,25 +50,25 @@ function draw_graphic(width) {
         .tickFormat(function(d) {
             return d + '%';
         });
-    
+
     var y_axis_grid = function() { return yAxis; }
 
     var line = d3.svg.line()
         .x(function(d) { return x(d.Year); })
         .y(function(d) { return y(d.amt); });
-    
+
     // parse data into columns
     var lines = {};
     for (var column in graphic_data[0]) {
         if (column == 'Year') continue;
         lines[column] = graphic_data.map(function(d) {
-            return { 
-                'Year': d.Year, 
+            return {
+                'Year': d.Year,
                 'amt': parseFloat(d[column])
             };
         });
     }
-   
+
     var legend = d3.select('#graphic').append('ul')
             .attr('class', 'key')
             .selectAll('g')
@@ -86,15 +86,15 @@ function draw_graphic(width) {
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    
+
     x.domain(d3.extent(graphic_data, function(d) { return d.Year; }));
     y.domain([0, 100]);
-    
+
     svg.append('g')
         .attr('class', 'x axis')
         .attr('transform', 'translate(0,' + height + ')')
         .call(xAxis);
-    
+
     svg.append('g')
         .attr('class', 'y axis')
         .call(yAxis);
@@ -124,17 +124,17 @@ function draw_graphic(width) {
             .attr('d', function(d) {
                 return line(d.value);
             });
-        
+
     svg.append('g')
         .attr('class', 'value')
         .selectAll('text')
             .data(d3.entries(lines))
         .enter()
         .append('text')
-            .attr('x', function(d) { 
+            .attr('x', function(d) {
                 return x(d['value'][last_data_point]['Year']) + 6;
             })
-            .attr('y', function(d) { 
+            .attr('y', function(d) {
                 var ypos = y(d['value'][last_data_point]['amt'] - 1);
                 switch(d.key) {
                     case 'White':
@@ -147,13 +147,13 @@ function draw_graphic(width) {
                         ypos += 5;
                         break;
                 }
-                console.log(ypos);
+                // console.log(ypos);
                 return ypos;
             })
             .attr('dy', -4)
             .attr('text-anchor', 'left')
-            .text(function(d) { 
-                return d['value'][last_data_point]['amt'] + '%' 
+            .text(function(d) {
+                return d['value'][last_data_point]['amt'] + '%'
             });
 
     if (pymChild) {
@@ -167,7 +167,7 @@ function draw_graphic(width) {
  */
 $(window).load(function() {
     $graphic = $('#graphic');
-    
+
     if (Modernizr.svg) {
         // load data
         d3.csv(graphic_data_url, function(error, data) {
@@ -177,7 +177,7 @@ $(window).load(function() {
             graphic_data.forEach(function(d) {
                 d.Year = d3.time.format('%Y').parse(d.Year);
             });
-        
+
             // setup pym
             pymChild = new pym.Child({
                 renderCallback: draw_graphic

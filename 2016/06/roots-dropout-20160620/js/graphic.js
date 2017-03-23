@@ -65,7 +65,7 @@ var render = function(containerWidth) {
                 return s;
             }
         });
-    console.log(textElement);
+    // console.log(textElement);
 
     var graphicElement = d3.select('#column-chart')
         .attr('style', function() {

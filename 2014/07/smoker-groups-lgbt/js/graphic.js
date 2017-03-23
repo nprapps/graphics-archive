@@ -21,7 +21,7 @@ var graphic_data_lgbt = [
     { 'label': 'Heterosexual/straight', 'amt': 19.5 }
 ];
 
-var headers = { 
+var headers = {
     'lgbt': 'lgbt'
 };
 
@@ -42,15 +42,15 @@ function render(container_width) {
     } else {
         is_mobile = false;
     }
-    
+
     // clear out existing graphics
     $graphic.empty();
-    
+
     for (var i = 0; i < header_keys.length; i++) {
         draw_chart(header_keys[i]['key'], eval('graphic_data_' + header_keys[i]['key']), graphic_width);
     }
 
-    console.log(container_width, graphic_width);
+    // console.log(container_width, graphic_width);
 }
 
 function draw_chart(id, graphic_data, graphic_width) {
@@ -58,14 +58,14 @@ function draw_chart(id, graphic_data, graphic_width) {
     var margin = { top: 0, right: 15, bottom: 20, left: 130 };
     var width = graphic_width - margin['left'] - margin['right'];
     var height = ((bar_height + bar_gap) * num_bars);
-    
+
     var x = d3.scale.linear()
         .domain([0, 50])
         .range([0, width]);
 
     var y = d3.scale.linear()
         .range([height, 0]);
-        
+
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom")
@@ -73,19 +73,19 @@ function draw_chart(id, graphic_data, graphic_width) {
         .tickFormat(function(d,i) {
             return d.toFixed(0) + '%';
         });
-        
+
     var x_axis_grid = function() { return xAxis; }
 
     var chart = d3.select('#graphic').append('div')
         .attr('class', 'chart ' + classify(headers[id]))
         .style('width', graphic_width + 'px');
-    
+
     var svg = chart.append('svg')
         .attr('width', width + margin['left'] + margin['right'])
         .attr('height', height + margin['top'] + margin['bottom'])
         .append('g')
         .attr("transform", "translate(" + margin['left'] + "," + margin['top'] + ")");
-    
+
     svg.append('g')
         .attr('class', 'x axis')
         .attr('transform', 'translate(0,' + height + ')')
@@ -104,14 +104,14 @@ function draw_chart(id, graphic_data, graphic_width) {
         .selectAll('rect')
             .data(graphic_data)
         .enter().append('rect')
-            .attr("y", function(d, i) { 
+            .attr("y", function(d, i) {
                 return i * (bar_height + bar_gap);
             })
-            .attr("width", function(d){ 
+            .attr("width", function(d){
                 return x(d['amt']);
             })
             .attr("height", bar_height)
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return classify(d['label']);
             });
 
@@ -121,16 +121,16 @@ function draw_chart(id, graphic_data, graphic_width) {
             .data(graphic_data)
         .enter().append('text')
             .attr('x', 0)
-            .attr('y', function(d, i) { 
-                return i * (bar_height + bar_gap); 
+            .attr('y', function(d, i) {
+                return i * (bar_height + bar_gap);
             })
             .attr('dx', -6)
             .attr('dy', (bar_height / 2) + 4)
             .attr('text-anchor', 'end')
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return classify(d['label']);
              })
-            .text(function(d) { 
+            .text(function(d) {
                 return d['label']
             });
 
@@ -139,19 +139,19 @@ function draw_chart(id, graphic_data, graphic_width) {
         .selectAll('text')
             .data(graphic_data)
         .enter().append('text')
-            .attr('x', function(d) { 
+            .attr('x', function(d) {
                 return x(d['amt']);
             })
-            .attr('y', function(d, i) { 
+            .attr('y', function(d, i) {
                 return i * (bar_height + bar_gap);
             })
             .attr('dx', 6)
             .attr('dy', (bar_height / 2) + 4)
             .attr('text-anchor', 'begin')
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return classify(d['label']);
             })
-            .text(function(d) { 
+            .text(function(d) {
                 return d['amt'].toFixed(0) + '%';
             });
 

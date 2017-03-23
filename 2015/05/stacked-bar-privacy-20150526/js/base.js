@@ -11,7 +11,7 @@ var COLORS = {
  * via: https://gist.github.com/mathewbyrne/1280286
  */
 var classify = function(str) {
-    console.log(str)
+    // console.log(str)
     return str.toLowerCase()
         .replace(/\s+/g, '-')           // Replace spaces with -
         .replace(/[^\w\-]+/g, '')       // Remove all non-word chars

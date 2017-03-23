@@ -43,13 +43,13 @@
 
     <!-- CSS + LESS -->
     
-    <link rel="stylesheet" type="text/css" href="css/graphic-header.css?1467254421" />
+    <link rel="stylesheet" type="text/css" href="css/graphic-header.css?1490145013" />
 </head>
 <body>
     <!-- Analytics -->
     
     
-    <script type="text/javascript" src="js/graphic-header.js?1467254421"></script>
+    <script type="text/javascript" src="js/graphic-header.js?1490145013"></script>
 
     
 
@@ -71,15 +71,13 @@
     <div id="footer"></div>
 
     <script type="text/javascript">
-        var HEADERS = {"usage": "<p>Our model takes 2012 presidential election results \u2014 how Barack Obama did against Mitt Romney \u2014 and adjusts them for 2016 demographics in battleground states (along with a few states Donald Trump has said he can win). Obama would win by more. This is what forms our baseline. <strong>Adjust the sliders</strong> to create 2016 scenarios compared with the 2012 baseline \u2014 for two things: margin of victory and turnout.</p>", "subhed_sce1": "If, compared with Mitt Romney in 2012, turnout is higher among <strong class=\"turnout\">white men</strong> (+2 percentage points), and all other voting patterns remain the same, <strong class=\"dem winner\">Hillary Clinton</strong> would still win the&nbsp;election.", "subhed_sce2": "If, compared with Mitt Romney in 2012, Donald Trump gains support among <strong class=\"gop\">white men</strong> (+4 percentage points), and all other voting patterns remain the same, <strong class=\"dem winner\">Hillary Clinton</strong> would still win the&nbsp;election.", "subhed_sce3": "If, compared with Mitt Romney in 2012, Donald Trump gains support among <strong class=\"gop\">white men</strong> (+4 percentage points), turnout is higher among <strong class=\"turnout\">white men</strong> (+2 percentage points), and all other voting patterns remain the same, <strong class=\"gop winner\">Trump</strong> would win the&nbsp;election.", "subhed_sce4": "If, compared with 2012, turnout is higher among <strong class=\"turnout\">white men</strong> (+2 percentage points) and <strong class=\"turnout\">Hispanics</strong> (+2 percentage points) and lower among <strong class=\"turnout\">blacks</strong> (-6 percentage points), and all other voting patterns remain the same, <strong class=\"dem winner\">Hillary Clinton</strong> would still win the&nbsp;election.", "footnote": "", "source": "NPR analysis of Census Bureau data, with help from Brookings Institution demographer William Frey. <a href=\"https://www.npr.org/templates/story/story.php?storyId=483687093#methodology\">Read about our methodology</a>", "credit": "David Eads, Juan Elosua, Asma Khalid, Brittany Mayes and Domenico Montanaro/NPR"};
+        var HEADERS = {"usage": "<p>Our model takes 2012 presidential election results \u2014 how Barack Obama did against Mitt Romney \u2014 and adjusts them for 2016 demographics in battleground states (along with a few states Donald Trump has said he can win). Obama would win by more. This is what forms our baseline. <strong>Adjust the sliders</strong> to create 2016 scenarios compared with the 2012 baseline \u2014 for two things: margin of victory and turnout.</p>", "subhed_sce1": "If, compared with Mitt Romney in 2012, turnout is higher among <strong class=\"turnout\">white men</strong> (+2 percentage points), and all other voting patterns remain the same, <strong class=\"dem winner\">Hillary Clinton</strong> would still win the&nbsp;election.", "subhed_sce2": "If, compared with Mitt Romney in 2012, Donald Trump gains support among <strong class=\"gop\">white men</strong> (+4 percentage points), and all other voting patterns remain the same, <strong class=\"dem winner\">Hillary Clinton</strong> would still win the&nbsp;election.", "subhed_sce3": "If, compared with Mitt Romney in 2012, Donald Trump gains support among <strong class=\"gop\">white men</strong> (+4 percentage points), turnout is higher among <strong class=\"turnout\">white men</strong> (+2 percentage points), and all other voting patterns remain the same, <strong class=\"gop winner\">Trump</strong> would win the&nbsp;election.", "subhed_sce4": "If, compared with 2012, turnout is higher among <strong class=\"turnout\">white men</strong> (+2 percentage points) and <strong class=\"turnout\">Hispanics</strong> (+2 percentage points) and lower among <strong class=\"turnout\">blacks</strong> (-6 percentage points), and all other voting patterns remain the same, <strong class=\"dem winner\">Hillary Clinton</strong> would still win the&nbsp;election.", "footnote": "", "source": "NPR analysis of Census Bureau data, with help from Brookings Institution demographer William Frey. <a href=\"http://www.npr.org/templates/story/story.php?storyId=483687093#methodology\">Read about our methodology</a>", "credit": "David Eads, Juan Elosua, Asma Khalid, Brittany Mayes and Domenico Montanaro/NPR"};
     </script>
 
 
 
     
 
-        
-        
         
         
         
@@ -145,8 +143,12 @@
 </script>
 <script id="controls-template" type="text/ractive">
     <div class='table-controls-wrapper {{#unless interactive}}disabled{{/unless}} {{#if mobile}}mobile{{/if}}'>
-        <h3>What Changes</h3>
-        <h5>Percentage point difference from&nbsp;2012</h5>
+        <div class="table-controls-header">
+            <h3>What Changes</h3>
+            <h5>Percentage point difference from&nbsp;2012</h5>
+        </div>
+
+
         {{#each adjustments}}
         <div class="{{@key}}-controls-div {{#if pct !== 0.0 || turnout !== 0.0}} adjusted{{/if}}">
             <h4>{{label}}</h4>
@@ -205,6 +207,9 @@
             {{/if}}
             </div>
         {{/each}}
+        {{#if interactive}}
+        <button class='controls-reset' on-click='restart'>Reset simulation</button>
+        {{/if}}
     </div>
 </script>
 
@@ -225,7 +230,7 @@
 </script>
 
 
-        <script type="text/javascript" src="js/graphic-footer.js?1467254421"></script>
+        <script type="text/javascript" src="js/graphic-footer.js?1490145013"></script>
 
     
 </body>

@@ -78,7 +78,7 @@ var render = function(containerWidth) {
             data: chartData
         });
 
-        console.log(graphicWidth);
+        // console.log(graphicWidth);
     });
 
     // Update iframe

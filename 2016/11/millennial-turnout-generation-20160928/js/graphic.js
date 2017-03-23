@@ -132,7 +132,7 @@ var renderLineChart = function(config) {
      */
     var xScale = d3.scale.linear()
         .domain(d3.extent(config['data'][0]['values'], function(d) {
-            console.log(d);
+            // console.log(d);
             return d['year'];
         }))
         .range([ 0, chartWidth ]);

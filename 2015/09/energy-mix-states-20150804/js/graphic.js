@@ -9,11 +9,11 @@ var isMobile = false;
 var graphicData = null;
 
 var label_pos = {
-    'United States': { 
+    'United States': {
         'left': { 'Hydro': 0, 'Petroleum': 2, 'Renewables': 10 },
         'right': { 'Hydro': -6, 'Renewables': 6 }
     },
-    'Alabama': { 
+    'Alabama': {
         'left': { 'Natural gas': 2, 'Hydro': 6 },
         'right': { 'Coal': -8, 'Nuclear': 8 }
     },
@@ -189,7 +189,7 @@ var loadLocalData = function(data) {
 var loadCSV = function(url) {
     d3.json(url, function(error, data) {
         graphicData = data;
-        
+
         formatData();
 
         pymChild = new pym.Child({
@@ -210,7 +210,7 @@ var formatData = function() {
             f[0]['amt'] = +f[0]['amt'];
             f[1]['year'] = fmtYearFull.parse(f[1]['year']);
             f[1]['amt'] = +f[1]['amt'];
-            
+
             if ((f[0]['amt'].toFixed(2) > .01 || f[1]['amt'].toFixed(2) > .01) &&
                 fuel != 'Other' && fuel != 'All fuels') {
                 fuelsFiltered[fuel] = [];
@@ -221,9 +221,9 @@ var formatData = function() {
             }
         }
         d['fuelsFiltered'] = fuelsFiltered;
-        
+
         if (d['name'] == 'Utah') {
-            console.log(d);
+            // console.log(d);
         }
     });
 }
@@ -237,7 +237,7 @@ var render = function(containerWidth) {
     if (!containerWidth) {
         containerWidth = GRAPHIC_DEFAULT_WIDTH;
     }
-    
+
     var num_across = 5;
 
     if (containerWidth <= MOBILE_THRESHOLD) {
@@ -304,10 +304,10 @@ function draw_graph(config) {
     /*
      * Setup
      */
-    var margins = { 
-        top: 5, 
-        right: 100, 
-        bottom: 11, 
+    var margins = {
+        top: 5,
+        right: 100,
+        bottom: 11,
         left: 25
     };
     var dotRadius = 3;
@@ -328,34 +328,34 @@ function draw_graph(config) {
     var yScale = d3.scale.linear()
         .range([height, 0])
         .domain([0, 1.0]);
-    
+
     var line = d3.svg.line()
-        .x(function(d) { 
+        .x(function(d) {
             return xScale(d['year']);
         })
-        .y(function(d) { 
+        .y(function(d) {
             return yScale(d['amt']);
         });
-        
+
     var colorScale = d3.scale.ordinal()
 //        .domain(_.pluck(config['data'], labelColumn))
         .domain([ 'Coal', 'Petroleum', 'Natural gas', 'Nuclear', 'Hydro', 'Renewables', 'Other' ])
         .range([ '#D8472B', '#777', '#EAAA61', '#F3D469', '#7DBFE6', '#51A09E', '#ccc' ]);
-    
+
     /*
      * Create the wrapper element.
      */
     var chartWrapper = containerElement.append('div')
         .attr('class', 'chart ' + classify(config['data']['name']))
         .attr('style', 'width: ' + config['width'] + 'px');
-        
+
     /*
      * Add state name and year labels
      */
     chartWrapper.append('h3')
         .attr('style', 'margin-left: ' + margins['left'] + 'px')
         .text(config['data']['name']);
-    
+
     var years = chartWrapper.append('h4');
     years.append('span')
         .attr('style', 'left: ' + margins['left'] + 'px')
@@ -372,12 +372,12 @@ function draw_graph(config) {
         .attr('height', height + margins['top'] + margins['bottom'])
         .append('g')
         .attr('transform', 'translate(' + margins['left'] + ',' + margins['top'] + ')');
-    
+
     chartElement.append('rect')
         .attr('class', 'bg')
         .attr('width', width)
-        .attr('height', height);    
-    
+        .attr('height', height);
+
     /*
      * Render lines to chart.
      */
@@ -448,10 +448,10 @@ function draw_graph(config) {
         .selectAll('text')
             .data(d3.entries(fuels))
         .enter().append('text')
-            .attr('x', function(d, i) { 
+            .attr('x', function(d, i) {
                 return xScale(d['value'][0]['year']);
             })
-            .attr('y', function(d) { 
+            .attr('y', function(d) {
                 var ypos = yScale(d['value'][0]['amt']);
                 return ypos;
             })
@@ -460,10 +460,10 @@ function draw_graph(config) {
                 return adjust_labels(config['data']['name'], d['key'], 'left');
             })
             .attr('text-anchor', 'end')
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return classify(d['key']) + ' val-a' + format_pct(d['value'][0]['amt']) + ' val-b' + format_pct(d['value'][1]['amt']);
             })
-            .text(function(d) { 
+            .text(function(d) {
                 return format_pct(d['value'][0]['amt']);
             });
 
@@ -472,10 +472,10 @@ function draw_graph(config) {
         .selectAll('text')
             .data(d3.entries(fuels))
         .enter().append('text')
-            .attr('x', function(d, i) { 
+            .attr('x', function(d, i) {
                 return xScale(d['value'][1]['year']);
             })
-            .attr('y', function(d) { 
+            .attr('y', function(d) {
                 return yScale(d['value'][1]['amt']);
             })
             .attr('dx', 27)
@@ -483,10 +483,10 @@ function draw_graph(config) {
                 return adjust_labels(config['data']['name'], d['key'], 'right');
             })
             .attr('text-anchor', 'end')
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return classify(d['key']) + ' val-a' + format_pct(d['value'][0]['amt']) + ' val-b' + format_pct(d['value'][1]['amt']);
             })
-            .text(function(d) { 
+            .text(function(d) {
                 return format_pct(d['value'][1]['amt']) + '%';
             });
 
@@ -495,10 +495,10 @@ function draw_graph(config) {
         .selectAll('text')
             .data(d3.entries(fuels))
         .enter().append('text')
-            .attr('x', function(d, i) { 
+            .attr('x', function(d, i) {
                 return xScale(d['value'][1]['year']);
             })
-            .attr('y', function(d) { 
+            .attr('y', function(d) {
                 return yScale(d['value'][1]['amt']);
             })
             .attr('dx', 32)
@@ -506,10 +506,10 @@ function draw_graph(config) {
                 return adjust_labels(config['data']['name'], d['key'], 'right');
             })
             .attr('text-anchor', 'start')
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return classify(d['key']) + ' val-a' + (d['value'][0]['amt'] * 100).toFixed(0) + ' val-b' + (d['value'][1]['amt'] * 100).toFixed(0);
             })
-            .text(function(d) { 
+            .text(function(d) {
                 return d['key'];
             });
 }

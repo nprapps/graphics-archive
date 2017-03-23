@@ -7,7 +7,7 @@ var graphic_data_url = 'hh-edu-all-raw.csv';
 var graphic_default_width = 600;
 var is_mobile;
 var mobile_threshold = 560;
-var pymChild = null, 
+var pymChild = null,
                 svg,
                 newdata,
                 height,
@@ -68,7 +68,7 @@ function render(container_width) {
             .selectAll('g')
                 .data(variablesNames)
             .enter().append('li')
-                .attr('class', function(d, i) { 
+                .attr('class', function(d, i) {
                     return 'key-item key-' + i + ' ' + classify(d);
                 });
     legend.append('b')
@@ -84,7 +84,7 @@ function render(container_width) {
         var edID = eduArray[id];
 
         draw_graph(graphic_width, dataByEd[edID], eduArray[id]);
-    }    
+    }
 
     clickedIndex();
 
@@ -151,19 +151,19 @@ function draw_graph(graphic_width, graphic_data, name) {
 
      line = d3.svg.line()
         .interpolate('basis')
-        .x(function(d) { 
+        .x(function(d) {
             return x(d['date']);
         })
-        .y(function(d) { 
+        .y(function(d) {
             return y(d['amt']);
         });
-        
-    color.domain(d3.keys(graphic_data[0]).filter(function(key) { 
+
+    color.domain(d3.keys(graphic_data[0]).filter(function(key) {
         return key !== 'date';
     }));
 
     // set the data domain
-    x.domain(d3.extent(graphic_data, function(d) { 
+    x.domain(d3.extent(graphic_data, function(d) {
         return d['date'];
     }));
 
@@ -176,19 +176,19 @@ function draw_graph(graphic_width, graphic_data, name) {
         .append('div')
             .attr('class', 'chart ' + classify(name))
             .attr('style', 'width: ' + graphic_width + 'px;');
-    
+
     var header = chart.append('h3')
         .attr('class', 'header-' + classify(name))
         .text(name);
 
-    d3.select('.header-bachelors-degree').text("Bachelor's Degree")    
+    d3.select('.header-bachelors-degree').text("Bachelor's Degree")
 
     var svg = chart.append('svg')
             .attr('class', 'svg-' + classify(name))
             .attr('width', width + margin['left'] + margin['right'])
             .attr('height', height + margin['top'] + margin['bottom'])
         .append('g')
-            .attr('class', 'svg-g-' + classify(name))        
+            .attr('class', 'svg-g-' + classify(name))
             .attr('transform', 'translate(' + margin['left'] + ',' + margin['top'] + ')');
 
      xBottom = svg.append('g') // Add the X Axis
@@ -208,7 +208,7 @@ function draw_graph(graphic_width, graphic_data, name) {
             .tickFormat('')
         );
 
-     yGrid = svg.append('g')         
+     yGrid = svg.append('g')
         .attr('class', 'y grid')
         .call(y_axis_grid()
             .tickSize(-width, 0, 0)
@@ -222,7 +222,7 @@ function draw_graph(graphic_width, graphic_data, name) {
 
 function clickedLevel(d) {
     d3.selectAll(".buttonLevel").classed('button-on',true)
-    d3.selectAll(".buttonIndex").classed('button-on',false)    
+    d3.selectAll(".buttonIndex").classed('button-on',false)
     d3.selectAll(".indexlines").remove();
     d3.selectAll(".levellines").remove();
     d3.selectAll(".line").remove();
@@ -247,8 +247,8 @@ function clickedLevel(d) {
                 } else {
                     return  d/1000 ;
                 }
-            });  
-          
+            });
+
         d3.select(".svg-" + cls)
           .select(".svg-g-" + cls)
           .append('g') // Add the Y Axis
@@ -265,12 +265,12 @@ function clickedLevel(d) {
             );
 
         yGrid = d3.select(".svg-" + cls).select(".svg-g-" + cls)
-            .append('g')         
+            .append('g')
             .attr('class', 'y grid')
             .call(y_axis_grid()
                 .tickSize(-width, 0, 0)
                 .tickFormat('')
-            );              
+            );
 
         // parse data into columns
         var formattedData = {
@@ -290,8 +290,8 @@ function clickedLevel(d) {
                 var d = {
                     'date': row['date'],
                     'amt': row[column]
-                }; 
-                
+                };
+
                 formattedData[column].push(d);
             }
         }
@@ -312,8 +312,8 @@ function clickedLevel(d) {
                 .attr('d', function(d) {
                     return line(d['value']);
                 });
-        } 
-    }    
+        }
+    }
 
 function clickedIndex(d) {
     d3.selectAll(".buttonIndex").classed('button-on',true)
@@ -340,7 +340,7 @@ function clickedIndex(d) {
             rows[i]['i19'] = String(100*((rows[i]['v19']/deflator95-1)));
         }
 
-        //call yaxis  
+        //call yaxis
          y = d3.scale.linear().range([ height, 0 ]).domain([-30,85]);
          yAxis = d3.svg.axis()
                 .orient('left')
@@ -352,7 +352,7 @@ function clickedIndex(d) {
                 } else {
                     return d/1000 ;
                 }
-            });                      
+            });
 
 
         d3.select(".svg-" + cls)
@@ -371,12 +371,12 @@ function clickedIndex(d) {
             );
 
         yGrid = d3.select(".svg-" + cls).select(".svg-g-" + cls)
-            .append('g')         
+            .append('g')
             .attr('class', 'y grid')
             .call(y_axis_grid()
                 .tickSize(-width, 0, 0)
                 .tickFormat('')
-            );              
+            );
 
         // parse data into columns
         var formattedData = {
@@ -396,15 +396,15 @@ function clickedIndex(d) {
                 var d = {
                     'date': row['date'],
                     'amt': row[column]
-                }; 
-                
+                };
+
                 formattedData[column].push(d);
             }
         }
 
 
-        console.log(formattedData)
-        console.log(d3.entries(formattedData))
+        // console.log(formattedData)
+        // console.log(d3.entries(formattedData))
 
 
         var hline = d3.select(".svg-" + cls).select(".svg-g-" + cls)
@@ -432,7 +432,7 @@ function clickedIndex(d) {
                 .attr('d', function(d) {
                     return line(d['value']);
                 });
-        } 
+        }
     }
 
 function classify(str) { // clean up strings to use as CSS classes

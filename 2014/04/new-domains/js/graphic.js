@@ -30,26 +30,26 @@ d3.selection.prototype.moveToFront = function() {
         $graphic.empty();
 
         drawChart(width);
-        console.log(graphic_data);
+        // console.log(graphic_data);
     }
-    
+
     function drawChart( width) {
         var num_bars = graphic_data.length;
-        
+
         var tick_count = 8;
         if (width <= 580) {
             tick_count = 5;
         }
-        
+
         var margin = { top: 30, right: 50, bottom: 35, left: 100 };
         var width = width - margin.left - margin.right;
         var height = ((bar_height + bar_gap) * num_bars);
-        
+
         var x = d3.scale.linear()
             .range([0, width])
             .domain([0,50000]);
 
-        
+
         var xAxis = d3.svg.axis()
             .scale(x)
             .orient('bottom')
@@ -58,9 +58,9 @@ d3.selection.prototype.moveToFront = function() {
             .scale(x)
             .orient('top')
             .ticks(tick_count);
-            
+
         var x_axis_grid = function() { return xAxis; }
-        
+
         var svg = d3.select('#graphic').append('svg')
             .attr('width', width + margin.left + margin.right)
             .attr('height', height + margin.top + margin.bottom)
@@ -94,7 +94,7 @@ d3.selection.prototype.moveToFront = function() {
                 .attr("width", function(d){ return x(d.total); })
                 .attr("height", bar_height)
                 .attr('class', function(d) { return 'bar-' + d.domain.replace(/\s+/g, '-').toLowerCase() });
-        
+
         svg.append('g')
             .attr('class', 'value')
             .selectAll('text')
@@ -120,8 +120,8 @@ d3.selection.prototype.moveToFront = function() {
                 .attr('text-anchor', 'end')
                 .attr('class', function(d) { return 'l-' + d.domain.replace(/\s+/g, '-').toLowerCase() })
                 .text(function(d) { return "."+ d.domain.toLowerCase()});
-        
-      
+
+
         /* update responsive iframe */
         sendHeightToParent();
 
@@ -145,5 +145,5 @@ $(window).load(function() {
                     renderCallback: drawGraphic
                 });
             });
-    
+
 })

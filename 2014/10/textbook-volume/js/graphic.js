@@ -28,7 +28,7 @@ var variablesNames = [ 'New', 'Used', "Rented", "Other"];
  */
 function render(container_width) {
     var graphic_width;
-    console.log(container_width)
+    // console.log(container_width)
     if (!container_width) {
         container_width = graphic_default_width;
     }
@@ -38,7 +38,7 @@ function render(container_width) {
     } else {
         is_mobile = false;
     }
-    
+
     // clear out existing graphics
     $graphic.empty();
 
@@ -117,13 +117,13 @@ function draw_graph(width) {
           .tickFormat('')
       );
 
-  var yGrid = svg.append('g')         
+  var yGrid = svg.append('g')
       .attr('class', 'y grid')
       .call(y_axis_grid()
           .tickSize(-width, 0, 0)
           .tickFormat('')
-      );      
-    
+      );
+
   var date = svg.selectAll(".date")
       .data(graphic_data)
     .enter().append("g")
@@ -189,7 +189,7 @@ $(window).load(function() {
             var pymChild = new pym.Child({
                 renderCallback: render
             });
-          });            
+          });
     } else {
         pymChild = new pym.Child({ });
     }

@@ -197,15 +197,15 @@ var renderStackedColumnChart = function(config) {
         .scale(xScale)
         .orient('bottom')
         .tickFormat(function(d,i) {
-            if (isMobile) { 
+            if (isMobile) {
                 if (i%4==0) {
-                    console.log(i,'run')
+                    // console.log(i,'run')
                     return d;
                 }
             } else {
                 if (i%2==0) {
                     return d;
-                }                
+                }
             }
         });
 
@@ -227,7 +227,7 @@ var renderStackedColumnChart = function(config) {
 
     chartElement.append('g')
         .attr('class', 'y axis')
-        .attr('transform', makeTranslate(6, 0))        
+        .attr('transform', makeTranslate(6, 0))
         .call(yAxis);
 
     /*

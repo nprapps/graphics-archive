@@ -18,6 +18,8 @@
             padding: 0;
             font: 14px/1.4 Arial, Helvetica, sans-serif;
             color: #333;
+
+
         }
         h1 {
             margin: 0 0 6px 0;
@@ -50,12 +52,21 @@
         a:hover, a:active { opacity: 0.7; }
 
         /* graphic */
-        #graphic { margin: 0 0 11px 0; }
+        #graphic { 
+            margin: 0 0 11px 0;
+            background: none;
+         }
         #graphic img.fallback {
             max-width: 100%;
             height: auto;
         }
 
+        
+        #b-background {
+            background-image: url("http://naftalibeder.com/media/images/title_house.444a7.png");
+            background-size: 100% auto;
+
+        }        
 
         .axis {
             font-size: 12px;
@@ -179,6 +190,8 @@
             font-weight: normal;
         }   
 
+
+
         @media screen and (max-width: 450px) {
             .headers h3 { font-size: 11px; }
             .label text { font-size: 11px; }
@@ -227,9 +240,9 @@
         </li>
     </ul>
 
-
+    <div id = "b-background">
     <div id="graphic"><img src="fallback.png" alt="[Chart]" class="fallback" /></div>
-    
+    </div>
     
 
     <div class="footer">

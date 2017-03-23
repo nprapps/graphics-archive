@@ -36,7 +36,7 @@ COUNTRY_LABEL_ADJUSTMENTS['Bangladesh'] = { 'text-anchor': 'end', 'dx': -10 };
  * INITIALIZE
  */
 var onWindowLoaded = function() {
-    console.log('onWindowLoaded');
+    // console.log('onWindowLoaded');
     d3.json(GEO_DATA_URL, onDataLoaded);
     $graphic = $('#graphic');
 }
@@ -46,7 +46,7 @@ var onWindowLoaded = function() {
  * LOAD THE DATA
  */
 var onDataLoaded = function(error, data) {
-    console.log('onDataLoaded');
+    // console.log('onDataLoaded');
     geoData = data;
 
     pymChild = new pym.Child({
@@ -109,7 +109,7 @@ var calculateScaleBarEndPoint = function(projection, start, miles) {
  * DRAW THE MAP
  */
 function drawMap(containerWidth) {
-    console.log('DRAW_MAP');
+    // console.log('DRAW_MAP');
 
     // fallback if page is loaded outside of an iframe
     if (!containerWidth) {

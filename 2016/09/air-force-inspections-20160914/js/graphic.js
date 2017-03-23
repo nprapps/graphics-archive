@@ -32,12 +32,12 @@ var onWindowLoaded = function() {
 var geoLocate = function() {
     var cachedState = lscache.get('geo_ip_state');
     if (cachedState && cachedState !== 'undefined') {
-        console.log('using the cached state');
+        // console.log('using the cached state');
         currentState = cachedState;
         showState(currentState);
     } else {
         if (typeof geoip2 === 'object') {
-            console.log('using geoip');
+            // console.log('using geoip');
             geoip2.city(onLocateIP, onLocateFail);
         }
 

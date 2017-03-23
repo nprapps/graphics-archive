@@ -202,7 +202,7 @@ var renderLocatorMap = function(config) {
     /*
      * Render rivers.
      */
-    console.log(mapData['disputed']['features']);
+    // console.log(mapData['disputed']['features']);
     chartElement.append('g')
         .attr('class', 'disputed')
         .selectAll('path')

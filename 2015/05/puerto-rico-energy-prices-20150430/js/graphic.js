@@ -29,35 +29,35 @@ var onWindowLoaded = function() {
     if (Modernizr.svg) {
         $graphic = $('#graphic');
         graphicD3 = d3.select('#graphic');
-        
+
         GRAPHIC_DATA.forEach(function(d) {
             d['price'] = +d['price'];
             d['cost_as_share_of_income'] = (+d['cost_as_share_of_income']) * 100;
-            
+
             if (d['abbr'] == 'PR' || d['abbr'] == 'GU' || d['abbr'] == 'HI' || d['abbr'] == 'WA') {
                 var abbr = d['abbr'];
-                annotations.push({ 'label': d['state'], 
+                annotations.push({ 'label': d['state'],
                                    'abbr': d['abbr'],
                                    'price': +d['price'],
                                    'cost_as_share_of_income': +d['cost_as_share_of_income'] });
             }
-            
+
             if (d['abbr'] == 'US') {
-                usAverages = ({ 'label': d['state'], 
+                usAverages = ({ 'label': d['state'],
                                 'abbr': d['abbr'],
                                 'price': +d['price'],
                                 'cost_as_share_of_income': +d['cost_as_share_of_income'] });
             }
         });
-        
-        console.log(usAverages);
-        
+
+        // console.log(usAverages);
+
         GRAPHIC_DATA = GRAPHIC_DATA.filter(function(d) {
             if (d['abbr'] != 'US') {
                 return d;
             }
         });
-        
+
         pymChild = new pym.Child({
             renderCallback: render
         });
@@ -106,7 +106,7 @@ var render = function(containerWidth) {
  */
 var drawGraph = function(graphicWidth, id) {
     GRAPHIC_DATA.sort(arraySort('-' + id));
-    
+
     var aspectHeight = 9;
     var aspectWidth = 16;
     if (isMobile) {
@@ -131,7 +131,7 @@ var drawGraph = function(graphicWidth, id) {
         .domain(GRAPHIC_DATA.map(function (d) {
             return d['abbr'];
         }));
-    
+
     if (isMobile) {
         x.rangeBands([0, width], .25);
     } else {
@@ -174,7 +174,7 @@ var drawGraph = function(graphicWidth, id) {
         });
 
     var y_axis_grid = function() { return yAxis; }
-    
+
     // draw the chart itself
     var svg = graphicD3.append('svg')
         .attr('id', classify(id))
@@ -237,14 +237,14 @@ var drawGraph = function(graphicWidth, id) {
             .attr('class', function(d) {
                 return 'bar bar-' + classify(d['abbr']);
             });
-    
+
     svg.append('line')
         .attr('class', 'y grid grid-0')
         .attr('x1', 0)
         .attr('x2', width)
         .attr('y1', y(0))
         .attr('y2', y(0));
-    
+
     // shift axis labels
     if (!isMobile) {
         d3.selectAll('#' + classify(id) + ' .x.axis .tick line')
@@ -264,11 +264,11 @@ var drawGraph = function(graphicWidth, id) {
                 }
             });
     }
-        
+
     // us avg
     var annotationsUS = svg.append('g')
         .attr('class', 'annotations us');
-    
+
     annotationsUS.append('line')
         .attr('class', classify(usAverages['abbr']))
         .attr('x1', 0)
@@ -297,7 +297,7 @@ var drawGraph = function(graphicWidth, id) {
     // selected state annotations
     var annotationBlocks = svg.append('g')
         .attr('class', 'annotations');
-    
+
     var annotationLines = annotationBlocks.selectAll('line')
         .data(annotations)
         .enter().append('line')
@@ -328,7 +328,7 @@ var drawGraph = function(graphicWidth, id) {
                 }
                 return (y(d[id]) - offset);
             });
-    
+
     var annotationText = annotationBlocks.selectAll('text')
         .data(annotations)
         .enter().append('text')
@@ -355,7 +355,7 @@ var drawGraph = function(graphicWidth, id) {
                     return 'begin';
                 }
             });
-    
+
     annotationText.append('tspan')
         .attr('x', function(d) {
             if (d['abbr'] == 'WA') {

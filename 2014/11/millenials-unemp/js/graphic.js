@@ -43,7 +43,7 @@ function render(container_width) {
     } else {
         is_mobile = false;
     }
-    
+
     // clear out existing graphics
     $graphic.empty();
 
@@ -105,21 +105,21 @@ function draw_graph(width) {
         .ticks(num_y_ticks)
         .tickFormat(function(d) {
                     return d + '%';
-        });        
+        });
 
     var y_axis_grid = function() { return yAxis; };
 
     var line = d3.svg.line()
         .interpolate('basis')
         .defined(function(d) { return d['amt'] != null; })
-        .x(function(d) { 
+        .x(function(d) {
             return x(d['date']);
         })
-        .y(function(d) { 
+        .y(function(d) {
             return y(d['amt']);
         });
-        
-    color.domain(d3.keys(graphic_data[0]).filter(function(key) { 
+
+    color.domain(d3.keys(graphic_data[0]).filter(function(key) {
         return key !== 'date';
     }));
 
@@ -133,20 +133,20 @@ function draw_graph(width) {
             return d['amt'].length > 0;
         });
     }
-    
-    console.log(formatted_data)
 
-    
+    // console.log(formatted_data)
+
+
     // set the data domain
-    x.domain(d3.extent(graphic_data, function(d) { 
+    x.domain(d3.extent(graphic_data, function(d) {
         return d['date'];
     }));
 
-    y.domain([ 0, d3.max(d3.entries(formatted_data), function(c) { 
-            return d3.max(c['value'], function(v) { 
+    y.domain([ 0, d3.max(d3.entries(formatted_data), function(c) {
+            return d3.max(c['value'], function(v) {
                 var n = v['amt'];
                 return Math.ceil(n/5) * 5; // round to next 5
-            }); 
+            });
         })
     ]);
 
@@ -205,7 +205,7 @@ function draw_graph(width) {
             .tickFormat('')
         );
 
-    var yGrid = svg.append('g')         
+    var yGrid = svg.append('g')
         .attr('class', 'y grid')
         .call(y_axis_grid()
             .tickSize(-width, 0, 0)
@@ -226,8 +226,8 @@ function draw_graph(width) {
         .attr('x', x(graphic_data[0]['date']))
         .attr('y', y(16))
         .attr('text-anchor','start')
-        .style('fill', function(d) {return colors['red3'];})        
-        .text('Boomers Turn 20') 
+        .style('fill', function(d) {return colors['red3'];})
+        .text('Boomers Turn 20')
 
     var bbLine2 = svg.append('line')
         .attr('class','lines-annote')
@@ -237,9 +237,9 @@ function draw_graph(width) {
             if (is_mobile) {
                 return y(3.8)
                 } else {
-                return y(3.8)                    
+                return y(3.8)
                 }
-            })            
+            })
         .attr('y2', y(10.5))
         .style('stroke-dasharray', '3,5')
         .style('stroke', function(d) {return colors['yellow3'];});
@@ -250,13 +250,13 @@ function draw_graph(width) {
             if (is_mobile) {
                 return x(graphic_data[250]['date'])
                 } else {
-                return x(graphic_data[260]['date'])                    
+                return x(graphic_data[260]['date'])
                 }
             })
         .attr('y', y(3))
         .style('fill', function(d) {return colors['yellow3'];})
         .attr('text-anchor','start')
-        .text('GenXers Turn 20') 
+        .text('GenXers Turn 20')
 
     var bbLine3 = svg.append('line')
         .attr('class','lines-annote')
@@ -266,9 +266,9 @@ function draw_graph(width) {
             if (is_mobile) {
                 return y(17.5)
                 } else {
-                return y(16.5)                    
+                return y(16.5)
                 }
-            })            
+            })
         .attr('y2', y(7.8))
         .style('stroke', function(d) {return colors['blue3'];})
         .style('stroke-dasharray', '3,5');
@@ -280,14 +280,14 @@ function draw_graph(width) {
             if (is_mobile) {
                 return y(18)
                 } else {
-                return y(17)                    
+                return y(17)
                 }
-            })        
+            })
         .attr('text-anchor','start')
-        .style('fill', function(d) {return colors['blue3'];})        
-        .text('Millennials Turn 20')         
+        .style('fill', function(d) {return colors['blue3'];})
+        .text('Millennials Turn 20')
 
-   
+
 
 console.log(formatted_data)
 
@@ -302,7 +302,7 @@ console.log(formatted_data)
             })
             .attr('stroke', function(d) {
                 return color(d['key']);
-            })            
+            })
             .attr('d', function(d) {
                 return line(d['value']);
             });
@@ -342,7 +342,7 @@ $(window).load(function() {
             graphic_data.forEach(function(d) {
                 d['date'] = d3.time.format('%m/%d/%Y').parse(d['date']);
             });
-            
+
             recession_dates.forEach(function(d) {
                 d['begin'] = d3.time.format('%Y-%m-%d').parse(d['begin']);
                 d['end'] = d3.time.format('%Y-%m-%d').parse(d['end']);

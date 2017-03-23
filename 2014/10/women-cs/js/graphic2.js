@@ -35,7 +35,7 @@ function render(container_width) {
     } else {
         is_mobile = false;
     }
-    
+
     // clear out existing graphics
     $graphic.empty();
 
@@ -97,25 +97,25 @@ function draw_graph(width) {
         .ticks(num_y_ticks)
         .tickFormat(function(d) {
                 return d + '%';
-        });        
+        });
 
     var y_axis_grid = function() { return yAxis; };
 
     var line = d3.svg.line()
         .interpolate('basis')
-        .defined(function(d) { return d['amt'] != 'tk'; })        
-        .x(function(d) { 
+        .defined(function(d) { return d['amt'] != 'tk'; })
+        .x(function(d) {
             return x(d['date']);
         })
-        .y(function(d) { 
+        .y(function(d) {
             return y(d['amt']);
         });
-        
-    color.domain(d3.keys(graphic_data[0]).filter(function(key) { 
+
+    color.domain(d3.keys(graphic_data[0]).filter(function(key) {
         return key !== 'date';
     }));
 
-    console.log(graphic_data)
+    // console.log(graphic_data)
 
     // parse data into columns
     var formatted_data = {};
@@ -128,18 +128,18 @@ function draw_graph(width) {
         //     return d['amt'].length > 0;
         // });
     }
-    
-    
+
+
     // set the data domain
-    x.domain(d3.extent(graphic_data, function(d) { 
+    x.domain(d3.extent(graphic_data, function(d) {
         return d['date'];
     }));
 
-    y.domain([ 0, d3.max(d3.entries(formatted_data), function(c) { 
-            return d3.max(c['value'], function(v) { 
+    y.domain([ 0, d3.max(d3.entries(formatted_data), function(c) {
+            return d3.max(c['value'], function(v) {
                 var n = v['amt'];
                 return Math.ceil(n/5) * 5; // round to next 5
-            }); 
+            });
         })
     ]);
 
@@ -151,7 +151,7 @@ function draw_graph(width) {
             .selectAll('g')
                 .data(d3.entries(formatted_data))
             .enter().append('li')
-                .attr('class', function(d, i) { 
+                .attr('class', function(d, i) {
                     return 'key-item key-' + i + ' ' + classify(d['key']);
                 });
     legend.append('b')
@@ -189,7 +189,7 @@ function draw_graph(width) {
             .tickFormat('')
         );
 
-    var yGrid = svg.append('g')         
+    var yGrid = svg.append('g')
         .attr('class', 'y grid')
         .call(y_axis_grid()
             .tickSize(-width, 0, 0)
@@ -237,7 +237,7 @@ function classify(str) { // clean up strings to use as CSS classes
 $(window).load(function() {
     if (Modernizr.svg) {
         $graphic = $('#graphic');
-        console.log(graphic_data)
+        // console.log(graphic_data)
 
         d3.csv(graphic_data_url, function(error, data) {
             graphic_data = data;
@@ -245,7 +245,7 @@ $(window).load(function() {
             graphic_data.forEach(function(d) {
                 d['date'] = d3.time.format('%Y').parse(d['date']);
             });
-            
+
             var pymChild = new pym.Child({
                 renderCallback: render
             });

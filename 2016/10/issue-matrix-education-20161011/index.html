@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>production : issue-matrix-education-20161011</title>
+    <title>staging : issue-matrix-education-20161011</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="shortcut icon" href="https://media.npr.org/favicon.ico" />
     <style type="text/css">
         /* Basic styles */
         body {
@@ -124,7 +125,7 @@
 
     <header class="parent-header">
         <div class="segment">
-            <h1 class="production">production</h1>
+            <h1 class="staging">staging</h1>
         </div>
 
         <div class="segment">
@@ -146,6 +147,28 @@
         <div class="right">
 
             
+                
+                <div class="segment">
+                    <a class="btn localhost" href="http://localhost:8000/graphics/issue-matrix-education-20161011/">localhost &raquo;</a>
+                </div>
+                
+
+                
+
+                
+                <div class="segment">
+                    <a class="btn production" href="https://apps.npr.org/dailygraphics/graphics/issue-matrix-education-20161011/" target="_blank">production &raquo;</a>
+                </div>
+                
+
+                
+                
+                <div class="segment">
+                    <a class="btn" href="https://docs.google.com/spreadsheets/d/1Db6GJiXXmZ8JsX-lpAhll4i9MqX5LZ52fkJadkewfIA/edit" target="_blank">spreadsheet &raquo;</a>
+                </div>
+                
+                
+            
         </div>
     </header>
 
@@ -158,6 +181,9 @@
 
         <h2><span class="production">Production</span> embed code (for Seamus)</h2>
 
+        <h2><span class="production">This has been redeployed from a custom location. Check thoroughly before using in a new graphic.</span></h2>
+
+
 <!-- textarea contents -->
     <textarea readonly="readonly" rows="10" cols="50">
 <div id="responsive-embed-issue-matrix-education-20161011"></div>
@@ -167,32 +193,15 @@
             // add randomness to id to support for multiple graphic instances in one story
             var el = document.getElementById("responsive-embed-issue-matrix-education-20161011");
             el.id = el.id + "-" + Math.random().toString(36).substr(2,5);
-            jQuery.getScript("//pym.nprapps.org/pym.v1.min.js").done(function () {
+
+            jQuery.getScript("https://pym.nprapps.org/pym.v1.min.js").done(function () {
+
                 jQuery(function () { // Wait for page load
                     var pymParent = new pym.Parent(
                         el.id,
                         'https://apps.npr.org/dailygraphics/graphics/issue-matrix-education-20161011/child.html',
                         {}
                     );
-
-                    jQuery.getScript("//carebot.nprapps.org/carebot-tracker.v0.min.js").done(function () {
-                        var tracker = new CarebotTracker.VisibilityTracker(el.id, function(result) {
-                            // Ignore Carebot events to empty embeds, keeps listening after unloading the page
-                            if (pymParent.el.getElementsByTagName('iframe').length !== 0) {
-                                pymParent.sendMessage('on-screen', result.bucket);
-                            }
-                        });
-                        // Check if there is already an scroll tracker somewhere on the page
-                        if (!document.querySelector("[data-carebot-scroll]")) {
-                            pymParent.el.setAttribute("data-carebot-scroll", "");
-                            var scrollTracker = new CarebotTracker.ScrollTracker('storytext', function(percent, seconds) {
-                                // Ignore Carebot events to empty embeds, keeps listening after unloading the page
-                                if (pymParent.el.getElementsByTagName('iframe').length !== 0) {
-                                    pymParent.sendMessage('scroll-depth', JSON.stringify({percent: percent,seconds: seconds}));
-                                }
-                            });
-                        }
-                    });
 
                 });
             });
@@ -208,15 +217,15 @@
 
 <!-- textarea contents -->
     <textarea readonly="readonly" rows="10" cols="50">
-<p data-pym-src="https://apps.npr.org/dailygraphics/graphics/issue-matrix-education-20161011/child.html">Loading...</p><script src="//pym.nprapps.org/pym-loader.v1.min.js" type="text/javascript"></script>
+<p data-pym-src="https://apps.npr.org/dailygraphics/graphics/issue-matrix-education-20161011/child.html">Loading...</p><script src="https://pym.nprapps.org/pym-loader.v1.min.js" type="text/javascript"></script>
     </textarea>
 <!-- end textarea contents -->
 
     </div>
 
-    <script type="text/javascript" src="//pym.nprapps.org/pym.v1.min.js"></script>
+    <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
 
-    <script type="text/javascript" src="//carebot.nprapps.org/carebot-tracker.v0.min.js"></script>
+
 
 
     <script type="text/javascript">
@@ -273,10 +282,6 @@
         }
 
         var pymParent = new pym.Parent('preview', 'child.html', {});
-
-        var tracker = new CarebotTracker.VisibilityTracker('preview', function(result) {
-            pymParent.sendMessage('on-screen', result.bucket);
-        });
 
     </script>
 </body>

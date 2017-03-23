@@ -58,8 +58,8 @@ var formatData = function() {
             filteredData.push(d);
         }
     });
-    
-    console.log(filteredData);
+
+    // console.log(filteredData);
 }
 
 /*

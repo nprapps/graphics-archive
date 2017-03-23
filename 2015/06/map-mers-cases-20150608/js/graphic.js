@@ -1,5 +1,5 @@
 /* TODO
-- un-shade french guyana 
+- un-shade french guyana
 - fallback img
 - check in with WHO again about data
 - reduce map detail
@@ -40,14 +40,14 @@ var onWindowLoaded = function() {
  */
 var onDataLoaded = function(error, data) {
     geoData = data;
-    
+
     GRAPHIC_DATA.forEach(function(d) {
         if (d['admo_a3'] != '-99' && d['cases'] != null) {
             MERS_CASES[d['admo_a3']] = { 'cases': +d['cases'], 'deaths': +d['deaths'] };
         }
     });
     delete GRAPHIC_DATA;
-    
+
     pymChild = new pym.Child({
         renderCallback: drawMap
     });
@@ -89,7 +89,7 @@ function drawMap(containerWidth) {
     var legend = d3.select('#graphic')
         .append('ul')
             .attr('class', 'key');
-    
+
     var bins = legend.selectAll('g')
         .data(COLOR_BINS)
         .enter().append('li')
@@ -111,7 +111,7 @@ function drawMap(containerWidth) {
             }
             return d['key'];
         });
-        
+
 //     var legend = d3.select('#graphic ul.key')
 //         .append('li')
 //             .attr('class', 'key-item key-' + NUM_BINS);
@@ -154,7 +154,7 @@ function drawMap(containerWidth) {
                 var c = ''
                 var id = d['id'];
 
-                console.log(d['id'] + '|' + d['properties']['country']);
+                // console.log(d['id'] + '|' + d['properties']['country']);
                 if (id != '-99') {
                     c += classify(d['id']);
                 }

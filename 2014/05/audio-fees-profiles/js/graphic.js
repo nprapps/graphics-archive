@@ -36,7 +36,7 @@ $(window).load(function() {
                         mp3: $(this).data('mp3'),
                         oga: $(this).data('ogg')
                     }).jPlayer('pause');
-                    console.log($(this).data('selector'));
+                    // console.log($(this).data('selector'));
                 },
                 play: function() {
                     $(this).jPlayer('pauseOthers');
@@ -49,7 +49,7 @@ $(window).load(function() {
     // On other browsers we load incrementally, because FF and Safari won't allow 7+ jplayers on a page
     } else {
         function init_audio() {
-            console.log($current_player);
+            // console.log($current_player);
             $current_player.jPlayer({
                 ready: function() {
                     $current_player.jPlayer('setMedia', {
@@ -62,12 +62,12 @@ $(window).load(function() {
                 cssSelectorAncestor: $current_player.data('selector')
             });
         }
-        
+
         $play_buttons.on('click', function(e) {
             var parent_id = $(this).parents('.jp-audio').prev('.jp-jplayer').attr('id');
             var $parent_player = $('#' + parent_id);
 
-            console.log($parent_player);
+            // console.log($parent_player);
 
             if ($current_player && $parent_player.attr('id') == $current_player.attr('id')) {
                 return true;

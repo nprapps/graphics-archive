@@ -42,8 +42,8 @@ var formatData = function() {
         delete d['Usage'];
     });
 
-    console.log(DATA);
-    console.log(usageData);
+    // console.log(DATA);
+    // console.log(usageData);
 
     /*
      * Restructure tabular data for easier charting.
@@ -358,7 +358,7 @@ var renderLineChart = function(config) {
     var line = d3.svg.line()
         // .interpolate('monotone')
         .x(function(d) {
-            console.log(d);
+            // console.log(d);
             return xScale(d[dateColumn]);
         })
         .y(function(d) {

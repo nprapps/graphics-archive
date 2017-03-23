@@ -80,7 +80,7 @@ var render = function(containerWidth) {
     }
 
     // Render the chart!
-    console.log(dataSeries);
+    // console.log(dataSeries);
     renderLineChart({
         container: '#line-chart',
         width: containerWidth,
@@ -276,7 +276,7 @@ var renderLineChart = function(config) {
             .data(DATA)
         .enter().append('circle')
             .filter(function(d) {
-                console.log(d);
+                // console.log(d);
                 return d['Individual polls'] != null;
             })
             .attr('cx', function(d) {

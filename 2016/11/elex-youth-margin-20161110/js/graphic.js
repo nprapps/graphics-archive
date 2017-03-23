@@ -130,7 +130,7 @@ var renderBarChart = function(config) {
         .domain([min, max])
         .range([0, chartWidth]);
 
-    console.log(xScale.domain());
+    // console.log(xScale.domain());
 
     /*
      * Create D3 axes.

@@ -137,7 +137,7 @@ var renderBarChart = function(config) {
         .orient('bottom')
         .ticks(ticksX)
         .tickFormat(function(d,i) {
-            console.log(d,i);
+            // console.log(d,i);
             return '$' + fmtComma(d);
         });
 

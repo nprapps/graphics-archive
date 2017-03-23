@@ -35,7 +35,7 @@ function render(width) {
     drawChart(graphic_width);
 
     }
-    
+
     function drawChart(width) {
         // clear out existing graphics
         $graphic.empty();
@@ -43,21 +43,21 @@ function render(width) {
         var commasFormatter = d3.format(",.0f");
 
         var num_bars = graphic_data.length;
-        
+
         var tick_count = 6;
         if (width < mobile_threshold) { tick_count = 4};
 
         var margin = { top: 30, right: 30, bottom: 35, left: 160 };
         var width = width - margin.left - margin.right;
         var height = ((bar_height + bar_gap) * num_bars) + 60;
-                
+
         var x = d3.scale.linear()
             .range([0, width])
-         
+
         var y = d3.scale.ordinal()
             .rangeRoundBands([0, height], .01);
 
-        
+
         x.domain([-6000,6000]);
         y.domain(graphic_data.map(function(d) { return d.county; }));
 
@@ -73,7 +73,7 @@ function render(width) {
 
             // return "$" + commasFormatter(d.toFixed(0));
         // });
-            
+
 
         var xAxis2 = d3.svg.axis()
             .scale(x)
@@ -82,7 +82,7 @@ function render(width) {
             .tickFormat(function(d) { return  d > 0 ? '+$' + commasFormatter(Math.round(d)) : '-$' + commasFormatter(Math.abs(Math.round(d)))  });
 
         var x_axis_grid = function() { return xAxis2; }
-        
+
         var svg = d3.select('#graphic').append('svg')
             .attr('width', width + margin.left + margin.right)
             .attr('height', height + margin.top + margin.bottom)
@@ -99,7 +99,7 @@ function render(width) {
             .attr('class', 'x axis')
             .attr('transform', 'translate(0,-8)')
             .call(xAxis2);
-  
+
 
         svg.append('g')
             .attr('class', 'x grid')
@@ -114,13 +114,13 @@ function render(width) {
                 .data(graphic_data)
             .enter().append('rect')
                 .attr('x', function(d) { return x(Math.min(0,d.income)) })
-               .attr('y', function(d, i) { 
+               .attr('y', function(d, i) {
                     if (i > 24) {
                     return i * (bar_height + bar_gap) + 60;
                     } else {
-                    return i * (bar_height + bar_gap); 
+                    return i * (bar_height + bar_gap);
                     }
-                })                
+                })
                 // .attr('y', function(d, i) { return i * (bar_height + bar_gap); })
                 .attr("width", function(d) { return Math.abs(x(d.income) - x(0)); })
                 .attr("height", bar_height)
@@ -134,17 +134,17 @@ function render(width) {
                 .data(graphic_data)
             .enter().append('text')
                 .attr('x', function(d) { return x(d.income) })
-                .attr('y', function(d, i) { 
+                .attr('y', function(d, i) {
                     if (i > 24) {
                     return i * (bar_height + bar_gap) + 60;
                     } else {
-                    return i * (bar_height + bar_gap); 
+                    return i * (bar_height + bar_gap);
                     }
                 })
-                .attr('dx', function(d) { return d.income < 0 ? -6 : 6} )                
+                .attr('dx', function(d) { return d.income < 0 ? -6 : 6} )
                 .attr('dy', 15)
-                .attr('text-anchor', function(d) { return d.income < 0 ? 'end' : 'start'} )                
-                .attr('class', function(d) { 
+                .attr('text-anchor', function(d) { return d.income < 0 ? 'end' : 'start'} )
+                .attr('class', function(d) {
                     return convertToSlug(d['county']);
                 })
                 .text(function(d) { return  d.income > 0 ? '+$' + commasFormatter(Math.round(d.income)) : '-$' + commasFormatter(Math.abs(Math.round(d.income)))  });
@@ -155,60 +155,60 @@ function render(width) {
                 .data(graphic_data)
             .enter().append('text')
                 .attr('x', "0")
-                .attr('y', function(d, i) { 
+                .attr('y', function(d, i) {
                     if (i > 24) {
                     return i * (bar_height + bar_gap) + 60;
                     } else {
-                    return i * (bar_height + bar_gap); 
+                    return i * (bar_height + bar_gap);
                     }
                 })
                 // .attr('y', function(d, i) { return i * (bar_height + bar_gap); })
                 .attr('dy', 15)
-                .attr('dx', function(d) { return width < mobile_threshold ? -25 : -15; })                
+                .attr('dx', function(d) { return width < mobile_threshold ? -25 : -15; })
                 .attr('text-anchor', 'end')
-                .attr('class', function(d) { 
+                .attr('class', function(d) {
                     return convertToSlug(d['county']);
                 })
-                .text(function(d) { return d.county});        
-      
+                .text(function(d) { return d.county});
+
         svg.append('line')
             .attr('class', 'marker-line')
-            .attr('y1', function(d, i) { 
+            .attr('y1', function(d, i) {
                 return 25 * (bar_height + bar_gap) + 32;
             })
-            .attr('y2', function(d, i) { 
+            .attr('y2', function(d, i) {
                 return 25 * (bar_height + bar_gap) + 32;
             })
-            .attr('x1', function(d, i) { 
+            .attr('x1', function(d, i) {
                 return - margin.left+40;
-            }) 
-            .attr('x2', function(d, i) { 
+            })
+            .attr('x2', function(d, i) {
                 return width ;
             })
-            .attr('stroke-dasharray', '5,5')           
+            .attr('stroke-dasharray', '5,5')
 
         svg.append('line')
             .attr('class', 'marker-line-h')
             .attr('y1', 0)
-            .attr('y2', function(d, i) { 
+            .attr('y2', function(d, i) {
                 return height;
             })
-            .attr('x1', x(0)) 
+            .attr('x1', x(0))
             .attr('x2', x(0))
-            // .attr('stroke-dasharray', '1,1')             
+            // .attr('stroke-dasharray', '1,1')
 
         svg.append('text')
         .attr('class', 'marker-text')
-            .attr('y', function(d, i) { 
+            .attr('y', function(d, i) {
                 return 26 * (bar_height + bar_gap) ;
             })
             .attr('x', x(-6000))
-            .attr('text-anchor', 'start')            
+            .attr('text-anchor', 'start')
             .text('Top 25 Counties')
-        
+
         svg.append('text')
         .attr('class', 'marker-text')
-            .attr('y', function(d, i) { 
+            .attr('y', function(d, i) {
                 return 26 * (bar_height + bar_gap) + 21;
             })
             .attr('x', x(6000))
@@ -224,7 +224,7 @@ function render(width) {
     function moused(d) {
 
     var selectedVal = d.county.replace(/\s+/g, '-').toLowerCase();
-    console.log(d)
+    // console.log(d)
     d3.selectAll('.bar').classed('selected', false);
     d3.selectAll('.label').classed('selected', false);
     d3.selectAll('.value').classed('selected', false);
@@ -256,7 +256,7 @@ $(window).load(function() {
                     d.income = +d.income;
                 });
 
-                pymChild = new pym.Child({ 
+                pymChild = new pym.Child({
                     renderCallback: render
                 });
             });

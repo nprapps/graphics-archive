@@ -35,7 +35,7 @@ function draw_graphic(container_width) {
 
     var y = d3.scale.linear()
         .range([height, 0]);
-    
+
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom")
@@ -49,7 +49,7 @@ function draw_graphic(container_width) {
                 return fmt(d);
             }
         });
-        
+
     var x_axis_grid = function() { return xAxis; }
 
     var yAxis = d3.svg.axis()
@@ -63,13 +63,13 @@ function draw_graphic(container_width) {
                 return d + ' million';
             }
         });
-    
+
     var y_axis_grid = function() { return yAxis; }
 
     var line = d3.svg.line()
         .x(function(d) { return x(d.year); })
         .y(function(d) { return y(d.amt); });
-    
+
     // parse data into columns
     var lines = {};
     for (var column in graphic_data[0]) {
@@ -80,29 +80,29 @@ function draw_graphic(container_width) {
             return d.amt.length;
         });
     }
-   
+
     var svg = d3.select('#graphic').append('svg')
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    
+
     x.domain(d3.extent(graphic_data, function(d) { return d.year; }));
     y.domain([0,
-        d3.max(d3.entries(lines), function(c) { 
-            return d3.max(c.value, function(v) { 
+        d3.max(d3.entries(lines), function(c) {
+            return d3.max(c.value, function(v) {
                 var n = parseFloat(v.amt);
                 return Math.ceil(n/100) * 100; // round to next 100
-                return n; 
-            }); 
+                return n;
+            });
         })
     ]);
-    
+
     svg.append('g')
         .attr('class', 'x axis')
         .attr('transform', 'translate(0,' + height + ')')
         .call(xAxis);
-    
+
     svg.append('g')
         .attr('class', 'y axis')
         .call(yAxis);
@@ -132,22 +132,22 @@ function draw_graphic(container_width) {
             .attr('d', function(d) {
                 return line(d.value);
             });
-        
+
     svg.append('g')
         .attr('class', 'value')
         .selectAll('text')
             .data(d3.entries(lines))
         .enter()
         .append('text')
-            .attr('x', function(d) { 
+            .attr('x', function(d) {
                 return x(d['value'][last_data_point]['year']) + 6;
             })
-            .attr('y', function(d) { 
+            .attr('y', function(d) {
                 return ypos = y(d['value'][last_data_point]['amt']);
             })
             .attr('dy', 2)
             .attr('text-anchor', 'left')
-            .text(function(d) { 
+            .text(function(d) {
                 return d3.round(d['value'][last_data_point]['amt'], 0) + ' million';
             });
 
@@ -162,7 +162,7 @@ function draw_graphic(container_width) {
  */
 $(window).load(function() {
     $graphic = $('#graphic');
-    
+
     if (Modernizr.svg) {
         // load data
         d3.csv(graphic_data_url, function(error, data) {
@@ -171,9 +171,9 @@ $(window).load(function() {
             // format datestamps
             graphic_data.forEach(function(d) {
                 d.year = d3.time.format('%Y-%m-%d').parse(d.year);
-                console.log(d.year);
+                // console.log(d.year);
             });
-        
+
             // setup pym
             pymChild = new pym.Child({
                 renderCallback: draw_graphic

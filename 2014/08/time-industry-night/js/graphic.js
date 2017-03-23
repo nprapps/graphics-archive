@@ -48,7 +48,7 @@ function render(container_width) {
     } else {
         is_mobile = false;
     }
-    
+
     // clear out existing graphics
     $graphic.empty();
 
@@ -100,7 +100,7 @@ console.log(graphic_data[24]['date']);
         .orient('bottom')
         .ticks(num_x_ticks)
         .tickFormat(function(d,i) {
-            console.log(fmt_year_full(d))
+            // console.log(fmt_year_full(d))
             if (fmt_year_full(d)=="00") {
                 return "midnight";
                 } else {
@@ -131,10 +131,10 @@ console.log(graphic_data[24]['date']);
     line = d3.svg.line()
         .interpolate('basis')
         .defined(function(d) { return d['amt'] != null; })
-        .x(function(d) { 
+        .x(function(d) {
             return x(d['date']);
         })
-        .y(function(d) { 
+        .y(function(d) {
             return y(d['amt']);
         });
 
@@ -143,9 +143,9 @@ console.log(graphic_data[24]['date']);
         .defined(line.defined())
         .x(function(d) { return x(d['date']); })
         .y0(function(d) { return y(0); })
-        .y1(function(d) { return y(d['amt']); });        
-        
-    color.domain(d3.keys(graphic_data[0]).filter(function(key) { 
+        .y1(function(d) { return y(d['amt']); });
+
+    color.domain(d3.keys(graphic_data[0]).filter(function(key) {
         return key !== 'date';
     }));
 
@@ -160,7 +160,7 @@ console.log(graphic_data[24]['date']);
         });
     }
 
-    x.domain(d3.extent(graphic_data, function(d) { 
+    x.domain(d3.extent(graphic_data, function(d) {
         return d['date'];
     }));
 
@@ -188,12 +188,12 @@ var gradient = svg.append("svg:defs")
     .attr("x2", "0%")
     .attr("y2", "0%")
     .attr("spreadMethod", "pad");
- 
+
 gradient.append("svg:stop")
     .attr("offset", "0%")
     .attr("stop-color", "#dddeaf")
     .attr("stop-opacity", 1);
- 
+
 gradient.append("svg:stop")
     .attr("offset", "100%")
     .attr("stop-color", "#ffff0a")
@@ -209,7 +209,7 @@ gradient.append("svg:stop")
     .attr('width', 10)
     .attr('height', 10)
   .append('path')
-    
+
     // #waves
     .attr('d', ' M 0,0 C 0 0, 5 5, 10 0 ')
 
@@ -227,17 +227,17 @@ gradient.append("svg:stop")
 // </pattern>
 
 
-    
+
     var workDay = svg.append('rect')
         .attr('class','workday')
         .attr("x",x(graphic_data[9]['date']))
         .attr("width",x(graphic_data[17]['date'])-x(graphic_data[9]['date']))
         .attr('height',height)
         .attr('y', 0);
-        
+
         // .attr('y2', y(95))
         // .style('stroke-width',".2")
-        // .style('stroke-dasharray', '8, 5');   
+        // .style('stroke-dasharray', '8, 5');
 
     var xBottom = svg.append('g') // Add the X Axis
         .attr('class', 'x axis')
@@ -249,7 +249,7 @@ gradient.append("svg:stop")
         .attr('transform', 'translate(' + -width/100 + ',0)')
         .call(yAxis);
 
-    var yGrid = svg.append('g')         
+    var yGrid = svg.append('g')
         .attr('class', 'y grid')
         .call(y_axis_grid()
             .tickSize(-width, 0, 0)
@@ -260,7 +260,7 @@ if (is_mobile) {;} else {
     var voronoi = d3.geom.voronoi()
         .x(function(d) { return x(d['date']); })
         .y(function(d) { return y(d['amt']); })
-        .clipExtent([[-margin.left, -margin.top], [width + margin.right, height + margin.bottom]]); 
+        .clipExtent([[-margin.left, -margin.top], [width + margin.right, height + margin.bottom]]);
 
     var amLine = svg.append('line')
         .attr('class','annote-day')
@@ -268,9 +268,9 @@ if (is_mobile) {;} else {
         .attr("x2",x(graphic_data[9]['date']))
         .attr('y1', y(0))
         .attr('y2', y(95))
-        .style('stroke',"black")        
+        .style('stroke',"black")
         .style('stroke-width',".2")
-        .style('stroke-dasharray', '8, 5');    
+        .style('stroke-dasharray', '8, 5');
 
     var pmLine = svg.append('line')
         .attr('class','annote-day')
@@ -278,9 +278,9 @@ if (is_mobile) {;} else {
         .attr("x2",x(graphic_data[17]['date']))
         .attr('y1', y(0))
         .attr('y2', y(95))
-        .style('stroke',"black")        
+        .style('stroke',"black")
         .style('stroke-width',".2")
-        .style('stroke-dasharray', '8, 5');    
+        .style('stroke-dasharray', '8, 5');
 };
     // var dayAnnote = svg.append('text')
     //     .attr('class','annote-day-text2')
@@ -289,14 +289,14 @@ if (is_mobile) {;} else {
     //     // .attr('y1', y(0))
     //     .attr('y', y(95))
     //     .text('Click To Compare Different Workdays');
-    
+
     var dayAnnote = svg.append('text')
         .attr('class','annote-day-text')
         .attr("x",x(graphic_data[13]['date']))
         // .attr("x2",x(graphic_data[16]['date']))
         // .attr('y1', y(0))
         .attr('y',y(95))
-        .text('Standard Workday');    
+        .text('Standard Workday');
 
     var dayAnnote = svg.append('text')
         .attr('class','annote-day-text')
@@ -309,7 +309,7 @@ if (is_mobile) {;} else {
             } else {
                 return y(90);
             }
-        })        
+        })
         .text('9 a.m. - 5 p.m.');
 
       svg.append("defs").append("marker")
@@ -320,20 +320,20 @@ if (is_mobile) {;} else {
         .attr("markerHeight", 4)
         .attr("orient", "auto")
         .append("path")
-            .attr("d", "M 0,0 V 4 L6,2 Z"); 
+            .attr("d", "M 0,0 V 4 L6,2 Z");
 
 if (is_mobile) {;} else {
 
-      svg.append("line")    
-        .attr('class', 'arrow')      
+      svg.append("line")
+        .attr('class', 'arrow')
         .attr("x1",x(graphic_data[10]['date'])+5)
         .attr("y1", y(96))
         .attr("x2",x(graphic_data[9]['date'])+10)
         .attr("y2", y(96))
         .attr("marker-end", "url(#arrowhead)");
- 
+
       svg.append("line")
-        .attr('class', 'arrow')      
+        .attr('class', 'arrow')
         .attr("x1",x(graphic_data[16]['date'])-5)
         .attr("y1", y(96))
         .attr("x2",x(graphic_data[17]['date'])-10)
@@ -346,18 +346,18 @@ if (is_mobile) {;} else {
  lines = svg.append('g')
     .attr('id', 'lines-thin')
     .selectAll('path')
-    .data(d3.entries(formatted_data))   
+    .data(d3.entries(formatted_data))
     .enter()
     .append('path')
         .attr('class', function(d, i) {
             return 'main-line line-' + classify(d['key']);
         })
-        .attr('d', function(d) { 
+        .attr('d', function(d) {
             d.line = this;
             return line(d['value']);
         });
 
-         
+
 
  linesAll = svg.append('g')
     .attr('class', 'lines')
@@ -430,7 +430,7 @@ if (is_mobile) {;} else {
 
 
 
-var formatted_data2 = d3.entries(formatted_data).filter(function(d){return d['key'] !="Clear"}); 
+var formatted_data2 = d3.entries(formatted_data).filter(function(d){return d['key'] !="Clear"});
 
 if (is_mobile) {;} else {
 
@@ -447,7 +447,7 @@ var voronoiGroup = svg.append("g")
       .datum(function(d) { return d.point; })
       .on("mouseover", mouseover)
       .on("mouseout", mouseout)
-      .on("click", selected);         
+      .on("click", selected);
 
 };
 
@@ -465,7 +465,7 @@ var voronoiGroup = svg.append("g")
 
 
     function selected(d) {
-        
+
         var clickedoccupation = d['occupation-full'];
         var smalldata = d3.entries(formatted_data).filter(function(d){return d['key'] ==clickedoccupation})
 
@@ -483,7 +483,7 @@ var voronoiGroup = svg.append("g")
 // first dropdown
 ////////////////////////////////
 
-$( "#occupation2" ).change(function() { 
+$( "#occupation2" ).change(function() {
 
     var clickedoccupation = document.getElementById('occupation2').value;
     var smalldata = d3.entries(formatted_data).filter(function(d){return d['key'] ==clickedoccupation})
@@ -499,7 +499,7 @@ $( "#occupation2" ).change(function() {
 // second dropdown
 ////////////////////////////////
 
-$( "#occupation" ).change(function() { 
+$( "#occupation" ).change(function() {
 var clickedoccupation = document.getElementById('occupation').value;
 var smalldata = d3.entries(formatted_data).filter(function(d){return d['key'] ==clickedoccupation})
     areaTransition(".small-area2",smalldata,area2)
@@ -533,7 +533,7 @@ var smallarea = svg.selectAll(areaClass)
         });
 
     areaObject.transition().duration(550).ease('cubic-in-out')
-    .attr('d', newarea);       
+    .attr('d', newarea);
 }
 
 function lineTransition(lineClass,data,lineObject) {
@@ -546,14 +546,14 @@ var smallLine = svg.selectAll(lineClass)
         .attr('class', function(d, i) {
             return 'small-' + i + ' ' + classify(d['key']);
         })
-        .attr("d", function(d) { 
+        .attr("d", function(d) {
              newpath = line(d['value']);
              // line(d['value']);
-            return  null; 
-        });     
+            return  null;
+        });
 
     lineObject.transition().duration(550).ease('cubic-in-out')
-    .attr('d', newpath);  
+    .attr('d', newpath);
 }
 
 
@@ -573,7 +573,7 @@ $(window).load(function() {
             graphic_data.forEach(function(d) {
                 d['date'] = d3.time.format('%j-%H').parse(d['date']);
             });
-            
+
             var pymChild = new pym.Child({
                 renderCallback: render
             });

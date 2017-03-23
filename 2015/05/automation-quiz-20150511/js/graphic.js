@@ -31,7 +31,7 @@ var parseScores = function() {
             alert('You must answer every question!');
             return null;
         }
-        // Need to adjust so that 4 = 50, and 0 = 0. 
+        // Need to adjust so that 4 = 50, and 0 = 0.
         var value = (100*($radio.val() - 1))/ 6;
 
         scores[category] = value;
@@ -44,7 +44,7 @@ var parseScores = function() {
  * Order the JOB_DATA array by each jobs similarity to the provided scores.
  */
 var sortJobsBySimilarity = function(scores) {
-    console.log(scores);
+    // console.log(scores);
 
     for (var i = 0; i < JOB_DATA.length; i++) {
         var job = JOB_DATA[i];
@@ -80,7 +80,7 @@ var sortJobsBySimilarity = function(scores) {
         sumOfSquares = Math.sqrt(sumOfSquares)
         // string wasn't converting to numeric...afraid that sorting wasn't working on strings.
         job.sumOfSquares = +sumOfSquares.toPrecision(7);
-        console.log('sumOfSquares', job.sumOfSquares)
+        // console.log('sumOfSquares', job.sumOfSquares)
 
     }
 
@@ -92,9 +92,9 @@ var sortJobsBySimilarity = function(scores) {
 
 
     JOB_DATA_FINAL = JOB_DATA
-    console.log(JOB_DATA_FINAL)
-    
-    return JOB_DATA_FINAL 
+    // console.log(JOB_DATA_FINAL)
+
+    return JOB_DATA_FINAL
 
 }
 

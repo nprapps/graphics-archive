@@ -26,12 +26,12 @@ var onWindowLoaded = function() {
     .style('display', 'none');
     if (pymChild) {
         pymChild.sendHeight();
-    }   
+    }
 }
 
 
 var toggleSchools = function() {
-    console.log(toggleState)
+    // console.log(toggleState)
     if (toggleState == 'hidden') {
         d3.selectAll('.hidden')
         .style('display', 'none')
@@ -51,9 +51,9 @@ var toggleSchools = function() {
 
         if (pymChild) {
             pymChild.sendHeight();
-        }        
-        toggleState = "hidden";        
-    }        
+        }
+        toggleState = "hidden";
+    }
 }
 
 

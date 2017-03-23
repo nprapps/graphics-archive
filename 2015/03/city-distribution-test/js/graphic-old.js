@@ -169,7 +169,7 @@ var drawGraph = function(graphicWidth) {
 //            return d['amt'].length > 0;
         });
     }
-    console.log(formattedData)
+    // console.log(formattedData)
     // set the data domain
     x.domain(d3.extent(graphicData, function(d) {
         return d['percentiles'];

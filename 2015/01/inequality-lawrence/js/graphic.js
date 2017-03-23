@@ -42,19 +42,19 @@ function render(container_width) {
     var num_y_ticks = 6;
     var height;
     var width;
-    
+
     if (container_width <= mobile_threshold) {
         is_mobile = true;
     } else {
         is_mobile = false;
     }
-    
+
     if (is_mobile) {
         margin = { top: 20, right: 15, bottom: 25, left: 60 };
         graphic_aspect_width = 4;
         graphic_aspect_height = 3;
     } else {
-        margin = { top: 60, right: 50, bottom: 25, left: 100 };        
+        margin = { top: 60, right: 50, bottom: 25, left: 100 };
         graphic_aspect_width = 16;
         graphic_aspect_height = 9;
     }
@@ -72,7 +72,7 @@ function render(container_width) {
 
     if (is_mobile) {x.rangeRoundBands([0, width], .05, 0);}
 
-    console.log(graphic_data)
+    // console.log(graphic_data)
     var y = d3.scale.linear()
         .rangeRound([height, 0])
         .domain([-830000, 20000]);
@@ -87,9 +87,9 @@ function render(container_width) {
                 return d ;
             }
         });
-        
+
     var x_axis_grid = function() { return xAxis; }
-    
+
     var yAxis = d3.svg.axis()
         .scale(y)
         .ticks(num_y_ticks)
@@ -99,19 +99,19 @@ function render(container_width) {
         })
         .tickValues([-800000, -750000, -700000, -650000, -600000, -550000, -500000, -450000, -400000, -350000, -300000, -250000, -200000, -150000, -100000, -50000, 0, 5000, 10000, 15000, 20000]);
 
-    
+
     var y_axis_grid = function() { return yAxis; }
-    
+
     // var legend = d3.select('#graphic').append('ul')
     //         .attr('class', 'key')
     //         .selectAll('g')
     //             .data(graphic_data[0]['value'])
     //         .enter().append('li')
-    //             .attr('class', function(d, i) { 
-    //                 return 'key-item key-' + i + ' ' + classify(d['name']); 
+    //             .attr('class', function(d, i) {
+    //                 return 'key-item key-' + i + ' ' + classify(d['name']);
     //             });
     // legend.append('b')
-    //     .style('background-color', function(d,i) { 
+    //     .style('background-color', function(d,i) {
     //         return color(d['name']);
     //     })
     // legend.append('label')
@@ -122,13 +122,13 @@ function render(container_width) {
     var chart = d3.select('#graphic').append('div')
         .attr('class', 'chart');
 
-    
+
     var svg = chart.append('svg')
         .attr('width', width + margin['left'] + margin['right'])
         .attr('height', height + margin['top'] + margin['bottom'])
         .append('g')
             .attr('transform', 'translate(' + margin['left'] + ',' + margin['top'] + ')');
-    
+
     // var xBottom = svg.append('g') // Add the X Axis
     //     .attr('class', 'x axis')
     //     .attr('transform', 'translate(0,' + height + ')')
@@ -145,7 +145,7 @@ function render(container_width) {
             .tickSize(-width, 0, 0)
             .tickFormat('')
         );
-    
+
     var hash = svg.append('defs')
       .append('pattern')
         .attr('id', 'diagonalHatch')
@@ -155,7 +155,7 @@ function render(container_width) {
       .append('path')
         .attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
         .attr('stroke', colors['red3'])
-        .attr('stroke-width', 1);   
+        .attr('stroke-width', 1);
 
     var year = svg.selectAll('.year')
         .data(graphic_data)
@@ -163,51 +163,51 @@ function render(container_width) {
             .attr('class', function(d) {
                 return d['Group'] + "-bars"
             })
-            .attr('transform', function(d) { 
+            .attr('transform', function(d) {
                 return 'translate(' + x(d['Group']) + ',0)';
             });
 
     year.selectAll('rect')
-        .data(function(d) { 
+        .data(function(d) {
             return d['value'];
         })
         .enter().append('rect')
             .attr('width', x.rangeBand())
-            .attr('x', function(d) { 
-                return x(d['x0']); 
+            .attr('x', function(d) {
+                return x(d['x0']);
             })
-            .attr('y', function(d) { 
-                if (d['val'] < 0) { 
+            .attr('y', function(d) {
+                if (d['val'] < 0) {
                     return y(0);
                 } else {
                     return y(d['y1']);
                 }
             })
             .attr('height', function(d) {
-                if (d['val'] > 0) { 
+                if (d['val'] > 0) {
                     return y(d['y0']) - y(d['y1']);
                 } else {
                     return y(d['y1']) - y(d['y0']);
                 }
             })
-            .style('fill', function(d) { 
+            .style('fill', function(d) {
                 return color(d['name']);
             })
-            .attr('class', function(d) { 
-                console.log(d)
+            .attr('class', function(d) {
+                // console.log(d)
                 return classify(d['name']);
             });
 
     year.selectAll('text')
-        .data(function(d) { 
+        .data(function(d) {
             return d['value'];
         })
         .enter().append('text')
             // .attr('width', x.rangeBand())
-            .attr('x', function(d) { 
-                return x(d['x0']); 
+            .attr('x', function(d) {
+                return x(d['x0']);
             })
-            .attr('y', function(d) { 
+            .attr('y', function(d) {
                     return y(d['y1']);
             })
             .attr('dy', function(d) {
@@ -216,7 +216,7 @@ function render(container_width) {
                 } else {
                     return -10;
                 }
-            })            
+            })
             .attr('class', 'value-amt')
             .text(function(d) {
                 if (is_mobile) {
@@ -226,7 +226,7 @@ function render(container_width) {
                 }
 
             });
-    
+
         var groupLabels = svg.selectAll('text-labels')
             .data(graphic_data)
             .enter().append('text')
@@ -236,7 +236,7 @@ function render(container_width) {
                 .attr('y', y(26000))
                 .attr('dy', 25)
 
-                .attr('x', function(d) { 
+                .attr('x', function(d) {
                     return x(d['Group']);
                 });
 
@@ -247,7 +247,7 @@ function render(container_width) {
                 .attr('dy',25)
                 .attr('text-anchor', 'end')
                 .attr('x', -15)
-                .text('For households');       
+                .text('For households');
 
         svg.append('text')
                 .attr('class', "text-labels3 ")
@@ -255,7 +255,7 @@ function render(container_width) {
                 .attr('dy',37)
                 .attr('text-anchor', 'end')
                 .attr('x', -15)
-                .text('earning an');        
+                .text('earning an');
 
         svg.append('text')
                 .attr('class', "text-labels3 ")
@@ -273,7 +273,7 @@ function render(container_width) {
                 })
                 .attr('y', y(26000))
                 .attr('dy', 38)
-                .attr('x', function(d) { 
+                .attr('x', function(d) {
                     return x(d['Group']);
                 });
 
@@ -282,15 +282,15 @@ function render(container_width) {
             d3.select('.Lowest-label').text('$12,000')
             d3.select('.Second-label').text('$30,000')
             d3.select('.Third-label').text('$52,000')
-            d3.select('.Fourth-label').text('$84,000')            
-            d3.select('.Fifth-label').text('$122,000')  
+            d3.select('.Fourth-label').text('$84,000')
+            d3.select('.Fifth-label').text('$122,000')
 
             d3.select('.Top-label4').text('(top 1%)')
             d3.select('.Lowest-label4').text('(0-20%)')
             d3.select('.Second-label4').text('(20-40%)')
             d3.select('.Third-label4').text('(40-60%)')
-            d3.select('.Fourth-label4').text('(60-80%)')            
-            d3.select('.Fifth-label4').text('(80-99%)')            
+            d3.select('.Fourth-label4').text('(60-80%)')
+            d3.select('.Fifth-label4').text('(80-99%)')
 
             d3.selectAll('.Top-bars .difference text').style('fill', colors['red3'])
             d3.selectAll('.Top-bars .difference').style('fill', 'url(#diagonalHatch)')
@@ -340,11 +340,11 @@ $(window).load(function() {
 
         graphic_data.forEach(function(d) {
             var y0 = 0;
-            d['value'] = color.domain().map(function(name) { 
+            d['value'] = color.domain().map(function(name) {
                 return { name: name, y0: y0, y1: y0 += +d[name], val: +d[name] };
             });
         });
-        
+
         // setup pym
         pymChild = new pym.Child({
             renderCallback: render

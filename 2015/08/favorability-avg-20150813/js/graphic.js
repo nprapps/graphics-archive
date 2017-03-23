@@ -144,15 +144,15 @@ var renderDotChart = function(config) {
     var xScale = d3.scale.linear()
         .domain([ -60, 60 ])
         .range([ 0, chartWidth ]);
-    
+
     var years = _.pluck(config['data'], labelColumn);
     years = d3.set(years).values().reverse();
-    
+
     var yScale = d3.scale.ordinal()
         .domain(years)
         .rangeRoundBands([chartHeight, 0]);
-    
-    console.log(yScale.rangeBand());
+
+    // console.log(yScale.rangeBand());
 
     /*
      * Create D3 axes.

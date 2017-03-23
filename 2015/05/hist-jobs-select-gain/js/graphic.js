@@ -18,9 +18,9 @@ var pymChild = null,
     xAxis,
     xgrid,
     xAxisGrid,
-    yAxis,    
+    yAxis,
     yAxisGrid,
-    ygrid,    
+    ygrid,
     yaxis,
     voronoiGroup,
     focus,
@@ -64,7 +64,7 @@ function render(container_width) {
     } else {
         is_mobile = false;
     }
-    
+
     // clear out existing graphics
     $graphic.empty();
 
@@ -146,10 +146,10 @@ function draw_graph(width) {
     line = d3.svg.line()
         .interpolate('basis')
         .defined(function(d) { return d['amt'] != null; })
-        .x(function(d) { 
+        .x(function(d) {
             return x(d['date']);
         })
-        .y(function(d) { 
+        .y(function(d) {
             return y(d['amt']);
         });
 
@@ -158,9 +158,9 @@ function draw_graph(width) {
         .defined(line.defined())
         .x(function(d) { return x(d['date']); })
         .y0(function(d) { return y(0); })
-        .y1(function(d) { return y(d['amt']); });        
-        
-    color.domain(d3.keys(graphic_data[0]).filter(function(key) { 
+        .y1(function(d) { return y(d['amt']); });
+
+    color.domain(d3.keys(graphic_data[0]).filter(function(key) {
         return key !== 'date';
     }));
 
@@ -175,7 +175,7 @@ function draw_graph(width) {
         });
     }
 
-    x.domain(d3.extent(graphic_data, function(d) { 
+    x.domain(d3.extent(graphic_data, function(d) {
         return d['date'];
     }));
     y.domain([0,.035])
@@ -205,12 +205,12 @@ var gradient = svg.append("svg:defs")
     .attr("x2", "0%")
     .attr("y2", "0%")
     .attr("spreadMethod", "pad");
- 
+
 gradient.append("svg:stop")
     .attr("offset", "0%")
     .attr("stop-color", "#dddeaf")
     .attr("stop-opacity", 1);
- 
+
 gradient.append("svg:stop")
     .attr("offset", "100%")
     .attr("stop-color", "#ffff0a")
@@ -225,7 +225,7 @@ gradient.append("svg:stop")
     .attr('width', 4)
     .attr('height', 4)
   .append('path')
-  
+
     // .attr('d', ' M0,1 l2,-2 ')
     .attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
     .attr('stroke', function(d) {return colors['blue3'];})
@@ -242,7 +242,7 @@ gradient.append("svg:stop")
         .attr('transform', 'translate(-5,0)')
         .call(yAxis);
 
-        ygrid = svg.append('g')         
+        ygrid = svg.append('g')
         .attr('class', 'y grid')
         .call(yAxisGrid()
             .tickSize(-width, 0, 0)
@@ -253,7 +253,7 @@ if (is_mobile) {;} else {
     var voronoi = d3.geom.voronoi()
         .x(function(d) { return x(d['date']); })
         .y(function(d) { return y(d['amt']); })
-        .clipExtent([[-margin.left, -margin.top], [width + margin.right, height + margin.bottom]]); 
+        .clipExtent([[-margin.left, -margin.top], [width + margin.right, height + margin.bottom]]);
 
 };
 
@@ -261,18 +261,18 @@ if (is_mobile) {;} else {
  lines = svg.append('g')
     .attr('id', 'lines-thin')
     .selectAll('path')
-    .data(d3.entries(formatted_data))   
+    .data(d3.entries(formatted_data))
     .enter()
     .append('path')
         .attr('class', function(d, i) {
             return 'main-line line-' + classify(d['key']);
         })
-        .attr('d', function(d) { 
+        .attr('d', function(d) {
             d.line = this;
             return line(d['value']);
         });
 
-         
+
 
  linesAll = svg.append('g')
     .attr('class', 'lines')
@@ -324,7 +324,7 @@ if (is_mobile) {;} else {
       .attr("ry", 3);
     focus
     .append("text")
-    .attr('class', 'focus-text')      
+    .attr('class', 'focus-text')
 
     focusfirstvalDot = svg.append("circle")
       .attr("transform", "translate(-100,-100)")
@@ -334,19 +334,19 @@ if (is_mobile) {;} else {
     focuslastvalDot = svg.append("circle")
       .attr("transform", "translate(-100,-100)")
       .attr("class", "focus-last-dot")
-      .attr('r', 3);       
+      .attr('r', 3);
 
     focusDot = svg.append("circle")
       .attr("transform", "translate(-100,-100)")
       .attr("class", "focus-dot")
-      .attr('r', 6);    
+      .attr('r', 6);
 
     focusfirstVal = svg.append("g")
       .attr("transform", "translate(-100,-100)")
       .attr("class", "focus-first");
 
     focusfirstVal.append("text")
-      .attr("y", 0);    
+      .attr("y", 0);
 
     focusfirstDate = svg.append("g")
       .attr("transform", "translate(-100,-100)")
@@ -360,7 +360,7 @@ if (is_mobile) {;} else {
       .attr("class", "focus-last");
 
     focuslastVal.append("text")
-      .attr("y", 0);    
+      .attr("y", 0);
 
     focuslastDate = svg.append("g")
       .attr("transform", "translate(-100,-100)")
@@ -374,7 +374,7 @@ if (is_mobile) {;} else {
       .attr("class", "focus-data");
 
     focusData.append("text")
-      .attr("y", -10);    
+      .attr("y", -10);
 
     focusDate = svg.append("g")
       .attr("transform", "translate(-100,-100)")
@@ -385,20 +385,20 @@ if (is_mobile) {;} else {
 
 
 
-    formatted_data2 = d3.entries(formatted_data).filter(function(d){return d['key'] !="Clear"}); 
+    formatted_data2 = d3.entries(formatted_data).filter(function(d){return d['key'] !="Clear"});
 
 if (!is_mobile) {
 
 
 
     function mouseover(d) {
-        console.log('mouseover', d.occupation.toLowerCase())
+        // console.log('mouseover', d.occupation.toLowerCase())
         if (clickedoccupation2 == d['occupation']) {
-            console.log(d['occupation'])
-            
+            // console.log(d['occupation'])
+
             focusDate.attr("transform", "translate(" + x(d['date']) + "," + y(d['amt']) + ")");
             focusDate.select("text").text(formatYear(d['date'])).attr("dy", -10);
-            
+
             focusData.attr("transform", "translate(" + x(d['date']) + "," + y(d['amt']) + ")");
             focusData.select("text").text(formatPercent(d['amt'])).attr("dy", 10);
         } else {
@@ -408,7 +408,7 @@ if (!is_mobile) {
 
             var boxWidth;
             var text = d3.selectAll('.focus-text')
-            
+
             text
             .each(function() {
                 box = this.getBBox();
@@ -419,7 +419,7 @@ if (!is_mobile) {
               .attr('width', boxWidth)
               .attr("x",  -boxWidth/2)
             var xMove =  x(d['date'])
-            var yMove =  y(d['amt']) - 10 
+            var yMove =  y(d['amt']) - 10
             focus.attr("transform", "translate(" + xMove +  "," + yMove + ")")
 
             focusDate.attr("transform", "translate(-100,-100)");
@@ -474,7 +474,7 @@ if (!is_mobile) {
               .datum(function(d) { return d.point; })
               .on("mouseover", mouseover)
               .on("mouseout", mouseout)
-              .on("click", selected);         
+              .on("click", selected);
         };
 
 
@@ -487,14 +487,14 @@ if (!is_mobile) {
 // first dropdown
 ////////////////////////////////
 
-$( "#occupation2" ).change(function() { 
+$( "#occupation2" ).change(function() {
     // console.log(clickedoccupation)
     var clickedoccupation = document.getElementById('occupation2').value;
     var smalldata = d3.entries(formatted_data).filter(function(d){return d['key'] ==clickedoccupation});
 
     areaTransition(".small-area",smalldata,area);
     lineTransition(".small-line",smalldata,linesAll);
-    
+
     if (!is_mobile) {
         dotTransition(smalldata);
     }
@@ -504,7 +504,7 @@ $( "#occupation2" ).change(function() {
 /*
  * Helper functions
  */
-function classify(Text) 
+function classify(Text)
 {
     return Text
         .toLowerCase()
@@ -541,7 +541,7 @@ function areaTransition(areaClass,data,areaObject) {
     // console.log(data)
 
     var newDomain = [ 0, d3.max(data, function(c) {
-            console.log(c)
+            // console.log(c)
             return d3.max(c['value'], function(v) {
                 var n = v['amt'];
                 var w = n*.8
@@ -552,7 +552,7 @@ function areaTransition(areaClass,data,areaObject) {
     ];
 
     rescale(newDomain)
-    
+
     if (!is_mobile) {
         drawVoronoi(formatted_data2);
     }
@@ -576,20 +576,20 @@ var smallarea = svg.selectAll(areaClass)
 
 d3.selectAll('.remove-small').remove();
     areaObject.transition().duration(550).ease('cubic-in-out')
-    .attr('d', newarea);       
+    .attr('d', newarea);
 }
 
 function drawLines(data) {
 
- lines 
+ lines
     .data(d3.entries(formatted_data))
-    .transition().duration(600)   
-    .attr('d', function(d) { 
+    .transition().duration(600)
+    .attr('d', function(d) {
         d.line = this;
         return line(d['value']);
     });
 
-         
+
 
 
 }
@@ -623,7 +623,7 @@ function rescale(newdomain) {
     yaxis
         svg.select('.yaxis')
             .transition().duration(600).ease("sin-in-out")
-            .call(yAxis);  
+            .call(yAxis);
 
 }
 
@@ -637,15 +637,15 @@ function lineTransition(lineClass,data,lineObject) {
             .attr('class', function(d, i) {
                 return 'remove-small ' + i + ' ' + classify(d['key']);
             })
-            .attr("d", function(d) { 
+            .attr("d", function(d) {
                 newpath = line(d['value']);
-                return  null; 
-            });     
+                return  null;
+            });
 
     d3.selectAll('.remove-small').remove()
 
         lineObject.transition().duration(550).ease('cubic-in-out')
-        .attr('d', newpath);  
+        .attr('d', newpath);
 }
 
 
@@ -668,7 +668,7 @@ $(window).load(function() {
             graphic_data.forEach(function(d) {
                 d['date'] = d3.time.format('%Y').parse(d['date']);
             });
-            
+
             var pymChild = new pym.Child({
                 renderCallback: render
             });

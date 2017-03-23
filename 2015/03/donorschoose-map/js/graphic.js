@@ -87,12 +87,12 @@ var onDataLoaded = function(error, data, topo) {
 
     graphicData.forEach(function(d) {
         d['value'] = +d['value'];
-        
+
         var yearData = eval('graphicData' + d['year']);
 //        yearData.push(d);
         yearData[d['state']] = d['value'];
     });
-    
+
     topoData = topo['features'];
 
     pymChild = new pym.Child({
@@ -137,14 +137,14 @@ var render = function(containerWidth) {
  */
 var drawMap = function(graphicWidth) {
     var yearData = eval('graphicData' + selectedYear);
-    console.log(yearData);
+    // console.log(yearData);
 
     // define or update map dimensions
     updateDimensions(graphicWidth);
 
     var margin = {
-        top: 0, 
-        right: 0, 
+        top: 0,
+        right: 0,
         left: 0,
         bottom: 10
     }
@@ -152,7 +152,7 @@ var drawMap = function(graphicWidth) {
     color = d3.scale.threshold()
         .domain(color_bins) // bins
         .range(color_range); // color palette
-        
+
    colorLabels = d3.scale.threshold()
         .domain(color_bins) // bins
         .range(color_range_labels); // color palette
@@ -161,7 +161,7 @@ var drawMap = function(graphicWidth) {
     var legend = d3.select('#graphic')
         .append('ul')
             .attr('class', 'key');
-    
+
     var bins = legend.selectAll('g')
         .data(color_bins)
         .enter().append('li')
@@ -183,7 +183,7 @@ var drawMap = function(graphicWidth) {
             }
             return d['key'];
         });
-        
+
 //     var legend = d3.select('#graphic ul.key')
 //         .append('li')
 //             .attr('class', 'key-item key-' + color_bins_count);
@@ -216,7 +216,7 @@ var drawMap = function(graphicWidth) {
         .selectAll('path')
         .data(topoData)
         .enter().append('path')
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return 'state d' + d['id'];
             })
             .attr('d', mapPath)
@@ -245,7 +245,7 @@ var drawMap = function(graphicWidth) {
             .attr('class', function(d) {
                 return 'state-id d' + d['id'];
             })
-            .attr('transform', function(d) { 
+            .attr('transform', function(d) {
                 if(!isNaN(mapPath.centroid(d)[0])) {
                     return 'translate(' + mapPath.centroid(d) + ')';
                 }
@@ -257,10 +257,10 @@ var drawMap = function(graphicWidth) {
                 var val = yearData[s];
                 if (val == undefined) {
                      return '#ddd';
-                 } 
+                 }
                  else if ((val > 0) && (val < 20)){
-                 	return '#696969'; 
-                 }	
+                 	return '#696969';
+                 }
                  else {
                      return '#FFFFFF';
                  }
@@ -274,14 +274,14 @@ var drawMap = function(graphicWidth) {
                     return '';
                 }
             });
-    
+
     // hard-coded adjustments
     d3.select('.state-id.d9') // CT
         .attr('dx', '.4em')
         .attr('dy', '.5em');
     d3.select('.state-id.d10') // DE
 		.attr('dy', '.5em')
-    	.attr('dx', '1.5em')     
+    	.attr('dx', '1.5em')
     	.attr('fill', '#666');
     if (selectedYear != '2010' && selectedYear != '2011' && selectedYear != '2012' && selectedYear != '2013' && selectedYear != '2014') {
         d3.select('.state-id.d11') // DC

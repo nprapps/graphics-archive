@@ -35,7 +35,7 @@ function render(container_width) {
     } else {
         is_mobile = false;
     }
-    
+
     // clear out existing graphics
     $graphic.empty();
 
@@ -67,7 +67,7 @@ function draw_graph(width) {
         graphic_aspect_width = 16;
         graphic_aspect_height = 9;
         num_x_ticks = 5;
-        num_x_ticks2 = 16;        
+        num_x_ticks2 = 16;
         num_y_ticks = 10;
     }
 
@@ -90,16 +90,16 @@ function draw_graph(width) {
         .orient('bottom')
         .ticks(num_x_ticks)
         // .tickValues([
-        //         fmt_date_full.parse('9/14/13'),            
+        //         fmt_date_full.parse('9/14/13'),
         //         fmt_date_full.parse('7/1/14'),
         //         fmt_date_full.parse('1/29/14')
         //         // fmt_year_full.parse('1979'),
         //         // fmt_year_full.parse('1986'),
         //         // fmt_year_full.parse('1995'),
         //         // fmt_year_full.parse('2013')
-        //     ])        
+        //     ])
         .tickFormat(function(d,i) {
-                console.log('date',d)
+                // console.log('date',d)
 
             if (is_mobile) {
                 return fmt_year_short(d) ;
@@ -113,16 +113,16 @@ function draw_graph(width) {
         .orient('bottom')
         .ticks(num_x_ticks2)
         // .tickValues([
-        //         fmt_date_full.parse('9/14/13'),            
+        //         fmt_date_full.parse('9/14/13'),
         //         fmt_date_full.parse('7/1/14'),
         //         fmt_date_full.parse('1/29/14')
         //         // fmt_year_full.parse('1979'),
         //         // fmt_year_full.parse('1986'),
         //         // fmt_year_full.parse('1995'),
         //         // fmt_year_full.parse('2013')
-        //     ])        
+        //     ])
         .tickFormat(function(d,i) {
-                console.log('date',d)
+                // console.log('date',d)
 
             if (is_mobile) {
                 return fmt_year_short(d) ;
@@ -146,14 +146,14 @@ function draw_graph(width) {
 
     var line = d3.svg.line()
         .interpolate('basis')
-        .x(function(d) { 
+        .x(function(d) {
             return x(d['date']);
         })
-        .y(function(d) { 
+        .y(function(d) {
             return y(d['amt']);
         });
-        
-    color.domain(d3.keys(graphic_data[0]).filter(function(key) { 
+
+    color.domain(d3.keys(graphic_data[0]).filter(function(key) {
         return key !== 'date';
     }));
 
@@ -167,18 +167,18 @@ function draw_graph(width) {
             return d['amt'].length > 0;
         });
     }
-    
-    
+
+
     // set the data domain
-    x.domain(d3.extent(graphic_data, function(d) { 
+    x.domain(d3.extent(graphic_data, function(d) {
         return d['date'];
     }));
 
-    y.domain([ 0, d3.max(d3.entries(formatted_data), function(c) { 
-            return d3.max(c['value'], function(v) { 
+    y.domain([ 0, d3.max(d3.entries(formatted_data), function(c) {
+            return d3.max(c['value'], function(v) {
                 var n = v['amt'];
                 return Math.ceil(n/5) * 5; // round to next 5
-            }); 
+            });
         })
     ]);
 
@@ -207,20 +207,20 @@ function draw_graph(width) {
             .tickFormat('')
         );
 
-    var yGrid = svg.append('g')         
+    var yGrid = svg.append('g')
         .attr('class', 'y grid')
         .call(y_axis_grid()
             .tickSize(-width, 0, 0)
             .tickFormat('')
         );
-    var ylabel = svg.append('text')         
+    var ylabel = svg.append('text')
         .attr('class', 'peak-textbook')
         .attr('x', x(fmt_date_full.parse('1/29/14'))-6)
         .attr('y', y(270))
-        .attr('text-anchor', 'end')        
-        .text('Highest Price: $299.57');   
+        .attr('text-anchor', 'end')
+        .text('Highest Price: $299.57');
 
-    var ylabel2 = svg.append('text')         
+    var ylabel2 = svg.append('text')
         .attr('class', 'peak-textbook')
         .attr('x', x(fmt_date_full.parse('8/10/13'))-3)
         .attr('y', y(50))
@@ -231,7 +231,7 @@ function draw_graph(width) {
             return 'start'
             }
         })
-        .text('Lowest Summer Price: $22.99');    
+        .text('Lowest Summer Price: $22.99');
 
     var lineGuide = svg.append('line')
         .attr('class','guide-line')
@@ -240,7 +240,7 @@ function draw_graph(width) {
         .attr('y1', y(30))
         .attr('y2', y(46))
         .style('stroke', '#000');
-    // var ylabel2 = svg.append('line')         
+    // var ylabel2 = svg.append('line')
     //     .attr('class', 'peak-textbook')
     //     .attr('x', x(fmt_date_full.parse('10/22/14'))+3)
     //     .attr('y', y(40))
@@ -288,7 +288,7 @@ $(window).load(function() {
             graphic_data.forEach(function(d) {
                 d['date'] = d3.time.format('%m/%d/%y').parse(d['date']);
             });
-            
+
             var pymChild = new pym.Child({
                 renderCallback: render
             });

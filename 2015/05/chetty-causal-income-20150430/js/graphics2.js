@@ -35,32 +35,32 @@ function render(width) {
     drawChart(graphic_width);
 
     }
-    
-    function drawChart(width) {
-        
 
-        console.log(graphic_data);
+    function drawChart(width) {
+
+
+        // console.log(graphic_data);
         // clear out existing graphics
         $graphic.empty();
 
         var commasFormatter = d3.format(",.0f");
 
         var num_bars = graphic_data.length;
-        
+
         var tick_count = 6;
         if (width < mobile_threshold) { tick_count = 4};
 
         var margin = { top: 30, right: 50, bottom: 35, left: 140 };
         var width = width - margin.left - margin.right;
         var height = ((bar_height + bar_gap) * num_bars);
-                
+
         var x = d3.scale.linear()
             .range([0, width])
-         
+
         var y = d3.scale.ordinal()
             .rangeRoundBands([0, height], .2);
 
-        
+
         x.domain([-1,1]);
         y.domain(graphic_data.map(function(d) { return d.county; }));
 
@@ -69,16 +69,16 @@ function render(width) {
             .scale(x)
             .orient('bottom')
             .ticks(tick_count)
-            
+
 
         var xAxis2 = d3.svg.axis()
             .scale(x)
             .orient('top')
             .ticks(tick_count)
             .tickFormat(formatPercent)
-            
+
         var x_axis_grid = function() { return xAxis2; }
-        
+
         var svg = d3.select('#graphic').append('svg')
             .attr('width', width + margin.left + margin.right)
             .attr('height', height + margin.top + margin.bottom)
@@ -90,7 +90,7 @@ function render(width) {
             .attr('class', 'x axis')
             .attr('transform', 'translate(0,-3)')
             .call(xAxis2);
-  
+
 
         svg.append('g')
             .attr('class', 'x grid')
@@ -112,7 +112,7 @@ function render(width) {
                 // .attr("width", function(d){ return x(d.values); })
                 .attr("height", bar_height)
                 .attr("class", function(d) { return d.values < 0 ? "bar-negative" : "bar-positive"; })
-        
+
         svg.append('g')
             .attr('class', 'value')
             .selectAll('text')
@@ -120,7 +120,7 @@ function render(width) {
             .enter().append('text')
                 .attr('x', function(d) { return x(d.values) })
                 .attr('y', function(d, i) { return i * (bar_height + bar_gap); })
-                .attr('dx', function(d) { return d.values < 0 ? -4 : 37} )                
+                .attr('dx', function(d) { return d.values < 0 ? -4 : 37} )
                 .attr('dy', 15)
                 .attr('text-anchor', 'end')
                 .attr('class', function(d) { return 'l-' + d.county.replace(/\s+/g, '-').toLowerCase() })
@@ -134,13 +134,13 @@ function render(width) {
                 .attr('x', "0")
                 .attr('y', function(d, i) { return i * (bar_height + bar_gap); })
                 .attr('dy', 15)
-                .attr('dx', function(d) { return width < mobile_threshold ? -25 : -15; })                
+                .attr('dx', function(d) { return width < mobile_threshold ? -25 : -15; })
                 .attr('text-anchor', 'end')
                 .attr('class', function(d) { return 'l-' + d.county.replace(/\s+/g, '-').toLowerCase() })
-                .text(function(d) { return d.county});        
-      
+                .text(function(d) { return d.county});
+
         /* update responsive iframe */
-    
+
     if (pymChild) {
         pymChild.sendHeightToParent();
     }
@@ -161,7 +161,7 @@ $(window).load(function() {
                     d.values = +d.values;
                 });
 
-                pymChild = new pym.Child({ 
+                pymChild = new pym.Child({
                     renderCallback: render
                 });
             });

@@ -42,13 +42,13 @@ var onWindowLoaded = function() {
           if (error) return console.warn(error);
           // data = json;
           graphicData = d3.entries(json);
-          
+
           graphicData.forEach(function(d) {
             d['key'] = d3.time.format('%Y-%m-%d').parse(d['key']);
           });
-          
+
           graphicData.sort(sortTheseKeys);
-          
+
           pymChild = new pym.Child({
                 renderCallback: render
           });
@@ -110,7 +110,7 @@ if (currentPrice > 199.91) {
     }
 
 if (currentPrice < 199.91) {
-    console.log('fired')
+    // console.log('fired')
     $('.reply-title').text("YES").css('color', '#17807E' );
     $('.reply-paren').html("If we cashed out now, we would make <em class = 'positive'>$" + d3.round(Math.abs(deltaLevel),2) + " (" + deltaPercent + ") </em> on our short.*");
     }
@@ -186,22 +186,22 @@ var drawGraph = function(graphicWidth) {
         });
 
     // set the data domain
-    x.domain(d3.extent(formattedData['SPY'], function(d) { 
+    x.domain(d3.extent(formattedData['SPY'], function(d) {
         return d['date'];
     }));
 
     // y.domain([190,210])
 
-    y.domain([ d3.min(d3.entries(formattedData), function(c) { 
-            return d3.min(c['value'], function(v) { 
+    y.domain([ d3.min(d3.entries(formattedData), function(c) {
+            return d3.min(c['value'], function(v) {
                 var n = v['amt'];
-                return Math.floor(n/10) * 10; 
-            }); 
-        }), d3.max(d3.entries(formattedData), function(c) { 
-            return d3.max(c['value'], function(v) { 
+                return Math.floor(n/10) * 10;
+            });
+        }), d3.max(d3.entries(formattedData), function(c) {
+            return d3.max(c['value'], function(v) {
                 var n = v['amt'];
                 return Math.ceil(n/10) * 10; // round to next 10
-            }); 
+            });
         })
     ]);
 
@@ -225,7 +225,7 @@ var drawGraph = function(graphicWidth) {
         .ticks(ticksY)
         .tickFormat(function(d,i) {
                 return '$' + d;
-        });        
+        });
 
     var yAxisGrid = function() {
         return yAxis;
@@ -234,8 +234,8 @@ var drawGraph = function(graphicWidth) {
     var area = d3.svg.area()
                 .x(function(d) { return x(d['date']); })
                 .y0(y(200))
-                .y1(function(d) { 
-                    return y(d['amt']); 
+                .y1(function(d) {
+                    return y(d['amt']);
                 });
 
     // define the line(s)
@@ -285,7 +285,7 @@ var svgWidth =  width + margin['left'] + margin['right']
         .attr('y1', y(199.91))
         .attr('y2', y(199.91));
 
-            
+
     // x-axis (bottom)
     svg.append('g')
         .attr('class', 'x axis')
@@ -296,7 +296,7 @@ var svgWidth =  width + margin['left'] + margin['right']
     svg.append('g')
         .attr('class', 'y axis')
         .call(yAxis);
-    
+
     // x-axis gridlines
     svg.append('g')
         .attr('class', 'x grid')
@@ -305,15 +305,15 @@ var svgWidth =  width + margin['left'] + margin['right']
             .tickSize(-height, 0, 0)
             .tickFormat('')
         );
-    
+
     // y-axis gridlines
-    svg.append('g')         
+    svg.append('g')
         .attr('class', 'y grid')
         .call(yAxisGrid()
             .tickSize(-width, 0, 0)
             .tickFormat('')
         );
-    
+
 
 
     // draw the line(s)
@@ -331,7 +331,7 @@ var svgWidth =  width + margin['left'] + margin['right']
             // })
             .attr('d', function(d) {
                 return line(d['value']);
-            });  
+            });
 
     svg.append('g')
         .attr('class', 'area')
@@ -351,7 +351,7 @@ var svgWidth =  width + margin['left'] + margin['right']
                 // } else {
                 // ;
                 // }
-            });    
+            });
 
     svg.append('g')
         .attr('class', 'lastvalue')
@@ -359,7 +359,7 @@ var svgWidth =  width + margin['left'] + margin['right']
         .attr('cx', x(lastValue['date']))
         .attr('cy', y(lastValue['amt']))
         .attr('r', 6);
-    
+
     svg.append('g')
         .attr('class', 'lastvalue')
         .append('circle')
@@ -371,7 +371,7 @@ var svgWidth =  width + margin['left'] + margin['right']
         .attr('class', 'good-us')
         .append('text')
         .attr('x', (svgWidth)/2)
-        .attr('dx', -20)        
+        .attr('dx', -20)
         .attr('y', y(192))
         .attr('text-anchor', 'middle')
         .text('Good For Us')
@@ -392,8 +392,8 @@ var svgWidth =  width + margin['left'] + margin['right']
         .attr('y', y(lastValue['amt']))
         .attr('dx', 0)
         .attr('dy', 15)
-        .attr('text-anchor', 'end')        
-        .text("Yesterday's Price $" + lastValue['amt'] )          
+        .attr('text-anchor', 'end')
+        .text("Yesterday's Price $" + lastValue['amt'] )
 
         svg.append('g')
         .attr('class', 'label current-date')
@@ -403,7 +403,7 @@ var svgWidth =  width + margin['left'] + margin['right']
         .attr('dx', 0)
         .attr('dy', 28)
         .attr('text-anchor', 'end')
-        .text("Yesterday's Date: " + fmtYearFull(lastValue['date'] ))          
+        .text("Yesterday's Date: " + fmtYearFull(lastValue['date'] ))
 
         svg.append('g')
         .attr('class', 'label current-price')
@@ -412,8 +412,8 @@ var svgWidth =  width + margin['left'] + margin['right']
         .attr('y', y(firstValue['amt']))
         .attr('dx', 0)
         .attr('dy', 15)
-        .attr('text-anchor', 'start')        
-        .text('Buy Price $' + firstValue['amt'] )          
+        .attr('text-anchor', 'start')
+        .text('Buy Price $' + firstValue['amt'] )
 
         svg.append('g')
         .attr('class', 'label current-date')
@@ -423,10 +423,10 @@ var svgWidth =  width + margin['left'] + margin['right']
         .attr('dx', 0)
         .attr('dy', 28)
         .attr('text-anchor', 'start')
-        .text("Buy Date: " + fmtYearFull(firstValue['date'] ))        
+        .text("Buy Date: " + fmtYearFull(firstValue['date'] ))
 
 var lastPrice = lastValue['amt']
-var dailyChange = currentPrice - lastPrice 
+var dailyChange = currentPrice - lastPrice
 var dailyPct = ((100*(currentPrice - lastPrice)/lastPrice))
 
 if (dailyChange > 0) {

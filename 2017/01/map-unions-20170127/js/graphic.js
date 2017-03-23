@@ -134,7 +134,7 @@ var renderStateGridMap = function(config) {
             .classed('key-item', true)
             .classed('key-cat-' + classify(key), true);
 
-        console.log('key-cat-' + classify(key));
+        // console.log('key-cat-' + classify(key));
 
         if (i == 2) {
             var labelText = '<b>' + (categoryLabels[key]['count']-1) + '</b><span> states and D.C. ' + categoryLabels[key]['label'] + '</span>';

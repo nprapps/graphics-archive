@@ -79,7 +79,7 @@ var renderStateGridMap = function(config) {
     //
     // categories = d3.set(categories).values().sort();
     var categories = [ '2010-2011', '2011-2012', '2012-2013', '2013-2014', '2014-2015', '2015-2016' ];
-    console.log(categories);
+    // console.log(categories);
 
     // Define color scale
     var colorScale = d3.scale.ordinal()
