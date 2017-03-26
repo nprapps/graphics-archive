@@ -61,7 +61,7 @@ function draw_chart(id, graphic_width) {
     var num_bars = graphic_data.length;
     var width = graphic_width - margin['left'] - margin['right'];
     var height = ((bar_height + bar_gap) * num_bars);
-    
+
     var graph = d3.select('#graphic');
 
     var x = d3.scale.linear()
@@ -79,14 +79,14 @@ function draw_chart(id, graphic_width) {
         .tickFormat(function(d) {
             return '$' + fmt_comma(d.toFixed(0));
         });
-        
-    var x_axis_grid = function() { 
+
+    var x_axis_grid = function() {
         return xAxis;
     }
-    
+
     var header = graph.append('h3')
     	.text(title);
-    	
+
     var chart = graph.append('div')
     	.attr('class', 'chart ' + classify(title));
 
@@ -95,7 +95,7 @@ function draw_chart(id, graphic_width) {
         .attr('height', height + margin['top'] + margin['bottom'])
         .append('g')
         .attr('transform', 'translate(' + margin['left'] + ',' + margin['top'] + ')');
-    
+
     svg.append('g')
         .attr('class', 'x axis')
         .attr('transform', 'translate(0,' + height + ')')
@@ -116,36 +116,36 @@ function draw_chart(id, graphic_width) {
         .selectAll('rect')
             .data(graphic_data)
         .enter().append('rect')
-            .attr("y", function(d, i) { 
+            .attr("y", function(d, i) {
                 return i * (bar_height + bar_gap);
             })
-            .attr("width", function(d){ 
+            .attr("width", function(d){
                 return x(d['amt']);
             })
             .attr("height", bar_height)
-            .attr('class', function(d, i) { 
+            .attr('class', function(d, i) {
                 return 'bar-' + i + ' ' + classify(d['label']);
             });
-    
+
     svg.append('g')
         .attr('class', 'value')
         .selectAll('text')
             .data(graphic_data)
         .enter().append('text')
-            .attr('x', function(d) { 
+            .attr('x', function(d) {
                 return x(d['amt']);
             })
-            .attr('y', function(d, i) { 
+            .attr('y', function(d, i) {
                 return i * (bar_height + bar_gap);
             })
             .attr('dx', 6)
             .attr('dy', (bar_height / 2) + 3)
             .attr('text-anchor', 'begin')
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return classify(d['label']);
             })
-            .html(function(d) { 
-            	console.log(d);
+            .html(function(d) {
+            	// console.log(d);
             	var t = '$' + fmt_comma(d['amt'].toFixed(0));
 // 				if (d['label'] == 'No student debt') {
 // 					t += ' (' + debt_value + ')';
@@ -171,7 +171,7 @@ function draw_chart(id, graphic_width) {
                 return classify(d['label']);
             })
             .append('span')
-                .text(function(d) { 
+                .text(function(d) {
                     return d['label'];
                 });
 

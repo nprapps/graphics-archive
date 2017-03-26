@@ -27,15 +27,15 @@ function render(width_container) {
     if (!width_container) {
         width_container = graphic_default_width;
     }
-    
+
     var width_graphic = width_container;
-    
+
     if (width_container <= mobile_threshold) {
         is_mobile = true;
     } else {
         is_mobile = false;
     }
-    
+
     // clear out existing graphics
     $graphic.empty();
 
@@ -52,19 +52,19 @@ function render_bar_chart(width_graphic) {
     var num_y_ticks = 6;
     var width = width_graphic - margin['left'] - margin['right'];
     var height = Math.ceil((width * graphic_aspect_height) / graphic_aspect_width);
-    
+
     var x = d3.scale.ordinal()
         .rangeRoundBands([0, width], 0)
-        .domain(data.map(function(d) { 
-            return d['age']; 
+        .domain(data.map(function(d) {
+            return d['age'];
         }));
-    
+
     var y = d3.scale.linear()
         .range([height, 0])
-        .domain([ 0, d3.max(graphic_data, function(d) { 
+        .domain([ 0, d3.max(graphic_data, function(d) {
 			return Math.ceil(d['population']/1000000) * 1000000; // round to next million
 		}) ]);
-    
+
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient('bottom')
@@ -73,7 +73,7 @@ function render_bar_chart(width_graphic) {
 				return d;
             }
         });
-    
+
     var yAxis = d3.svg.axis()
         .scale(y)
         .orient('left')
@@ -87,11 +87,11 @@ function render_bar_chart(width_graphic) {
         });
 
     var y_axis_grid = function() { return yAxis; }
-    
+
     // draw the legend
     var legend = d3.select('#graphic').append('ul')
             .attr('class', 'key');
-        
+
     // draw the chart itself
     var svg = d3.select('#graphic').append('svg')
         .attr('width', width + margin['left'] + margin['right'])
@@ -124,15 +124,15 @@ function render_bar_chart(width_graphic) {
                 return x(d['age']);
             })
             .attr('y', function(d) {
-                if (d['population'] < 0) { 
+                if (d['population'] < 0) {
                     return y(0);
                 } else {
                     return y(d['population']);
                 }
             })
             .attr('width', x.rangeBand())
-            .attr('height', function(d){ 
-                if (d['population'] < 0) { 
+            .attr('height', function(d){
+                if (d['population'] < 0) {
                     return y(d['population']) - y(0);
                 } else {
                     return y(0) - y(d['population']);
@@ -158,17 +158,17 @@ function render_bar_chart(width_graphic) {
 
             	return c;
             });
-            
+
     svg.append('line')
         .attr('class', 'y grid grid-0')
         .attr('x1', 0)
         .attr('x2', width)
         .attr('y1', y(0))
         .attr('y2', y(0));
-        
+
     gen_labels = svg.append('g')
     	.attr('class', 'gen-label');
-    
+
     gen_millennial = gen_labels.append('text')
     	.attr('class', 'millennial-title')
     	.attr('x', x(24))
@@ -217,7 +217,7 @@ function classify(str) { // clean up strings to use as CSS classes
 $(window).load(function() {
     if (Modernizr.svg) {
         $graphic = $('#graphic');
-        
+
         d3.csv(graphic_data_url, function(error, data) {
             graphic_data = data;
 
@@ -228,10 +228,10 @@ $(window).load(function() {
 				if (d['age'] >= 50 && d['age'] <= 68) {
 					d['generation'] = 'boomer';
 				}
-				
+
 //				d['year'] = d3.time.format('%m/%Y').parse(d['year'].toString());
 			});
-			console.log(graphic_data);
+			// console.log(graphic_data);
 
 			var pymChild = new pym.Child({
 				renderCallback: render

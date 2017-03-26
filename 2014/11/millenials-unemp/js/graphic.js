@@ -289,7 +289,7 @@ function draw_graph(width) {
 
 
 
-console.log(formatted_data)
+// console.log(formatted_data)
 
     var lines = svg.append('g')
         .attr('class', 'lines')

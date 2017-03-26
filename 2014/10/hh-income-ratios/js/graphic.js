@@ -56,7 +56,7 @@ function render(container_width) {
     } else {
         is_mobile = false;
     }
-console.log('container_width1',container_width)
+// console.log('container_width1',container_width)
 
     // clear out existing graphics
     $graphic.empty();

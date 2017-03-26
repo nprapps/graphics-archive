@@ -36,13 +36,13 @@ function render(container_width) {
     var margin = { top: 0, right: 15, bottom: 20, left: 110 };
     var width = container_width - margin['left'] - margin['right'];
     var height = ((bar_height + bar_gap) * num_bars);
-    
+
     if (container_width <= mobile_threshold) {
         is_mobile = true;
     } else {
         is_mobile = false;
     }
-    
+
     // clear out existing graphics
     $graphic.empty();
 
@@ -53,7 +53,7 @@ function render(container_width) {
     var y = d3.scale.ordinal()
         .domain(graphic_data.map(function(d) { return d['label']; }))
         .rangeRoundBands([0, height], .1);
-        
+
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient('bottom')
@@ -67,9 +67,9 @@ function render(container_width) {
         .tickFormat(function(d) {
             return Math.abs(d);
         });
-        
+
     var x_axis_grid = function() { return xAxis; }
-    
+
     var headers = d3.select('#graphic').append('ul')
         .attr('class', 'headers')
         .attr('style', function() {
@@ -78,7 +78,7 @@ function render(container_width) {
             s += 'width: ' + width + 'px;';
             return s;
         });
-    
+
     headers.append('li')
         .attr('class', 'header-1')
         .text(header_text[0]);
@@ -86,16 +86,16 @@ function render(container_width) {
     headers.append('li')
         .attr('class', 'header-2')
         .text(header_text[1]);
-    
+
     var chart = d3.select('#graphic').append('div')
         .attr('class', 'chart');
-    
+
     var svg = chart.append('svg')
         .attr('width', width + margin['left'] + margin['right'])
         .attr('height', height + margin['top'] + margin['bottom'])
         .append('g')
         .attr('transform', 'translate(' + margin['left'] + ',' + margin['top'] + ')');
-    
+
     svg.append('g')
         .attr('class', 'x axis')
         .attr('transform', 'translate(0,' + height + ')')
@@ -108,49 +108,49 @@ function render(container_width) {
             .tickSize(-height, 0, 0)
             .tickFormat('')
         );
-        
+
     var group = svg.selectAll('.bars')
         .data(graphic_data)
         .enter().append('g')
             .attr('class', function(d,i) {
                 return 'bars ' + classify(d['label']);
             })
-            .attr('transform', function(d) { 
+            .attr('transform', function(d) {
                 return 'translate(0,' + y(d['label']) + ')';
             });
-            
+
     group.selectAll('rect')
         .data(function(d) { return d['ratings']; })
         .enter().append('rect')
             .attr('height', bar_height)
-            .attr('x', function(d, i) { 
+            .attr('x', function(d, i) {
                 if (i == 0) {
                     return x(-d['val']);
                 } else {
-                    return x(0); 
+                    return x(0);
                 }
             })
-            .attr('width', function(d) { 
+            .attr('width', function(d) {
                 return x(d['x1']) - x(d['x0']);
             })
-            .style('fill', function(d) { 
+            .style('fill', function(d) {
                 return color(d['name']);
             })
-            .attr('class', function(d) { 
+            .attr('class', function(d) {
                 return classify(d['name']);
             });
-	console.log('render');
+	// console.log('render');
 
     group.append('g')
         .attr('class', 'value')
         .selectAll('text')
             .data(function(d) { return d['ratings']; })
         .enter().append('text')
-            .attr('x', function(d, i) { 
+            .attr('x', function(d, i) {
                 if (i == 0) {
                     return x(-d['val']);
                 } else {
-                    return x(d['val']); 
+                    return x(d['val']);
                 }
             })
             .attr('dx', function(d, i) {
@@ -186,7 +186,7 @@ function render(container_width) {
                     }
                 }
             })
-            .attr('class', function(d,i) { 
+            .attr('class', function(d,i) {
                 var bar_width = x(d['x1']) - x(d['x0']);
                 var cl = classify(d['name']);
                 if (i == 0) {
@@ -204,10 +204,10 @@ function render(container_width) {
                 }
                 return cl;
             })
-            .text(function(d) { 
+            .text(function(d) {
                 return d['val'].toFixed(1) + '%';
             });
-    
+
     var labels = chart.append('ul')
         .attr('class', 'labels')
         .attr('style', 'width: ' + margin['left'] + 'px; top: 0;')
@@ -245,7 +245,7 @@ $(window).load(function() {
         // load the data
         color = d3.scale.ordinal()
             .range([colors['blue3'], colors['yellow3']])
-            .domain(d3.keys(graphic_data[0]).filter(function(key) { 
+            .domain(d3.keys(graphic_data[0]).filter(function(key) {
             	return key !== 'label';
             }));
 
@@ -253,9 +253,9 @@ $(window).load(function() {
             var x0 = 0;
             d['millennial'] = d['millennial'] * 100;
             d['overall'] = d['overall'] * 100;
-            
-            d['ratings'] = color.domain().map(function(name) { 
-                return { name: name, x0: x0, x1: x0 += +d[name], val: +d[name] }; 
+
+            d['ratings'] = color.domain().map(function(name) {
+                return { name: name, x0: x0, x1: x0 += +d[name], val: +d[name] };
             });
             d['total'] = d['ratings'][d['ratings'].length - 1]['x1'];
         });

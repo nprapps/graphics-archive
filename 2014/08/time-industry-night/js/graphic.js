@@ -92,8 +92,8 @@ function draw_graph(width) {
      y = d3.scale.linear()
         .range([ height, 0 ]);
 
-console.log(graphic_data[24]['date']);
-console.log(graphic_data[24]['date']);
+// console.log(graphic_data[24]['date']);
+// console.log(graphic_data[24]['date']);
 
     var xAxis = d3.svg.axis()
         .scale(x)

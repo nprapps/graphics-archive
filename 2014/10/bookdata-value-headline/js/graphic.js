@@ -169,7 +169,7 @@ function draw_graph(id, graphic_width) {
 
 
 
-console.log(formatted_data)
+// console.log(formatted_data)
 
     // draw the chart
     var chart = d3.select('#graphic')
