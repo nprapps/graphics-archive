@@ -1,0 +1,115 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div id="quiz">
+    </div>
+
+    <div class="result row"></div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer row">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+</div>
+
+    <div id="audio"></div>
+
+    <script id="question-template" type="text/template">
+        <div class="question-wrapper">
+            <div class="question-header row">
+                <div class="question-title col-xs-12">
+                    Question <%= index + 1 %>/6
+                </div>
+            </div>
+            <div class="question row" data-index="<%= index %>" data-slug="<%= question['slug'] %>">
+                <div class="prompt col-xs-12">
+                    <h1><%= question['question'] %></h1>
+                    <p class="definition"><%= question['definition'] %></p>
+                    
+                </div>
+                <div class="info col-sm-4 col-xs-12">
+                    <div class="art">
+                        <img src="assets/<%= question['art'] %>" onload='sendHeight()'>
+                    </div>
+                </div>
+                <div class="answers col-sm-8 col-xs-12">
+                    <div class="pick">Your<br />Pick</div>
+                    <ul>
+                        <li class="answer">
+                            <div class="btn-wrap">
+                                <div class="btn play"></div>
+                            </div>
+                            <div class="player-wrap">
+                                <div class="player" data-answer="a">
+                                    <div class="progress"></div>
+                                    <div class="txt">Sample 1</div>
+                                </div>
+                            </div>
+                            <div class="pick-wrap">
+                                <span class="checkbox"></span>
+                            </div>
+                        </li>
+                        <li class="answer">
+                            <div class="btn-wrap">
+                                <div class="btn play"></div>
+                            </div>
+                            <div class="player-wrap">
+                                <div class="player" data-answer="b">
+                                    <div class="progress"></div>
+                                    <div class="txt">Sample 2</div>
+                                </div>
+                            </div>
+                            <div class="pick-wrap">
+                                <span class="checkbox"></span>
+                            </div>
+                        </li>
+                        <li class="answer">
+                            <div class="btn-wrap">
+                                <div class="btn play"></div>
+                            </div>
+                            <div class="player-wrap">
+                                <div class="player" data-answer="c">
+                                    <div class="progress"></div>
+                                    <div class="txt">Sample 3</div>
+                                </div>
+                            </div>
+                            <div class="pick-wrap">
+                                <span class="checkbox"></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fact row">
+                <div class="col-xs-12 fact-column">
+                    <p><%= question['fact'] %></p>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="result-template" type="text/template">
+        <div class="col-xs-12">
+            <div class="score">
+                <h3>You got <%= score %> out of 6 correct!</h3>
+            </div>
+            <div class="button-row">
+                <a class="reset-btn btn">Try Again</a>
+                <a class="fb-btn btn" href="https://www.facebook.com/dialog/share?app_id=138837436154588&href=http://n.pr/earquiz">Share on Facebook</a>
+                <a class="tw-btn btn" href="https://twitter.com/intent/tweet?text=Do%20you%20have%20the%20ears%20of%20an%20audio%20producer?%20Take%20this%20@nprtraining%20quiz%20to%20find%20out%20http://n.pr/earquiz&original_referer=http://training.npr.org/?p=6237&preview_id=6237&preview_nonce=b1f5148901&_thumbnail_id=-1&preview=true">Share on Twitter</a>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/javascript">
+        window.QUIZ = {{ COPY.questions.json() }};
+    </script>
+{% endblock content %}
