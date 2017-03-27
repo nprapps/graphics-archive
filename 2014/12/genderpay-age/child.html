@@ -50,7 +50,7 @@
         a:hover, a:active { opacity: 0.7; }
 
         /* graphic */
-        #graphic { 
+        #graphic {
         	margin: 0 0 11px 0;
         	position: relative;
         }
@@ -64,20 +64,20 @@
             padding: 0;
             list-style-type: none;
         }
-        .key .key-item { 
+        .key .key-item {
             display: inline-block;
             margin: 0 18px 0 0;
             padding: 0;
             line-height: 15px;
         }
-        .key .key-item b { 
+        .key .key-item b {
             display: inline-block;
             width: 15px;
             height: 15px;
             margin-right: 6px;
             float: left;
         }
-        .key .key-item label { 
+        .key .key-item label {
             white-space: nowrap;
             font-size: 12px;
             color: #333;
@@ -111,11 +111,11 @@
             shape-rendering: crispEdges;
         }
 
-        .grid.x .tick { 
-            opacity: .2;    
+        .grid.x .tick {
+            opacity: .2;
         }
-        .grid.y .tick { 
-            stroke-dasharray: 2 12px;    
+        .grid.y .tick {
+            stroke-dasharray: 2 12px;
         }
         .grid.y .tick:first-child { display: none; }
 
@@ -131,7 +131,7 @@
             stroke: url(#temperature-gradient);
             opacity: 1;
         }
-        
+
         #slider {
             margin: 6px 30px 15px 50px ;
             width: 80%
@@ -147,8 +147,8 @@
         #slider .ui-slider-handle:active {
             cursor: pointer;
 
-        }        
-        
+        }
+
         #slider label {
             font: 12px/1.4 Arial, Helvetica, sans-serif;
             position: absolute;
@@ -159,7 +159,7 @@
         }
 
         #slider .born-label {
-            font: 12px/1.2 Arial, Helvetica, sans-serif;            
+            font: 12px/1.2 Arial, Helvetica, sans-serif;
             position: absolute;
             width: 100%;
             margin-left: 0px;
@@ -171,7 +171,7 @@
         }
 
         #slider .born-label2 {
-            font: 14px/1.4 Arial, Helvetica, sans-serif;            
+            font: 14px/1.4 Arial, Helvetica, sans-serif;
             position: absolute;
             width: 100%;
             margin-top: 0px;
@@ -181,7 +181,7 @@
         }
 
         .x-axis-label {
-            font: 12px/1.4 Arial, Helvetica, sans-serif;            
+            font: 12px/1.4 Arial, Helvetica, sans-serif;
             opacity: .6;
         }
 
@@ -202,11 +202,11 @@
             height: 10px;
             position: absolute;
             top: 5px;
-        }                
+        }
 
         .annotation {
             position: absolute;
-            font: 14px/1.4 Arial, Helvetica, sans-serif;            
+            font: 14px/1.4 Arial, Helvetica, sans-serif;
             top:10px;
             width: 400px;
             max-width: 60%;
@@ -217,7 +217,7 @@
         }
 
         .year-axis {
-            width: 100%;            
+            width: 100%;
             position: absolute;
         }
         .year-label {
@@ -238,18 +238,17 @@
             background-color: #ccc;
             height: .5em;
         }
-   
+
         .ui-slider-horizontal .ui-state-default {
-            background: url(slider.png) no-repeat 50% 50%;
+            background: url('slider.png') no-repeat 50% 50%;
             border: none;
         }
 
         .ui-widget-content {
-
             border: 1px solid #aaaaaa;
-            background: #ffffff url("images/ui-bg_flat_75_ffffff_40x100.png") 50% 50% repeat-x scroll;
+            /*background: #ffffff url("images/ui-bg_flat_75_ffffff_40x100.png") 50% 50% repeat-x scroll;*/
             color: #222222;
-        }        
+        }
 
         ul {
             margin: 0 0 3px 0;
@@ -265,7 +264,7 @@
                 text-align: center;
             }
         }
-                     
+
     </style>
 
 
@@ -287,12 +286,11 @@
     </div>
 
     <script src="js/lib/jquery.js" type="text/javascript"></script>
+    <script src="js/lib/jquery-ui.min.js"></script>
+    <script src="js/lib/jquery.ui.touch-punch.min.js"></script>
     <script src="js/lib/d3.v3.min.js" type="text/javascript"></script>
     <script src="js/lib/modernizr.svg.min.js" type="text/javascript"></script>
     <script src="js/lib/pym.js" type="text/javascript"></script>
-    <script src="js/lib/jquery.js"></script>
-    <script src="js/lib/jquery-ui.min.js"></script>
-    <script src="js/lib/jquery.ui.touch-punch.min.js"></script>    
     <script src="js/graphic.js" type="text/javascript"></script>
 
 </body>
