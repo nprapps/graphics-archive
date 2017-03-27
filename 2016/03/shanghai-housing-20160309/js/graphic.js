@@ -345,6 +345,8 @@ var renderLineChart = function(config) {
 
                 return yScale(last[valueColumn]) + 3;
             })
+            .attr('dx', 0)
+            .attr('dy', 0)
             .text(function(d) {
                 var last = d['values'][d['values'].length - 1];
                 var value = last[valueColumn];
@@ -365,7 +367,6 @@ var renderLineChart = function(config) {
 
     if (config['id'] == 'housing') {
         lineValues.call(wrapText, (margins['right'] - 6), 16);
-
     }
 }
 
