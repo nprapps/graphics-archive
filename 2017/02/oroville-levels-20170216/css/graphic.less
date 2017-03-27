@@ -1,0 +1,66 @@
+@import "base";
+
+@now:   @blue3;
+@then:  #dadada;
+
+h2 .highlight {
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #fff;
+    white-space: nowrap;
+
+    &.now { background-color: @now; }
+    &.then {
+        background-color: @then;
+        color: #666;
+    }
+}
+
+.annotations {
+    circle {
+        fill: @now;
+        stroke: #fff;
+    }
+    text {
+        font-size: 11px;
+        fill: #666;
+
+        &.capacity {
+            text-anchor: end;
+            font-style: italic;
+        }
+    }
+    line.capacity {
+        stroke: #666;
+        stroke-dasharray: 4px 2px;
+    }
+}
+
+.lines {
+    fill: none;
+    stroke-width: 1px;
+    stroke: @then;
+
+    .y-2017 {
+        stroke: @now;
+        stroke-width: 3px;
+    }
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

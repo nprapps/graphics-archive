@@ -1,0 +1,58 @@
+@import "base";
+
+.grid .tick {
+    stroke: #fff;
+}
+
+.ranges {
+    rect {
+        fill: #ddd;
+
+        &.excellent { fill-opacity: .2; }
+        &.strong { fill-opacity: .4; }
+        &.average { fill-opacity: .6; }
+        &.weak { fill-opacity: .8; }
+        &.poor { fill-opacity: 1; }
+    }
+}
+
+.annotations {
+    text {
+        .knockout-header();
+        font-size: 11px;
+        fill: #454545;
+    }
+    line {
+        stroke: #666;
+        stroke-width: 1px;
+    }
+}
+
+.dots {
+    fill: @red3;
+    stroke: #fff;
+}
+
+.lines {
+    fill: none;
+    stroke-width: 4px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

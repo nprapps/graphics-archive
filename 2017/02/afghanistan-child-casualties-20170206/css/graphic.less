@@ -1,0 +1,14 @@
+@import "base";
+
+.bar text {
+    fill: #fff;
+    font-size: 10px;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .bar text { font-size: 9px; }
+}

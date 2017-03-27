@@ -1,0 +1,86 @@
+@import "base";
+
+h1 { font-size: 16px; }
+
+.wrapper {
+    float: none;
+    width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 650px;
+}
+
+.bars rect {
+    fill: @blue4;
+
+    &.annotated { fill: @teal3; }
+}
+
+.annotations {
+    text {
+        font-size: 11px;
+        fill: #666;
+        text-anchor: start;
+        -webkit-font-smoothing: antialiased;
+
+        &.us-average {
+            text-anchor: end;
+            font-weight: bold;
+        }
+    }
+    line {
+        stroke: #999;
+        stroke-width: 1px;
+
+        &.us-average {
+            stroke: #666;
+            stroke-dasharray: 4px 2px;
+        }
+    }
+}
+
+.axis .tick {
+    fill: #777;
+    font-size: 12px;
+}
+
+@media screen and (min-width: 501px) and (max-width: 600px) {
+    .x.axis { font-size: 10px; }
+}
+
+@media screen and (max-width: 500px) {
+    .wrapper { padding: 0; }
+    .labels li {
+        font-size: 11px;
+        color: #787878;
+
+        &.annotated {
+            font-weight: bold;
+            color: #333;
+        }
+    }
+    .value text {
+        fill: #787878;
+
+        .shadow& {
+            fill: #fff;
+            stroke: #fff;
+            stroke-width: 3px;
+
+            &.in { display: none; }
+        }
+
+        &.annotated.out {
+            font-weight: bold;
+            fill: #333;
+        }
+    }
+
+    .annotations text.us-average {
+        text-anchor: start;
+        font-size: 10px;
+        font-style: italic;
+    }
+}

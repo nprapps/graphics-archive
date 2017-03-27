@@ -1,0 +1,64 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+
+        <div class = "flex-container">
+
+            <div class = "col">
+                <img src="ELL-learning-models-ESL.png" alt = ""/>
+                <h3>English as a Second Language</h3>
+                <p>
+                    ESL is beginners-level English. Developed as an alternative to the "sink or swim" approach, ESL stresses simplified speech and uses visual or physical cues, memorization and drills.  ESL is often called “sheltered instruction” and can include several language groups in the same classroom.  Instruction is all about getting kids to function in English as quickly as possible and spend little time on a child’s native language.
+                </p>
+            </div>
+
+            <div class = "col">
+                <img src="ELL-learning-models-TRANSITIONAL.png"  alt = ""/>
+                <h3>Transitional Bilingual</h3>
+                <p>
+                    Bilingual has two goals: Get kids to English proficiency but continue instruction in their native language. Bilingual programs usually focus on Spanish speakers because they’re the largest non-English speaking group in public schools these days. In a bilingual classroom the teacher must be bilingual and all subjects -- math, science and social studies -- are taught in Spanish but the focus is on English proficiency in writing and reading. The goal is to help students become fluent in two languages.
+                </p>
+            </div>
+
+            <div class = "col">
+                <img src = "ELL-learning-models-DUAL.png" alt = "" />
+                <h3>Dual-Language</h3>
+                <p>
+                    In this model, instruction should be split into two sections, with one part of the school day in English, the other in a different language. For it to work properly, the teacher(s) must be fluent in both languages. In a version of this model, often called <strong>dual-immersion</strong>, dominant in one language, the other half English-dominant.
+                </p>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

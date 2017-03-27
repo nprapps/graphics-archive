@@ -1,0 +1,50 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table>
+            {% for row in COPY['data'] %}
+            <tr class="{{ row['Class']|classify }}">
+                <td class="topic">{{ row['Topic']|smarty }}</td>
+                <td class="then measure">
+                    <span class="strong">{{ row['Statistic'] }}</span>
+                </td>
+                <!-- <td class="then measure">
+                    <strong>{{ row['Stat'] }}</strong> {{ row['Rate'] }}
+                </td> -->
+                <td class="about">
+                    {{ row['Sentence']|smarty }}
+                    <cite>
+                        ({% if row['measure_fmt'] %}{{ row['measure_fmt']|smarty }}{% endif %}{% if (row['measure_fmt'] and row['Earlier source']) or (row['measure_fmt'] and row['Later source'])  %} | {% endif %}{% if row['Source Name'] or row['Source Link'] %}Source: <a href="{{ row['Source Link'] }}">{{ row['Source Name']}}</a>{% endif %})
+                    </cite>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

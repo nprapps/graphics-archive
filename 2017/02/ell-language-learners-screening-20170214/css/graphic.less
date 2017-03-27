@@ -1,0 +1,53 @@
+@import "base";
+
+h1 { font-size: 16px; }
+
+body{ padding: 0; }
+
+.graphic {
+
+    color: #454545;
+    font-size: 12px;
+
+    .flex-container{
+        display:-webkit-flex;
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        max-width: 100%;
+        align-items:left;
+
+        .col {
+            flex-basis: 32%;
+        }
+
+        h3 {
+            margin-top:10px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        img {
+            display: block;
+            margin-left:auto;
+            margin-right:auto;
+            margin-bottom: -15px;
+        }
+
+        p {
+            text-align:left;
+        }
+    }
+}
+
+@media screen and (max-width:500px){
+    .graphic .flex-container {
+        flex-wrap: wrap;
+
+        .col {
+            flex-basis: 100%;
+            margin-bottom: 22px;
+            &:last-child { margin-bottom: 0; }
+        }
+    }
+}

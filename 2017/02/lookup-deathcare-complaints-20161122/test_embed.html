@@ -1,0 +1,49 @@
+<div id="responsive-embed-lookup-deathcare-complaints-20161122"></div>
+<script type=text/javascript>
+    (function(jQuery) {
+        if (typeof jQuery !== 'undefined' && typeof jQuery.getScript === 'function') {
+            // add randomness to id to support for multiple graphic instances in one story
+            var el = document.getElementById("responsive-embed-lookup-deathcare-complaints-20161122");
+            el.id = el.id + "-" + Math.random().toString(36).substr(2,5);
+            jQuery.getScript("//pym.nprapps.org/pym.v1.min.js").done(function () {
+                jQuery(function () { // Wait for page load
+                    var pymParent = new pym.Parent(
+                        el.id,
+                        '//apps.npr.org/dailygraphics/graphics/lookup-deathcare-complaints-20161122/child.html',
+                        {}
+                    );
+
+                    var onScrollMessage = function(offset){
+                        $('html, body').animate({
+                            // scrollTop: window.scrollY + parseInt(offset) + document.getElementById(el.id).getBoundingClientRect().top - 30
+                            scrollTop: window.scrollY + parseInt(offset) + document.getElementById(el.id).getBoundingClientRect().top - 30
+                        }, 750);
+                    }
+                    pymParent.onMessage('scrollTo', onScrollMessage);
+
+                    jQuery.getScript("//carebot.nprapps.org/carebot-tracker.v0.min.js").done(function () {
+                        var tracker = new CarebotTracker.VisibilityTracker(el.id, function(result) {
+                            // Ignore Carebot events to empty embeds, keeps listening after unloading the page
+                            if (pymParent.el.getElementsByTagName('iframe').length !== 0) {
+                                pymParent.sendMessage('on-screen', result.bucket);
+                            }
+                        });
+                        // Check if there is already an scroll tracker somewhere on the page
+                        if (!document.querySelector("[data-carebot-scroll]")) {
+                            pymParent.el.setAttribute("data-carebot-scroll", "");
+                            var scrollTracker = new CarebotTracker.ScrollTracker('storytext', function(percent, seconds) {
+                                // Ignore Carebot events to empty embeds, keeps listening after unloading the page
+                                if (pymParent.el.getElementsByTagName('iframe').length !== 0) {
+                                    pymParent.sendMessage('scroll-depth', JSON.stringify({percent: percent,seconds: seconds}));
+                                }
+                            });
+                        }
+                    });
+
+                });
+            });
+        } else {
+            console.error('could not load graphic: jQuery is not on the page.');
+        }
+    })(window.jQuery);
+</script>

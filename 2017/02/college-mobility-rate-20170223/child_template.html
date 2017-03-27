@@ -1,0 +1,69 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th class="rank">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_rank }}</div>
+                    </th>
+                    <th class="college">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_name }}</div>
+                    </th>
+                    <th class="amt mobility">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_mobility }}</div>
+                    </th>
+                    <th class="amt access">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_access }}</div>
+                    </th>
+                    <th class="amt success">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_success }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="{{ row['Name']|classify }}">
+                <td data-title="{{ COPY.labels.hdr_rank }}" class="rank">{{ row['Rank'] }}</td>
+                <td data-title="{{ COPY.labels.hdr_name }}" class="college"><span class="rank">{{ row['Rank'] }}.</span> {{ row['Name'] }}</td>
+                <td data-title="{{ COPY.labels.hdr_mobility }}" class="amt mobility">{{ row['Mobility Rate'] }}</td>
+                <td data-title="{{ COPY.labels.hdr_access }}" class="amt access">{{ row['Access'] }}</td>
+                <td data-title="{{ COPY.labels.hdr_success }}" class="amt success">{{ row['Success Rate'] }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

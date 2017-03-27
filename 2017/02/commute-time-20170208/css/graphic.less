@@ -1,0 +1,48 @@
+@import "base";
+
+.dots {
+    stroke: #fff;
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+#line-chart {
+    .value text {
+        font-size: 12px;
+        font-weight: bold;
+        fill: #999;
+    }
+}
+
+#bar-chart {
+    .labels li {
+        &.drove-alone,
+        &.carpooled {
+            font-weight: bold;
+            color: #454545;
+        }
+    }
+    .bars rect {
+        fill: @blue5;
+
+        &.drove-alone,
+        &.carpooled {
+            fill: @blue2;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    // #line-chart .value text {
+    //     font-size: 10px;
+    // }
+
+    .chart:first-child { margin-bottom: 22px; }
+}
+
+@media screen and (min-width: 500px) {
+}

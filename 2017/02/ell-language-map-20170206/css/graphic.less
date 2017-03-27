@@ -1,0 +1,259 @@
+@import "base";
+
+.graphic-wrapper {
+    float: none;
+    width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 650px;
+
+    h1, h2 {
+        text-align: center;
+    }
+
+    &.sub-wrapper {
+        margin-bottom: 45px;
+        margin-top: 50px;
+    }
+}
+
+h3 { font-size: 0.9rem; }
+
+h1 { font-size: 16px; }
+
+/* Key
+========================================*/
+.key {
+    margin: 0 0 18px 0;
+    padding: 0;
+    list-style-type: none;
+}
+.key .key-item {
+    display: inline-block;
+    margin: 0 18px 0 0;
+    padding: 0;
+    line-height: 15px;
+}
+.key .key-item b {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
+    float: left;
+}
+.key .key-item label {
+    white-space: nowrap;
+    font-size: 12px;
+    color: #666;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Key
+========================================*/
+.key-small, .key-main {
+    width: 205px;
+    margin: 0 auto;
+}
+
+.key-small ul, .key-main ul {
+    margin: 0px 0 44px 0px;
+    padding: 0;
+    list-style-type: none;
+
+    &:before,
+    &:after {
+        content: ' ';
+        display: table;
+    }
+    &:after { clear: both; }
+
+    li {
+        position: relative;
+        float: left;
+        margin: 0;
+        padding: 0;
+
+        b {
+            display: block;
+            width: 40px;
+            height: 15px;
+            border-right: 1px solid #fff;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            position: absolute;
+            top: 20px;
+            left: -17px;
+            width: 35px;
+            text-align: center;
+            color: #666;
+            font-weight: normal;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .gt {
+            margin-right: 2px;
+        }
+
+        &.keyinfinite label {
+            font-size: 16px;
+            top: 17px;
+        }
+
+        .desktop { display: inline; }
+        .mobile { display: none; }
+    }
+}
+
+.key-small ul li {
+    &.key-0 b {
+        background: rgb(221, 221, 221);
+    }
+    &.key-1 b {
+        background: @blue5;
+    }
+    &.key-2 b {
+        background: @blue3;
+    }
+    &.key-3 b {
+        background: @blue2;
+    }
+    &.key-4 b {
+        background: @blue1;
+    }
+}
+
+.key-main ul li {
+    &.key-4 b {
+        background: #B9481D;
+    }
+    &.key-3 b {
+        background: #dc7427;
+    }
+    &.key-2 b {
+        background: #e59136;
+    }
+    &.key-1 b {
+        background: #efac68;
+    }
+    &.key-0 b {
+        background: #f6c698;
+    }
+}
+
+
+/* Grid Map
+========================================*/
+
+.graphic .wrapper {
+    .map-wrapper {
+        width: 60%;
+        margin: 0 auto 22px auto;
+    }
+}
+
+
+.flex-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .wrapper {
+        flex-basis: 31%;
+    }
+}
+
+
+.graphic .spacer {
+    width: 4%;
+    float: left;
+}
+
+.tile-grid-map {
+    margin-bottom: 44px;
+}
+
+.state {
+    fill: #eee;
+}
+
+.label {
+    font-family: 'Knockout 31 4r';
+    font-size: 12px;
+    fill: #979797;
+
+    &.sm-label {
+        font-size: 15px;
+    }
+}
+
+.label-spanish {
+    fill: #707070;
+}
+
+.label-active {
+    fill: #fff;
+}
+
+@media screen and (max-width: 500px) {
+    .graphic-wrapper { padding: 0; }
+    .label {
+        font-size: 15px;
+    }
+
+    .graphic {
+        .wrapper {
+            width: 100%;
+            float: left;
+
+            .map-wrapper {
+                width: 100%;
+            }
+        }
+
+        .flex-container {
+            flex-wrap: wrap;
+
+            .wrapper {
+                flex-basis: 100%;
+            }
+        }
+    }
+
+    .graphic .spacer {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 500px){
+    .label {
+        font-size: 8px;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 730px) {
+    .graphic .wrapper {
+        .map-wrapper {
+            width: 80%;
+        }
+    }
+
+    .flex-container {
+        justify-content: space-around;
+        .wrapper {
+            flex-basis: 48%;
+        }
+    }
+}
+
+@media screen and (min-width: 605px) and (max-width: 640px) {
+    .wrapper {
+        min-height: 320px;
+    }
+}

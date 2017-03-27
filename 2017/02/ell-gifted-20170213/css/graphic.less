@@ -1,0 +1,67 @@
+@import "base";
+
+h1 { font-size: 16px; }
+
+.wrapper, .key {
+    float: none;
+    width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 650px;
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.label text {
+    font-size: 12px;
+    fill: #666;
+}
+
+.shadow text {
+    font-size: 12px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 2px;
+    opacity: .7;
+}
+
+.axis-label {
+    fill: #666;
+    font-size: 12px;
+}
+
+.axis .tick {
+    fill: #777;
+    font-size: 12px;
+}
+
+circle {
+    &.highlight {
+        opacity: 1.0;
+    }
+}
+
+.x-label,
+.y-label {
+    font-size: 14px;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .wrapper, .key { padding: 0; }
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    // .key {
+    //     display: none;
+    // }
+}

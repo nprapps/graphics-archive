@@ -1,0 +1,194 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}
+        <h1>{{ COPY.labels.headline|smarty }}</h1>
+    {% endif %}
+    {% if COPY.labels.subhed %}
+        <h2>{{ render(COPY.labels.subhed)|smarty }}</h2>
+    {% endif %}
+
+    <ul class="key">
+        <li class="key-item key-0 shortage-key">
+            <b></b>
+            <label>Shortage Reported</label>
+        </li>
+        <li class="key-item key-1 not-reported-key">
+            <b></b>
+            <label>Not Reported</label>
+        </li>
+        <li class="key-item key-1 no-shortage-key">
+            <b></b>
+            <label>No Shortage</label>
+        </li>
+    </ul>
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead class="desktop">
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header state">{{ COPY.labels.hdr_state }}</div>
+                    </th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y1990 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y1991 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y1992 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y1993 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y1994 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y1995 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y1996 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y1997 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y1998 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y1999 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y2000 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y2001 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y2002 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y2003 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y2004 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y2005 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y2006 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y2007 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y2008 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y2009 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y2010 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y2011 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y2012 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y2013 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y2014 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y2015 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y2016 }}</div></th>
+                </tr>
+            </thead>
+
+            <thead class="tablet">
+                <tr>
+                    <th>{{ COPY.labels.hdr_state }}</th>
+                    <th class="y1990" colspan="10">{{ COPY.labels.hdr_y1990 }}</th>
+                    <th class="y2000" colspan="10">{{ COPY.labels.hdr_y2000 }}</th>
+                    <th class="y2010" colspan="4">{{ COPY.labels.hdr_y2010 }}</th>
+                    <th class="y2016" colspan="3">{{ COPY.labels.hdr_y2016 }}</th>
+                </tr>
+            </thead>
+
+            <thead class="mobile">
+                <tr>
+                    <th>{{ COPY.labels.hdr_state }}</th>
+                    <th colspan="14">{{ COPY.labels.hdr_y1990 }}</th>
+                    <th colspan="13">{{ COPY.labels.hdr_y2016 }}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data2 %}
+            <tr class="state-{{ row.abbr|classify }}">
+                <td data-title="{{ COPY.labels.hdr_state }}" class="state">{{ row.abbr }}</td>
+                <td data-title="{{ COPY.labels.hdr_y1990 }}" class="cell {% if row.y1990 == 'Shortage' %}shortage{% endif %}{% if row.y1990 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y1990 == 'Shortage' %}{{ row.y1990}}{% endif %}{% if row.y1990 == 'Not reported' %}{{ row.y1990 }}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y1991 }}" class="cell {% if row.y1991 == 'Shortage' %}shortage{% endif %}{% if row.y1991 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y1991 == 'Shortage' %}{{ row.y1991 }}{% endif %}{% if row.y1991 == 'Not reported' %}{{ row.y1991 }}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y1992 }}" class="cell {% if row.y1992 == 'Shortage' %}shortage{% endif %}{% if row.y1992 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y1992 == 'Shortage' %}{{ row.y1992}}{% endif %}{% if row.y1992 == 'Not reported' %}{{ row.y1992}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y1993 }}" class="cell {% if row.y1993 == 'Shortage' %}shortage{% endif %}{% if row.y1993 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y1993 == 'Shortage' %}{{ row.y1993}}{% endif %}{% if row.y1993 == 'Not reported' %}{{ row.y1993}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y1994 }}" class="cell {% if row.y1994 == 'Shortage' %}shortage{% endif %}{% if row.y1994 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y1994 == 'Shortage' %}{{ row.y1994}}{% endif %}{% if row.y1994 == 'Not reported' %}{{ row.y1994}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y1995 }}" class="cell {% if row.y1995 == 'Shortage' %}shortage{% endif %}{% if row.y1995 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y1995 == 'Shortage' %}{{ row.y1995}}{% endif %}{% if row.y1995 == 'Not reported' %}{{ row.y1995}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y1996 }}" class="cell {% if row.y1996 == 'Shortage' %}shortage{% endif %}{% if row.y1996 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y1996 == 'Shortage' %}{{ row.y1996}}{% endif %}{% if row.y1996 == 'Not reported' %}{{ row.y1996}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y1997 }}" class="cell {% if row.y1997 == 'Shortage' %}shortage{% endif %}{% if row.y1997 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y1997 == 'Shortage' %}{{ row.y1997}}{% endif %}{% if row.y1997 == 'Not reported' %}{{ row.y1997}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y1998 }}" class="cell {% if row.y1998 == 'Shortage' %}shortage{% endif %}{% if row.y1998 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y1998 == 'Shortage' %}{{ row.y1998}}{% endif %}{% if row.y1998 == 'Not reported' %}{{ row.y1998}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y1999 }}" class="cell {% if row.y1999 == 'Shortage' %}shortage{% endif %}{% if row.y1999 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y1999 == 'Shortage' %}{{ row.y1999}}{% endif %}{% if row.y1999 == 'Not reported' %}{{ row.y1999}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y2000 }}" class="cell {% if row.y2000 == 'Shortage' %}shortage{% endif %}{% if row.y2000 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y2000 == 'Shortage' %}{{ row.y2000}}{% endif %}{% if row.y2000 == 'Not reported' %}{{ row.y2000}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y2001 }}" class="cell {% if row.y2001 == 'Shortage' %}shortage{% endif %}{% if row.y2001 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y2001 == 'Shortage' %}{{ row.y2001}}{% endif %}{% if row.y2001 == 'Not reported' %}{{ row.y2001}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y2002 }}" class="cell {% if row.y2002 == 'Shortage' %}shortage{% endif %}{% if row.y2002 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y2002 == 'Shortage' %}{{ row.y2002}}{% endif %}{% if row.y2002 == 'Not reported' %}{{ row.y2002}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y2003 }}" class="cell {% if row.y2003 == 'Shortage' %}shortage{% endif %}{% if row.y2003 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y2003 == 'Shortage' %}{{ row.y2003}}{% endif %}{% if row.y2003 == 'Not reported' %}{{ row.y2003}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y2004 }}" class="cell {% if row.y2004 == 'Shortage' %}shortage{% endif %}{% if row.y2004 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y2004 == 'Shortage' %}{{ row.y2004}}{% endif %}{% if row.y2004 == 'Not reported' %}{{ row.y2004}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y2005 }}" class="cell {% if row.y2005 == 'Shortage' %}shortage{% endif %}{% if row.y2005 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y2005 == 'Shortage' %}{{ row.y2005}}{% endif %}{% if row.y2005 == 'Not reported' %}{{ row.y2005}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y2006 }}" class="cell {% if row.y2006 == 'Shortage' %}shortage{% endif %}{% if row.y2006 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y2006 == 'Shortage' %}{{ row.y2006}}{% endif %}{% if row.y2006 == 'Not reported' %}{{ row.y2006}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y2007 }}" class="cell {% if row.y2007 == 'Shortage' %}shortage{% endif %}{% if row.y2007 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y2007 == 'Shortage' %}{{ row.y2007}}{% endif %}{% if row.y2007 == 'Not reported' %}{{ row.y2007}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y2008 }}" class="cell {% if row.y2008 == 'Shortage' %}shortage{% endif %}{% if row.y2008 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y2008 == 'Shortage' %}{{ row.y2008}}{% endif %}{% if row.y2008 == 'Not reported' %}{{ row.y2008}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y2009 }}" class="cell {% if row.y2009 == 'Shortage' %}shortage{% endif %}{% if row.y2009 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y2009 == 'Shortage' %}{{ row.y2009}}{% endif %}{% if row.y2009 == 'Not reported' %}{{ row.y2009}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y2010 }}" class="cell {% if row.y2010 == 'Shortage' %}shortage{% endif %}{% if row.y2010 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y2010 == 'Shortage' %}{{ row.y2010}}{% endif %}{% if row.y2010 == 'Not reported' %}{{ row.y2010}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y2011 }}" class="cell {% if row.y2011 == 'Shortage' %}shortage{% endif %}{% if row.y2011 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y2011 == 'Shortage' %}{{ row.y2011}}{% endif %}{% if row.y2011 == 'Not reported' %}{{ row.y2011}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y2012 }}" class="cell {% if row.y2012 == 'Shortage' %}shortage{% endif %}{% if row.y2012 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y2012 == 'Shortage' %}{{ row.y2012}}{% endif %}{% if row.y2012 == 'Not reported' %}{{ row.y2012}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y2013 }}" class="cell {% if row.y2013 == 'Shortage' %}shortage{% endif %}{% if row.y2013 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y2013 == 'Shortage' %}{{ row.y2013}}{% endif %}{% if row.y2013 == 'Not reported' %}{{ row.y2013}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y2014 }}" class="cell {% if row.y2014 == 'Shortage' %}shortage{% endif %}{% if row.y2014 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y2014 == 'Shortage' %}{{ row.y2014}}{% endif %}{% if row.y2014 == 'Not reported' %}{{ row.y2014}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y2015 }}" class="cell {% if row.y2015 == 'Shortage' %}shortage{% endif %}{% if row.y2015 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y2015 == 'Shortage' %}{{ row.y2015}}{% endif %}{% if row.y2015 == 'Not reported' %}{{ row.y2015}}{% endif %}</div></td>
+                <td data-title="{{ COPY.labels.hdr_y2016 }}" class="cell {% if row.y2016 == 'Shortage' %}shortage{% endif %}{% if row.y2016 == 'Not reported' %}not-reported{% endif %}"><div class="mobile">{% if row.y2016 == 'Shortage' %}{{ row.y2016}}{% endif %}{% if row.y2016 == 'Not reported' %}{{ row.y2016}}{% endif %}</div></td>
+            </tr>
+            {% endfor %}
+
+            <tfoot class="desktop">
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header state">{{ COPY.labels.hdr_state }}</div>
+                    </th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y1990 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y1991 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y1992 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y1993 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y1994 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y1995 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y1996 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y1997 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y1998 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y1999 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y2000 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y2001 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y2002 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y2003 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y2004 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y2005 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y2006 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y2007 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y2008 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y2009 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y2010 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y2011 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y2012 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y2013 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y2014 }}</div></th>
+                    <th><div class="header odd">{{ COPY.labels.hdr_y2015 }}</div></th>
+                    <th><div class="header even">{{ COPY.labels.hdr_y2016 }}</div></th>
+                </tr>
+            </tfoot>
+
+            <tfoot class="tablet">
+                <tr>
+                    <th>{{ COPY.labels.hdr_state }}</th>
+                    <th class="y1990" colspan="10">{{ COPY.labels.hdr_y1990 }}</th>
+                    <th class="y2000" colspan="10">{{ COPY.labels.hdr_y2000 }}</th>
+                    <th class="y2010" colspan="4">{{ COPY.labels.hdr_y2010 }}</th>
+                    <th class="y2016" colspan="3">{{ COPY.labels.hdr_y2016 }}</th>
+                </tr>
+            </tfoot>
+
+            <tfoot class="mobile">
+                <tr>
+                    <th>{{ COPY.labels.hdr_state }}</th>
+                    <th colspan="14">{{ COPY.labels.hdr_y1990 }}</th>
+                    <th colspan="13">{{ COPY.labels.hdr_y2016 }}</th>
+                </tr>
+            </tfoot>
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}
