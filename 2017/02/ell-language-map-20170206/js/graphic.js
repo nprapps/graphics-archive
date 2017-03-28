@@ -127,7 +127,7 @@ var renderStateGridMap = function(config) {
             .text(function(d) {
                 var state = _.findWhere(STATES, { 'name': d['state_name'] });
 
-                console.log(config);
+                // console.log(config);
 
                 if(config['col'] == "spanish") {
                     return isMobile ? state['usps'] : state['ap'];
