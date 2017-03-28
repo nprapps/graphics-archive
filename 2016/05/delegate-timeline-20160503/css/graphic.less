@@ -1,0 +1,48 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+    stroke-opacity: 0.8;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #666;
+}
+
+.annotations {
+    .needed {
+        stroke: #787878;
+        stroke-width: 2px;
+        // stroke-dasharray: 6px 3px;
+    }
+    line.super-tue {
+        stroke: #999;
+        stroke-width: 1px;
+    }
+    line.with-supers {
+        stroke-dasharray: 2px 1px;
+    }
+    text {
+        font-size: 11px;
+        fill: #999;
+        font-style: italic;
+
+        &.super-tue { text-anchor: middle; }
+        &.with-supers { font-size: 10px; }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text { font-size: 10px; }
+    .annotations text { font-size: 10px; }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}
