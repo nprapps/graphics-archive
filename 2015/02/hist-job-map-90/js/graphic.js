@@ -456,7 +456,9 @@ var drawMap = function(graphicWidth) {
     svg.append('g')
         .attr('class', 'states-labels')
         .selectAll('.place-label')
-        .data(topoData)
+        .data(topoData.filter(function(d,i) {
+            return d['properties']['name'] != 'Puerto Rico';
+        }))
         .enter().append('text')
             .attr('class', function(d) {
                 return 'state-id d' + d['id'];

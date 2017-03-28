@@ -198,7 +198,7 @@ var renderLineChart = function(config) {
      * Setup
      */
 
-    
+
     var aspectWidth = isMobile ? 3 : 4;
     var aspectHeight = isMobile ? 3 : 3;
 
@@ -219,7 +219,7 @@ var renderLineChart = function(config) {
         ticksY = 5;
         margins['left'] = 35;
         margins['right'] = 25;
-        margins['bottom'] = 55;        
+        margins['bottom'] = 55;
     }
 
     // Calculate actual chart dimensions
@@ -298,7 +298,7 @@ var renderLineChart = function(config) {
         .tickFormat(function(d) {
             if (d == 0) {
                 return "$0-$30K"
-            } else if (d == 30000) { 
+            } else if (d == 30000) {
                 return "$30-$48K"
             } else if (d == 60000) {
                 return "$48K-$75K"
@@ -329,7 +329,7 @@ var renderLineChart = function(config) {
 
     chartElement.append('g')
         .attr('class', 'y axis')
-        // .attr('transform', makeTranslate(-10, 0))        
+        // .attr('transform', makeTranslate(-10, 0))
         .call(yAxis);
 
 
@@ -393,13 +393,13 @@ var renderLineChart = function(config) {
         });
 
     area = d3.svg.area()
-        .defined(function(d) { return d[valueColumn] != ""; })    
+        .defined(function(d) { return d[valueColumn] != ""; })
         .x(function(d) { return xScale(d[dateColumn]); })
         .y0(chartHeight)
-        .y1(function(d) { return yScale(d[valueColumn]); });        
+        .y1(function(d) { return yScale(d[valueColumn]); });
 
     var stickerPriceInitData = stickerPrice.filter(function(d) {
-          return d['key'] ==  "Amherst College" || 
+          return d['key'] ==  "Amherst College" ||
                  d['key'] ==  "Princeton University";
                  // d['key'] ==  "University Of Chicago" ||
         })
@@ -407,19 +407,19 @@ var renderLineChart = function(config) {
     //initial filter.
     if (!isMobile) {
     var selectInitData = d3.entries(formattedData).filter(function(d) {
-          return d['key'] ==  "Amherst College" || 
+          return d['key'] ==  "Amherst College" ||
                  d['key'] ==  "Ohio State University-Main Campus";
-                 // d['key'] ==  "Minnesota State University-Mankato" ||          
+                 // d['key'] ==  "Minnesota State University-Mankato" ||
                  // d['key'] ==  "Princeton University";
         })
 
     } else {
     var selectInitData = d3.entries(formattedData).filter(function(d) {
-          return d['key'] ==  "Amherst College" || 
+          return d['key'] ==  "Amherst College" ||
                  d['key'] ==  "Ohio State University-Main Campus";
-                 // d['key'] ==  "Minnesota State University-Mankato" ||          
+                 // d['key'] ==  "Minnesota State University-Mankato" ||
                  // d['key'] ==  "Princeton University";
-        }) 
+        })
 
     }
 
@@ -462,16 +462,16 @@ var renderLineChart = function(config) {
     updateScatter(scatterPlotData)
     updateScatterLabels(scatterPlotData)
 
-    d3.selectAll('.label-90000').style('opacity', 0) 
-    d3.selectAll('.label-60000').style('opacity', 0) 
-    d3.selectAll('.label-30000').style('opacity', 0)     
+    d3.selectAll('.label-90000').style('opacity', 0)
+    d3.selectAll('.label-60000').style('opacity', 0)
+    d3.selectAll('.label-30000').style('opacity', 0)
 
     d3.selectAll('.label-0.minnesota-state-university-mankato').style('opacity', 0)
     d3.selectAll('.point.ohio-state-university-main-campus').classed('public-school', true )
     d3.selectAll('.default-line.ohio-state-university-main-campus').classed('public-school', true )
     d3.selectAll('.point.minnesota-state-university-mankato').classed('public-school', true )
     d3.selectAll('.point.minnesota-state-university-mankato').moveToFront();
-    d3.selectAll('.default-line.minnesota-state-university-mankato').classed('public-school', true )    
+    d3.selectAll('.default-line.minnesota-state-university-mankato').classed('public-school', true )
     d3.selectAll('.point.princeton-university').classed('private-school', true )
     d3.selectAll('.default-line.princeton-university').classed('private-school', true )
     d3.selectAll('.point.amherst-college').classed('private-school', true )
@@ -483,18 +483,18 @@ var renderLineChart = function(config) {
         d3.select('.college-name.amherst-college')
             .attr('x', xScale(110000))
             .attr('y', yScale(40000) - 10)
-            .attr('text-anchor', 'end' )        
+            .attr('text-anchor', 'end' )
         d3.select('.college-name.ohio-state-university-main-campus')
             .attr('x', 0)
             .attr('y', yScale(18000))
             .text("Ohio State University")
-            .attr('text-anchor', 'start' )                    
+            .attr('text-anchor', 'start' )
     }
 
 
     selectArea = d3.select('.areas')
                 .append('path')
-                .attr('class', 'area selected-area');    
+                .attr('class', 'area selected-area');
 
     selectLine = d3.select('.lines')
                 .append('path')
@@ -506,11 +506,11 @@ var renderLineChart = function(config) {
 
     selectSticker = d3.select('.sticker-price-group')
                 .append('line')
-                .attr('class', 'sticker selected-sticker');     
+                .attr('class', 'sticker selected-sticker');
 
     selectStickerLabel = d3.select('.sticker-price-group')
                 .append('text')
-                .attr('class', 'label selected-sticker-label');                
+                .attr('class', 'label selected-sticker-label');
 
     // var index = COLLEGES_LIST.indexOf('hhincome');
     var index = COLLEGES_LIST.indexOf('clear');
@@ -533,7 +533,7 @@ var renderLineChart = function(config) {
         });
 
         $('input.typeahead').on('typeahead:selected', OnTypeAheadSelected)
-        
+
         typeahead_init = true;
 
 
@@ -550,7 +550,7 @@ function OnTypeAheadSelected (event, selection) {
         return d['key'] ==  selection;
         })
 
-    
+
     flattenForScatter(selectedData)
     d3.select('.college-name.amherst-college').remove();
     d3.select('.college-name.ohio-state-university-main-campus').remove();
@@ -558,19 +558,19 @@ function OnTypeAheadSelected (event, selection) {
     d3.selectAll('.default-area')
         .transition()
         .duration(300)
-        .style('opacity', 0)    
+        .style('opacity', 0)
     d3.selectAll('.default-line')
         .transition()
         .duration(300)
-        .style('opacity', 0)        
+        .style('opacity', 0)
     d3.selectAll('.default-label')
         .transition()
         .duration(300)
-        .style('opacity', 0)     
+        .style('opacity', 0)
     d3.selectAll('.default-sticker')
         .transition()
         .duration(300)
-        .style('opacity', 0)    
+        .style('opacity', 0)
 
 
     d3.selectAll('.default-label').classed('hidden', true)
@@ -583,18 +583,18 @@ function OnTypeAheadSelected (event, selection) {
         .attr('d', function(d) {
             // console.log(d)
             return line(d['value']);
-        })        
-        .style('opacity', 1);    
+        })
+        .style('opacity', 1);
 
     selectArea
         .data(selectedData)
         .transition()
         .duration(275)
-        // .ease('cubic')        
+        // .ease('cubic')
         .attr('d', function(d) {
             // console.log(d)
             return area(d['value']);
-        })        
+        })
         .style('opacity', 1);
 
 
@@ -604,13 +604,13 @@ function OnTypeAheadSelected (event, selection) {
         .duration(275)
         .attr('x1', xScale(0))
         .attr('x2', xScale(120000))
-        .attr('y1', function(d) { return yScale(d['values'][0]['sticker-price']); })            
-        .attr('y2', function(d) { return yScale(d['values'][0]['sticker-price']); })            
+        .attr('y1', function(d) { return yScale(d['values'][0]['sticker-price']); })
+        .attr('y2', function(d) { return yScale(d['values'][0]['sticker-price']); })
 
     updateStickerPriceLabel(selectedStickerPriceData)
     updateScatter(scatterPlotData)
     updateScatterLabels(scatterPlotData)
-    
+
     d3.selectAll('.point-120000').classed('teal2', true)
     d3.selectAll('.point-90000').classed('teal3', true)
     d3.selectAll('.point-60000').classed('teal4', true)
@@ -661,7 +661,7 @@ function updateScatter(data) {
 }
 
 function updateScatterLabels(data) {
-    d3.selectAll('.college-scatter-label').remove()    
+    d3.selectAll('.college-scatter-label').remove()
     chartElement.append('g')
         .attr('class', 'value')
         .selectAll('text')
@@ -692,7 +692,7 @@ function updateScatterLabels(data) {
 }
 
 function updateStickerPriceLabel(data) {
-        d3.selectAll('.sticker-price-label').remove()    
+        d3.selectAll('.sticker-price-label').remove()
         chartElement.append('g')
         .attr('class', 'value')
         .selectAll('text')
@@ -713,8 +713,8 @@ function updateStickerPriceLabel(data) {
 }
 
 function updateCollegeNames(data) {
-        d3.selectAll('.college-name').remove()  
-        if (!isMobile) {  
+        d3.selectAll('.college-name').remove()
+        if (!isMobile) {
         chartElement.append('g')
         .attr('class', 'value')
         .selectAll('text')
@@ -733,10 +733,11 @@ function updateCollegeNames(data) {
 
                 return yScale(last[valueColumn]) - 3;
             })
+            .attr('dy', 0)
             .text(function(d) {
                 return d['key'];
             })
-            .call(wrapText, (margins['right'] - labelGap), 10);        
+            .call(wrapText, (margins['right'] - labelGap), 10);
 
         } else {
         chartElement.append('g')
@@ -766,9 +767,9 @@ function updateCollegeNames(data) {
 
 function transpose(a) {
     return Object.keys(a[0]).map(
-        function (c) { 
+        function (c) {
             return a.map(
-                function (r) { 
+                function (r) {
                     return r[c]; }); }
         );
     }

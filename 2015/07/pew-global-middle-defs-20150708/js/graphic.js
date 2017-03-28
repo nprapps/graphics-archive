@@ -269,6 +269,7 @@ var renderStackedColumnChart = function(config) {
             .attr('y', function(d) {
                 return yScale(d['end']) + 23;
             })
+            .attr('dy', 0)
             .style('text-anchor', 'begin')
             .attr('class', function(d) {
                 return classify(d['label']);

@@ -216,7 +216,6 @@ var onDataLoaded = function(error, data, topo) {
         d['year'] = +d['year'];
         d['value'] = +d['value'];
     });
-    // console.log(topo)
     topoData = topo['features'];
 
     pymChild = new pym.Child({
@@ -324,7 +323,9 @@ var drawMap = function(graphicWidth) {
     svg.append('g')
         .attr('class', 'states-labels')
         .selectAll('.place-label')
-        .data(topoData)
+        .data(topoData.filter(function(d,i) {
+            return d['properties']['name'] != 'Puerto Rico';
+        }))
         .enter().append('text')
             .attr('class', function(d) {
                 return 'state-id d' + d['id'];
@@ -334,7 +335,6 @@ var drawMap = function(graphicWidth) {
             })
             .attr('dy', '.35em')
             .attr('dx', '0em')
-            // .style('font-size', labelSize)
             .text(' ');
 
     // Set up the slider
