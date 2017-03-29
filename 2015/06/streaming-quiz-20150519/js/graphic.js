@@ -48,7 +48,7 @@ var toggleAudio = function(e) {
         $players.find('.progress').width(0);
 
         $audioPlayer.jPlayer('setMedia', {
-            mp3: 'https://download.npr.org/anon.npr-mp3/npr/quiz/2015/06/' + src
+            mp3: 'https://ondemand.npr.org/anon.npr-mp3/npr/quiz/2015/06/' + src
         }).jPlayer('play');
 
         $this.removeClass('play').addClass('stop');
