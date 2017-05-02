@@ -1,0 +1,122 @@
+@import "base";
+
+h1 {
+    font-size: 16px;
+    margin-bottom: 22px;
+
+    &.decline { margin-bottom: 22px; }
+}
+
+.graphic h4 {
+    .gotham();
+    line-height: 1.4;
+    margin: 0 0 22px 0;
+    font-size: 12px;
+    color: #666;
+    -webkit-font-smoothing: antialiased;
+}
+.graphic .border h4 { margin-bottom: 7px; }
+
+h1,
+.graphic h4 {
+    .mexico {
+        font-weight: 700;
+        color: @teal3;
+    }
+    .south-america {
+        font-weight: 700;
+        color: @teal4;
+    }
+    .other {
+        font-weight: 700;
+        color: @teal5;
+    }
+}
+
+.value text {
+    &.in { fill: #fff; }
+    &.out { fill: #454545; }
+    &.left { text-anchor: begin; }
+    &.right { text-anchor: end; }
+}
+
+sup {
+    line-height: 0;
+    font-size: 60%;
+    opacity: 0.7;
+    padding-left: 0.2em;
+}
+
+#bar-chart {
+    margin-bottom: 33px;
+
+    .bars rect {
+        fill: @teal5;
+
+        &.mexico { fill: @teal3; }
+    }
+
+    .labels .mexico {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .value text:nth-child(1) { font-weight: bold; }
+}
+
+.chart { margin-bottom: 22px; }
+
+.chart.change {
+    .bars rect {
+        fill: @teal5;
+
+        &.mexico { fill: @teal3; }
+        &.south-america { fill: @teal4; }
+    }
+
+    .labels {
+        .mexico {
+            font-weight: bold;
+            color: #333;
+        }
+        .caribbean,
+        .europe-and-canada,
+        .middle-east {
+            color: #999;
+        }
+    }
+
+    .value text:nth-child(1) { font-weight: bold; }
+}
+
+.chart.border {
+    .annotations {
+        .label {
+            font-size: 12px;
+            font-weight: bold;
+            -webkit-font-smoothing: antialiased;
+        }
+        .label-0 { text-anchor: end; }
+        .label-1 { text-anchor: start; }
+    }
+
+    .labels li { text-align: left; }
+}
+
+
+// Large screen styles
+@media screen and (min-width: 730px) {
+    h1,
+    .graphic h4 {
+        text-align: center;
+    }
+
+    h1,
+    #bar-chart,
+    .footnotes,
+    .footer {
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

@@ -1,0 +1,25 @@
+@import "base";
+
+h2 span {
+    padding: 2px 5px;
+    border-radius: 3px;
+    color: #fff;
+
+    &.positive { background-color: @teal3; }
+    &.negative { background-color: #787878; }
+}
+
+.bars rect,
+.annotations text {
+    &.positive { fill: @teal3; }
+    &.negative { fill: #787878; }
+}
+
+.annotations text {
+    font-size: 11px;
+    font-style: italic;
+}
+
+@media screen and (max-width: 500px) {
+    .annotations text { font-size: 11px; }
+}

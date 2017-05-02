@@ -1,0 +1,31 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <div class="map-wrapper map-2001">
+            <h3 class="map-header">2001</h3>
+            <img class="map" src="assets/map-2001.jpg" alt="Map of Lyme disease cases in 2001" />
+        </div>
+        <div class="map-wrapper map-2015">
+            <h3 class="map-header">2015</h3>
+            <img class="map" src="assets/map-2015.jpg" alt="Map of Lyme disease cases in 2015" />
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

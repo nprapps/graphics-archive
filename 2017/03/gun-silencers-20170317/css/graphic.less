@@ -1,0 +1,198 @@
+@import "base";
+
+.graphic {
+    display: block;
+    .clearfix();
+}
+
+.bold { font-weight: 700; }
+
+.item-container {
+    float: left;
+    width: 48%;
+    margin-bottom: 22px;
+
+    &:first-child, &:nth-child(3) {
+        margin-right: 4%;
+    }
+
+    .gun-name {
+        .gotham();
+        font-size: 18px;
+        font-weight: bold;
+        margin: 6px 0 4px;
+    }
+
+    .gun-model {
+        margin-top: 0;
+        margin-bottom: 15px;
+        color: #999;
+        // min-height: 38px;
+    }
+
+    div.sound-container {
+        margin: 11px 0;
+    }
+
+    p.sound-attr, .buttons {
+        display: inline-block;
+    }
+
+    .buttons { margin: 5px 0; }
+
+    .btn {
+        .gotham();
+        margin-bottom: 0;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        line-height: 1.5;
+        user-select: none;
+        display: inline-block;
+        font-size: 14px;
+        text-align: center;
+        vertical-align: top;
+        color: white;
+        padding: 5px;
+        background-color: #568fcb;
+        outline: none;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #6faff9;
+            transition: background-color 0.1s ease-out, border-color 0.1s ease-out;
+        }
+
+        div.jp-play p, div.jp-pause p {
+            .gotham();
+            color: white;
+            text-align: center;
+            padding: 2px;
+            margin: 0;
+
+            &::after {
+                font-family: "FontAwesome";
+                margin: 0 5px 0 11px;
+                float: right;
+            }
+        }
+
+        div.jp-play p::after {
+            content: "\f04b";
+        }
+
+        div.jp-pause p::after {
+            content: "\f04c";
+        }
+    }
+}
+
+// .gun-container {
+//     margin-bottom: 33px;
+//
+//     .flex-container {
+//         display: flex;
+//         justify-content: space-between;
+//     }
+//
+//     .img-container, .detail-container {
+//         float: left;
+//     }
+//
+//     .img-container {
+//         width: 30%;
+//     }
+//     .detail-container { width: 60%; }
+//
+//     .gun-name {
+//         font-size: 15px;
+//         line-height: 1;
+//         margin-bottom: 6px;
+//     }
+//
+//     .gun-model {
+//         margin-top: 0;
+//         margin-bottom: 22px;
+//         color: #999;
+//     }
+//
+//     div.sound-container {
+//         margin-top: 11px;
+//     }
+//
+//     p.sound-attr, .buttons {
+//         display: inline-block;
+//     }
+//
+//     .btn {
+//         //button specific styles
+//         cursor: pointer;
+//         background-image: none;
+//         background-color: #568fcb;
+//         border: 1px solid transparent;
+//         outline: none;
+//         white-space: nowrap;
+//         user-select: none;
+//         display: inline-block;
+//         min-width: 155px;
+//         margin-bottom: 11px;
+//         margin-right: 22px;
+//
+//         &:hover {
+//             cursor: pointer;
+//             background-color: #6faff9;
+//             transition: background-color 0.1s ease-out, border-color 0.1s ease-out;
+//         }
+//
+//         div.jp-play p, div.jp-pause p {
+//             .gotham();
+//             color: white;
+//             text-align: center;
+//             padding: 6px;
+//             margin: 0;
+//
+//             &::after {
+//                 font-family: "FontAwesome";
+//                 margin: 0 5px 0 11px;
+//                 float: right;
+//             }
+//         }
+//
+//         div.jp-play p::after {
+//             content: "\f04b";
+//         }
+//
+//         div.jp-pause p::after {
+//             content: "\f04c";
+//         }
+//     }
+// }
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    .item-container {
+        width: 100%;
+        margin-right: 0;
+
+        .buttons {
+            margin: 5px 0;
+        }
+    }
+    .gun-container {
+        .flex-container { display: block; }
+        .img-container, .detail-container { width: 100%; }
+
+        .img-container { margin-bottom: 11px; }
+
+        .buttons {
+            margin: 5px 0;
+        }
+
+        .spacer {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    }
+}

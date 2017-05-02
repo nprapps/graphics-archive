@@ -1,0 +1,49 @@
+@import "base";
+
+// Add custom styles here
+#graphic {
+    .clearfix();
+
+    * {
+        box-sizing: border-box;
+    }
+}
+
+.map-wrapper {
+    position: relative;
+
+    @media screen and (min-width: 501px) {
+        width: 50%;
+        float: left;
+
+        &.map-2001 {
+            padding-right: 10px;
+        }
+
+        &.map-2015 {
+            padding-left: 10px;
+        }
+    }
+
+    h3.map-header {
+        .gotham();
+        text-transform: none;
+        letter-spacing: 0;
+        font-size: 2em;
+        position: absolute;
+        color: #666;
+        left: 55%;
+        top: 5%;
+    }
+
+    &.map-2001 {
+        h3.map-header {
+            margin-left: -10px;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        border: 1px solid #ddd;
+    }
+}

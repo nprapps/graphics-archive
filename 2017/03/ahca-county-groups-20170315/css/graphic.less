@@ -1,0 +1,153 @@
+@import "base";
+
+/*@rural: @orange3;*/
+/*@town: @blue3;*/
+/*@metro: @yellow3;*/
+@rural: mix(@blue2, @teal3, 40%);
+@metro: mix(@yellow3, @yellow4);
+@town: mix(@rural, @metro, 42%);
+
+h1 {
+    font-size: 18px;
+}
+
+h2 { margin-top: -15px; margin-bottom: 33px; }
+
+h1, h2 {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h3 {
+    text-align: center;
+}
+
+h2 {
+    span {
+        padding: 1px 5px;
+        border-radius: 2px;
+    }
+
+    .rural { background: tint(@rural, 20%); color: white; }
+    .town { background: tint(@town, 20%); color: white; }
+    .metro { background: tint(@metro, 20%); }
+}
+
+ul.key {
+    .key-item.rural b {
+        background: @rural;
+    }
+
+    .key-item.small-town b {
+        background: @town;
+    }
+
+    .key-item.metro b {
+        background: @metro;
+    }
+
+}
+
+.graphic-wrapper {
+    position: relative;
+}
+
+.arrowhead {
+    fill: #999;
+}
+
+.anno-lines {
+    .dashed-line {
+        stroke: #ccc;
+        stroke-width: 2px;
+        stroke-dasharray: 4px 3px;
+    }
+
+    .arrow-line {
+        stroke: #999;
+        stroke-width: 1px;
+    }
+
+    text {
+        font-size: 12px;
+        fill: #999;
+        -webkit-font-smoothing: antialiased;
+        text-anchor: middle;
+    }
+}
+
+.anno-wrapper {
+    p {
+        position: absolute;
+        font-size: 12px;
+        color: #999;
+
+        .anno-rural { color: @rural; }
+        .anno-metro { color: @metro; }
+    }
+}
+
+.column {
+    &.rural .bar rect {
+        fill: @rural;
+    }
+
+    &.small-town .bar rect {
+        fill: @town;
+    }
+
+    &.metro .bar rect {
+        fill: @metro;
+    }
+
+}
+
+.bar text {
+    fill: #fff;
+    font-size: 11px;
+    text-anchor: middle;
+
+    &.hidden { display: none; }
+}
+
+.x.axis.category {
+    text {
+        /*font-weight: bold;*/
+        .knockout-upper();
+        font-size: 12px;
+        fill: #454545;
+        text-anchor: middle;
+    }
+}
+
+.x.axis.bars {
+    path, line {
+        display: none;
+    }
+}
+
+// Large screen styles
+@media screen and (min-width: 730px) {
+    h1, h2 { text-align: center; }
+
+    h1,
+    h2,
+    .footnotes,
+    .footer {
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+// mobile styles
+@media screen and (max-width: 640px){
+    .x.axis.bars text {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .bar text { font-size: 10px; }
+}

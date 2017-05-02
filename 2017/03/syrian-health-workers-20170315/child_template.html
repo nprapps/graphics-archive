@@ -1,0 +1,118 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="desktop-table">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_org }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_2011 }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_2012 }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_2013 }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_2014 }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_2015 }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_2016 }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_2017 }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="row">
+                <td data-title="{{ COPY.labels.hdr_org }}">{{ row.name }}</td>
+                <td data-title="{{ COPY.labels.hdr_2011 }}" class="amt">{{ row.y2011 }}</td>
+                <td data-title="{{ COPY.labels.hdr_2012 }}" class="amt">{{ row.y2012 }}</td>
+                <td data-title="{{ COPY.labels.hdr_2013 }}" class="amt">{{ row.y2013 }}</td>
+                <td data-title="{{ COPY.labels.hdr_2014 }}" class="amt">{{ row.y2014 }}</td>
+                <td data-title="{{ COPY.labels.hdr_2015 }}" class="amt">{{ row.y2015 }}</td>
+                <td data-title="{{ COPY.labels.hdr_2016 }}" class="amt">{{ row.y2016 }}</td>
+                <td data-title="{{ COPY.labels.hdr_2017 }}" class="amt">{{ row.y2017 }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        <table id="mobile-table">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_year }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_pfhr }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_snfhr }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_vdc }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data2 %}
+            <tr class="row">
+                <td data-title="{{ COPY.labels.hdr_org }}">{{ row.name }}</td>
+                <td data-title="{{ COPY.labels.hdr_pfhr }}" class="amt">{{ row.pfhr }}</td>
+                <td data-title="{{ COPY.labels.hdr_snfhr }}" class="amt">{{ row.snfhr }}</td>
+                <td data-title="{{ COPY.labels.hdr_vdc }}" class="amt">{{ row.vdc }}</td>
+
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p class="desktop">{{ COPY.labels.footnote|smarty }}</p>
+        <p class="mobile">{{ COPY.labels.footnote_mobile|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

@@ -1,0 +1,283 @@
+@import "base";
+
+.italics { font-style: italic; }
+
+/* Key
+========================================*/
+.key-wrap {
+    .key {
+        margin: 0 0 44px 0;
+        padding: 0;
+        list-style-type: none;
+
+        .key-item {
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+
+            &:last-child { display: none; }
+        }
+        .key-item b {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+        }
+        .key-item label {
+            white-space: nowrap;
+            font-size: 12px;
+            color: #666;
+            font-weight: normal;
+            -webkit-font-smoothing: antialiased;
+        }
+    }
+
+    // Numeric scale style
+    &.numeric-scale {
+        width: 100%;
+        text-align: center;
+
+        h3 {
+            margin-bottom: 5px;
+        }
+
+        .key {
+            .key-item {
+                margin: 0 1px 0 0;
+                position: relative;
+
+                &.key-item-4 { display: none; }
+            }
+
+            .key-item b {
+                width: 45px;
+                height: 10px;
+                margin-right: 0;
+            }
+
+            .key-item label {
+                position: absolute;
+                bottom: -20px;
+                left: -15%;
+
+                &.end-label {
+                    left: auto;
+                    right: -25%;
+                }
+            }
+        }
+    }
+}
+
+.map-wrapper {
+    margin-bottom: 33px;
+    .spacer {
+        .clearfix();
+    }
+
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        .graphic {
+            float: left;
+            margin-bottom: 22px;
+
+            &#map-Anaplasmosis {
+                margin-right: 22px;
+            }
+
+            h3 {
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+
+            p.origin-year {
+                font-size: 12.5px;
+                margin: 0;
+            }
+            p.yearly-avg {
+                font-size: 12.5px;
+                margin: 3px 0 22px;
+            }
+        }
+    }
+}
+
+.states path {
+    // fill: #ddd;
+    stroke: #ccc;
+    stroke-width: 1px;
+}
+
+.table-graphic {
+    margin: 22px auto;
+
+    h3 {
+        font-size: 14px;
+        text-align: left;
+        padding-left: 10px;
+    }
+}
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    // max-width: 80%;
+    // margin: 22px auto;
+    font-size: 12px;
+    color: #666;
+    .clearfix();
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 0 10px 10px 10px;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    th,
+    td {
+        &.amt {
+            text-align: right;
+        }
+    }
+}
+
+// Tablesorter styles
+table {
+    th {
+        &.sort-header {
+            cursor: pointer;
+
+            &::-moz-selection,
+            &::selection {
+                background: transparent;
+            }
+
+            .sorter {
+                border-top: 2px solid #404040;
+                visibility: hidden;
+
+                .icon {
+                    content: '';
+                    width: 1px;
+                    margin: 3px auto 7px auto;
+                    border-width: 0 4px 4px;
+                    border-style: solid;
+                    border-color: #404040 transparent;
+                }
+            }
+
+            &:hover .sorter {
+                visibility: visible;
+            }
+        }
+
+        &.sort-up .sorter,
+        &.sort-down .sorter,
+        &.sort-down:hover .sorter {
+            visibility: visible;
+            opacity: 0.4;
+        }
+
+        &.sort-up .sorter .icon {
+            border-bottom: none;
+            border-width: 4px 4px 0;
+        }
+    }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    .map-wrapper .flex-container .graphic#map-Anaplasmosis {
+        margin-right: 0;
+    }
+    .table-graphic {
+        max-width: 100%;
+        margin: 0px auto 22px;
+
+        h3 { padding: 0; }
+    }
+
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        thead { display: none; }
+
+        tr,
+        th,
+        th.amt,
+        td,
+        td.amt {
+            display: block;
+            padding: 0;
+            white-space: normal;
+        }
+
+        tr {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+
+            &:first-child { border-top: 1px solid #eee; }
+        }
+
+        td,
+        td.amt {
+            border: none;
+            margin-bottom: 6px;
+            text-align: left;
+
+            &:empty { display: none; }
+        }
+
+        th[data-title]:before,
+        td[data-title]:before {
+            content: attr(data-title) ":\00A0";
+            display: inline-block;
+            width: 70%;
+        }
+
+        tr td:first-child {
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #333;
+            font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+
+            &:before {
+                content: '';
+                display: none;
+            }
+        }
+    }
+}

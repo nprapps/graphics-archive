@@ -1,0 +1,108 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        {% for row in COPY.data %}
+            <div class="item-container">
+                <img class="gun-img" src="assets/{{ row.img }}.jpg" />
+                <p class="gun-name">{{ row.name }}</p>
+
+                <p class="gun-model">{{ row.model }}</p>
+                <div class="player-containers">
+                    <div class="sound-container">
+                        <div class="buttons">
+                            <div id="jquery_jplayer_ns_{{ row.num }}" class="jPlayer"></div>
+                            <div id="jp_container_ns_{{ row.num }}" class="btn">
+                                <div href="#" class="jp-play"><p>Without silencer</p></div>
+                                <div href="#" class="jp-pause"><p>Without silencer</p></div>
+                            </div>
+                        </div>
+
+                        <div class="buttons">
+                            <div id="jquery_jplayer_ws_{{ row.num }}" class="jPlayer"></div>
+                            <div id="jp_container_ws_{{ row.num }}" class="btn">
+                                <div href="#" class="jp-play"><p>With silencer</p></div>
+                                <div href="#" class="jp-pause"><p>With silencer</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="gun-container">
+                <div class="flex-container">
+                    <div class="img-container">
+                        <img class="gun-img" src="{{ row.img }}" />
+                    </div>
+                    <div class="detail-container">
+                        <h3 class="gun-name">{{ row.name }}</h3>
+                        <p class="gun-model">{{ row.model }}</p>
+                        <div class="sound-container">
+                            <div class="buttons">
+                                <div id="jquery_jplayer_ns_{{ row.num }}" class="jPlayer"></div>
+                                <div id="jp_container_ns_{{ row.num }}" class="btn">
+                                    <div href="#" class="jp-play">
+                                        <p>
+                                            Without Silencer
+                                        </p>
+                                    </div>
+                                    <div href="#" class="jp-pause">
+                                        <p>
+                                            Without Silencer
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="buttons">
+                                <div id="jquery_jplayer_ws_{{ row.num }}" class="jPlayer"></div>
+                                <div id="jp_container_ws_{{ row.num }}" class="btn">
+                                    <div href="#" class="jp-play">
+                                        <p>
+                                            With Silencer
+                                        </p>
+                                    </div>
+                                    <div href="#" class="jp-pause">
+                                        <p>
+                                            With Silencer
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="spacer"></span>
+                </div>
+            </div> -->
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Technical Note</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.photos %}<p>Photos by: {{ COPY.labels.photos|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/lib/jquery.js') }}
+    {{ JS.push('js/lib/jquery.jplayer.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

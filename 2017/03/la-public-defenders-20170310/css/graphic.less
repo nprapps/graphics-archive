@@ -1,0 +1,44 @@
+@import "base";
+
+h1 {
+    // font-size: 18px;
+    // margin-bottom: 22px;
+}
+
+rect.bg { fill: #f1f1f1; }
+
+.x.grid line { stroke: #fff; }
+
+.annotations {
+    line { stroke: #999; }
+    text {
+        font-size: 11px;
+        fill: #787878;
+        text-anchor: middle;
+        -webkit-font-smoothing: antialiased;
+
+        &.recommended-limit {
+            fill: #454545;
+            font-weight: bold;
+        }
+        &.average { font-style: italic; }
+    }
+}
+
+.dots line {
+    stroke-width: 2px;
+    stroke: #ccc;
+    stroke-opacity: 0.4;
+
+    &.annotate { stroke-opacity: 1; }
+    &.over { stroke: @orange3; }
+    &.under { stroke: @blue3; }
+    &.recommended-limit {
+        stroke: #666;
+        stroke-width: 4px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .annotations .dist-18 { display: none; }
+}

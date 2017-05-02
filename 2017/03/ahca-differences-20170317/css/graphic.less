@@ -1,0 +1,71 @@
+@import "base";
+
+@rural: mix(@blue2, @teal3, 40%);
+@metro: mix(@yellow3, @yellow4);
+@town: mix(@rural, @metro, 42%);
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 22px;
+}
+
+#graphic {
+    margin-bottom: 22px;
+
+    h3 {
+        font-size: 14px;
+        color: #666;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        color: #666;
+
+        > li {
+            margin: 0 0 11px 1.1em;
+            padding-left: 0;
+            line-height: 1.5;
+
+            &:last-child { margin-bottom: 0; }
+        }
+
+        strong { color: #333; }
+        em {
+            color: #999;
+            font-style: normal;
+        }
+    }
+}
+
+// Desktop-only styles
+@media screen and (min-width: 501px) {
+    #graphic {
+        display: -webkit-flex;
+        display: flex;
+
+        > div {
+            width: 50%;
+            box-sizing: border-box;
+
+            &:nth-child(1) {
+                padding-right: 22px;
+                border-right: 1px solid #eee;
+            }
+            &:nth-child(2) { padding-left: 22px; }
+        }
+    }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    #graphic {
+        > div{
+            &:first-child {
+                border-bottom: 1px solid #eee;
+                padding-bottom: 22px;
+                margin-bottom: 22px;
+            }
+        }
+    }
+}

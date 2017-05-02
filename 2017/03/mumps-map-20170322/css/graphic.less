@@ -1,0 +1,73 @@
+@import "base";
+
+@recent:    @red5;
+@past:      @red6;
+@city:      #333;
+@capital:   #121212;
+
+h1 { margin-bottom: 22px; }
+
+.graphic {
+    max-width: 450px;
+}
+
+svg { font-size: 20px; }
+
+.key {
+    margin-bottom: 15px;
+
+    .recent b { background-color: @recent; }
+    .past b { background-color: @past; }
+    .key-item label { white-space: normal; }
+}
+
+.counties path {
+    fill: #ddd;
+    stroke: #fff;
+    stroke-width: .5px;
+
+    &.recent { fill: @recent; }
+    &.past { fill: @past; }
+}
+
+.cities path {
+    fill: @city;
+
+    &.admin-1-capital { fill: @capital; }
+}
+
+.city-labels text {
+    fill: @city;
+    font-size: 65%;
+    text-anchor: start;
+    font-family: 'Gotham SSm', Helvetica, Arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+
+    &.admin-1-capital {
+        fill: @capital;
+        font-weight: bold;
+    }
+}
+
+.city-labels.shadow text {
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 2px;
+    fill-opacity: 0.5;
+}
+
+// responsive styles
+@media screen and (max-width: 500px) {
+    svg { font-size: 16px; }
+    .city-labels text { letter-spacing: .5px; }
+}
+
+@media screen and (max-width: 280px) {
+    svg { font-size: 15px; }
+    .city-labels text,
+    .cities path {
+        &.scalerank-7 {
+            display: none;
+        }
+    }
+}

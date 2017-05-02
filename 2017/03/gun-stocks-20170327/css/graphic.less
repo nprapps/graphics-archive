@@ -1,0 +1,42 @@
+@import "base";
+
+.anno-line {
+    line {
+        stroke: #ccc;
+        stroke-width: 2px;
+        stroke-dasharray: 2px 2px;
+    }
+
+    text {
+        font-size: 12px;
+        fill: #999;
+    }
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .anno-line text {
+        font-size: 11px;
+    }
+
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

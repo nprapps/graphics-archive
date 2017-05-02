@@ -1,0 +1,130 @@
+@import "base";
+
+body {
+    padding: 10px 0;
+}
+
+h3 {
+    font-size: 12px;
+    color: #454545;
+    font-weight: normal;
+    font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 15px 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+.countries path {
+    stroke: #fff;
+    stroke-width: 0.3;
+
+    .background& { fill: #ddd; }
+}
+
+.bubbles {
+    circle {
+        fill: @teal3;
+        fill-opacity: .2;
+        stroke: @teal3;
+        stroke-width: .5;
+        stroke-opacity: .5;
+    }
+}
+
+.key-wrap {
+    .key {
+        margin: 0 0 18px 0;
+        padding: 0;
+        list-style-type: none;
+
+        .key-item {
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+        }
+        .key-item b {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+        }
+        .key-item label {
+            white-space: nowrap;
+            font-size: 11px;
+            color: #666;
+            font-weight: normal;
+            -webkit-font-smoothing: antialiased;
+        }
+    }
+
+    // Numeric scale style
+    &.numeric-scale {
+        width: 100%;
+        text-align: center;
+
+        h3 {
+            margin-bottom: 5px;
+        }
+
+        .key {
+            .key-item {
+                margin: 0 1px 0 0;
+                position: relative;
+
+                &.key-na {
+                    margin-left: 20px;
+
+                    @media screen and (max-width: 500px) {
+                        display: block;
+                        margin-left: 0;
+                        margin-top: 20px;
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .key-item b {
+                width: 45px;
+                height: 10px;
+                margin-right: 0;
+            }
+
+            .key-item label {
+                position: absolute;
+                width: 60px;
+                bottom: -20px;
+                right: -30px;
+            }
+
+            .key-item.key-na b {
+                @media screen and (max-width: 500px) {
+                    float: none;
+                }
+            }
+
+            .key-item.key-na label {
+                right: auto;
+                left: 0;
+                text-align: left;
+
+                @media screen and (max-width: 500px) {
+                    left: auto;
+                    bottom: auto;
+                    display: inline-block;
+                    position: relative;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .key-scale text { font-size: 7px; }
+    .populations text { font-size: 8px; }
+}

@@ -1,0 +1,36 @@
+@import "base";
+
+body {
+    padding: 11px 0;
+}
+
+.key {
+    margin-bottom: 18px;
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text, .dot-group {
+    font-size: 12px;
+    fill: #999;
+
+    &.group-2016-17 {
+        fill: @red3;
+    }
+}
+
+@media screen and (max-width: 240px) {
+    .dot-group {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

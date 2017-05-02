@@ -1,0 +1,81 @@
+@import "base";
+
+h1 {
+    font-size: 16px;
+    margin-bottom: 15px;
+
+    .unauthorized {
+        font-weight: 700;
+        color: @teal3;
+    }
+}
+
+.annotations {
+    line, path {
+        stroke: #ccc;
+        fill: none;
+    }
+
+    text {
+        font-size: 13px;
+        fill: #666;
+        .gotham();
+        font-weight: 700;
+        -webkit-font-smoothing: antialiased;
+
+        &.unauthorized {
+            fill: @teal3;
+        }
+    }
+}
+
+.value text {
+    fill: #fff;
+
+    &.hidden { display: none; }
+    &.out { fill: #454545; }
+}
+
+#stacked-bar-chart { margin-bottom: 22px; }
+
+#stacked-bar-chart,
+#bar-chart {
+    .group rect,
+    .bars rect {
+        &.naturalized-citizens { fill: #787878; }
+        &.lawful-permanent-residents,
+        &.green-card-holders { fill: #999; }
+        &.temporary-lawful-residents,
+        &.visa-holders { fill: #bababa; }
+        &.unauthorized-immigrants { fill: @teal3; }
+    }
+
+    .x.axis {
+        fill: #666;
+
+        .tick:nth-child(4) {
+            fill: @teal3;
+            font-weight: bold;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #stacked-bar-chart { margin-bottom: 11px; }
+    .annotations text { font-size: 11px; }
+}
+
+// Large screen styles
+@media screen and (min-width: 730px) {
+    h1, h2 { text-align: center; }
+
+    h1,
+    h2,
+    .graphic,
+    .footnotes,
+    .footer {
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

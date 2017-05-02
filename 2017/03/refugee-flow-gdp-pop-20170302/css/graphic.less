@@ -1,0 +1,26 @@
+@import "base";
+
+// Add custom styles here
+#bar-chart {
+    .clearfix();
+}
+
+.graphic {
+    float: left;
+
+    &:last-child {
+        margin-left: 4%;
+
+        @media screen and (max-width: 500px) {
+            margin-left: 0;
+        }
+    }
+}
+
+.bars rect {
+    fill: @blue2;
+
+    &.us {
+        fill: #999;
+    }
+}

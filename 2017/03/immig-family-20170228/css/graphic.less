@@ -1,0 +1,52 @@
+@import "base";
+
+h1 {
+    font-size: 14px;
+    margin-bottom: 15px;
+    line-height: 1.4;
+
+    .unauthorized,
+    .usborn {
+        font-weight: 700;
+    }
+    .unauthorized {
+        border-color: @teal3;
+        color: @teal3;
+    }
+    .usborn {
+        border-color: #aaa;
+        color: #aaa;
+    }
+}
+
+.value text {
+    fill: #fff;
+
+    &.left { text-anchor: begin; }
+    &.right { text-anchor: end; }
+    &.out { fill: #454545; }
+    &.hidden { display: none; }
+}
+
+.chart.parental { margin-bottom: 22px; }
+
+// Large screen styles
+@media screen and (min-width: 730px) {
+    h1,
+    .graphic h4 {
+        text-align: center;
+    }
+
+    h1,
+    #bar-chart,
+    .footnotes,
+    .footer {
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+}

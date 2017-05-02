@@ -1,0 +1,55 @@
+@import "base";
+
+.promo {
+    h1 {
+        display: none;
+    }
+    h2 {
+        .knockout-header();
+        font-size: 15px;
+        margin-bottom: 15px;
+        color: #333;
+    }
+}
+
+h1 { font-size: 16px; }
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #666;
+
+    .annotations& {
+        font-size: 10px;
+        font-weight: normal;
+        text-anchor: middle;
+    }
+}
+
+.dots { stroke: #fff; }
+
+@media screen and (max-width: 500px) {
+    .value text { font-size: 10px; }
+}
+
+
+// Large screen styles
+@media screen and (min-width: 730px) {
+    h1, h2 { text-align: center; }
+
+    h1,
+    h2,
+    #line-chart,
+    .footnotes,
+    .footer {
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
