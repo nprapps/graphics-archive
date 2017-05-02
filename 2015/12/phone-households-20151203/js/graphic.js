@@ -97,7 +97,7 @@ var renderLineChart = function(config) {
 
     var margins = {
         top: 5,
-        right: 175,
+        right: 100,
         bottom: 20,
         left: 32
     };
@@ -105,12 +105,14 @@ var renderLineChart = function(config) {
     var ticksX = 10;
     var ticksY = 10;
     var roundTicksFactor = 80;
+    var labelLineHeight = 13;
 
     // Mobile
     if (isMobile) {
         ticksX = 5;
         ticksY = 5;
-        margins['right'] = 25;
+        margins['right'] = 85;
+        labelLineHeight = 11;
     }
 
     // Calculate actual chart dimensions
@@ -153,28 +155,6 @@ var renderLineChart = function(config) {
     var colorScale = d3.scale.ordinal()
         .domain(_.pluck(config['data'], 'name'))
         .range([ COLORS['blue1'], COLORS['blue3'], COLORS['blue5'] ]);
-
-    /*
-     * Render the HTML legend.
-     */
-    var legend = containerElement.append('ul')
-        .attr('class', 'key')
-        .selectAll('g')
-        .data(config['data'])
-        .enter().append('li')
-            .attr('class', function(d, i) {
-                return 'key-item ' + classify(d['name']);
-            });
-
-    legend.append('b')
-        .style('background-color', function(d) {
-            return colorScale(d['name']);
-        });
-
-    legend.append('label')
-        .text(function(d) {
-            return d['name'];
-        });
 
     /*
      * Create the root SVG element.
@@ -296,15 +276,10 @@ var renderLineChart = function(config) {
             .text(function(d) {
                 var last = d['values'][d['values'].length - 1];
                 var value = last[valueColumn];
-
-                var label = last[valueColumn].toFixed(0) + '%';
-
-                if (!isMobile) {
-                    label = d['name'] + ': ' + label;
-                }
-
+                var label = d['name'] + ': ' + last[valueColumn].toFixed(1) + '%';
                 return label;
-            });
+            })
+            .call(wrapText, margins['right'] - 5, labelLineHeight);
 }
 
 
