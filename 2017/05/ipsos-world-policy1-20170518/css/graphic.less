@@ -1,0 +1,59 @@
+@import "base";
+
+h3 { color: #666; }
+
+h4 {
+    .gotham();
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 400;
+    margin: 0 0 11px 0;
+    color: #666;
+
+    strong { color: #333; }
+}
+
+.labels li.overall {
+    font-weight: bold;
+    color: #454545;
+}
+.value text.overall {
+    font-weight: bold;
+    fill: #454545;
+}
+
+.bg rect { fill: #f1f1f1; }
+.bars rect {
+    fill: #999;
+    fill-opacity: .5;
+
+    &.overall { fill-opacity: 1; }
+    .correct & { fill: @orange3; }
+}
+
+@media screen and (min-width: 501px) {
+    h3 {
+        text-align: center;
+        margin: 0 auto 15px auto;
+        max-width: 650px;
+    }
+    h4 { height: 100px; }
+}
+@media screen and (min-width: 601px) {
+    h4 { height: 80px; }
+}
+@media screen and (min-width: 708px) {
+    h4 { height: 63px; }
+    .footnotes,
+    .footer {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 650px;
+    }
+}
+@media screen and (min-width: 1040px) {
+    h4 { height: auto; }
+}
+@media screen and (max-width: 500px) {
+    .chart { margin-bottom: 22px; }
+}

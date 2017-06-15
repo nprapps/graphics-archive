@@ -1,0 +1,35 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="container">
+        <div class="cocoen">
+            <img src="assets/{{ COPY.labels.before_img }}" alt="">
+            <img src="assets/{{ COPY.labels.after_img }}" alt="">
+        </div>
+        <div class="time-labels">
+            <p>
+                <span class="align-left">March 2014</span>
+                <span class="align-right">February 2017</span>
+            </p>
+            <!-- Slide the dividing line to see the change -->
+        </div>
+        <div class="spacer"></div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Photos by: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

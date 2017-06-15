@@ -1,0 +1,101 @@
+@import "base";
+
+h1 { margin-bottom: 22px; }
+
+.footnotes { margin-top: 22px; }
+
+.graphic {
+    display: webkit-flex;
+    display: flex;
+    margin-bottom: 0;
+
+    h3 {
+        .knockout-header();
+        margin: 0 0 13px 0;
+        font-size: 11px;
+        color: #333;
+
+        span {
+            color: #fff;
+            background-color: #999;
+            border-radius: 3px;
+            padding: 2px 4px;
+        }
+    }
+
+    h4 {
+        .gotham();
+        margin: 0 0 9px 0;
+        text-transform: capitalize;
+        font-weight: 700;
+        padding-top: 0;
+        line-height: 1.2;
+        font-size: 13px;
+        color: #333;
+    }
+
+    .roster {
+        width: 50%;
+        box-sizing: content-box;
+        padding: 15px 11px;
+        // background-color: #f1f1f1;
+        border-left: 1px solid #eee;
+        border-right: 1px solid #eee;
+
+        &:first-child { margin-right: 11px; }
+        &:last-child { margin-left: 11px; }
+
+        .principals& { border-top: 1px solid #eee; }
+        .may-attend& { border-bottom: 1px solid #eee; }
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.3;
+        color: #666;
+
+        li {
+            margin: 0 0 2px 0;
+            padding: 7px 0 6px 0;
+            border-top: 1px solid #eee;
+        }
+    }
+
+    .highlight {
+        font-weight: bold;
+        color: #121212;
+        // color: lighten(@yellow2, 10%);
+    }
+    .upgraded {
+        font-weight: bold;
+        color: lighten(@yellow2, 10%);
+        color: lighten(@teal3, 5%);
+    }
+    .removed {
+        font-weight: bold;
+        text-decoration: line-through;
+        color: @red3;
+    }
+    .added {
+        font-weight: bold;
+        color: lighten(@teal3, 5%);
+    }
+}
+
+// mobile
+@media screen and (max-width: 500px) {
+    h1 { text-align: center; }
+    .graphic {
+        .roster {
+            padding-left: 6px;
+            padding-right: 6px;
+
+            &:first-child { margin-right: 5px; }
+            &:last-child { margin-left: 5px; }
+        }
+        ul { font-size: 11px; }
+    }
+}

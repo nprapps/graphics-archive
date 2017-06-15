@@ -1,0 +1,122 @@
+@import "base";
+
+.graphic {
+    display: webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+
+    .map {
+        width: 33%;
+        box-sizing: border-box;
+        padding: 0 11px;
+        margin-bottom: 44px;
+        text-align: center;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 22px;
+        }
+
+        h4 {
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0 0 6px 0;
+            .knockout-header();
+            line-height: 1;
+
+            .year {
+                color: #333;
+                display: block;
+                margin-bottom: 3px;
+            }
+
+            .national-rate {
+                color: #999;
+                font-size: 11px;
+                display: block;
+            }
+        }
+
+        p {
+            margin: 0;
+            font-size: 12px;
+            color: #666;
+
+            strong { color: #333; }
+        }
+    }
+}
+
+// key
+.key-wrap.numeric-scale {
+    width: 100%;
+    text-align: center;
+
+    h3 { margin-bottom: 5px; }
+
+    .key {
+        margin-top: 0;
+
+        .key-item {
+            margin: 0 1px 0 0;
+            position: relative;
+
+            b {
+                width: 45px;
+                height: 10px;
+                margin-right: 0;
+            }
+
+            label {
+                position: absolute;
+                bottom: -20px;
+                left: -15px;
+                width: 30px;
+
+                &.end-label {
+                    left: auto;
+                    right: -25%;
+                }
+            }
+
+            &:first-child { display: none; }
+        }
+    }
+}
+
+
+// Large screen styles
+@media screen and (min-width: 730px) {
+    h1,
+    .footnotes,
+    .footer {
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    .graphic {
+        .map {
+            padding: 0;
+            width: 50%;
+
+            &:nth-child(odd) { padding-right: 11px; }
+            &:nth-child(even) { padding-left: 11px; }
+
+            h3 .national-rate {
+                display: block;
+                margin-left: 0;
+                margin-top: 6px;
+            }
+        }
+    }
+    .key-wrap.numeric-scale .key .key-item {
+        b { width: 25px; }
+    }
+}

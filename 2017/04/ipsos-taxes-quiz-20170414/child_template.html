@@ -1,0 +1,23 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="quiz-wrapper" class="graphic">
+        <div id="size-wrapper">
+            <p class="quiz-question"><strong>True or False:</strong><br />For the highest earners, the percent of federal income taxes they pay now is significantly higher than it was in&nbsp;1980.</p>
+            <ul class="quiz-list">
+                <li class="quiz-option"><a href="#">True</a></li>
+                <li class="quiz-option"><a href="#">False</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="response-wrapper">
+        <p class="user-response hidden invisible"></p>
+    </div>
+
+    <script id="response-template" type="text/template">
+You picked <strong>&ldquo;<%= user_response %>,&rdquo;</strong> <%= user_value %> In an NPR/Ipsos poll, <strong>34 percent</strong> of people got it right.
+    </script>
+
+{% endblock content %}

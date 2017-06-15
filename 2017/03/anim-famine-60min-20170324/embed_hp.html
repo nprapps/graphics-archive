@@ -1,0 +1,23 @@
+<div id="responsive-embed-anim-famine-60min-20170324"></div>
+<script type=text/javascript>
+    (function(jQuery) {
+        if (typeof jQuery !== 'undefined' && typeof jQuery.getScript === 'function') {
+            // add randomness to id to support for multiple graphic instances in one story
+            var el = document.getElementById("responsive-embed-anim-famine-60min-20170324");
+            el.id = el.id + "-" + Math.random().toString(36).substr(2,5);
+
+            jQuery.getScript("https://pym.nprapps.org/pym.v1.min.js").done(function () {
+
+                jQuery(function () { // Wait for page load
+                    var pymParent = new pym.Parent(
+                        el.id,
+                        'https://apps.npr.org/dailygraphics/graphics/anim-famine-60min-20170324/child.html',
+                        {}
+                    );
+                });
+            });
+        } else {
+            console.error('could not load graphic: jQuery is not on the page.');
+        }
+    })(window.jQuery);
+</script>

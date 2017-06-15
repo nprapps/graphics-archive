@@ -1,0 +1,69 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic principals">
+        <div class="roster jan-28">
+            <h3><span>{{ COPY.labels.hdr_jan28 }}</span></h3>
+            <h4>{{ COPY.labels.hdr_principal }}</h4>
+            <ul>
+            {% for row in COPY.data %}
+            {% if (row.date == "jan-28") and (row.grouping == "primary") %}
+                <li class="{{ row.status|classify }}">{{ row.title }}</li>
+            {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+
+        <div class="roster apr-4">
+            <h3><span>{{ COPY.labels.hdr_apr4 }}</span></h3>
+            <h4>{{ COPY.labels.hdr_principal }}</h4>
+            <ul>
+            {% for row in COPY.data %}
+            {% if row.date == "april-4" and row.grouping == "primary" %}
+                <li class="{{ row.status|classify }}">{{ row.title }}</li>
+            {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div id="graphic" class="graphic may-attend">
+        <div class="roster jan-28">
+            <h4>{{ COPY.labels.hdr_may_attend }}</h4>
+            <ul>
+            {% for row in COPY.data %}
+            {% if (row.date == "jan-28") and (row.grouping == "may-attend") %}
+                <li class="{{ row.status|classify }}">{{ row.title }}</li>
+            {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+
+        <div class="roster apr-4">
+            <h4>{{ COPY.labels.hdr_may_attend }}</h4>
+            <ul>
+            {% for row in COPY.data %}
+            {% if (row.date == "april-4") and (row.grouping == "may-attend") %}
+                <li class="{{ row.status|classify }}">{{ row.title }}</li>
+            {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <p><strong>Note:</strong> {{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

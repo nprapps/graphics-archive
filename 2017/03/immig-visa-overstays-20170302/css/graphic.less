@@ -1,0 +1,28 @@
+@import "base";
+
+h1 {
+    font-size: 16px;
+    margin-bottom: 22px;
+}
+
+.value text {
+    &.out { fill: #454545; }
+}
+
+// Large screen styles
+@media screen and (min-width: 730px) {
+    h1,
+    h2 {
+        text-align: center;
+    }
+
+    h1,
+    h2,
+    #bar-chart,
+    .footnotes,
+    .footer {
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

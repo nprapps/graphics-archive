@@ -1,0 +1,40 @@
+@import "base";
+
+// Add custom styles here
+.graphic-wrapper {
+    position: relative;
+}
+
+h3 {
+    text-align: center;
+}
+
+.bars rect {
+    &.bar-pos {
+        fill: #666;
+    }
+
+    &.bar-neg {
+        fill: @red3;
+    }
+}
+
+.label text {
+    font-size: 12px;
+    fill: #777;
+    -webkit-font-smoothing: antialiased;
+
+    @media screen and (max-width: 500px) {
+        font-size: 11px;
+    }
+
+    &.value-pos {
+        text-anchor: end;
+    }
+}
+
+.value text {
+    font-size: 11px;
+    font-weight: bold;
+    fill: #777;
+}

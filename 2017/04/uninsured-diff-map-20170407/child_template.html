@@ -1,0 +1,66 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="key-wrap numeric-scale">
+        <h3>{{ COPY.labels.hed_key }}</h3>
+        <ul class="key"></ul>
+    </div>
+
+    {% if COPY.labels.graphic_mode|string() == "dynamic" %}
+    <div id="locator-map" class="graphic {{ COPY.labels.graphic_mode|classify }}">
+        <img src="fallback.png" alt="[Chart]" class="fallback" />
+    </div>
+    {% endif %}
+
+    {% if COPY.labels.graphic_mode|string() == "flat" %}
+    <div id="locator-map" class="graphic {{ COPY.labels.graphic_mode|classify }}">
+        <div class="map medicaid">
+            <h3>{{ COPY.labels.hed_medicaid }}</h3>
+            <img src="assets/map-medicaid.png" alt="Map" />
+        </div>
+        <div class="map not-medicaid">
+            <h3>{{ COPY.labels.hed_no_medicaid }}</h3>
+            <img src="assets/map-no-medicaid.png" alt="Map" />
+        </div>
+    </div>
+    {% endif %}
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var LABELS = {{ COPY.labels.json() }};
+        {% if COPY.labels.graphic_mode|string() == "dynamic" %}
+        var DATA = {{ COPY.merged.json() }};
+        {% endif %}
+    </script>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/underscore.js') }}
+    {{ JS.push('js/lib/d3.min.js') }}
+    {% if COPY.labels.graphic_mode|string() == "dynamic" %}
+    {{ JS.push('js/lib/d3.geo.projection.v0.min.js') }}
+    {{ JS.push('js/lib/topojson.v1.min.js') }}
+    {{ JS.push('js/lib/modernizr.svg.min.js') }}
+    {% endif %}
+    {{ JS.push('js/base.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

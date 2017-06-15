@@ -1,0 +1,33 @@
+@import "base";
+
+h1 { margin-bottom: 22px; }
+
+.years {
+    font-size: 11px;
+    fill: #999;
+    -webkit-font-smoothing: antialiased;
+    text-anchor: middle;
+
+    .y-2017 { text-anchor: start; }
+}
+
+.bars rect {
+    &.y-2012,
+    &.y-2014,
+    &.y-2016 {
+        fill: @teal5;
+    }
+}
+
+.annotations {
+    line { stroke: #999; }
+    text {
+        font-size: 12px;
+        fill: #666;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .annotations text { font-size: 10px; }
+}

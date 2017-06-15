@@ -1,0 +1,197 @@
+@import "base";
+
+html { font-size: 14px; }
+
+// COLORS
+@black          : #2a2a2a;
+@darkblack      : #000;
+@white          : #eee;
+@brightwhite    : #fff;
+@darkgray       : #444;
+@textgray       : #767676;
+@lightgray      : #aaa;
+@linegray       : #ddd;
+
+// BREAKPOINTS
+@screen-medium-above: ~"screen and (min-width: 681px)";
+@screen-medium: ~"screen and (max-width: 680px)";
+@screen-tiny-above: ~"screen and (min-width: 481px)";
+@screen-tiny: ~"screen and (max-width: 480px)";
+
+// FONTS
+.gotham() {
+    font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+}
+
+.knockout() {
+    font-family: 'Knockout 31 4r';
+    font-weight: normal;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+}
+
+.knockout-upper() {
+    .knockout();
+    text-transform: uppercase;
+}
+
+.serif() {
+    font-family: 'Georgia', serif;
+}
+
+// Add custom styles here
+.graphic {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h2.section-header {
+    .knockout-upper();
+    font-size: 1.2rem;
+    color: @textgray;
+    border-bottom: 2px solid @linegray;
+    margin: 0 0 22px 0;
+    padding-bottom: 6px;
+}
+
+.section {
+    margin-bottom: 55px;
+
+    &:last-child { margin-bottom: 33px; }
+}
+
+.item-wrapper {
+    border-bottom: 1px solid @linegray;
+    padding: 0 0 22px 0;
+    margin: 0 0 22px 0;
+
+    &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    h3.role-title {
+        .gotham();
+        text-transform: none;
+        letter-spacing: 0;
+        -webkit-font-smoothing: auto;
+        line-height: 1.2;
+        color: @black;
+        margin-bottom: 4px;
+        font-size: 1.4rem;
+
+        .not-named& { font-size: 1.1rem; }
+    }
+
+    p.role-description {
+        margin: 0;
+        font-size: 0.9rem;
+        color: @textgray;
+
+        .not-named& { margin: 0; }
+    }
+
+    .senate-flag {
+        .knockout-upper();
+        font-size: 0.9rem;
+        line-height: 1.2;
+        background: @lightgray;
+        color: @brightwhite;
+        padding: 1px 6px;
+        display: inline-block;
+        margin: 0 auto 6px auto;
+
+        .not-named& { font-size: 0.8rem; }
+
+        &.senate-yes {
+            color: @brightwhite;
+            background: @darkgray;
+        }
+
+        &.senate-no {
+            color: @textgray;
+            background: @linegray;
+        }
+
+        &.senate-pending-hearing,
+        &.senate-pending-committee {
+            color: @brightwhite;
+            background: @orange4;
+        }
+
+        &.senate-pending,
+        &.senate-pending-full-confirmation {
+            color: @textgray;
+            background: @yellow4;
+        }
+
+        &.senate-confirmed { background: @teal3; }
+        &.senate-rejected { background: @red3; }
+    }
+
+    .picks-wrapper {
+        .clearfix();
+        margin: 1.5rem 0 0 0;
+    }
+
+    .photo-wrapper {
+        box-sizing: border-box;
+        width: 120px;
+        margin: 0 0 1rem 1rem;
+        float: right;
+
+        @media @screen-tiny-above {
+            float: left;
+            margin: 0 1rem 0 0;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 160px;
+            background: @linegray;
+        }
+
+        p.credit {
+            font-size: 0.75rem;
+            font-style: italic;
+            line-height: 1.4;
+            color: @textgray;
+            margin: 6px 0 0 0;
+        }
+    }
+
+    .pick-name {
+        .gotham();
+        color: @black;
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4;
+        margin: 0 0 0.5rem 0;
+
+        @media @screen-tiny-above {
+            .hasphoto& { margin-left: 134px; }
+        }
+    }
+
+    .pick-bio {
+        .serif();
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin: 0;
+
+        @media @screen-tiny-above {
+            .hasphoto& { margin-left: 134px; }
+        }
+    }
+
+    .pick-dates {
+        font-size: 0.9rem;
+        color: @textgray;
+        margin: 0.5rem 0 0 0;
+
+        @media @screen-tiny-above {
+            .hasphoto& { margin-left: 134px; }
+        }
+    }
+}

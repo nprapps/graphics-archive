@@ -1,0 +1,62 @@
+@import "base";
+
+h1 { margin-bottom: 22px; }
+
+.bar text {
+    fill: #fff;
+    font-size: 11px;
+    text-anchor: middle;
+
+    &.hidden { display: none; }
+}
+
+.x.axis.category {
+    text {
+        font-weight: bold;
+        fill: #454545;
+        text-anchor: middle;
+    }
+}
+
+.x.axis.bars {
+    path, line {
+        display: none;
+    }
+}
+
+#slopegraph {
+    .axis {
+        fill: #666;
+        font-weight: bold;
+        font-size: 12px;
+
+        path { display: none; }
+    }
+
+    .lines line {
+        stroke-width: 3px;
+        stroke: #ddd;
+        shape-rendering: auto;
+    }
+
+    .dots circle {
+        fill: #ddd;
+        stroke: #fff;
+        stroke-width: 1px;
+    }
+
+    .value text {
+        font-size: 11px;
+        fill: #333;
+    }
+
+    .label text {
+        font-size: 11px;
+        fill: #333;
+    }
+}
+
+// mobile styles
+@media screen and (max-width: 500px){
+    .bar text { font-size: 10px; }
+}

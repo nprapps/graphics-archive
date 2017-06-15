@@ -1,0 +1,28 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+    stroke-dasharray: 4px 4px;
+
+    path:first-child { stroke-dasharray: 0; }
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    text-anchor: middle;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

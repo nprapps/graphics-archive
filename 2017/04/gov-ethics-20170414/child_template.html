@@ -1,0 +1,109 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <h4 class="public-contacts">{{ COPY.labels.hdr_public_contracts  }}</h4>
+        <table id="ethics-table">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_stakeholder }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_fy09 }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_fy16 }}</div>
+                    </th>
+                    <th class="amt fy17">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header fy17">{{ COPY.labels.hdr_fy17 }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header change">{{ COPY.labels.hdr_change_tb1 }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="state-{{ row.stakeholder|classify }}">
+                <td data-title="{{ COPY.labels.hdr_stakeholder }}">{{ row.stakeholder }}</td>
+                <td data-title="{{ COPY.labels.hdr_fy09 }}" class="amt">{{ row.fy09 }}</td>
+                <td data-title="{{ COPY.labels.hdr_fy16 }}" class="amt">{{ row.fy16|comma }}</td>
+                <td data-title="{{ COPY.labels.hdr_fy17 }}" class="amt fy17">{{ row.fy17|comma }}</td>
+                <td data-title="{{ COPY.labels.hdr_change_tb1 }}" class="amt">{% if row.change != "N/A" %}{{ row.change|comma }}%{% endif %}{% if row.change == "N/A" %}{{ row.change }}{% endif %}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        <h4>{{ COPY.labels.hdr_congressional_reg  }}</h4>
+        <table id="ethics-table2">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_stakeholder }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_fy13 }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_fy16 }}</div>
+                    </th>
+                    <th class="amt fy17">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header fy17">{{ COPY.labels.hdr_fy17 }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header change">{{ COPY.labels.hdr_change_tb2 }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data2 %}
+            <tr class="state-{{ row.stakeholder|classify }}">
+                <td data-title="{{ COPY.labels.hdr_stakeholder }}">{{ row.stakeholder }}</td>
+                <td data-title="{{ COPY.labels.hdr_fy13 }}" class="amt">{{ row.fy13 }}{% if row.fy13 != "N/A" %}*{% endif %}</td>
+                <td data-title="{{ COPY.labels.hdr_fy16 }}" class="amt">{{ row.fy16|comma }}</td>
+                <td data-title="{{ COPY.labels.hdr_fy17 }}" class="amt fy17">{{ row.fy17|comma }}</td>
+                <td data-title="{{ COPY.labels.hdr_change_tb2 }}" class="amt">{{ row.change }}{% if row.change != "N/A" %}%{% endif %}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

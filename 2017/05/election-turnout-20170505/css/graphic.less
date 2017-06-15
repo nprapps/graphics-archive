@@ -1,0 +1,34 @@
+@import "base";
+
+@presidential:  @teal2;
+@midterm:       @teal4;
+@dropoff:       @orange3;
+
+h1 {
+    margin-bottom: 22px;
+    font-size: 18px;
+}
+
+h3 {
+    span {
+        color: #fff;
+        padding: 0 4px;
+        border-radius: 4px;
+    }
+
+    .presidential { background-color: @presidential; }
+    .midterm { background-color: @midterm; }
+    .dropoff { background-color: @dropoff; }
+}
+
+.bars rect {
+    fill: @dropoff;
+
+    &.presidential { fill: @presidential; }
+    &.midterm { fill: @midterm; }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    .chart.turnout { margin-bottom: 22px; }
+}

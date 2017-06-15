@@ -1,0 +1,47 @@
+@import "base";
+
+@dem:   @blue3;
+@gop:   @red3;
+@split: #aaa;
+
+.key {
+    margin-bottom: 22px;
+
+    .key-item {
+        &.hdr label {
+            .knockout-header();
+            color: #333;
+        }
+        &.democratic b { background-color: @dem; }
+        &.republican b { background-color: @gop; }
+        &.split b { background-color: @split; }
+    }
+}
+
+.bars rect {
+    &.dem { fill: @dem; }
+    &.gop { fill: @gop; }
+    &.split { fill: @split; }
+}
+
+.annotations {
+    rect {
+        fill: none;
+        &.odd { fill: #f1f1f1; }
+    }
+    text {
+        font-size: 11px;
+        font-style: italic;
+        fill: #999;
+        text-anchor: middle;
+    }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    .key .key-item.hdr {
+        display: block;
+        margin-bottom: 6px;
+        padding-top: 6px;
+    }
+}

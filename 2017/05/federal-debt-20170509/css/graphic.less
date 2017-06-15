@@ -1,0 +1,50 @@
+@import "base";
+
+// h1 { margin-bottom: 22px; }
+h3 { margin-bottom: 0; }
+
+.projected-label {
+    margin: 0;
+    font-style: italic;
+    fill: #999;
+    font-weight: 400;
+    font-size: 10px;
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 10.5px;
+    // font-weight: bold;
+    fill: #777;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+    #num-chart {
+        margin-top: 33px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    #chart-wrapper {
+        .clearfix();
+    }
+    .graphic {
+        float: left;
+        margin-right: 11px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .key {
+        display: none;
+    }
+}

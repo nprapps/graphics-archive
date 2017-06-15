@@ -1,0 +1,119 @@
+@import "base";
+
+#column-chart { margin-bottom: 22px; }
+
+.annotations {
+    text {
+        .knockout();
+        font-size: 12px;
+        fill: #666;
+
+        &.increase { text-anchor: end; }
+        &.decrease { text-anchor: begin; }
+    }
+}
+
+.bars rect {
+    &:nth-child(1) { fill: @red2; }
+    &:nth-child(2) { fill: @red3; }
+    &:nth-child(3) { fill: @red4; }
+    &:nth-child(4) { fill: @red5; }
+
+    // &.decrease { fill: @red4; }
+    &.no-change { fill: #ccc; }
+    // &.increase { fill: @teal4; }
+
+    &:nth-child(6) { fill: @teal5; }
+    &:nth-child(7) { fill: @teal4; }
+    &:nth-child(8) { fill: @teal3; }
+    &:nth-child(9) { fill: @teal2; }
+}
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    caption {
+        .gotham();
+        text-align: left;
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 11px;
+    }
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 0 10px 10px 10px;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    th,
+    td {
+        &.amt {
+            text-align: right;
+            width: 20%;
+        }
+        &:first-child { padding-left: 0; }
+        &:last-child { padding-right: 0; }
+    }
+}
+
+.increase td.pctchange { color: @teal4; }
+.decrease td.pctchange { color: @red3; }
+
+.pct {
+    font-size: 90%;
+    opacity: 0.7;
+    display: block;
+}
+
+
+// Desktop-only styles
+@media screen and (min-width: 501px) {
+    #table {
+        display: -webkit-flex;
+        display: flex;
+
+        div {
+            width: 50%;
+            box-sizing: content-box;
+            margin-bottom: 11px;
+
+            &:nth-child(1) { padding-right: 22px; }
+            &:nth-child(2) {
+                padding-left: 22px;
+                border-left: 1px solid #eee;
+            }
+        }
+    }
+}
+
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    #table .decrease { margin-bottom: 33px; }
+}

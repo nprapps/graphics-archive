@@ -1,0 +1,64 @@
+@import "base";
+
+.states path {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2px;
+
+    &.ak,
+    &.hi {
+        stroke: none;
+    }
+}
+
+.counties path {
+    stroke: none;
+    &:hover {
+        stroke: @yellow3;
+        stroke-width: 1px;
+    }
+}
+
+// key
+.key-wrap.numeric-scale {
+    width: 100%;
+    text-align: center;
+
+    h3 { margin-bottom: 5px; }
+
+    .key {
+        margin-top: 0;
+
+        .key-item {
+            margin: 0 1px 0 0;
+            position: relative;
+
+            b {
+                width: 45px;
+                height: 10px;
+                margin-right: 0;
+            }
+
+            label {
+                position: absolute;
+                bottom: -20px;
+                left: -15px;
+                width: 30px;
+
+                &.end-label {
+                    left: auto;
+                    right: -25%;
+                }
+            }
+
+            &:first-child { display: none; }
+        }
+    }
+}
+
+// responsive styles
+@media screen and (max-width: 500px) {
+    .key-wrap.numeric-scale .key .key-item {
+        b { width: 25px; }
+    }
+}

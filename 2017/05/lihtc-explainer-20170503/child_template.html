@@ -1,0 +1,55 @@
+{% extends 'base_template.html' %}
+
+{% block images %}
+<style type="text/css">
+    {% for step in COPY.data %}
+    .desktop .step-{{ step.step }} { background-image: url('assets/{{ step.img_horiz }}'); }
+    .mobile .step-{{ step.step }} { background-image: url('assets/{{ step.img_vert }}'); }
+    {% endfor %}
+</style>
+{% endblock images %}
+
+{% block content %}
+
+    <header>
+        {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+        {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+        <div class="btns">
+            <div class="btn" id="btn-back">Back</div><div class="btn" id="btn-next">Next</div>
+        </div>
+    </header>
+
+    <div id="graphic" class="graphic">
+        {% for step in COPY.data %}
+        <div class="step step-{{ step.step }}">
+            <div class="step-wrapper">
+                <div class="desc">
+                    <h3>Step {{ step.step }} <i>(of 10)</i></h3>
+                    {{ step.description|smarty }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+    {{ JS.push('js/lib/d3.min.js') }}
+    {{ JS.push('js/base.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+{% endblock js %}

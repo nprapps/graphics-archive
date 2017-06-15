@@ -1,0 +1,34 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="key-wrap numeric-scale">
+        <h3>Share of people under 65 without insurance</h3>
+        <ul class="key"><li class="key-item"><b style="background: rgb(221, 221, 221);"></b><label></label></li><li class="key-item"><b style="background: rgb(248, 226, 202);"></b><label>0%</label></li><li class="key-item"><b style="background: rgb(241, 198, 150);"></b><label>5</label></li><li class="key-item"><b style="background: rgb(234, 170, 97);"></b><label>10</label></li><li class="key-item"><b style="background: rgb(227, 141, 44);"></b><label>15</label></li><li class="key-item"><b style="background: rgb(170, 106, 33);"></b><label>20</label></li><li class="key-item"><b style="background: rgb(113, 70, 22);"></b><label>25+</label></li></ul>
+    </div>
+    <div id="graphic" class="graphic">
+        {% for row in COPY.data %}
+        <div class="map y-{{ row.year }}">
+            <img src="{{ row.image }}" alt="Map: Uninsured rate by county in {{ row.year }}" />
+            <h4><span class="year">{{ row.year }}</span><span class="national-rate">Uninsured rate: {{ row.rate_us }}%</span></h4>
+            <p>{{ row.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

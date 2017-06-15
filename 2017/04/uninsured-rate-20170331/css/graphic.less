@@ -1,0 +1,50 @@
+@import "base";
+
+h1 { font-size: 18px; }
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+
+    .projected { stroke-dasharray: 4px 2px; }
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.dots {
+    text {
+        font-size: 11px;
+        text-anchor: start;
+    }
+    circle {
+        stroke: #fff;
+    }
+}
+
+.annotations {
+    line { stroke: #999; }
+    text {
+        font-size: 11px;
+        font-style: italic;
+        fill: #999;
+        text-anchor: end;
+
+        &.projected { text-anchor: middle; }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

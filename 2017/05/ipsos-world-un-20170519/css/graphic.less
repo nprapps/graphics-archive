@@ -1,0 +1,62 @@
+@import "base";
+
+h1 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+h4 {
+    .knockout-header();
+    margin: 0 0 0 0;
+    color: #999;
+    font-size: 10px;
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 1.1;
+
+    .correct { color: @orange3; }
+}
+
+h3 { text-transform: uppercase; }
+
+.labels li.overall {
+    font-weight: bold;
+    color: #454545;
+}
+.value text.overall {
+    font-weight: bold;
+    fill: #454545;
+}
+
+.bg rect { fill: #f1f1f1; }
+.bars rect {
+    fill: #999;
+    fill-opacity: .5;
+
+    &.overall { fill-opacity: 1; }
+    .correct & { fill: @orange3; }
+}
+
+@media screen and (min-width: 650px) {
+    h1 {
+        text-align: center;
+        margin: 0 auto 15px auto;
+        max-width: 650px;
+    }
+}
+@media screen and (max-width: 610px) {
+    .chart {
+        .hdr { height: 43px; }
+    }
+}
+@media screen and (max-width: 500px) {
+    .chart {
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+            margin-bottom: 22px;
+        }
+
+        .hdr { height: 43px; }
+    }
+}

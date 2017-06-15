@@ -1,0 +1,46 @@
+@import "base";
+
+h1 { margin-bottom: 22px; }
+
+h3 {
+    color: #999;
+    strong {
+        font-weight: normal;
+        color: #333;
+        display: block;
+        font-size: 13px;
+        margin-bottom: 2px;
+    }
+}
+
+.map {
+    svg {
+        path {
+            stroke: #fff;
+            stroke-width: .5px;
+            fill: #ddd;
+
+            &.cls-2 { fill: @orange4; }
+        }
+    }
+}
+
+@media screen and (min-width: 501px) {
+    #graphic {
+        display: -webkit-flex;
+        display: flex;
+
+        .map {
+            width: 50%;
+            box-sizing: border-box;
+
+            &:first-child { padding-right: 11px; }
+            &:last-child { padding-left: 11px; }
+        }
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .map:first-child { margin-bottom: 22px; }
+}

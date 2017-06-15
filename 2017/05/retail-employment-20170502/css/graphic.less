@@ -1,0 +1,31 @@
+@import "base";
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 22px;
+}
+
+.bars rect {
+    fill: @red3;
+
+    &.bar-2017 { fill: @red5; }
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 10px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .chart.employment { margin-bottom: 22px; }
+}
+
+@media screen and (min-width: 500px) {
+}

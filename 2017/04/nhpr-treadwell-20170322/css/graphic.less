@@ -1,0 +1,53 @@
+@import "base";
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 11px;
+
+    tbody tr:last-child {
+        // background-color: #f1f1f1;
+        border-top: 2px solid #eee;
+        color: #333;
+        font-weight: bold;
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 0 10px 10px 10px;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    th,
+    td {
+        &.amt {
+            text-align: right;
+        }
+
+        &:first-child { padding-left: 0; }
+        &:last-child { padding-right: 0; }
+    }
+}
+
+// Mobile styles
+@media screen and (max-width: 280px) {
+    table { font-size: 11px; }
+}

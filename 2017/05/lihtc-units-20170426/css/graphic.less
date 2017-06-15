@@ -1,0 +1,42 @@
+@import "base";
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 22px;
+}
+
+sup {
+    line-height: 0;
+    color: #999;
+    padding-left: 1px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 8px;
+    font-weight: bold;
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.dots {
+    text {
+        font-size: 10px;
+        text-anchor: middle;
+        fill: #999;
+
+        &:nth-of-type(1) { text-anchor: start; }
+    }
+    circle { stroke: #fff; }
+}
+
+@media screen and (max-width: 500px) {
+    .chart.units { margin-bottom: 22px; }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

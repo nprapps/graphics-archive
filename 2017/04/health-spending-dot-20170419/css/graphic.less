@@ -1,0 +1,126 @@
+@import "base";
+
+#graphic {
+    position: relative;
+    margin-bottom: 11px;
+}
+
+.graphic-wrapper {
+    position: relative;
+}
+
+.key {
+    margin-bottom: 27px;
+
+    .key-item {
+        b {
+            border-radius: 10px;
+            height: 10px;
+            width: 10px;
+            margin-top: 3px;
+        }
+
+        &.high-income-economies b { background-color: @teal3; }
+        &.upper-middle-income-economies b { background-color: mix(@teal3, @yellow3, 66%); }
+        &.lower-middle-income-economies b { background-color: mix(@teal3, @yellow3, 33%); }
+        &.low-income-economies b { background-color: @yellow3; }
+    }
+}
+
+#tooltip {
+    position: absolute;
+    background: rgba(241, 241, 241, .9);
+    color: #333;
+    border: 1px solid #eee;
+    padding: 4px;
+    font-size: 10.5px;
+    .gotham();
+    display: none;
+    max-width: 140px;
+    box-sizing: content-box;
+    pointer-events: none;
+
+    &.active { display: block; }
+}
+
+.label text {
+    font-size: 12px;
+    fill: #454545;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+    -webkit-font-smoothing: antialiased;
+
+    &::selection { background: none; }
+    &.left { text-anchor: end; }
+    &.right { text-anchor: start; }
+    &.united-states { font-weight: bold; }
+}
+
+.axis-label {
+    fill: #787878;
+    font-size: 12px;
+    font-style: italic;
+}
+
+circle {
+    fill-opacity: 0.15;
+    fill: #ccc;
+    stroke-opacity: 0.2;
+
+    &.developed-economies,
+    &.high-income-economies {
+        fill: @teal3;
+        stroke: @teal3;
+    }
+    &.economies-in-transition,
+    &.lower-middle-income-economies,
+    &.upper-middle-income-economies {
+        fill: mix(@teal3, @yellow3, 50%);
+        stroke: mix(@teal3, @yellow3, 50%);
+    }
+    &.developing-economies,
+    &.low-income-economies {
+        fill: @yellow3;
+        stroke: @yellow3;
+    }
+
+    &.lower-middle-income-economies {
+        fill: mix(@teal3, @yellow3, 33%);
+        stroke: mix(@teal3, @yellow3, 33%);
+    }
+    &.upper-middle-income-economies {
+        fill: mix(@teal3, @yellow3, 66%);
+        stroke: mix(@teal3, @yellow3, 66%);
+    }
+
+    &.highlight {
+        fill-opacity: 0.8;
+        stroke: #666;
+        stroke-width: 1px;
+        stroke-opacity: 0.8;
+    }
+
+    &.active {
+        fill-opacity: 1;
+        stroke-opacity: 1;
+        stroke: #333;
+    }
+}
+
+.x-label,
+.y-label {
+    font-size: 14px;
+    fill: #999;
+}
+
+@media screen and (min-width: 501px) {
+}
+
+@media screen and (max-width: 500px) {
+    .label text { font-size: 10px; }
+    .axis-label { font-size: 11px; }
+}

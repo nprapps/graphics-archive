@@ -1,0 +1,63 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <!-- <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_factor }}</div>
+                    </th>
+                    <th colspan="2">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_change }}</div>
+                    </th>
+                </tr>
+            </thead> -->
+
+            {% for row in COPY.data %}
+            {% if row.type == 'hdr' %}
+            <tr class="{{ row.factor|classify }} {{ row.class }}">
+                <td data-title="{{ COPY.labels.hdr_factor }}" colspan="2">{{ row.factor }}</td>
+            </tr>
+            {% elif row.type == 'total' %}
+            <tr class="{{ row.factor|classify }} {{ row.class }}">
+                <td data-title="{{ COPY.labels.hdr_factor }}">{{ row.factor }}</td>
+                <td data-title="{{ COPY.labels.hdr_change }}" class="amt change">{{ row.change }} billion</td>
+            </tr>
+            {% else %}
+            <tr class="{{ row.factor|classify }} {{ row.class }}">
+                <td data-title="{{ COPY.labels.hdr_factor }}">{{ row.factor }}</td>
+                <td data-title="{{ COPY.labels.hdr_change }}" class="amt change">{{ row.change }} billion</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

@@ -1,0 +1,125 @@
+@import "base";
+@import "fontello";
+
+.graphic {
+    display: flex;
+    align-content: center;
+}
+
+.img-wrapper {
+    width: 67%;
+    padding-left: 12.5px;
+    border-left: 1px solid #ddd;
+
+    img, video {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.audio-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    width: 33%;
+    padding-right: 12.5px;
+
+    .headline-wrapper {
+        width: 100%;
+    }
+    h1 {
+        text-align: center;
+        font-size: 2vw;
+        line-height: 1.5;
+    }
+
+    .circle-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+
+        width: 9vw;
+        height: 9vw;
+        border-radius: 9vw;
+        background-color: #5076b8;
+
+        transition: transform 0.2s;    
+
+        &:hover {
+            cursor: pointer;
+            background-color: #87a0d3;
+            transform: scale(1.04);
+        }
+
+        .icon {
+            text-align: center;
+            &:after {
+                font-family: "fontello";
+                font-size: 4.5vw;
+                color: white;
+            }
+        }
+
+        .play:after {
+            margin-left: 0.75vw;    
+            content: "\e800";    
+        }
+        .pause:after {
+            content: "\e801";    
+        }
+    }
+}
+
+.footer {
+    margin-top: 10px;
+    text-align: right;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+    .graphic {
+        flex-wrap: wrap;    
+    }
+
+    .img-wrapper, .audio-wrapper {
+        width: 100%;
+    }
+
+    .img-wrapper {
+        order: 1;
+        border: none;
+        padding: 0 0 20px 0;
+
+    }
+
+    .audio-wrapper {
+        order: 2;
+        padding: 0;
+
+        h1 {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .circle-wrapper {
+            width: 5em;
+            height: 5em;
+
+            .icon:after {
+                font-size: 2.5em;
+            }
+            .play:after {
+                margin-left: 5px;
+            }
+        }
+    }
+
+    .footer {
+        margin-top: 25px;
+        text-align: center;
+    }
+}

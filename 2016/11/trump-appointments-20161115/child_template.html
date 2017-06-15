@@ -1,0 +1,149 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="graphic" class="graphic">
+        {% set section_names = ['Key WH Staff', 'Cabinet & Cabinet-Level', 'Sub-Cabinet'] %}
+
+        {% for section in section_names %}
+        <div class="section section-{{ section|classify }}">
+            <h2 class="section-header">{{ COPY.graphic_meta['label_' + section] }}</h2>
+
+            <!-- people in place -->
+            {% for row in COPY[section] %}
+            {% if row['Name'] and ((row['Senate confirmable?'] == 'No') or (row['Senate confirmable?'] == 'Confirmed')) %}
+            <div class="item-wrapper named {% if row['Photo'] %}hasphoto{% endif %}">
+                <h3 class="role-title">{{ row['Position'] }}</h3>
+                {{ senate_flag(row['Senate confirmable?']) }}
+                {% if row['Description'] %}<p class="role-description">{{ row['Description'] }}</p>{% endif %}
+
+                <div class="picks-wrapper">
+                    {% if row['Photo'] %}
+                    <div class="photo-wrapper">
+                        <div class="photo-placeholder"><img src="assets/{{ row['Photo'] }}" alt="Photo of {{ row['Name'] }}" /></div>
+                        <p class="credit">{{ row['Photo credit'] }}</p>
+                    </div>
+                    {% endif %}
+
+                    <p class="pick-name">
+                        {% if row['Link'] %}<a href="{{ row['Link'] }}">{{ row['Name'] }}</a>
+                        {% else %}{{ row['Name'] }}{% endif %}
+                    </p>
+                    <p class="pick-bio">{{ row['Bio'] }}</p>
+                    {% if row['Date Announced'] %}
+                    <p class="pick-dates">Announced {{ row['Date Announced']|ap_date }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+            <!-- people waiting for full senate vote -->
+            {% for row in COPY[section] %}
+            {% if row['Name'] and (row['Senate confirmable?'] == 'Pending full confirmation') %}
+            <div class="item-wrapper named {% if row['Photo'] %}hasphoto{% endif %}">
+                <h3 class="role-title">{{ row['Position'] }}</h3>
+                {{ senate_flag(row['Senate confirmable?']) }}
+                {% if row['Description'] %}<p class="role-description">{{ row['Description'] }}</p>{% endif %}
+
+                <div class="picks-wrapper">
+                    {% if row['Photo'] %}
+                    <div class="photo-wrapper">
+                        <div class="photo-placeholder"><img src="assets/{{ row['Photo'] }}" alt="Photo of {{ row['Name'] }}" /></div>
+                        <p class="credit">{{ row['Photo credit'] }}</p>
+                    </div>
+                    {% endif %}
+
+                    <p class="pick-name">
+                        {% if row['Link'] %}<a href="{{ row['Link'] }}">{{ row['Name'] }}</a>
+                        {% else %}{{ row['Name'] }}{% endif %}
+                    </p>
+                    <p class="pick-bio">{{ row['Bio'] }}</p>
+                    {% if row['Date Announced'] %}
+                    <p class="pick-dates">Announced {{ row['Date Announced']|ap_date }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+            <!-- people who haven't been confirmed -->
+            {% for row in COPY[section] %}
+            {% if row['Name'] and ((row['Senate confirmable?'] != 'No') and (row['Senate confirmable?'] != 'Confirmed') and (row['Senate confirmable?'] != 'Pending full confirmation')) %}
+            <div class="item-wrapper named {% if row['Photo'] %}hasphoto{% endif %}">
+                <h3 class="role-title">{{ row['Position'] }}</h3>
+                {{ senate_flag(row['Senate confirmable?']) }}
+                {% if row['Description'] %}<p class="role-description">{{ row['Description'] }}</p>{% endif %}
+
+                <div class="picks-wrapper">
+                    {% if row['Photo'] %}
+                    <div class="photo-wrapper">
+                        <div class="photo-placeholder"><img src="assets/{{ row['Photo'] }}" alt="Photo of {{ row['Name'] }}" /></div>
+                        <p class="credit">{{ row['Photo credit'] }}</p>
+                    </div>
+                    {% endif %}
+
+                    <p class="pick-name">
+                        {% if row['Link'] %}<a href="{{ row['Link'] }}">{{ row['Name'] }}</a>
+                        {% else %}{{ row['Name'] }}{% endif %}
+                    </p>
+                    <p class="pick-bio">{{ row['Bio'] }}</p>
+                    {% if row['Date Announced'] %}
+                    <p class="pick-dates">Announced {{ row['Date Announced']|ap_date }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+            <!-- positions that still need to be filled -->
+            {% for row in COPY[section] %}
+            {% if row['Name'] == '' %}
+            <div class="item-wrapper not-named">
+                <h3 class="role-title">{{ row['Position'] }}</h3>
+                {{ senate_flag(row['Senate confirmable?']) }}
+                {% if row['Description'] %}<p class="role-description">{{ row['Description'] }}</p>{% endif %}
+            </div>
+            {% endif %}
+            {% endfor %}
+
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if COPY.graphic_meta.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.graphic_meta.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.graphic_meta.source %}<p>Source: {{ COPY.graphic_meta.source|smarty }}</p>{% endif %}
+        {% if COPY.graphic_meta.credit %}<p>Credit: {{ COPY.graphic_meta.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% macro senate_flag(senate_text) -%}
+    {% set senate_val = senate_text|classify %}
+    {% if senate_val == 'yes' %}
+        {% set senate_label = 'Senate confirmation needed' %}
+    {% elif senate_val == 'no' %}
+        {% set senate_label = 'No Senate confirmation needed' %}
+    {% elif senate_val == 'pending-hearing' %}
+        {% set senate_label = 'Pending Senate committee hearing' %}
+    {% elif senate_val == 'pending-committee' %}
+        {% set senate_label = 'Pending Senate committee vote' %}
+    {% elif senate_val == 'pending-full-confirmation' %}
+        {% set senate_label = 'Pending full Senate confirmation' %}
+    {% elif senate_val == 'pending' %}
+        {% set senate_label = 'Pending Senate confirmation' %}
+    {% elif senate_val == 'confirmed' %}
+        {% set senate_label = 'Confirmed by Senate' %}
+    {% endif %}
+
+    {% if senate_val %}
+    <span class="senate-flag senate-{{ senate_val }}">{{ senate_label }}</span>
+    {% endif %}
+{%- endmacro %}

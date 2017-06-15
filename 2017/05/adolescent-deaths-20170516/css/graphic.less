@@ -1,0 +1,28 @@
+@import "base";
+
+// Add custom styles here
+.graphic {
+	float: left;
+
+	&:first-child {
+		margin-right: 22px;
+	}
+
+	&#girls-chart {
+		.bars rect {
+			fill: @orange3;
+		}
+	}
+
+	&#boys-chart {
+		.bars rect {
+			fill: @blue3;
+		}
+	}
+}
+
+@media screen and (max-width: 550px) {
+	.graphic:first-child {
+		margin-right: 0;
+	}
+}

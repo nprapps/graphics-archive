@@ -1,0 +1,56 @@
+@import "base";
+
+h1 { font-size: 18px; }
+
+.bar text {
+    fill: #fff;
+    font-size: 10px;
+    text-anchor: middle;
+
+    &.hidden { display: none; }
+    &.out { fill: #999; }
+}
+
+.x.axis.category {
+    text {
+        // font-weight: bold;
+        // fill: #454545;
+        text-anchor: middle;
+    }
+}
+
+.x.axis.bars {
+    path, line { display: none; }
+}
+
+// mobile styles
+@media screen and (max-width: 500px){
+    .bar text { font-size: 10px; }
+}
+
+// Large screen styles
+@media screen and (min-width: 730px) {
+    h1,
+    h2 {
+        text-align: center;
+    }
+
+    .key {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+
+        .key-item:last-child { margin-right: 0; }
+    }
+
+    h1,
+    h2,
+    .graphic,
+    .footnotes,
+    .footer {
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

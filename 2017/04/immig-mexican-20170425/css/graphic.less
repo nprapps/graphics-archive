@@ -1,0 +1,45 @@
+@import "base";
+
+h1 {
+    margin-bottom: 22px;
+    font-size: 18px;
+
+    &.promo {
+        .knockout-header();
+        font-size: 15px;
+        margin-bottom: 15px;
+        color: #333;
+    }
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    // fill: #999;
+}
+
+.dots {
+    text {
+        font-size: 11px;
+        text-anchor: middle;
+    }
+    circle {
+        stroke: #fff;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text,
+    .dots text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+}

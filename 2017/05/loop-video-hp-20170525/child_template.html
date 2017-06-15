@@ -1,0 +1,12 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+<div class="bg-video">
+    <div id="intro-vid" class="video-wrapper video-intro" data-src="{{COPY.labels.video}}" data-poster="{{COPY.labels.poster}}" data-width="100%" data-loop="" data-muted="" data-autoplay="">
+    </div>
+</div>
+
+<div class="footer">
+    {% if COPY.labels.credit %}<p>{{ COPY.labels.credit|smarty }}</p>{% endif %}
+</div>
+{% endblock content %}

@@ -1,0 +1,49 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+.years {
+    font-size: 11px;
+    fill: #999;
+    -webkit-font-smoothing: antialiased;
+    text-anchor: middle;
+
+    .y-2017 { text-anchor: start; }
+}
+
+.bars rect {
+    &.y-2015 { fill: @teal5; }
+    &.y-2016 { fill: @teal4; }
+    &.y-2017 { fill: @teal3; }
+}
+
+.annotations {
+    line { stroke: #999; }
+    text {
+        font-size: 12px;
+        fill: #666;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text,
+    .annotations text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}
