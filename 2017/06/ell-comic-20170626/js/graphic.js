@@ -1,12 +1,10 @@
 // Global vars
 var pymChild = null;
 var isMobile = false;
-var initMobile;
-var LAZYLOAD_AHEAD = 2;
+var wasMobile = false;
+var LAZYLOAD_AHEAD = 1;
 var DEBOUNCE_WAIT = 50;
-var VISIBILITY_TEST_TIMEOUT = 1000;
-var timeoutID = null;
-
+var trackers = {};
 
 /*
  * Initialize the graphic.
@@ -30,16 +28,19 @@ var onWindowLoaded = function() {
     });
 
     window.addEventListener("unload", onUnload);
-    // Visibility tracker available
-    pymChild.onMessage('visibility-available', onVisibilityAvailable)
-    // Parent asks for the position of the element to check visibility
-    pymChild.onMessage('request-bounding-client-rect', onBoundingClientRectRequest);
-    // Once an image is partially on the viewport
-    pymChild.onMessage('element-visible', onImageVisible);
-
-    // Test visibility availability and fallback to load all images
-    pymChild.sendMessage('test-visibility-tracker', 'test');
-    timeoutID = setTimeout(trackerNotDetected, VISIBILITY_TEST_TIMEOUT);
+    // Listen to pym scroll message
+    // Loop through the available trackers and test visibility
+    pymChild.onMessage('viewport-iframe-position', function(parentInfo) {
+        for (var tracker in trackers) {
+            if (trackers.hasOwnProperty(tracker)) {
+                trackers[tracker].checkIfVisible(parentInfo);
+            }
+        }
+    });
+    // Track all lazyload images
+    trackImages();
+    // Force Load first images
+    lazyload_assets(document.querySelector('.embed-image'));
 }
 
 /*
@@ -58,26 +59,30 @@ var updateIFrame = function() {
 debouncedUpdateIFrame = _.debounce(updateIFrame, DEBOUNCE_WAIT);
 
 var trackImages = function() {
-    var imageSelector = initMobile ? '.image-wrapper-mobile' : '.image-wrapper';
-    var images = document.querySelectorAll(imageSelector);
+    var images = document.querySelectorAll('.image-wrapper');
     [].forEach.call(images, function(image) {
         var id = image.getAttribute('id');
-        pymChild.sendMessage('request-tracking', id);
+        var tracker = new PymChildScrollVisibility.Tracker(id, onImageVisible);
+        trackers[id] = tracker;
     });
 }
 
 // IMAGES
 var renderImage = function(imageWrapper) {
+    var src = null;
     var image = imageWrapper.getElementsByTagName('img')[0];
-    var src = imageWrapper.getAttribute("data-src");
+    if (isMobile) {
+        src = imageWrapper.getAttribute("data-src-mobile");
+    }
+    else {
+        src = imageWrapper.getAttribute("data-src-desktop");
+    }
     image.setAttribute("src", src);
-    imageWrapper.removeAttribute("data-src");
-    var id = imageWrapper.getAttribute("id");
 }
 
 var lazyload_image = function(imageWrapper) {
     if (imageWrapper.classList.contains("loaded")) { return; }
-    var src = imageWrapper.getAttribute("data-src");
+    var src = imageWrapper.getAttribute("data-src-desktop");
     if (src) {
         renderImage(imageWrapper)
         imagesLoaded(imageWrapper, function() {
@@ -89,54 +94,41 @@ var lazyload_image = function(imageWrapper) {
 
 
 /* Lazy loading of images */
-var lazyload_assets = function(imageWrapper, stop) {
+var lazyload_assets = function(wrapper, stop) {
     stop = stop || 0;
     // Lazyload images
-    lazyload_image(imageWrapper)
+    var images = wrapper.querySelectorAll(".image-wrapper");
 
-    if (stop < LAZYLOAD_AHEAD && imageWrapper.nextElementSibling) {
-        lazyload_assets(imageWrapper.nextElementSibling, stop + 1);
+    [].forEach.call(images, function(image) {
+        lazyload_image(image);
+    });
+
+    if (stop < LAZYLOAD_AHEAD && wrapper.nextElementSibling) {
+        lazyload_assets(wrapper.nextElementSibling, stop + 1);
     }
 }
 
-/*
- * Fallback used when the childTracker is not detected
- */
-var trackerNotDetected = function() {
-    // console.log("tracker not detected");
+var adaptLoadedImageSrc = function() {
     var wrappers = document.querySelectorAll('.image-wrapper');
     [].forEach.call(wrappers, function(wrapper) {
-        lazyload_image(wrapper);
+        if (wrapper.classList.contains("loaded")) {
+            renderImage(wrapper)
+            imagesLoaded(wrapper, function() {
+                debouncedUpdateIFrame();
+            })
+        }
     });
-}
-
-// event handlers
-var onVisibilityAvailable = function() {
-    window.clearTimeout(timeoutID);
-    // Track images to lazyload them
-    trackImages();
 }
 
 var onImageVisible = function(id) {
     // console.log("onImageVisible", id);
     var imageWrapper = document.getElementById(id);
-    lazyload_assets(imageWrapper);
+    // Use parent element to be able to load siblings
+    lazyload_assets(imageWrapper.parentElement);
     // mark image as viewed
     imageWrapper.classList.add('viewed');
     // Remove tracking of image visibility since it has already been loaded
-    pymChild.sendMessage('remove-tracker', id);
-}
-
-var onBoundingClientRectRequest = function(id) {
-    // console.log("BoundingRectReceived", id);
-    var container = document.getElementById(id);
-    // Ignore messages sent to posts that
-    // have deing deleted from page
-    if (!container) { return; }
-    var rect = container.getBoundingClientRect();
-    var rectString = rect.top + ' ' + rect.left + ' ' + rect.bottom + ' ' + rect.right;
-    pymChild.sendMessage(id + '-bounding-client-rect-return', rectString);
-
+    delete trackers[id];
 }
 
 var onUnload = function(e) {
@@ -166,15 +158,17 @@ var render = function(containerWidth) {
 
     if (containerWidth <= MOBILE_THRESHOLD) {
         isMobile = true;
-
-        if (typeof initMobile === 'undefined') {
-            initMobile = true;
-            document.querySelector('body').classList.add('init-mobile');
+        if (!wasMobile) {
+            adaptLoadedImageSrc();
         }
     } else {
         isMobile = false;
-        initMobile = false;
+        if (wasMobile) {
+            adaptLoadedImageSrc();
+        }
     }
+    // Store whether current viewport is mobile or not
+    wasMobile = isMobile;
 
     // Update iframe
     updateIFrame();

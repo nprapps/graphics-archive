@@ -36,20 +36,6 @@ body {
         position: relative;
         //background-color: #f1f1f1;
 
-        &.image-wrapper-mobile {
-            display: none;
-        }
-
-        @media screen and (max-width: 500px) {
-            &.image-wrapper-desktop{
-                display: none;
-            }
-
-            &.image-wrapper-mobile {
-                display: block;
-            }
-        }
-
         &:after {
             content: 'loading';
             display: block;
@@ -89,18 +75,6 @@ body {
             &:after {
                 content: none;
             }
-        }
-    }
-}
-
-.init-mobile {
-    .embed-image .image-wrapper {
-        &.image-wrapper-mobile {
-            display: block;
-        }
-
-        &.image-wrapper-desktop {
-            display: none;
         }
     }
 }

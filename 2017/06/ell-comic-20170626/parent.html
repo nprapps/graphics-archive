@@ -186,7 +186,7 @@
     <div class="content">
 
         <div id="preview-wrapper">
-            <p data-pym-lazyload-loader data-child-src="child.html" id="preview">Loading...</p>
+            <p data-pym-loader data-pym-trackscroll data-pym-scrollwait="40" data-child-src="child.html" id="preview">Loading...</p>
         </div>
         <h2><span class="production">Production</span> embed code (for Seamus and NPR stations)</h2>
 {% if CUSTOM_LOCATION %}
@@ -197,11 +197,11 @@
 
 <!-- textarea contents -->
     <textarea id="embed-code" readonly="readonly" rows="10" cols="80">
-<p data-pym-lazyload-loader data-child-src="https://{{ PRODUCTION_S3_BUCKET['bucket_name'] }}/{{ PROJECT_SLUG }}/graphics/{{ slug }}/child.html" id="responsive-embed-{{ slug }}">Loading...</p><script type="text/javascript" src="https://pym.nprapps.org/npr-pym-lazyload-loader.v2.min.js"></script></textarea>
+<p data-pym-loader data-pym-trackscroll data-pym-scrollwait="40" data-child-src="https://{{ PRODUCTION_S3_BUCKET['bucket_name'] }}/{{ PROJECT_SLUG }}/graphics/{{ slug }}/child.html" id="responsive-embed-{{ slug }}">Loading...</p><script type="text/javascript" src="https://pym.nprapps.org/npr-pym-loader.v2.min.js"></script></textarea>
 <!-- end textarea contents -->
 
     </div>
-    <script src="https://pym.nprapps.org/npr-pym-lazyload-loader.v2.min.js" type="text/javascript"></script>
+    <script src="https://pym.nprapps.org/npr-pym-loader.v2.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         var homePageEl = document.querySelector('#homepage');
         var resizeSidebarEl = document.querySelector('#resize-sidebar');
