@@ -1,0 +1,71 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+
+        <div id="graphic-wrapper">
+            {% for row in COPY.data2 %}
+            <div class="stat stat-{{ row.index }}">
+                <h3>{{ row.category }}</h3>
+                <p class="value-label">
+                    <span class="cell">{{ row.value_label_1 }}:</span>
+                    {% if row.perc_1 %}
+                        {{ row.perc_1 }}%
+                    {% endif %}
+                    {% if row.value_1 %}
+                        {{ row.value_1 }}
+                    {% endif %}
+                </p>
+                <p class="value-label">
+                    <span class="cell">{{ row.value_label_2 }}:</span>
+                    {% if row.perc_2 %}
+                        {{ row.perc_2 }}%
+                    {% endif %}
+                    {% if row.value_2 %}
+                        {{ row.value_2 }}
+                    {% endif %}
+                </p>
+                {% if row.value_label_3 %}
+                <p class="value-label">
+                    <span class="cell">{{ row.value_label_3 }}:</span>
+                    {% if row.perc_3 %}
+                        {{ row.perc_3 }}%
+                    {% endif %}
+                    {% if row.value_3 %}
+                        {{ row.value_3 }}
+                    {% endif %}
+                </p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

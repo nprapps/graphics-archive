@@ -1,0 +1,80 @@
+@import "base";
+
+#graphic {
+    h4 {
+        .gotham();
+        font-size: 16px;
+        margin: 0 0 3px 0;
+        font-weight: normal;
+        color: #333;
+    }
+
+    h5 {
+        color: #999;
+        font-weight: normal;
+        font-size: 12px;
+        margin: 0 0 11px 0;
+    }
+
+    p {
+        font-size: 12px;
+        color: #666;
+        margin: 0;
+    }
+}
+
+
+// desktop-only styles
+@media screen and (min-width: 501px) {
+    h1,
+    h2 {
+        text-align: center;
+    }
+
+    #graphic {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-bottom: 22px;
+
+        .drug {
+            box-sizing: content-box;
+            width: 33%;
+            text-align: center;
+
+            &:nth-child(2) {
+                border-left: 1px solid #eee;
+                border-right: 1px solid #eee;
+            }
+        }
+
+        .drug-content { padding: 0 15px; }
+
+        img {
+            max-width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto 11px auto;
+        }
+    }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    #graphic {
+        .drug {
+            margin-bottom: 22px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        img {
+            width: 100px;
+            float: right;
+            margin-left: 11px;
+        }
+    }
+}

@@ -1,0 +1,87 @@
+@import "base";
+
+.chart-wrapper {
+    margin-bottom: 20px;
+
+    @media screen and (min-width: 500px) {
+        width: 48%;
+        float: left;
+        margin-bottom: 0px;
+
+        &:first-child {
+            margin-right: 4%;
+        }
+    }
+
+    h3 {
+        font-size: 18px;
+        letter-spacing: 0.03em;
+
+        @media screen and (max-width: 620px) {
+            font-size: 16px;
+        }
+    }
+
+    .graphic-wrapper {
+        position: relative;
+    }
+
+    .info-wrapper {
+        position: absolute;
+        top: -2px;
+        left: 30px;
+
+        p.chart-info {
+            .gotham();
+            color: #888;
+            line-height: 13px;
+            font-size: 13px;
+            margin: 0 0 9px;
+            padding-right: 5px;
+            background: white;
+
+            strong {
+                font-weight: bold;
+            }
+
+            @media screen and (max-width: 621px) {
+                line-height: 12px;
+                font-size: 12px;
+                margin: 0 0 5px;
+            }
+        }
+    }
+
+    .bars rect {
+        /*&.bar-0 { fill: #e68c31; }*/
+        &.bar-0 { fill: #999; }
+        &.bar-30 { fill: #eba934; }
+        &.bar-60 { fill: #efc637; }
+        &.bar-90 { fill: #c6b550; }
+        &.bar-120 { fill: #6a9171; }
+        &.bar-150 { fill: #17807e; }
+    }
+}
+
+.label-top {
+    font-style: italic;
+    fill: #999;
+    font-size: 11px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.value text {
+    fill: #fff;
+    font-size: 12px;
+    font-family: 'Knockout 31 4r',Helvetica,Arial,sans-serif;
+    text-anchor: middle;
+    -webkit-font-smoothing: antialiased;
+}
+
+line.axis-0 {
+    stroke: #999;
+}
+
+@media screen and (max-width: 480px) {
+    .value text { font-size: 10px; }
+}

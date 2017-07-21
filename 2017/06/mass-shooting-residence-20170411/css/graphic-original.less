@@ -1,0 +1,94 @@
+@import "base";
+
+#graphic { margin-bottom: 22px; }
+
+h3 {
+    margin: 0 0 11px 0;
+    font-family: 'Knockout 31 4r';
+    font-weight: normal;
+    text-transform: uppercase;
+    padding-top: 0;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    color: #666;
+	text-align: center;
+}
+
+#graphic-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.count {
+    flex-grow: 1;
+	float: left;
+	// min-height: 185px;
+}
+
+@media screen and (max-width: 500px) {
+    .count {
+        flex-basis: 40%;
+    }
+}
+
+.key {
+    // margin-top: 11px;
+    margin-bottom: 22px;
+    // height: 160px;
+
+    .key-item b {
+        &.domestic-violence { background-color: @teal4; }
+    }
+
+    .key-item.total {
+        margin-top: 11px;
+
+        label {
+            color: #999;
+            font-style: italic;
+        }
+    }
+}
+
+div.grid-container {
+	display: flex;
+	min-height: 55px;
+	align-items: flex-end;
+
+}
+
+table.grid {
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    // width: 100%;
+
+    td {
+        height: 6px;
+		width: 5px;
+        background-color: #ddd;
+        border: 1px solid #fff;
+
+        &.domestic-violence { background-color: @teal4; }
+    }
+}
+
+div.id-div {
+	padding-top: 7px;
+}
+
+@media screen and (min-width: 501px) {
+    .key .key-item {
+        // width: 50%;
+        margin-right: 0;
+    }
+}
+
+// @media screen and (max-width: 500px) {
+    .key .key-item label {
+        white-space: normal;
+    }
+// }

@@ -1,0 +1,13 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="graphic" class="graphic">
+        <img src="assets/family.jpg" alt="[Illustration]" class="illo" />
+        <div class="text-wrap">
+            <p class="illo-quote">&ldquo;{{ COPY.family.quote|smarty }}&rdquo;</p>
+            <p class="illo-speaker"><strong>{{ COPY.family.speaker }}</strong>, in {{ COPY.family.year }}</p>
+        </div>
+    </div>
+
+{% endblock content %}

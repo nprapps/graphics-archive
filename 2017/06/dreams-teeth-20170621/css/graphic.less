@@ -1,0 +1,70 @@
+@import "base";
+
+/*@line-color: #e0e0e0;*/
+/*@quote-color: #8585a3;*/
+/*@speaker-color: #afaeb7;*/
+@line-color: #e3e3e8;
+@quote-color: #817d97;
+@speaker-color: #a8a8b3;
+
+// Add custom styles here
+body {
+    padding: 0;
+}
+
+#graphic {
+    .gotham();
+    border-top: 4px solid @line-color;
+    border-bottom: 4px solid @line-color;
+    padding: 2em 0 1em;
+    margin: 0;
+
+    * {
+        box-sizing: border-box;
+    }
+
+    img.illo {
+        width: 49%;
+        float: left;
+        margin-right: 2%;
+        margin-bottom: 1em;
+
+        @media screen and (max-width: 500px) {
+            width: 100%;
+            float: none;
+            margin-right: 0;
+            margin-bottom: 1em;
+        }
+    }
+
+    .text-wrap {
+        @media screen and (min-width: 620px) {
+            width: 49%;
+            float: right;
+        }
+    }
+
+    p {
+        margin: 0;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    p.illo-quote {
+        font-size: 16px;
+        line-height: 1.6;
+        color: @quote-color;
+    }
+
+    p.illo-speaker {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        font-size: 12px;
+        color: @speaker-color;
+        padding-left: 18px;
+
+        :before {
+            content: '\2014';
+            margin: 0 5px 0 -18px;
+        }
+    }
+}

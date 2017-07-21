@@ -1,0 +1,122 @@
+@import "base";
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+#graphic-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+// h2 { margin-bottom: 0; }
+
+h3 {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #333;
+    font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+p.value-label {
+    padding: 0;
+    margin: 0 0 6px;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+    line-height: 16.8px;
+}
+
+span.cell {
+    display: inline-block;
+    width: 70%;
+}
+
+.stat {
+    flex-grow: 1;
+    flex-basis: 30%;
+	float: left;
+    min-height: 105px;
+    padding: 22px 11px 11px;
+
+    &.stat-0,
+    &.stat-1,
+    &.stat-2 {
+        border-bottom: 1px solid #eee;
+        min-height: 95px;
+    }
+
+    &.stat-1,
+    &.stat-4 {
+        border-right: 1px solid #eee;
+        border-left: 1px solid #eee;
+    }
+
+    &.stat-0,
+    &.stat-3 {
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 600px) and (min-width: 500px) {
+    .stat {
+        min-width: 200px;
+        border-left: 0px;
+        border-right: 0px;
+
+        &.stat-0,
+        &.stat-1,
+        &.stat-2,
+        &.stat-3 {
+            border-bottom: 1px solid #eee;
+        }
+
+        &.stat-2 {
+            min-height: 105px;
+            border-right: 1px solid #eee;
+        }
+
+        &.stat-3 {
+            padding-left: 11px;
+        }
+
+        &.stat-2,
+        &.stat-4 {
+            padding-left: 0px;
+        }
+
+        &.stat-1 {
+            border-right: 0px;
+        }
+
+        &.stat-4 {
+            border-left: 0px;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .stat {
+        flex-basis: 100%;
+        border-bottom: 1px solid #eee;
+        min-height: inherit;
+        padding-left: 0;
+
+        &.stat-3,
+        &.stat-4,
+        &.stat-5 {
+            border-top: 0;
+        }
+
+        &.stat-1,
+        &.stat-4 {
+            border-right: 0;
+            border-left: 0;
+        }
+    }
+}

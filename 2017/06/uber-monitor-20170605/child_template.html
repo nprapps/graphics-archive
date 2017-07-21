@@ -1,0 +1,90 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline_person %}<h1>{{ COPY.labels.headline_person|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="knowledge-table">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_answer }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_raw }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_perc }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data_person %}
+            <tr class="table2 {{ row.answer|classify }}">
+                <td data-title="{{ COPY.labels.hdr_answer }}">{{ row.answer }}</td>
+                <td data-title="{{ COPY.labels.hdr_raw }}" class="amt">{{ row.raw }}</td>
+                <td data-title="{{ COPY.labels.hdr_perc }}" class="amt">{{ row.perc }}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {% if COPY.labels.headline_support %}<h1>{{ COPY.labels.headline_support|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="tracking-table">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_answer }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_raw }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_perc }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data_support %}
+            <tr class="{{ row.answer|classify }}">
+                <td data-title="{{ COPY.labels.hdr_answer }}">{{ row.answer }}</td>
+                <td data-title="{{ COPY.labels.hdr_raw }}" class="amt">{{ row.raw }}</td>
+                <td data-title="{{ COPY.labels.hdr_perc }}" class="amt">{{ row.perc }}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}
