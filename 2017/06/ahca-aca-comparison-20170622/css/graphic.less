@@ -1,0 +1,106 @@
+@import "base";
+
+h1 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 22px;
+}
+
+.comparison {
+    margin-top: 33px;
+
+    &:first-child { margin-top: 0; }
+
+    h4 {
+        .gotham();
+        color: #333;
+        font-weight: 700;
+        font-size: 18px;
+        margin: 0 0 15px 0;
+        text-align: center;
+    }
+
+    h5 {
+        margin: 0 0 6px 0;
+        color: #454545;
+        font-size: 13px;
+        .knockout-header();
+    }
+
+    p {
+        font-size: 13px;
+        color: #666;
+        margin: 0;
+        line-height: 1.5;
+
+        &.note {
+            margin-top: -11px;
+            font-size: 11px;
+            margin-bottom: 15px;
+            color: #999;
+            text-align: center;
+        }
+
+        strong {
+            font-weight: bold;
+            color: #454545;
+        }
+    }
+
+    .update {
+        display: block;
+        border-top: 1px solid #bbb;
+        margin-top: 15px;
+        padding-top: 15px;
+    }
+
+    .laws div {
+        padding: 20px 15px;
+        background-color: #ebebeb;
+        box-sizing: content-box;
+
+        &.ahca.house { background-color: @yellow6; }
+        &.ahca.senate { background-color: mix(@yellow6, @orange6, 50%); }
+        &.ahca.repeal { background-color: @orange6; }
+        // &.ahca.house { background-color: lighten(@yellow6, 4%); }
+        // &.ahca.senate { background-color: lighten(@orange6, 6%); }
+    }
+}
+
+.footnotes { margin-top: 22px; }
+
+// desktop-only
+@media screen and (min-width: 501px) {
+    .comparison {
+        .laws {
+            display: -webkit-flex;
+            display: flex;
+
+            > div {
+                width: 33%;
+                box-sizing: content-box;
+                border-radius: 4px;
+            }
+
+            .ahca { margin-left: 15px; }
+        }
+    }
+
+    .footnotes { text-align: center; }
+}
+
+// mobile-only
+@media screen and (max-width: 500px) {
+    .comparison {
+        text-align: left;
+
+        .laws div {
+            padding: 11px 15px;
+
+            &.ahca { margin-top: 3px; }
+        }
+
+        h5 { margin-bottom: 3px; }
+        p { font-size: 12px; }
+    }
+}

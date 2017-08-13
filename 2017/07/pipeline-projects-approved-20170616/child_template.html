@@ -1,0 +1,47 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline_approved %}<h1>{{ COPY.labels.headline_approved|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed_approved %}<h2>{{ render(COPY.labels.subhed_approved)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        {% for pipeline in COPY.data %}
+        {% if pipeline['FERC status'] == 'Approved' %}
+        <div class="pipeline {{ pipeline['Name of pipeline']|classify }}">
+            <div class="map"><img src="{{ pipeline['image'] }}" alt="Map showing the {{ pipeline['Name of pipeline'] }} route" /></div>
+            <div class="info">
+                <h4>{{ pipeline['Name of pipeline'] }}</h4>
+                {% if pipeline['Date approved'] %}<h5>Approved</strong> {{ pipeline['Date approved'] }}</h5>{% endif %}
+                <ul>
+                    {% if pipeline['Construction status'] %}<li><strong>Status:</strong> {{ pipeline['Construction status'] }}</li>{% endif %}
+                    {% if pipeline['Mileage'] %}<li><strong>Mileage:</strong> {{ pipeline['Mileage'] }}</li>{% endif %}
+                    {% if pipeline['Capacity'] %}<li><strong>Capacity:</strong> {{ pipeline['Capacity']|comma }} {{ COPY.labels['capacity_units'] }}</li>{% endif %}
+                    {% if pipeline['States'] %}<li><strong>States:</strong> {{ pipeline['States'] }}</li>{% endif %}
+                    {% if pipeline['Companies invested in the project'] %}<li><strong>Companies invested in the project<sup>1</sup>:</strong> {{ pipeline['Companies invested in the project'] }}</li>{% endif %}
+                    {% if pipeline['Destination for the gas'] %}<li><strong>Destination for the gas:</strong> {{ pipeline['Destination for the gas']|smarty }}</li>{% endif %}
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote_approved %}
+    <div class="footnotes">
+        <h4>Note</h4>
+        <p>{{ COPY.labels.footnote_approved|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+{% endblock js %}

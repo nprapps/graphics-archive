@@ -1,0 +1,29 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+<div id="graphic" class="graphic">
+  <div class="legend-wrap">
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+    <p>{{ COPY.labels.hdr_oldflood|smarty }}</p>
+    <p>{{ COPY.labels.hdr_newflood|smarty }}</p>
+  </div>
+
+  <div class="map-wrap">
+    <img src="assets/fema-flood-map.png" alt="Map of anticipated adjustments to FEMA flood map zones" />
+  </div>
+
+  {% if COPY.labels.footnote %}
+  <div class="footnotes">
+    <h4>Notes</h4>
+    <p>{{ COPY.labels.footnote|smarty }}</p>
+  </div>
+  {% endif %}
+
+  <div class="footer">
+    {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+    {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+  </div>
+
+  {% endblock content %}

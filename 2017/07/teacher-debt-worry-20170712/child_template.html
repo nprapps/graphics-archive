@@ -1,0 +1,82 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th class="debt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_debt }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_val_1 }}</div>
+                    </th>
+                    <th class="pct">&nbsp;</th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_val_2 }}</div>
+                    </th>
+                    <th class="pct">&nbsp;</th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_val_3 }}</div>
+                    </th>
+                    <th class="pct">&nbsp;</th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_val_4 }}</div>
+                    </th>
+                    <th class="pct">&nbsp;</th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_val_5 }}</div>
+                    </th>
+                    <th class="pct">&nbsp;</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="debt-{{ row.debt|classify }}">
+                <td data-title="{{ COPY.labels.hdr_debt }}" class="debt">{{ row.debt }}</td>
+                <td data-title="{{ COPY.labels.hdr_val_1 }}" class="amt">{{ row.val_1 }}</td>
+                <td class="amt pct">({{ row.pct_1 }})</td>
+                <td data-title="{{ COPY.labels.hdr_val_2 }}" class="amt">{{ row.val_2 }}</td>
+                <td class="amt pct">({{ row.pct_2 }})</td>
+                <td data-title="{{ COPY.labels.hdr_val_3 }}" class="amt">{{ row.val_3 }}</td>
+                <td class="amt pct">({{ row.pct_3 }})</td>
+                <td data-title="{{ COPY.labels.hdr_val_4 }}" class="amt">{{ row.val_4 }}</td>
+                <td class="amt pct">({{ row.pct_4 }})</td>
+                <td data-title="{{ COPY.labels.hdr_val_5 }}" class="amt">{{ row.val_5 }}</td>
+                <td class="amt pct">({{ row.pct_5 }})</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

@@ -1,0 +1,19 @@
+@import "base";
+
+.bars rect {
+    &.negative { fill: @red5; }
+    &.positive { fill: #999; }
+}
+
+.annotations {
+    line {
+        stroke: #454545;
+        stroke-width: 2px;
+        stroke-dasharray: 6px 2px;
+    }
+    text {
+        font-size: 11px;
+        fill: #666;
+        font-weight: bold;
+    }
+}

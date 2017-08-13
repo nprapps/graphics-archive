@@ -1,0 +1,69 @@
+@import "base";
+
+// Add custom styles here
+h1 {
+    margin: 0 0 18px 0;
+    font-size: 18px;
+
+    @media screen and (max-width: 500px) {
+        font-size: 16px;
+    }
+}
+
+#graphic-wrapper {
+    float: left;
+}
+
+.graphic {
+    margin-bottom: 20px;
+
+    @media screen and (min-width: 501px) {
+        width: 48%;
+        float: left;
+        margin-bottom: 10px;
+
+        &:first-child {
+            margin-right: 4%;
+        }
+    }
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+
+    &.label-year {
+        font-weight: normal;
+    }
+}
+
+.key {
+    display: none;
+}
+
+.lines path.line {
+    stroke: @blue1;
+}
+
+.dots circle.dot {
+    fill: @blue1;
+    stroke: white;
+    stroke-width: 1.5px;
+}
+
+.bars rect {
+    fill: @blue4;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}

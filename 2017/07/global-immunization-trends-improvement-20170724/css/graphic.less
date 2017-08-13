@@ -1,0 +1,53 @@
+@import "base";
+
+h1 { margin-bottom: 22px; }
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #666;
+
+    &.negative {
+        fill: @red2;
+    }
+
+    &.positive {
+        fill: #333;
+    }
+}
+
+.chart {
+    float: left;
+    margin-bottom: 22px;
+
+    h3 {
+        height: 28px;
+        margin-bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+
+    .chart:nth-child(odd) {
+        margin-right: 16px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+
+    .chart:nth-child(3n+2) {
+        margin: 0 9px 22px;
+    }
+}

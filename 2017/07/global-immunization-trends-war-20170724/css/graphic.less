@@ -1,0 +1,69 @@
+@import "base";
+
+h1 { margin-bottom: 22px; }
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+    // stroke-dasharray: 4px 2px;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #666;
+
+    &.negative {
+        fill: @red2;
+    }
+
+    &.positive {
+        fill: #333;
+    }
+}
+
+.chart {
+    float: left;
+    margin-bottom: 22px;
+
+    h3 {
+        // height: 28px;
+        margin-bottom: 5px;
+    }
+}
+
+.chart-label {
+    fill: @orange3;
+    font-style: italic;
+    font-size: 11px;
+    text-anchor: middle;
+    letter-spacing: .3px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+
+    .chart:nth-child(odd) {
+        margin-right: 16px;
+    }
+}
+
+@media screen and (max-width: 585px) {
+    .chart h3 {
+        height: 23px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+
+    .chart:nth-child(3n+2) {
+        margin: 0 9px 22px;
+    }
+}

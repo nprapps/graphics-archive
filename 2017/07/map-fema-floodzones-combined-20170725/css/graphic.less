@@ -1,0 +1,57 @@
+@import "base";
+
+// h1 {
+//     margin-bottom: 22px;
+// }
+
+// Add custom styles here
+span {
+  color:#fff;
+  padding: .15em .3em .15em .3em;
+}
+
+.new {background-color: #E38D2C;}
+
+.old {background-color: #3D7FA6;}
+
+p {
+  white-space: normal;
+  font-size: 13px;
+  color: #777;
+  font-weight: normal;
+  line-height: 1.5em;
+}
+
+.graphic {.clearfix();}
+
+.map-wrap {
+  .clearfix();
+    width: 60%;
+    padding-left: 1em;
+    display: table-cell;
+
+    img {
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
+.legend-wrap {
+  .clearfix();
+    width: 40%;
+    display: table-cell;
+}
+
+@media screen and (max-width: 500px) {
+    .map-wrap {
+    padding-left: 0em;
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+
+        &:first-child, &:last-child {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
