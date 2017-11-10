@@ -1,0 +1,75 @@
+@import "base";
+
+// Add custom styles here
+#graphic {
+    .category {
+        box-sizing: border-box;
+        margin-bottom: 33px;
+    }
+
+    h3 {
+        .gotham();
+        color: #454545;
+        font-size: 15px;
+        -webkit-font-smoothing: antialiased;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0 0 15px 0;
+        padding-top: 0;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        > li {
+            border-top: 1px solid #eee;
+            color: #666;
+            margin: 0 0 11px 0;
+            padding: 11px 0 0 .3em;
+            text-indent: -.3em;
+
+            b {
+                background-color: lighten(@yellow3, 30%);
+                color: #454545;
+                font-weight: bold;
+                padding: 1px 4px;
+                border-radius: 4px;
+            }
+        }
+    }
+}
+
+// desktop only
+@media screen and (min-width: 501px) {
+    #graphic {
+        display: flex;
+        flex-wrap: wrap;
+
+        .category {
+            width: 50%;
+
+            &:nth-child(2n+1) { padding-right: 22px; }
+            &:nth-child(2n)   { padding-left: 22px; }
+        }
+    }
+}
+
+// mobile only
+@media screen and (max-width: 500px) {
+    #graphic {
+        h3 {
+            font-size: 12px;
+            margin-bottom: 7px;
+        }
+        ul {
+            font-size: 12px;
+
+            > li {
+                margin-bottom: 7px;
+                padding-top: 11px;
+            }
+        }
+    }
+}

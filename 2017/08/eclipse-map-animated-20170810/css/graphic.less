@@ -1,0 +1,385 @@
+@import "base";
+
+@penum-color: #0d3c72;
+@umbra-color: #190d72;
+
+body {
+    padding: 11px 0;
+}
+
+#graphic-wrapper {
+    position: relative;
+    margin-bottom: 11px;
+
+    .graphic {
+        margin: 0;
+    }
+}
+
+#touch-note {
+    .gotham();
+    position: absolute;
+    top: 33%;
+    left: 50%;
+    display: none;
+    width: 65%;
+    background: rgba(120,120,120,0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    transition: opacity 800ms ease;
+
+    &.note-visible {
+        display: block;
+    }
+}
+
+#time-note {
+    display: none;
+    opacity: 0;
+    transition: opacity 800ms ease;
+    width: 164px;
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    font-size: 13px;
+    position: absolute;
+    left: 78%;
+    bottom: 92%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+
+    @media screen and (max-width: 500px) {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        -webkit-transform: none;
+        transform: none;
+        font-size: 12px;
+        width: 100%;
+    }
+}
+
+.outside-window #time-note {
+    display: block;
+    opacity: 1;
+}
+
+.has-mouseover #time-note {
+    @media screen and (min-width: 501px) {
+        opacity: 0;
+    }
+}
+
+#map-legend {
+    position: absolute;
+    left: 0;
+    bottom: 5%;
+    width: 280px;
+
+    @media screen and (max-width: 500px) {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+    }
+
+    .legend-item {
+        color: #777;
+        font-size: 12px;
+        padding: 0 0 4px;
+
+        b {
+            display: inline-block;
+            width: 20px;
+            height: 10px;
+            border-radius: 45%;
+            margin-right: 3px;
+        }
+
+        &.penum b {
+            background: @penum-color;
+            opacity: 0.5;
+        }
+
+        &.umbra b {
+            background: @umbra-color;
+            opacity: 0.9;
+        }
+
+        @media screen and (max-width: 640px) and (min-width: 500px) {
+            font-size: 11px;
+
+            b {
+                width: 16px;
+                height: 8px;
+            }
+        }
+    }
+}
+
+.point-overlay {
+    fill-opacity: 0;
+    stroke: none;
+}
+
+a.button {
+    display: inline-block;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 14px;
+    .gotham();
+    background: @blue3;
+    color: #fff;
+}
+
+#hover-time {
+    .gotham();
+    fill: mix(@umbra-color, #777, 55%);
+    font-weight: bold;
+    font-size: 15px;
+    text-anchor: middle;
+
+    &.label-left {
+        text-anchor: start;
+    }
+}
+
+#hover-line {
+    display: none;
+    stroke: @umbra-color;
+    stroke-opacity: 0.3;
+    stroke-width: 2px;
+    stroke-dasharray: 2px 3px;
+}
+
+.has-mouseover #hover-line {
+    display: block;
+}
+
+.text-update {
+    .gotham();
+    fill: mix(@umbra-color, #777, 55%);
+    transition: fill 400ms ease, opacity 400ms ease;
+    font-weight: bold;
+    font-size: 28px;
+    text-anchor: middle;
+
+    @media screen and (max-width: 640px) {
+        font-size: 20px;
+    }
+
+    @media screen and (max-width: 450px) {
+        font-size: 14px;
+    }
+}
+
+.has-mouseover .text-update {
+    opacity: 0;
+}
+
+.outside-window .text-update {
+    fill: #aaa;
+}
+
+svg {
+    font-size: 20px;
+    background-color: none;
+}
+
+.states path{
+    fill: gainsboro;
+    stroke: #bababa;
+    stroke-width: 1px;
+
+    &.yes {
+        fill: #fff;
+        stroke: #696969;
+
+    }
+}
+
+path.landmass { fill: #a8d5ef; }
+
+.lakes path {
+    fill: #d3eaf7;
+    stroke: #a8d5ef;
+    stroke-width: 1px;
+}
+
+.shadow-group {
+    opacity: 0;
+    transition: opacity 800ms ease;
+}
+
+.penum-interval path, .umbra-interval path {
+    transition: fill 800ms ease;
+}
+
+.penum-interval path {
+    fill: @penum-color;
+    opacity: 0.5;
+}
+
+.umbra-interval path {
+    fill: mix(@umbra-color, #333);
+    opacity: 0.9;
+}
+
+.penum-contour path {
+    fill: @penum-color;
+    opacity: .3;
+}
+
+.umbra-contour path {
+    fill: @umbra-color;
+    opacity: .5;
+}
+
+.live-updating {
+    .shadow-group.shadow-live, .cities {
+        opacity: 1;
+    }
+
+    .cities {
+        display: block;
+    }
+
+    .penum-contour {
+        display: none;
+    }
+}
+
+.has-mouseover {
+    .shadow-group.shadow-hover {
+        opacity: 1;
+    }
+
+    .shadow-group.shadow-live {
+        .penum-interval path {
+            fill: #888;
+        }
+        .umbra-interval path {
+            fill: #666;
+        }
+    }
+
+    .cities {
+        display: block;
+    }
+}
+
+.state-labels text {
+    fill: #787878;
+    font-size: .5em;
+    text-anchor: middle;
+    font-family: 'Gotham SSm', Helvetica, Arial,sans-serif;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+
+    &.primary {
+        fill: #555;
+        font-weight: 700;
+        font-size: 90%;
+    }
+}
+
+.cities {
+    display: none;
+
+    .city-g {
+        opacity: 0;
+        transition: opacity 400ms ease;
+
+        &.city-24 { display: none; } // there's an extra nashville for some reason
+    }
+
+    path {
+        fill: #eee;
+        stroke: #333;
+        stroke-width: 1;
+        stroke-opacity: 0.6;
+
+        &.admin-0-capital { fill: #333; }
+    }
+}
+
+.live-updating {
+    .city-show-live {
+        opacity: 1;
+    }
+}
+
+.has-mouseover {
+    .city-show-live {
+        opacity: 0;
+    }
+
+    .city-show-hover {
+        opacity: 1;
+    }
+}
+
+.city-labels {
+    fill: #fff;
+    font-size: 60%;
+    text-anchor: start;
+    font-family: 'Gotham SSm', Helvetica, Arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+
+    &.admin-0-capital {
+        fill: #fff;
+        font-weight: bold;
+    }
+}
+
+.city-labels.shadow {
+    fill: #333;
+    stroke: #333;
+    stroke-width: 3px;
+    opacity: 0.6;
+}
+
+.scale-bar {
+    line {
+        stroke: #666;
+        stroke-width: 5px;
+    }
+    text {
+        font-family: Helvetica, Arial,sans-serif;
+        fill: #666;
+        font-size: 60%;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+// responsive styles
+@media screen and (max-width: 500px) {
+    svg { font-size: 12px; }
+    .countries path { stroke-width: 2px; }
+
+    .city-labels text { letter-spacing: .5px; }
+    .city-labels.shadow {
+        stroke-width: 2px;
+        opacity: 0.6;
+    }
+    .city-labels text,
+    .cities path {
+        &.scalerank-4,
+        &.scalerank-5,
+        &.scalerank-6,
+        &.scalerank-7,
+        &.scalerank-8 {
+            display: none;
+        }
+    }
+}
+
+
+// for testing label placement
+// .penum-contour, .umbra-contour, .shadow-group, .voronoi-overlay { display: none; }
+// .cities { display: block; }
+// .cities .city-g { opacity: 1; }

@@ -1,0 +1,52 @@
+@import "base";
+
+h1 {
+    margin-bottom: 22px;
+    font-size: 18px;
+}
+
+.area {
+    fill: @teal3;
+    fill-opacity: 0.4;
+}
+
+.lines {
+    fill: none;
+    stroke-width: 2px;
+    stroke: @teal3;
+}
+
+.lbl-recession {
+    font-size: 11px;
+    text-anchor: middle;
+    fill: #666;
+    .knockout-header();
+}
+
+.annotations {
+    circle {
+        fill: @teal2;
+        stroke: #fff;
+        stroke-width: 1px;
+    }
+    line { stroke: @teal4; }
+    text {
+        font-size: 11px;
+        fill: @teal2;
+        font-weight: bold;
+        text-anchor: end;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .annotations text,
+    .lbl-recession {
+        font-size: 10px;
+    }
+
+    h1 { margin-bottom: 0;}
+}
+
+@media screen and (min-width: 501px) {
+}

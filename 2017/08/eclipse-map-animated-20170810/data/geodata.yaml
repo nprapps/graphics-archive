@@ -1,0 +1,40 @@
+bbox: '-142.86 80 -49.21 25'
+layers:
+    states:
+        type: 'shp'
+        path: 'data/ne_10_usa_clipped.geojson'
+        id-property: 'name'
+        properties:
+            - 'state=name'
+            - 'abv=abbrev'
+            - 'in_path=in_path'
+
+    penum-contour:
+        type: 'json'
+        path: 'data/penum-contour.json'
+
+    umbra-contour:
+        type: 'json'
+        path: 'data/umbra-contour.json'
+
+    umbra-interval:
+        type: 'json'
+        path: 'data/umbra-interval.json'
+        id-property: 'UTCMil'
+        properties:
+            - 'utcSec=UTCSec'
+            - 'lng=CenterLon'
+            - 'lat=CenterLat'
+
+    penum-interval:
+        type: 'json'
+        path: 'data/penum-interval.json'
+        id-property: 'UTCMil'
+
+    combined-cities:
+        type: 'json'
+        path: 'data/combined-cities.geojson'
+        id-property: 'name'
+        properties:
+            - 'state=adm1name'
+            - 'city=name'

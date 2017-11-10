@@ -1,0 +1,37 @@
+@import "base";
+
+.bars rect {
+    fill: @teal5;
+
+    &.highlight { fill: @teal3; }
+}
+
+.labels {
+    b {
+        display: block;
+        color: #666;
+        font-weight: normal;
+    }
+
+    i {
+        display: block;
+        margin-top: 2px;
+        font-style: normal;
+        color: #999;
+        font-size: 80%;
+    }
+
+    .highlight {
+        b {
+            font-weight: bold;
+            color: #333;
+        }
+    }
+}
+
+.value {
+    text.highlight {
+        font-weight: bold;
+        fill: #333;
+    }
+}

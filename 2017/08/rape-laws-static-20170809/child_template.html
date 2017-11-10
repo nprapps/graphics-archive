@@ -1,0 +1,31 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <div class="mobile"><img src="assets/rape-laws-mobile.png" alt="Map highlighting Tajikistan, the Palestinian territories, Syria, the Philippines, Libya, Kuwait, Iraq, Eritrea, Equatorial Guinea, Cameroon, Lebanon, Bahrain and Angola" /></div>
+        <div class="desktop"><img src="assets/rape-laws-desktop.png" alt="Map highlighting Tajikistan, the Palestinian territories, Syria, the Philippines, Libya, Kuwait, Iraq, Eritrea, Equatorial Guinea, Cameroon, Lebanon, Bahrain and Angola" /></div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Sources: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+<script type="text/javascript" src="{{ PYM['pym_url'] }}"></script>
+{% block js %}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+{% endblock js %}

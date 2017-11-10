@@ -1,0 +1,49 @@
+@import "base";
+
+#graphic {
+    .satellite {
+        box-sizing: border-box;
+        position: relative;
+
+        h4 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 5px 9px;
+            font-size: 12px;
+            .gotham();
+            letter-spacing: 0.05em;
+            // font-weight: 700;
+        }
+
+        img { display: block; }
+    }
+}
+
+// desktop only
+@media screen and (min-width: 501px) {
+    #graphic {
+        display: flex;
+
+        .satellite {
+            width: 50%;
+
+            &:nth-child(2n+1) { padding-right: 2px; }
+            &:nth-child(2n)   {
+                padding-left: 2px;
+
+                h4 { left: 2px; }
+            }
+        }
+    }
+}
+
+// mobile only
+@media screen and (max-width: 500px) {
+    #graphic {
+        .satellite:nth-child(1) { margin-bottom: 2px; }
+    }
+}
