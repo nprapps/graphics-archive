@@ -1,0 +1,41 @@
+@import "base";
+
+// Add custom styles here
+.graphic-wrapper {
+    .clearfix();
+}
+
+.graphic {
+    h1 {
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+    
+    @media screen and (min-width: 501px) {
+        float: left;
+        width: 49%;
+
+        &:first-child {
+            margin-right: 2%;
+        }
+    }
+
+    .bars rect {
+        fill: @orange5;
+
+        &.millennials {
+            fill: @orange3;
+        }
+    }
+
+    .labels .millennials, .value text.millennials {
+        font-weight: bold;
+    }
+
+    .labels {
+        em {
+            font-size: 11px;
+            white-space: nowrap;
+        }
+    }
+}

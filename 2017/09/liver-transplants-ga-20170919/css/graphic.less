@@ -1,0 +1,29 @@
+@import "base";
+
+// Add custom styles here
+#graphic {
+    .clearfix();
+}
+
+.map-wrapper {
+    @media screen and (min-width: 500px) {
+        width: 49%;
+        float: left;
+
+        &:first-child {
+            margin-right: 2%;
+        }
+    }
+
+    h3 {
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 7px;
+    }
+
+    p {
+        font-size: 12px;
+        color: #999;
+        margin: 0 0 10px;
+    }
+}

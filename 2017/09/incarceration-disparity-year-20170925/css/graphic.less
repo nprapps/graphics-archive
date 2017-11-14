@@ -1,0 +1,70 @@
+@import "base";
+
+// Add custom styles here
+
+
+.stat{
+  float: right;
+  width: 36.6%;
+  h1{
+    text-align: center;
+    margin: 5px 0;
+    font-weight: bold;
+    font-size: 2.8em;
+  }
+  h2{
+    text-align: center;
+    margin: 0;
+    font-size: 0.83em;
+  }
+
+  @media (max-width: 560px){
+
+    h1{
+      font-size: 1.5em;
+      margin: 0px;
+    }
+
+    h2{
+      font-size: 0.73em;
+    }
+  }
+
+}
+
+.highlight{
+  //background-color: @orange3;
+  color: white;
+  color: @orange3;
+  border-radius: 5px;
+}
+
+.bars{
+  .all-races{
+    fill: #ccc;
+  }
+
+  .white, .all-races{
+    fill: @orange5;
+  }
+}
+.graphic-wrapper {
+  display: inline-block;
+    position: relative;
+}
+
+.stat{
+  color: @orange3;
+}
+
+.graphic {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 11px;
+    .clearfix();
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}

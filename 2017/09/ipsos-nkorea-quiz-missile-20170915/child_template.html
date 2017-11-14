@@ -1,0 +1,39 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="quiz-wrapper" class="graphic">
+        <div id="size-wrapper">
+            <p class="quiz-question">To the best of your knowledge, what is the farthest North Korean ballistic missiles can travel?</p>
+            <ul class="quiz-list">
+                <li class="quiz-option"><a href="#">Short distance, capable of hitting Japan</a></li>
+                <li class="quiz-option"><a href="#">Intermediate distance, capable of hitting Alaska or Hawaii</a></li>
+                <li class="quiz-option"><a href="#">Long distance, capable of hitting the continental U.S.</a></li>
+                <li class="quiz-option"><a href="#">Don’t know</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="response-wrapper">
+        <p class="user-response hidden "></p>
+
+        <div id="bar-chart" class="graphic hidden ">
+            <img src="temp/fallback.png" alt="[Chart]" class="fallback graphic hidden invisible" />
+        </div>
+    </div>
+
+    <script id="response-template" type="text/template">
+        You picked <strong>&ldquo;<%= user_response %>,&rdquo;</strong> <%= user_value %> In an NPR/Ipsos poll, <strong>41 percent</strong> of people got it right.
+    </script>
+
+    <div class="footer">
+      {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+      {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var DATA = {{ COPY.data.json() }};
+        var LABELS = {{ COPY.labels.json() }};
+    </script>
+
+{% endblock content %}

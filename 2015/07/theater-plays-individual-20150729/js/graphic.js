@@ -163,7 +163,7 @@ var renderColumnChart = function(config) {
      */
     var aspectWidth = isMobile ? 4 : 16;
     var aspectHeight = isMobile ? 3 : 7;
-    var valueGap = 6;
+    var maxHeight = 330;
 
     var margins = {
         top: 20,
@@ -175,6 +175,9 @@ var renderColumnChart = function(config) {
     // Calculate actual chart dimensions
     var chartWidth = config['width'] - margins['left'] - margins['right'];
     var chartHeight = Math.ceil((config['width'] * aspectHeight) / aspectWidth) - margins['top'] - margins['bottom'];
+    if (chartHeight > maxHeight) {
+        chartHeight = maxHeight;
+    }
     var barHeight = Math.floor(chartHeight / ranksShown) - 1;
 
     // Clear existing graphic (for redraw)
@@ -228,7 +231,7 @@ var renderColumnChart = function(config) {
     }
 
     var yScale = d3.scale.ordinal()
-        .rangeRoundBands([ chartHeight, 0 ], .1)
+        .rangeRoundBands([ chartHeight, 0 ], .05)
         .domain(yDomain);
 
     /*
@@ -323,21 +326,6 @@ var renderColumnChart = function(config) {
         }
 
     }
-
-    metaInfo.attr('style', function() {
-        var s = '';
-        s += 'padding-left: ' + xScale(config['years'][0]) + 'px;';
-        s += 'padding-right: ' + xScale(config['years'][0]) + 'px;';
-        return s;
-    });
-
-    d3.select('#graphic .play-selector')
-        .attr('style', function() {
-            var s = '';
-            s += 'padding-left: ' + xScale(config['years'][0]) + 'px;';
-            s += 'padding-right: ' + xScale(config['years'][0]) + 'px;';
-            return s;
-        });
 }
 
 /*

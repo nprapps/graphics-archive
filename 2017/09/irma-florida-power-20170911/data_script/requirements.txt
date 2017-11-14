@@ -1,0 +1,4 @@
+jupyter==1.0.0
+matplotlib==2.0.0
+pandas==0.19.2
+arrow==0.10.0

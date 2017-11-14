@@ -1,0 +1,39 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY['sint-maarten'].headline %}<h1>{{ COPY['sint-maarten'].headline|smarty }}</h1>{% endif %}
+    {% if COPY['sint-maarten'].subhed %}<h2>{{ render(COPY['sint-maarten'].subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <div class="top-wrapper">
+            <div id="image-toggle" class="image-toggle">
+                <a id="toggle-1" class="toggle-btn active" href="#">
+                    <span class="btn-hed">{{ COPY['sint-maarten'].label_hed1 }}</span>
+                    <span class="btn-dek">{{ COPY['sint-maarten'].label_dek1 }}</span>
+                </a>
+                <a id="toggle-2" class="toggle-btn" href="#">
+                    <span class="btn-hed">{{ COPY['sint-maarten'].label_hed2 }}</span>
+                    <span class="btn-dek">{{ COPY['sint-maarten'].label_dek2 }}</span>
+                </a>
+            </div>
+        </div>
+        <div class="img-wrapper">
+            <img class="flip-image image-1" src="assets/{{ COPY['sint-maarten'].image1 }}" alt="Satellite imagery from before Irma">
+            <img class="flip-image image-2" src="assets/{{ COPY['sint-maarten'].image2 }}" alt="Satellite imagery from after Irma">
+        </div>
+    </div>
+
+    {% if COPY['sint-maarten'].footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY['sint-maarten'].footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY['sint-maarten'].source %}<p>Source: {{ COPY['sint-maarten'].source|smarty }}</p>{% endif %}
+        {% if COPY['sint-maarten'].credit %}<p>Credit: {{ COPY['sint-maarten'].credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

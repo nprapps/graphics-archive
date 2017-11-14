@@ -14,15 +14,13 @@ h3 {
 }
 
 .key-item {
-    &.hed label {
-        color: #444;
-    }
+    &.hed label { color: #444; }
     &.year-1600 b { background-color: #ebebeb; }
     &.year-1930 b { background-color: #f7e39b; }
     &.year-1960 b { background-color: #c6d2ae; }
     &.year-1990 b { background-color: #8bc0bf; }
 }
-    
+
 .group {
     &:before,
     &:after {
@@ -35,7 +33,7 @@ h3 {
         list-style-type: none;
         margin: 0 0 15px 0;
         padding: 0;
-        
+
         > li {
             display: table;
             width: 100%;
@@ -43,48 +41,48 @@ h3 {
             margin: 0 0 2px 0;
             font-size: 12px;
             color: #444;
-            
+
             &.active {
                 color: #fff;
                 cursor: pointer;
                 opacity: 1;
-                transition: color 0.2s ease-out, 
-                            background-color 0.2s ease-out, 
+                transition: color 0.2s ease-out,
+                            background-color 0.2s ease-out,
                             border-color 0.2s ease-out;
             }
 
             &.year-1600 {
                 background-color: #ebebeb;
                 opacity: 0.9;
-                
+
                 &.active { background-color: #999; }
             }
 
             &.year-1930,
             &.year-1940,
-            &.year-1950 { 
+            &.year-1950 {
                 background-color: #f7e39b;
                 opacity: 0.9;
-                
+
                 &.active { background-color: #EFC637; }
             }
             &.year-1960,
             &.year-1970,
-            &.year-1980 { 
+            &.year-1980 {
                 background-color: #c6d2ae;
                 opacity: 0.9;
-                
+
                 &.active { background-color: #99a363; }
             }
             &.year-1990,
             &.year-2000,
-            &.year-2010 { 
+            &.year-2010 {
                 background-color: #8bc0bf;
                 opacity: 0.9;
-                
+
                 &.active { background-color: #17807e; }
             }
-            
+
             &.hed {
                 font-weight: bold;
                 background: none;
@@ -96,13 +94,13 @@ h3 {
                 color: #666;
                 border-color: transparent;
             }
-            
+
             span {
                 display: table-cell;
                 vertical-align: top;
                 padding: 5px;
-                
-                &.rank { 
+
+                &.rank {
                     width: 20px;
                     text-align: center;
                 }
@@ -113,10 +111,21 @@ h3 {
 
 
 /* responsive table */
+@media screen and (min-width: 708px) {
+    h1,
+    .key,
+    .footnotes,
+    .footer {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 650px;
+    }
+}
+
 @media screen and (min-width: 501px) {
     .group {
         margin-bottom: 11px;
-        
+
         ul {
             display: block;
             width: 24%;
@@ -129,7 +138,7 @@ h3 {
 }
 
 @media screen and (max-width: 500px) {
-    .key .key-item.hed { 
+    .key .key-item.hed {
         display: block;
         margin-bottom: 6px;
     }
@@ -139,7 +148,7 @@ h3 {
             width: 48%;
             margin-right: 2%;
             float: left;
-            
+
             &.d1980s { clear: both; }
         }
     }

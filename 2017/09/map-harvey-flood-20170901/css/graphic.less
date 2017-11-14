@@ -1,0 +1,80 @@
+@import "base";
+
+// Add custom styles here
+body {
+    padding: 0 0 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#graphic {
+    .clearfix();
+    position: relative;
+}
+
+.map-wrapper {
+    box-sizing: border-box;
+    margin-bottom: 20px;
+
+    @media screen and (min-width: 650px) {
+        width: 49%;
+        float: left;
+        margin-bottom: 0;
+        
+        &:first-child {
+            margin-right: 2%;
+        }
+    }
+}
+
+.image-wrap {
+    position: relative;
+}
+
+.map-inset {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    border: 3px solid white;
+    box-shadow: 0 0 3px rgba(100,100,100,0.3);
+    max-width: 25%;
+
+    img {
+        display: block;
+    }
+}
+
+.legend-wrap {
+    padding: 5px 0;
+    text-align: center;
+
+    @media screen and (max-width: 860px) {
+        font-size: 12px;
+    }
+}
+
+.legend-item-wrap {
+    .gotham();
+    color: #888;
+    display: inline-block;
+    margin-right: 10px;
+
+    b {
+        width: 12px;
+        height: 12px;
+        margin-right: 4px;
+        display: inline-block;
+    }
+
+    &.map-water {
+        b { background: #48bbca; }
+    }
+
+    &.map-fema-100 {
+        b { background: #ff7f00; }
+    }
+
+    &.map-fema-500 {
+        b { background: #ffd754; }
+    }
+}

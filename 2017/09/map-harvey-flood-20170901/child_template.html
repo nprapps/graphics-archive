@@ -1,0 +1,47 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="graphic" class="graphic">
+        <div class="map-wrapper">
+            <div class="legend-wrap">
+                <div class="legend-item-wrap map-water">
+                    <b></b>
+                    <span>Preliminary estimate of surface water</span>
+                </div>
+            </div>
+            <div class="image-wrap">
+                <img src="assets/map-harvey-water-only.png" alt="Map of flooding after Harvey" />
+                <div class="map-inset">
+                    <img src="assets/texas-locator.png" alt="Locator map of Texas" />
+                </div>
+            </div>
+        </div>
+        <div class="map-wrapper">
+            <div class="legend-wrap">
+                <div class="legend-item-wrap map-fema-100">
+                    <b></b>
+                    <span>100-year flood zone</span>
+                </div>
+                <div class="legend-item-wrap map-fema-500">
+                    <b></b>
+                    <span>500-year flood zone</span>
+                </div>
+            </div>
+            <img src="assets/map-harvey-water-fema.png" alt="Map of flooding after Harvey" />
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

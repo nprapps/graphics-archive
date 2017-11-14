@@ -1,0 +1,33 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <div class="map-wrapper">
+            <h3>Current system</h3>
+            <p>Su can receive a liver donated at a hospital within the region highlighted below.</p>
+            <img src="assets/map-md-region.png" alt="Map of Maryland region" />
+        </div>
+        <div class="map-wrapper">
+            <h3>Proposed system</h3>
+            <p>Su can receive a liver donated at a hospital within the highlighted region and within 150 nautical miles of the center where she would undergo the transplant.</p>
+            <img src="assets/map-md-radius.png" alt="Map of radius" />
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

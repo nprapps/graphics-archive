@@ -1,0 +1,82 @@
+@import "base";
+
+h3 {
+    padding-left: 239px;
+    margin-bottom: 5px;
+
+    @media screen and (max-width: 500px) {
+        padding-left: 139px;
+    }
+}
+
+.axis.x {
+    text {
+        fill: #666;
+    }
+}
+
+.axis.y {
+    fill: #333;
+
+    text {
+        fill: #999;
+
+        @media screen and (max-width: 500px) {
+            font-size: 10px;
+        }
+    }
+}
+
+.area {
+    fill-opacity: 0.5;
+    fill: @red3;
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+
+    .approval {
+        stroke: @teal3;
+    }
+
+    .disapproval {
+        stroke: @red3;
+    }
+}
+
+.annotations {
+    circle {
+        fill: @red2;
+        stroke: #fff;
+        stroke-width: 1px;
+    }
+    line,
+    path {
+        stroke: #bbb;
+        fill: none;
+        shape-rendering: crispEdges;
+    }
+}
+
+.annot-text {
+    position: absolute;
+    left: 0;
+
+    .value {
+        font-size: 11px;
+        color: #666;
+        position: absolute;
+        line-height: 1.3;
+        -webkit-font-smoothing: antialiased;
+
+        strong { color: #333; }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .annot-text .value {
+        font-size: 10px;
+        line-height: 1.1;
+    }
+}

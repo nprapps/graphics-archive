@@ -13,7 +13,7 @@
             <li class="key-item key-1 year-1930"><b></b><label>1930s-1950s</label></li>
             <li class="key-item key-2 year-1960"><b></b><label>1960s-1980s</label></li>
             <li class="key-item key-3 year-1990"><b></b><label>1990s-2014</label></li></ul>
-    
+
         <div class="group">
             {% for decade in COPY.top6_data|groupby('decade') %}
             <ul class="d{{ decade.grouper }}">

@@ -1,0 +1,49 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <h3> 2001 </h3>
+
+    <div id="bar-chart" class="graphic">
+        <img src="fallback.png" alt="[Chart]" class="fallback" />
+    </div>
+
+    <div class="stat">
+        <h2>In <b>2001,</b> black juveniles were incarcerated at a rate</h2>
+        <h1><span class="highlight">4.1 times</span></h1>
+        <h2>higher than white juveniles</h2>
+    </div>
+
+    <h3> 2015 </h3>
+
+    <div id="bar-chart2" class="graphic">
+        <img src="fallback.png" alt="[Chart]" class="fallback" />
+    </div>
+
+    <div class="stat">
+        <h2>In <b>2015,</b> black juveniles were incarcerated at a rate</h2>
+        <h1><span class="highlight">5 times</span></h1>
+        <h2>higher than white juveniles</h2>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var DATA2001 = {{ COPY.data2001.json() }};
+        var DATA2015 = {{ COPY.data2015.json() }};
+    </script>
+
+{% endblock content %}

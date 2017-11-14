@@ -1,0 +1,39 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY['tortola'].headline %}<h1>{{ COPY['tortola'].headline|smarty }}</h1>{% endif %}
+    {% if COPY['tortola'].subhed %}<h2>{{ render(COPY['tortola'].subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <div class="top-wrapper">
+            <div id="image-toggle" class="image-toggle">
+                <a id="toggle-1" class="toggle-btn active" href="#">
+                    <span class="btn-hed">{{ COPY['tortola'].label_hed1 }}</span>
+                    <span class="btn-dek">{{ COPY['tortola'].label_dek1 }}</span>
+                </a>
+                <a id="toggle-2" class="toggle-btn" href="#">
+                    <span class="btn-hed">{{ COPY['tortola'].label_hed2 }}</span>
+                    <span class="btn-dek">{{ COPY['tortola'].label_dek2 }}</span>
+                </a>
+            </div>
+        </div>
+        <div class="img-wrapper">
+            <img class="flip-image image-1" src="assets/{{ COPY['tortola'].image1 }}" alt="Satellite imagery from before Irma">
+            <img class="flip-image image-2" src="assets/{{ COPY['tortola'].image2 }}" alt="Satellite imagery from after Irma">
+        </div>
+    </div>
+
+    {% if COPY['tortola'].footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY['tortola'].footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY['tortola'].source %}<p>Source: {{ COPY['tortola'].source|smarty }}</p>{% endif %}
+        {% if COPY['tortola'].credit %}<p>Credit: {{ COPY['tortola'].credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

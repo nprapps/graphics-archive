@@ -1,0 +1,169 @@
+@import "base";
+
+@baseColor: @orange3;
+
+/*----------*/
+
+.bars rect {
+    fill: @baseColor;
+    fill-opacity: 0.7;
+}
+
+/*----------*/
+
+svg { font-size: 20px; }
+
+h1 strong { color: @baseColor; }
+
+#tooltip {
+    position: absolute;
+    background: rgba(255, 255, 255, .9);
+    color: #333;
+    border: 1px solid #eee;
+    padding: 4px;
+    font-size: 10.5px;
+    .gotham();
+    display: none;
+    max-width: 150px;
+    box-sizing: content-box;
+    pointer-events: none;
+
+    &.active { display: block; }
+}
+
+.counties path {
+    fill: #ddd;
+    stroke: #fff;
+    stroke-width: .5px;
+}
+
+.stormpath path,
+.forecastpath path {
+    fill: none;
+    stroke: #aaa;
+    stroke-width: 2px;
+    display: none;
+
+    &.hu { stroke-width: 5px; }
+}
+
+.forecastpath path { stroke-dasharray: 2px 2px; }
+
+.cities path {
+    fill: #787878;
+
+    &.admin-0-capital { fill: #333; }
+}
+
+.city-labels text {
+    fill: #555;
+    font-size: 65%;
+    text-anchor: start;
+    font-family: 'Gotham SSm', Helvetica, Arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+
+    &.admin-0-capital {
+        fill: #555;
+        font-weight: bold;
+    }
+}
+
+.city-labels.shadow text {
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 2px;
+    opacity: .7;
+}
+
+.country-labels text {
+    fill: #787878;
+    font-size: 80%;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    text-anchor: middle;
+    font-family: 'Gotham SSm', Helvetica, Arial,sans-serif;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+
+    &.primary {
+        fill: #555;
+        font-weight: 700;
+        font-size: 90%;
+    }
+    &.bhutan { display: none; }
+}
+
+.scale-bar {
+    line {
+        stroke: #666;
+        stroke-width: 5px;
+    }
+    text {
+        font-family: Helvetica, Arial,sans-serif;
+        fill: #666;
+        font-size: 60%;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+.bubbles {
+    circle {
+        fill: @baseColor;
+        fill-opacity: .3;
+        stroke: @baseColor;
+        stroke-width: .5;
+        stroke-opacity: .5;
+
+        &:hover {
+            cursor: pointer;
+            stroke-opacity: 1;
+            fill-opacity: .6;
+        }
+    }
+}
+
+.key-scale {
+    circle {
+        fill: none;
+        stroke: #ddd;
+        stroke-width: 1px;
+    }
+    text {
+        fill: #999;
+        font-size: 10px;
+        text-anchor: middle;
+    }
+}
+
+.key {
+    margin-top: 0;
+    margin-bottom: 11px;
+}
+
+// responsive styles
+@media screen and (min-width: 501px) {
+    #bar-chart {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .key-scale text { font-size: 7px; }
+
+    svg { font-size: 12px; }
+    .counties path { stroke-width: .2px; }
+    .city-labels text { letter-spacing: .5px; }
+    .city-labels.shadow { display: none; }
+    .city-labels text,
+    .cities path {
+        &.scalerank-4,
+        &.scalerank-5,
+        &.scalerank-6,
+        &.scalerank-7,
+        &.scalerank-8 {
+            display: none;
+        }
+    }
+}

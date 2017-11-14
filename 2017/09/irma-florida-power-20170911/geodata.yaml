@@ -1,0 +1,30 @@
+bbox: '-87.89 24.08 -79.45 31.27'
+layers:
+    counties:
+        type: 'shp'
+        path: 'assets/private/tl_2016_us_county/'
+        id-property: 'GEOID'
+        properties:
+            - 'NAME'
+            - 'NAMELSAD'
+        where: STATEFP = '12'
+
+    cities:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_populated_places_simple.zip'
+        id-property: 'name'
+        properties:
+            - 'featurecla'
+            - 'city=name'
+            - 'scalerank'
+        where: adm0name = 'United States of America' AND scalerank < 5
+
+    stormpath:
+        type: 'shp'
+        path: 'assets/private/AL112017_lin/'
+        id-property: 'STORMTYPE'
+
+    forecastpath:
+        type: 'shp'
+        path: 'assets/private/al112017-050A_5day_lin/'
+        id-property: 'STORMTYPE'

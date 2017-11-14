@@ -1,0 +1,54 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+    stroke-dasharray: 5, 5;
+
+    .current-effort {
+        stroke-dasharray: 0;
+    }
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+
+    &.reduced-effort {
+        fill: @red3;
+    }
+    &.current-effort {
+        fill: #666;
+    }
+    &.increased-effort {
+        fill: @teal3;
+    }
+}
+
+text.y-label {
+    fill: #999;
+    font-size: 12px;
+    font-style: italic;
+    text-anchor: middle;
+}
+
+.projectedLabel {
+    font-size: 12px;
+    font-style: italic;
+    fill: #777;
+    text-anchor: middle;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

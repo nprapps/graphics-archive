@@ -1,0 +1,11 @@
+@import "base";
+
+.bars rect {
+    .country & { fill: @teal3; }
+    .state & { fill: @teal5; }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    .chart.country { margin-bottom: 22px; }
+}

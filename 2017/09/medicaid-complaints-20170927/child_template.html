@@ -1,0 +1,60 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th class="rating">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_stars }}</div>
+                    </th>
+                    <th class="complaints amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_complaints }}</div>
+                    </th>
+                    <th class="beds amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_beds }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="row-{{ row.stars }}">
+                <td data-title="{{ COPY.labels.hdr_stars }}" class="rating">{{ row.stars_fmt }}<span class="mobile"> {{ COPY.labels.hdr_stars }}</span></td>
+                <td data-title="{{ COPY.labels.hdr_complaints }}" class="complaints amt">{{ row.complaints }}</td>
+                <td data-title="{{ COPY.labels.hdr_beds }}" class="beds amt">
+                    <div class="bar" style="width: {{ row.beds }}%"></div>
+                    <div class="val" style="left: {{ row.beds_label_pos }}%">{{ row.beds }}%</div>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

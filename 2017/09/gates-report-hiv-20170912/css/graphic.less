@@ -1,0 +1,61 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+    stroke-dasharray: 5, 5;
+
+    .current-aid {
+        stroke-dasharray: 0;
+    }
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+
+    &.reduced-aid {
+        fill: @red3;
+    }
+    &.current-aid {
+        fill: #666;
+    }
+    &.increased-aid {
+        fill: @teal3;
+    }
+
+}
+
+.projectedLabel {
+    font-size: 12px;
+    font-style: italic;
+    fill: #777;
+    text-anchor: middle;
+}
+
+.projectedTargetText{
+    font-size: 12px;
+    font-weight: bold;
+    fill: @teal3;
+}
+
+text.y-label{
+    text-anchor: middle;
+    fill: #999;
+    font-size: 12px;
+    font-style: italic;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

@@ -1,0 +1,21 @@
+bbox: '-88.33 12.45 -55.81 31.48'
+layers:
+    countries:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip'
+        id-property: 'NAME'
+        properties:
+            - 'country=NAME'
+    cities:
+        type: 'shp'
+        path: 'http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_populated_places_simple.zip'
+        id-property: 'name'
+        properties:
+            - 'featurecla'
+            - 'city=name'
+            - 'scalerank'
+        where: scalerank <= 2
+
+    stormpath:
+        type: 'shp'
+        path: 'assets/private/al112017_lin/'

@@ -1,0 +1,39 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="quiz-wrapper" class="graphic">
+        <div id="size-wrapper">
+            <p class="quiz-question">If the U.S. president wanted to order a nuclear strike, what procedure would he have to follow?</p>
+            <ul class="quiz-list">
+                <li class="quiz-option"><a href="#">Just order it</a></li>
+                <li class="quiz-option"><a href="#">Get approval from Congress</a></li>
+                <li class="quiz-option"><a href="#">Coordinate with the secretary of defense</a></li>
+                <li class="quiz-option"><a href="#">Get confirmation from the Joint Chiefs of Staff</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="response-wrapper">
+        <p class="user-response hidden "></p>
+
+        <div id="bar-chart" class="graphic hidden ">
+            <img src="temp/fallback.png" alt="[Chart]" class="fallback graphic hidden invisible" />
+        </div>
+    </div>
+
+    <script id="response-template" type="text/template">
+        You picked <strong>&ldquo;<%= user_response %>,&rdquo;</strong> <%= user_value %> In an NPR/Ipsos poll, <strong>24 percent</strong> of people got it right.
+    </script>
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var DATA = {{ COPY.data.json() }};
+        var LABELS = {{ COPY.labels.json() }};
+    </script>
+
+{% endblock content %}

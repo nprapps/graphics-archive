@@ -1,0 +1,63 @@
+@import "base";
+
+@increased: @teal3;
+@decreased: @orange3;
+
+.graphic { margin-bottom: 22px; }
+
+.key {
+    margin-top: 15px;
+    margin-bottom: 22px;
+
+    .key-item {
+        &.decreased b { background-color: @decreased; }
+        &.increased b { background-color: @increased; }
+    }
+}
+
+.labels li.overall {
+    font-weight: bold;
+    color: #333;
+}
+
+.bars line {
+    fill: none;
+    stroke-width: 4px;
+    stroke: #eee;
+
+    &.decreased { stroke: @decreased; }
+    &.increased { stroke: @increased; }
+}
+
+.guidelines line {
+    fill: none;
+    stroke-width: 1px;
+    stroke: #eee;
+}
+
+.dots circle {
+    stroke-width: 1px;
+    stroke: #fff;
+
+    &.decreased { fill: @decreased; }
+    &.increased { fill: @increased; }
+}
+
+.value text,
+.shadow text {
+    font-size: 12px;
+
+    &.overall { font-weight: bold; }
+}
+
+.value text {
+    fill: #787878;
+
+    &.overall { fill: #666; }
+}
+
+.shadow text {
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}
