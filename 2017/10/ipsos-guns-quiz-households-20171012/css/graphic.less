@@ -1,0 +1,261 @@
+@import "base";
+
+@linkblue: #4774CC;
+@buttonblue: #6d8ac4;
+@buttonhover: #7598c9;
+
+@screen-medium: ~'screen and (max-width: 737px)';
+@screen-tiny-above: ~'screen and (min-width: 501px)';
+@screen-tiny: ~'screen and (max-width: 500px)';
+
+@-webkit-keyframes fadeIn {
+  to {
+    opacity: 1;
+    display: block;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    display: block;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+// Add custom styles here
+
+h1, h2 {
+    .gotham();
+    font-size: 18px;
+    text-align: center;
+    -webkit-font-smoothing: antialias;
+    margin: 0 auto 5px;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+#quiz-wrapper {
+    .gotham();
+    margin: 0;
+    text-align: center;
+
+    .quiz-question {
+        margin-top: 0;
+        font-size: 18px;
+        -webkit-font-smoothing: antialiased;
+        color: #666;
+
+        strong {
+            color: #333;
+        }
+    }
+
+    ul {
+        .clearfix();
+        padding: 0;
+        margin: 0 auto 18px;
+        max-width: 650px;
+
+        &.faded {
+            -webkit-animation: fadeOut 500ms linear forwards;
+            animation: fadeOut 500ms linear forwards;
+        }
+    }
+
+    li.quiz-option {
+        display: inline;
+        // float: left;
+        list-style-type: none;
+        width: 100%;
+        margin-bottom: 10px;
+
+
+        @media @screen-tiny {
+            display: block;
+            width: 100%;
+            margin-bottom: 3px;
+        }
+
+        a {
+            margin-right: 10px;
+            display: inline-block;
+            background: @buttonblue;
+            font-size: 1em;
+            color: white;
+            padding: 15px 5px;
+            border-radius: 3px;
+            min-width: 130px;
+            -webkit-transition: background 500ms ease-out;
+            -moz-transition: background 500ms ease-out;
+            -o-transition: background 500ms ease-out;
+            transition: background 500ms ease-out;
+
+            &:hover {
+                background: tint(@buttonhover, 10%);
+            }
+        }
+    }
+
+    ul.answered li.quiz-option {
+        a {
+            cursor: default;
+            background: #ccc;
+
+            &.selected {
+                background: @buttonblue;
+            }
+        }
+    }
+}
+
+#response-wrapper {
+    p {
+        .gotham();
+        box-sizing: border-box;
+        max-width: 650px;
+        background: @orange5;
+        border: 2px solid @orange3;
+        padding: 15px;
+        margin: 0 auto 22px auto;
+        text-align: center;
+        font-size: 1em;
+        opacity: 0;
+        -webkit-transition: opacity 50ms ease-out;
+        -moz-transition: opacity 50ms ease-out;
+        -o-transition: opacity 50ms ease-out;
+        transition: opacity 50ms ease-out;
+    }
+
+    .fade-in {
+        -webkit-animation: fadeIn 500ms linear forwards;
+        animation: fadeIn 500ms linear forwards;
+    }
+
+    p.correct {
+      background: @orange5;
+      border: 2px solid @orange3;
+    }
+
+    p.incorrect{
+      background: #f1f1f1;
+      border: 2px solid #999;
+    }
+
+    // TEMPORARY STYLING
+    img {
+        width: 100%;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .invisible {
+        opacity: 0;
+    }
+
+    #bar-chart{
+        opacity: 0;
+    }
+
+}
+
+.hidden{
+  display: none;
+}
+
+
+#response-wrapper{
+    h4 {
+        .knockout-header();
+        margin: 0 0 0 0;
+        color: #999;
+        font-size: 10px;
+        font-weight: normal;
+        text-transform: uppercase;
+
+        .correct { color: @orange3; }
+    }
+}
+
+.graphic-wrapper {
+    h1 { margin-bottom: 15px; }
+
+    h3 {
+      text-transform: uppercase;
+    }
+
+    // find better way of highlighting the correct answer
+    .labels li.total {
+        font-weight: bold;
+        color: #454545;
+    }
+    .value text.total {
+        font-weight: bold;
+        fill: #454545;
+    }
+
+    .bg rect { fill: #f1f1f1; }
+    .bars rect {
+        fill: #999;
+        fill-opacity: .5;
+
+        // find better way of highlighting the correct answer
+        &.total { fill-opacity: 1; }
+        .correct & { fill: @orange3; }
+    }
+
+    @media screen and (min-width: 708px) {
+        h1 {
+            text-align: center;
+            margin: 0 auto 15px auto;
+            max-width: 650px;
+        }
+        .footer {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 650px;
+        }
+    }
+    @media screen and (max-width: 500px) {
+        .chart { margin-bottom: 22px; }
+    }
+}
+
+// @media screen and (min-width: 708px) {
+//     .quiz-question,
+//     .footnotes,
+//     .footer {
+//         margin-left: auto;
+//         margin-right: auto;
+//         max-width: 650px;
+//     }
+// }
+
+
+@media screen and (max-width: 500px) {
+    #quiz-wrapper {
+        ul.quiz-list {
+            margin-bottom: 18px;
+
+            li.quiz-option a {
+                margin: 0;
+                width: 75%;
+            }
+        }
+    }
+}

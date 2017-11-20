@@ -1,0 +1,114 @@
+@import "base";
+
+.footnotes { margin-top: 22px; }
+
+.graphic h4 {
+    .gotham();
+    margin: 0 0 22px 0;
+
+    .org-count {
+        font-weight: 700;
+        font-size: 120%;
+
+        &.norecord { color: @red3; }
+        &.notfound { color: @teal3; }
+        &.declined { color: @yellow2; }
+        &.unverified { color: #666; }
+        &.verified { color: @blue2; }
+    }
+}
+
+.org-list {
+    margin: 0 0 33px 0;
+    padding: 0;
+    list-style-type: none;
+    .clearfix();
+
+    > li {
+        float: left;
+        line-height: 1;
+        margin: 0 3px 3px 0;
+        padding: 6px 8px;
+        border-radius: 4px;
+        white-space: nowrap;
+        font-size: 11px;
+        .gotham();
+
+        .norecord& {
+            color: @red3;
+            background-color: @red6;
+        }
+        .notfound& {
+            color: @teal3;
+            background-color: @teal6;
+        }
+        .declined& {
+            color: @yellow2;
+            background-color: @yellow6;
+        }
+        .unverified& {
+            color: #666;
+            background-color: #ddd;
+        }
+        .verified& {
+            color: @blue2;
+            background-color: @blue6;
+        }
+    }
+}
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 0 10px 10px 10px;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    th,
+    td {
+        &.amt {
+            text-align: right;
+        }
+    }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    #graphic { overflow-x: hidden; }
+
+    .org-list > li {
+        display: inline;
+        font-size: 10.5px;
+        float: none;
+        line-height: 2.3;
+        padding: 4px 6px;
+        margin: 0 2px 0 0;
+    }
+}

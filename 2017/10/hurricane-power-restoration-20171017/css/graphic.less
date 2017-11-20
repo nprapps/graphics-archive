@@ -1,0 +1,31 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    fill: #787878;
+
+    &.label-0 {
+        fill: #454545;
+        font-weight: bold;
+    }
+}
+
+.x.axis.label {
+    text-anchor: middle;
+    font-style: italic;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+}

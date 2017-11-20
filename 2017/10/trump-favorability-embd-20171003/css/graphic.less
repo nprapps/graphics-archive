@@ -1,0 +1,72 @@
+@import "base";
+
+text {
+    -webkit-font-smoothing: antialiased;
+}
+
+.annotations {
+    line {
+        stroke-dasharray: 2px 3px;
+        stroke-width: 2px;
+        stroke: #ccc;
+    }
+
+    text {
+        font-size: 12px;
+        fill: #999;
+
+        // Some trickiness to get italics in the wrapped text
+        tspan tspan {
+            font-style: italic;
+        }
+
+        &.anno-date {
+            font-weight: bold;
+        }
+    }
+}
+
+.point-label {
+    font-size: 12px;
+    fill: @teal3;
+
+    &.label-highlight {
+        font-weight: bold;
+    }
+}
+
+.lines {
+    fill: none;
+    stroke-width: 2px;
+    stroke: #ccc;
+}
+
+.dots {
+    stroke: #fff;
+    stroke-width: 1px;
+
+    .circle-hide {
+        display: none;
+    }
+}
+
+.value text {
+    font-size: 12px;
+    fill: @teal3;
+
+    &.label-highlight {
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text, .annotations text, .point-label text {
+        font-size: 11px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

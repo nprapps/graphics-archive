@@ -1,0 +1,58 @@
+@import "base";
+
+#chart-wrapper {
+    .clearfix();
+}
+
+.graphic {
+    float: left;
+
+    &:first-child {
+        margin-right: 12px;
+    }
+}
+
+.axis {
+    fill: #666;
+    font-weight: bold;
+    font-size: 12px;
+
+    path { display: none; }
+}
+
+.lines line {
+    stroke-width: 3px;
+    stroke: #ddd; //#999
+    shape-rendering: auto;
+
+    &.highlight {
+        stroke: @teal3;
+    }
+}
+
+.dots circle {
+    fill: #ddd;
+    stroke: #fff;
+    stroke-width: 1px;
+
+    &.highlight {
+        fill: @teal3;
+    }
+}
+
+.value text {
+    font-size: 11px;
+    fill: #333;
+}
+
+.label text {
+    font-size: 11px;
+    fill: #333;
+}
+
+@media screen (max-width: 500px) {
+    .graphic {
+        margin-right: 0;
+        margin-bottom: 33px;
+    }
+}

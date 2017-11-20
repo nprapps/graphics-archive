@@ -1,0 +1,123 @@
+@import "base";
+
+// Add custom styles here
+
+h1{
+
+  text-align: center;
+
+  .highlight{
+    border-bottom: 1px solid @orange3;
+    color: @orange3;
+    white-space: nowrap;
+  }
+
+ }
+
+#headline2{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+ h4 {
+     margin: 0 0 15px 0;
+     .gotham();
+     font-weight: 700;
+     padding-top: 0;
+     line-height: 1.2;
+     -webkit-font-smoothing: antialiased;
+     font-size: 12px;
+     color: #333;
+ }
+
+
+#exit-row{
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.row{
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: row;
+
+  p{
+    margin: 0;
+    font-weight: 100;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  h4{
+    margin: 0 0 3px 0;
+    font-size: 1.2em;
+  }
+
+}
+
+.arrow-box{
+  display: flex;
+  flex-basis: 100%;
+  justify-content: center;
+}
+
+.arrow{
+  img{
+    margin-top: 2px;
+    height: 35px;
+  }
+}
+
+.no-arrow{
+  margin-top: 20px;
+}
+
+.box-half{
+  flex-basis: 45%;
+}
+
+.box-full{
+  flex-basis: 100%;
+}
+
+.box-half, .box-full{
+  padding: 2%;
+  background-color: #DEDEDE;
+  text-align: center;
+}
+
+.footer p{
+  margin-top: 20px;
+}
+
+#highlight-red{
+  background-color: @orange3;
+  color: white;
+  h4{
+    color: white;
+  }
+}
+
+.block{
+  flex-basis: 100%;
+  margin: 10px 0;
+}
+
+#block2{
+  order: 1;
+}
+
+@media (min-width: 500px){
+
+  #block2{
+    order:0;
+  }
+
+  .block{
+    flex-basis: 30%;
+    .box-full{
+      padding: 7%;
+    }
+  }
+
+}

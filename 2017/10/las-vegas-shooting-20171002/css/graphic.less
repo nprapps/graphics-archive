@@ -1,0 +1,82 @@
+@import "base";
+
+body {
+    &.env-homepage {
+        padding: 0 0 10px;
+
+        #graphic {
+            margin-bottom: 5px;
+        }
+
+        .footer p {
+            text-align: right;
+        }
+
+        h1, h2, .footer p:first-child {
+            display: none;
+        }
+
+        @media screen and (max-width: 399px) {
+            #inset-map {
+                display: none;
+            }
+        }
+    }
+}
+
+#graphic {
+    position: relative;
+
+    img {
+        display: block;
+    }
+}
+
+#inset-map {
+    .inset-mobile {
+        display: block;
+    }
+
+    .inset-desktop {
+        display: none;
+    }
+
+    @media screen and (min-width: 400px) {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        width: 27%;
+        max-width: 300px;
+        box-shadow: 0 0 8px rgba(0,0,0,0.3);
+
+        .inset-mobile {
+            display: none;
+        }
+
+        .inset-desktop {
+            display: block;
+        }
+    }
+
+    @media screen and (max-width: 729px) and (min-width: 400px) {
+        left: 5px;
+        bottom: 5px;
+        width: 35%;
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    }
+}
+
+// ai2html artboard sizes
+@media screen and (min-width: 730px) {
+        #g-ai2html-graphic-small, #g-ai2html-graphic-medium { display: none; }
+}
+
+@media screen and (max-width: 729px) and (min-width: 400px) {
+    #g-ai2html-graphic-small, #g-ai2html-graphic-wide { display: none; }
+}
+
+@media screen and (max-width: 399px) {
+    #g-ai2html-graphic-medium, #g-ai2html-graphic-wide { display: none; }
+}
+
+// Add custom styles here

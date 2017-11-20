@@ -1,0 +1,36 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <div id="g-ai2html-graphic-small">
+            <img src="img/static-map-small.png" alt="Map of Las Vegas shooting" />
+        </div>
+        <div id="g-ai2html-graphic-medium">
+            <img src="img/static-map-medium.png" alt="Map of Las Vegas shooting" />
+        </div>
+        <div id="g-ai2html-graphic-wide">
+            <img src="img/static-map-wide.png" alt="Map of Las Vegas shooting" />
+        </div>
+        <div id="inset-map">
+            <img class="inset-mobile" src="img/inset-las-vegas-mobile.png" alt="Locator map of Las Vegas" />
+            <img class="inset-desktop" src="img/inset-las-vegas-desktop.png" alt="Locator map of Las Vegas" />
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

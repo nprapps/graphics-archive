@@ -1,0 +1,123 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<p>{{ render(COPY.labels.subhed)|smarty }}</p>{% endif %}
+
+    <!-- <div id="graphic" class="graphic">
+        <img src="fallback.png" alt="[Chart]" class="fallback" />
+    </div> -->
+
+    <div class="row">
+      <div class="box-full">
+        <h4>{{COPY.labels.box1_title}}</h4>
+        <p>{{COPY.labels.box1_text}}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="arrow-box">
+        <div class="arrow">
+          <img src="arrow.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="box-full" id="highlight-red">
+        <h4>{{COPY.labels.box2_title}}</h4>
+        <p>{{COPY.labels.box2_text}}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="arrow-box">
+        <div class="arrow">
+          <img src="arrow.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="box-full" id="highlight-red">
+        <h4>{{COPY.labels.box3_title}}</h4>
+        <p>{{COPY.labels.box3_text}}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="arrow-box">
+        <div class="arrow">
+          <img src="arrow.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="box-full">
+        <h4>{{COPY.labels.box4_title}}</h4>
+        <p>{{COPY.labels.box4_text}}</p>
+      </div>
+    </div>
+
+    <br>
+
+    <h1 id="headline2"> {{COPY.labels.headline2}} </h1>
+
+
+    <div class="row" id="exit-row">
+
+      <div class="block">
+        <div class="box-full">
+          <h4>{{COPY.labels.box5_title}}</h4>
+          <p>{{COPY.labels.box5_text}}</p>
+        </div>
+      </div>
+
+      <div class="block" id="block2">
+
+        <div class="box-full">
+          <h4>{{COPY.labels.box7_title}}</h4>
+          <p>{{COPY.labels.box7_text}}</p>
+        </div>
+
+        <div class="arrow-box">
+          <div class="arrow">
+            <img src="arrow.png">
+          </div>
+        </div>
+
+        <div class="box-full">
+          <h4>{{COPY.labels.box8_title}}</h4>
+          <p>{{COPY.labels.box8_text}}</p>
+        </div>
+
+      </div>
+
+      <div class="block">
+
+        <div class="box-full">
+          <h4>{{COPY.labels.box6_title}}</h4>
+          <p>{{COPY.labels.box6_text}}</p>
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,100 @@
+@import "base";
+
+h1 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.key {
+    margin-top: 0;
+    display: webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+
+    .key-item {
+        display: block;
+        margin: 0 0 3px 0;
+        width: 50%;
+    }
+}
+
+.labels {
+    .overall {
+        font-weight: bold;
+        color: #333;
+    }
+}
+
+.group {
+    rect { opacity: 0.7; }
+
+    &.overall {
+        rect { opacity: 1; }
+        text { font-weight: bold; }
+    }
+}
+
+// Add custom styles here
+.value text {
+    fill: #fff;
+
+    &.left { text-anchor: start; }
+    &.right { text-anchor: end; }
+
+    &.out {
+        font-size: 9px;
+
+        &.left { text-anchor: end; }
+        &.right { text-anchor: start; }
+    }
+
+    &.hidden{
+      display: none;
+    }
+}
+
+.annotations {
+    .label {
+        font-size: 12px;
+        font-weight: bold;
+        -webkit-font-smoothing: antialiased;
+    }
+    .label-0 { text-anchor: end; }
+    .label-1 { text-anchor: start; }
+}
+
+// @media screen and (min-width: 708px) {
+//     h1 {
+//         max-width: 650px;
+//     }
+//     .footnotes,
+//     .footer {
+//         margin-left: auto;
+//         margin-right: auto;
+//         max-width: 650px;
+//     }
+// }
+
+@media screen and (min-width: 650px) {
+    h1 {
+        text-align: center;
+        margin: 0 auto 15px auto;
+        // max-width: 650px;
+    }
+    .key {
+        justify-content: center;
+        flex-wrap: nowrap;
+        margin-bottom: 22px;
+
+        .key-item {
+            margin: 0 11px;
+            width: auto;
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+    .chart { margin-bottom: 22px; }
+    .value text { font-size: 9px; }
+}

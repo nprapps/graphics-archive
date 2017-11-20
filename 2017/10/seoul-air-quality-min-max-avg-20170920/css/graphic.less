@@ -1,0 +1,228 @@
+@import "base";
+
+@good: #8bc0b0;
+@moderate: #f7e39b;
+@unhealthy-for-sensitive-groups: #f1c696;
+@unhealthy: #eca395;
+@very-unhealthy: #bb92ab;
+@hazardous: #927e99;
+
+.key .key-item {
+    float: none;
+
+    b {
+        border-radius: 4px;
+        width: 45px;
+        height: auto;
+        color: #fff;
+        line-height: 20px;
+        padding: 0 5px;
+        text-align: center;
+        white-space: nowrap;
+        letter-spacing: 0.03em;
+    }
+
+    &.good b { background-color: darken(@good, 15%); }
+    &.moderate b { background-color: darken(@moderate, 15%); }
+    &.unhealthy-for-sensitive-groups b { background-color: darken(@unhealthy-for-sensitive-groups, 15%); }
+    &.unhealthy b { background-color: darken(@unhealthy, 15%); }
+    &.very-unhealthy b { background-color: darken(@very-unhealthy, 15%); }
+    &.hazardous b { background-color: darken(@hazardous, 15%); }
+
+    label { white-space: normal; }
+}
+
+.bar rect {
+    opacity: 1;
+}
+
+.bar text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.line {
+    fill: none;
+    stroke: #333;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+}
+
+.laline {
+    fill: none;
+    stroke: #999;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+}
+
+line.anno-leader {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1px;
+
+    &.anno-avg {
+        stroke: #333;
+        stroke-width: 1px;
+    }
+}
+
+.highlights rect {
+    fill: #dfdfdf;
+}
+
+.highlight-label {
+    font-size: 12px;
+    font-style: italic;
+    fill: #666;
+    -webkit-font-smoothing: antialiased;
+
+    &.label-apr {
+        text-anchor: end;
+    }
+}
+
+.highlight-note {
+    display: none;
+    font-size: 11px;
+    color: #666;
+    padding: 10px 0 0;
+    -webkit-font-smoothing: antialiased;
+
+    b {
+        display: inline-block;
+        width: 24px;
+        height: 12px;
+        background: #dfdfdf;
+        margin-right: 5px;
+        margin-bottom: -1px;
+    }
+}
+
+.anno-label {
+    fill: #999;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+
+    &.anno-avg {
+        fill: #333;
+        font-weight: bold;
+    }
+}
+
+.anno-label-la {
+    fill: #999;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+
+    &.anno-avg-la {
+        fill: #999;
+        font-weight: bold;
+    }
+}
+
+@media screen and (min-width: 708px) {
+    h1,
+    h2,
+    .footnotes,
+    .footer {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 650px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .highlight-label {
+        display: none;
+    }
+
+    .legend-wrap {
+        .highlight-note {
+            display: block;
+        }
+    }
+}
+
+@media screen and (min-width: 401px) {
+    .legend-wrap {
+        text-align: center;
+        margin: -10px auto 10px;
+
+        h3 {
+            margin: 0 auto;
+        }
+    }
+
+    .key {
+        display: table;
+        margin: 10px auto 0 auto;
+        max-width: 600px;
+
+        .key-item {
+            display: table-cell;
+            width: 16%;
+            text-align: center;
+            vertical-align: top;
+            margin: 0;
+
+            b {
+                float: none;
+                font-size: 11px;
+            }
+            label {
+                display: block;
+                margin-top: 5px;
+                font-size: 11px;
+                line-height: 1.3;
+                padding: 0 5px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .graphic {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+    }
+
+    .legend-wrap {
+        margin: 10px 0 0;
+    }
+
+    .key {
+        margin-top: 11px;
+        margin-bottom: 0;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+
+        .key-item {
+            margin-bottom: 3px;
+            line-height: 20px;
+            display: block;
+
+            b {
+                font-size: 10px;
+                width: 40px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    /*.bar rect { opacity: 0.7; }*/
+    .line { stroke-width: .5px; }
+}
+
+@media screen and (max-width: 380px) {
+    .anno-label {
+        font-size: 10px;
+    }
+}

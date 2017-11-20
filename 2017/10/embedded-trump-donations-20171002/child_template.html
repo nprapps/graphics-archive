@@ -1,0 +1,41 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        {% for c in COPY.categories %}
+        <h4><span class="org-count {{ c.category|classify }}">{{ c.count }}</span> {{ c.label }}</h4>
+        <ul class="org-list {{ c.category|classify }}">
+            {% for org in COPY.data_cleaned %}
+            {% if org.status == c.category %}
+            <li>{{ org.org }}{% if org.note %}*{% endif %}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </div>
+
+    <div class="footnotes">
+        <h4>Notes</h4>
+        {% for org in COPY.data_cleaned %}
+        {% if org.note != '' %}
+        <p>&mdash;&nbsp;<strong>{{ org.org }}:</strong> {{ org.note|smarty }}</p>
+        {% endif %}
+        {% endfor %}
+        <!-- <p>{{ COPY.labels.footnote|smarty }}</p> -->
+    </div>
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+{% endblock js %}

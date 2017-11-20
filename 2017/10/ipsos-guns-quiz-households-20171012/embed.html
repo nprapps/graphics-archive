@@ -1,0 +1,63 @@
+<div id="responsive-embed-ipsos-aca-quiz-20170110"></div>
+<script type=text/javascript>
+    (function(jQuery) {
+        if (typeof jQuery !== 'undefined' && typeof jQuery.getScript === 'function') {
+            // add randomness to id to support for multiple graphic instances in one story
+            var el = document.getElementById("responsive-embed-ipsos-aca-quiz-20170110");
+            el.id = el.id + "-" + Math.random().toString(36).substr(2,5);
+            jQuery.getScript("//pym.nprapps.org/pym.v1.min.js").done(function () {
+                jQuery(function () { // Wait for page load
+                        var sendViewportHeight = function() {
+                            var height = window.innerHeight || document.documentElement.clientHeight;
+                            if (this.el.getElementsByTagName('iframe').length !== 0) {
+                                var viewportData = {
+                                    height: height,
+                                    offsetTop: parseInt($('#' + el.id).offset().top)
+                                };
+                                this.sendMessage('viewport-data', JSON.stringify(viewportData));
+                            }
+                        };
+
+                        var scrollParent = function(childScrollOffset) {
+                            var iframeOffset = parseInt($('#' + el.id).offset().top);
+                            var finalScrollOffset = iframeOffset + parseInt(childScrollOffset);
+                            $('html, body').delay(600).animate({ scrollTop: finalScrollOffset + 'px' }, 1000);
+                        };
+
+
+                    var pymParent = new pym.Parent(
+                        el.id,
+                        '//apps.npr.org/dailygraphics/graphics/ipsos-aca-quiz-20170110/child.html',
+                        {}
+                    );
+
+                        pymParent.onMessage('get-viewport-height', sendViewportHeight);
+                        pymParent.onMessage('scroll-position', scrollParent);
+
+
+                    jQuery.getScript("//carebot.nprapps.org/carebot-tracker.v0.min.js").done(function () {
+                        var tracker = new CarebotTracker.VisibilityTracker(el.id, function(result) {
+                            // Ignore Carebot events to empty embeds, keeps listening after unloading the page
+                            if (pymParent.el.getElementsByTagName('iframe').length !== 0) {
+                                pymParent.sendMessage('on-screen', result.bucket);
+                            }
+                        });
+                        // Check if there is already an scroll tracker somewhere on the page
+                        if (!document.querySelector("[data-carebot-scroll]")) {
+                            pymParent.el.setAttribute("data-carebot-scroll", "");
+                            var scrollTracker = new CarebotTracker.ScrollTracker('storytext', function(percent, seconds) {
+                                // Ignore Carebot events to empty embeds, keeps listening after unloading the page
+                                if (pymParent.el.getElementsByTagName('iframe').length !== 0) {
+                                    pymParent.sendMessage('scroll-depth', JSON.stringify({percent: percent,seconds: seconds}));
+                                }
+                            });
+                        }
+                    });
+
+                });
+            });
+        } else {
+            console.error('could not load graphic: jQuery is not on the page.');
+        }
+    })(window.jQuery);
+</script>

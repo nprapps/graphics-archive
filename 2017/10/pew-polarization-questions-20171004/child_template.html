@@ -1,0 +1,34 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+      <img src="assets/charta.png" alt="[ChartA]">
+      <img src="assets/chartb.png" alt="[ChartB]">
+      <img src="assets/chartc.png" alt="[ChartC]">
+      <img src="assets/chartd.png" alt="[ChartD]">
+      <img src="assets/charte.png" alt="[ChartE]">
+
+      <img src="assets/chartf.png" alt="[ChartF]">
+      <img src="assets/chartg.png" alt="[ChartG]">
+      <img src="assets/charth.png" alt="[ChartH]">
+      <img src="assets/charti.png" alt="[ChartI]">
+      <img src="assets/chartj.png" alt="[ChartJ]">
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
