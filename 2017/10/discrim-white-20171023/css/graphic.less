@@ -1,0 +1,39 @@
+@import "base";
+
+h1 {
+    font-size: 16px;
+    margin-bottom: 22px;
+}
+
+.bars rect {
+    &.bar-0 { fill: @red3; }
+    &.bar-1 { fill: @orange4; }
+    &.bar-2 { fill: @yellow4; }
+}
+
+.chart {
+    margin-top: 22px;
+
+    &:first-child { margin-top: 0; }
+}
+
+.labels { color: #454545; }
+
+.value text.out {
+    fill: #454545;
+}
+
+.promo {
+    h1 {
+        .knockout-header();
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #333;
+        line-height: 1.2;
+    }
+    .labels li {
+        font-size: 14px;
+        line-height: 1.2;
+    }
+    .value text { font-size: 13px; }
+}
