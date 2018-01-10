@@ -1,0 +1,33 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="graphic" class="graphic">
+        <div class="map-wrapper">
+            <div class="legend-wrap">
+                <div class="legend-item-wrap map-fema-100">
+                    <b></b>
+                    <span>100-year flood zone</span>
+                </div>
+                <div class="legend-item-wrap map-fema-500">
+                    <b></b>
+                    <span>500-year flood zone</span>
+                </div>
+            </div>
+            <img src="assets/flood-map-20171120.png" alt="Map of flood zones around Houston" />
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

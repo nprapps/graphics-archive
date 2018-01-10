@@ -1,0 +1,25 @@
+@import "base";
+
+.value text {
+    font-size: 12px;
+
+    &.out { fill: #666; }
+}
+
+body.promo {
+    h1 {
+        font-size: 18px;
+        .knockout-header();
+        margin-bottom: 22px;
+        line-height: 1.2;
+
+        strong {
+            font-weight: normal;
+            color: #333;
+            border-bottom: 1px solid #666;
+        }
+    }
+    h2 { display: none; }
+    .labels li { font-size: 13px; }
+    .value text { font-size: 12px; }
+}

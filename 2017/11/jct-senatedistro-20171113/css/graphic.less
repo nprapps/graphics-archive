@@ -1,0 +1,73 @@
+@import "base";
+
+.key {
+    margin-top: 0;
+    margin-bottom: 22px;
+}
+
+ul.nav {
+    -webkit-display: flex;
+    display: flex;
+
+    max-width: 400px;
+    margin: 0 auto 33px auto;
+    padding: 0;
+    list-style-type: none;
+
+    > li {
+        margin: 0 0 0 -2px;
+        padding: 0;
+        text-indent: none;
+        .gotham();
+        font-size: 12px;
+        width: 50%;
+        text-align: center;
+        line-height: 44px;
+        background: #fff;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        border-radius: 2px;
+        transition: all 200ms ease-in;
+        color: #aaa;
+        cursor: pointer;
+
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:hover {
+            color: #999;
+            opacity: 1;
+        }
+
+        &.active {
+            background: #efefef;
+            border-color: #ddd;
+            color: #666;
+            font-weight: bold;
+            opacity: 1;
+        }
+    }
+}
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.chart {
+    margin-top: 22px;
+
+    &.active { display: block; }
+    &.inactive { display: none; }
+
+    &:first-child { margin-top: 0; }
+}

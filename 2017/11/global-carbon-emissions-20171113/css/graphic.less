@@ -1,0 +1,43 @@
+@import "base";
+
+text.y-axis-label {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+
+    tspan.sub {
+        font-size: 8px;
+    }
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+.chart-label {
+    fill: #999;
+    font-style: italic;
+    font-size: 11px;
+    text-anchor: middle;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

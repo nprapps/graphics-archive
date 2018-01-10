@@ -1,0 +1,55 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <tr class="top-label">
+              <th></th>
+              <th colspan="2" class="amt"> {{COPY.labels.category_label}} </th>
+            </tr>
+            {% for row in COPY.data %}
+            <tr class="row-{{ loop.index0 }} {{ row.type }}">
+                {% if row.type == "hdr" %}
+                <th>{{ row.label }}</th>
+                <th class="amt">{{ COPY.labels.hdr_majority }}</th>
+                <th class="amt">{{ COPY.labels.hdr_minority }}</th>
+
+                {% elif row.type == "subhdr" %}
+                <td data-title="{{ COPY.labels.hdr_label }}" colspan="3">{{ row.label }}</td>
+
+                {% else %}
+                <td data-title="{{ COPY.labels.hdr_label }}">{{ row.label }}</td>
+                <td data-title="{{ COPY.labels.hdr_majority }}" class="amt bg-{{ row.exists_class }}">{% if row.exists %}{{ row.exists }}%{% endif %}</td>
+                <td data-title="{{ COPY.labels.hdr_minority }}" class="amt bg-{{ row.not_exists_class }}">{% if row.not_exists %}{{ row.not_exists }}%{% endif %}</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

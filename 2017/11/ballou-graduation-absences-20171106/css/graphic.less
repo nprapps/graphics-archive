@@ -1,0 +1,53 @@
+@import "base";
+
+.axis{
+  fill: #666;
+}
+h2 span.legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: #E27560;
+    display: inline-block;
+}
+
+.label-top {
+    font-family: 'Knockout 31 4r',Helvetica,Arial,sans-serif;
+    fill: #666;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    // text-transform: capitalize;
+}
+
+.value text {
+    fill: #666;
+    font-size: 14px;
+    text-anchor: start;
+    -webkit-font-smoothing: antialiased;
+}
+
+line.axis-0 {
+    stroke: #999;
+    stroke-width: 1.1px;
+}
+
+.x.axis text{
+  font-size: 13px;
+}
+
+.y.axis text{
+  font-size: 12px;
+}
+
+.head-text, .footer{
+  margin: 0 auto;
+  max-width: 650px;
+}
+
+.graphic{
+  max-width: 1400px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 480px) {
+    .value text { font-size: 12px; }
+}

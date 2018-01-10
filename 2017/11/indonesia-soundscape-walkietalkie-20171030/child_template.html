@@ -1,0 +1,23 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+      <div class="overlay">
+          <i class="icon icon-headphones"></i>
+          <h1 class="instructions"></h1>
+      </div>
+      <img src="assets/walkietalkie.jpg">
+      <audio id="audio" src="assets/walkietalkie.mp3" loop></audio>
+    </div>
+
+    <div class="caption">
+        <p>{{ COPY.labels.caption|smarty }} </p>
+        <p class="credit">{{ COPY.labels.credit|smarty }}</p>
+    </div>
+
+
+{% endblock content %}

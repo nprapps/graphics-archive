@@ -1,0 +1,90 @@
+@import "base";
+
+h1 { font-size: 16px; }
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 11px;
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 0 10px 10px 10px;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+
+        strong { color: #333; }
+    }
+
+    th,
+    td {
+        &.amt {
+            text-align: center;
+            width: 20%;
+        }
+        &.bg-10 { background-color: mix(@orange3, #fff, 10%); }
+        &.bg-20 { background-color: mix(@orange3, #fff, 20%); }
+        &.bg-30 { background-color: mix(@orange3, #fff, 30%); }
+        &.bg-40 { background-color: mix(@orange3, #fff, 40%); }
+        &.bg-50 { background-color: mix(@orange3, #fff, 50%); }
+        &.bg-60 { background-color: mix(@orange3, #fff, 60%); }
+        &.bg-70 { background-color: mix(@orange3, #fff, 70%); }
+    }
+
+    td.amt {
+        vertical-align: middle;
+        border-color: #fff;
+        border-left: 1px solid #fff;
+    }
+
+    tr {
+        &.hdr.row-0 th { padding-top: 0; }
+
+        &.hdr th {
+            padding-top: 33px;
+            border-color: #ccc;
+
+            &:first-child {
+                font-size: 13px;
+                color: #333;
+            }
+        }
+        &.subhdr td {
+            // padding-top: 3px;
+            font-style: italic;
+            background-color: #f1f1f1;
+        }
+    }
+}
+
+.top-label{
+  th{
+    border-bottom: 0px;
+  }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    table {
+        th { font-size: 11px; }
+        tr.hdr th:first-child { font-size: 12px; }
+        td { font-size: 11px; }
+    }
+}

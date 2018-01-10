@@ -1,0 +1,167 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <div class="desktop">
+            <h1 class="table-header">{{ COPY.labels.tablehdr_top }}</h1>
+            <table id="seat-win-table">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_incumbent }}</div>
+                        </th>
+                        <th>
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_party }}</div>
+                        </th>
+                        <th>
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_state }}</div>
+                        </th>
+                        <th class="amt">
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_value }}</div>
+                        </th>
+                    </tr>
+                </thead>
+
+                {% for row in COPY.data %}
+                    {% if row.w_l == 'W' %}
+                        <tr class="seat-{{ row.incumbent|classify }}">
+                            <td data-title="{{ COPY.labels.hdr_incumbent }}">{{ row.incumbent }}</td>
+                            <td data-title="{{ COPY.labels.hdr_party }}" class="party"><span class="{{ row.party_code }}">{{ row.party}}</span></td>
+                            <td data-title="{{ COPY.labels.hdr_state }}">{{ row.state }}</td>
+                            <td data-title="{{ COPY.labels.hdr_value }}" class="amt {{ row.w_l }}-bg">{{ row.value }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+
+            </table>
+
+
+            <h1 class="table-header">{{ COPY.labels.tablehdr_bottom }}</h1>
+            <table id="seat-loss-table">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_incumbent }}</div>
+                        </th>
+                        <th>
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_party }}</div>
+                        </th>
+                        <th>
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_state }}</div>
+                        </th>
+                        <th class="amt">
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_value }}</div>
+                        </th>
+                    </tr>
+                </thead>
+
+                {% for row in COPY.data %}
+                    {% if row.w_l == 'L' %}
+                        <tr class="seat-{{ row.incumbent|classify }}">
+                            <td data-title="{{ COPY.labels.hdr_incumbent }}">{{ row.incumbent }}</td>
+                            <td data-title="{{ COPY.labels.hdr_party }}" class="party"><span class="{{ row.party_code }}">{{ row.party}}</span></td>
+                            <td data-title="{{ COPY.labels.hdr_state }}">{{ row.state }}</td>
+                            <td data-title="{{ COPY.labels.hdr_value }}" class="amt {{ row.w_l }}-bg">{{ row.value }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+        <div class="mobile">
+            <h1 class="table-header">{{ COPY.labels.tablehdr_top }}</h1>
+            <table id="seat-win-table">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_incumbent }}</div>
+                        </th>
+                        <th>
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_state }}</div>
+                        </th>
+                        <th class="amt">
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_value }}</div>
+                        </th>
+                    </tr>
+                </thead>
+
+                {% for row in COPY.data %}
+                    {% if row.w_l == 'W' %}
+                        <tr class="seat-{{ row.incumbent|classify }}">
+                            <td data-title="{{ COPY.labels.hdr_incumbent }}">{{ row.incumbent }} <span class="{{ row.party_code }}">{{ row.party }}</span></td>
+                            <td data-title="{{ COPY.labels.hdr_state }}">{{ row.state }}</td>
+                            <td data-title="{{ COPY.labels.hdr_value }}" class="amt {{ row.w_l }}-bg">{{ row.value }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+
+            </table>
+
+
+            <h1 class="table-header">{{ COPY.labels.tablehdr_bottom }}</h1>
+            <table id="seat-loss-table">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_incumbent }}</div>
+                        </th>
+                        <th>
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_state }}</div>
+                        </th>
+                        <th class="amt">
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_value }}</div>
+                        </th>
+                    </tr>
+                </thead>
+
+                {% for row in COPY.data %}
+                    {% if row.w_l == 'L' %}
+                        <tr class="seat-{{ row.incumbent|classify }}">
+                            <td data-title="{{ COPY.labels.hdr_incumbent }}">{{ row.incumbent }} <span class="{{ row.party_code }}">{{ row.party}}</span></td>
+                            <td data-title="{{ COPY.labels.hdr_state }}">{{ row.state }}</td>
+                            <td data-title="{{ COPY.labels.hdr_value }}" class="amt {{ row.w_l }}-bg">{{ row.value }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <p><strong>Note:</strong> {{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

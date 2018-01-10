@@ -1,0 +1,63 @@
+@import "base";
+
+h1 {
+    margin-bottom: 22px;
+    font-size: 18px;
+}
+
+.promo {
+    h1 {
+        .knockout-header();
+        font-size: 15px;
+        margin-bottom: 15px;
+        color: #333;
+    }
+}
+
+h4 {
+    .knockout-header();
+    margin: 0 0 0 0;
+    color: #999;
+    font-size: 10px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+h3 {
+    text-transform: uppercase;
+    padding-bottom: 6px;
+    display: table-cell;
+    width: 100%;
+    vertical-align: bottom;
+}
+
+.labels li.overall {
+    font-weight: bold;
+    color: #454545;
+}
+.value text.overall {
+    font-weight: bold;
+
+    &.out { fill: #454545; }
+}
+
+.bg rect { fill: #f1f1f1; }
+.bars rect {
+    fill: #999;
+    fill-opacity: .8;
+
+    &.overall { fill-opacity: 1; }
+    &.democrats { fill: #498dcb; }
+    &.republicans { fill: #f05b4e; }
+    &.independents { fill: #15b16e; }
+}
+
+@media screen and (max-width: 500px) {
+    .chart {
+        &:nth-child(1),
+        &:nth-child(2) {
+            margin-bottom: 11px;
+        }
+    }
+    h3 { height: 28px; }
+}

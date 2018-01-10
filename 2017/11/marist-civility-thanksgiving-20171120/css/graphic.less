@@ -1,0 +1,85 @@
+@import "base";
+
+h1 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.key {
+    margin-top: 0;
+    display: webkit-flex;
+    display: flex;
+    margin-bottom: 15px;
+
+    .key-item {
+        margin: 0 10px 3px 0;
+        width: 47%;
+    }
+}
+
+.labels {
+    .overall {
+        font-weight: bold;
+        color: #333;
+    }
+}
+
+.italic{
+  font-size: 9px;
+}
+
+.group {
+    rect { opacity: 0.7; }
+
+    &.overall {
+        rect { opacity: 1; }
+        text { font-weight: bold; }
+    }
+}
+
+// Add custom styles here
+.value text {
+    fill: #fff;
+
+    &.left { text-anchor: start; }
+    &.right { text-anchor: end; }
+
+    &.out {
+        font-size: 9px;
+
+        &.left { text-anchor: end; }
+        &.right { text-anchor: start; }
+    }
+
+    &.hidden{display: none;}
+}
+
+
+
+@media screen and (min-width: 650px) {
+    .italic{
+      font-size: 11px;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 0 auto 15px auto;
+    }
+    .key {
+        justify-content: center;
+        margin-bottom: 22px;
+
+        .key-item {
+            margin: 0 11px;
+            width: 34%;
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+    .chart { margin-bottom: 22px; }
+    .value text { font-size: 11px; }
+
+    .key .key-item b{
+      width: 45px;
+    }
+}
