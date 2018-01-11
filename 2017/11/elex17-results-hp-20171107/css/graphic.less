@@ -1,0 +1,134 @@
+@import "base";
+@import "spinning";
+
+@gop: #f05b4e;
+@dem: #498dcb;
+@ind: #15b16e;
+
+/* spinner */
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    margin-left: 0;
+    margin-right: 0;
+}
+[class^="icon-"].animate-spin,
+[class*=" icon-"].animate-spin {
+    -webkit-animation: spin 3s infinite linear;
+    -o-animation: spin 3s infinite linear;
+    animation: spin 3s infinite linear;
+    display: inline-block;
+}
+
+p.msg-test {
+    background-color: @red3;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    margin: 0 0 22px 0;
+    padding: 5px 10px;
+}
+
+body.hp {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .graphic:hover { cursor: pointer; }
+}
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 11px;
+}
+
+h3 {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.graphic { margin-bottom: 0; }
+
+.countdown {
+    float: left;
+    color: #787878;
+}
+
+.meta {
+    margin: 0 0 11px 0;
+    padding: 0;
+    list-style: none;
+
+    > li {
+        color: #787878;
+        font-size: 12px;
+        margin-bottom: 3px;
+    }
+}
+
+.meta-footer {
+    clear: both;
+    position: relative;
+    .gotham();
+    font-size: 11px;
+    margin: 0 0 15px 0;
+    .clearfix();
+}
+
+.results { margin-bottom: 22px; }
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    td {
+        border-top: 1px solid #eee;
+        vertical-align: top;
+        padding: 10px;
+        text-align: left;
+    }
+
+    tr:last-child td {
+        border-bottom: 1px solid #eee;
+    }
+
+    .votes,
+    .pct {
+        text-align: right;
+        width: 20%;
+    }
+
+    tr.winner {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+
+        .icon-check { color: #f19e14; }
+
+        &.d { background-color: @dem; }
+        &.r { background-color: @gop; }
+        &.d, &.r {
+            color: #fff;
+
+            .icon-check { color: #fff; }
+        }
+    }
+}
+
+// Desktop-only styles
+@media screen and (min-width: 376px) {
+    .results {
+        width: 48%;
+        float: left;
+
+        &:first-child { padding-right: 4%; }
+    }
+}
+
+// Mobile styles
+@media screen and (max-width: 375px) {
+    table {
+        td { padding: 5px; }
+    }
+}

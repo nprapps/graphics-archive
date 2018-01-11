@@ -1,0 +1,73 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1 id="headline">{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2 id="subhed">{{ COPY.labels.subhed|smarty }}</h2>{% endif %}
+
+    <div id="graphic-wrapper">
+        <div id="bar-chart" class="graphic">
+            {#
+             # Wrap fallback image in a noscript tag so we don't accidentally
+             # reveal the answer before the JavaScript loads (if JavaScript is
+             # supported).
+             #}
+            <noscript>
+                <img src="fallback.png" alt="[Chart]" class="fallback" />
+
+            </noscript>
+        </div>
+        <div id="button-wrapper"></div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    {#
+     # Unfortunately, we have to have two versions of the footer.
+     #
+     # The one in the `<noscript>` tag will get shown if we show the fallback
+     # image.
+     #
+     # The one outside will be initially hidden and revealed when the user
+     # selects a value.
+     #}
+    <noscript>
+        <div class="footer">
+            {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+            {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+        </div>
+    </noscript>
+
+    {# style="display: none" is important here #}
+    <div class="footer" style="display: none">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <div id="response">
+        {#
+         # Wrap transition text in a noscript tag so we don't accidentally
+         # reveal the answer before the JavaScript loads (if JavaScript is
+         # supported).
+         #}
+        <noscript>
+            <div class="transition-text">{{ COPY.labels.transition_text|smarty }}</div>
+        </noscript>
+    </div>
+
+    <script type="text/javascript">
+        var LABELS = {{ COPY.labels.json() }};
+        var DATA = {{ COPY.data.json() }};
+    </script>
+
+{% endblock content %}
+
+{% block js %}
+{{ JS.push('js/lib/pymchild-scroll-visibility.v1.js') }}
+{{ super() }}
+{% endblock js %}
