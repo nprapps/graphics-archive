@@ -1,0 +1,25 @@
+@import "base";
+
+// Add custom styles here
+
+#bar-chart {
+    .clearfix();
+}
+
+.graphic-wrapper {
+    margin-bottom: 2em;
+
+    .bars rect {
+        fill: @teal3;
+    }
+
+    @media screen and (min-width: 501px) {
+        width: 48%;
+        float: left;
+        margin-bottom: 0;
+
+        &:first-child {
+            margin-right: 4%;
+        }
+    }
+}

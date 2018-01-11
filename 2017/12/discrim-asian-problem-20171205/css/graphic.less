@@ -1,0 +1,34 @@
+@import "base";
+
+h1 { font-size: 16px; }
+
+.bars rect {
+    &.bar-0 { fill: @red3; }
+    &.bar-1 { fill: @orange4; }
+    &.bar-2 { fill: #999; }
+}
+
+.chart {
+    margin-top: 22px;
+
+    &:first-child { margin-top: 0; }
+}
+
+.labels { color: #454545; }
+
+.value text.out { fill: #454545; }
+
+body.promo {
+    h1 {
+        font-size: 18px;
+        .knockout-header();
+        margin-bottom: 22px;
+        line-height: 1.2;
+    }
+    .labels li { font-size: 13px; }
+    .value text {
+        font-size: 12px;
+        -webkit-font-smoothing: antialiased;
+    }
+    .footer { display: none; }
+}

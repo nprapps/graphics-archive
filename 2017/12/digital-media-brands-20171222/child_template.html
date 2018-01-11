@@ -1,0 +1,66 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+
+    {% set companies = ['disney', 'fox', 'Time Warner', 'AT&T', 'comcast', 'CBS', 'Viacom', 'Univision Communications', 'Verizon', 'Amazon', 'Google', 'Facebook'] %}
+    <div id="graphic" class="graphic">
+        {% for company in companies %}
+        <div class="section-wrapper">
+            <div class="section-header">
+                {% set top_row = COPY[company]|first %}
+                <h3>{{ top_row['Full name'] }}</h3>
+                <p>Market cap: {{ top_row['Market cap'] }}</p>
+            </div>
+            <div class="brands-wrapper">
+                <h4>Brands</h4>
+                <ul>
+                {% for row in COPY[company] %}
+                    {% if row['Brands'] %}
+                    <li class="brand">{{ row['Brands'] }}</li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="stake-wrapper">
+                {% if top_row['Stake'] %}
+                <h4>Has stake in</h4>
+                <ul>
+                {% for row in COPY[company] %}
+                    {% if row['Stake'] %}
+                    <li class="stake">{{ row['Stake'] }}</li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            {% if top_row['Notes'] %}
+            <div class="footnotes">
+                <h4>Note</h4>
+                {% for row in COPY[company] %}
+                    {% if row['Notes'] %}
+                        <p>{{ row['Notes']|smarty }}</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+    {% for row in COPY.data %}
+        <div class="comparison {{ row.affected|classify }}">
+            <h4>{{ row.affected }}</h4>
+            {% if row.note %}<p class="note">{{ row.note }}</p>{% endif %}
+            <div class="laws">
+                <div class="current">
+                    <h5>{{ COPY.labels.hed_current }}</h5>
+                    <p>{{ row.current|smarty }}</p>
+                </div>
+                <div class="proposed">
+                    <h5>{{ COPY.labels.hed_proposed }}</h5>
+                    <p>{{ row.proposed|smarty }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

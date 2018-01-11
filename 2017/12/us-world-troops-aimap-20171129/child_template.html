@@ -1,0 +1,80 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        {% include 'ai2html-graphic.html' %}
+    </div>
+
+
+    <div id="table-graphic" class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_country }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_2016 }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_2017 }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_change }}</div>
+                    </th>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_description }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="state-{{ row.country|classify }}">
+                <td class="country" data-title="{{ COPY.labels.hdr_country }}">{{ row.country }}</td>
+                <td data-title="{{ COPY.labels.hdr_2016 }}" class="amt">{{ row.troops2016|comma }}</td>
+                <td data-title="{{ COPY.labels.hdr_2017 }}" class="amt">{{ row.troops2017|comma }}</td>
+                <td data-title="{{ COPY.labels.hdr_change }}" class="amt">
+                  {% if row.change|int > 0 %}
+                  <span class="up-arrow">{{ row.change|comma }}<span class="arrow">&uarr;</span></span>
+                  {% else %}
+                  <span class="down-arrow">{{ row.change|comma }}<span class="arrow">&darr;</span></span>
+                  {% endif %}
+                </td>
+                <td data-title="{{ COPY.labels.hdr_description }}">{{ row.description|smarty }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+{% endblock js %}

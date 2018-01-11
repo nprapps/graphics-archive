@@ -1,0 +1,19 @@
+@import "base";
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.oppose rect {
+    &.strong { fill: @orange2; }
+    &.weak { fill: @orange4; }
+}
+
+.support rect {
+    &.strong { fill: @teal2; }
+    &.weak { fill: @teal4; }
+}

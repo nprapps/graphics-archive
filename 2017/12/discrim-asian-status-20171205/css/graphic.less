@@ -1,0 +1,53 @@
+@import "base";
+
+h1 {
+    font-size: 16px;
+    margin-bottom: 22px;
+
+    strong { color: #454545; }
+}
+
+.bars rect {
+    &.bar-0 { fill: #ccc; }
+    &.bar-1 { fill: @red3; }
+    &.bar-2 { fill: @orange4; }
+}
+
+.chart {
+    margin-top: 22px;
+
+    &:first-child { margin-top: 0; }
+}
+
+.labels {
+    color: #454545;
+
+    .label-0 {
+        font-style: italic;
+        color: #999;
+    }
+}
+
+.value text.out {
+    fill: #454545;
+
+    &.value-0 {
+        font-style: italic;
+        fill: #999;
+    }
+}
+
+.promo {
+    h3 { font-size: 16px; }
+    .labels li {
+        color: #454545;
+        font-size: 14px;
+    }
+    .value text { font-size: 12px; }
+    h1,
+    .footer,
+    .chart-0,
+    .chart-2 {
+        display: none;
+    }
+}

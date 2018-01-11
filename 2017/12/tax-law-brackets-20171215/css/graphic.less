@@ -1,0 +1,57 @@
+@import "base";
+
+h1 {
+    margin-bottom: 22px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.bar {
+    rect {
+        stroke: #fff;
+        stroke-width: 0.5;
+    }
+
+    &.current rect { fill: #999; }
+    &.proposed-tk rect { fill: @yellow3; }
+    &.house rect { fill: @yellow3; }
+    &.senate rect { fill: mix(@yellow3, @teal3, 50%); }
+}
+
+.bar text {
+    fill: #fff;
+    font-size: 11px;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.chart.single {
+    margin-bottom: 22px;
+}
+
+h3 { text-align: center; }
+
+// Desktop-only styles
+@media screen and (min-width: 501px) {
+    .graphic {
+        -webkit-display: flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+
+        img { max-width: 100%; }
+
+        .chart {
+            box-sizing: content-box;
+            width: 50%;
+
+            &.single {
+                border-right: 1px solid #eee;
+                padding-right: 11px;
+            }
+            &.married { margin-left: 11px; }
+        }
+    }
+}

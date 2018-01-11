@@ -1,0 +1,67 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            {% for row in COPY.data %}
+            {%  if row.type == "subhdr" %}
+            <thead class="thead-{{ loop.index }}">
+
+                <tr>
+                    <th></th>
+                    <th class="amt all"><div><span>{{ COPY.labels.hdr_all }}</span></div></th>
+                    <th class="amt divider black"><div><span>{{ COPY.labels.hdr_black }}</span></div></th>
+                    <th class="amt latina"><div><span>{{ COPY.labels.hdr_latina }}</span></div></th>
+                    <th class="amt white"><div><span>{{ COPY.labels.hdr_white }}</span></div></th>
+                    <th class="amt asian"><div><span>{{ COPY.labels.hdr_asian }}</span></div></th>
+                    <th class="amt native"><div><span>{{ COPY.labels.hdr_native }}</span></div></th>
+                    <th class="amt divider lgbtq"><div><span>{{ COPY.labels.hdr_lgbtq }}</span></div></th>
+                    <th class="amt nonlgbtq"><div><span>{{ COPY.labels.hdr_non_lgbtq }}</span></div></th>
+                </tr>
+            </thead>
+            <tr class="{{ row.experience|classify }} {{ row.type }}">
+                <td data-title="{{ COPY.labels.hdr_experience }}" colspan="9">{{ row.experience }}</td>
+            </tr>
+
+            {% else %}
+            <tr class="{{ row.experience|classify }} {{ row.type }}">
+                <td data-title="{{ COPY.labels.hdr_experience }}">{{ row.experience }}</td>
+                <td data-title="{{ COPY.labels.hdr_all }}" class="amt all bg-{{ row.all_class }}">{% if row.all == '*' %}*{% else %}{{ row.all|int }}<span class="pct">%</span>{% endif %}</td>
+                <td data-title="{{ COPY.labels.hdr_black }}" class="amt divider black bg-{{ row.black_class }}">{{ row.black|int }}<span class="pct">%</span></td>
+                <td data-title="{{ COPY.labels.hdr_latina }}" class="amt latina bg-{{ row.latina_class }}">{{ row.latina|int }}<span class="pct">%</span></td>
+                <td data-title="{{ COPY.labels.hdr_white }}" class="amt white bg-{{ row.white_class }}">{{ row.white|int }}<span class="pct">%</span></td>
+                <td data-title="{{ COPY.labels.hdr_asian }}" class="amt asian bg-{{ row.asian_class }}">{{ row.asian|int }}<span class="pct">%</span></td>
+                <td data-title="{{ COPY.labels.hdr_native }}" class="amt native bg-{{ row.native_class }}">{{ row.native|int }}<span class="pct">%</span></td>
+                <td data-title="{{ COPY.labels.hdr_lgbtq }}" class="amt divider lgbtq bg-{{ row.lgbtq_class }}">{% if row.lgbtq == '*' %}*{% else %}{{ row.lgbtq|int }}<span class="pct">%</span>{% endif %}</td>
+                <td data-title="{{ COPY.labels.hdr_non_lgbtq }}" class="amt nonlgbtq bg-{{ row.non_lgbtq_class }}">{% if row.non_lgbtq == '*' %}*{% else %}{{ row.non_lgbtq|int }}<span class="pct">%</span>{% endif %}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

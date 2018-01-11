@@ -1,0 +1,26 @@
+@import "base";
+
+h1 { font-size: 18px; }
+
+.bars rect {
+    fill: @teal5;
+
+    &.black-women { fill: @teal3; }
+}
+
+.labels li {
+    &.black-women {
+        font-weight: bold;
+        color: #333;
+    }
+}
+
+.value text.out {
+    fill: #666;
+    font-size: 11px;
+
+    &.black-women {
+        font-weight: bold;
+        fill: #333;
+    }
+}

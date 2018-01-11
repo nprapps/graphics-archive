@@ -1,0 +1,41 @@
+@import "base";
+
+h1 {
+    font-size: 16px;
+
+    strong { color: #333; }
+}
+
+.bars line {
+    fill: none;
+    stroke-width: 1px;
+    stroke: #ddd;
+    stroke-dasharray: 4px 2px;
+
+    .range& {
+        stroke-width: 3px;
+        stroke-dasharray: none;
+    }
+}
+
+.dots circle {
+    stroke-width: 1px;
+    stroke: #fff;
+}
+
+.value text {
+    font-size: 11px;
+    text-anchor: middle;
+
+    .category& { font-weight: bold; }
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}
+
+@media screen and (max-width: 550px) {
+}
