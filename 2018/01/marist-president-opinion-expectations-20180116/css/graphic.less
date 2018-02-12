@@ -1,0 +1,51 @@
+@import "base";
+
+body { padding-top: 11px; }
+
+h1 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 18px;
+
+    strong { color: #333; }
+}
+
+h3 {
+    text-transform: uppercase;
+    padding-bottom: 6px;
+    display: table-cell;
+    width: 100%;
+    vertical-align: bottom;
+}
+
+.question-wrapper {
+    .clearfix();
+    margin-bottom: 33px;
+}
+
+.labels li.overall {
+    font-weight: bold;
+    color: #454545;
+}
+.value text.overall {
+    font-weight: bold;
+
+    &.out { fill: #454545; }
+}
+
+.bg rect { fill: #f1f1f1; }
+.bars rect {
+    fill: #999;
+    fill-opacity: .5;
+
+    &.overall { fill-opacity: 1; }
+}
+
+@media screen and (min-width: 708px) {
+//
+}
+@media screen and (max-width: 500px) {
+    .chart {
+        margin-bottom: 8px;
+    }
+}

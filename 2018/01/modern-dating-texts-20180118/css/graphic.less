@@ -1,0 +1,79 @@
+@import "base";
+
+@message-color: #59509c;
+@message-light: tint(@message-color, 80%);
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+}
+
+.message-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+
+    &.sender {
+        justify-content: flex-end;
+    }
+
+    &.responder {
+        justify-content: flex-start;
+    }
+}
+
+.message-author-name {
+    font-size: 0.7em;
+    color: #999;
+    display: block;
+    width: 100%;
+}
+
+.sender .message-author-name {
+    padding-right: 55px;
+    text-align: right;
+}
+
+.responder .message-author-name {
+    padding-left: 55px;
+    text-align: left;
+}
+
+img.message-author {
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.sender .message-author {
+    order: 2;
+    margin-left: 5px;
+}
+
+.responder .message-author {
+    margin-right: 5px;
+}
+
+.message-bubble {
+    width: auto;
+    max-width: 62%;
+    border-radius: 8px;
+    padding: 10px;
+
+    p {
+        margin: 0;
+    }
+}
+
+.sender .message-bubble {
+    background: @message-color;
+    color: white;
+}
+
+.responder .message-bubble {
+    background: @message-light;
+    color: #333;
+}

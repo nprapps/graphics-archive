@@ -1,0 +1,40 @@
+@import "base";
+
+h1 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 18px;
+
+    strong { color: #333; }
+}
+
+.chart {
+    margin-bottom: 22px;
+}
+
+.key {
+    // width: 460px;
+    margin: 0 auto 22px;
+}
+
+ul.labels li.overall { font-weight: bold; }
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 501px) {
+    ul.key {
+        width: 460px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    ul.key {
+        width: auto;
+    }
+}

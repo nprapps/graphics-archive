@@ -1,0 +1,55 @@
+@import "base";
+
+.bars line {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ddd;
+}
+
+line.x.grid-0 {
+    stroke: #999;
+}
+
+.axis-label {
+    fill: #aaa;
+    font-size: 12px;
+}
+
+.dots {
+    &.men {
+        stroke-width: 1px;
+        stroke: #fff;
+        fill: @orange3;
+    }
+    &.wmn {
+        stroke-width: 1px;
+        stroke: #fff;
+        fill: @teal3;
+    }
+}
+
+.value text {
+    font-size: 11px;
+    fill: #999;
+
+    .men& { fill: @orange3; }
+    .wmn& { fill: @teal3; }
+
+    &:first-child { font-weight: bold; }
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+
+    &:last-child { display: none; }
+}
+
+.label-top {
+    font-style: italic;
+    fill: #999;
+    font-size: 11px;
+    -webkit-font-smoothing: antialiased;
+}

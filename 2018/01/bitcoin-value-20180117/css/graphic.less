@@ -1,0 +1,45 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 2.5px;
+    stroke: #ccc;
+}
+
+g.area path.area {
+    fill: #eee;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+
+    &.label-average {
+        fill: #787878;
+    }
+}
+
+.events{
+    line {
+        stroke: #ccc;
+        stroke-width: 1px;
+    }
+    text {
+        font-size: 12px;
+        fill: #787878;
+        // text-anchor: middle;
+        font-style: italic;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .events text { font-size: 10px; }
+    .value text  { font-size: 10px; }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

@@ -1,0 +1,164 @@
+@import "base";
+
+@highlight: #f3d87c;
+@highlight-light: #f8f6ee;
+@button: #2d99bb;
+@button-light: tint(@button, 20%);
+@button-lightest: tint(@button, 80%);
+
+// Custom code goes here
+div.question-title {
+    background-color: @highlight;
+    height: 44px;
+
+    h3 {
+        color: #666;
+        font-size: 12px;
+        letter-spacing: .1rem;
+        padding: 15px 22px;
+        margin-bottom: 0;
+    }
+}
+
+div.question {
+    .gotham();
+    background-color: @highlight-light;
+    margin-bottom: 33px;
+    padding: 22px;
+
+    h1 {
+        font-size: 18px;
+        margin-bottom: 22px;
+    }
+
+    p {
+        font-size: 13px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+
+        li.answer {
+            background-color: @button;
+            color: white;
+            padding: 2px 16px;
+            margin: 0 0 6px;
+            border-radius: 3px;
+            -webkit-transition: all .3s;
+            transition: all .3s;
+
+            &:hover {
+                color: white;
+                cursor: pointer;
+                background-color: @button-light;
+            }
+
+            &.clicked {
+                background-color: @orange4;
+                color: #f6f6f6;
+            }
+        }
+    }
+
+    &.disabled {
+        pointer-events:none;
+
+        ul li.answer {
+            background-color: #ccc;
+
+            &.clicked {
+                background-color: @button-light;
+            }
+        }
+    }
+}
+
+div.result {
+    background-color: @button-lightest;
+
+    div.flex-container {
+        display: flex;
+        padding: 1em 2em;
+    }
+
+    div.score {
+        background-color: @button;
+
+        h3 {
+            color: white;
+            .gotham();
+            font-weight: 700;
+            font-size: 1.4rem;
+            text-transform: none;
+            letter-spacing: 0;
+            padding: 15px 22px;
+            margin-bottom: 11px;
+        }
+    }
+
+    .result-box {
+        flex-basis: 100%;
+    }
+
+    .img-box {
+        order: 2;
+        flex-basis: 50%;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    div.result-info {
+        .gotham();
+        padding-right: 2em;
+
+        p {
+            margin: 0 auto 1em;
+            line-height: 1.7;
+        }
+
+        a.btn {
+            background-color: @button;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-bottom: 1em;
+
+            &:hover {
+                background-color: @button-light;
+            }
+        }
+    }
+}
+
+#counter {
+    p {
+        .gotham();
+        font-weight: 700;
+        font-size: 1.2em;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    div.result div.flex-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    div.result div.result-info {
+        padding-left: 0;
+    }
+
+    div.result .img-box {
+        order: 0;
+        flex-basis: 70%;
+    }
+}
+
+@media screen and (min-width: 500px) {
+
+}

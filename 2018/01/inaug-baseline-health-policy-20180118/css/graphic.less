@@ -1,0 +1,201 @@
+@import "base";
+
+@improved-yes:      @teal3;
+@improved-no:       @orange3;
+@improved-unclear:  #aaa;
+
+// Key
+.key {
+    margin-bottom: 15px;
+
+    b { border-radius: 3px; }
+
+    .improved-yes b { background-color: @improved-yes; }
+    .improved-no b { background-color: @improved-no; }
+    .improved-unclear b { background-color: @improved-unclear; }
+}
+
+cite {
+    font-size: 11px;
+    color: #999;
+    font-style: italic;
+    margin-top: 6px;
+}
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    .measure {
+        strong {
+            display: inline-block;
+            border-radius: 3px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        &.then strong {
+            background-color: #f1f1f1;
+            border: #999;
+            color: #666;
+        }
+
+        &.now strong { color: #fff; }
+        &.improved-yes strong { background-color: @improved-yes; }
+        &.improved-no strong { background-color: @improved-no; }
+        &.improved-unclear strong { background-color: @improved-unclear; }
+    }
+}
+
+// Desktop-only styles
+@media screen and (min-width: 501px) {
+    table {
+        th,
+        .topic {
+            .knockout();
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            font-weight: normal;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        th {
+            border-bottom: 2px solid #eee;
+            vertical-align: bottom;
+            text-align: left;
+            padding: 0 10px 10px 10px;
+            padding-top: 0;
+            color: #787878;
+
+            b {
+                color: #333;
+                font-weight: normal;
+            }
+        }
+
+        .topic {
+            width: 25%;
+            text-align: right;
+            color: #333;
+        }
+
+        .about { width: 35%; }
+        .measure {
+            width: 20%;
+            min-width: 80px;
+            text-align: center;
+
+            strong {
+                margin-top: 3px;
+                padding: 3px 8px;
+                font-size: 13px;
+            }
+
+            cite { margin-top: 4px; }
+        }
+
+        th, td {
+            &:first-child { padding-left: 0; }
+            &:last-child { padding-right: 0; }
+        }
+    }
+
+    cite { display: block; }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        thead { display: none; }
+
+        tr,
+        th,
+        th.amt,
+        td,
+        td.amt {
+            display: block;
+            padding: 0;
+            white-space: normal;
+        }
+
+        tr {
+            border-bottom: 1px solid #eee;
+            padding: 22px 0;
+
+            &:first-child { border-top: 1px solid #eee; }
+        }
+
+        td,
+        td.amt {
+            border: none;
+            margin-bottom: 6px;
+            text-align: left;
+
+            &:empty { display: none; }
+            &.about {
+                margin-bottom: 11px;
+            }
+        }
+
+        th[data-title]:before,
+        td[data-title]:before {
+            content: attr(data-title) ":\00A0";
+            display: inline-block;
+            width: 140px;
+            .knockout();
+            letter-spacing: -0.01em;
+            font-weight: normal;
+            -webkit-font-smoothing: antialiased;
+            font-size: 13px;
+            color: #333;
+        }
+
+        tr td:first-child {
+            font-size: 16px;
+            margin-bottom: 6px;
+            color: #333;
+            .knockout();
+
+            &:before {
+                content: '';
+                display: none;
+            }
+        }
+
+        .about cite { display: block; }
+
+        .measure strong {
+            padding: 2px 6px;
+            font-size: 11px;
+            margin-right: 3px;
+            width: 50px;
+            text-align: center;
+        }
+
+        tr.average-total-premium strong,
+        tr.average-worker-contribution-to-premium strong {
+            width: 80px;
+        }
+    }
+}

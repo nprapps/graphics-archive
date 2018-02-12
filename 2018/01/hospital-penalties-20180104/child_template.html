@@ -1,0 +1,69 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th class="state">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_state }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_total }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_penalized }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_not_penalized }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header perc_header">{{ COPY.labels.hdr_perc_penalized }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="state-{{ row.state|classify }}">
+                <td data-title="{{ COPY.labels.hdr_state }}">{{ row.state }}</td>
+                <td data-title="{{ COPY.labels.hdr_total }}" class="amt">{{ row.total_evaluated }}</td>
+                <td data-title="{{ COPY.labels.hdr_penalized }}" class="amt">{{ row.penalized }}</td>
+                <td data-title="{{ COPY.labels.hdr_not_penalized }}" class="amt">{{ row.not_penalized }}</td>
+                <td data-title="{{ COPY.labels.hdr_perc_penalized }}" class="amt perc">{{ row.perc_penalized }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

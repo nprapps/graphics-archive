@@ -1,0 +1,39 @@
+@import "base";
+
+// Add custom styles here
+body {
+    padding: 10px 0;
+}
+
+h1 {
+    font-size: 18px;
+}
+
+.labels li {
+    font-size: 11px;
+    line-height: 1;
+    -webkit-font-smoothing: inherit;
+}
+
+.bars rect {
+    fill: @blue2;
+
+    &.persons-with-no-disabilities, &.persons-with-disabilities {
+        fill: #aaa;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    #bar-chart {
+        .clearfix();
+    }
+
+    .graphic {
+        width: 48%;
+        float: left;
+
+        &:first-child {
+            margin-right: 4%;
+        }
+    }
+}

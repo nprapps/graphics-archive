@@ -1,0 +1,101 @@
+@import "base";
+
+/* Key
+========================================*/
+.key-wrap {
+    .key {
+        margin: 0 0 18px 0;
+        padding: 0;
+        list-style-type: none;
+
+        .key-item {
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+        }
+        .key-item b {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+        }
+        .key-item label {
+            white-space: nowrap;
+            font-size: 12px;
+            color: #666;
+            font-weight: normal;
+            -webkit-font-smoothing: antialiased;
+        }
+    }
+
+    // Numeric scale style
+    &.numeric-scale {
+        width: 100%;
+        text-align: center;
+
+        h3 {
+            margin-bottom: 5px;
+        }
+
+        .key {
+            .key-item {
+                margin: 0 1px 0 0;
+                position: relative;
+            }
+
+            .key-item b {
+                width: 65px;
+                height: 10px;
+                margin-right: 0;
+            }
+
+            .key-item label {
+                position: absolute;
+                bottom: -20px;
+                left: 0;
+                width: 65px;
+                text-align: center;
+
+                &.end-label {
+                    left: auto;
+                    right: -25%;
+                }
+            }
+        }
+    }
+}
+
+/* Grid Map
+========================================*/
+
+.tile-grid-map {
+    margin-bottom: 33px;
+}
+
+.state {
+    fill: #eee;
+}
+
+.label {
+    font-family: 'Knockout 31 4r';
+    font-size: 12px;
+    fill: #979797;
+}
+
+.label-active {
+    fill: #fff;
+}
+
+@media screen and (max-width: 500px){
+    .label {
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width: 500px){
+    .label {
+        font-size: 8px;
+    }
+}

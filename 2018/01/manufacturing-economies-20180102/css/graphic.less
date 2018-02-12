@@ -1,0 +1,19 @@
+@import "base";
+
+// Add custom styles here
+ul li.united-states, ul li.germany {
+	font-weight: bold;
+}
+
+.value text.out.value-label-united-states, .value text.out.value-label-germany {
+	font-weight: bold;
+	fill: #555;
+}
+
+.bars rect {
+	fill: @teal4;
+
+	&.united-states, &.germany {
+		fill: @teal2;
+	}
+}

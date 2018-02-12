@@ -1,0 +1,24 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <iframe id="datawrapper-chart-D6LBs" src="//datawrapper.dwcdn.net/D6LBs/1/" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" oallowfullscreen="oallowfullscreen" msallowfullscreen="msallowfullscreen" style="width: 0; min-width: 100% !important;" height="400"></iframe><script type="text/javascript">if("undefined"==typeof window.datawrapper)window.datawrapper={};window.datawrapper["D6LBs"]={},window.datawrapper["D6LBs"].embedDeltas={"100":601,"200":492,"300":450,"400":425,"500":425,"600":400,"700":400,"800":400,"900":400,"1000":400},window.datawrapper["D6LBs"].iframe=document.getElementById("datawrapper-chart-D6LBs"),window.datawrapper["D6LBs"].iframe.style.height=window.datawrapper["D6LBs"].embedDeltas[Math.min(1e3,Math.max(100*Math.floor(window.datawrapper["D6LBs"].iframe.offsetWidth/100),100))]+"px",window.addEventListener("message",function(a){if("undefined"!=typeof a.data["datawrapper-height"])for(var b in a.data["datawrapper-height"])if("D6LBs"==b)window.datawrapper["D6LBs"].iframe.style.height=a.data["datawrapper-height"][b]+"px"});</script>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>{{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

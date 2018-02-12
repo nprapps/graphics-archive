@@ -1,0 +1,65 @@
+@import "base";
+
+@message-color: #59509c;
+@message-light: tint(@message-color, 80%);
+
+* {
+    box-sizing: border-box;
+}
+
+.message-wrapper {
+    display: flex;
+    margin-bottom: 5px;
+
+    &.sender {
+        justify-content: flex-end;
+    }
+
+    &.responder {
+        justify-content: flex-start;
+    }
+}
+
+.message-author {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    background: #ccc;
+    padding-top: 20px;
+    font-size: 1.5em;
+    line-height: 0;
+    text-align: center;
+    .gotham();
+}
+
+.sender .message-author {
+    order: 2;
+    margin-left: 5px;
+}
+
+.responder .message-author {
+    margin-right: 5px;
+}
+
+.message-bubble {
+    width: auto;
+    max-width: 62%;
+    border-radius: 8px;
+    padding: 10px;
+
+    p {
+        margin: 0;
+    }
+}
+
+.sender .message-bubble {
+    background: @message-color;
+    color: white;
+}
+
+.responder .message-bubble {
+    background: @message-light;
+    color: #333;
+}

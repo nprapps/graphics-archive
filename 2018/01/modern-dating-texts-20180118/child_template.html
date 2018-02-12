@@ -1,0 +1,21 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="graphic" class="graphic">
+        {% set vars = { 'latest_speaker' : None } %}
+        {% for row in COPY['data'] %}
+        <div class="message-wrapper {{ row.role }}">
+            {% if vars.latest_speaker != row.name %}
+            <span class="message-author-name">{{ row.name }}</span>
+                {% if vars.update({ 'latest_speaker' : row.name }) %}{% endif %}
+            {% endif %}
+            <img class="message-author" src="img/{{ row.name|lower }}.png" />
+            <div class="message-bubble">
+                <p>{{ row.message }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,88 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+<div>
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="quiz"></div>
+
+    <div id="counter"></div>
+    <div id="result" class="result"></div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+</div>
+
+<script id="question-template" type="text/template">
+    <div class="question-wrapper">
+        <div class="question-header">
+            <div class="question-title">
+                <h3>Question <%= index + 1 %>/<%= total %></h3>
+            </div>
+        </div>
+        <div class="question" data-index="<%= index %>" data-slug="<%= question['slug'] %>">
+            <div class="prompt">
+                <h1><%= question['question'] %></h1>
+            </div>
+            <div class="answers">
+                <ul>
+                    <li class="answer" data-category="<%= question['category_a']%>">
+                        <p><%= question['option_a'] %></p>
+                    </li>
+                    <li class="answer" data-category="<%= question['category_b']%>">
+                        <p><%= question['option_b'] %></p>
+                    </li>
+                    <li class="answer" data-category="<%= question['category_c']%>">
+                        <p><%= question['option_c'] %></p>
+                    </li>
+                    <li class="answer" data-category="<%= question['category_d']%>">
+                        <p><%= question['option_d'] %></p>
+                    </li>
+                    <% if (question['option_e'] !== null) { %>
+                    <li class="answer" <% if (question['category_e'] !== null) { %>data-category="<%= question['category_e']%>"<% } %>>
+                        <p><%= question['option_e'] %></p>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="counter-template" type="text/template">
+    <p>You've answered <%= count %> of <%= total %> questions. Keep going!</p>
+</script>
+
+<script id="result-template" type="text/template">
+    <div class="score">
+        <h3>You're <%= result.description%></h3>
+    </div>
+    <div class="flex-container">
+        <div class="img-box">
+            <img alt="<%= result.alt %>" src="assets/<%= result.img %>" />
+        </div>
+        <div class="result-box">
+            <div class="result-info">
+                <p><%= result.text %></p>
+                <a href="#" class="reset-btn btn">Try Again</a>
+            </div>
+        </div>
+    </div>
+</script>
+
+    <script type="text/javascript">
+        window.QUIZ = {{ COPY.questions.json() }};
+        window.RESULT = {{ COPY.result.json() }};
+        window.SCORING = {{ COPY.scoring.json() }};
+    </script>
+{% endblock content %}
