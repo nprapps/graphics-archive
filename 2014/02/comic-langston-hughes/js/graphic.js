@@ -17,7 +17,7 @@ $(document).ready(function() {
 
     for (var i = 0; i < num_panels; i++) {
         $('#panel' + i).load(function() {
-            sendHeight();
+            sendHeightToParent();
         })
     }
 

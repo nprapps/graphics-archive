@@ -87,7 +87,7 @@ $(document).ready(function() {
                 .attr('class', function(d) { return 'age-' + d.age_group.replace(/\s+/g, '-').toLowerCase() })
                 .text(function(d) { return d.age_group });
 
-        sendHeight();
+        sendHeightToParent();
     }
     
     function setup() {

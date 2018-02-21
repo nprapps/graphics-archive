@@ -123,7 +123,7 @@ d3.selection.prototype.moveToFront = function() {
 
 
         /* update responsive iframe */
-        sendHeight();
+        sendHeightToParent();
 
 
 }

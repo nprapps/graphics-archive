@@ -30,7 +30,7 @@ function render(width) {
     $('#before-after-1').beforeAfter( { beforeLinkText: 'September 2012', afterLinkText: 'October 2012' } );
 
     // update responsive iframe
-    sendHeight();
+    sendHeightToParent();
 }
 
 /*

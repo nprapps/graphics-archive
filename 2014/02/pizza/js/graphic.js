@@ -1113,7 +1113,7 @@ var label6y = height2*(1/20);
 
 
             // update responsive iframe
-            sendHeight();
+            sendHeightToParent();
         }
 
             function lookupfit(size){

@@ -145,7 +145,7 @@ $(document).ready(function() {
                     .style("opacity", .7);
 
 
-        sendHeight();
+        sendHeightToParent();
 
         // function to highlight lines: http://bl.ocks.org/AlexanderGraf/5416979#indfundbyregbytime.js
         function mouseover(d, i) {

@@ -40,7 +40,7 @@ $(document).ready(function() {
             }
         }
 
-        sendHeight();
+        sendHeightToParent();
     });
 });
 

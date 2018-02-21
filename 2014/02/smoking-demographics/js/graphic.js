@@ -149,7 +149,7 @@ $(window).load(function() {
 
 
         /* update responsive iframe */
-        sendHeight();
+        sendHeightToParent();
     }
 
     function setup() {

@@ -22,7 +22,7 @@ var colors = {
  */
 function render(width) {
     $graphic.width(width + 'px');
-    sendHeight();
+    sendHeightToParent();
 }
 
 /*

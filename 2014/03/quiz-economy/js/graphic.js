@@ -82,11 +82,11 @@ $(document).ready(function() {
             $q.next('.question').fadeIn();
         }
         
-        sendHeight();
+        sendHeightToParent();
     });
 });
 
 $(window).load(function() {
     setupResponsiveChild();
-    sendHeight();
+    sendHeightToParent();
 });

@@ -11,7 +11,7 @@ function render(width) {
     var filmstrip_height = Math.ceil((filmstrip_width * filmstrip_aspect_height) / filmstrip_aspect_width);
     $filmstrip_wrapper.width(filmstrip_width + 'px').height(filmstrip_height + 'px');
     
-    sendHeight();
+    sendHeightToParent();
 }
 
 function setup_css_animations() {

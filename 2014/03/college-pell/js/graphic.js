@@ -149,7 +149,7 @@ $(document).ready(function() {
                     .text(function(d) { console.log(d); return d.value });
         */
         
-        sendHeight();
+        sendHeightToParent();
     }
     
     function setup() {

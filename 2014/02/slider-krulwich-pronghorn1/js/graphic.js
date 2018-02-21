@@ -30,7 +30,7 @@ function render(width) {
     $('#before-after-1').beforeAfter( { beforeLinkText: 'Original', afterLinkText: 'Revealed' } );
 
     // update responsive iframe
-    sendHeight();
+    sendHeightToParent();
 }
 
 /*

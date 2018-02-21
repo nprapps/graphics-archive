@@ -116,7 +116,7 @@ $(window).load(function() {
                 .text(function(d) { return d.label });
 
         /* update responsive iframe */
-        sendHeight();
+        sendHeightToParent();
     }
 
     function setup() {
