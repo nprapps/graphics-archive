@@ -175,7 +175,7 @@ function render_chart(id, container_width,col_width) {
 
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

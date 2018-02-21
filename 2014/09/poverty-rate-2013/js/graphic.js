@@ -67,7 +67,7 @@ function render(container_width) {
     draw_graph('pct', graphic_width);
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

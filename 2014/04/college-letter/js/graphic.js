@@ -22,7 +22,7 @@ var colors = {
  */
 function render(width) {
     $graphic.width(width + 'px');
-    sendHeightToParent();
+    sendHeight();
 }
 
 /*
@@ -91,5 +91,5 @@ function goto_item(id) {
     
     $counter.text((current_item + 1) + ' of ' + total_items);
 
-    sendHeightToParent();
+    sendHeight();
 }

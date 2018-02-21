@@ -113,7 +113,7 @@ function render(container_width) {
     // draw_graph('art', art, graphic_width, colorOrange);
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

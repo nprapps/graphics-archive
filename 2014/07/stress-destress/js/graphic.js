@@ -226,7 +226,7 @@ function draw_chart(graphic_data, graph_width, title) {
             });
     
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

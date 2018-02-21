@@ -93,7 +93,7 @@ var render = function(containerWidth) {
 
     // update iframe
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 
@@ -209,7 +209,7 @@ function drawGraph(container_width) {
         });
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

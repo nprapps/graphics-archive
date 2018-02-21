@@ -149,7 +149,7 @@ function render_chart(data, id, container_width) {
             .text(function(d) { return d.deaths; });
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

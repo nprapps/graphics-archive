@@ -164,7 +164,7 @@ function draw_map(width) {
                 }); */
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 
     init_load = true;
@@ -200,7 +200,7 @@ function update_map() {
         })
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

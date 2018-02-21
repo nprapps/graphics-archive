@@ -16,7 +16,7 @@ function on_vote_button_pressed(evt) {
     p.addClass('answered');
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

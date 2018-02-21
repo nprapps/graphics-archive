@@ -106,7 +106,7 @@ var render = function(containerWidth) {
 
     // update iframe
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

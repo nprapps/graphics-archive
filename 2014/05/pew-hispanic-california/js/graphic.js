@@ -157,7 +157,7 @@ function draw_graphic(width) {
             });
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

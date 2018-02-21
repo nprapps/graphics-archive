@@ -137,7 +137,7 @@ function draw_map(width) {
     $('#bottom-states').find('ul').append(list_states());
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 
     init_load = true;
@@ -166,7 +166,7 @@ function update_map() {
             .attr('d', path);
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

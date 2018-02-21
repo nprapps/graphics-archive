@@ -43,7 +43,7 @@ $(document).ready(function() {
             }
         }
 
-        sendHeightToParent();
+        sendHeight();
     });
 });
 

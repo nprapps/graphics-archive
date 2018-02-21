@@ -342,7 +342,7 @@ var xaxis_label = meta.append('p')
         .html("For How Many Consecutive Years");
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

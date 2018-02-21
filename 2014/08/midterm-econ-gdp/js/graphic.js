@@ -87,7 +87,7 @@ function render(width_container) {
     render_bar_chart(width_graphic);
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

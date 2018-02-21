@@ -179,7 +179,7 @@ function draw_graphic(container_width) {
         .text('Child\'s age');
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

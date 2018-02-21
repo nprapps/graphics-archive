@@ -120,7 +120,7 @@ $(window).load(function() {
                     .text(function(d) { return d.label });
 
         /* update responsive iframe */
-        sendHeightToParent();
+        sendHeight();
     }
 
     function setup() {

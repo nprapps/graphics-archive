@@ -580,7 +580,7 @@ $("#nonblank-label").css('position','absolute');
     }
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

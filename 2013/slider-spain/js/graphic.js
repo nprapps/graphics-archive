@@ -35,7 +35,7 @@ function render(width) {
     $('#before-after-5').beforeAfter( { beforeLinkText: '2003', afterLinkText: '2012' } );
 
     // update responsive iframe
-    sendHeightToParent();
+    sendHeight();
 }
 
 /*

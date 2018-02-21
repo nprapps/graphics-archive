@@ -112,7 +112,7 @@ $(document).ready(function() {
                     return line(d.value);
                 });
         
-        sendHeightToParent();
+        sendHeight();
     }
     
     function setup() {

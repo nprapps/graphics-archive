@@ -113,7 +113,7 @@ for (var i = 0; i <data_array.length; i++) {
     // TODO: draw your graphic
     
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

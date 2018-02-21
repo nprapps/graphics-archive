@@ -73,7 +73,7 @@ $(document).ready(function() {
                 });
 
                 $results.find('.' + winning_category).find('img').load(function() {
-                    sendHeightToParent();
+                    sendHeight();
                 });
             }
         } else {
@@ -82,11 +82,11 @@ $(document).ready(function() {
             $q.next('.question').fadeIn();
         }
         
-        sendHeightToParent();
+        sendHeight();
     });
 });
 
 $(window).load(function() {
     setupResponsiveChild();
-    sendHeightToParent();
+    sendHeight();
 });

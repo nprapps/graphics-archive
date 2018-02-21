@@ -227,7 +227,7 @@ function render(container_width) {
                 .text(function(d) { return d['procedure'] });
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

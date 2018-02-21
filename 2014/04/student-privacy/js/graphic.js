@@ -168,7 +168,7 @@ function render(width) {
     // TODO: draw your graphic
     
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 
@@ -184,7 +184,7 @@ function showItems($el){
             // duration: 150,
             // easing: 'easeInOutCubic',
             progress: function(){
-                pymChild.sendHeightToParent();
+                pymChild.sendHeight();
             },
             done: function(){
                 $(this).find('span').css('opacity',1);

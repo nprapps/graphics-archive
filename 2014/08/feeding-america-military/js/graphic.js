@@ -173,7 +173,7 @@ function render(container_width) {
                 .text(function(d) { return d['group'] });
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

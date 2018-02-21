@@ -581,7 +581,7 @@ var drawLineGraph = function(graphicData, w) {
 
     // update iframe
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

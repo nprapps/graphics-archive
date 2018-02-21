@@ -39,7 +39,7 @@ var onAnswerClick = function(e) {
     }
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

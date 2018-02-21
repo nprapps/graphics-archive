@@ -177,7 +177,7 @@ function drawChart(data, overall_width) {
     /* update responsive iframe */
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

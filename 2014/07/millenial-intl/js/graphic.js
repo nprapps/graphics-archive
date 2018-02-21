@@ -308,7 +308,7 @@ if (country == "United States") {
         /* update responsive iframe */
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 
 

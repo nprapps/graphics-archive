@@ -15,7 +15,7 @@ function render(width) {
     // TODO: draw your graphic
     
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

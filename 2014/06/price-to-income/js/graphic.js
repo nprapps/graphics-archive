@@ -85,7 +85,7 @@ var margin = { top: 30, right: 50, bottom: 30, left: 10 };
  drawBigGraph(graphic_width, is_mobile);
 
  if (pymChild) {
- pymChild.sendHeightToParent();
+ pymChild.sendHeight();
  }
  }
 

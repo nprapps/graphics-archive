@@ -896,7 +896,7 @@ quint.selectAll(".layer")
         }
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 /*

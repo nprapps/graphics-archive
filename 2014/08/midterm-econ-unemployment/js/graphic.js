@@ -150,7 +150,7 @@ function render(container_width) {
     draw_graph(container_width);
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

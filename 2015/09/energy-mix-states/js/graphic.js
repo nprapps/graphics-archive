@@ -339,7 +339,7 @@ function draw_graph(graphic_width, graphic_data) {
             });
     
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

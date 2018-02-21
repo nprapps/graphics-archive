@@ -93,7 +93,7 @@ function render(container_width) {
     clickedIndex();
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

@@ -182,7 +182,7 @@ function render_bar_chart(id, container_width) {
             });
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

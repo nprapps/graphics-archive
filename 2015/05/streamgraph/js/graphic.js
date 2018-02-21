@@ -817,7 +817,7 @@ function addHeight(newHeight) {
     height = newHeight;
     d3.select('.svg-container').attr('height', height);
     // resize
-    pymChild.sendHeightToParent()
+    pymChild.sendHeight()
 }
 
 /*

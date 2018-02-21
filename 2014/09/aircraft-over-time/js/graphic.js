@@ -60,7 +60,7 @@ function render(container_width) {
     }
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 
@@ -173,7 +173,7 @@ function render_bar_chart(data, container_width) {
 
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

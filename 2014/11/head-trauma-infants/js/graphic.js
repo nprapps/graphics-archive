@@ -140,7 +140,7 @@ function render(container_width) {
                 });
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

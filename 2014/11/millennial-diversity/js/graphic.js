@@ -191,7 +191,7 @@ function render(container_width) {
                 .text(function(d) { return d['key'] });
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

@@ -222,7 +222,7 @@ function render(width) {
       
     /* update responsive iframe */
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

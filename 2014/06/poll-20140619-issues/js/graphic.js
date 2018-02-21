@@ -142,7 +142,7 @@ function draw_chart(data, graphic_width, grouping) {
             });
     
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

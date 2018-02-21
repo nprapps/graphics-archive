@@ -244,7 +244,7 @@ function draw_graph(id, graphic_width) {
             });
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

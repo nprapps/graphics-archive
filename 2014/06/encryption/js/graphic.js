@@ -141,7 +141,7 @@ function render(width) {
         
       
         /* update responsive iframe */
-        sendHeightToParent();
+        sendHeight();
 
 
 }

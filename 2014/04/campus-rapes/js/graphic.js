@@ -130,7 +130,7 @@ function render_chart(data, container_width) {
             });
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

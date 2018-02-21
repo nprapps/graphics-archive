@@ -145,7 +145,7 @@ function draw_graphic(id, container_width) {
                 .text(function(d) { return d.label });
     
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 

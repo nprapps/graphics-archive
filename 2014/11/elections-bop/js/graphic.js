@@ -203,7 +203,7 @@ function draw_chart(id, graphic_width) {
 		.html('Majority: ' + majority + '&#11022;');
 
     if (pymChild) {
-        pymChild.sendHeightToParent();
+        pymChild.sendHeight();
     }
 }
 
