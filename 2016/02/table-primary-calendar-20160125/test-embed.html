@@ -6,7 +6,7 @@
         var require_table_primary_calendar_20160125 = requirejs.config({
             context: 'table-primary-calendar-20160125',
             paths: {
-                'pym': 'https://apps.npr.org/dailygraphics/graphics/table-primary-calendar-20160125/js/lib/pym',
+                'pym': 'https://pym.nprapps.org/pym.v1.min',
                 'CarebotTracker': '//apps.npr.org/dailygraphics/graphics/table-primary-calendar-20160125/js/lib/carebot-tracker'
             },
             shim: {
@@ -58,7 +58,7 @@
     // Require.js is not on the page, but jQuery is (old Seamus)
     } else if (typeof $ !== 'undefined' && typeof $.getScript === 'function') {
         // Load pym
-        $.getScript('https://apps.npr.org/dailygraphics/graphics/table-primary-calendar-20160125/js/lib/pym.js').done(function () {
+        $.getScript('https://pym.nprapps.org/pym.v1.min.js').done(function () {
             // Wait for page load
             $(function () {
                 // Create pym parent
@@ -71,7 +71,7 @@
                 // Load carebot and add tracker
                 // Separate from pym so that any failures do not affect loading
                 // the actual graphic.
-                $.getScript('https://apps.npr.org/dailygraphics/graphics/table-primary-calendar-20160125/js/lib/pym.js').done(function () {
+                $.getScript('/apps.npr.org/dailygraphics/graphics/table-primary-calendar-20160125/js/lib/carebot-tracker.js').done(function () {
                     // Add Carebot tracker
                     var tracker = new CarebotTracker.VisibilityTracker('responsive-embed-table-primary-calendar-20160125', function(result) {
                       pymParent.sendMessage('on-screen', result.bucket);
