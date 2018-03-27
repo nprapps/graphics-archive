@@ -38,8 +38,8 @@
                 <td data-title="{{ COPY.labels['th_religion'] }}" class="row-religion">53%</td>
             </tr>
 
-            {% set state_i = 0 %}
             {% for state in COPY['states']|sort(attribute='name') %}
+                {% set state_i = loop.index0 %}
                 <tr class="state-{{ state.usps|classify }}">
                     <td data-title="{{ COPY['data_rank'][state_i]['display_value']|int }}. {{state.name }}" data-sort="{{ COPY['data_rank'][state_i]['diff']|float|abs }}" data-diff="{{ COPY['data_rank'][state_i]['display_value'] }}" class="amt"><span>{{ COPY['data_rank'][state_i]['value']|int }}</span></td>
                     <td data-title="{{ COPY.labels.th_state }}" class="row-state">{{ state.name }}</td>
@@ -49,7 +49,6 @@
                         <td data-title="{{ COPY.labels['th_' + col] }}" data-sort="{{ state_row['diff']|float|abs }}" data-diff="{{ state_row['diff'] }}" class="amt cell-shade row-{{ col }}">{{ state_row['display_value'] }}</td>
                     {% endfor %}
                 </tr>
-                {% set state_i = state_i + 1 %}
             {% endfor %}
 
         </table>
