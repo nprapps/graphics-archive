@@ -1,0 +1,33 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        {% for row in COPY.data %}
+        <div class="spending-row">
+            <div class="spending-top">
+                <span class="spending-area">{{ row.area }}</span>
+                <span class="spending-amt">{{ row.amt }}{% if row.amt_addition %} {{ row.amt_addition}}{% endif %}</span>
+            </div>
+            <p class="spending-description">{{ row.description|smarty }}</p>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

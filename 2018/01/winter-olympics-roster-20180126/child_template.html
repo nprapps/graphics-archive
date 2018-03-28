@@ -1,0 +1,64 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <h2 class="menu">
+        <span id="status">Showing athletes from</span>
+        <select id="state-selector">
+            {% for state in COPY.all_states %}
+            <option value="{{ state.state_abbr|lower }}" data-full="{{ state.state_name }}">{{ state.state_name }}</option>
+            {% endfor %}
+        </select>
+        <span id="show-all">Show All Athletes<span>
+    </h2>
+
+    <h2 class="loading">{{ COPY.labels.msg_loading }}</h2>
+
+    <h2 class="no-athletes"></h2>
+
+    <div id="graphic" class="graphic">
+        {% for sport in COPY.data|groupby('sport') %}
+            <h3 class="st-all {{ sport.grouper|classify }}{% for row in sport.list %} st-{{ row.hometown_state_postal|classify }}{% endfor %}">{{ sport.grouper }}</h3>
+            <div class="sport st-all {{ sport.grouper|classify }}{% for row in sport.list %} st-{{ row.hometown_state_postal|classify }}{% endfor %}">
+                {% for row in sport.list %}
+                <div class="athlete {{ row.name_first|classify }}-{{ row.name_last|classify }} st-all st-{{ row.hometown_state_postal|classify }}">
+                    <div class="athlete-flex-container">
+                        <img src="assets/headshots-square/{{ row.name_first|classify }}-{{ row.name_last|classify }}.jpg" alt="Photo" class="headshot" />
+                        <div class="athlete-info">
+                            <p class="experience {% if row.olympic_exp == '' %}new{% else %}return{% endif %}">
+                                {% if row.olympic_exp == '' %}First-time Olympian{% else %}Returning Olympian{% endif %}
+                            </p>
+                            {% if row.medalist == 'yes' %}
+                                <p class="experience medalist {{ row.highest_medal }}">{% if row.medalist == 'yes' %}<span class="">Medalist</span>{% endif %}</p>
+                            {% endif %}
+                            <h4>{{ row.name_first }} {{ row.name_last }}</h4>
+                            {% if row.event != 'TBD' %}<p class="event">{{ row.event }}</p>{% endif %}
+                            <ul>
+                                <li><strong>Birthdate:</strong> {{ row.birthdate_fmt }}</li>
+                                <li><strong>Hometown:</strong> {{ row.hometown_city }}{% if row.hometown_state %},&nbsp;{{ row.hometown_state }}{% endif %}</li>
+                                {% if row.school %}<li><strong>School:</strong> {{ row.school }}</li>{% endif %}
+                            </ul>
+                            {% if row.photo %}<h5>Photo credit: {{ row.photo }}</h5>{% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <p><strong>Note: </strong>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

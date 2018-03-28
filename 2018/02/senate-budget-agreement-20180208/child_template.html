@@ -1,0 +1,33 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <ul class="key"><li class="key-item key-0 base-spending"><b style="background-color: rgb(94, 136, 161);"></b><label>Base spending</label></li><li class="key-item key-1 additional-spending"><b style="background-color: rgb(227, 141, 44);"></b><label>Additional spending</label></li></ul>
+    <div id="stacked-bar-chart" class="graphic-wrapper">
+        <img src="fallback.png" alt="[Chart]" class="fallback" />
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var LABELS = {{ COPY.labels.json() }};
+        var DATA = {
+            defense: {{ COPY.data_defense.json() }},
+            nondefense: {{ COPY.data_nondefense.json() }}
+        };
+    </script>
+
+{% endblock content %}

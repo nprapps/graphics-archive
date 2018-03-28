@@ -1,0 +1,48 @@
+@import "base";
+
+h2 {
+    margin-bottom: 15px;
+}
+
+.key {
+    margin: 0 0 16px;
+}
+
+.value text {
+    fill: #fff;
+    font-size: 12px;
+
+    &.value-baseline {
+        fill: mix(@blue6, #ddd);
+    }
+
+    &.value-addition {
+        fill: @orange3;
+        font-weight: bold;
+    }
+
+    &.value-total {
+        fill: #999;
+    }
+
+    &.hidden {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .value text {
+        font-size: 11px;
+    }
+
+    .labels li {
+        font-size: 11px;
+    }
+}
+
+@media screen and (min-width: 501px) {
+    .graphic-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+}

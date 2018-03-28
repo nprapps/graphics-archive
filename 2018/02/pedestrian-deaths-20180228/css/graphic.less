@@ -1,0 +1,45 @@
+@import "base";
+
+h1 { margin-bottom: 22px; }
+h3 {
+    height: 28px;
+}
+
+.chart-wrapper { .clearfix(); }
+
+.chart {
+    float: left;
+    margin-bottom: 22px;
+
+    &:first-child { margin-right: 22px; }
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 540px) {
+    h3 {
+        max-width: 250px;
+    }
+}

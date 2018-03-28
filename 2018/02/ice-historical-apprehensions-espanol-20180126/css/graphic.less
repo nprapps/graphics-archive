@@ -1,0 +1,17 @@
+@import "base";
+
+// Add custom styles here
+.bars rect {
+    fill: @orange3;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        display: none;
+
+        &.value-0, &.value-9 {
+            display: block;
+            font-weight: bold;
+        }
+    }
+}

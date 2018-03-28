@@ -1,0 +1,74 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="house-table">
+            <thead>
+                <tr>
+                    <th class="member">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_member }}</div>
+                    </th>
+                    <th class="yr">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_elected }}</div>
+                    </th>
+                    <th class="pvi">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_pvi }}</div>
+                    </th>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_votes }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.dem %}
+
+                    <tr class="member-{{ row.member|classify }}">
+                        <td data-title="{{ COPY.labels.hdr_member }}">
+                            {{ row.member }}, {{ row.state }}{% if row.chair %}*{% endif %}
+                        </td>
+                        <td data-title="{{ COPY.labels.hdr_elected }}">{{ row.elected }}</td>
+                        <td data-title="{{ COPY.labels.hdr_pvi }}" class="pvi-color {{ row.pvi_color }}">
+                                {{ row.pvi }}{% if row.pvi_num %}+{{ row.pvi_num|int }}{% endif %}
+                        </td>
+                        <td data-title="{{ COPY.labels.hdr_votes }}">
+                            {% if row.trump > row.clinton %}
+                                Trump, {{ row.trump }}%-{{ row.clinton }}%
+                            {% else %}
+                                Clinton, {{ row.clinton }}%-{{ row.trump }}%
+                            {% endif %}
+                        </td>
+                    </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <p><strong>Note: </strong>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

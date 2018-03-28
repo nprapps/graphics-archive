@@ -1,0 +1,70 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="quiz-wrapper" class="graphic">
+        {% for step in COPY.data %}
+        <div class="step step-{{ step.question_num }}" data-step="{{ step.question_num }}">
+            <div class="question-wrapper">
+                <p class="quiz-question">{{ step.question_text }}</p>
+                <ul class="quiz-list">
+                {% if step.question_type == 'true_false' %}
+                    <li class="quiz-option {% if step.correct_answer == 'true' %}correct{% endif %}"><a href="#">True</a></li>
+                    <li class="quiz-option {% if step.correct_answer == 'false' %}correct{% endif %}"><a href="#">False</a></li>
+                    <li class="quiz-option"><a href="#">Don't know</a></li>
+                {% endif %}
+                {% if step.question_type == 'multiple_choice' %}
+                    <li class="quiz-option {% if step.correct_answer == step.a1 %}correct{% endif %}"><a href="#">{{ step.a1 }}</a></li>
+                    <li class="quiz-option {% if step.correct_answer == step.a2 %}correct{% endif %}"><a href="#">{{ step.a2 }}</a></li>
+                    <li class="quiz-option {% if step.correct_answer == step.a3 %}correct{% endif %}"><a href="#">{{ step.a3 }}</a></li>
+                    <li class="quiz-option {% if step.correct_answer == step.a4 %}correct{% endif %}"><a href="#">{{ step.a4 }}</a></li>
+                    <li class="quiz-option"><a href="#">Don't know</a></li>
+                {% endif %}
+                </ul>
+            </div>
+
+            <div class="response-wrapper">
+                <p class="user-response hidden "></p>
+
+                <div id="result-{{ step.question_num }}" class="graphic hidden ">
+                    <img src="fallback-{{ step.question_num }}.png" alt="[Chart]" class="fallback " />
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="btns btn-standard">
+            <div class="btn" id="btn-back">Back</div><div class="btn" id="btn-next">Next</div>
+        </div>
+    </div>
+
+    <script id="response-template" type="text/template">
+You picked <strong>&ldquo;<%= user_response %>,&rdquo;</strong> <%= user_value %> In an NPR/Ipsos poll, <strong><%= correct_respondents %> percent</strong> of people got it right.
+    </script>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var QUESTION_DATA = {{ COPY.data.json() }};
+        var CHART_DATA = [
+            {{ COPY.data_q0.json() }},
+            {{ COPY.data_q1.json() }},
+            {{ COPY.data_q2.json() }},
+            {{ COPY.data_q3.json() }},
+            {{ COPY.data_q4.json() }},
+            {{ COPY.data_q5.json() }},
+            {{ COPY.data_q6.json() }}
+        ];
+    </script>
+
+{% endblock content %}

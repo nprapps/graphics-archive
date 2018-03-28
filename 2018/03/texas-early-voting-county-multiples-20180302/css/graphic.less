@@ -1,0 +1,52 @@
+@import "base";
+
+.key {
+    width: 100%;
+
+    .key-item.republican b {
+        background: @red3;
+    }
+
+    .key-item.democrat b {
+        background: @blue2;
+    }
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    // fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .graphic {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    h3 {
+        margin: 15px 0 5px 0;
+    }
+
+    .key {
+        margin-bottom: 0;
+    }
+}
+
+.grid-1, .grid-2, .grid-3 {
+    svg .y.axis text {
+        display: none;
+    }
+}

@@ -1,0 +1,53 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <div class="key-wrap numeric-scale">
+            {% if COPY.labels.legend_head %}
+            <h3>{{ COPY.labels.legend_head }}</h3>
+            {% endif %}
+            <ul class="key">
+                <li class="key-item">
+                    <b class="color-scale-1"></b>
+                    <label>0</label>
+                </li><!--
+             --><li class="key-item">
+                    <b class="color-scale-2"></b>
+                    <label>47</label>
+                </li><!--
+             --><li class="key-item">
+                    <b class="color-scale-3"></b>
+                    <label>78</label>
+                </li><!--
+             --><li class="key-item">
+                    <b class="color-scale-4"></b>
+                    <label>207</label>
+                </li><!--
+             --><li class="key-item">
+                    <b class="color-scale-5"></b>
+                    <label>473</label>
+                    <label class="end-label">826</label>
+                </li>
+            </ul>
+        </div>
+        <img src="louisiana-air-toxins-desktop.png" alt="Map" id="map--desktop" />
+        <img src="louisiana-air-toxins-mobile.png" alt="Map" id="map--mobile" />
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

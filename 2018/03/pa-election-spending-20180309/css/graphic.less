@@ -1,0 +1,34 @@
+@import "base";
+
+.key .key-item span {
+    display: inline-block;
+    width: 25px;
+    height: 16px;
+    margin-right: 6px;
+}
+
+.key .key-item b {
+    width: 100%;
+    margin-right: 0;
+    height: 8px;
+}
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.value-total {
+    font-size: 11px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        display: none;
+    }
+}
