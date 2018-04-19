@@ -1,0 +1,71 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+<div id="graphic" class="graphic">
+    <div class="card-wrapper">
+        <div class="cards"></div>
+        <div class="stack-footer">
+            <div class="navigation">
+                <span class="arrows arrow-prev disabled"><span class="prev icon-angle-left" aria-hidden="true"></span></span>
+                <div class="status"><span class="current">1</span> of <span class="total"></span></div>
+                <span class="arrows arrow-next"><span class="next icon-angle-right" aria-hidden="true"></span></span>
+            </div>
+        </div>
+    </div>
+    <div class="full-resource">
+        <a href="http://www.npr.org/2017/06/02/526417478/the-trump-russia-comey-imbroglio-it-s-complicated"><p>View all cards</p></a>
+    </div>
+</div>
+
+<script type="text/template" id="dropdown">
+    <div class="dropdown styled-select slate">
+        <p>
+            Explore the deck:
+        </p>
+        <select>
+            <% for (var i = 0; i < cards.length; i++) { %>
+            <option><%= cards[i].title %></option>
+            <% } %>
+        </select>
+    </div>
+</script>
+
+<script type="text/template" id="card-sidebar">
+    <div class="card-sidebar">
+        <h1><%= title %></h1>
+        <h2><%= subtitle %></h2>
+    </div>
+</script>
+
+<script type="text/template" id="card-main">
+    <div class="card-main cat-<%= item.category_slug %>" data-slug="<%= item.slug %>">
+        <div class="card-header">
+            <span class="label label-<%= item.category_slug %>"><%= item.category %></span>
+            <% if (item.image) { %> <img src="<%= item.image %>" class="desktop thumbnail"> <% } %>
+            <h1 class="card-name"><%= item.title %></h1>
+            <% if (item.subtitle) { %><h3 class="card-title"><%= item.subtitle %></h3> <% } %>
+
+            <div class="card-lede">
+                <% if (item.image) { %> <img src="<%= item.image %>" class="mobile thumbnail"> <% } %>
+                <p class="card-quote"><%= item.lede %></p>
+            </div>
+
+            <div class="explanation explanation-full">
+                <%= item.body %>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="meta">
+                <% if (item.image_credit) { %><p>Photo: <%= item.image_credit %></p> <% } %>
+                <p>Last updated: <%= item.last_updated %></p>
+            </div>
+            <div class="twitter-bug">
+                <img src="assets/gfx-npr-bug.png" />
+            </div>
+        </div>
+    </div>
+</script>
+
+
+
+{% endblock content %}
