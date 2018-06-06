@@ -1,0 +1,23 @@
+@import "base";
+
+// Add custom styles here
+#map {
+	width: 100%;
+	@media (min-width: 500px) {
+		width: 50%;
+	}
+}
+
+.container {
+	@media (min-width: 500px) {
+		float: left;
+		width: 50%;
+	}
+}
+
+.bars rect {
+	fill: @orange4;
+	&.all-other-states {
+		fill: #ccc;
+	}
+}

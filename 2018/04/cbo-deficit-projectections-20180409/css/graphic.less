@@ -1,0 +1,29 @@
+@import "base";
+
+h1 { margin-bottom: 22px; }
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+.bars rect { fill: @red3; }
+
+@media screen and (max-width: 625px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

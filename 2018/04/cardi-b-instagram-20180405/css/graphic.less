@@ -1,0 +1,86 @@
+@import "base";
+
+@cardi: #e561aa;
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.annotation-lines {
+    stroke-width: 1px;
+    stroke: #888;
+    stroke-dasharray: 3px;
+}
+
+text {
+    font-size: 11px;
+    fill: #999;
+}
+
+.value text {
+    font-size: 11.5px;
+    font-weight: bold;
+    fill: #555;
+}
+
+.graphic-timeline {
+    .gotham();
+
+    .timeline-row {
+        display: flex;
+        margin-bottom: 0.75em;
+    }
+
+    .img-wrapper {
+        width: 20%;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .text-wrapper {
+        width: 80%;
+        margin-left: 1em;
+        font-size: 0.9em;
+
+        strong {
+            display: block;
+            color: @cardi;
+            margin: 0.5em auto;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        p {
+            margin: 0.5em auto;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    h2 {
+        margin-bottom: 0;
+    }
+
+    .graphic-timeline {
+        display: none;
+    }
+
+    .key {
+        display: none;
+    }
+}
+
+.axis.y .tick line {
+    display: block;
+    stroke: #eee;
+}

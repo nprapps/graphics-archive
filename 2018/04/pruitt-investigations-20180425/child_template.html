@@ -1,0 +1,69 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+
+        {% for group in COPY.data|groupby('inv_group') %}
+        <div class="investigations {{ group.grouper|classify }}">
+            <h4>{{ COPY.labels['hdr_' + group.grouper ]}}</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_inv_type }}</div>
+                        </th>
+                        <th>
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_inv_office }}</div>
+                        </th>
+                    </tr>
+                </thead>
+
+                {% for inv in group.list|groupby('inv_id') %}
+                <tr class="inv-{{ inv.grouper|classify }}">
+                    <td data-title="{{ COPY.labels.hdr_inv_type }}">{{ inv['list'][0]['inv_type'] }}</td>
+                    <td data-title="{{ COPY.labels.hdr_inv_office }}">
+                    {% for office in inv.list %}
+                        <div class="office">
+                        {{ office.inv_office }}
+                        {% if office.inv_source_2 %}<cite>(Source: <a href="{{ office.inv_source_1 }}">1</a>, <a href="{{ office.inv_source_2 }}">2</a>)</cite>
+                        {% elif office.inv_source_1 %}<cite>(<a href="{{ office.inv_source_1 }}">Source</a>)</cite>{% endif %}
+                        </div>
+                    {% endfor %}
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

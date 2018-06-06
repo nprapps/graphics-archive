@@ -1,0 +1,67 @@
+@import "base";
+
+.chart {
+    float: left;
+    margin-bottom: 22px;
+    margin-right: 7px;
+}
+
+.annotation {
+    font-style: italic;
+    font-size: 12px;
+    fill: #999;
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+.text-wrapper {
+    float: none;
+    width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 650px;
+}
+
+.key .key-item {
+    line-height: 4px;
+
+    b {
+        width: 30px;
+        height: 4px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+    h3 {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 675px) {
+    div.text-wrapper {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 915px) {
+    h3 {
+        width: 160px;
+        height: 28px;
+    }
+}

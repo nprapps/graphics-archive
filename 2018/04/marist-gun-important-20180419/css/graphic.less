@@ -1,0 +1,53 @@
+@import "base";
+
+h1 {
+    text-align: center;
+    margin-bottom: 22px;
+
+    strong { color: #333; }
+}
+
+h3 { text-align: center; }
+
+.bg {
+    fill: #f1f1f1;
+    shape-rendering: crispEdges;
+}
+
+.grid line { stroke: #fff; }
+
+.x.axis {
+    fill: #666;
+    .knockout-header();
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 11px;
+    font-weight: bold;
+    // fill: #999;
+
+    .first& { text-anchor: end; }
+}
+
+@media screen and (max-width: 500px) {
+    // .value text { font-size: 10px; }
+    .chart {
+        margin-top: 22px;
+
+        &:first-child { margin-top: 0; }
+    }
+}
+
+@media screen and (min-width: 501px) {
+    // h3 {
+    //     height: 40px;
+    //     margin-bottom: 0;
+    // }
+    // .key { display: none; }
+}

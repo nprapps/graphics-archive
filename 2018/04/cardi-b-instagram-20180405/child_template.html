@@ -1,0 +1,43 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="line-chart" class="graphic">
+        <img src="fallback.png" alt="[Chart]" class="fallback" />
+    </div>
+
+    <div class="graphic-timeline show-mobile">
+        {% for row in COPY.annots %}
+        <div class="timeline-row">
+            <div class="img-wrapper">
+                <img src="img/{{ row.img }}" alt="Picture of Cardi B's face" />
+            </div>
+            <div class="text-wrapper">
+                <strong>{{ row.formatted_date }}</strong>
+                <p>{{ row.annotation }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var DATA = {{ COPY.data.json() }};
+        var ANNOTS = {{ COPY.annots.json() }};
+    </script>
+
+{% endblock content %}
