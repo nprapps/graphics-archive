@@ -1,0 +1,64 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="flex-container">
+        <div class="graphic">
+            <h3>S&P 500 Sector Breakdown</h3>
+            <div id="stacked-column-chart">
+                <img src="fallback.png" alt="[Chart]" class="fallback" />
+            </div>
+        </div>
+
+        <div class="graphic">
+            <h3>Top 10 by Index Weight</h3>
+            <table id="top-table">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_constituent }}</div>
+                        </th>
+                        <th>
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_symbol }}</div>
+                        </th>
+                        <th>
+                            <div class="sorter"><div class="icon"></div></div>
+                            <div class="header">{{ COPY.labels.hdr_sector }}</div>
+                        </th>
+                    </tr>
+                </thead>
+
+                {% for row in COPY.table %}
+                <tr class="row-{{ row.constituent|classify }} {{ row.class }}">
+                    <td data-title="{{ COPY.labels.hdr_constituent }}">{{ row.constituent }}</td>
+                    <td data-title="{{ COPY.labels.hdr_symbol }}">{{ row.symbol }}</td>
+                    <td data-title="{{ COPY.labels.hdr_sector }}">{{ row.sector }}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var DATA = {{ COPY.data.json() }};
+    </script>
+
+{% endblock content %}

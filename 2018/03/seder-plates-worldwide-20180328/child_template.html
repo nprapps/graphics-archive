@@ -1,0 +1,36 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        {% for row in COPY.data %}
+        <div class="row-wrap">
+            <div class="row-header">
+                <h4>{{ row.name }}</h4>
+                <p>{{ row.description }}</p>
+            </div>
+            <div class="row-body">
+                {% for country in ['U.S.','Egypt','Ethiopia','Greece','India','Italy'] %}
+                <p class="country"><strong>{{ country }}:</strong> {{ row[country] }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
