@@ -1,0 +1,56 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 2.5px;
+    stroke-linecap: round;
+    stroke: #ccc;
+}
+
+.dots {
+    display: none;
+    stroke: white;
+    stroke-width: 1;
+    fill: @teal3;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+.highlight-area {
+}
+
+.highlight-area rect {
+    fill: @teal5;
+    opacity: 0.4;
+}
+
+.highlight-area text {
+    font-size: 12px;
+    fill: #666;
+    font-style: italic;
+    text-anchor: middle;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+
+    .lines {
+        stroke-width: 1.5px;
+    }
+
+    .highlight-area text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

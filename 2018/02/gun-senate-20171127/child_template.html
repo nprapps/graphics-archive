@@ -1,0 +1,64 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ COPY.labels.subhed|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <div class="senate">
+            <ul class="key">
+                {% for key in COPY.key %}
+                <li class="key-item key-{{ key.index }} {{ key.id|classify }}"><b>{% if key.content != '' %}{{ key.content }}{% endif %}</b><label>{{ key.label }}</label></li>
+                {% endfor %}
+            </ul>
+
+            <table class="senate">
+                <thead>
+                    <th class="name">Senate</th>
+                    {% for vote in COPY.votes_senate %}
+                    <th class="vote vote-{{ vote.id }}"><div><span>{% if vote.link %}<a href="{{ vote.link }}">{% endif %}{{ vote.name }}{% if vote.link %}</a>{% endif %} <i>{{ vote.date }}</i></span></div></th>
+                    {% endfor %}
+                </thead>
+                <tbody>
+
+                    {% for row in COPY.data_senate %}
+                    <tr class="{{ row.name|classify }}">
+                        <td class="name">{{ row.name }} <nobr>({{ row.party }}-{{ row.state }})</nobr></td>
+                        {% for vote in COPY.votes_senate %}
+                        {% if (row['vote_' + vote.id]|lower == 'con' or row['vote_' + vote.id]|lower == 'pro' or row['vote_' + vote.id]|lower == 'n/a') %}
+                        <td data-title="{{ vote.name }}" class="vote {{ row['vote_' + vote.id]|classify }}"><!--{{ row['vote_' + vote.id] }}--></td>
+                        {% endif %}
+                        {% if (row['vote_' + vote.id]|lower == 'conx' or row['vote_' + vote.id]|lower == 'prox') %}
+                        <td data-title="{{ vote.name }}" class="vote {{ row['vote_' + vote.id]|classify }}">X<!--{{ row['vote_' + vote.id] }}--></td>
+                        {% endif %}
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

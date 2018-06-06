@@ -1,0 +1,136 @@
+@import "base";
+
+// Breakpoints
+@screen-large: ~"screen and (min-width: 1200px)";
+@screen-medium-above: ~"screen and (min-width: 992px)";
+@screen-medium: ~"screen and (max-width: 991px)";
+
+@screen-small-above: ~"screen and (min-width: 768px)";
+@screen-small: ~"screen and (max-width: 767px)";
+
+@screen-tiny-above: ~"screen and (min-width: 481px)";
+@screen-tiny: ~"screen and (max-width: 480px)";
+
+
+// Base font size
+// -------------------------
+
+html {
+    font-size: 12px;
+
+    @media screen and (min-width: @screen-small){
+        font-size: 14px;
+    }
+
+    @media screen and (min-width: @screen-medium){
+        font-size: 16px;
+    }
+
+    @media screen and (min-width: @screen-large){
+        font-size: 18px;
+    }
+
+    @media screen and (min-width: 1600px){
+        font-size: 21px;
+    }
+
+    @media screen and (min-width: 1920px){
+        font-size: 24px;
+    }
+}
+
+// Add custom styles here
+.footer-nav {
+    position: relative;
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    h3 {
+        font-size: 17px;
+        .gotham();
+
+        a:link,
+        a:visited {
+            color: #000;
+        }
+        a:hover,
+        a:active {
+            color: #bccae5;
+        }
+    }
+
+    .next-year {
+        background-color: #131D22;
+        color: #D4D4D4;
+
+        @media @screen-small-above {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        a { color: #D4D4D4; }
+
+        .next-year-art {
+            @media @screen-small-above {
+                flex: 1;
+            }
+
+            img { display: block; }
+        }
+
+        .next-year-description {
+
+            @media @screen-small-above {
+                flex: 1;
+            }
+
+            p {
+                margin: 0 20px 0 0;
+                padding: 20px 10px;
+                font-size: 13px;
+                .gotham();
+                @media @screen-small-above {
+                    text-align: left;
+                    margin: 0;
+                    padding: 0 100px 0 20px;
+                    background-size: 100px;
+                    font-size: 16px;
+                    background-image: url('data:image/svg+xml,%3Csvg%20width%3D%221792%22%20height%3D%221792%22%20viewBox%3D%220%200%201792%201792%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M1171%20960q0%2013-10%2023l-466%20466q-10%2010-23%2010t-23-10l-50-50q-10-10-10-23t10-23l393-393-393-393q-10-10-10-23t10-23l50-50q10-10%2023-10t23%2010l466%20466q10%2010%2010%2023z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E');
+                    background-size: 80px;
+                    background-repeat: no-repeat;
+                    background-position: center right;
+                }
+            }
+        }
+    }
+
+    .year-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 10px 0 0 10px;
+        font-size: 18px;
+        .knockout();
+        .clearfix();
+
+        @media @screen-small-above {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 12px;
+        }
+
+        li {
+            float: left;
+            margin-right: 5px;
+        }
+
+        .current-year {
+            font-weight: bold;
+            a {color: #111;}
+        }
+    }
+}

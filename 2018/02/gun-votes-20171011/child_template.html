@@ -1,0 +1,103 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <div class="state-list">
+            <h3>{{ COPY.labels.hdr_all_states }}</h3>
+            <ul>
+                {% for state in COPY.states %}
+                <li class="{{ state.usps|classify }}">{{ state.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        {% for state in COPY.states %}
+        <div class="state {{ state.usps|classify }}">
+            <h4>{{ COPY.labels.hed_section_1 }} <strong>{{ state.name }}</strong> {{ COPY.labels.hed_section_2 }}</h4>
+
+            <ul class="key">
+                {% for key in COPY.key %}
+                <li class="key-item key-{{ key.index }} {{ key.id|classify }}"><b>{% if key.content != '' %}{{ key.content }}{% endif %}</b><label>{{ key.label }}</label></li>
+                {% endfor %}
+            </ul>
+
+            <table class="senate statename">
+                <thead>
+                    <th class="name">U.S.&nbsp;Senate</th>
+                    {% for vote in COPY.votes_senate %}
+                    <th class="vote vote-{{ vote.id }}"><div><span>{% if vote.link %}<a href="{{ vote.link }}">{% endif %}{{ vote.name }}{% if vote.link %}</a>{% endif %} <i>{{ vote.date }}</i></span></div></th>
+                    {% endfor %}
+                </thead>
+                <tbody>
+
+                    {% for row in COPY.data_senate %}
+                    {% if row.state == state.usps %}
+                    <tr class="{{ row.name|classify }}">
+                        <td class="name">{{ row.name }}&nbsp;({{ row.party }})</td>
+
+                        {% for vote in COPY.votes_senate %}
+                        <td data-title="{{ vote.name }}" class="vote {{ row['vote_' + vote.id]|classify }}"><!--{{ row['vote_' + vote.id] }}--></td>
+                        {% endfor %}
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+            <table class="house statename">
+                <thead>
+                    <th class="name">U.S.&nbsp;House</th>
+                    {% for vote in COPY.votes_house %}
+                    <th class="vote vote-{{ vote.id }}"><div><span>{% if vote.link %}<a href="{{ vote.link }}">{% endif %}{{ vote.name }}{% if vote.link %}</a>{% endif %} <i>{{ vote.date }}</i></span></div></th>
+                    {% endfor %}
+                </thead>
+                <tbody>
+
+                    {% for row in COPY.data_house %}
+                    {% if row.state == state.usps %}
+                    <tr class="{{ row.name|classify }}">
+                        <td class="name">{{ row.name }}&nbsp;({{ row.party }})</td>
+
+                        {% for vote in COPY.votes_house %}
+                        <td data-title="{{ vote.name }}" class="vote {{ row['vote_' + vote.id]|classify }}"><!--{{ row['vote_' + vote.id] }}--></td>
+                        {% endfor %}
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <p><strong>Notes:</strong> {{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var STATE_POSTAL_TO_FULL = {{ COPY.state_convert.json() }};
+    </script>
+{% endblock content %}
+
+{% block js %}
+
+    <script src="https://js.maxmind.com/js/apis/geoip2/v2.1/geoip2.js" type="text/javascript"></script>
+    {{ JS.push('js/lib/lscache.min.js') }}
+    {{ JS.push('js/lib/d3.min.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

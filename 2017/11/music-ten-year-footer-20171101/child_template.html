@@ -1,0 +1,23 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+    <div id="footer-nav" class="footer-nav">
+        <h3>{{ COPY.labels.headline|smarty }}</h3>
+        <div class="next-year">
+            <div class="next-year-art"></div>
+            <div class="next-year-description"></div>
+        </div>
+        <ul class="year-list"></ul>
+    </div>
+
+    <script type="text/javascript">
+        var DATA = {{ COPY.data.json() }};
+    </script>
+{% endblock content %}
+
+{% block js %}
+    {{ JS.push('js/lib/underscore.js') }}
+    {{ JS.push('js/lib/d3.min.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+{% endblock js %}

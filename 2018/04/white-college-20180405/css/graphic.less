@@ -1,0 +1,31 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+circle {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.key {
+    margin-bottom: 22px;
+
+    .democratic b { background-color: @blue3; }
+    .republican b { background-color: @red3; }
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}

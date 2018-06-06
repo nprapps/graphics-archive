@@ -1,0 +1,43 @@
+@import "base";
+
+// Add custom styles here
+
+.grid .tick { stroke: #fff; }
+
+rect.bg { fill: #f1f1f1; }
+
+.dots circle {
+        fill: @teal3;
+        stroke: @teal3;
+        fill-opacity: .4;
+        stroke-opacity: .6;
+}
+
+.connectors line {
+    stroke: #999;
+}
+
+.values2 {
+    font-size: 11px;
+    fill: #787878;
+    text-anchor: begin;
+}
+
+.values {
+    font-size: 11px;
+    fill: #787878;
+    text-anchor: end;
+}
+
+
+text.header {
+    font-size: 12px;
+    fill: #333;
+    font-weight: bold;
+
+    &.yes { text-anchor: end; }
+}
+
+@media screen and (max-width: 500px) {
+    .values { font-size: 11px; }
+}

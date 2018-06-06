@@ -1,0 +1,222 @@
+@import "base";
+
+@pro:   @teal3;
+@con:   @orange3;
+@na:    #ccc;
+
+.state-list {
+    margin-bottom: 33px;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+    li {
+        margin: 0 0 4px 0;
+        padding: 0;
+        font-size: 12px;
+        width: 25%;
+        color: #4774CC;
+
+        &:hover {
+            cursor: pointer;
+            color: #bccae5;
+        }
+    }
+}
+
+.key {
+    margin-top: 0;
+    margin-bottom: 11px;
+
+    .key-item {
+        display: block;
+        clear: both;
+
+        b {
+            text-align: center;
+            font-size: 10px;
+            border: 1px solid transparent;
+        }
+
+        &.pro b { background-color: @pro; }
+        &.con b { background-color: @con; }
+        &.na b { background-color: @na; }
+
+        label { white-space: normal; }
+        strong { color: #333; }
+    }
+}
+
+.state {
+    display: none;
+
+    &.active { display: block; }
+}
+
+.graphic h4 {
+    .gotham();
+    margin: 0 0 33px 0;
+    font-size: 18px;
+    color: #787878;
+    -webkit-font-smoothing: antialiased;
+
+    strong { color: #333; }
+}
+
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    caption {
+        .gotham();
+        margin: 0;
+        font-size: 14px;
+        color: #787878;
+        -webkit-font-smoothing: antialiased;
+
+        strong { color: #333; }
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        .knockout-header();
+        text-align: left;
+        padding: 0 5px 10px 5px;
+        padding-top: 0;
+        line-height: 1;
+
+        &.vote {
+            width: 9%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        &.name { width: 10%; }
+
+        div {
+            position: relative;
+            height: 150px;
+            width: 100%;
+        }
+
+        span {
+            position: absolute;
+            bottom: 52%;
+            left: 50%;
+            -webkit-transform: translateX(-50%) translateY(50%) rotate(-90deg);
+            transform: translateX(-50%) translateY(50%) rotate(-90deg);
+            width: 150px;
+        }
+
+        i {
+            display: block;
+            color: #999;
+            font-style: normal;
+            padding-top: 1px;
+            font-size: 10px;
+        }
+    }
+
+    td {
+        padding: 5px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+
+        &.vote {
+            text-align: center;
+            vertical-align: middle;
+            color: #ccc;
+            background-color: @na;
+            border-left: 1px solid #fff;
+            font-size: 11px;
+
+            &.pro,
+            &.con {
+                color: #fff;
+            }
+
+            &.pro { background-color: @pro; }
+            &.con { background-color: @con; }
+        }
+    }
+
+    th, td {
+        &:first-child { padding-left: 0; }
+    }
+}
+
+
+// Desktop-only styles
+@media screen and (min-width: 501px) {
+    .key {
+        display: flex;
+
+        .key-item {
+            width: 33%;
+            margin-right: 0;
+            margin-bottom: 0;
+            margin-top: 0;
+            margin-left: 11px;
+            border-left: 1px solid #eee;
+            padding-left: 11px;
+
+            &:first-child {
+                padding-left: 0;
+                margin-left: 0;
+                border-left: 0;
+            }
+
+            b {
+                display: block;
+                float: left;
+            }
+            label {
+                display: block;
+                margin-left: 25px;
+            }
+        }
+    }
+}
+
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    .state-list li { width: 33%; }
+
+    .key {
+        .key-item {
+            margin-top: 3px;
+
+            &:first-child { margin-top: 0; }
+        }
+    }
+
+    table {
+        th {
+            line-height: 0.95;
+            font-size: 10.5px;
+            padding-bottom: 5px;
+
+            div { height: 135px; }
+            span { width: 135px; }
+            i { font-size: 9px; }
+        }
+
+        td {
+            font-size: 11px;
+            padding: 3px;
+        }
+    }
+}

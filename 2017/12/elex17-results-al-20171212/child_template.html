@@ -1,0 +1,83 @@
+{% extends 'base_template.html' %}
+
+{% block fonts %}
+<!-- Fonts -->
+<script src="https://apps.npr.org/dailygraphics/graphics/fonts/js/lib/webfont.js"></script>
+<script>
+WebFont.load({
+    custom: {
+        families: [
+            'Gotham SSm:n4,n7',
+            'Knockout 31 4r:n4',
+            'elections16'
+        ],
+        urls: [
+            'https://s.npr.org/templates/css/fonts/GothamSSm.css',
+            'https://s.npr.org/templates/css/fonts/Knockout.css',
+            'css/elections16.css'
+        ]
+    },
+    timeout: 10000
+});
+</script>
+{% endblock %}
+
+{% block content %}
+
+    {% if COPY.labels.is_test_data|lower == 'yes' %}<p class="msg-test">{{ COPY.labels.test_message }}</p>{% endif %}
+
+    <div class="graphic">
+        <div class="results al">
+            <h3>{{ COPY.labels.headline }}</h3>
+
+            <ul class="meta">
+                <li class="last-updated"></li>
+                <li class="precincts"></li>
+            </ul>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th class="votes">Votes</th>
+                        <th class="pct">Percent</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="meta-footer">
+        <div class="countdown">
+            <span class="update-indicator"></span>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Source: {{ COPY.labels.source }}</p>
+    </div>
+
+    <script type="text/javascript">
+        var CONTAINER = '.results.al';
+        var STORY_URL = "{{ COPY.labels.story_url }}";
+        // use results from the spreadsheet
+        {% if COPY.labels.inline_results %}
+        var RESULTS = {{ COPY.labels.postelection_data_path|bake_results|safe }};
+        var DATA_URL = false;
+        // use results from an external datafile
+        {% else %}
+        var DATA_URL = "{{ COPY.labels.data_url }}";
+        {% endif %}
+        var RESULTS_PROPERTY = "{{ COPY.labels.raceid }}";
+    </script>
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/d3.min.js') }}
+    {{ JS.push('js/base.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}
