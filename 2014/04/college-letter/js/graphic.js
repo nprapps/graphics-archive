@@ -1,3 +1,7 @@
+// Global vars
+var pymChild = null;
+var isMobile = false;
+
 var $btn_back;
 var $btn_next;
 var $counter;
@@ -9,27 +13,10 @@ var $graphic;
 var current_item;
 var total_items;
 
-var colors = {
-    'red1': '#6C2315', 'red2': '#A23520', 'red3': '#D8472B', 'red4': '#E27560', 'red5': '#ECA395', 'red6': '#F5D1CA',
-    'orange1': '#714616', 'orange2': '#AA6A21', 'orange3': '#E38D2C', 'orange4': '#EAAA61', 'orange5': '#F1C696', 'orange6': '#F8E2CA',
-    'yellow1': '#77631B', 'yellow2': '#B39429', 'yellow3': '#EFC637', 'yellow4': '#F3D469', 'yellow5': '#F7E39B', 'yellow6': '#FBF1CD',
-    'teal1': '#0B403F', 'teal2': '#11605E', 'teal3': '#17807E', 'teal4': '#51A09E', 'teal5': '#8BC0BF', 'teal6': '#C5DFDF',
-    'blue1': '#28556F', 'blue2': '#3D7FA6', 'blue3': '#51AADE', 'blue4': '#7DBFE6', 'blue5': '#A8D5EF', 'blue6': '#D3EAF7'
-};
-
 /*
- * TODO: draw your graphic
+ * Initialize the graphic.
  */
-function render(width) {
-    $graphic.width(width + 'px');
-    sendHeightToParent();
-}
-
-/*
- * NB: Use window.load instead of document.ready
- * to ensure all images have loaded
- */
-$(window).load(function() {
+var onWindowLoaded = function() {
     $btn_back = $('#btn-back');
     $btn_next = $('#btn-next');
     $counter = $('#nav-counter');
@@ -37,19 +24,49 @@ $(window).load(function() {
     $explainer_items = $explainer.find('ul');
     $letter = $('#letter');
     $graphic = $('#graphic');
-    
+
     current_item = 0;
     total_items = $explainer_items.find('li').length;
-    
+
     goto_item(current_item);
-    
+
     $btn_back.on('click', goto_prev_item);
     $btn_next.on('click', goto_next_item);
 
-    setupResponsiveChild({
+    pymChild = new pym.Child({
         renderCallback: render
     });
-});
+
+    pymChild.onMessage('on-screen', function(bucket) {
+        ANALYTICS.trackEvent('on-screen', bucket);
+    });
+    pymChild.onMessage('scroll-depth', function(data) {
+        data = JSON.parse(data);
+        ANALYTICS.trackEvent('scroll-depth', data.percent, data.seconds);
+    });
+}
+
+/*
+ * Render the graphic.
+ */
+var render = function(containerWidth) {
+    if (!containerWidth) {
+        containerWidth = DEFAULT_WIDTH;
+    }
+
+    if (containerWidth <= MOBILE_THRESHOLD) {
+        isMobile = true;
+    } else {
+        isMobile = false;
+    }
+
+    $graphic.width(containerWidth + 'px');
+
+    // Update iframe
+    if (pymChild) {
+        pymChild.sendHeight();
+    }
+}
 
 function goto_next_item() {
     var id = current_item + 1;
@@ -88,8 +105,17 @@ function goto_item(id) {
     } else {
         $btn_next.prop('disabled', false).removeClass('inactive');
     }
-    
+
     $counter.text((current_item + 1) + ' of ' + total_items);
 
-    sendHeight();
+    // Update iframe
+    if (pymChild) {
+        pymChild.sendHeight();
+    }
 }
+
+/*
+ * Initially load the graphic
+ * (NB: Use window.load to ensure all images have loaded)
+ */
+window.onload = onWindowLoaded;
