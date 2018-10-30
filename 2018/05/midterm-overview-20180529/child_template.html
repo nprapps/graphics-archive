@@ -1,0 +1,75 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <ul class="tabs">
+    {% for tab in COPY.sections %}
+        <li class="{{ tab['key'] }}">{{ tab['title_long'] }}</li>
+    {% endfor %}
+    </ul>
+
+    <div class="graphic">
+        <!-- state-district, region, cook rating, incumbent party (+ current seatholder or open seat), 2016 result -->
+
+        {% for section in COPY.sections %}
+        <!-- begin {{ section['key'] }} -->
+        <div class="section {{ section['key'] }}">
+            <!-- <h3>{{ section['title_long'] }}</h3> -->
+            {% if section['map_url'] %}<img src="assets/{{ section['map_url'] }}" alt="Map" />{% endif %}
+            <table>
+                <thead>
+                    <tr>
+                        <th class="district">{{ COPY.labels.hdr_district }}</th>
+                        <th class="incumbent" colspan="2">{{ COPY.labels.hdr_incumbent }}</th>
+                        <th class="location">{{ COPY.labels.hdr_location }}</th>
+                        <th class="rating">{{ COPY.labels.hdr_rating }}</th>
+                        <th class="vote">{{ COPY.labels.hdr_2016 }}</th>
+                    </tr>
+                </thead>
+                {% for rating in COPY.ratings %}
+                {% for district in COPY.data %}
+                {% if (district['COOK RATING'] == rating['rating']) and (district['cat_' + section['key']] == 'yes') %}
+                    <tr>
+                        <td data-title="{{ COPY.labels.hdr_district }}" class="district"><b>{{ district['DISTRICT'] }}</b></td>
+                        <td data-title="{{ COPY.labels.hdr_party }}" class="party"><b class="{{ district['PARTY']|classify }}">{{ district['PARTY'] }}</b></td>
+                        <td data-title="{{ COPY.labels.hdr_incumbent }}" class="incumbent {% if district['cat_open'] == "yes" %}open-seat{% endif %}"><b>{{ district['INCUMBENT'] }}{% if district['STATUS'] %}*{% endif %}</b></td>
+                        <td data-title="{{ COPY.labels.hdr_location }}" class="location"><b>{{ district['LOCATION'] }}</b></td>
+                        <td data-title="{{ COPY.labels.hdr_rating }}" class="rating {{ district['COOK RATING']|classify }}"><b>{{ district['COOK RATING'] }}</b></td>
+                        <td data-title="{{ COPY.labels.hdr_2016 }}" class="vote"><b>
+                            {% if district['TRUMP'] > district['CLINTON'] %}
+                            Trump, {{ district['TRUMP'] }}%-{{ district['CLINTON'] }}%
+                            {% else %}
+                            Clinton, {{ district['CLINTON'] }}%-{{ district['TRUMP'] }}%
+                            {% endif %}
+                        </b></td>
+                    </tr>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+            </table>
+        </div>
+        <!-- end {{ section['key'] }} -->
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <p><strong>Note: </strong>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+    {{ JS.push('js/lib/d3.min.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+{% endblock js %}

@@ -1,0 +1,15 @@
+@import "base";
+
+body {
+    max-width: 730px;
+    margin: 0 auto;
+}
+
+.desktop { display: none; }
+.mobile { display: block; }
+
+// Add custom styles here
+@media screen and (min-width: 501px) {
+    .desktop { display: block; }
+    .mobile { display: none; }
+}

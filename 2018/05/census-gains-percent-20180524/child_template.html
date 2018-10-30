@@ -1,0 +1,65 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+    <div class="graphic">
+        <h1>{{ COPY.labels.percent_headline }}</h1>
+        <h2>{{ COPY.labels.percent_subhed }}</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_city }}</div>
+                    </th>
+                    <th class="charted">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_percent }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_pop }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for city in COPY.percent %}
+            {% set amt_grown = city['Percent increase']|float %}
+            <tr class="{{ city['city_label']|classify }} }}">
+                <td data-title="{{ COPY.labels.hdr_city }}" class="name">{{ city['city_label'] }}</td>
+                <td data-title="{{ COPY.labels.hdr_percent }}" class="charted">
+                    <div class="bar-wrapper">
+                        {% set amt_grown_bar = (( amt_grown / 10) * 100)|round(1) - 3 %}
+                        {% if amt_grown_bar < 0 %}{% set amt_grown_bar = 0 %}{% endif %}
+                        <div class="bar" style="width: {{ amt_grown_bar }}%"></div>
+                        <span class="value {% if amt_grown == '0' %}none{% endif %}">{{ amt_grown }}%</span>
+                    </div>
+                </td>
+                <td data-title="{{ COPY.labels.hdr_pop }}" class="amt">
+                    {{ city['2017 total population']|float|round|int|comma }}
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

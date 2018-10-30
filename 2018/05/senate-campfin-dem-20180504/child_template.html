@@ -1,0 +1,100 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.d_headline %}<h1>{{ COPY.labels.d_headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.d_subhed %}<h2>{{ render(COPY.labels.d_subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        {% for state in COPY.data|groupby('index') %}
+        {% if state.list[0]['seat_current'] == 'd' %}
+        {% set s = state.list[0]['State'] %}
+        <table class="state-{{ s }}">
+            <caption>{{ state.list[0]['state_full'] }}</caption>
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_candidate }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_total }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_q1 }}</div>
+                    </th>
+                    <th class="amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_cash }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for candidate in state.list %}
+            {% set amt_max = COPY.data[0]['Amount Raised - Total']|float %}
+            {% set amt_raised = candidate['Amount Raised - Total']|float %}
+            {% set amt_q1 = candidate['Amount raised 20181Q']|float %}
+            {% set amt_cash = candidate['Cash On Hand']|float %}
+            <tr class="{{ candidate['Candidate']|classify }} party-{{ candidate['party_clean']|lower }}{% if candidate['Incumbent'] == 'yes' %} incumbent{% endif %}">
+                <td data-title="{{ COPY.labels.hdr_candidate }}" class="name">{{ candidate['Candidate'] }} ({{ candidate['party_clean'] }}){% if candidate['Incumbent'] == 'yes' %}&nbsp;<em>&mdash; incumbent</em>{% endif %}{% if candidate['footnote_symbol'] %}{{ candidate['footnote_symbol'] }}{% endif %}</td>
+                <td data-title="{{ COPY.labels.hdr_total }}" class="amt">
+                    <div class="bar-wrapper">
+                        {% set amt_raised_bar = (( amt_raised / amt_max) * 100)|round(1) - 3 %}
+                        {% if amt_raised_bar < 0 %}{% set amt_raised_bar = 0 %}{% endif %}
+                        <div class="bar" style="width: {{ amt_raised_bar }}%"></div>
+                        <span class="value {% if amt_raised == '0' %}none{% endif %}">${{ amt_raised|float|round|int|comma }}</span>
+                    </div>
+                </td>
+                <td data-title="{{ COPY.labels.hdr_q1 }}" class="amt">
+                    <div class="bar-wrapper">
+                        {% set amt_q1_bar = (( amt_q1 / amt_max) * 100)|round(1) - 3 %}
+                        {% if amt_q1_bar < 0 %}{% set amt_q1_bar = 0 %}{% endif %}
+                        <div class="bar" style="width: {{ amt_q1_bar }}%"></div>
+                        <span class="value {% if amt_q1 == '0' %}none{% endif %}">${{ amt_q1|float|round|int|comma }}</span>
+                    </div>
+                </td>
+                <td data-title="{{ COPY.labels.hdr_cash }}" class="amt">
+                    <div class="bar-wrapper">
+                        {% set amt_cash_bar = (( amt_cash / amt_max) * 100)|round(1) - 3 %}
+                        {% if amt_cash_bar < 0 %}{% set amt_cash_bar = 0 %}{% endif %}
+                        <div class="bar" style="width: {{ amt_cash_bar }}%"></div>
+                        <span class="value {% if amt_cash == '0' %}none{% endif %}">${{ amt_cash|float|round|int|comma }}</span>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        {% if COPY.footnotes[s] %}
+        <div class="footnotes state">
+            <p>{{ COPY.footnotes[s]|smarty }}</p>
+        </div>
+        {% endif %}
+
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.d_footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.d_footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

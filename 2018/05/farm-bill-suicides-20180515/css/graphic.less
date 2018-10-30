@@ -1,0 +1,23 @@
+@import "base";
+
+// Add custom styles here
+li.farming-fishing-and-forestry {
+	font-weight: bold;
+}
+
+.bars rect {
+	fill: @blue2;
+
+	&.bar-0 {
+		fill: @blue1;
+	}
+}
+
+g.value text.farming-fishing-and-forestry {
+	font-weight: bold;
+	fill: #666;
+
+	@media screen and (max-width: 400px) {
+		fill: #fff;
+	}
+}

@@ -1,0 +1,299 @@
+@import "base";
+
+// colors
+@dem-likely:    @blue2;
+@dem-lean:      @blue4;
+@toss-up:       @yellow3;
+@gop-lean:      @red5;
+@gop-likely:    mix(@red2, @red3, 50%);
+
+
+// graphic
+h1, h2 { text-align: center; }
+
+h1 { margin-bottom: 15px; }
+
+h1,
+.footnotes,
+.footer {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 650px;
+}
+
+.graphic {
+    h3 {
+        .gotham();
+        color: #666;
+        font-size: 16px;
+        margin: 0 0 22px 0;
+        text-align: center;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto 22px auto;
+        max-width: 650px;
+    }
+}
+
+
+// sections
+.section {
+    display: none;
+    margin-bottom: 22px;
+
+    &.active { display: block;}
+}
+
+// tabs
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0 0 11px 0;
+    padding: 0;
+    width: 100%;
+
+    > li {
+        .knockout-header();
+        background-color: #fff;
+        border: 1px solid #5076b8;
+        border-radius: 5px;
+        color: #5076b8;
+        margin: 0 6px 6px 0;
+        margin-right: 10px;
+        padding: 8px 15px;
+        text-align: center;
+        font-size: 12px;
+        vertical-align: middle;
+        white-space: nowrap;
+        -webkit-font-smoothing: antialiased;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        &:hover {
+            opacity: 0.6;
+            cursor: pointer;
+        }
+
+        &.active {
+            background-color: #5076b8;
+            border-color: transparent;
+            color: #fff;
+
+            &:hover {
+                opacity: 1;
+                cursor: default;
+            }
+        }
+    }
+}
+
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+
+    th {
+        .knockout-header();
+        border-bottom: 2px solid #eee;
+        padding: 0 10px 10px 10px;
+        text-align: left;
+        vertical-align: bottom;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+
+        b { font-weight: normal; }
+
+        &.district {
+            font-weight: bold;
+            color: #454545;
+        }
+
+        &.incumbent.open-seat b {
+            color: #999;
+            font-style: italic;
+        }
+
+        &.party {
+            b {
+                border-radius: 20px;
+                color: white;
+                display: inline-block;
+                font-size: 10px;
+                height: 20px;
+                line-height: 20px;
+                text-align: center;
+                width: 20px;
+
+                &.d { background-color: @blue2; }
+                &.r { background-color: @red3; }
+            }
+        }
+
+        &.rating { white-space: nowrap; }
+    }
+}
+
+
+// Desktop-only styles
+@media screen and (min-width: 501px) {
+    table {
+        th, td {
+            &:first-child { padding-left: 0; }
+            &:last-child { padding-right: 0; }
+
+            &.district {
+                text-align: right;
+                white-space: nowrap;
+                width: 50px;
+            }
+
+            &.incumbent { width: 18%; }
+
+            &.party {
+                padding-right: 0;
+                width: 20px;
+
+                b { margin-top: -3px; }
+            }
+
+            &.rating {
+                width: 15%;
+                text-align: center;
+            }
+
+            &.vote { width: 25%; }
+        }
+
+
+        td.rating {
+            color: white;
+            vertical-align: middle;
+            width: 10%;
+
+            &.likely-dem { background-color: @dem-likely; }
+            &.lean-dem { background-color: @dem-lean; }
+            &.toss-up { background-color: @toss-up; }
+            &.lean-gop { background-color: @gop-lean; }
+            &.likely-gop { background-color: @gop-likely; }
+        }
+    }
+}
+
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    h1 { margin-bottom: 22px; }
+
+    .tabs {
+        li {
+            font-size: 11px;
+            padding: 11px;
+        }
+    }
+
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        thead { display: none; }
+
+        tr, th, td, {
+            display: block;
+            padding: 0;
+            white-space: normal;
+        }
+
+        tr {
+            // border-bottom: 1px solid #eee;
+            padding: 10px 0;
+
+            // &:first-child { border-top: 1px solid #eee; }
+        }
+
+        td {
+            // border: none;
+            display: flex;
+            padding: 6px 0;
+            // margin-bottom: 6px;
+            text-align: left;
+            color: #666;
+
+            &:empty { display: none; }
+        }
+
+        th[data-title]:before,
+        td[data-title]:before {
+            content: attr(data-title) ":\00A0";
+            width: 35%;
+            background-color: white;
+            color: #666;
+        }
+
+        tr td:first-child {
+            .knockout-header();
+            border-bottom: 2px solid #ccc;
+            color: #333;
+            font-size: 14px;
+
+            &:before {
+                content: '';
+                display: none;
+            }
+        }
+
+        td {
+            &.location,
+            &.incumbent,
+            &.vote {
+                b {
+                    display: inline-block;
+                    width: 65%;
+                }
+            }
+        }
+
+        td.party b {
+            font-size: 10px;
+            height: 15px;
+            line-height: 15px;
+            width: 15px;
+        }
+
+        td.rating {
+            b {
+                color: white;
+                display: inline-block;
+                text-align: center;
+                width: 100px;
+            }
+
+            &.likely-dem b { background-color: @dem-likely; }
+            &.lean-dem b { background-color: @dem-lean; }
+            &.toss-up b { background-color: @toss-up; }
+            &.lean-gop b { background-color: @gop-lean; }
+            &.likely-gop b { background-color: @gop-likely; }
+        }
+    }
+}
