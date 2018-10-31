@@ -1,0 +1,180 @@
+@import "base";
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 22px;
+    text-align: center;
+
+    strong { color: #454545; }
+}
+
+sup {
+    color: #999;
+    line-height: 0;
+    padding-left: 2px;
+}
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #454545;
+
+    b { font-weight: normal; }
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 10px;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    th,
+    td {
+        &.matrix {
+            &.shade-0   { background-color: mix(@orange4, #fff, 0%); }
+            &.shade-10  { background-color: mix(@orange4, #fff, 14%); }
+            &.shade-20  { background-color: mix(@orange4, #fff, 28%); }
+            &.shade-30  { background-color: mix(@orange4, #fff, 42%); }
+            &.shade-40  { background-color: mix(@orange4, #fff, 56%); }
+            &.shade-50  { background-color: mix(@orange4, #fff, 70%); }
+            &.shade-60  { background-color: mix(@orange4, #fff, 84%); }
+            &.shade-70  { background-color: mix(@orange4, #fff, 98%); }
+        }
+    }
+}
+
+// Large-screen styles
+@media screen and (min-width: 650px) {
+    h1,
+    h2,
+    .footnotes,
+    .footer {
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+// Desktop-only styles
+@media screen and (min-width: 501px) {
+    table {
+        th, td {
+            &:first-child { padding-left: 0; }
+
+            &.amt,
+            &.matrix { text-align: center; }
+
+            &.amt {
+                background-color: #f1f1f1;
+                border-color: #fff;
+                border-left: 2px solid #fff;
+                color: #787878;
+                font-style: italic;
+                text-align: center;
+                width: 20%;
+            }
+
+            &.matrix { width: 20%; }
+        }
+        td {
+            &.matrix {
+                border-color: #fff;
+                border-left: 1px solid #fff;
+            }
+        }
+    }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        thead { display: none; }
+
+        tr,
+        th,
+        th.amt,
+        td,
+        td.amt {
+            display: block;
+            padding: 0;
+            white-space: normal;
+        }
+
+        tr {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+
+            &:first-child { border-top: 1px solid #eee; }
+        }
+
+        td,
+        td.amt {
+            .clearfix();
+            border: none;
+            margin-bottom: 6px;
+            text-align: left;
+
+            &:empty { display: none; }
+        }
+
+        th[data-title]:before,
+        td[data-title]:before {
+            background-color: #fff;
+            content: attr(data-title) ":\00A0";
+            display: block;
+            float: left;
+            width: 70%;
+        }
+
+        b {
+            display: block;
+            text-align: center;
+        }
+
+        tr td:first-child {
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #333;
+            font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+
+            &:before {
+                content: '';
+                display: none;
+            }
+        }
+
+        td.amt {
+            font-style: italic;
+            color: #999;
+        }
+    }
+}

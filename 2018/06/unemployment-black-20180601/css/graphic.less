@@ -1,0 +1,46 @@
+@import "base";
+
+.graphic { margin-bottom: 22px; }
+
+.chart.rate { margin-bottom: 22px; }
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.dots {
+    circle {
+        stroke: #fff;
+        stroke-width: 1px;
+    }
+
+    text { font-size: 12px; }
+    .gap & text,
+    .black text { font-weight: bold; }
+}
+
+.area {
+    fill: @red3;
+    opacity: 0.5;
+}
+
+.chart-label {
+    fill: #999;
+    font-style: italic;
+    font-size: 12px;
+    text-anchor: middle;
+    letter-spacing: .3px;
+}
+
+@media screen and (max-width: 500px) {
+    .value text { font-size: 10px; }
+    .chart-label { font-size: 11px; }
+}
+
+// @media screen and (min-width: 500px) {
+//     .key {
+//         display: none;
+//     }
+// }

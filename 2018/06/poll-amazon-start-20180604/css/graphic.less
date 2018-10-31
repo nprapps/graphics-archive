@@ -1,0 +1,26 @@
+@import "base";
+
+// Add custom styles here
+h1 {
+    font-size: 18px;
+    margin-bottom: 22px;
+    text-align: center;
+
+    strong { color: #454545; }
+}
+
+.bars rect {
+    fill: @orange5;
+
+    &.amazon { fill: @orange3; }
+}
+
+.labels li.amazon {
+    color: #454545;
+    font-weight: bold;
+}
+
+.value text.amazon.out {
+    fill: #454545;
+    font-weight: bold;
+}

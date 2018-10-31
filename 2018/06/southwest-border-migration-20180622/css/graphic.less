@@ -1,0 +1,40 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 11px;
+    font-weight: normal;
+    fill: #999;
+}
+
+text.FY2017  {
+    fill: @blue4;
+    font-weight: bold;
+}
+
+text.FY2018  {
+    fill: @blue2;
+    font-weight: bold;
+}
+
+text.FY2014, text.FY2013 { transform: translateY(1px); }
+text.FY2015 { transform: translateY(-2px); }
+
+.key {
+        display: none;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+    text.FY2017 { transform: translateY(4px); }
+
+}
+
+

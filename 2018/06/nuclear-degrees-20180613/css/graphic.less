@@ -1,0 +1,28 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.annotations {
+    .year-hdr {
+        .knockout-header();
+        fill: #454545;
+        font-size: 13px;
+    }
+}
+
+.value text {
+    font-size: 12px;
+    fill: #666;
+}
+
+@media screen and (max-width: 500px) {
+    .annotations .year-hdr { font-size: 12px; }
+    .value text { font-size: 11px; }
+}
+
+@media screen and (min-width: 501px) {
+}

@@ -1,0 +1,51 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    fill: #fff;
+    font-size: 11px;
+    font-style: italic;
+    text-anchor: middle;
+    text-shadow: 0 0 7px @teal2;
+
+    &.all-other-countries {
+        fill: #666;
+        text-shadow: none;
+    }
+
+    &.guatemala {
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    &.china,
+    &.russia {
+        font-size: 14px;
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 9.5px;
+
+        &.guatemala { font-size: 10px; }
+
+        &.china,
+        &.russia {
+            font-size: 12px;
+        }
+    }
+}
+
+@media screen and (min-width: 501px) {
+    .value text {
+        &.guatemala { text-anchor: end; }
+        &.south-korea { text-anchor: start; }
+    }
+}

@@ -1,0 +1,93 @@
+@import "base";
+
+@all:       #666;
+@amazon:    @orange3;
+
+body { padding-bottom: 0; }
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 22px;
+    text-align: center;
+}
+
+sup {
+    color: #999;
+    line-height: 0;
+    padding-left: 2px;
+}
+
+.bars line {
+    fill: none;
+    stroke-width: 2px;
+    stroke: #ddd;
+}
+
+circle {
+    stroke-width: 1px;
+    stroke: #fff;
+    fill: #D8472B;
+
+    .all-adults &       { fill: @all; }
+    .amazon-shoppers &  { fill: @amazon; }
+}
+
+.value text {
+    font-size: 11px;
+    fill: #666;
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}
+
+.value, .shadow {
+    .all-adults text {
+        fill: @all;
+        text-anchor: end;
+    }
+    .amazon-shoppers text {
+        fill: @amazon;
+        text-anchor: start;
+    }
+
+    text.hdr {
+        font-weight: bold;
+        color: #333;
+        font-size: 12px;
+    }
+}
+
+.footnotes,
+.footer {
+    display: none;
+}
+
+@media screen and (min-width: 650px) {
+    h1,
+    h2,
+    .footnotes,
+    .footer {
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.promo {
+    h1 {
+        .knockout-header();
+    }
+    .labels li {
+        font-size: 14px;
+    }
+    .value text,
+    .shadow text {
+        font-size: 13px;
+
+        .hdr { font-size: 14px; }
+    }
+}

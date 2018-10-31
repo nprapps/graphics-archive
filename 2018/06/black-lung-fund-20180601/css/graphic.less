@@ -1,0 +1,48 @@
+@import "base";
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 22px;
+}
+
+.x.axis {
+    .tick:nth-child(2),
+    .tick:nth-child(3),
+    .tick:nth-child(4) {
+        line { display: none; }
+    }
+
+    text {
+        fill: #454545;
+        font-size: 11px;
+        font-weight: bold;
+        line-height: 15px;
+    }
+}
+
+.y.axis text {
+    fill: #787878;
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    // fill: #454545;
+}
+
+@media screen and (max-width: 500px) {
+    // .value text {
+    //     font-size: 10px;
+    // }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

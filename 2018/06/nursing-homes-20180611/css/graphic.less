@@ -1,0 +1,218 @@
+@import "base";
+
+@rehospitalization: @orange3;
+@discharge:         @teal3;
+
+#graphic { margin-bottom: 22px; }
+
+h2 strong,
+h5 strong { color: #333; }
+
+.state-wrapper {
+    border: 1px solid #dadada;
+    background-color: #f1f1f1;
+    padding: 11px;
+    margin-bottom: 22px;
+
+    h4 {
+        margin: 0 0 6px 0;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;;
+        font-weight: normal;
+        text-transform: uppercase;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+        font-size: 12px;
+        color: #666;
+    }
+
+    label {
+        margin: 0 6px 0 0;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;;
+        font-weight: normal;
+        text-transform: uppercase;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+        font-size: 12px;
+        color: #333;
+    }
+}
+
+text.x-annot {
+    fill: #999;
+    font-style: italic;
+    font-size: 12px;
+    text-anchor: middle;
+}
+
+.bars line {
+    fill: none;
+    stroke-width: 10px;
+    stroke: #ebebeb;
+}
+
+.dot-chart {
+    &.rehospitalization { margin-bottom: 33px; }
+
+    h4 {
+        .knockout-header();
+        font-size: 14px;
+        margin: 0 0 3px 0;
+
+        .rehospitalization& { color: @rehospitalization; }
+        .discharge& { color: @discharge; }
+    }
+    h5 {
+        color: #777;
+        font-size: 12px;
+        font-weight: normal;
+        line-height: 1.6;
+        margin: 0 0 11px 0;
+    }
+}
+
+.dots {
+    opacity: 0.3;
+    &.active { opacity: 1; }
+
+    circle {
+        stroke-width: 1px;
+        stroke: #bababa;
+        stroke-opacity: .4;
+        fill: #bababa;
+        fill-opacity: .1;
+
+        .rehospitalization-rate& {
+            stroke: @rehospitalization;
+            fill: @rehospitalization;
+        }
+
+        .community-discharge-rate& {
+            stroke: @discharge;
+            fill: @discharge;
+        }
+    }
+
+    circle {
+        &.active {
+            stroke: #333;
+            stroke-width: 2px;
+        }
+    }
+
+    text {
+        text-anchor: middle;
+        font-size: 9px;
+        fill: #999;
+        font-style: italic;
+
+        &.state-value {
+            -webkit-font-smoothing: antialiased;
+            fill: #333;
+            font-size: 10px;
+            font-style: normal;
+            font-weight: bold;
+            text-shadow: 1px 1px #fff;
+
+            &.left { text-anchor: start; }
+
+            .rehospitalization-rate& { fill: @rehospitalization; }
+            .community-discharge-rate& { fill: @discharge; }
+        }
+    }
+
+    // national average markers
+    line.average {
+        stroke: #333;
+        stroke-width: 3px;
+    }
+    text.average { fill: #454545; }
+}
+
+.key {
+    margin-top: 0;
+    margin-bottom: 22px;
+
+    .key-item b {
+        display: inline-block;
+        margin-right: 6px;
+        float: left;
+        height: 10px;
+    }
+
+    .average b {
+        width: 3px;
+        background-color: #333;
+        margin-left: 6px;
+        margin-right: 12px;
+    }
+
+    .key-1 b,
+    .state b {
+        width: 10px;
+        border-radius: 15px;
+        opacity: .8;
+    }
+
+    .state b {
+        border: 1px solid #bababa;
+        background: rgba(186, 186, 186, .5);
+    }
+
+    .key-1 {
+        display: none;
+
+        &.active { display: inline-block; }
+        b { border: 2px solid #333; }
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+    }
+}
+
+.labels li {
+    opacity: 0.4;
+    font-style: italic;
+
+    &.active {
+        opacity: 1;
+        font-style: normal;
+    }
+
+    strong {
+        display: block;
+        color: #454545;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    i {
+        color: #999;
+        display: block;
+        font-size: 11px;
+    }
+}
+
+
+@media screen and (min-width: 501px) {
+}
+
+@media screen and (max-width: 500px) {
+    .labels {
+        width: 100%;
+
+        li {
+            text-align: left;
+            font-size: 11px;
+            display: block;
+            background: rgba(255, 255, 255, .9);
+            padding: 5px 0;
+
+            span { display: inline; }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    fill: #999;
+}
+
+#apprehensions { fill: @blue2; }
+#unemployment { fill: @orange3; }
+
+#apprehensions path { stroke: @blue2; }
+#unemployment path { stroke: @orange3; }
+
+.y0-text, .y1-text {
+    .gotham();
+    font-size: 12px;
+}
+
+.y0-text { fill: @blue2; }
+.y1-text { fill: @orange3; }
+
+.key {
+        display: none;
+    }
+
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+
+}

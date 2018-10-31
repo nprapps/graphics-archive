@@ -1,0 +1,56 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 1px;
+    stroke: #ccc;
+}
+
+.line.dgs10 {
+    stroke: @teal2;
+}
+
+.line.dgs2 {
+    stroke: @orange4;
+}
+
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+#text0 { 
+    transform: translateY(-9px); 
+    fill: @teal2;
+}
+#text1 { 
+    transform: translateY(1px); 
+    fill: @orange4;
+}
+
+.recession-label {
+    fill: #999;
+    font-style: italic;
+    font-size: 12px;
+    text-anchor: middle;
+    letter-spacing: .3px;
+}
+
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+
+    .lines {
+        stroke-width: 0.35px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}
