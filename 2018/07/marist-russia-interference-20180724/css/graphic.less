@@ -1,0 +1,56 @@
+@import "base";
+
+h1 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 18px;
+
+    strong { color: #333; }
+}
+
+.chart {
+    margin-bottom: 22px;
+}
+
+.key {
+    display: webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0 auto 15px;
+    width: auto;
+
+    .key-item {
+        display: block;
+        margin: 0 18px 3px 0;
+        // width: 50%;
+    }
+}
+
+ul.labels li.overall {
+    font-weight: bold;
+    color: #333;
+}
+
+.value text {
+    fill: #fff;
+
+    .group.overall & { font-weight: bold; }
+
+    &.hidden {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 501px) {
+    .key {
+        justify-content: center;
+        flex-wrap: nowrap;
+        margin-bottom: 22px;
+
+        .key-item {
+            margin: 0 11px;
+            width: auto;
+        }
+    }
+}

@@ -1,0 +1,49 @@
+@import "base";
+body { padding-top: 11px; }
+h1 {
+    margin-bottom: 22px;
+    font-size: 18px;
+    text-align: center;
+    strong { color: #333; }
+}
+h3 {
+    text-transform: uppercase;
+    padding-bottom: 6px;
+    display: table-cell;
+    width: 100%;
+    vertical-align: bottom;
+}
+.labels li.overall {
+    font-weight: bold;
+    color: #454545;
+}
+.value text.overall {
+    font-weight: bold;
+    &.out { fill: #454545; }
+}
+.bg rect { fill: #f1f1f1; }
+.bars rect {
+    fill: #999;
+    fill-opacity: .5;
+    &.overall { fill-opacity: 1; }
+}
+
+@media screen and (min-width: 708px) {
+    .promo {
+        h1 {
+            .knockout-header();
+            font-size: 15px;
+            margin-bottom: 11px;
+            color: #666;
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+    .chart {
+        margin-bottom: 22px;
+
+        h3 {
+            height: 30px;
+        }
+    }
+}

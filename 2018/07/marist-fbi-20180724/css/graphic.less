@@ -1,0 +1,39 @@
+@import "base";
+
+h1 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 18px;
+
+    strong { color: #333; }
+}
+
+.chart {
+    margin-bottom: 22px;
+}
+
+.key {
+    margin: 0 auto 22px;
+    width: auto;
+
+    .key-item { white-space: normal; }
+}
+
+ul.labels li.overall {
+    font-weight: bold;
+    color: #333;
+}
+
+.value text {
+    fill: #fff;
+
+    .group.overall & { font-weight: bold; }
+
+    &.hidden {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 505px) {
+    ul.key { width: 505px; }
+}

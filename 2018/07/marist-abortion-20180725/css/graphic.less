@@ -1,0 +1,34 @@
+@import "base";
+
+// Add custom styles here
+h1 {
+    text-align: center;
+
+    strong { color: #333; }
+}
+
+h2 {
+    .gotham();
+    font-style: italic;
+    margin: 0 auto 18px auto;
+    max-width: 90%;
+    text-align: center;
+
+    em { font-style: normal; }
+}
+
+.graphic { margin-bottom: 22px; }
+
+.bars rect {
+    fill: #ccc;
+
+    &.overturn { fill: @orange3; }
+    &.more-restrictions { fill: @orange5; }
+    &.keep { fill: @teal6; }
+    &.reduce-restrictions { fill: #77afad; }
+    &.expand { fill: @teal3; }
+}
+
+@media screen and (max-width: 500px) {
+    h2 { max-width: none; }
+}

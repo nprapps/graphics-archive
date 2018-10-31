@@ -1,0 +1,35 @@
+@import "base";
+
+// Add custom styles here
+h1 {
+    font-size: 18px;
+    text-align: center;
+
+    strong { color: #333; }
+}
+
+h2 {
+    .gotham();
+    color: #787878;
+    font-style: italic;
+    margin: 0 0 11px 0;
+    text-align: center;
+}
+
+h3 { text-align: center; }
+
+// #f3d469 #b7b873 #789c79 #17807e
+// http://gka.github.io/palettes/#colors=#F3D469,#17807E|steps=4|bez=1|coL=1
+
+.bars rect {
+    &.c-2 { fill: @teal6; }
+    &.c-3 { fill: @teal5; }
+    &.c-4 { fill: @teal4; }
+    &.c-5 { fill: @teal3; }
+}
+
+.chart {
+    margin-bottom: 22px;
+
+    &:last-child { margin-bottom: 0; }
+}

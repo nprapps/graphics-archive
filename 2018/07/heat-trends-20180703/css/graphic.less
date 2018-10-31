@@ -1,0 +1,47 @@
+@import "base";
+
+h2 {
+    span {
+        -webkit-font-smoothing: antialiased;
+        border-radius: 3px;
+        color: #fff;
+        font-weight: bold;
+        padding: 2px 5px;
+        white-space: nowrap;
+    }
+    .high { background-color: #bababa; }
+    .low { background-color: @orange3; }
+}
+
+.annotations {
+    font-size: 11px;
+    font-style: italic;
+    fill: #787878;
+
+    .above { text-anchor: begin; }
+    .below { text-anchor: end; }
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .lines { stroke-width: 2px; }
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 501px) {
+    .key { display: none; }
+    .lines { stroke-width: 4px; }
+}

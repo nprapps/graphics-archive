@@ -1,0 +1,42 @@
+@import "base";
+
+// Add custom styles here
+h1 {
+    .knockout-header();
+    color: #454545;
+    font-size: 16px;
+    margin-bottom: 22px;
+    text-align: center;
+
+    strong {
+        border-bottom: 1px solid #333;
+        font-weight: normal;
+        white-space: nowrap;
+
+        &:nth-child(2) {
+            border-color: @teal3;
+            color: @teal3;
+        }
+        &:nth-child(3) {
+            border-color: @orange3;
+            color: @orange3;
+        }
+    }
+}
+
+.axis.x {
+    .knockout();
+    font-size: 14px;
+    fill: #454545;
+}
+
+.value text {
+    font-size: 12px;
+}
+
+.bars rect {
+    fill: #aaa;
+
+    &:nth-child(1) { fill: @teal3; }
+    &:nth-child(2) { fill: @orange3; }
+}

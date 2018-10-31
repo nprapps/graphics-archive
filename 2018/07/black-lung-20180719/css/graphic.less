@@ -1,0 +1,32 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+.key {
+        display: none;
+}
+
+.text-2 { transform: translateY(-8px); }
+.text-3 { transform: translateY(1px); }
+.text-4 { transform: translateY(3px); };
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+
+    .text-3 { transform: translateY(-1px); }
+
+    .lines { stroke-width: 1.5px; }
+}
+

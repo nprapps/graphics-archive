@@ -1,0 +1,38 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="legend">
+        {% if COPY.labels.hed_legend %}<h3>{{ COPY.labels.hed_legend }}</h3>{% endif %}
+        <img src="assets/key-spectrum.png" alt="[A spectrum color legend corresponding to sea temperature anomalies]" />
+        <ul>
+            <li>-3&deg;</li>
+            <li>-2&deg;</li>
+            <li>-1&deg;</li>
+            <li>0&deg;</li>
+            <li>+1&deg;</li>
+            <li>+2&deg;</li>
+            <li>+3&deg;C</li>
+        </ul>
+    </div>
+
+    <div id="graphic" class="graphic">
+        <img src="assets/map-blob.png" alt="[Map showing temperature anomalies along the U.S. West Coast, including hot spots in the Bering Sea and Gulf of Alaska]" class="fallback" />
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
