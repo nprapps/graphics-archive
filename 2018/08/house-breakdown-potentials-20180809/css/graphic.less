@@ -1,0 +1,79 @@
+@import "base";
+
+.graphic-wrapper {
+	padding-top: 60px;
+	&:first-of-type {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+}
+
+.value text {
+    fill: #fff;
+    font-size: 14px;
+    stroke: beige;
+    stroke-width: 0.75px;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.labels li {
+	.knockout();
+	font-size: 16px;
+
+	span {
+	    -webkit-font-smoothing: antialiased;
+	}
+
+	&.subsubhed {
+		transform: translateY(50px);
+	}
+}
+
+.value-netseats text {
+	font-style: italic;
+	font-weight: lighter;
+	font-size: 13px;
+	stroke-width: 0.5px;
+	fill: #e8e898;
+}
+
+.labels p {
+	font-weight: 100;
+	margin: 0;
+	font-size: 15px;
+	display: inline;
+
+	&.democrats-highest-special-election-margin-it-would-be-a-blue-tsunami, &.average-special-election-margin-it-would-result-in-a-blue-wave  {
+		color: #498dcb;
+	}
+
+	&.republicans-highest-special-election-margin-it-would-be-a-red-wave {
+		color: #f05b4e;
+	}
+}
+
+p.subsubhed {
+	font-weight: 700;
+	font-size: 16px;
+	margin-bottom: 40px;
+}
+
+line {
+	stroke: white;
+	stroke-width: 1.5px;
+}
+
+.group.current-breakdown rect {
+	opacity: 0.8;
+}
+
+.key { display: none; }
+
+@media screen and (max-width: 500px) {
+	.graphic-wrapper:first-of-type {
+		padding-bottom: 30px;
+	}
+}

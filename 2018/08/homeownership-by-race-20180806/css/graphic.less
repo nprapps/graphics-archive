@@ -1,0 +1,50 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+.key {
+    display: none;
+}
+
+.blurb {
+    position: absolute;
+    font-size: 13px;
+    font-weight: bold;
+    color: #999;
+}
+
+.recession-label {
+    fill: #999;
+    font-style: italic;
+    font-size: 12px;
+    text-anchor: middle;
+    letter-spacing: .3px;
+}
+
+#value-2 { transform: translateY(-10px); }
+
+
+@media screen and (max-width: 500px) {
+    .value text, .blurb, .recession-label {
+        font-size: 10px;
+    }
+
+    .lines { stroke-width: 2px; }
+
+    #value-1 { transform: translateY(-5px); }
+    #value-2 { transform: translateY(-20px); }
+    #value-3 { transform: translateY(5px); }
+
+}
+
+

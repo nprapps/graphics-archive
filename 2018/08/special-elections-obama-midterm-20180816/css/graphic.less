@@ -1,0 +1,90 @@
+@import "base";
+
+body { padding-bottom: 0; }
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+
+sup {
+    color: #999;
+    line-height: 0;
+    padding-left: 2px;
+}
+
+.bars line {
+    fill: none;
+    stroke-width: 3px;
+}
+
+
+.value text {
+    font-size: 13px;
+    fill: #777;
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}
+
+.value, .shadow {
+    .special-election-margin text.hdr {
+        fill: #000;
+    }
+
+    .special-election text {
+        fill: #000;
+    }
+
+    text.hdr {
+        font-weight: bold;
+        text-anchor: right;
+    }
+}
+
+.labels {
+    span {
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    p {
+        font-weight: 500;
+        margin: 0;
+        font-style: italic;
+        font-size: 14px;
+        color: #777;
+    }
+
+    .year {
+        display: inline-block;
+        font-size: 17px;
+        font-weight: 700;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .bars line {
+        stroke-width: 2px;
+    }
+}
+
+.promo {
+    h1 {
+        .knockout-header();
+    }
+    .labels li {
+        font-size: 14px;
+    }
+    .value text,
+    .shadow text {
+        font-size: 13px;
+
+        .hdr {
+          font-size: 12px; }
+    }
+}

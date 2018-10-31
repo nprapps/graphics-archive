@@ -1,0 +1,172 @@
+@import "base";
+
+// Add custom styles here
+button {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 15px;
+    font: 14px/1.4 Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    color: #4774CC;
+    text-decoration: none;
+    background: none;
+    &:active { color: #bccae5; }
+    &:focus { outline: none; }
+}
+
+.key-wrap.numeric-scale {
+	transform: translateY(25%);
+}
+
+.interactive {
+	text-align: center;
+	transform: translateY(35px);
+
+	.interactive-question {
+		.gotham();
+	    font-weight: 400;
+	    font-size: 13px;
+	    text-transform: uppercase;
+	}
+
+	select {
+		width: 275px;
+		&:focus { outline: none; }
+	}
+	
+	span.select2-selection.select2-selection--single { outline: none; }
+
+	.blurb {
+		span {
+			font-weight: lighter;
+		}
+
+		padding: 20px 30px 0;
+	}
+
+    .suggestion { 
+        font-weight: 100;
+    }
+
+}
+
+
+
+/* Key
+========================================*/
+.key-wrap {
+    .key {
+        margin: 0 0 10px 0;
+        padding: 0;
+        list-style-type: none;
+
+        .key-item {
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+        }
+        .key-item b {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+        }
+        .key-item label {
+            white-space: nowrap;
+            font-size: 12px;
+            color: #666;
+            font-weight: normal;
+            -webkit-font-smoothing: antialiased;
+        }
+    }
+
+    // Numeric scale style
+    &.numeric-scale {
+        width: 100%;
+        text-align: center;
+        margin-left: 25px;
+
+        h3 {
+            margin-bottom: 5px;
+            margin-right: 45px;
+        }
+
+        .key {
+            .key-item {
+                margin: 0 1px 0 0;
+                position: relative;
+            }
+
+            .key-item b {
+                width: 45px;
+                height: 10px;
+                margin-right: 0;
+            }
+
+            .key-item label {
+                position: absolute;
+                bottom: -20px;
+                left: -15%;
+
+                &.end-label {
+                    left: auto;
+                    right: -25%;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .suggestion, button {
+        font-size: 12px;
+    }
+
+    .key-wrap.numeric-scale {
+    	padding-top: 30px;
+
+    	h3 {
+    		font-size: 10px;
+    		transform: translateY(7px);
+    	}
+
+    	.key {
+    		margin: 0 0 0 0;
+    	}
+
+    	.key .key-item {
+    		label {
+    			font-size: 10px;
+    			bottom: -15px;
+    		}
+
+    		b {
+    			width: 30px;
+    			height: 7px;
+    		}
+    	}
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key-wrap.numeric-scale {
+		transform: translateY(50px);
+	}
+}
+
+@media screen and (min-width: 700px) {
+    .key-wrap.numeric-scale {
+		transform: translateY(70px);
+	}
+}
+
+@media screen and (min-width: 850px) {
+    .key-wrap.numeric-scale {
+		transform: translateY(90px);
+	}
+}

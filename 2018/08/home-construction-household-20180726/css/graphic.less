@@ -1,0 +1,51 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+
+    .line.annotate {
+        visibility: hidden;
+    }
+}
+
+.value text  {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+    transform: translateY(-10px);
+    &:last-child { visibility: hidden; }
+}
+
+.key {
+    display: none;
+}
+
+.recession-label {
+    fill: #999;
+    font-style: italic;
+    font-size: 12px;
+    text-anchor: middle;
+    letter-spacing: .3px;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+        transform: translate(-8px, -10px);
+    }
+
+    #end text {
+        transform: translate(0, -10px);
+    }
+
+    .lines {
+        stroke-width: 1.5px;
+    }
+
+    circle {
+        r: 2.5;
+    }
+}
+

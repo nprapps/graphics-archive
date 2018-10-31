@@ -1,0 +1,65 @@
+@import "base";
+
+.graphic-wrapper {
+    padding-right: 30px;
+    padding-bottom: 30px;
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #333;
+}
+
+#value-0, #value-1, #value-2 {
+    fill: #9a9a9a;
+}
+
+#value-1 {
+    transform: translateY(-8px);
+}
+.key {
+    display: none;
+}
+
+.graphic-wrapper, .graphic-wrapper-boise {
+    display: inline-block;
+}
+
+.y0-text, .y1-text { 
+    .gotham();
+    font-size: 13px;
+}
+
+.y0-text {
+    transform: translate(-8px, -25px);
+}
+
+.y1-text {
+    transform: translate(6px, -25px);
+}
+
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+
+    
+
+    .lines {
+        stroke-width: 2px;
+    }
+
+    .graphic-wrapper {
+        padding-bottom: 30px;
+        padding-right: 0; 
+    }
+}
+
