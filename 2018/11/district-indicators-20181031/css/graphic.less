@@ -1,0 +1,310 @@
+@import "base";
+
+@bar-width: 150px;
+@key-color-height: 13px;
+
+// Add custom styles here
+
+body {
+    padding-top: 0px;
+    padding-bottom: 13px;
+}
+
+.card-body {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.section-wrapper {
+    width: 50%;
+    display: inline-block;
+}
+
+.party-section-wrapper {
+	width: 25%;
+}
+
+.gop-wrapper {
+    .clearfix();
+}
+
+.big-label {
+    .gotham();
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 1;
+    margin-top: 0px;
+    margin-bottom: 12px;
+}
+
+.party-big-num {
+    .knockout();
+    font-size: 70px;
+    // background-color:#F0F0F0;
+    width: 100%;
+    max-width: @bar-width;
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: bottom;
+    color: white;
+    line-height: 1 // position: fixed;
+}
+
+.party-big-num-mobile {
+    color: #555;
+    margin-bottom: 12px;
+}
+
+.party-label {
+    font-size: 23px;
+    border-radius: 4px;
+    .knockout-upper();
+    line-height: 1;
+    vertical-align: top;
+    margin-bottom: 10px;
+    padding: 3px;
+}
+
+.party-label-mobile {
+    float: left;
+    display: inline-block;
+    width: 20%;
+}
+
+.Dem-label {
+    color: white;
+    background-color: @blue3;
+}
+
+.GOP-label {
+    color: white;
+    background-color: @red3;
+}
+
+.center-wrapper {
+    vertical-align: top;
+    padding-top: 8px;
+}
+
+.above-label {
+	margin-top: 10px;
+}
+
+.above-label span {
+    font-size: 18px;
+    .gotham();
+}
+
+.clear-both {
+    clear: both;
+}
+
+.map-wrapper {
+    width: 100%;
+    // max-width: 677px;
+    margin: 0 auto;
+    height: auto;
+}
+
+.graphic-wrapper {
+    // max-width: 400px;
+
+}
+
+.party-bar {
+    width: 100%;
+    max-width: @bar-width;
+    margin: 0 auto;
+    vertical-align: bottom;
+    height: 2px;
+    // border-radius: 8px 8px 0px 0px;
+}
+
+.filler-bar {
+    max-width: @bar-width;
+    margin: 0 auto;
+    vertical-align: bottom;
+    height: 2px;
+    background-color: #F0F0F0;
+}
+
+.dem-wrapper .party-bar {
+    background-color: @blue3;
+}
+
+
+.gop-wrapper .party-bar {
+    background-color: @red3;
+}
+
+.party-section-wrapper {
+    vertical-align: bottom;
+}
+
+.map-key {
+    width: 100%;
+    height: @key-color-height + 2;
+}
+
+.key-color {
+    display: inline-block;
+    width: 24px;
+    height: @key-color-height;
+    margin: 1px;
+}
+
+
+.key-max-0 {
+    background: #F5F5F5;
+}
+
+
+.R-key-max-025 {
+    background: rgba(240, 91, 78, 0.25);
+}
+
+.R-key-max-05 {
+    background: rgba(240, 91, 78, 0.5);
+}
+
+.R-key-max-075 {
+    background: rgba(240, 91, 78, 0.75);
+}
+
+.R-key-max-11 {
+    background: rgba(240, 91, 78, 1);
+}
+
+
+.D-key-max-025 {
+    background: rgba(73, 141, 203, 0.25);
+}
+
+.D-key-max-05 {
+    background: rgba(73, 141, 203, 0.5);
+}
+
+.D-key-max-075 {
+    background: rgba(73, 141, 203, 0.75);
+}
+
+.D-key-max-11 {
+    background: rgba(73, 141, 203, 1);
+}
+
+
+.none-key-max-025 {
+    background: rgba(239, 198, 55, 0.25);
+}
+
+.none-key-max-05 {
+    background: rgba(239, 198, 55, 0.5);
+}
+
+.none-key-max-075 {
+    background: rgba(239, 198, 55, 0.75);
+}
+
+.none-key-max-11 {
+    background: rgba(239, 198, 55, 1);
+}
+
+
+
+.map-key-text {
+    white-space: nowrap;
+    font-size: 12px;
+    color: #666;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+.above-label, .big-label {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+
+.prefix-party-label {
+	font-style: italic;
+}
+
+.footnotes, .footer {
+	max-width: 650px;
+	margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// squish outside cols
+@media only screen and (max-width: 900px) {
+    .party-section-wrapper {
+        width: 20%;
+    }
+
+    .center-wrapper {
+        width: 60%;
+    }
+
+    .party-big-num {
+        font-size: 65px;
+    }
+
+}
+
+// decrease font sizes
+
+@media only screen and (max-width: 731px) {
+    .party-label {
+        font-size: 19px;
+    }
+
+    .party-big-num {
+        font-size: 55px;
+    }
+
+    .big-label {
+        font-size: 40px;
+    }
+}
+
+
+// mobile positioning
+
+@media only screen and (max-width: 599px) {
+
+    .party-label {
+        margin-bottom: 0px;
+    }
+
+    .party-big-num {
+        background-color: white;
+    }
+
+    // .party-section-wrapper {
+    // 	display: none;
+    // }
+
+    .center-wrapper {
+        width: 100%;
+    }
+
+    .big-label {
+        margin-bottom: 16px;
+    }
+}
