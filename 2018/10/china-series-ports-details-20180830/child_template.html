@@ -1,0 +1,70 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="port-table">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="header">{{ COPY.labels.hdr_port }}</div>
+                    </th>
+                    <th>
+                        <div class="header">{{ COPY.labels.hdr_terminal }}</div>
+                    </th>
+                    <th>
+                        <div class="header">{{ COPY.labels.hdr_share }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            {% set share = row.Share|int %}
+            <tr class="country-{{ row.Country|classify }} {{ row.Operator|classify }}" id="row{{ loop.index }}">
+                {% if row.Port %}
+                    <td data-title="{{ COPY.labels.hdr_port }}" class="port">{{ row.Port }} <em>({{ row.grayLabel }})</em></td>
+                {% else %}
+                    <td data-title="{{ COPY.labels.hdr_port }}" class="repeat">{{ row.Port }}</td>
+                {% endif %}
+                {% if row.Terminal %}
+                    <td data-title="{{ COPY.labels.hdr_terminal }}">{{ row.Terminal }}</td>
+                {% else %}
+                    <td data-title="{{ COPY.labels.hdr_terminal }}" class="repeat">{{ row.Terminal }}</td>
+                {% endif %}
+                <td data-title="{{ COPY.labels.hdr_share }}" class="share">
+                    <div class="bar-wrapper">
+                        <div class="bar" style="width: {{ share }}%"></div>
+                        <span class="value">{{ row.Operator }}: {{ share }}%</span>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

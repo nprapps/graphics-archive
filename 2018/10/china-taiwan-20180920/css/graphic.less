@@ -1,0 +1,89 @@
+@import "base";
+
+h1 { margin-bottom: 11px; }
+
+.labels {
+    .gotham();
+    fill: #454545;
+    font-size: 10px;
+    text-anchor: middle;
+
+    .taiwan {
+        fill: #121212;
+        font-size: 11px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .diplomatic-relations {
+        fill: #333;
+    }
+
+    .formerly-had-diplomatic-relations {
+        font-size: 9px;
+        font-style: italic;
+    }
+}
+
+#tooltip {
+    position: absolute;
+    background: rgba(255, 255, 255, .9);
+    color: #333;
+    border: 1px solid #eee;
+    padding: 4px;
+    font-size: 10.5px;
+    .gotham();
+    display: none;
+    max-width: 140px;
+    box-sizing: content-box;
+    pointer-events: none;
+
+    &.active { display: block; }
+}
+
+.countries path {
+    stroke: #fff;
+    stroke-width: 0.3;
+
+    .background& { fill: #ddd; }
+}
+
+.bubbles {
+    circle {
+        fill: @red3;
+        fill-opacity: .3;
+        stroke: @red3;
+        stroke-width: .5;
+        stroke-opacity: .5;
+
+        &:hover {
+            cursor: pointer;
+            stroke-opacity: 1;
+            fill-opacity: .6;
+        }
+    }
+}
+
+.key-scale {
+    circle {
+        fill: none;
+        stroke: #ddd;
+        stroke-width: 1px;
+    }
+    text {
+        fill: #999;
+        font-size: 10px;
+        text-anchor: middle;
+    }
+}
+
+.key {
+    margin-top: 0;
+    margin-bottom: 11px;
+}
+
+
+@media screen and (max-width: 500px) {
+    .key-scale text { font-size: 7px; }
+    .populations text { font-size: 8px; }
+}

@@ -1,0 +1,68 @@
+@import "base";
+
+h1 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 18px;
+
+    strong { color: #333; }
+}
+
+.chart {
+    margin-bottom: 22px;
+}
+
+.key {
+    display: webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: 0;
+    margin-bottom: 15px;
+
+    .key-item {
+        .clearfix();
+        margin: 0 0 3px 0;
+        width: 100%;
+
+        label { white-space: normal; }
+    }
+}
+
+ul.labels li.overall {
+    font-weight: bold;
+    color: #333;
+}
+
+.value text {
+    fill: #fff;
+
+    .group.overall & { font-weight: bold; }
+
+    &.hidden {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 501px) {
+    .key {
+        justify-content: center;
+        flex-wrap: nowrap;
+        margin-bottom: 22px;
+
+        .key-item {
+            margin: 0 11px;
+            width: auto;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .key {
+        .key-item {
+            &:nth-child(1) { order: 0}
+            &:nth-child(2) { order: 2}
+            &:nth-child(3) { order: 1}
+        }
+    }
+}

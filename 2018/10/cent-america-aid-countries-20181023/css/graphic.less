@@ -1,0 +1,43 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}
+
+
+body.promo {
+    h1, h2,
+    .footnotes,
+    .footer { display: none; }
+
+    .lines { stroke-width: 4px; }
+
+    .value text {
+        .gotham();
+        fill: #666;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .axis text { font-size: 13px; }
+}

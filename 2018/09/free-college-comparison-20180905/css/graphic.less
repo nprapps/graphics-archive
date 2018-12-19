@@ -1,0 +1,203 @@
+@import "base";
+
+// vars
+@header-height:     120px;
+@bg-color-no:       #bbb;
+@bg-color-yes:      #62ad92;
+@text-color-no:     #eee;
+@text-color-yes:    #fff;
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 22px;
+}
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 11px;
+    padding: 0;
+    width: 100%;
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        text-align: left;
+        padding: 0 10px 10px 10px;
+        padding-top: 0;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    th,
+    td {
+        &.amt {
+            text-align: right;
+        }
+    }
+}
+
+// Desktop styles
+@media screen and (min-width: 501px) {
+    table {
+        th, td {
+            &.state { padding-left: 0; }
+        }
+
+        th {
+            .knockout();
+            font-size: 13px;
+            font-weight: 400;
+            text-transform: none;
+            text-align: left;
+            -webkit-font-smoothing: antialiased;
+
+            &.factor {
+                line-height: 1.2;
+                padding: 0 0 5px 0;
+                width: 7%;
+            }
+
+            div {
+                position: relative;
+                height: @header-height;
+                width: 100%;
+            }
+
+            span {
+                position: absolute;
+                bottom: 55%;
+                left: 50%;
+                -webkit-transform: translateX(-50%) translateY(50%) rotate(-90deg);
+                transform: translateX(-50%) translateY(50%) rotate(-90deg);
+                width: @header-height;
+            }
+        }
+
+        td {
+            &.state {
+                color: #787878;
+
+                strong { color: #333; }
+            }
+
+            &.factor {
+                .knockout();
+                border-color: #fff;
+                border-left: 1px solid #fff;
+                color: #fff;
+                text-align: center;
+                text-transform: capitalize;
+                vertical-align: middle;
+
+                &.no {
+                    background-color: @bg-color-no;
+                    color: @text-color-no;
+                }
+                &.yes {
+                    background-color: @bg-color-yes;
+                    color: @text-color-yes;
+                }
+            }
+        }
+    }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        thead { display: none; }
+
+        tr,
+        th,
+        th.amt,
+        td,
+        td.amt {
+            display: block;
+            padding: 0;
+            white-space: normal;
+        }
+
+        tr {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+
+            &:first-child { border-top: 1px solid #eee; }
+        }
+
+        td,
+        td.amt {
+            border: none;
+            margin-bottom: 1px;
+            text-align: left;
+
+            &:empty { display: none; }
+        }
+
+        th[data-title]:before,
+        td[data-title]:before {
+            background-color: #f1f1f1;
+            content: attr(data-title) "\00A0";
+            display: inline-block;
+            padding: 5px 0 5px 1%;
+            width: 69%;
+        }
+
+        tr td:first-child {
+            color: #787878;
+            font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            margin-bottom: 6px;
+            -webkit-font-smoothing: antialiased;
+
+            strong {
+                .knockout-header();
+                font-weight: normal;
+                color: #333;
+            }
+
+            &:before {
+                content: '';
+                display: none;
+            }
+        }
+
+        td.factor {
+            span {
+                .knockout();
+                color: #fff;
+                display: inline-block;
+                padding: 5px 0;
+                text-align: center;
+                text-transform: capitalize;
+                width: 30%;
+            }
+            &.no span {
+                background-color: @bg-color-no;
+                color: @text-color-no;
+            }
+            &.yes span {
+                background-color: @bg-color-yes;
+                color: @text-color-yes;
+            }
+        }
+    }
+}

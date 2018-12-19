@@ -1,0 +1,47 @@
+@import "base";
+
+// Add custom styles here
+
+
+.country-labels text, .port-labels tspan {
+	fill: #555;
+    font-weight: 700;
+    font-size: 80%;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    text-anchor: middle;
+    font-family: 'Gotham SSm', Helvetica, Arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.port-labels {
+	fill: #787878;
+    font-size: 70%;
+    text-anchor: start;
+    font-family: 'Gotham SSm', Helvetica, Arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    tspan { 
+    	x: 0;
+    	y: 10;
+    	font-size: 100%; 
+    }
+
+}
+
+circle { fill: #d14424; }
+@media screen and (max-width: 600px) and (min-width: 500px) {
+	.port-labels text, .country-labels text { font-size: 17px!important; }
+	circle { r: 7; }
+}
+
+@media screen and (max-width: 500px) and (min-width: 350px) {
+	.country-labels text, .port-labels tspan { font-size: 20px!important; }
+	.port-labels text { font-size: 22px!important; }
+	circle { r: 8; }
+}
+
+@media screen and (max-width: 350px) {
+    .country-labels text, .port-labels tspan { font-size: 24px!important; }
+    .port-labels text { font-size: 25px!important; }
+    circle { r: 8; }
+}

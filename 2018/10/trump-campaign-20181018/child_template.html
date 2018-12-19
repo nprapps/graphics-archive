@@ -1,0 +1,61 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="key-wrap numeric-scale">
+        {% if COPY.legend.legend_head %}
+        <h3>{{ COPY.legend.legend_head }}</h3>
+        {% endif %}
+        <ul class="key"></ul>
+    </div>
+
+    <div id="locator-map" class="graphic">
+        <img src="fallback.png" alt="[Chart]" class="fallback" />
+    </div>
+
+    <div class="stop-list">
+        {% for state in COPY.stops|groupby('state_full') %}
+        <dl>
+            <dt class="winner-{{ COPY.states[state.grouper]['winner'] }}">{{ COPY.states[state.grouper]['ap'] }}</dt>
+            {% for stop in state.list|sort(attribute='city') %}
+            <dd>{{ stop.city }}</dd>
+            {% endfor %}
+        </dl>
+        {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <p><strong>Note:</strong> {{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var LEGEND = {{ COPY.legend.json() }};
+        var STATES = {{ COPY.states.json() }};
+        var STOPS = {{ COPY.stops.json() }};
+    </script>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/underscore.js') }}
+    {{ JS.push('js/lib/d3.min.js') }}
+    {{ JS.push('js/lib/d3.geo.projection.v0.min.js') }}
+    {{ JS.push('js/lib/topojson.v1.min.js') }}
+    {{ JS.push('js/lib/modernizr.svg.min.js') }}
+    {{ JS.push('js/base.js') }}
+    {{ JS.push('js/geomath.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

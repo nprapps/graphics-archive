@@ -1,0 +1,39 @@
+@import "base";
+
+h1 {
+    font-size: 18px;
+    text-align: center;
+
+    strong { color: #333; }
+}
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.key {
+    display: webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: -11px;
+    margin-bottom: 22px;
+
+    .key-item {
+        display: block;
+        margin: 0 11px 6px 11px;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .key {
+        margin-left: 26px;
+        margin-right: 26px;
+    }
+}

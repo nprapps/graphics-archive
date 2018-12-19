@@ -1,0 +1,37 @@
+@import "base";
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 22px;
+}
+
+.lines {
+    fill: none;
+    stroke-width: 2px;
+    stroke: #ccc;
+
+    .overall { stroke-width: 3px; }
+}
+
+.value text {
+    font-size: 12px;
+    // font-weight: bold;
+    fill: #787878;
+
+    &.overall {
+        fill: #454545;
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .key {
+        display: none;
+    }
+}

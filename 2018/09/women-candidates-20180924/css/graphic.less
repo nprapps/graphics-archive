@@ -1,0 +1,61 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+circle {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.value text {
+    font-size: 11px;
+    font-weight: bold;
+    fill: #999;
+}
+
+.key {
+    margin-bottom: 22px;
+
+    .democratic b { background-color: @blue3; }
+    .republican b { background-color: @red3; }
+}
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    // .key {
+    //     display: none;
+    // }
+}
+
+
+// promo
+.promo {
+    h1 {
+        .knockout-header();
+        color: #333;
+        font-size: 18px;
+        margin-bottom: 22px;
+        text-align: center;
+    }
+    h3 {
+        font-size: 13px;
+        text-align: center;
+    }
+    .key {
+        display: flex;
+        justify-content: center;
+    }
+
+    h2,
+    #chart-governors, #chart-state-legislatures,
+    .footnotes, .footer { display: none; }
+}

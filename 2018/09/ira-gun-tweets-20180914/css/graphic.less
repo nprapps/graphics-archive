@@ -1,0 +1,44 @@
+@import "base";
+
+.key {
+    display: webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: 0;
+    margin-bottom: 15px;
+
+    .key-item {
+        display: block;
+        margin: 0 0 3px 0;
+        width: 50%;
+    }
+}
+
+.bar text {
+    fill: #fff;
+    font-size: 11px;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.x.axis text {
+    fill: #333;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+@media screen and (min-width: 501px) {
+    .key {
+        justify-content: center;
+        flex-wrap: nowrap;
+        margin-bottom: 22px;
+
+        .key-item {
+            margin: 0 11px;
+            width: auto;
+        }
+    }
+}

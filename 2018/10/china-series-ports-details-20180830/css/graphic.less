@@ -1,0 +1,234 @@
+@import "base";
+
+@cmport-color: #F5DEB3;
+@cosco-color: @blue5; //87CEEB
+@qpi-color: #fdb8d3; // d797af fdcee0
+
+.sub-cosco, .sub-cmport, .sub-qpi { 
+    font-weight: 700;
+    padding: 1px 3px;
+    color: #333;
+}
+.sub-cosco { background-color: @cosco-color; }
+.sub-cmport { background-color: @cmport-color; }
+.sub-qpi { background-color: @qpi-color; } 
+
+
+// From senate-campfin-dem-20180504
+.bar-wrapper {
+    .clearfix();
+    height: 19px;
+    line-height: 19px;
+    position: relative;
+    width: 100%;
+
+    .bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        // background-color: @teal6;
+
+        .qpi & { background-color: @qpi-color; }
+        .cmport & { background-color: @cmport-color; }
+        .cosco & { background-color: @cosco-color; }
+    }
+    .value {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-left: 10px;
+
+        // &.none { margin-left: 0; }
+    }
+}
+
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .repeat { border-top: none; }
+
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        font-size: 14px;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 0 10px 10px 10px;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        padding: 10px;
+        border-top: 1px solid #eee;
+        vertical-align: top;
+        width: 33%;
+    
+
+        &:first-child {
+            font-size: 13px;
+            margin-bottom: 6px;
+            font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        em {
+            color: #999;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 12px;
+        }
+    }
+
+    th,
+    td {
+        &.amt {
+            text-align: right;
+        }
+    }
+
+
+    .term {
+        border: 0;
+    } 
+
+}
+
+// Tablesorter styles
+table {
+    th {
+        &.sort-header {
+            cursor: pointer;
+
+            &::-moz-selection,
+            &::selection {
+                background: transparent;
+            }
+
+            .sorter {
+                border-top: 2px solid #404040;
+                visibility: hidden;
+
+                .icon {
+                    content: '';
+                    width: 1px;
+                    margin: 3px auto 7px auto;
+                    border-width: 0 4px 4px;
+                    border-style: solid;
+                    border-color: #404040 transparent;
+                }
+            }
+
+            &:hover .sorter {
+                visibility: visible;
+            }
+        }
+
+        &.sort-up .sorter,
+        &.sort-down .sorter,
+        &.sort-down:hover .sorter {
+            visibility: visible;
+            opacity: 0.4;
+        }
+
+        &.sort-up .sorter .icon {
+            border-bottom: none;
+            border-width: 4px 4px 0;
+        }
+    }
+}
+
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+    .sub-cosco, .sub-cmport, .sub-qpi { 
+        padding: 1px;
+    }
+
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        width: 100%;
+   
+
+
+        thead { display: none; }
+
+        tr,
+        th,
+        th.def,
+        td,
+        td.def {
+            display: block;
+            padding: 0;
+            white-space: normal;
+        }
+
+        tr {
+            padding: 8px 0;
+            &:first-child { border: 0; }
+            &:last-child { border: 0; }
+        }
+
+        td,
+        td.term {
+            border: 0;
+            text-align: left;
+            width: 100%;
+            &:empty { display: none; }
+        }
+
+        td[data-title='Terminal(s)'] {
+            padding-bottom: 10px;
+            font-size: 13px;
+        }
+
+        td.term { border-bottom: 2px solid #eee; }
+
+        th[data-title]:before,
+        td[data-title]:last-child:before {
+            content: attr(data-title) ":\00A0";
+            display: inline-block;
+            width: 70%;
+        }
+
+        tr td:first-child {
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #333;
+            font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+
+            &:before {
+                content: '';
+                display: none;
+            }
+        }
+    }
+}
+

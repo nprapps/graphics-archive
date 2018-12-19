@@ -1,0 +1,242 @@
+@import "base";
+
+@gop:                     #f05b4e;
+@gopDark:                 darken(@gop, 10%);
+@gopDim:                  lighten(@gop, 10%);
+
+@dem:                     #498dcb;
+@demDark:                 darken(@dem, 10%);
+@demDim:                  lighten(@dem, 10%);
+
+svg {
+    font-size: 20px;
+}
+
+h1, h2 {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 680px;
+    text-align: center;
+}
+
+h2 span {
+    background-color: @gopDim;
+    border-radius: 4px;
+    color: #fff;
+    padding: 2px 5px;
+    white-space: nowrap;
+}
+
+.key-wrap {
+    text-align: center;
+    width: 100%;
+
+    h3 { margin-bottom: 5px; }
+
+    .key {
+        height: 35px;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        @key-item-width: 40px;
+
+        .key-item {
+            display: inline-block;
+            line-height: 15px;
+            margin: 0 1px 0 0;
+            padding: 0;
+            position: relative;
+
+            &.d.margin-15 { background-color: lighten(@dem, 5%); }
+            &.d.margin-10 { background-color: lighten(@dem, 17%); }
+            &.d.margin-5 { background-color: lighten(@dem, 30%); }
+            &.r.margin-0  { background-color: lighten(@gop, 30%); }
+            &.r.margin-5 { background-color: lighten(@gop, 17%); }
+            &.r.margin-10 { background-color: lighten(@gop, 5%); }
+
+            b {
+                display: inline-block;
+                float: left;
+                height: 10px;
+                margin-right: 0;
+                width: @key-item-width;
+            }
+
+            label {
+                -webkit-font-smoothing: antialiased;
+                color: #666;
+                font-size: 12px;
+                font-weight: normal;
+                position: absolute;
+                bottom: -20px;
+                left: -50%;
+                text-align: center;
+                white-space: nowrap;
+                width: @key-item-width;
+
+                &.end-label {
+                    left: auto;
+                    right: -60%;
+                }
+            }
+        }
+    }
+}
+
+.states path {
+    fill: #e0e0e0;
+    stroke: #fff;
+    stroke-width: 1px;
+
+    &.primary {
+        fill: #fff;
+        stroke: #bababa;
+    }
+
+    &.winner-d.visited-yes {
+        fill: lighten(@dem, 5%);
+
+        &.margin-0  { fill: lighten(@dem, 30%); }
+        &.margin-5 { fill: lighten(@gop, 17%); }
+        // &.margin-20,
+        // &.margin-30,
+        // &.margin-40,
+        // &.margin-50,
+        // &.margin-60,
+        // &.margin-70,
+        // &.margin-80,
+        // &.margin-90,
+        // &.margin-100 {  }
+    }
+    &.winner-r.visited-yes {
+        fill: lighten(@gop, 5%);
+
+        &.margin-0  { fill: lighten(@gop, 30%); }
+        &.margin-5 { fill: lighten(@gop, 17%); }
+        // &.margin-20,
+        // &.margin-30,
+        // &.margin-40,
+        // &.margin-50,
+        // &.margin-60,
+        // &.margin-70,
+        // &.margin-80,
+        // &.margin-90,
+        // &.margin-100 {  }
+    }
+}
+
+.cities circle {
+    fill: #333;
+
+    &.admin-0-capital { fill: #333; }
+}
+
+.city-labels text {
+    fill: #454545;
+    font-size: 10.5px;
+    text-anchor: start;
+    font-family: 'Gotham SSm', Helvetica, Arial,sans-serif;
+    // -webkit-font-smoothing: antialiased;
+
+    &.admin-0-capital {
+        fill: #555;
+        font-weight: bold;
+    }
+}
+
+.city-labels.shadow text {
+    fill: #fff;
+    opacity: 0.9;
+    stroke: #fff;
+    stroke-width: 3px;
+    text-shadow: 0 0 3px #fff;
+}
+
+.state-labels text {
+    fill: #787878;
+    font-size: 80%;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    text-anchor: middle;
+    font-family: 'Gotham SSm', Helvetica, Arial,sans-serif;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+
+    &.primary {
+        fill: #555;
+        font-weight: 700;
+        font-size: 90%;
+    }
+}
+
+.stop-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    display: none;
+
+    dl {
+        box-sizing: border-box;
+        border-right: 1px solid #eee;
+        margin: 0 0 11px 0;
+        padding: 0 11px;
+        width: 20%;
+        text-align: center;
+    }
+    dt {
+        .knockout-header();
+        background-color: #999;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 12px;
+        margin: 0 0 6px 0;
+        padding: 0 5px;
+
+        &.winner-d {
+            background-color: @demDim;
+            // text-shadow: 0 0 5px @demDark;
+        }
+        &.winner-r {
+            background-color: @gopDim;
+            // text-shadow: 0 0 5px @gopDark;
+        }
+    }
+    dd {
+        font-size: 11px;
+        margin: 0;
+    }
+}
+
+// responsive styles
+@media screen and (max-width: 500px) {
+    .key { margin-bottom: 18px; }
+
+    svg { font-size: 12px; }
+    .states path { stroke-width: .5px; }
+    .country-labels text {
+    }
+    .city-labels text {
+        font-size: 8px;
+        display: none;
+
+        // &.no-mobile { display: none; }
+    }
+    .city-labels.shadow { display: none; }
+    .city-labels text,
+    .cities path {
+        &.scalerank-4,
+        &.scalerank-5,
+        &.scalerank-6,
+        &.scalerank-7,
+        &.scalerank-8 {
+            display: none;
+        }
+    }
+
+    .stop-list {
+        display: flex;
+
+        dl { width: 33%; }
+    }
+}

@@ -1,0 +1,43 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+
+        {% for row in COPY.data %}
+        <div class="data {{ row.name|classify }}">
+                <img src="assets/{{ row.image }}"/>
+                <h4>
+                  {{ row.name }}
+                </h4>
+                <p class="seat">
+                  {{ row.seat }}
+                </p>
+                <p class="description">
+                  {{ row.description }}
+                </p>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    {% if COPY.labels.footnote_chart %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote_chart|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.photo_credit %}<p>Photos: {{ COPY.labels.photo_credit|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var DATA = {{ COPY.data.json() }};
+    </script>
+
+{% endblock content %}

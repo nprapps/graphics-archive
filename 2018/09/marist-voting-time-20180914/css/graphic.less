@@ -1,0 +1,67 @@
+@import "base";
+body { padding-top: 11px; }
+
+.chart-wrapper {
+    .clearfix();
+}
+
+.chart-wrapper.travel {
+    margin-bottom: 33px;
+}
+
+h1 {
+    margin-bottom: 22px;
+    font-size: 18px;
+    text-align: center;
+    strong { color: #333; }
+}
+h3 {
+    text-transform: uppercase;
+    padding-bottom: 6px;
+    display: table-cell;
+    width: 100%;
+    vertical-align: bottom;
+
+    i {
+        font-style: normal;
+        color: #787878;
+    }
+}
+.labels li.overall {
+    font-weight: bold;
+    color: #454545;
+}
+.value text.overall,
+.c-0 .value text {
+    font-weight: bold;
+    &.out { fill: #454545; }
+}
+.bg rect { fill: #f1f1f1; }
+.bars rect {
+    fill: @orange3;
+    fill-opacity: .6;
+    &.overall { fill-opacity: 1; }
+}
+.c-0 .bars rect {
+    fill-opacity: 1;
+}
+
+@media screen and (min-width: 708px) {
+    .promo {
+        h1 {
+            .knockout-header();
+            font-size: 15px;
+            margin-bottom: 11px;
+            color: #666;
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+    .chart {
+        margin-bottom: 22px;
+
+        h3 {
+            height: 30px;
+        }
+    }
+}

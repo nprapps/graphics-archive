@@ -1,0 +1,59 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th class="state">{{ COPY.labels.hed_state }}</th>
+                    <th class="factor"><div><span>{{ COPY.labels.hed_living_costs }}</span></div></th>
+                    <th class="factor"><div><span>{{ COPY.labels.hed_fees }}</span></div></th>
+                    <th class="factor"><div><span>{{ COPY.labels.hed_four_years }}</span></div></th>
+                    <th class="factor"><div><span>{{ COPY.labels.hed_tuition }}</span></div></th>
+                    <th class="factor"><div><span>{{ COPY.labels.hed_adult_returning }}</span></div></th>
+                    <th class="factor"><div><span>{{ COPY.labels.hed_two_gpa }}</span></div></th>
+                    <th class="factor"><div><span>{{ COPY.labels.hed_half_time }}</span></div></th>
+                    <th class="factor"><div><span>{{ COPY.labels.hed_grant }}</span></div></th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="state-{{ row.usps|classify }}">
+                <td data-title="{{ COPY.labels.hed_state }}" class="state"><strong>{{ row.state_name }}</strong> ({% if row.program_link %}<a href="{{ row.program_link }}">{% endif %}{{ row.program_name|smarty }}{% if row.program_link %}</a>{% endif %})</td>
+                <td data-title="{{ COPY.labels.hed_living_costs }}" class="factor {{ row.living_costs }}"><span>{{ row.living_costs }}</span></td>
+                <td data-title="{{ COPY.labels.hed_fees }}" class="factor {{ row.fees }}"><span>{{ row.fees }}</span></td>
+                <td data-title="{{ COPY.labels.hed_four_years }}" class="factor {{ row.four_years }}"><span>{{ row.four_years }}</span></td>
+                <td data-title="{{ COPY.labels.hed_tuition }}" class="factor {{ row.tuition }}"><span>{{ row.tuition }}</span></td>
+                <td data-title="{{ COPY.labels.hed_adult_returning }}" class="factor {{ row.adult_returning }}"><span>{{ row.adult_returning }}</span></td>
+                <td data-title="{{ COPY.labels.hed_two_gpa }}" class="factor {{ row.two_gpa }}"><span>{{ row.two_gpa }}</span></td>
+                <td data-title="{{ COPY.labels.hed_half_time }}" class="factor {{ row.half_time }}"><span>{{ row.half_time }}</span></td>
+                <td data-title="{{ COPY.labels.hed_grant }}" class="factor {{ row.grant }}"><span>{{ row.grant }}</span></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <p><strong>Note:</strong> {{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

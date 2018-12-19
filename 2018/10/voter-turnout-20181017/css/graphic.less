@@ -1,0 +1,62 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+
+    .line.low,
+    .line.high {
+        stroke-dasharray: 4px 4px;
+        stroke-width: 1px;
+    }
+}
+
+.dots {
+    .low,
+    .high {
+        display: none;
+    }
+
+    circle {
+        stroke: #fff;
+        stroke-width: 1px;
+    }
+}
+
+
+.value {
+    text {
+        font-size: 12px;
+        fill: #787878;
+
+        &.midterm {
+            fill: #454545;
+            font-weight: bold;
+        }
+
+        &.high {
+            fill: #454545;
+            font-style: italic;
+            font-weight: bold;
+        }
+        &.low { display: none; }
+    }
+
+    &.dot.shadow text {
+        fill: #fff;
+        stroke: #fff;
+        stroke-width: 5px;
+    }
+}
+
+
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+}

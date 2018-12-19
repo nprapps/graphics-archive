@@ -1,0 +1,80 @@
+@import "base";
+
+h1, h2 {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+    text-align: center;
+
+    .black {
+        border: 1px solid @red6;
+        padding: 3px 5px;
+    }
+}
+
+p {
+    &.subjects {
+        font-size: 12px;
+        font-weight: 700;
+        margin: 0 0 3px 0;
+        text-align: center;
+    }
+}
+
+.graphic {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tweet {
+    .gotham();
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    font-weight: 100;
+    margin-bottom: 22px;
+    overflow: hidden;
+    padding: 3px 15px 0 15px;
+
+
+    blockquote {
+        color: #999;
+        font-size: 13px;
+        line-height: 1.5;
+        margin: 0;
+
+        strong {
+            color: #666;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 0 5px;
+            background-color: @yellow5;
+            color: #333;
+        }
+    }
+
+}
+
+
+@media screen and (min-width: 501px){
+    .graphic {
+        .tweet { width: 50%; }
+    }
+}
+
+@media screen and (max-width: 500px){
+    // h1, h2,
+    // p.subjects {
+    //     text-align: left;
+    // }
+
+    .graphic {
+        justify-content: left;
+
+        .tweet {
+            padding: 0;
+            text-align: left;
+            width: 100%;
+        }
+    }
+}

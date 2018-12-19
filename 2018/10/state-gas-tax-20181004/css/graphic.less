@@ -1,0 +1,205 @@
+@import "base";
+
+h2 {
+    margin-bottom: 11px;
+}
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #333;
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+    th.varies{
+    align: left;
+    }
+
+    td {
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    th.amt, td.amt {
+        text-align: center;
+        
+    }
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #222;
+        font-weight: bold;
+    }
+
+
+
+}
+
+// Tablesorter styles
+table {
+    th {
+        &.sort-header {
+            cursor: pointer;
+
+            &::-moz-selection,
+            &::selection {
+                background: transparent;
+            }
+
+            .sorter {
+                border-top: 2px solid #404040;
+                visibility: hidden;
+
+                .icon {
+                    content: '';
+                    width: 1px;
+                    margin: 3px auto 7px auto;
+                    border-width: 0 4px 4px;
+                    border-style: solid;
+                    border-color: #404040 transparent;
+                }
+            }
+
+            &:hover .sorter {
+                visibility: visible;
+            }
+        }
+
+        &.sort-up .sorter,
+        &.sort-down .sorter,
+        &.sort-down:hover .sorter {
+            visibility: visible;
+            opacity: 0.4;
+        }
+
+        &.sort-up .sorter .icon {
+            border-bottom: none;
+            border-width: 4px 4px 0;
+        }
+    }
+}
+
+@media screen and (min-width: 501px) {
+    table {
+        th {
+            &.th-shade {
+                //text-align: center;
+            }
+            
+        }
+
+        .state-us {
+            td {
+                text-align: center;
+
+                &.row-state {
+                    text-align: left;
+                }
+            }
+        }
+
+        td {
+            &.cell-shade {
+                text-align: center;
+                border: 1px solid #fff;
+            }
+            .amt{
+            width: 15%;
+            }
+            .varies{
+            width: 40%;
+            }
+        }
+        td.row-varies {
+    width: 30%;
+    align: left;
+}
+
+        th.th-shade, td.cell-shade {
+            width: 15.5%;
+        }
+    }
+}
+
+
+// Mobile styles
+// Mobile styles
+@media screen and (max-width: 500px) {
+    h2 .hide-mobile { display: none; }
+
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        thead { display: none; }
+
+        tr,
+        th,
+        th.amt,
+        td,
+        td.amt {
+            display: block;
+            padding: 0;
+            white-space: normal;
+        }
+
+        tr {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+
+            &:first-child { border-top: 1px solid #eee; }
+        }
+
+        td,
+        td.amt {
+            border: none;
+            margin-bottom: 2px;
+            padding: 7px 10px;
+            text-align: left;
+
+
+            &:empty { display: none; }
+        }
+
+        th[data-title]:before,
+        td[data-title]:before {
+            content: attr(data-title) ":\00A0";
+            display: inline-block;
+            width: 70%;
+        }
+
+        tr td:first-child {
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #222;
+            font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+
+            &:before {
+                content: '';
+                display: none;
+            }
+        }
+    }
+}

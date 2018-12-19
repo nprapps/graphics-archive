@@ -1,0 +1,116 @@
+@import "base";
+
+@rep:       @red3;
+@dem:       @blue3;
+@male:      #8493a3;
+@female:    @orange3;
+
+body { padding-bottom: 0; }
+
+h1 {
+    // font-size: 18px;
+    // margin-bottom: 22px;
+    // text-align: center;
+}
+
+sup {
+    color: #999;
+    line-height: 0;
+    padding-left: 2px;
+}
+
+.bars line {
+    fill: none;
+    stroke-width: 2px;
+    stroke: #ddd;
+}
+
+circle {
+    stroke-width: 1px;
+    stroke: #fff;
+    fill: #D8472B;
+
+    .republican-women & { fill: @rep; }
+    .democratic-women & { fill: @dem; }
+}
+
+.value text {
+    font-size: 11px;
+    fill: #666;
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}
+
+.value, .shadow {
+    .republican-women text { fill: @rep; }
+    .democratic-women text { fill: @dem; }
+
+    text.left { text-anchor: end; }
+    text.right { text-anchor: start; }
+
+    text.hdr {
+        font-weight: bold;
+        color: #333;
+        font-size: 12px;
+    }
+}
+
+.promo {
+    h1 {
+        .knockout-header();
+    }
+    .labels li {
+        font-size: 14px;
+    }
+    .value text,
+    .shadow text {
+        font-size: 13px;
+
+        .hdr { font-size: 14px; }
+    }
+}
+
+
+.display-none {
+    display: none !important;
+}
+
+.value .keyLabel {
+    font-weight: bold;
+    .knockout();
+    font-size: 12px;
+}
+
+.male-repub .party, .value .keyLabelGOP {
+    fill: @rep;
+}
+
+.female-dem .party, .value .keyLabelDem {
+    fill: @dem;
+}
+
+.male-repub .gender, .value .keyLabelMale {
+    fill: @male;
+}
+
+.female-dem .gender, .value .keyLabelFemale  {
+    fill: @female;
+}
+
+text.keyLabel {
+    text-anchor: middle;
+}
+
+li span b {
+    color: #333;
+}
+
+.light-label {
+    color: #999;
+    margin-top: 3px;
+}

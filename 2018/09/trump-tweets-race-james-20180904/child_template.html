@@ -1,0 +1,35 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline_james %}<h1>{{ COPY.labels.headline_james|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed_james %}<h2>{{ render(COPY.labels.subhed_james)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+    {% for tweet in COPY.data_james %}
+        <div class="tweet {{ tweet.sentiment|classify }} tweet-{{ loop.index }} {% if tweet.is_black == 'yes' %}black{% endif %}">
+            <cite>{% if tweet.url %}<a href="{{ tweet.url }}">{% endif %}{{ tweet.date_fmt }}{%if tweet.url %}</a>{% endif %}</cite>
+            {% if tweet.target %}<p class="subjects">{{ tweet.target }}</p>{% endif %}
+            <blockquote>{{ tweet.tweet_fmt }}</blockquote>
+        </div>
+    {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+    {{ JS.push('../trump-tweets-race-candidates-20180904/js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+{% endblock js %}
