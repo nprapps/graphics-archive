@@ -1,0 +1,125 @@
+{% extends 'base_template.html' %}
+
+{# Make sure these match the values in the Less/JavaScript #}
+{% set widest_threshold = '1000px' %}
+{% set mobile_threshold = '600px' %}
+
+{% set image_width_small = COPY.labels.image_width_small %}
+{% set image_width_medium = COPY.labels.image_width_medium %}
+
+{% block styles %}
+{# Inline some styles so we can calculate height of our graphic ASAP #}
+<style>
+    .artist-collection {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .artist-wrap {
+        width: 25%;
+        padding: 2px;
+        position: relative;
+    }
+
+    .artist-img-wrap {
+        width: 100%;
+        padding-bottom: 100%;
+        overflow: hidden;
+        position: relative;
+        background: #ddd;
+    }
+
+    .artist-img-wrap img {
+        position: absolute;
+        width: 100%;
+        max-width: 9999px;
+        max-height: 100%;
+    }
+
+    .artist-img-wrap img.initial {
+        {# "blur up" a tiny initial image #}
+        width: 250%;
+        filter: blur(5px);
+    }
+
+    .artist-img-wrap img.loading {
+        {# Hide dynamically loaded images until we toggle this class in
+         # JavaScript when we're done loading
+         #}
+        opacity: 0;
+    }
+
+    @media screen and (min-width: {{ widest_threshold }}) {
+        .artist-wrap {
+            width: 20%;
+        }
+    }
+
+    @media screen and (max-width: 700px) and (min-width: {{ mobile_threshold }}) {
+        .artist-wrap {
+            width: 33%;
+        }
+    }
+
+    @media screen and (max-width: {{ mobile_threshold }}) {
+        .artist-collection {
+            width: 100%;
+
+            {# These are resetting styles for the wide-display version. If we
+             # make the narrow-screen verion the default, we can remove these.
+             #}
+            max-width: 100%;
+            display: block;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+    <div id="graphic" class="graphic">
+        <div class="artist-collection">
+            {% for row in COPY.data|sort_as_int(attribute='order') %}
+            <a href="#{{ row.slug }}" target="_parent" class="artist-wrap">
+                <div class="artist-img-wrap">
+                    {# We start by loading a tiny initial image and using a
+                     # "blur up" effect. We then replace it with a larger
+                     # version and use `srcset` and `sizes` to let the browser
+                     # decide which size image to load #}
+                    <img class="initial" src="{{ row.image_initial }}"
+                         data-src="{{ row.image }}"
+                         data-srcset="{{ row.image_medium }} {{ image_width_medium|string|float|int }}w"
+                         {# You might need to tweak these sizes #}
+                         data-sizes="(max-width: {{ mobile_threshold }}) 100vw, 100vw"
+                         alt="{{ row.name }}">
+                    <div class="artist-img-overlay"></div>
+                </div>
+                <div class="artist-detail-wrap">
+                        <span class="artist-name">{{ row.name }}</span>
+                        <p class="artist-gist {% if row.gist_type %}gist-{{ row.gist_type }}{% endif %}">{{ row.gist }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock content %}
+
+{# Override the `js` block to remove unneeded depencies and add some new ones #}
+{% block js %}
+{# Send height as soon as possible. We'll wire up a rendering Pym child later
+ # in graphic.js
+ #}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var pymChild = new pym.Child();
+        pymChild.sendHeight();
+        pymChild.remove();
+    });
+</script>
+{{ JS.push('js/base.js') }}
+{{ JS.push('js/lib/flickity.pkgd.js') }}
+{{ JS.push('js/graphic.js') }}
+{{ JS.render('js/graphic-footer.js') }}
+{% endblock js %}

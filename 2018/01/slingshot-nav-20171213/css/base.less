@@ -1,0 +1,134 @@
+/*
+ * Colors
+ */
+@red1       : #6C2315;
+@red2       : #A23520;
+@red3       : #D8472B;
+@red4       : #E27560;
+@red5       : #ECA395;
+@red6       : #F5D1CA;
+
+@orange1    : #714616;
+@orange2    : #AA6A21;
+@orange3    : #E38D2C;
+@orange4    : #EAAA61;
+@orange5    : #F1C696;
+@orange6    : #F8E2CA;
+
+@yellow1    : #77631B;
+@yellow2    : #B39429;
+@yellow3    : #EFC637;
+@yellow4    : #F3D469;
+@yellow5    : #F7E39B;
+@yellow6    : #FBF1CD;
+
+@teal1      : #0B403F;
+@teal2      : #11605E;
+@teal3      : #17807E;
+@teal4      : #51A09E;
+@teal5      : #8BC0BF;
+@teal6      : #C5DFDF;
+
+@blue1      : #28556F;
+@blue2      : #3D7FA6;
+@blue3      : #51AADE;
+@blue4      : #7DBFE6;
+@blue5      : #A8D5EF;
+@blue6      : #D3EAF7;
+
+/*
+ * Fonts
+ */
+.gotham() {
+    font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+    font-weight: normal;
+    font-weight: 400;
+}
+
+// Normal Knockout
+.knockout() {
+    font-family: 'Knockout 31 4r','Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-weight: normal;
+}
+
+// Knockout, uppercased
+.knockout-upper() {
+    .knockout();
+    text-transform: uppercase;
+}
+
+// Knockout for headings
+.knockout-header() {
+    .knockout-upper();
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+}
+
+.sans-serif() {
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+/*
+ * Mixins
+ */
+.clearfix() {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+/*
+ * Base styles
+ */
+html { -webkit-text-size-adjust: none; }
+
+body {
+    margin: 0;
+    padding: 33px 0;
+    font: 14px/1.4 Helvetica, Arial, sans-serif;
+    color: #555;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.footnotes {
+    margin-bottom: 20px;
+
+    h4 {
+        margin: 2px 0 7px 0;
+        color: #666;
+        font-size: 11px;
+    }
+}
+
+a, a:link, a:visited {
+    color: #4774CC;
+    text-decoration: none;
+}
+
+a:hover, a:active { color: #bccae5; }
+
+/*
+ * Standard graphic styles
+ */
+.graphic-wrapper {
+    position: relative;
+}
+
+.graphic {
+    position: relative;
+    margin-bottom: 11px;
+    .clearfix();
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}

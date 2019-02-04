@@ -1,0 +1,84 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    {% set hours = ['7PM', '730PM', '8PM', '830PM', '9PM', '10PM', '11PM', '1AM'] %}
+
+    <div id="graphic" class="graphic">
+        <div class="board-key">
+    
+    
+   
+        
+        <table width="650px"><tr>
+            <td><h3>Key</h3></td>
+    <td class="dem">Democrat <br><span class="inc">Incumbent Democrat*</span></td>
+        <td class="gop">Republican <br><span class="inc">Incumbent Republican*</span></td>
+        <td class="ind">Independent <br><span class="inc">Incumbent Independent*</span></td></tr></table>
+
+        {% for hour in hours %}
+        {% set top_row = COPY[hour]|first %}
+        
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="name">{{ COPY.labels.hdr_name }}</th>
+
+                    {% for row in COPY.race %}
+                    <th class="race">{{ row.header|smarty }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+
+            {% for row in COPY[hour] %}
+            {% if top_row['hour'] %}<tr class="note">{% if row['hour'] %}{{ row['hour'] }}{% endif %}</tr>{% endif %}
+            <tr class="{{ row.name|classify }}">
+
+                <td class="name" width="20px">{{ row.name|smarty }}</td>
+                <td class="narrow">{{ row.nameNarrow }}</td>
+
+                {% for race in COPY.race %}
+                    {% set i = race.name %}
+                    {% set position = row[i] %}
+                    {% set party = row[i + '_party'] %}
+                    {% set inc = row[i + '_inc'] %}
+
+                    <td data-title="{{ race.header }}" class="race {{ i|classify }}"><span class="{% if party == 'gop' %}gop{% elif party == 'dem' %}dem{% elif party == 'ind' %}ind
+                        {% else %}{% endif %}{% if inc =='i' %} inc{% endif %}">{{ position|smarty }}{% if inc =='i' %}*{% endif%}</span>{% if footnote %}<sup>{{ footnote }}</sup>{% endif %}</td>
+                {% endfor %}
+
+            </tr>
+            {% endfor %}
+
+        </table>
+        {% endfor %}
+    </div>
+
+    {% if COPY.footnotes[0] %}<sup>
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>
+        {% for row in COPY.footnotes %}
+            {{ row.id }}. {{ row.description|smarty }}</br>
+        {% endfor %}
+        </p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

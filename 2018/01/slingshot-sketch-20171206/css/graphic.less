@@ -1,0 +1,199 @@
+@import "base";
+@import "lib/flickity";
+@import "lib/fontello";
+
+// This should match the value of `MOBILE_THRESHOLD` in the JavaScript
+@mobile-threshold: 600px;
+@mobile-threshold-above: @mobile-threshold + 1px;
+@medium-threshold: 480px;
+@widest-threshold: 1000px;
+@mobile-artist-wrap-width-medium: 50%;
+@mobile-artist-wrap-width-tiny: 66%;
+
+@color1: #f37351;
+@color2: #b73759;
+@color3: #7b2d62;
+@color4: #524189;
+@color5: #446ab2;
+
+@color6: #3253aa;
+@color7: #0b62c5;
+@color8: #6285bd;
+@color9: #2662ef;
+@color10: #9977ef;
+
+@muted-blue: #4b6ba0;
+@pale-blue: #5d96bb;
+
+@color-a: #a80083;
+@color-b: #16a0a4;
+
+@highlight: @muted-blue;
+@transition-duration: 1s;
+
+* {
+    box-sizing: border-box;
+}
+
+p {
+    margin: 0 auto;
+}
+
+#graphic {
+    .gotham();
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+// IMPORTANT! Some of the styles are defined inline in `child_template.html`
+// so we can calculate a height ASAP.
+.artist-img-wrap {
+    border-radius: 3px;
+
+    .artist-img-overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: @highlight;
+        mix-blend-mode: multiply;
+        opacity: 0;
+        transition: opacity @transition-duration ease;
+    }
+}
+
+.artist-detail-wrap {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 1em;
+    opacity: 0;
+    transition: opacity @transition-duration ease;
+
+    .artist-gist {
+        font-size: 0.9em;
+        font-style: italic;
+        margin: 0 auto 1em;
+        color: white;
+    }
+
+    .artist-name {
+        .knockout-upper();
+        font-size: 1.4em;
+        line-height: 1;
+        margin: 0.3em 0;
+        color: white;
+    }
+}
+
+// Define hover classes for wide screens
+@media screen and (min-width: @mobile-threshold-above) {
+    .artist-wrap.highlighted {
+        .artist-img-wrap {
+            .artist-img-overlay {
+                opacity: 1;
+            }
+
+            img {
+                -webkit-filter: blur(5px);
+                filter: blur(5px);
+            }
+        }
+
+        .artist-detail-wrap {
+            opacity: 1;
+        }
+    }
+
+    // Text tweaks to grid
+    @media (max-width: 860px) {
+        .artist-wrap .artist-detail-wrap .artist-name {
+            margin-top: 0;
+        }
+    }
+
+    @media (max-width: 800px) and (min-width: 701px) {
+        .artist-wrap .artist-detail-wrap .artist-name {
+            font-size: 1.2em;
+        }
+
+        .artist-wrap .artist-detail-wrap .artist-gist {
+            font-size: 0.85em;
+        }
+    }
+}
+
+// On narrow screens, we use Flickity to display the artists in a swipeable
+// deck/carousel instead of as a grid.
+@media screen and (max-width: @mobile-threshold) {
+    // TODO: Do cards need a border in order to make the swiping interaction more apparent?
+    // TODO: explore blur at edges of the viewport to focus attention on
+    // active card.
+    .artist-wrap {
+        width: @mobile-artist-wrap-width-tiny;
+        // Make sure there's space between the cards.
+        margin-right: 1em;
+    }
+
+    @media (min-width: @medium-threshold) {
+        .artist-wrap {
+            width: @mobile-artist-wrap-width-medium;
+        }
+    }
+
+    .artist-detail-wrap {
+        // In the card deck view, align the text with the edge of the image.
+        // The grid view will want horizontal padding to center the text in
+        // the cell.
+        padding: 1em 0;
+
+        // Override to default styles
+        position: relative;
+        opacity: 1;
+
+        .artist-name {
+            display: block;
+            color: @highlight;
+
+            // Add some space between the name and gist
+            margin-bottom: 0.4em;
+
+            // Slightly larger font
+            font-size: 1.5em;
+        }
+
+        .artist-gist {
+            font-size: 1em;
+            color: #333;
+        }
+    }
+}
+
+// Navigation controls for card-stack view
+.navigation {
+    font-size: 25px;
+    width: 185px;
+    margin: 0 auto;
+}
+
+.arrow {
+    background-color: #eee;
+    border-radius: 6px;
+    color: #777;
+    user-select: none;
+
+    &.disabled {
+        opacity: 0.3;
+    }
+}
+
+.status {
+  display: inline-block;
+  width: 100px;
+  .gotham();
+  text-align: center;
+  font-size: 14px;
+}

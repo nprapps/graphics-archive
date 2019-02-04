@@ -1,0 +1,14 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+<ul class="slingshot-nav">
+    {% for link in COPY.data %}
+    <li {% if link['year'] %}data-year="{{ link['year'] }}"{% endif %}><a href="{{ link['url'] }}">{{ link['title'] }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock content %}
+
+{% block js %}
+{{ JS.push('js/graphic.js') }}
+{{ JS.render('js/graphic-footer.js') }}
+{% endblock js %}

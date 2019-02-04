@@ -1,0 +1,75 @@
+.serif() {
+    font-family: Georgia, serif;
+}
+
+@smalltype: 12.8px;
+
+// BREAKPOINTS
+@screen-jumbo-above: ~"screen and (min-width: 1920px)";
+@screen-mega-above: ~"screen and (min-width: 1600px)";
+@screen-large-above: ~"screen and (min-width: 1201px)";
+@screen-large: ~"screen and (min-width: 1200px)";
+@screen-medium-above: ~"screen and (min-width: 992px)";
+@screen-medium: ~"screen and (max-width: 991px)";
+@screen-small-above: ~"screen and (min-width: 768px)";
+@screen-small: ~"screen and (max-width: 767px)";
+@screen-leftrail-above: ~"screen and (min-width: 641px)";
+@screen-leftrail: ~"screen and (max-width: 640px)";
+@screen-landscape-above: ~"screen and (min-width: 581px)";
+@screen-landscape: ~"screen and (max-width: 580px)";
+@screen-tiny-above: ~"screen and (min-width: 481px)";
+@screen-tiny: ~"screen and (max-width: 480px)";
+
+// COLORS
+@black          : #2a2a2a;
+@darkblack      : #000;
+@white          : #f3f3f3;
+@brightwhite    : #fff;
+@textgray       : #767676;
+@lightgray      : #aaa;
+@linegray       : #ddd;
+@red            : #f03828;
+@yellow         : #fefde6;
+
+@republican     : #f05b4e;
+@democrat       : #498dcb;
+
+@highlight      : #fdf384;
+@link-blue      : #4774CC;
+@link-active    : #bccae5;
+
+// HELPERS
+.unselectable() {
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+// Icon font animation
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+}
+@keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+}

@@ -1,0 +1,74 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+    <div class="graphic-container">
+        <div class="hp-branding">
+            <img alt="npr logo" src="assets/imgs/npr-logo.png" />
+        </div>
+        <div class="graphic-wrapper">
+            <div class="intro">
+                {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+                {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }} <span class="back-to-hp">For additional context, read the <a href="https://www.npr.org/2018/05/08/599452050/the-u-s-voting-system-remains-vulnerable-6-months-before-election-day-what-now">full story</a>.</span></h2>{% endif %}
+                <hr />
+            </div>
+
+            <div class="graphic">
+                <div class="loading"><p>{{ COPY.labels.loading }}</p></div>
+                <div class="not-found"><p>{{ COPY.labels.not_found }}</p></div>
+                <div class="content">
+                    <div id="machine-img"></div>
+                    <div class="content-text">
+                        <div id="geotext"></div>
+                        <!-- <a class="btn" href="">Learn more ></a> -->
+                    </div>
+                    <hr />
+                </div>
+                <div id="search">
+                    <p class="search-again">Search for another county: </p><input class="typeahead" type="text" />
+                </div>
+            </div>
+        </div>
+
+        {% if COPY.labels.footnote %}
+        <div class="footnotes">
+            <h4>Notes</h4>
+            <p>{{ COPY.labels.footnote|smarty }}</p>
+        </div>
+        {% endif %}
+
+        <div class="footer">
+            {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+            {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}. Illustrations: {{ COPY.labels.illustrations|smarty }}</p>{% endif %}
+        </div>
+    </div>
+
+    <!-- TEMPLATES -->
+    <script type="text/template" id="geotext-template">
+        <p class="county"><%= county %></p>
+        <% if (based_on_location == true) { %>
+            <p class="guess">(Our best guess for your location)</p>
+        <% } %>
+        <p><strong>Voting on: </strong><%= voting_on %></p>
+        <p class="experts"><strong>Experts say: </strong></p>
+        <ul>
+            <li><%= experts_say %></li>
+            <% if (experts_say2 != '') { %>
+                <li><%= experts_say2 %></li>
+            <% } %>
+        </ul>
+    </script>
+
+    <script type="text/template" id="toptext-template">
+        <h1 class="trail"><%= trail %>!</h1>
+    </script>
+
+    <script type="text/template" id="img-template">
+        <img src="assets/imgs/machine_<%= img %>.png" alt="voting machine" />
+    </script>
+
+    <script type="text/javascript">
+        var MACHINES = {{ COPY.machines_bullet.json() }};
+        var COUNTIES = {{ COPY.counties.json() }};
+    </script>
+
+{% endblock content %}

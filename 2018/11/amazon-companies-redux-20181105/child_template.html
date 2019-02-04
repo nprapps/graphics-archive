@@ -1,0 +1,76 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+
+    {% set categories = ['books', 'cloud', 'dp', 'entertainment', 'payments', 'stores', 'sh', 'shopping'] %}
+    <div id="graphic" class="graphic">
+        {% for category in categories %}
+       
+ <div class="section-wrapper">
+<div>
+            <div class="section-header">
+                {% set top_row = COPY[category]|first %}
+                <h3>{{ top_row['Full name'] }}</h3>
+                <img src = "../amazon-companies-redux-20181105/assets/images/{{ category }}_500px.png" class="image">
+            </div>
+
+            
+            <div class="stake-wrapper">
+                {% if top_row['Includes'] %}
+                <h4>notable Brands</h4>
+                <ul>
+                {% for row in COPY[category] %}
+                    {% if row['Includes'] %}
+                    <li><span class="stake">{{ row['Includes'] }}{% if row['Notes'] %}</span><span class="notes"> ({{ row['Notes'] }})</span>{% endif %}</li><br>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+
+
+
+        </div>
+
+        <div class="brands-wrapper">
+                <span class="title">
+                Also part of</span>
+                <span class="return"><br></span>
+                {% for row in COPY[category] %}
+                    {% if row['Crossover'] %}
+                    <span class="brand">{{ row['Crossover'] }}</span>
+                    {% endif %}
+                {% endfor %}
+                
+</div>
+
+</div>
+
+        {% endfor %}
+    </div>
+
+
+
+
+
+
+
+
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

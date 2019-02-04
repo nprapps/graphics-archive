@@ -1,0 +1,216 @@
+@import "base";
+
+// Add custom styles here
+@color-claim: #306572;
+@color-evidence: #89b1b6;
+@color-evidence-dark: shade(@color-evidence, 15%);
+@color-probation: #666;
+@color-probation-dark: shade(@color-probation, 10%);
+@color-resolution: #e56227;
+@palegray: #ddd;
+@linegray: #ccc;
+@textgray: #888;
+@darkgray: #666;
+
+@tiny-break: 500px;
+@midsize-break: 640px;
+@tooltip-height: 100px;
+@tooltip-max-height: 120px;
+@arrow-offset-1-6: 17%;
+@arrow-offset-7-10: 15%;
+
+// Add custom styles here
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 20px 0 0;
+}
+
+#graphic {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+    .gotham();
+}
+
+h2 {
+    font-size: 1.1em;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #333;
+    margin: 1em auto;
+}
+
+p.intro-resolved {
+    font-size: 1.1em;
+    font-weight: 700;
+    line-height: 1.4;
+    color: @color-resolution;
+}
+
+.categories-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.category.statement .category-text strong { color: @color-claim; }
+.category.evidence .category-text strong { color: @color-evidence-dark; }
+.category.probation .category-text strong { color: @color-probation-dark; }
+
+.category-items {
+    display: flex;
+    position: relative;
+    padding-bottom: @tooltip-height;
+    margin-bottom: 2em;
+}
+
+.promise-wrapper {
+    flex-grow: 1;
+}
+
+a.promise-count {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 auto 5px;
+    color: white;
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 50px;
+    text-align: center;
+}
+
+.category.statement a.promise-count { background: @color-claim; }
+.category.evidence a.promise-count { background: @color-evidence; }
+.category.probation a.promise-count { background: @color-probation; }
+
+.promise-title-wrapper {
+    line-height: 0;
+    text-align: center;
+    display: none;
+
+    &.active {
+        display: block;
+    }
+
+    &:before {
+        content:"\A";
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 15px solid @palegray;
+    }
+}
+
+.promise-title {
+    position: absolute;
+    display: block;
+    background: @palegray;
+    padding: 1em;
+    width: 100%;
+    height: @tooltip-height;
+    left: 0;
+    line-height: 1.4;
+    text-align: left;
+
+    span {
+        display: block;
+    }
+
+    .title-label {
+        .knockout-upper();
+        margin-bottom: 0.5em;
+    }
+
+    .prompt {
+        font-style: italic;
+        font-size: 0.9em;
+        color: @darkgray;
+    }
+}
+
+.category.statement .promise-title .title-label { color: @color-claim; }
+.category.evidence .promise-title .title-label { color: @color-evidence-dark; }
+.category.probation .promise-title .title-label { color: @color-probation-dark; }
+
+.promise-7, .promise-8, .promise-9, .promise-10 {
+    .promise-title:before {
+        /*left: @arrow-offset-7-10;*/
+    }
+}
+
+@media screen and (max-width: @midsize-break) and (min-width: (@tiny-break + 1px)) {
+    h2, p.intro-resolved {
+        font-size: 1.2em;
+        line-height: 1.4;
+    }
+
+    .category {
+        width: 46%;
+
+        &:first-child {
+            margin-right: 4%;
+        }
+
+        &.probation {
+            width: 61.33%;
+        }
+    }
+}
+
+@media screen and (min-width: (@midsize-break + 1px)) {
+    #graphic {
+        text-align: center;
+    }
+
+    h2, p.intro-resolved {
+        font-size: 1.4em;
+        line-height: 1.4;
+    }
+
+    .categories-wrapper {
+        flex-wrap: nowrap;
+    }
+
+    .category-items {
+        padding-bottom: @tooltip-max-height;
+    }
+
+    .category {
+        width: 30%;
+
+        &.probation {
+            width: 40%;
+        }
+    }
+
+    .category-text {
+        padding: 0 1.5em;
+    }
+
+    // Placement of tooltip
+    .promise-8, .promise-9, .promise-10 {
+        .promise-title {
+            right: 0;
+
+            &:before {
+                /*left: auto;*/
+                /*transform: translateX(50%);*/
+                /*right: 17%;*/
+            }
+        }
+    }
+
+    .promise-title {
+        min-width: 200px;
+        max-width: 240px;
+        text-align: left;
+        left: auto;
+        height: auto;
+    }
+}

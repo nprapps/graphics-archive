@@ -1,0 +1,60 @@
+@import "base";
+
+// Breakpoints
+@screen-large: ~"screen and (min-width: 1200px)";
+@screen-medium-above: ~"screen and (min-width: 992px)";
+@screen-medium: ~"screen and (max-width: 991px)";
+
+@screen-small-above: ~"screen and (min-width: 768px)";
+@screen-small: ~"screen and (max-width: 767px)";
+
+@screen-tiny-above: ~"screen and (min-width: 481px)";
+@screen-tiny: ~"screen and (max-width: 480px)";
+
+
+// Base font size
+// -------------------------
+
+html {
+    font-size: 12px;
+
+    @media screen and (min-width: @screen-small){
+        font-size: 14px;
+    }
+
+    @media screen and (min-width: @screen-medium){
+        font-size: 16px;
+    }
+
+    @media screen and (min-width: @screen-large){
+        font-size: 18px;
+    }
+
+    @media screen and (min-width: 1600px){
+        font-size: 21px;
+    }
+
+    @media screen and (min-width: 1920px){
+        font-size: 24px;
+    }
+}
+
+ul {
+    font-size: 12px;
+    .gotham();
+    margin: 0;
+    padding: 0;
+
+    li {
+        float: left;
+        list-style-type: none;
+        margin: 0;
+        padding: 0 .8em;
+        border-left: 1px solid #999;
+        line-height: 1;
+    }
+
+    li.selected {
+        a {color: #333;}
+    }
+}

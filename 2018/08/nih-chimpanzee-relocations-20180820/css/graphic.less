@@ -1,0 +1,28 @@
+@import "base";
+
+.bar text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.key { display: none; }
+
+.sanctuary, .lab {
+	color: #fff;
+	padding: 1.5px;
+}
+
+.sanctuary { 
+	background-color: @teal2; 
+}
+.lab { 
+	background-color: @teal5; 
+}
+
+
+@media screen and (max-width: 500px) {
+   .bar text { font-size: 12px; }
+}

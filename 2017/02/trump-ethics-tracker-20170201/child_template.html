@@ -1,0 +1,44 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+    <div id="graphic" class="graphic">
+        {% set categorized = COPY.data|sort_promises %}
+        {% for category, category_data in categorized.iteritems() %}
+
+        {% if category_data.promises|length == 1 %}
+        {% set promise_word = 'Promise' %}
+        {% else %}
+        {% set promise_word = 'Promises' %}
+        {% endif %}
+
+        {% if category == 'Resolution' %}
+            {% if category_data.promises|length == 1 %}
+                {% set verb = 'Is' %}
+                {% set promise_length = category_data.promises|length %}
+            {% elif category_data.promises|length == 0 %}
+                {% set verb = 'Are' %}
+                {% set promise_length = 'No' %}
+            {% else %}
+                {% set verb = 'Are' %}
+                {% set promise_length = category_data.promises|length %}
+            {% endif %}
+            <h1 class="category-header status-{{ category|lower }}">There {{ verb}} {{ promise_length }} Resolved Ethics {{ promise_word }}</h1>
+        {% else %}
+            <h1 class="category-header status-{{ category|lower }}">{{ category_data.promises|length }} {{ promise_word }} {{ category_data.title }}</h1>
+        {% endif %}
+
+        <p class="category-description status-{{ category|lower }}">{{ category_data.description }} 
+        <!-- <em>We are tracking {{ category_data.promises|length }} promise(s) in this category.</em> -->
+        </p>
+        {% for promise in category_data.promises %}
+            {% include 'promise.html' %}
+        {% endfor %}
+        {% endfor %}
+    </div>
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>{{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

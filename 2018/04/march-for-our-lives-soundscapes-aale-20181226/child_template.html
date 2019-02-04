@@ -1,0 +1,63 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+{% set thisID = 'aale' %}
+
+    <div id="graphic" class="graphic">
+
+
+
+        
+        <div class="item-wrapper align-{{ COPY.data[thisID].align }} item-vertical }} {% if COPY.data[thisID].quote %}has-quote{% endif %}">
+
+
+            <div id="graphic-image" class="img-wrapper">
+                <div class="overlay">
+                    <span class="instructions"></span>
+                    <i class="icon icon-headphones"></i>
+                </div>
+                <img src="https://apps.npr.org/dailygraphics/graphics/march-for-our-lives-soundscapes-20180328/assets/{{ COPY.data[thisID].photo }}" alt="Photo" />
+                <audio id="audio" src="https://apps.npr.org/dailygraphics/graphics/march-for-our-lives-soundscapes-20180328/assets/{{ COPY.data[thisID].mp3 }}" {% if COPY.data[thisID].loop_audio|upper == 'TRUE' %}loop{% endif %}></audio>
+            </div>
+            {% if COPY.data[thisID].quote or COPY.data[thisID].photo_caption %}
+            <div class="quote-wrapper">
+                {% if COPY.data[thisID].quote %}
+                <p class="quote-text">{{ COPY.data[thisID].quote|smarty }}</p>
+                <p class="quote-header">
+                    <p class="quote-header">
+
+
+                        <span class="quote-name">{{COPY.data[thisID].speaker_name}}</span>{% if COPY.data[thisID].speaker_age %}<span class="quote-age">, {{ COPY.data[thisID].speaker_age }}</span>{% endif %}{% if COPY.data[thisID].speaker_loc %}<span class="quote-identifier">, {{ COPY.data[thisID].speaker_loc }}</span>{% endif %}
+</p>
+ <p class="caption">{{ COPY.data[thisID].pictured_with }}</p>
+<!-- -->
+
+                    <span class="quote-name">{{ COPY.data[thisID].quote_name }}</span>{% if COPY.data[thisID].quote_identifier %}<span class="quote-identifier">, {{ COPY.data[thisID].quote_identifier }}</span>{% endif %}
+                </p>
+                {% endif %}
+                {% if COPY.data[thisID].photo_caption or COPY.data[thisID].photo_credit %}
+                <div class="photo-info">
+                    {% if COPY.data[thisID].photo_caption %}<p class="caption">{{ COPY.data[thisID].photo_caption }}</p>{% endif %}
+                    {% if COPY.data[thisID].photo_credit %}<p class="credit">{{ COPY.data[thisID].photo_credit }}</p>{% endif %}
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if COPY.data[thisID].quote|string == '' and COPY.data[thisID].photo_caption %}
+    <div class="caption">
+        <p>{{ COPY.data[thisID].caption|smarty }} </p>
+        <p class="credit">{{ COPY.data[thisID].credit|smarty }}</p>
+    </div>
+    {% endif %}
+
+{% endblock content %}
+
+{% block js %}
+    {{ JS.push('js/lib/modernizr.custom.min.js') }}
+    {{ JS.push('js/base.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+{% endblock js %}

@@ -1,0 +1,258 @@
+@import "base";
+
+@screen-large-above: ~"screen and (min-width: 900px)";
+@screen-medium: ~"screen and (max-width: 567px)";
+@screen-small: ~"screen and (max-width: 500px)";
+
+.hidden { display: none; }
+.show { display: block; }
+
+body {
+    div.hp-branding {
+		display: none;
+	}
+
+	span.back-to-hp {
+		display: none;
+	}
+}
+
+
+body.hp {
+    div.hp-branding {
+		display: block;
+
+		img {
+			width: 100px;
+			margin-bottom: 8px;
+		}
+	}
+
+	span.back-to-hp {
+		display: inline;
+	}
+}
+
+// Add custom styles here
+.graphic-wrapper {
+	background-color: #eee;
+	padding: 33px 22px;
+	margin-bottom: 8px;
+
+	div.intro {
+		text-align: center;
+
+		h1 {
+			font-weight: bold;
+			color: #333;
+		}
+		hr {
+			width: 80px;
+			color: #bbb;
+			margin: 15px auto;
+		}
+	}
+}
+
+.graphic {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+
+	h1.trail {
+		text-align: center;
+		font-weight: bold;
+		color: @blue1;
+		font-size: 4em;
+		text-transform: uppercase;
+		margin-bottom: 11px;
+	}
+
+	hr {
+		width: 100%;
+		color: #bbb;
+		margin: 20px auto 15px;
+		float: left;
+	}
+
+	div#search {
+		p.search-again {
+			.knockout();
+			display: inline-block;
+			font-size: 14px;
+			position: relative;
+			top: 7px;
+			color: #333;
+		}
+	}
+
+	div.content {
+		img {
+			width: 265px;
+			float: left;
+		}
+
+		div.content-text {
+			width: 49%;
+			float: left;
+
+			div#geotext {
+				p.county {
+					.gotham();
+					font-size: 16px;
+					font-weight: bold;
+					margin-bottom: 3px;
+					margin-top: 11px;
+				}
+				p.guess {
+					margin: 0 0 18px 0;
+					font-size: 11px;
+    				color: #666;
+					font-style: italic;
+				}
+				p.experts {
+					margin-bottom: 6px;
+				}
+				ul {
+					margin: 0;
+                    padding: 0;
+
+                    li {
+                        margin-bottom: 6px;
+                        margin-left: 1.2em;
+                    }
+				}
+			}
+		}
+
+		a.btn {
+			margin-top: 11px;
+			font-size: 12px;
+			font-weight: 800;
+			-webkit-font-smoothing: antialiased;
+			text-align: center;
+			cursor: pointer;
+			display: inline-block;
+			-webkit-transition: background 500ms ease-out;
+			-moz-transition: background 500ms ease-out;
+			-o-transition: background 500ms ease-out;
+			transition: background 500ms ease-out;
+
+			&:hover {
+				color: #6d8ac4;
+			}
+		}
+	}
+}
+
+// TYPEAHEAD
+.twitter-typeahead {
+	width: 280px;
+	margin-left: 11px;
+}
+
+.tt-input,
+.tt-query,
+.tt-hint {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    height: 36px;
+    padding: 11px;
+    font-size: 14px;
+    line-height: 30px;
+    border: 1px solid #fff;
+    -webkit-border-radius: 0px;
+       -moz-border-radius: 0px;
+            border-radius: 0px;
+    outline: none;
+    background-color: #fff;
+    width: 100%;
+    min-width: 200px;
+}
+
+.tt-input {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 14px;
+}
+.tt-input:focus { border-bottom: 1px solid #71768a; }
+
+.tt-query {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+       -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.tt-menu {
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 150px;
+    max-height: 150px;
+    overflow-y: auto;
+    margin-top: 2px;
+    padding: 7px 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, .1);
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    cursor: pointer;
+}
+.tt-menu p {
+    margin: 0 0 15px;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #666;
+}
+.tt-menu strong { color: #000; }
+
+.tt-suggestion { }
+.tt-suggestion.tt-is-under-cursor,
+.tt-suggestion.tt-cursor {
+    background-color: #D3EAF7;
+}
+
+// MOBILE STYLES
+@media @screen-small {
+	.graphic {
+		div.content div.content-text {
+			width: 100%;
+		}
+
+		#search {
+			span.twitter-typeahead {
+				width: 100%;
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+@media @screen-medium {
+	.graphic div.content {
+		width: 300px;
+		margin: 0 auto;
+
+		div.content-text {
+			width: 100%;
+
+		}
+	}
+}
+
+@media @screen-large-above {
+	.graphic-container {
+		max-width: 730px;
+		margin: 0 auto;
+	}
+}

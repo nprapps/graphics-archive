@@ -1,0 +1,28 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="graphic-wrapper">
+        <div id="top-text-wrapper" class="graphic-unseen">
+            {% for row in COPY['OLD overview_text'] %}
+            <p class="top-text {% if loop.index0 == 0 %}active{% endif %} frame-{{ loop.index0 }}">{{ row['text'] }}</p>
+            {% endfor %}
+        </div>
+
+        <div id="graphic" class="graphic">
+            <img src="fallback.png" class="fallback" alt="Chart of Trump's ethics promises" />
+        </div>
+
+        <a href="#" id="play-button" class="hidden">Replay</a>
+    </div>
+
+    <div id="svg-defs">
+        {% include 'img/check-circle.svg' %}
+    </div>
+
+    <script type="text/javascript">
+        var DATA = {{ COPY['OLD overview_data'].json() }};
+        var TEXT_DATA = {{ COPY['OLD overview_text'].json() }};
+    </script>
+
+{% endblock content %}

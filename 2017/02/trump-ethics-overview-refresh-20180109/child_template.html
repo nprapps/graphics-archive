@@ -1,0 +1,46 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="graphic" class="graphic">
+        <h2>{{ COPY.labels.intro_hed|smarty }}</h2>
+        <p class="intro-resolved">{{ COPY.labels.intro_resolved|smarty }}</p>
+
+        <div class="categories-wrapper">
+            {# Set a variable that counts the number of promises #}
+            {# Jinja doesn't allow variables declared outside of a loop to be updated inside of a loop, #}
+            {# so we take a dictionary-based approach. Sigh. #}
+            {% set vars = { 'promise_counter' : 1 } %}
+            {# Loop through sheet of categories #}
+            {% for row in COPY.overview_data %}
+                <div class="category {{ row.category|classify }}">
+                    <p class="category-text">{{ row.text }}</p>
+                    <div class="category-items">
+                        {# Find items that match this category #}
+                        {% set category_data = COPY.data|selectattr('current_status', 'equalto', row.category) %}
+                        {# Loop through all items that match this category #}
+                        {% for promise in category_data %}
+                            {% set this_count = vars.promise_counter %}
+                            <div class="promise-wrapper promise-{{ this_count }}">
+                                <a href="#" class="promise-count">{{ this_count }}</a>
+                                <a href="#" class="promise-link" data-scroll="{{ promise.slug }}">
+                                    <div class="promise-title-wrapper">
+                                        <div class="promise-title">
+                                            <span class="title-label">{{ promise.title_intro }}</span>
+                                            <span class="prompt">See this promise &rarr;</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            {# Increment the promise counter #}
+                            {# This is a really annoying hack related to the above scoping problem #}
+                            {# More info here: https://stackoverflow.com/questions/9486393/jinja2-change-the-value-of-a-variable-inside-a-loop #}
+                            {% if vars.update({ 'promise_counter' : this_count + 1 }) %} {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}

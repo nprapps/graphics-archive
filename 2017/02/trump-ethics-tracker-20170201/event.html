@@ -1,0 +1,12 @@
+<div class="event {{ event.status|lower }}">
+
+    <div class="details">
+        <h6 class="event-status {{ event.status|lower }}">
+            <span>{{ event.status }}</span>
+            <span class="event-date">{{ event.date }}</span>
+        </h6>
+
+        <p class="detail-text">{{ event.detail }}</p>
+        <p class="source">Source: {% if event.attribution_link %}<a href="{{ event.attribution_link }}">{% endif %}{{ event.attribution_text }}{% if event.attribution_link %}</a>{% endif %}</p>
+    </div>
+</div>

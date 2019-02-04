@@ -1,0 +1,202 @@
+@import "base";
+
+#testKitchen {
+    .clearfix();
+    border-top: 3px solid #000;
+    display: flex;
+    flex-wrap: nowrap;
+	font: normal 13px/1.5 Arial, Helvetica, sans-serif;
+    width: 100%;
+	position: relative;
+	margin-bottom: 15px;
+
+    h3 { margin-top: 22px; }
+
+    p {
+        &.introp {
+        	padding-top:10px;
+        }
+    }
+
+    a {
+    	font-weight: bold;
+    	text-decoration: none;
+    	outline: none;
+
+        &:hover,
+        &:active {
+        	text-decoration: underline;
+        	outline: none;
+        }
+
+        &.print { font-size: 11px; }
+    }
+
+    .recipe {
+    	padding-left:20px;
+
+        ol, ul {
+            margin: 0 0 22px 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: disc;
+
+            > li { margin-bottom: 0.5em; }
+        }
+
+        ol > li { margin-bottom: 1em; }
+    }
+}
+
+/* LEFTNAV */
+#navi {
+	background:#fff;
+    order: 1;
+    width: 33%;
+
+    ul {
+    	list-style: none;
+    	margin: 0;
+    	padding: 0;
+
+        > li {
+        	background:#F1F1F1;
+        	border:1px solid #B2B2B4;
+            border-right: none;
+            box-sizing: border-box;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom:1px;
+        	padding:15px 10px;
+            width: 100%;
+
+            &:hover { text-decoration: underline; }
+
+            &.tab-open {
+            	background: #fff;
+            	cursor: default;
+
+                &:hover { text-decoration: none; }
+            }
+        }
+    }
+}
+
+
+/* CONTENT */
+#aContent {
+    box-sizing: border-box;
+	background: #fff;
+	border:1px solid #ccc;
+    border-top: none;
+    order: 2;
+	padding: 17px 12px;
+    width: 67%;
+
+    #a1 { display:block; }
+    #a2, #a3, #a4, #a5, #a6, #a7, #a8, #a9, #a10, #a11 {
+    	display:none;
+    }
+}
+
+
+#testKitchen #aContent h2 {
+	margin: 0;
+	padding: 0 0 10px 0;
+	line-height: 1.4em;
+	font-size: 18px;
+}
+
+#testKitchen #aContent .aTopic .captionwrap {
+	border-bottom:1px dotted #CCCCCC;
+	margin-bottom:10px;
+}
+
+#testKitchen .notes {
+	color: #666;
+	font-size: 11px;
+	margin: 15px 0 0 0;
+	padding: 0;
+	border: none;
+}
+#testKitchen .notes h4 {
+	color: #333;
+	font-size: 11px;
+	margin: 0;
+	padding-left: 0;
+	background: none;
+}
+
+#testKitchen p.more {
+	background:transparent url(https://media.npr.org/chrome/news/icon_arrow_right.gif) no-repeat right center;
+	font-size:14px;
+	padding:0 8px 0 0;
+	text-align:right;
+	text-transform:lowercase;
+}
+
+#testKitchen .aPhoto img { float: none; width: 100%; }
+#testKitchen .captionwrap {
+	color:#666666;
+	font-size:10px;
+	text-align:right;
+}
+#testKitchen .captionwrap p{
+	color:#666666;
+	font-size:10px;
+	text-align:left;
+}
+
+
+/* MOBILE STYLES */
+@media @screen-mobile {
+    #testKitchen { flex-wrap: wrap; }
+    #aContent {
+        width: auto;
+    }
+    #navi {
+        width: auto;
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+
+            > li {
+                border-right: 1px solid #ccc;
+                margin-bottom: 0;
+                padding: 10px;
+                text-align: center;
+                width: 50%;
+            }
+        }
+    }
+}
+
+
+/* PRINT STYLES */
+@media print {
+    #testKitchen {
+    	color:#333;
+    	font:normal 12px/17px Arial, Helvetica, sans-serif;
+    	float:left;
+    	width:624px;
+    	position: relative;
+
+        p {
+        	color:#333;
+        	font:normal 12px/17px Arial, Helvetica, sans-serif;
+        	float:left;
+        	width:624px;
+        	position: relative;
+        	margin-bottom: 15px;
+        }
+
+        .aInfo {
+        	border-top: 3px solid #000;
+        	margin-bottom: 30px;
+        }
+    }
+}

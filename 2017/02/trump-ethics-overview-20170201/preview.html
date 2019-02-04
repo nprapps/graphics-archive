@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>staging : trump-ethics-overview-20170201</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <style type="text/css">
+        /* Basic styles */
+        body {
+            font: 14px/1.4 Helvetica, Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 40px;
+            max-width: 650px;
+            margin: 0 auto 1em;
+        }
+
+        h2 {
+            font-size: 14px;
+            margin: 0 0 11px 0;
+        }
+
+        a, a:link,
+        a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover,
+        a:active {
+            color: #bccae5;
+        }
+
+        a.btn {
+            font-size: 12px;
+            line-height: 28px;
+            margin: 0;
+            float: left;
+            padding: 0 11px;
+            border-radius: 4px;
+            background-color: #f7f7f7;
+            font-weight: bold;
+            -webkit-font-smoothing: antialiased;
+        }
+        a.btn:hover,
+        a.btn:active {
+            background-color: #fff;
+        }
+
+        p.body-p {
+            font-family: Georgia, serif;
+            font-size: 17px;
+            line-height: 1.7;
+            max-width: 650px;
+            margin: 0 auto 1em;
+        }
+
+        .graphics-list li {
+            margin-top: 0;
+            margin-bottom: 6px;
+        }
+
+        /* Header */
+        .parent-header {
+            background-color: #ebebeb;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            height: 40px;
+            padding: 10px 5px 0 5px;
+            overflow: hidden;
+        }
+        .parent-header:after { clear: both; }
+
+        .parent-header .segment {
+            float: left;
+            padding-left: 5px;
+            padding-right: 5px;
+            white-space: nowrap;
+        }
+
+        .parent-header .right {
+            float: right;
+            margin-right: 15px;
+        }
+
+        .localhost,
+        a.localhost,
+        a.localhost:visited {
+            color: green;
+        }
+
+        .staging,
+        a.staging,
+        a.staging:visited {
+            color: orange;
+        }
+
+        .production,
+        a.production,
+        a.production:visited {
+            color: red;
+        }
+
+        .resize {
+            background-color: white;
+        }
+
+        /* Content */
+        .content {
+            margin: 60px 10px 10px 10px;
+        }
+
+        #preview-wrapper {
+            border: 2px dashed #ddd;
+            margin-bottom: 20px;
+        }
+
+        #preview {
+            width: 100%;
+        }
+
+        textarea {
+            display: block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="parent-header">
+        <div class="segment">
+            <h1 class="localhost">localhost</h1>
+        </div>
+
+        <div class="segment">
+            <a id="resize-sidebar" class="btn" href="#">Sidebar (180px)</a>
+        </div>
+
+        <div class="segment">
+            <a id="resize-mobile" class="btn" href="#">Mobile (300px)</a>
+        </div>
+
+        <div class="segment">
+            <a id="resize-desktop" class="btn" href="#">Desktop (730px)</a>
+        </div>
+
+        <div class="segment">
+            <a id="resize-fluid" class="btn" href="#">Fluid (100%)</a>
+        </div>
+
+        <div class="right">
+                <div class="segment">
+                    <a class="btn localhost" href="http://localhost:8000/graphics/trump-ethics-overview-20170201/">localhost &raquo;</a>
+                </div>
+                <div class="segment">
+                    <a class="btn production" href="https://apps.npr.org/dailygraphics/graphics/trump-ethics-overview-20170201/" target="_blank">production &raquo;</a>
+                </div>
+                <div class="segment">
+                    <a class="btn" href="https://docs.google.com/spreadsheets/d/1vIl6QGPUhnhbT4bEtQTmX-4-cr0yOQ1dyJTZqvWobKA/edit" target="_blank">spreadsheet &raquo;</a>
+                </div>
+        </div>
+    </header>
+
+    <div class="content">
+        <h1>President Trump Made Ethics-Related Promises. Has He Kept Them?</h1>
+        <p class="body-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In magna risus, cursus quis pharetra eget, euismod eu enim. Etiam neque ex, vulputate non massa quis, rhoncus euismod augue. Mauris elementum massa vitae arcu ultrices accumsan. Curabitur rhoncus volutpat dictum.</p>
+        <p class="body-p">Aliquam scelerisque, erat sed volutpat efficitur, sapien sem hendrerit ipsum, in mattis nunc turpis non eros. Aenean condimentum dictum arcu at egestas. Etiam tristique mattis massa vel ultrices. Proin pharetra ex et placerat eleifend.</p>
+        <p class="body-p">Nam accumsan quis odio porttitor condimentum. Sed cursus ante rhoncus luctus egestas. Pellentesque tempus orci id ultrices vestibulum. Vestibulum scelerisque eros sit amet sodales posuere.</p>
+        <p class="body-p">In mollis, ex non elementum sodales, risus velit tempus urna, id hendrerit diam enim id ex. Proin eleifend pretium lorem nec viverra. Nunc ut condimentum erat.</p>
+
+        <div id="preview-wrapper">
+            <div id='responsive-embed-trump-ethics-overview-20170201'>
+            </div>
+        </div>
+
+        <p class="body-p">Aliquam scelerisque, erat sed volutpat efficitur, sapien sem hendrerit ipsum, in mattis nunc turpis non eros. Aenean condimentum dictum arcu at egestas. Etiam tristique mattis massa vel ultrices. Proin pharetra ex et placerat eleifend.</p>
+        <p class="body-p">Nam accumsan quis odio porttitor condimentum. Sed cursus ante rhoncus luctus egestas. Pellentesque tempus orci id ultrices vestibulum. Vestibulum scelerisque eros sit amet sodales posuere.</p>
+        <p class="body-p">In mollis, ex non elementum sodales, risus velit tempus urna, id hendrerit diam enim id ex. Proin eleifend pretium lorem nec viverra. Nunc ut condimentum erat.</p>
+
+        <p class="body-p">Aliquam scelerisque, erat sed volutpat efficitur, sapien sem hendrerit ipsum, in mattis nunc turpis non eros. Aenean condimentum dictum arcu at egestas. Etiam tristique mattis massa vel ultrices. Proin pharetra ex et placerat eleifend.</p>
+        <p class="body-p">Nam accumsan quis odio porttitor condimentum. Sed cursus ante rhoncus luctus egestas. Pellentesque tempus orci id ultrices vestibulum. Vestibulum scelerisque eros sit amet sodales posuere.</p>
+        <p class="body-p">In mollis, ex non elementum sodales, risus velit tempus urna, id hendrerit diam enim id ex. Proin eleifend pretium lorem nec viverra. Nunc ut condimentum erat.</p>
+
+        <h2><span class="production">Production</span> embed code (for Seamus)</h2>
+
+<!-- textarea contents -->
+    <textarea readonly="readonly" rows="10" cols="50">
+<div id="responsive-embed-trump-ethics-overview-20170201"></div>
+<script type=text/javascript>
+    (function(jQuery) {
+        if (typeof jQuery !== 'undefined' && typeof jQuery.getScript === 'function') {
+            // add randomness to id to support for multiple graphic instances in one story
+            var el = document.getElementById("responsive-embed-trump-ethics-overview-20170201");
+            el.id = el.id + "-" + Math.random().toString(36).substr(2,5);
+            jQuery.getScript("//pym.nprapps.org/pym.v1.min.js").done(function () {
+                jQuery(function () { // Wait for page load
+                    var pymParent = new pym.Parent(
+                        el.id,
+                        '//apps.npr.org/dailygraphics/graphics/trump-ethics-overview-20170201/child.html',
+                        {}
+                    );
+
+                    jQuery.getScript("//carebot.nprapps.org/carebot-tracker.v0.min.js").done(function () {
+                        var tracker = new CarebotTracker.VisibilityTracker(el.id, function(result) {
+                            // Ignore Carebot events to empty embeds, keeps listening after unloading the page
+                            if (pymParent.el.getElementsByTagName('iframe').length !== 0) {
+                                pymParent.sendMessage('on-screen', result.bucket);
+                            }
+                        });
+                        // Check if there is already an scroll tracker somewhere on the page
+                        if (!document.querySelector("[data-carebot-scroll]")) {
+                            pymParent.el.setAttribute("data-carebot-scroll", "");
+                            var scrollTracker = new CarebotTracker.ScrollTracker('storytext', function(percent, seconds) {
+                                // Ignore Carebot events to empty embeds, keeps listening after unloading the page
+                                if (pymParent.el.getElementsByTagName('iframe').length !== 0) {
+                                    pymParent.sendMessage('scroll-depth', JSON.stringify({percent: percent,seconds: seconds}));
+                                }
+                            });
+                        }
+                    });
+
+                    function throttle(fn, threshhold, scope) {
+                      threshhold || (threshhold = 250);
+                      var last,
+                          deferTimer;
+                      return function () {
+                        var context = scope || this;
+
+                        var now = +new Date,
+                            args = arguments;
+                        if (last && now < last + threshhold) {
+                          // hold on to it
+                          clearTimeout(deferTimer);
+                          deferTimer = setTimeout(function () {
+                            last = now;
+                            fn.apply(context, args);
+                          }, threshhold);
+                        } else {
+                          last = now;
+                          fn.apply(context, args);
+                        }
+                      };
+                    }
+
+                    pymParent.onMessage('check-view-window', checkForViewWindow);
+                    window.onscroll = throttle(checkForViewWindow);
+
+                    function checkForViewWindow() {
+                        if (isElementInViewWindow(el, 0.5, 0.1)) {
+                            pymParent.sendMessage('within-view-window');
+                        }
+                    }
+
+                    function isElementInViewWindow(el, windowThreshold, elementThreshold) {
+                        // Returns true if elementThreshold is above windowThreshold
+                        var rect     = el.getBoundingClientRect();
+                        var vHeight  = window.innerHeight || document.documentElement.clientHeight;
+
+                        var windowMeasurePoint = windowThreshold * vHeight;
+                        var elementMeasurePoint = rect.top + (elementThreshold * rect.height);
+
+                        if (elementMeasurePoint <= windowMeasurePoint && elementMeasurePoint > 0) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+
+                });
+            });
+        } else {
+            console.error('could not load graphic: jQuery is not on the page.');
+        }
+    })(window.jQuery);
+</script>
+    </textarea>
+<!-- end textarea contents -->
+
+        <h2><span class="production">Production</span> autoinit embed code (<a href="http://blog.apps.npr.org/2014/12/19/pym-core-publisher.html">for member stations</a>)</h2>
+
+<!-- textarea contents -->
+    <textarea readonly="readonly" rows="10" cols="50">
+<p data-pym-src="//apps.npr.org/dailygraphics/graphics/trump-ethics-overview-20170201/child.html">Loading...</p><script src="//pym.nprapps.org/pym-loader.v1.min.js" type="text/javascript"></script>
+    </textarea>
+<!-- end textarea contents -->
+
+    </div>
+
+    <script type="text/javascript" src="//pym.nprapps.org/pym.v1.min.js"></script>
+
+    <script type="text/javascript" src="//carebot.nprapps.org/carebot-tracker.v0.min.js"></script>
+
+
+    <script type="text/javascript">
+        var resizeSidebarEl = document.querySelector('#resize-sidebar');
+        var resizeMobileEl = document.querySelector('#resize-mobile');
+        var resizeDesktopEl = document.querySelector('#resize-desktop');
+        var resizeFluidEl = document.querySelector('#resize-fluid');
+        var previewWrapperEl = document.querySelector('#preview-wrapper');
+
+        resizeSidebarEl.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            previewWrapperEl.style.width = '180px';
+            pymParent.sendWidth();
+
+            window.location.hash = 'sidebar';
+        });
+
+        resizeMobileEl.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            previewWrapperEl.style.width = '300px';
+            pymParent.sendWidth();
+
+            window.location.hash = 'mobile';
+        });
+
+        resizeDesktopEl.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            previewWrapperEl.style.width = '730px';
+            pymParent.sendWidth();
+
+            window.location.hash = 'desktop';
+        });
+
+        resizeFluidEl.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            previewWrapperEl.style.width = '100%';
+            pymParent.sendWidth();
+
+            window.location.hash = 'fluid';
+        });
+
+        if (window.location.hash == '#sidebar') {
+            previewWrapperEl.style.width = '180px';
+        } else if (window.location.hash == '#mobile') {
+            previewWrapperEl.style.width = '300px';
+        } else if (window.location.hash == '#desktop') {
+            previewWrapperEl.style.width = '730px';
+        } else if (window.location.hash == '#fluid') {
+            previewWrapperEl.style.width = '100%';
+        }
+
+        function throttle(fn, threshhold, scope) {
+          threshhold || (threshhold = 250);
+          var last,
+              deferTimer;
+          return function () {
+            var context = scope || this;
+
+            var now = +new Date,
+                args = arguments;
+            if (last && now < last + threshhold) {
+              // hold on to it
+              clearTimeout(deferTimer);
+              deferTimer = setTimeout(function () {
+                last = now;
+                fn.apply(context, args);
+              }, threshhold);
+            } else {
+              last = now;
+              fn.apply(context, args);
+            }
+          };
+        }
+
+        var pymParent = new pym.Parent('responsive-embed-trump-ethics-overview-20170201', 'child.html', {});
+
+        var tracker = new CarebotTracker.VisibilityTracker('responsive-embed-trump-ethics-overview-20170201', function(result) {
+            pymParent.sendMessage('on-screen', result.bucket);
+        });
+
+        var el = document.getElementById("responsive-embed-trump-ethics-overview-20170201");
+        el.id = el.id + "-" + Math.random().toString(36).substr(2,5);
+
+        pymParent.onMessage('check-view-window', checkForViewWindow);
+        window.onscroll = throttle(checkForViewWindow);
+
+        function checkForViewWindow() {
+            if (isElementInViewWindow(el, 0.5, 0.1)) {
+                pymParent.sendMessage('within-view-window');
+            }
+        }
+
+        function isElementInViewWindow(el, windowThreshold, elementThreshold) {
+            // Adapted from http://stackoverflow.com/a/15203639/117014
+            //
+            // Returns true if elementThreshold is above windowThreshold
+            var rect     = el.getBoundingClientRect();
+            var vHeight  = window.innerHeight || document.documentElement.clientHeight;
+
+            var windowMeasurePoint = windowThreshold * vHeight;
+            var elementMeasurePoint = rect.top + (elementThreshold * rect.height);
+
+            if (elementMeasurePoint <= windowMeasurePoint && elementMeasurePoint > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+    </script>
+</body>
+</html>

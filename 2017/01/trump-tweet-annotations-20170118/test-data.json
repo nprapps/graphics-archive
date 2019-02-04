@@ -1,0 +1,69 @@
+[
+  {
+    "annotations": [
+      {
+        "annotation": "<p>Donald Trump's inauguration is tomorrow. Make American Great Again was his slogan throughout the campaign. Consider this a preview of the themes of his speech I guess.</p>",
+        "author": "Jeff Brady",
+        "image": "http://media.npr.org/assets/img/2011/12/29/jeffbrady-18_sq-ad190b9d628d6bca8152d28052736bf789cdf281-s400-c85.jpg",
+        "page": "http://www.npr.org/people/4127076/jeff-brady",
+        "title": "NPR National Desk Correspondent/Covers Energy"
+      }
+    ],
+    "claims": [
+      {
+        "date": "2017-01-19T13:02:18+00:00",
+        "source": "http://twitter.com/realDonaldTrump/822066653953458177",
+        "tweet_id": "822066653953458177",
+        "text": "the American people. I have no doubt that we will, together, MAKE AMERICA GREAT AGAIN!",
+        "type": "twitter"
+      },
+      {
+        "date": "2017-01-19T13:00:13+00:00",
+        "source": "http://twitter.com/realDonaldTrump/822066132307808256",
+        "tweet_id": "822066132307808256",
+        "text": "Getting ready to leave for Washington, D.C. The journey begins and I will be working and fighting very hard to make it a great journey for..",
+        "type": "twitter"
+      }
+    ]
+  },
+  {
+    "annotations": [
+      {
+        "annotation": "<p>Candidate Trump and President-elect Trump have repeatedly attacked many major television news networks, including NBC and NBC News.&nbsp;</p>",
+        "author": "Domenico Montanaro",
+        "image": "http://media.npr.org/assets/img/2015/03/24/domenico_montanaro_npr_007_sq-8689edad716cacac58fb1afc56bc1bcd0d3647e8-s400-c85.jpg",
+        "page": "http://www.npr.org/people/392602474/domenico-montanaro",
+        "title": "NPR Political Editor & Digital Audience"
+      }
+    ],
+    "claims": [
+      {
+        "date": "2017-01-18T13:06:58+00:00",
+        "source": "http://twitter.com/realDonaldTrump/821705440178348033",
+        "tweet_id": "821705440178348033",
+        "text": "No wonder the Today Show on biased @NBC is doing so badly compared to its glorious past. Little credibility!",
+        "type": "twitter"
+      }
+    ]
+  },
+  {
+    "annotations": [
+      {
+        "annotation": "<p>Since becoming President-elect, Donald Trump has claimed credit for many different American companies choosing to keep jobs in the United States. In reality, most of these companies had these plans in place before Trump won the election, and do not attribute their policies to his election.</p>",
+        "author": "Tamara Keith",
+        "image": "http://media.npr.org/assets/img/2015/10/14/tkp-1_sq-f03e437803f37ec0f7f205531d4ff5d040413aa3-s400-c85.jpg",
+        "page": "http://www.npr.org/people/122805042/tamara-keith",
+        "title": "NPR White House Correspondent"
+      }
+    ],
+    "claims": [
+      {
+        "date": "2017-01-17T17:55:38+00:00",
+        "source": "http://twitter.com/realDonaldTrump/821415698278875137",
+        "tweet_id": "821415698278875137",
+        "text": "Thank you to General Motors and Walmart for starting the big jobs push back into the U.S.!",
+        "type": "twitter"
+      }
+    ]
+  }
+]

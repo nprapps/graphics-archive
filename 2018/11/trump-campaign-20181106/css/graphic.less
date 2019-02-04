@@ -1,0 +1,50 @@
+@import "base";
+
+@gop:                     #f05b4e;
+@gopDark:                 darken(@gop, 10%);
+@gopDim:                  lighten(@gop, 10%);
+
+@dem:                     #498dcb;
+@demDark:                 darken(@dem, 10%);
+@demDim:                  lighten(@dem, 10%);
+
+svg {
+    display: block;
+    font-size: 20px;
+    margin: 0 auto 11px auto;
+}
+
+h1, h2 {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 680px;
+    text-align: center;
+}
+
+body.liveblog {
+    h1, h2 {
+        max-width: none;
+        text-align: left;
+    }
+}
+
+.states path {
+    fill: #ddd;
+    stroke: #fff;
+    stroke-width: 1px;
+
+    &.primary,
+    &.visited-yes {
+        fill: @yellow4;
+    }
+}
+
+.cities circle {
+    fill: #333;
+}
+
+// responsive styles
+@media screen and (max-width: 399px) {
+    svg { font-size: 12px; }
+    .states path { stroke-width: .5px; }
+}

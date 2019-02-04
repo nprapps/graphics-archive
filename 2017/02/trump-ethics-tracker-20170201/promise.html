@@ -1,0 +1,50 @@
+<div class="promise {{ category|lower }}" id="{{ promise.slug }}">
+    <h3 class="promise-title">{{ promise.title }}</h3>
+    <h2 class="main-promise">{{ promise.primary_quote }}</h2>
+    <p class="attribution">&mdash; {{ promise.primary_quote_attribution }}</p>
+    <div class="promise-context">{{ promise.context }}</div>
+    <div class="timeline">
+
+        <div class="mini-status">
+            <h5>Status of ethics promise</h5>
+            <ul>
+                <li class="statement-status">
+                    <span class="status-icon"></span> Statement
+                </li>
+                <li class="evidence-status">
+                    <span class="status-icon"></span>
+                    Evidence of action
+                </li>
+                <li class="resolution-status">
+                    <span class="status-icon"></span>
+                    Resolution
+                </li>
+                <li class="probation-status">
+                    Under Watch
+                </li>
+            </ul>
+        </div>
+
+        {% set event = COPY['%s_timeline' % promise.slug][0] %}
+
+
+        <div class="developments">
+            <h4 id="{{ promise.slug }}_developments" class="latest-development">Latest Development</h4>
+
+            {% include 'event.html' %}
+            <div class="collapsed-events">
+            {% for event in COPY['%s_timeline' % promise.slug] %}
+                {% if loop.index0 > 0 %}
+                {% include 'event.html' %}
+                {% endif %}
+            {% endfor %}
+            </div>
+
+            {% if COPY['%s_timeline' % promise.slug]|length > 1 %}
+            <p class="timeline-toggle">View All Developments</p>
+            {% endif %}
+
+        </div>
+
+    </div>
+</div>

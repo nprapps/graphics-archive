@@ -1,0 +1,58 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+<div id="top-wrap" class="graphic"></div>
+<div id="embed-wrap" class="graphic">
+</div>
+
+<script id="top-template" type="text/template">
+<p class="top-sentence">We annotated <span class="top-count"><%= count %></span> from @POTUS and @realDonaldTrump during the first 100 days of President Trump&rsquo;s administration. Read them all below.</p>
+</script>
+
+<script id="separator-template" type="text/template">
+<h3 class="date-separator"><%= date_label %></h3>
+</script>
+
+<script id="section-template" type="text/template">
+    <div class="section-wrapper" id="section-<%= claims[0].id %>">
+        <div class="claims-wrapper">
+        <% _.each(claims, function(d) { %>
+            <div class="embed-tweet <%= d.layout %>" id="<%= d.id %>" data-tweet-id="<%= d.id %>" data-show-media="<%= d.media %>" data-show-thread="false">
+              <div class="tweet-wrapper">
+                <div class="tweet" ><span class="loading-tweet">Loading...</span></div>
+              </div>
+            </div>
+        <% }); %>
+        </div>
+        <div class="annotations-wrapper">
+            <% _.each(annotations, function(d, i) { %>
+                <div class="annotation">
+                    <div class="annotation-text">
+                        <%= d.annotation %>
+                        <div class="annotation-meta">
+                            <div class="byline-wrapper">
+                               <% if (d.image && d.image.length > 0) { %>
+                                   <img class="byline-icon" draggable="true" src="<%= d.image %>">
+                               <% } %>
+                               <div class="annotation-byline">
+                                   <% if (d.page && d.page.length > 0) { %>
+                                       <a class="byline-name" draggable="true" href="<%= d.page %>"><%= d.author %></a>
+                                   <% } else { %>
+                                       <span class="byline-name"><%= d.author %></span>
+                                   <% } %>
+                                   <span class="byline-role"><%= d.title %></span>
+                               </div>
+                            </div>
+                           <span id="dl-<%= claims[0].id %>" class="deeplink">Copy link
+                                <span class="tooltip">Copied!</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</script>
+
+{% endblock content %}

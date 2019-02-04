@@ -1,0 +1,418 @@
+@import "base";
+
+// Breakpoints
+@screen-small-above: ~"screen and (min-width: 701px)";
+@screen-small: ~"screen and (max-width: 700px)";
+@screen-tiny-above: ~"screen and (min-width: 481px)";
+@screen-tiny: ~"screen and (max-width: 480px)";
+
+// COLORS
+// @statement: #dc4426;
+@statement: #23525E;
+@evidence: #78A2A5;
+@probation: #000;
+@development: #000;
+@resolution: #DB461A;
+@boxgray: #efefef;
+@linegray: #dddddd;
+@textlightgray: #a9a9a9;
+@textblack: #333;
+
+// FONT STUFF
+.smalltype() {
+    font-size: 0.95em;
+}
+
+.special-bold() {
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+// Basics
+body {
+    color: @textblack;
+}
+
+h1, h2 {
+    margin: 0 auto;
+}
+
+p {
+    line-height: 1.6;
+    margin: 0 auto 1em;
+}
+
+
+
+#graphic {
+    max-width: 900px;
+    margin: 0 auto;
+    border-top: 2px solid #ddd;
+}
+
+.footer {
+    max-width: 900px;
+    margin: 1em auto;
+    padding: 1em 0 0;
+    border-top: 2px solid #ddd;
+}
+
+h1.category-header {
+    color: #111;
+    font-size: 1.6em;
+    margin: .5em 0 .3em 0;
+    padding: .5em 0;
+    line-height: 1.2;
+
+    @media @screen-tiny-above {
+        font-size: 2em;
+    }
+}
+
+.category-description {
+    font-family: georgia, serif;
+    line-height: 1.6;
+    font-size: 1.2em;
+
+    &.status-probation {
+        b {
+            color: @probation;
+        }
+
+    }
+    &.status-statement {
+        b {
+            color: @statement;
+        }
+    }
+    &.status-evidence {
+        b {
+            color: @evidence;
+        }
+    }
+    &.status-resolution {
+        b {
+            color: @resolution;
+        }
+    }
+
+}
+
+.promise {
+    .gotham();
+    padding: 2em;
+    margin: 2em 0;
+    border: 1px solid @linegray;
+    box-shadow: 2px 2px 10px #ddd;
+
+    h3 {
+        .knockout();
+        text-transform: uppercase;
+        font-size: 1em;
+        margin: 0;
+    }
+
+    h2.main-promise {
+        font-size: 1.3em;
+        line-height: 1.2;
+        margin: .5em 0 .1em 0;
+        color: #111;
+        font-weight: bold;
+
+        @media @screen-tiny-above {
+            font-size: 1.8em;
+        }
+    }
+
+    p.attribution {
+        color: #666;
+        font-style: italic;
+    }
+
+    .promise-context {
+        margin: .5em 0;
+
+        p {
+            font-size: 1em;
+        }
+    }
+
+    // status of ethics promise and latest development
+    .timeline {
+        border-top: 1px solid @linegray;
+
+        .mini-status {
+            position: relative;
+            margin-top: .5em;
+            .knockout();
+            font-size: 1em;
+            text-transform: uppercase;
+
+
+            h5 {
+                position: relative;
+                top: .5em;
+                font-size: 1.2em;
+                font-weight: normal;
+                margin: 0 0 .3em .2em;
+                color: #555;
+
+                @media @screen-small-above {
+                    margin: 0 0 .5em 0;
+                }
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+
+                @media @screen-small-above {
+                    position: absolute;
+                    top: .4em;
+                    right: 0;
+                }
+
+                li {
+                    color: #999;
+                    margin: 0 .2em 0 0;
+                    list-style-type: none;
+                    font-size: .9em;
+
+                    @media @screen-tiny-above {
+                        float: left;
+                    }
+
+
+                    @media @screen-small-above {
+                        font-size: 1.1em;
+                    }
+                }
+            }
+
+            &::after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        }
+
+        .status-icon {
+            position: relative;
+            top: .5em;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-image: url(../img/check-sprite.svg);
+            width: 1.5em;
+            height: 1.4em;
+            background-position: -4em 0;
+            background-size: 5.5em;
+        }
+
+        .developments {
+            position: relative;
+
+            h4.latest-development {
+                border-top: 1px solid @linegray;
+                padding-top: .2em;
+                .knockout();
+                text-transform: uppercase;
+                font-size: 1.2em;
+                margin: 1em 0 0 0;
+                padding-top: 1em;
+                color: #555;
+            }
+
+            .timeline-toggle {
+                text-align: right;
+                .gotham();
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: .9em;
+                margin: 0;
+                cursor: pointer;
+                color: @statement;
+
+                &:hover {
+                    .no-touchevents & {
+                        color: @evidence;
+                    }
+                }
+
+                &:after {
+                    content:"\25bc";
+                    font-size: .9em;
+                    padding-left: .3em;
+                }
+
+            }
+
+            .timeline-toggle.shown {
+                &:after {
+                    content:"\25b2";
+                }
+            }
+
+            .details {
+                background-color: @boxgray;
+                padding: 1em 2em;
+                margin: 1em 0;
+
+                h6 {
+                    font-size: .8em;
+                    font-weight: bold;
+                    margin: .3em 0 1em 0;
+                    text-transform: uppercase;
+                }
+
+                h6.statement {
+                    color: @statement;
+                }
+
+                h6.evidence {
+                    color: @statement;
+                }
+
+                p {
+                    font-size: .9em;
+                }
+
+                .source {
+                    font-weight: bold;
+                    font-size: .8em;
+                }
+
+                a:link, a:visited {
+                    color: @statement;
+                }
+
+                a:hover, a:active {
+                    .no-touchevents & {
+                        color: @evidence;
+                    }
+                }
+            }
+
+        }
+
+
+
+    }
+
+    //category specific styles
+
+    &.probation {
+        border-top: 4px solid @probation;
+
+        h3 {
+            color: @probation;
+        }
+
+        .timeline {
+
+            .statement-status, .evidence-status, .resolution-status {
+                display: none;
+            }
+
+            .probation-status {
+                color: @probation;
+                margin: .5em 0 0 .2em;
+
+                @media @screen-small-above {
+                    margin: 0 .2em 0 0;
+                }
+            }
+        }
+    }
+    &.statement {
+        border-top: 4px solid @statement;
+
+        h3 {
+            color: @statement;
+        }
+
+        .timeline {
+            .statement-status {
+                color: @statement;
+                .status-icon {
+                    background-position: .2em 0;
+                }
+            }
+            .probation-status {
+                display: none;
+            }
+        }
+
+    }
+    &.evidence {
+        border-top: 4px solid @evidence;
+
+        h3 {
+            color: @evidence;
+        }
+
+        .timeline {
+            .statement-status {
+                color: @statement;
+                .status-icon {
+                    background-position: .2em 0;
+                }
+            }
+
+            .evidence-status {
+                color: @statement;
+                .status-icon {
+                    background-position: -1.1em 0;
+                }
+            }
+
+            .probation-status {
+                display: none;
+            }
+
+        }
+    }
+    &.resolution {
+        border-top: 4px solid @resolution;
+
+        h3 {
+            color: @resolution;
+        }
+
+        .timeline {
+
+            .statement-status {
+                color: @statement;
+                .status-icon {
+                    background-position: .2em 0;
+                }
+            }
+
+            .evidence-status {
+                color: @statement;
+                .status-icon {
+                    background-position: -1.1em 0;
+                }
+            }
+
+            .resolution-status {
+                color: @resolution;
+                .status-icon {
+                    background-position: -2.6em 0;
+                }
+            }
+
+            .probation-status {
+                display: none;
+            }
+
+        }
+    }
+}
+
+
+
+.collapsed-events {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s ease-out;
+}
