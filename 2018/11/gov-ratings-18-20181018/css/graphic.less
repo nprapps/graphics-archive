@@ -1,0 +1,180 @@
+@import "base";
+
+// Add custom styles here
+
+@max-graphic-width       : 500px;
+@max-spacer-width     	 : 100px;
+@unit-size-desktop		 : 26px;
+@unit-size-mobile		 : 11px;
+
+#graphic { margin-bottom: 22px; }
+
+body.childlink {
+	max-width: @max-graphic-width + 1;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.party-name {
+	.knockout-header();
+	display: inline-block;
+	width: 40%;
+	// max-width: @max-graphic-width;
+	text-align: center;
+	// font-family: 'Gotham SSm', Helvetica, Arial, sans-serif;
+	font-size: 18px;
+}
+
+.party-spacer {
+	width:15%;
+	// max-width: @max-spacer-width ;
+	display: inline-block;
+}
+
+.incumb-header {
+	.clearfix();
+	text-align: center;
+	border-bottom: 1px solid gray;
+	width: 98%;
+	// max-width: @max-graphic-width;
+	margin: auto;
+	padding-bottom: 6px;
+}
+
+.rating-contents {
+	.clearfix();
+	margin: auto;
+	position: relative;
+	width: 100%;
+	// max-width: @max-graphic-width;
+}
+
+.ratings-col {
+	.clearfix();
+	display: inline-block;
+}
+
+.party-ratings {
+	width: 40%;
+	// max-width: 180px;
+	position: relative;
+	// max-width: @max-graphic-width;
+}
+
+.rating-row {
+	.clearfix();
+	height: 75px;
+	// background: #d3d3d3;
+	position: static;
+}
+
+.party-rating-row {
+	width: 100%;
+	// max-width: @max-graphic-width;
+}
+
+.label-ratings {
+	.knockout-header();
+	width:20%;
+	max-width: 105px;
+	// max-width: @max-spacer-width;
+
+	.rating-row {
+		text-align: center;
+		position: relative;
+
+		span {
+			text-align: center;
+			height: 40px;
+			position: absolute;
+			top: 50%;
+			margin: -13px auto 3px auto;
+		    position: absolute;
+		    left: 50%;
+		    transform: translateX(-50%);
+		}
+	}
+}
+
+.chart-unit {
+  	width: @unit-size-desktop;
+  	position: relative;
+  	top: 50% - @unit-size-desktop/2;
+  	margin: 2px;
+  	height: @unit-size-desktop;
+
+	span {
+		display: inline-block;
+		margin: 5px auto 0px auto;
+		width: 100%;
+		text-align: center;
+		color: white;
+		.knockout();
+		font-size: 12px;
+		user-select: none;
+	}
+}
+
+.Dem-unit {
+	float: right;
+	background: #3D7FA6
+}
+
+.GOP-unit {
+	float: left;
+	background: #A23520;
+}
+
+.favor-Dem .chart-unit {
+	background: @blue2;
+}
+
+.lean-Dem .chart-unit {
+	background: @blue4;
+}
+
+.tossup .chart-unit {
+	background: @yellow3;
+}
+
+.lean-GOP .chart-unit {
+	background: @red4;
+}
+
+.favor-GOP .chart-unit {
+	background: @red2;
+}
+
+/* desktop-only */
+@media screen and (min-width: (@max-graphic-width + 1)) {
+	.npr .chart-unit {
+		cursor: pointer;
+
+		&:hover { opacity: 0.7; }
+	}
+}
+
+/* mobile-only */
+@media screen and (max-width: @max-graphic-width) {
+	.chart-unit {
+	  	width: @unit-size-mobile;
+	  	position: relative;
+	  	top: 37% - @unit-size-mobile/2;
+	  	margin: 2px;
+	  	height: @unit-size-mobile;
+
+		span { display: none; }
+	}
+
+	.rating-row { height: 60px; }
+
+	#select-state { width: 100%; }
+
+	.select-state-form { margin-top: 11px; }
+
+	.state-jump {
+		.knockout-header();
+		font-size: 12px;
+		margin-bottom: 2px;
+	}
+}

@@ -1,0 +1,71 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic" class="graphic">
+        <div class="key-container">
+            Color indicates change from previous year:
+            <ul>
+                <li class="key-block decrease-2">10% decrease or more
+                <li class="key-block decrease-1">1-9% decrease
+                <li class="key-block increase-1">1-9% increase
+                <li class="key-block increase-2">10% increase or more
+            </ul>
+        </div>
+
+        <table role="table">
+            <thead role="rowgroup">
+                <tr role="row">
+                    <th role="columnheader" class="location"> State
+                    <th role="columnheader" class="year"> 2014
+                    <th role="columnheader" class="year"> 2015
+                    <th role="columnheader" class="year"> 2016
+                    <th role="columnheader" class="year"> 2017
+                    <th role="columnheader" class="year"> 2018
+                    <th role="columnheader" class="year"> 2019
+
+                <tr role="row" class="mobile-hide" aria-hidden="true">
+                    <th role="columnheader" class="location"> State
+                    <th role="columnheader" class="year"> 2014
+                    <th role="columnheader" class="year"> 2015
+                    <th role="columnheader" class="year"> 2016
+                    <th role="columnheader" class="year"> 2017
+                    <th role="columnheader" class="year"> 2018
+                    <th role="columnheader" class="year"> 2019
+            <tbody role="rowgroup">
+            {% for row in COPY.data %}
+            <tr class="" role="row">
+                <td role="rowheader" class="location">
+                    <span class="mobile-hide">
+                        {{ row.location }}
+                    </span>
+                    <span class="desktop-hide">
+                        {{ row.abbr }}
+                    </span>
+                <td role="cell" class="year"> ${{ row.year2014|int }}
+                <td role="cell" class="year {{ row.className2015 }}"> ${{ row.year2015|int }}
+                <td role="cell" class="year {{ row.className2016 }}"> ${{ row.year2016|int }}
+                <td role="cell" class="year {{ row.className2017 }}"> ${{ row.year2017|int }}
+                <td role="cell" class="year {{ row.className2018 }}"> ${{ row.year2018|int }}
+                <td role="cell" class="year {{ row.className2019 }}"> ${{ row.year2019|int }}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

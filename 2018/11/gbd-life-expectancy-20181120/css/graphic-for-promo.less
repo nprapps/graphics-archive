@@ -1,0 +1,40 @@
+@import "base";
+
+h1{
+	font-size:40px;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.axis{
+	font-size:150%;
+}
+
+
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 24px;
+    font-weight: bold;
+    fill: #999;
+}
+
+/*
+ * larger-than-mobile-screen styles
+ */
+@media @screen-mobile-above {
+    .key { display: none; }
+}
+
+/*
+ * small-screen styles
+ */
+@media @screen-mobile {
+    .value text { font-size: 10px; }
+}

@@ -1,0 +1,22 @@
+@import "base";
+
+.districts path {
+    fill: #ddd;
+    stroke: #fff;
+    stroke-width: .5px;
+
+    &.d { fill: @blue3; }
+    &.r { fill: @red3; }
+}
+
+.states path {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2px;
+}
+
+// responsive styles
+@media screen and (max-width: 500px) {
+    .districts path { stroke: none; }
+    .states path { stroke-width: 1px; }
+}

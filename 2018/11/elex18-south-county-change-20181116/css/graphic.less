@@ -1,0 +1,135 @@
+@import "base";
+
+
+// COLORS
+@bin1: rgba(73,141,203,1);
+@bin2: rgba(73,141,203,.8);
+@bin3: rgba(73,141,203,.6);
+@bin4: rgba(240,91,78,.6);
+@bin5: rgba(240,91,78,.8);
+@bin6: rgba(240,91,78,1);
+
+
+
+// Add custom styles here
+
+.chart-element {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.gifDiv {
+	width: 120px;
+	display: inline-block;
+	margin: 12px;
+}
+
+.gifDiv img {
+	border: 1px solid #888;
+	width :100%;
+	height: 122px;
+}
+
+.footer {
+	max-width: 650px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.key-color {
+	width: 25px;
+	height: 8px;
+	display: inline-block;
+}
+
+.key-text {
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+// Legend
+.legend {
+	text-align: center;
+    /*display: inline-block;*/
+    margin: -5px 0 11px 2.5%;
+
+    #legend-year {
+        .gotham();
+        font-size: 2em;
+        color: #999;
+
+        @media screen and (max-width: 500px) {
+            display: none;
+        }
+    }
+
+    h3 {
+        margin-bottom: 0px;
+    }
+
+    ul.key {
+        padding: 3px 0 0;
+        margin: 0;
+        list-style-type: none;
+
+        .key-item {
+            display: inline-block;
+            line-height: 15px;
+            position: relative;
+            border-right: 1px solid #ccc;
+            padding: 0 0 6px;
+            margin: 0px 0px 0 -4px;
+
+            &.item-3 {
+                border-right: 2px solid #333;
+                margin-right: 0;
+            }
+
+            &:last-child {
+                border-right: none;
+            }
+
+            b {
+                display: inline-block;
+                width: 32px;
+                height: 7px;
+                margin-right: 0;
+
+                &.bin1 { background: @bin1; }
+                &.bin2 { background: @bin2; }
+                &.bin3 { background: @bin3; }
+                &.bin4 { background: @bin4; }
+                &.bin5 { background: @bin5; }
+                &.bin6 { background: @bin6; }
+            }
+
+            label {
+                white-space: nowrap;
+                font-size: 12px;
+                color: #666;
+                font-weight: normal;
+                -webkit-font-smoothing: antialiased;
+                position: absolute;
+                bottom: -17px;
+                left: -15px;
+                text-align: center;
+                width: 30px;
+            }
+        }
+    }
+}
+
+.party-labels {
+    font-size: 11px;
+    color: #aaa;
+
+    .dem {
+        padding-right: 7px;
+    }
+
+    .rep {
+        padding-left: 9px;
+    }
+}

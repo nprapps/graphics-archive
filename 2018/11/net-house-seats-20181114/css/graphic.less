@@ -1,0 +1,25 @@
+@import "base";
+
+// Add custom styles here
+
+.bars rect { 
+    fill: @red3;
+
+    &.gain {
+        fill: @blue3;
+
+        &.projected {
+          fill: fade(@blue3, 50%);
+        }
+    }
+}
+
+@media @mobile {
+  .value text {
+    display: none;
+  }
+}
+
+.party-label {
+  fill: mix(white, black, 40%);
+}

@@ -1,0 +1,64 @@
+{% extends 'base_template.html' %}
+{% block content %}
+{% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+{% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+<div id="graphic" class="graphic">
+    <div class="top-wrapper">
+        <div id="map-toggle" class="map-toggle">
+            <a id="toggle-2016" class="toggle-btn active" href="#">
+                    <span>2016</span>
+                    <img src="img/mini-margins-2016.png" />
+                </a>
+            <a id="toggle-2018" class="toggle-btn" href="#">
+                    <span>2018</span>
+                    <img src="img/mini-margins-2018.png" />
+                </a>
+        </div>
+        <div class="legend">
+            <span id="legend-year">2016</span>
+            <h3>Winning party share of House vote</h3>
+            <div class="party-labels">
+                <span class="dem">&larr; Democrat</span>
+                <span class="rep">Republican &rarr;</span>
+            </div>
+            <ul class="key">
+                <li class="key-item item-1">
+                    <b class="bin1"></b>
+                </li>
+                <li class="key-item item-2">
+                    <b class="bin2"></b>
+                    <label>80%</label>
+                </li>
+                <li class="key-item item-3">
+                    <b class="bin3"></b>
+                </li>
+                <li class="key-item item-4">
+                    <b class="bin4"></b>
+                    <label>40%</label>
+                </li>
+                <li class="key-item item-5">
+                    <b class="bin5"></b>
+                </li>
+                <li class="key-item item-6">
+                    <b class="bin6"></b>
+                    <label>80%</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="img-wrapper">
+        <img class="map map-2016" src="img/margins-2016.png" alt="Map of margin of victory in 2016, by US county">
+        <img class="map map-2018" src="img/margins-2018.png" alt="Map of margin of victory in 2018, by US county">
+        </div>
+    </div>
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+    {% endblock content %}

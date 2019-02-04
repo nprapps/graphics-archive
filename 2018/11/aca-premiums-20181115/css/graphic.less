@@ -1,0 +1,92 @@
+@import "base";
+
+// Add custom styles here
+
+@desktop: ~"screen and (min-width: 500px)";
+@mobile: ~"screen and (max-width: 500px)";
+
+.key-container {
+  text-align: center;
+  padding-bottom: 20px;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .key-block {
+    display: inline-block;
+    padding: 4px;
+    margin: 4px;
+  }
+}
+
+.graphic table {
+  border-collapse: collapse;
+  width: 100%;
+  display: block;
+
+  .desktop-hide { display: none; }
+
+  @media @mobile {
+    .mobile-hide { display: none; }
+    .desktop-hide { display: inherit; }
+  }
+
+  tbody, thead {
+    column-fill: balance;
+    column-count: 2;
+    display: block;
+
+    @media @mobile {
+      column-count: 1;
+    }
+  }
+
+  tr {
+    flex: 0 1 50%;
+    display: flex;
+    justify-content: stretch;
+
+    @media @mobile {
+      flex: 1 1 100%;
+    }
+  }
+
+  th {
+    border-bottom: 2px solid #eee;
+    vertical-align: bottom;
+    font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 0 10px 10px 10px;
+    padding-top: 0;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  th, td {
+    display: block;
+    padding: 2px;
+  }
+
+  .location {
+    flex: 1 1 0%;
+    text-align: left;
+  }
+
+  .year {
+    text-align: right;
+    padding: 2px 4px;
+  }
+}
+
+.increase-1 { background: @yellow6 }
+.increase-2 { background: @yellow5 }
+.increase-3 { background: @yellow5 }
+.decrease-1 { background: @teal6 }
+.decrease-2 { background: @teal5 }
+.decrease-3 { background: @teal5 }

@@ -1,0 +1,27 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #999;
+}
+
+/*
+ * larger-than-mobile-screen styles
+ */
+@media @screen-mobile-above {
+    .key { display: none; }
+}
+
+/*
+ * small-screen styles
+ */
+@media @screen-mobile {
+    .value text { font-size: 10px; }
+}

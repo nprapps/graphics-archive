@@ -1,0 +1,59 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th class="name">{{ COPY.labels.hdr_name }}</th>
+
+                    {% for row in COPY.issues %}
+                    <th class="issue">{{ row.header|smarty }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="{{ row.name|classify }}">
+
+                <td>{{ row.name|smarty }} ({{ row.party }})</td>
+
+
+                {% for issue in COPY.issues %}
+                    {% set i = issue.name %}
+                    {% set position = row[i] %}
+                    {% set link = row[i + '_link'] %}
+                    {% set footnote = row[i + '_footnote'] %}
+
+                    <td data-title="{{ issue.header }}" class="issue {{ i|classify }}">{% if row[i + '_link'] %}<a href="{{ link }}">{% endif %}<div class="{% if position == 'Yes' %}yes{% elif position == 'No' %}no{% elif position == 'Win' %}win{% elif position == 'Loss' %}loss{% elif position == 'Too Close' %}tooclose{% else %}other{% endif %}">{{ position|smarty }}</div>{% if link %}</a>{% endif %}{% if footnote %}<sup>{{ footnote }}</sup>{% endif %}</td>
+                {% endfor %}
+
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <p><strong>Note:</strong> {{ COPY.labels.footnote }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

@@ -1,0 +1,42 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #666;
+}
+
+.annotation {
+    line {
+        stroke: #666;
+        stroke-dasharray: 4px 2px;
+    }
+    text {
+        fill: #666;
+        font-style: italic;
+        font-size: 12px;
+    }
+}
+
+/*
+ * larger-than-mobile-screen styles
+ */
+@media @screen-mobile-above {
+    .key { display: none; }
+}
+
+/*
+ * small-screen styles
+ */
+@media @screen-mobile {
+    .annotation text,
+    .value text {
+        font-size: 10px;
+    }
+}
