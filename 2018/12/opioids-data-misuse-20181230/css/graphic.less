@@ -1,0 +1,35 @@
+@import "base";
+
+// Add custom styles here
+h1 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 22px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 650px;
+
+    strong { color: #333; }
+}
+
+h2 {
+    text-align: center;
+}
+
+.bars rect {
+    .source & { fill: @blue2; 
+        //&.other { fill: #bbb;}
+        }
+    .reason & { fill: @blue3; 
+        //&.other { fill: #bbb;}
+        }
+}
+
+.graphic h3 {
+    text-align: center;
+}
+
+.chart.democrats {
+    @media @screen-mobile { margin-bottom: 22px; }
+}
+

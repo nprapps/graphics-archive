@@ -1,0 +1,38 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+
+    .projected {
+        stroke-dasharray: 4px 4px;
+    }
+}
+
+.value text {
+    font-size: 11px;
+    fill: @red3;
+}
+
+.projected-zone rect { fill: #ebebeb; }
+.chart-label {
+    fill: #787878;
+    font-style: italic;
+    font-size: 11px;
+    text-anchor: middle;
+    letter-spacing: .3px;
+}
+
+
+/*
+ * larger-than-mobile-screen styles
+ */
+@media @screen-mobile-above {
+}
+
+/*
+ * small-screen styles
+ */
+@media @screen-mobile {
+}

@@ -1,0 +1,31 @@
+@import "base";
+
+// Add custom styles here
+h1 {
+    font-size: 18px;
+    margin-bottom: 22px;
+}
+
+.bars rect {
+    &.positive { fill: #666; }
+    &.negative { fill: @red3; }
+    &.projected {
+        fill-opacity: 0.6;
+    }
+}
+
+.value text.out.negative {
+    fill: @red3;
+    font-size: 11px;
+}
+
+.projected-zone {
+    rect { fill: #ebebeb; }
+    text {
+        fill: #787878;
+        font-style: italic;
+        font-size: 11px;
+        text-anchor: middle;
+        letter-spacing: .3px;
+    }
+}

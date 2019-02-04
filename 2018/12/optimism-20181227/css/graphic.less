@@ -1,0 +1,73 @@
+@import "base";
+
+#preview.p {
+    margin-block-end: 0px;    
+}
+
+body {
+    padding: 2px;
+}
+
+.lines {
+    stroke: #777;
+    stroke-width: 1px;
+
+}
+
+.nolines{
+    stroke: none;    
+}
+
+.graphic {
+    margin-bottom : 2px;
+}
+
+.bar text {
+    fill: #333;
+    font-size: 11px;
+    text-anchor: left;
+
+    &.hidden { display: none; }
+    &.unsureCenter { text-anchor: middle;}
+    &.optimistic { text-anchor: right; }
+    &.mobile { text-anchor: middle;
+        fill: white;}
+}
+
+.x.axis {
+    font-size: 12px;
+    &.category {
+        text {
+            font-weight: bold;
+            fill: #454545;
+            text-anchor: middle;
+        }
+    }
+
+    &.bars {
+        text-transform: uppercase;
+        text-size: .9em;
+        line, path {
+            display: none;
+        }
+    }
+}
+
+/*
+ * small-screen styles
+ */
+@media @screen-mobile {
+    .bar text { font-size: 10px; }
+}
+
+h4.inside {
+    font-style: italic;
+    font-size: 11px;
+    color: #999;
+}
+
+.hFour {
+    color: #666;
+    font-size: 11px;
+    font-weight: bold;
+}

@@ -1,0 +1,116 @@
+@import "base";
+
+@screen-mobile-above: ~"screen and (min-width: 401px)";
+@screen-mobile: ~"screen and (max-width: 400px)";
+
+.graphic {
+    h1 {
+        color: #454545;
+        font-size: 17px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    h2 {
+        font-style: italic;
+    }
+}
+
+.graphic {
+    .data {
+      .trump-quote {
+        border-left: 2px solid #e0e0e0;
+        padding-left: 20px;
+        margin-right: 35%;
+        font-style: italic;
+      }
+
+      .clearfix();
+        padding-bottom: 22px;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 22px;
+      &:last-child {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: none;
+      }
+    }
+    h4 {
+      font-weight: bold;
+      font-size: 17px;
+      margin-top: 0;
+      margin-bottom: 5px;
+
+    }
+    p {
+      font-size: 17px;
+      line-height: 29px;
+      font-weight: normal;
+      font-family: 'Georgia',serif;
+      max-width: 680px;
+      &.seat {
+        margin-bottom: 0;
+        color: #787878;
+      }
+      &.description {
+        padding-top: 0;
+      }
+    }
+    img {
+      @media @screen-mobile-above {
+          float: left;
+          margin-right: 30px;
+          margin-bottom: 9px;
+          width: 33%;
+          max-width: 300px;
+      }
+      @media @screen-mobile {
+          padding-bottom: 10px;
+          width: 100%;
+      }
+    }
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    fill: #999;
+
+    &.trump {
+        fill: #454545;
+        font-weight: bold;
+    }
+}
+
+text.axis-label {
+    fill: #999;
+    font-size: 12px;
+    text-anchor: middle;
+}
+
+@media screen and (max-width: 500px) {
+    .graphic {
+      .data {
+        h4 {
+          font-size: 16px;
+        }
+        p {
+          font-size: 16px;
+
+
+        }
+        .description {
+          padding-top: 5px;
+          margin: 0;
+          padding-right: 0;
+        }
+      }
+    }
+    .value text {
+        font-size: 10px;
+    }
+}

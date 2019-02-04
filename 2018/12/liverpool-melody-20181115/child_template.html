@@ -1,0 +1,27 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="graphic" class="graphic">
+        {% for row in COPY.data %}
+        {% if row.name == 'Melody Monteiro' %}
+        <div class="item-wrapper item-{{ row.type }} {% if row.photo_align %}align-{{ row.photo_align }}{% endif %}">
+            <div class="img-wrapper">
+                <div id="lazy-image-{{ row.idx }}" class="lazy-wrapper" data-src-desktop="../liverpool-ohio-20181115/assets/desktop/{{ row.filename }}" data-src-mobile="../liverpool-ohio-20181115/assets/mobile/{{ row.filename }}">
+                    <img src=""  alt="Portrait of {{ row.name }}">
+                </div>
+
+            </div>
+            <div class="quote-wrapper">
+
+                <p class="quote-text">{{ row.quote|smarty }}</p>
+                <p class="quote-header">
+                    <span class="quote-name">{{ row.name }}</span>{% if row.identifier %}<span class="quote-identifier">, {{ row.identifier }}</span>{% endif %}
+                    {% if row.caption %}<p class="quote-caption">{{ row.caption }}</p>{% endif %}
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,238 @@
+@import "base";
+
+@linegray: #eee;
+@accent: #59836A;
+@quote-fill: #858e8e;
+@quote-dark: #737a7a;
+@screen-large-above: ~"screen and (min-width: 1000px)";
+@screen-small: ~"screen and (max-width: 639px)";
+@screen-tiny-above: ~"screen and (min-width: 420px)";
+@screen-tiny-to-small: ~"screen and (min-width: 420px) and (max-width: 579px)";
+@screen-tiny: ~"screen and (max-width: 419px)";
+
+html {
+    font-size: 14px;
+
+    @media @screen-large-above {
+        font-size: 16px;
+    }
+
+    @media @screen-small {
+        font-size: 12px;
+    }
+}
+
+body {
+    padding: 30px 0 0;
+}
+
+img {
+    display: block;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+}
+
+.lazy-wrapper {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    padding-bottom: 56.5%;
+    position: relative;
+
+    &:after {
+        content: 'loading';
+        display: block;
+        .gotham();
+        padding: 1.5em 0;
+        text-align: center;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #c3c3c3;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    img {
+        display: none;
+    }
+
+    &.loaded {
+        padding-bottom: 0%;
+        background-color: inherit;
+        img {
+            display: block;
+        }
+        &:after {
+            content: none;
+        }
+    }
+}
+
+.item-vertical .lazy-wrapper {
+    padding-bottom: 149.9%;
+
+    &.loaded { padding-bottom: 0; }
+}
+
+.item-horizontal .lazy-wrapper {
+    padding-bottom: 66.67%;
+
+    &.loaded { padding-bottom: 0; }
+}
+
+// Add custom styles here
+.item-wrapper {
+    .clearfix();
+    display: flex;
+    flex-flow: row wrap;
+    padding: 3em 0;
+    margin: 0 auto;
+
+    &:first-child {
+        padding-top: 0;
+    }
+
+    .img-wrapper, .quote-wrapper {
+        flex: 1 100%;
+    }
+
+    .img-wrapper {
+        margin-bottom: 2em;
+    }
+
+    @media @screen-tiny-above {
+        &.item-vertical {
+            align-items: center;
+            flex-flow: row nowrap;
+
+            .img-wrapper {
+                margin-bottom: 0;
+            }
+
+            &.align-left {
+                .img-wrapper {
+                    order: 1;
+                    padding-right: 2%;
+                }
+
+                .quote-wrapper {
+                    padding-left: 2%;
+                    order: 2;
+                }
+            }
+
+            &.align-right {
+                .img-wrapper {
+                    order: 2;
+                    padding-left: 2%;
+                }
+
+                .quote-wrapper {
+                    padding-right: 2%;
+                    order: 1;
+                }
+            }
+        }
+    }
+
+    @media @screen-tiny {
+        padding: 2em 0 1.5em;
+    }
+
+    p {
+        -webkit-font-smoothing: antialiased;
+        max-width: 650px;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+}
+
+.quote-text {
+    .gotham();
+    font-size: 1.4rem;
+    line-height: 1.5;
+    margin: 0 auto 2em;
+    color: @quote-dark;
+    position: relative;
+
+    &:before {
+        content: open-quote;
+        transform: translateX(-100%);
+        display: inline-block;
+        position: absolute;
+    }
+
+    &:after {
+        content: close-quote;
+    }
+
+    @media @screen-tiny-to-small, @screen-tiny {
+        font-size: 1.2rem;
+        margin: 0 auto 1em;
+        //background-color: blue;
+    }
+}
+
+.quote-header {
+    .gotham();
+    font-size: 1.1rem;
+    margin: 0 auto 0.25em;
+    text-transform: uppercase;
+    color: @quote-fill;
+
+    .quote-name {
+        font-weight: 700;
+    }
+}
+
+.quote-caption {
+  margin: 3em auto 1.2em;
+  font-style: italic;
+  color: @quote-fill;
+
+  @media @screen-tiny-to-small, @screen-tiny {
+    margin: 1em auto 1.2em;
+    font-size: 0.95em;
+  }
+}
+
+.quote-age {
+  font-weight: 700;
+}
+
+.quote-identifier, .quote-years {
+    .gotham();
+    //font-style: italic;
+    font-size: 1.1rem;
+    text-transform: none;
+    margin: 0 auto;
+    color: @quote-dark;
+}
+
+hr {
+    border: 2px solid @linegray;
+    display: block;
+    width: 33%;
+    margin: 0 auto;
+
+    &:last-child {
+        display: none;
+    }
+
+    @media @screen-tiny {
+        width: 66%;
+    }
+}
+
+.footer p {
+    max-width: 650px;
+    margin: 0 auto;
+}

@@ -1,0 +1,35 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    fill: #999;
+
+    &.fentanyl {
+        fill: @red2;
+        font-weight: bold;
+    }
+    &.heroin {
+        fill: @red4;
+        font-weight: bold;
+    }
+}
+
+/*
+ * larger-than-mobile-screen styles
+ */
+@media @screen-mobile-above {
+    .key { display: none; }
+}
+
+/*
+ * small-screen styles
+ */
+@media @screen-mobile {
+    .value text { font-size: 10px; }
+}

@@ -1,0 +1,40 @@
+@import "base";
+
+.bars line {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+    &.break-line {
+        stroke-width: 1.5px;
+        stroke: #ddd;
+        stroke-dasharray: 3px 2px;
+    }
+}
+
+.labels {
+  li.united-states {
+    font-weight: bold;
+    color: #333;
+  }
+}
+
+.dots circle {
+    stroke-width: 1px;
+    stroke: #fff;
+    fill: #D8472B;
+
+    &.low { fill: @orange3; }
+    &.high { fill: @blue3; }
+}
+
+.value text {
+    font-size: 11px;
+    fill: #999;
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}
