@@ -1,0 +1,93 @@
+@import "base";
+
+@conceptions:     @orange3;
+@durables:        #999;
+
+h2 {
+  span {
+    -webkit-font-smoothing: antialiased;
+    background-color: #eee;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    padding: 2px 5px;
+  }
+  .conceptions { background-color: @conceptions; }
+  .durables { background-color: @durables; }
+}
+
+.lines {
+    fill: none;
+    stroke: #ccc;
+    stroke-opacity: 0.85;
+    stroke-width: 2px;
+
+    @media @screen-mobile-above {
+      stroke-width: 3px;
+    }
+
+    .conceptions { stroke: @conceptions; }
+    .durables { stroke: @durables; }
+}
+
+.value text {
+    font-size: 12px;
+    fill: #999;
+}
+
+#conceptions {
+  fill: @conceptions;
+
+  .tick line,
+  path {
+    stroke: @conceptions;
+    display: block;
+  }
+}
+#durables {
+  fill: @durables;
+
+  .tick line,
+  path {
+    stroke: @durables;
+    display: block;
+  }
+}
+
+.y0-text,
+.y1-text {
+    .knockout-header();
+    font-size: 12px;
+}
+
+.y0-text {
+  fill: @conceptions;
+  text-anchor: start;
+}
+.y1-text {
+  fill: @durables;
+  text-anchor: end;
+}
+
+body.newsletter {
+  max-width: 400px;
+
+  h1 {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+
+  h2 {
+    font-size: 12px;
+    margin-top: 0;
+  }
+
+  .y0-text,
+  .y1-text {
+    font-size: 12px;
+  }
+
+  .footnotes,
+  .footer { display: none; }
+}

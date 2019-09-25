@@ -1,0 +1,66 @@
+@import "./lib/base";
+
+.key {
+  margin-top: 0;
+}
+
+.lines {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 3px;
+}
+
+.dots {
+  circle {
+   fill-opacity: 0.3;
+   stroke-opacity: 0.5;
+   stroke-width: 1px;
+ }
+}
+
+.value text {
+  fill: #999;
+  font-size: 10px;
+  font-weight: bold;
+
+  @media @screen-mobile-above {
+    font-size: 12px;
+  }
+}
+
+.axis-label {
+  fill: #999;
+  font-size: 11px;
+  font-style: italic;
+  text-anchor: middle;
+}
+
+
+// specific to newsletter display
+body.newsletter {
+  max-width: 400px;
+
+  h1 {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 11px;
+  }
+
+  h2 {
+    font-size: 12px;
+    margin-top: 0;
+  }
+
+  .key {
+    margin-top: -11px;
+    margin-bottom: 15px;
+  }
+
+  .y0-text,
+  .y1-text {
+    font-size: 12px;
+  }
+
+  .footnotes,
+  .footer { display: none; }
+}

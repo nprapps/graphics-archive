@@ -1,0 +1,43 @@
+@import "./lib/base";
+
+h1 {
+  margin-bottom: 22px;
+}
+
+.chart {
+  @media @screen-mobile {
+    + .chart { margin-top: 33px; }
+  }
+
+  h3 {
+    .gotham();
+    font-size: 14px;
+    letter-spacing: normal;
+    line-height: 1.4;
+    text-transform: none;
+  }
+}
+
+.lines {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 3px;
+}
+
+.value text {
+  fill: #999;
+  font-size: 12px;
+
+  .first& {
+    text-anchor: middle;
+  }
+
+  &.dem {
+    fill: #454545;
+    font-weight: bold;
+  }
+}
+
+.grid.y {
+  g:first-child line { display: none; }
+}

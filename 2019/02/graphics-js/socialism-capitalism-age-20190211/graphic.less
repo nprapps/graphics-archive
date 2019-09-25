@@ -1,0 +1,25 @@
+@import "./lib/base";
+
+h1 { margin-bottom: 22px; }
+
+h3 {
+  color: #787878;
+
+  strong { font-weight: normal; }
+}
+
+.chart + .chart {
+  @media @screen-mobile {
+    margin-top: 22px;
+  }
+}
+
+.capitalism {
+  h3 strong { color: @teal4; }
+  .bars rect { fill: @teal4; }
+}
+
+.socialism {
+  h3 strong { color: @orange3; }
+  .bars rect { fill: @orange3; }
+}

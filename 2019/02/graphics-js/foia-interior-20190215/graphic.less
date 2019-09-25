@@ -1,0 +1,79 @@
+@import "./lib/base";
+
+/*
+ * Base table styles
+ */
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    caption {
+      .gotham();
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 11px;
+      text-align: left;
+    }
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+
+    th, td {
+        padding: 10px;
+
+        // comment these two out if you want to highlight particular rows
+        &:first-child { padding-left: 0; }
+        &:last-child { padding-right: 0; }
+
+        &.amt { text-align: right; }
+        &.name { white-space: nowrap; }
+    }
+
+    th {
+        .knockout-header();
+        border-bottom: 2px solid #eee;
+        line-height: 1.2;
+        padding-top: 0;
+        text-align: left;
+        vertical-align: bottom;
+    }
+
+    td {
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+}
+
+/*
+ * larger-than-small-screen styles
+ * ~ defining some desktop-only styles here to avoid
+ * ~ writing extra mobile styles to undo them.
+ */
+@media @screen-mobile-above {
+  .graphic {
+    display: flex;
+
+    .obama {
+      border-right: 1px solid #eee;
+      padding-right: 22px;
+    }
+    .trump { padding-left: 22px; }
+  }
+}
+
+/*
+ * small-screen styles
+ */
+@media @screen-mobile {
+  .graphic {
+    div + div {
+      margin-top: 33px;
+    }
+  }
+}

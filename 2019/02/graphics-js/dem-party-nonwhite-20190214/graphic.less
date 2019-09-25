@@ -1,0 +1,38 @@
+@import "./lib/base";
+
+.chart {
+  @media @screen-mobile {
+    + .chart { margin-top: 33px; }
+  }
+}
+
+.lines {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 3px;
+}
+
+.value text {
+  fill: #999;
+  font-size: 12px;
+
+  @media @screen-mobile {
+    font-size: 11px;
+  }
+
+  .first& {
+    font-size: 10px;
+  }
+
+  &.nonwhite {
+    fill: #454545;
+    font-weight: bold;
+  }
+  &.diff {
+    fill: #454545;
+  }
+}
+
+.grid.y {
+  g:first-child line { display: none; }
+}

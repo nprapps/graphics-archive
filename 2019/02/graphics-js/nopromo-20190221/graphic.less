@@ -1,0 +1,199 @@
+@import "./lib/base";
+
+h1 { margin-bottom: 22px; }
+
+/*
+ * Base table styles
+ */
+table {
+  border-collapse: collapse;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.4;
+  padding: 0;
+  width: 100%;
+
+  + table { margin-top: 33px; }
+
+  caption {
+    .knockout-header();
+    border-bottom: 2px solid #eee;
+    font-size: 14px;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+    text-align: left;
+  }
+
+  cite {
+    color: #999;
+    display: block;
+    margin-top: 5px;
+  }
+
+  tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+  }
+
+  td {
+    vertical-align: top;
+
+    &.state {
+      .gotham();
+      color: #454545;
+      font-weight: bold;
+    }
+  }
+
+  &.current {
+    caption {
+      border-color: @orange4;
+      color: @orange3;
+    }
+    td.state { color: @orange3; }
+  }
+  &.repealed {
+    caption {
+      border-color: @teal5;
+      color: @teal3;
+    }
+    td.state { color: @teal3; }
+  }
+}
+
+/*
+* Tablesorter styles
+*/
+table {
+  th {
+    &.sort-header {
+      cursor: pointer;
+
+      &::-moz-selection,
+      &::selection {
+        background: transparent;
+      }
+
+      .sorter {
+        border-top: 2px solid #404040;
+        visibility: hidden;
+
+        .icon {
+          content: '';
+          width: 1px;
+          margin: 3px auto 7px auto;
+          border-width: 0 4px 4px;
+          border-style: solid;
+          border-color: #404040 transparent;
+        }
+      }
+
+      &:hover .sorter {
+        visibility: visible;
+      }
+    }
+
+    &.sort-up .sorter,
+    &.sort-down .sorter,
+    &.sort-down:hover .sorter {
+      visibility: visible;
+      opacity: 0.4;
+    }
+
+    &.sort-up .sorter .icon {
+      border-bottom: none;
+      border-width: 4px 4px 0;
+    }
+  }
+}
+
+/*
+* larger-than-small-screen styles
+* ~ defining some desktop-only styles here to avoid
+* ~ writing extra mobile styles to undo them.
+*/
+@media @screen-mobile-above {
+  table {
+    th, td {
+      padding: 15px 10px;
+
+      // comment these two out if you want to highlight particular rows
+      &:first-child { padding-left: 0; }
+      &:last-child { padding-right: 0; }
+
+      &.amt { text-align: right; }
+      &.state { width: 130px; }
+      &.status { width: 130px; }
+    }
+
+    th {
+      border-bottom: 2px solid #eee;
+      padding-top: 0;
+    }
+
+    td {
+      border-bottom: 1px solid #eee;
+    }
+  }
+}
+
+/*
+* small-screen styles
+*/
+@media @screen-mobile {
+  tbody {
+    display: block;
+    width: 100%;
+  }
+
+  table {
+    thead { display: none; }
+
+    tr, th, td {
+      display: block;
+      padding: 0;
+      white-space: normal;
+    }
+
+    tr {
+      border-bottom: 1px solid #eee;
+      padding: 15px 0;
+    }
+
+    td {
+      margin-bottom: 6px;
+
+      &:empty { display: none; }
+
+      &.status {
+        .knockout-header();
+        color: #999;
+      }
+    }
+
+    tr td:first-child {
+      color: #333;
+      font-size: 14px;
+      margin-bottom: 6px;
+
+      &:before {
+        content: '';
+        display: none;
+      }
+    }
+
+    th[data-title]:before,
+    td[data-title]:before {
+      content: attr(data-title) ":\00A0";
+      display: block;
+    }
+  }
+}

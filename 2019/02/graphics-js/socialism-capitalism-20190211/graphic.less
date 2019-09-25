@@ -1,0 +1,47 @@
+@import "./lib/base";
+
+// .key {
+//   @media @screen-mobile-above {
+//     display: none;
+//   }
+// }
+
+.key {
+  display: flex;
+  flex-wrap: wrap;
+  // justify-content: center;
+
+  .key-item {
+    margin-bottom: 6px;
+    width: 120px;
+  }
+
+  .key-item b { border: 2px solid transparent; }
+  .socialism-dem b { border: 2px dotted @blue4; }
+  .socialism-gop b { border: 2px dotted @red4; }
+}
+
+.lines {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 3px;
+
+  .socialism-dem,
+  .socialism-gop {
+    stroke-dasharray: 4px 2px;
+  }
+}
+
+.value text {
+  fill: #787878;
+  font-size: 11px;
+
+  &.socialism-dem,
+  &.capitalism-dem {
+    fill: #454545;
+    font-weight: bold;
+  }
+
+  @media @screen-mobile-above { font-size: 12px; }
+  @media @screen-sidebar { font-size: 10px; }
+}

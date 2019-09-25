@@ -1,0 +1,22 @@
+@import "./lib/base";
+
+.key {
+  @media @screen-mobile-above {
+    display: none;
+  }
+}
+
+.lines {
+  fill: none;
+  stroke: #ccc;
+  stroke-opacity: 0.8;
+  stroke-width: 3px;
+}
+
+.value text {
+  font-size: 10px;
+
+  @media @screen-mobile-above {
+    font-size: 12px;
+  }
+}

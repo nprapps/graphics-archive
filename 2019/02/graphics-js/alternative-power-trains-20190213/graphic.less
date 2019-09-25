@@ -1,0 +1,42 @@
+@import "./lib/base";
+
+.projected rect {
+  opacity: .8;
+}
+
+.bar text {
+  fill: #fff;
+  font-size: 10px;
+
+  &.hidden {
+    display: none;
+  }
+
+  @media @screen-mobile {
+    display: none;
+  }
+}
+
+.x.axis path.domain { display: none; }
+
+.totals text {
+  fill: #888;
+  font-size: 12px;
+
+  @media @screen-mobile {
+    display: none;
+
+    &[data-total="261"] {
+      display: block;
+    }
+  }
+}
+
+.projection-label {
+  font-size: 12px;
+  text-transform: uppercase;
+
+  @media @screen-mobile {
+    display: none;
+  }
+}

@@ -1,0 +1,76 @@
+@import "base";
+
+@white:    @orange3;
+@nonwhite: #666;
+
+body { padding-bottom: 0; }
+
+h1 {
+    font-size: 18px;
+    text-align: center;
+}
+h2 {
+  font-style: italic;
+  text-align: center;
+}
+
+sup {
+    color: #999;
+    line-height: 0;
+    padding-left: 2px;
+}
+
+.bars line {
+    fill: none;
+    stroke-width: 2px;
+    stroke: #ddd;
+}
+
+circle {
+    stroke-width: 1px;
+    stroke: #fff;
+    fill: #D8472B;
+
+    .white & { fill: @white; }
+    .nonwhite & { fill: @nonwhite; }
+}
+
+.value text {
+    font-size: 11px;
+    fill: #666;
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}
+
+.value, .shadow {
+    .white text { fill: @white; }
+    .nonwhite text { fill: @nonwhite; }
+
+    text.left { text-anchor: end; }
+    text.right { text-anchor: start; }
+
+    text.hdr {
+        .knockout-header();
+        font-size: 12px;
+    }
+}
+
+.promo {
+    h1 {
+        .knockout-header();
+    }
+    .labels li {
+        font-size: 14px;
+    }
+    .value text,
+    .shadow text {
+        font-size: 13px;
+
+        .hdr { font-size: 14px; }
+    }
+}

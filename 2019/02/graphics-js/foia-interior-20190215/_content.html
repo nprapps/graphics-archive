@@ -1,0 +1,71 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+
+  <div class="obama">
+    <table id="state-table">
+      <caption><%= COPY.labels.hdr_obama %></caption>
+      <thead>
+        <tr>
+          <th><%= COPY.labels.hdr_name %></th>
+          <th><%= COPY.labels.hdr_title %></th>
+          <th class="amt"><%= COPY.labels.hdr_count %></th>
+        </tr>
+      </thead>
+
+      <% COPY.data_obama.forEach(function(row) { %>
+      <tr class="<%= t.classify(row.name) %>">
+        <td data-title="<%= COPY.labels.hdr_name %>" class="name"><%= row.name %></td>
+        <td data-title="<%= COPY.labels.hdr_title %>"><%= row.title %></td>
+        <td data-title="<%= COPY.labels.hdr_count %>" class="amt"><%= row.count_rounded %></td>
+      </tr>
+      <% }) %>
+
+    </table>
+  </div>
+
+  <div class="trump">
+    <table id="state-table">
+      <caption><%= COPY.labels.hdr_trump %></caption>
+      <thead>
+        <tr>
+          <th><%= COPY.labels.hdr_name %></th>
+          <th><%= COPY.labels.hdr_title %></th>
+          <th class="amt"><%= COPY.labels.hdr_count %></th>
+        </tr>
+      </thead>
+
+      <% COPY.data_trump.forEach(function(row) { %>
+      <tr class="<%= t.classify(row.name) %>">
+        <td data-title="<%= COPY.labels.hdr_name %>" class="name"><%= row.name %></td>
+        <td data-title="<%= COPY.labels.hdr_title %>" class="title"><%= row.title %></td>
+        <td data-title="<%= COPY.labels.hdr_count %>" class="amt"><%= row.count_rounded %></td>
+      </tr>
+      <% }) %>
+
+    </table>
+  </div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

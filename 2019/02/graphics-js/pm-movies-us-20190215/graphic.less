@@ -1,0 +1,57 @@
+@import "./lib/base";
+
+.area path {
+  fill-opacity: 0.3;
+}
+
+.lines {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 3px;
+}
+
+.values {
+  circle {
+    stroke: #fff;
+    stroke-width: 1px;
+  }
+
+  text {
+    font-size: 10px;
+    font-weight: bold;
+
+    @media @screen-mobile-above {
+      font-size: 12px;
+    }
+
+    &.y-2005,
+    &.y-2009 {
+      text-anchor: end;
+    }
+  }
+}
+
+
+// specific to newsletter display
+body.newsletter {
+  max-width: 400px;
+
+  h1 {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 11px;
+  }
+
+  h2 {
+    font-size: 12px;
+    margin-top: 0;
+  }
+
+  .y0-text,
+  .y1-text {
+    font-size: 12px;
+  }
+
+  .footnotes,
+  .footer { display: none; }
+}

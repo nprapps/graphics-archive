@@ -1,0 +1,16 @@
+@import "base";
+
+// Add custom styles here
+h1 {
+  margin-bottom: 22px;
+}
+
+.graphic {
+  .desktop { display: none; }
+  .mobile { display: block; }
+
+  @media @screen-mobile-above {
+    .desktop { display: block; }
+    .mobile { display: none; }
+  }
+}
