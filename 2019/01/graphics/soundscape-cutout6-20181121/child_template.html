@@ -1,0 +1,40 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+{% set thisID = 'photo-6' %}
+{% set basePath = '../soundscape-cutout-20181121/' %}
+
+<div id="graphic" class="graphic {{ thisID }}">
+    <div class="item-wrapper align-{{ COPY.data[thisID].photo_align }} item-{{ COPY.data[thisID].photo_orientation }} {% if COPY.data[thisID].quote %}has-quote{% endif %}">
+
+        <div id="graphic-image" class="img-wrapper">
+            <div class="overlay">
+                <span class="instructions"></span>
+                <i class="icon icon-headphones"></i>
+            </div>
+            <img src="{{ basePath }}assets/images/desktop/{{ COPY.data[thisID].photo }}.jpg" alt="Photo" />
+            <audio id="audio" src="{{ basePath }}assets/audio/{{ COPY.data[thisID].mp3 }}" {% if COPY.data[thisID].loop_audio|upper == 'TRUE' %}loop{% endif %}></audio>
+        </div>
+
+        {% if COPY.data[thisID].quote or COPY.data[thisID].photo_caption %}
+        <div class="quote-wrapper">
+
+            {% if COPY.data[thisID].quote %}
+            <p class="quote-text">{{ COPY.data[thisID].quote|smarty }}</p>
+            <p class="quote-header">
+                <span class="quote-name">{{ COPY.data[thisID].quote_name }}</span>{% if COPY.data[thisID].quote_identifier %}<span class="quote-identifier">, {{ COPY.data[thisID].quote_identifier }}</span>{% endif %}
+            </p>
+            {% endif %}
+
+            {% if COPY.data[thisID].photo_caption or COPY.data[thisID].photo_credit %}
+            <div class="photo-info">
+                {% if COPY.data[thisID].photo_caption %}<p class="caption">{{ COPY.data[thisID].photo_caption }}</p>{% endif %}
+                {% if COPY.data[thisID].photo_credit %}<p class="credit">{{ COPY.data[thisID].photo_credit }}</p>{% endif %}
+            </div>
+            {% endif %}
+
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

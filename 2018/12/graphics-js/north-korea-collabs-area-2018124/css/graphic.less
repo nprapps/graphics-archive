@@ -1,0 +1,113 @@
+@import "base";
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.graphic {
+    max-width: 100000px !important;
+}
+
+.value text {
+    fill: #fff;
+    font-size: 11px;
+    font-style: italic;
+    text-anchor: middle;
+    text-shadow: 0 0 7px black;
+
+    &.all-other-countries {
+        fill: #666;
+        text-shadow: none;
+    }
+
+
+    &.china,
+    &.united-states,
+    &.germany {
+        font-size: 12px;
+        font-weight: bold;
+    }
+}
+
+.china {
+  fill: @red3;
+}
+
+.germany{
+  fill: @yellow3;
+}
+
+.united-states {
+  fill: @blue2;
+}
+
+.all-other-countries {
+  fill: #B8B8B8;
+}
+
+
+.china b {
+    background-color: @red3;
+}
+
+.germany b {
+    background-color: @yellow3;
+}
+
+.united-states b {
+    background-color: @blue2;
+}
+
+.all-other-countries b {
+    background-color: #B8B8B8;
+}
+
+h1, h2, .footer, .key {
+    max-width: 650px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.year-hdr {
+    .knockout-upper();
+    font-size: 11px;
+    font-weight: bold;
+    fill: #222;
+}
+
+.annot-label {
+    font-size: 12px;
+    fill: #777;
+    font-weight: bold;
+    font-family: Helvetica;
+}
+
+.annot-label:last-of-type {
+    // fill: red;
+}
+
+
+@media screen and (max-width: 500px) {
+    .value text {
+        font-size: 9.5px;
+
+        &.guatemala { font-size: 10px; }
+
+        &.china,
+        &.russia {
+            font-size: 12px;
+        }
+    }
+}
+
+@media screen and (min-width: 501px) {
+    .value text {
+        &.guatemala { text-anchor: end; }
+        &.south-korea { text-anchor: start; }
+    }
+}
+

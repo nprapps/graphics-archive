@@ -1,0 +1,122 @@
+@import "./lib/base";
+
+h2, .footer, .footnotes {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 650px;
+}
+
+h1,h2 {
+	text-align: center;
+}
+
+.dot {
+	opacity: .7;
+	fill: @teal3;
+}
+
+.tooltip {
+  position: absolute;
+  // width: 200px;
+  // height: 28px;
+  border: 1px solid gray;
+  padding: 3px 7px 3px 7px;
+  pointer-events: none;
+  background-color: white;
+  font-size: 13px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+
+.faded {
+	opacity: .3;
+}
+
+.highlighted {
+	stroke-width: 2px;
+	opacity: 1;
+	fill: @teal2;
+}
+
+
+.tt-state {
+	font-size: 18px;
+	font-weight: bold;
+
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+
+.x path, .x .tick {
+	display: none;
+}
+
+.y .tick text {
+	font-weight: bold;
+}
+
+.x-label {
+	// text-align: center;
+	// font-weight: bold;
+	display: inline;
+}
+
+.x-label-left {
+	float: right;
+}
+
+.x-label-middle {
+	text-align: center;
+	width: 100%;
+	font-weight: bold;
+	float: left;
+}
+
+
+
+.state-name-label {
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.state-note-label {
+	font-size: 11px;
+	fill: #777;
+}
+
+.state-selector {
+	width: 100%;
+	max-width: 300px;
+	display: block;
+	margin: 0 auto;
+	text-align: left;
+	font-size: 14px;
+}
+
+
+
+.clearfix {
+	.clearfix()
+}
+
+.x-label-container {
+	float: right;
+}
+
+.avg-salary-label {
+	font-weight: bold;
+}

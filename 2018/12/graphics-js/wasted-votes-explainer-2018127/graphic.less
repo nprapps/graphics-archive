@@ -1,0 +1,125 @@
+@import "./lib/base";
+
+@bartopmargin: 0px;
+@barspace: 40px;
+@barheight: 60px;
+@candgap: 13px;
+
+
+
+.explainer-container {
+    width: 100%;
+}
+
+.photos-col {
+    text-align: right;
+    margin-right: 2%;
+    // width: 200px;
+}
+
+.cand-photo {
+	margin-bottom: @candgap;
+}
+
+.cand-photo,
+.cand-photo img {
+	text-align: right;
+    height: @barheight;
+}
+
+.cand-name {
+    margin-bottom: 13px;
+    margin-right: 8px;
+    font-size: 13px;
+    color: #777;
+    padding-top: 2px;
+    line-height: 15px;
+}
+
+.dem-chart-bar {
+    background-color: @blue6;
+    margin-bottom: @candgap;
+    margin-top: @bartopmargin;
+}
+
+.filler-chart-bar {
+    margin-bottom: @candgap;
+    margin-top: @bartopmargin;
+}
+
+.gop-chart-bar {
+    background-color: @red6;
+}
+
+.chart-bar {
+    height: @barheight;
+    padding-top: 4px;
+    padding-left: 4px;
+}
+
+.photos-col,
+.chart-bar {
+    float: left;
+}
+
+.clear-both {
+    clear: both;
+}
+
+.highlight-bar.dem-chart-bar {
+    background-color: @blue2;
+}
+
+.highlight-bar.gop-chart-bar {
+    background-color: @red2;
+}
+
+.explainer-text {
+    width: 100%;
+    margin: 13px auto 20px auto;
+    margin-top: 8px;
+    font-size: 18px;
+    color: #666;
+    font-family: Gotham,Helvetica,Arial,sans-serif;
+     
+    b {
+        color: #333;
+     }
+}
+
+
+.explainer-container-1 .explainer-text {
+    margin-bottom: 70px ;
+
+}
+
+.in-bar-label {
+    color: white;
+    font-size: 10px;
+    // line-height: 10px;
+    // margin: 20px 0 0 0;
+    // position: relative;
+    // vertical-align: bottom;
+}
+
+.label-dark {
+    color: #666666;
+}
+
+.photos-col div {
+	float: right;
+}
+
+
+
+
+
+// @media only screen and (max-width: 500px) {
+//     .dem-chart-bar {
+//         margin-bottom: @candgap + 18;
+//     }
+
+//     .filler-chart-bar {
+//         margin-bottom: @candgap + 18;
+//     }
+// }

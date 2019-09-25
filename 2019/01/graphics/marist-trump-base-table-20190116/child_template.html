@@ -1,0 +1,64 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th class="group">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_group }}</div>
+                    </th>
+                    <th class="amt net">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_net_change }}</div>
+                    </th>
+                    <th class="polls">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_dec }}</div>
+                    </th>
+                    <th class="polls">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_jan }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="{{ row.group|classify }}">
+                <td data-title="{{ COPY.labels.hdr_group }}" class="group">{{ row.group }}</td>
+                <td data-title="{{ COPY.labels.hdr_net_change }}" class="net amt c-{{ row.net_abs|int }}">{{ row.net_change|int }} pts.</td>
+                <td data-title="{{ COPY.labels.hdr_dec }}" class="polls">Approve: {{ row.dec_approve|int }}%<br />Disapprove: {{ row.dec_disapprove|int }}%<br />Net: {% if row.dec_net|int > 0 %}+{% endif %}{{ row.dec_net }} pts.</td>
+                <td data-title="{{ COPY.labels.hdr_jan }}" class="polls">Approve: {{ row.jan_approve|int }}%<br />Disapprove: {{ row.jan_disapprove|int }}%<br />Net: {% if row.jan_net|int > 0 %}+{% endif %}{{ row.jan_net }} pts.</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/tablesort.js') }}
+    {{ JS.push('js/lib/tablesort.numeric.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

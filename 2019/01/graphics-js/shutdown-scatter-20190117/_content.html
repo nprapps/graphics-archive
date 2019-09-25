@@ -1,0 +1,42 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= COPY.labels.headline %></h1>
+<% } %>
+<% if (COPY.labels.subhed) { %>
+<h2><%= COPY.labels.subhed %></h2>
+<% } %>
+<div id="scatter-chart" class="graphic" role="img" aria-label="<%- COPY.labels.screenreader %>">
+    <select class='state-selector'>
+        <option value="Select a state">Select a state</option>
+    </select>
+    <svg></svg>
+    <img src="fallback.png" alt="" class="fallback">
+    <div class='x-label-container'>
+        <div class='x-label x-label-left'>Higher &rarr;</div>
+        <div class='x-label x-label-middle'>Cost of living</div>
+        <div class='x-label x-label-right'>&larr; Lower</div>
+        <div class='clearfix'></div>
+    </div>
+</div>
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p>
+        <%= COPY.labels.footnote %>
+    </p>
+</div>
+<% } %>
+<div class="footer">
+    <% if (COPY.labels.source) { %>
+    <p>Source:
+        <%= COPY.labels.source %>
+    </p>
+    <% } %>
+    <% if (COPY.labels.credit) { %>
+    <p>Credit:
+        <%= COPY.labels.credit %>
+    </p>
+    <% } %>
+</div>
+<script type="text/javascript">
+var DATA = <%= JSON.stringify(COPY.data) %>;
+</script>
