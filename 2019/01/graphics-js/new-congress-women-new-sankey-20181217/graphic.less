@@ -1,0 +1,153 @@
+@import "./lib/base";
+
+@photo-size: 50px;
+@photo-gutters: 4px;
+@man-color: #d3d3d3;
+@repub-color: @red3;
+@dem-color: @blue3;
+@male-opacity: .3;
+
+h1,h2 {
+	text-align: center;
+}
+
+
+h1,h2,.footer,.footnotes {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+.footer, .footnotes {
+	max-width: 650px;
+}
+
+.container-members {
+	width: 49%;
+	float: left;
+}
+
+.container-members:first-of-type {
+	margin-right: 2%;
+}
+
+.clearfix {
+	.clearfix()
+}
+
+.graphic {
+	max-width: 800px;
+}
+
+
+
+
+.male-rect.sankey-rect {
+	opacity: @male-opacity;
+}
+
+.repub-rect.sankey-rect {
+	fill: @repub-color;
+}
+
+
+
+.dem-rect.sankey-rect {
+	fill: @dem-color;
+}
+
+// .male-link.sankey-link {
+// 	stroke: @man-color;
+// }
+
+.male-link.sankey-link {
+	opacity: @male-opacity  * 10 / 8;
+}
+
+
+
+.dem-link.sankey-link {
+	stroke: @dem-color;
+}
+
+.dem-link.female-link {
+	stroke: #32adef;
+}
+
+.repub-link.sankey-link {
+	stroke: @repub-color;
+}
+
+.repub-link.female-link {
+	stroke: #D30D00;
+}
+
+
+
+.female-rect.dem-rect.sankey-rect {
+	opacity: .8;
+	fill: #32adef;
+}
+
+.female-rect.repub-rect.sankey-rect {
+	opacity: .8;
+	fill: #D30D00;
+}
+
+
+
+// .female-rect.sankey-rect {
+// 	fill: orange;
+// }
+
+// .female-link.sankey-link {
+// 	stroke: orange;
+// }
+
+
+
+.graphic {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	// max-width: 800px;
+}
+
+.node-labels {
+	font-size: 13px;
+	font-weight: bold;
+	fill: #444;
+}
+
+.node-labels-vals {
+	font-size: 19px;
+}
+
+
+.female-label {
+	fill:white;
+}
+
+.repub-label.female-label.new-label {
+	fill: #444;
+	font-size: 10px;
+	font-weight: normal;
+}
+
+.col-label {
+	display: inline-block;
+	.knockout-upper();
+}
+
+
+.col-label-left {
+	float: left;
+}
+
+.col-label-right {
+	float: right;
+}
+
+.col-label-wrappers {
+	margin-bottom: 6px;
+}

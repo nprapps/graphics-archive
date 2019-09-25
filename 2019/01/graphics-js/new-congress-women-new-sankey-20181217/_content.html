@@ -1,0 +1,36 @@
+<% if (COPY.sankeyLabels.headline) { %>
+<h1><%= COPY.sankeyLabels.headline %></h1>
+<% } %>
+
+<% if (COPY.sankeyLabels.subhed) { %>
+<h2><%= COPY.sankeyLabels.subhed %></h2>
+<% } %>
+
+<div id="chart" class="graphic" role="img" aria-label="<%- COPY.sankeyLabels.screenreader %>">
+	<div class='clearfix'></div>
+
+  <img src="fallback.png" alt="" class="fallback">
+</div>
+
+<% if (COPY.sankeyLabels.footnote) { %>
+<div class="footnotes">
+  <p><strong>Note:</strong> <%= COPY.sankeyLabels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.sankeyLabels.source) { %>
+  <p>Source: <%= COPY.sankeyLabels.source %></p>
+  <% } %>
+
+  <% if (COPY.sankeyLabels.credit) { %>
+  <p>Credit: <%= COPY.sankeyLabels.credit %></p>
+  <% } %>
+</div>
+
+
+
+<script>
+    var DATA = <%= JSON.stringify(COPY.data) %>;
+	var LABELS = <%= JSON.stringify(COPY.sankeyLabels) %>;
+</script>

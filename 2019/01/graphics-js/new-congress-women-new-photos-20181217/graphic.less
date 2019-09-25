@@ -1,0 +1,115 @@
+@import "./lib/base";
+
+@photo-size: 50px;
+@photo-gutters: 4px;
+
+h1,h2 {
+	text-align: center;
+}
+
+
+h1,h2,.footer,.footnotes {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+.footer, .footnotes {
+	max-width: 650px;
+}
+
+.hidden {
+	display: none;
+}
+
+.show-img {
+	display: inline !important;
+}
+
+.show-hide {
+	cursor: pointer;
+	text-align: center;
+	margin-top: 8px;
+	width: 100%;
+	padding: 4px;
+	font-weight: bold;
+	display: block;
+	color: #4774CC;
+
+	&:hover, &:active {
+		color: #bccae5;
+	}
+}
+
+.container-members {
+	width: 49%;
+	float: left;
+}
+
+.container-members:first-of-type {
+	margin-right: 2%;
+}
+
+.clearfix {
+	.clearfix()
+}
+
+.graphic {
+	max-width: 100000px;
+}
+
+.fallback {
+	display: none;
+}
+
+.graphic .member-photo, .graphic .member-photo img {
+	height: @photo-size;
+	width: @photo-size;
+}
+
+.old-members {
+	// opacity: .4;
+}
+
+.graphic .member-photo {
+	margin-left: @photo-gutters;
+	opacity: .7;
+}
+
+.graphic .member-photo.female-photo {
+	opacity: 1;
+}
+
+.count-container {
+	display: inline-block;
+	margin-left: @photo-gutters;
+}
+
+h1 {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	text-align: center;
+}
+
+h2 {
+	.knockout-upper();
+	text-align: center;
+	margin: 0 auto;
+	font-weight: normal;
+	width: 100%;
+	font-size: 18px;
+	color: #555;
+}
+
+.img-a {
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+	h2 {
+		font-size: 13px;
+		line-height: 18px;
+		margin-bottom: 10px;
+	}
+}

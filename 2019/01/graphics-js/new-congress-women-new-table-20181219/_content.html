@@ -1,0 +1,55 @@
+<% if (COPY.tableLabels.headline) { %>
+<h1><%= COPY.tableLabels.headline %></h1>
+<% } %>
+
+<% if (COPY.tableLabels.subhed) { %>
+<h2><%= COPY.tableLabels.subhed %></h2>
+<% } %>
+
+<div class="graphic">
+  <table id="state-table">
+    <thead>
+      <tr>
+        <th>
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.tableLabels.hdr_district %></div>
+        </th>
+        <th>
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.tableLabels.hdr_departing %></div>
+        </th>
+        <th>
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.tableLabels.hdr_new %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY.data.forEach(function(row) { %>
+    <tr class="<%= row.dist %>">
+      <td data-title="<%= COPY.tableLabels.hdr_district %>"><%= row.dist %></td>
+      <td data-title="<%= COPY.tableLabels.hdr_departing %>" class='<%= row.replacing_gender %> <%= row.replacing_party %>'><%= row.replacing %> (<%= row.replacing_party %>)</td>
+      <td data-title="<%= COPY.tableLabels.hdr_new %>" class='<%= row.new_gender %> <%= row.new_party %>'><%= row.newbie %> (<%= row.new_party %>)</td>
+    </tr>
+    <% }) %>
+
+  </table>
+  <div class='show-hide'>&darr; Show more</div>
+
+</div>
+
+<% if (COPY.tableLabels.footnote) { %>
+<div class="footnotes">
+  <p><strong>Note:</strong> <%= COPY.tableLabels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.tableLabels.source) { %>
+  <p>Source: <%= COPY.tableLabels.source %></p>
+  <% } %>
+
+  <% if (COPY.tableLabels.credit) { %>
+  <p>Credit: <%= COPY.tableLabels.credit %></p>
+  <% } %>
+</div>

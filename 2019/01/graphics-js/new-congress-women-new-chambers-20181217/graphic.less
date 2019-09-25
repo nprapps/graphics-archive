@@ -1,0 +1,111 @@
+@import "./lib/base";
+
+@photo-size: 50px;
+@photo-gutters: 4px;
+
+body {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	max-width: 800px;
+}
+
+.graphic {
+	max-width: 800px;
+}
+
+h1,h2 {
+	text-align: center;
+}
+
+
+h1,h2,.footer,.footnotes {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+.footer, .footnotes {
+	max-width: 650px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.hidden {
+	display: none;
+}
+
+.container-members {
+	width: 49%;
+	float: left;
+}
+
+.container-members:first-of-type {
+	margin-right: 2%;
+}
+
+.clearfix {
+	.clearfix() 
+}
+
+.fallback {
+	display: none;
+}
+
+.chamber-container {
+	width: 25%;
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	float: left;
+	display: inline-block;
+
+}
+
+.chamber-116-container:first-of-type {
+	width: 50%;
+	display: block;
+	float: none;
+}
+
+path {
+	fill: #d3d3d3;
+}
+
+.demWoman {
+	fill: @blue3 !important;
+}
+
+.gopWoman {
+	fill: @red3 !important;
+}
+
+.under-chamber-text {
+	text-align: center;
+	margin-top: -42px;
+	padding-bottom: 33px;
+	font-size: 12px;
+}
+
+.under-big-chamber-text {
+	font-size: 13px;
+	margin-top: -54px;
+
+}
+
+
+@media only screen and (max-width: 500px) {
+  .chamber-container {
+    width: 100%;
+  }
+
+  .chamber-116-container:first-of-type {
+  	width: 100%;
+  }
+
+
+	.small-container {
+		display: none;
+	}
+
+}
