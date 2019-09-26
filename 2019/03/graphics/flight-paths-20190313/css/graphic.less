@@ -1,0 +1,91 @@
+@import "base";
+
+h1 { margin-bottom: 11px; }
+
+body {
+    background-color: white;
+}
+
+#tooltip {
+    position: absolute;
+    background: rgba(255, 255, 255, .9);
+    color: #333;
+    border: 1px solid #eee;
+    padding: 4px;
+    font-size: 10.5px;
+    .gotham();
+    display: none;
+    max-width: 140px;
+    box-sizing: content-box;
+    pointer-events: none;
+
+    &.active { display: block; }
+}
+
+.countries path {
+    stroke: #fff;
+    // stroke: #cdcdcd;
+    stroke-width: 0.3;
+
+    .background& {
+        // fill: @blue1;
+        fill: #cdcdcd;
+    }
+
+    &.usa {
+      fill: #ddd;
+    }
+}
+
+.state path {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 1px;
+}
+
+.bubbles {
+    circle {
+        fill: black;
+        // stroke: white;
+        stroke-width: 0.6;
+        stroke-opacity: 0.7;
+        display: none;
+    }
+    // .start {
+    //     fill: green;
+    // }
+    // .end {
+    //     fill: red;
+    // }
+}
+
+.key-scale {
+    circle {
+        fill: none;
+        stroke: #ddd;
+        stroke-width: 1px;
+    }
+    text {
+        fill: #999;
+        font-size: 10px;
+        text-anchor: middle;
+    }
+}
+
+.key {
+    margin-top: 0;
+    margin-bottom: 11px;
+}
+
+.arc {
+    // stroke: black;
+    stroke: @teal4;
+    stroke-opacity: 0.5;
+    fill: none;
+}
+
+
+@media screen and (max-width: 500px) {
+    .key-scale text { font-size: 7px; }
+    .populations text { font-size: 8px; }
+}

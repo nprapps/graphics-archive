@@ -1,0 +1,67 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline_table %}<h1>{{ COPY.labels.headline_table|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed_table %}<h2>{{ render(COPY.labels.subhed_table)|smarty }}</h2>{% endif %}
+
+    <div class="graphic">
+        <table id="state-table">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_department }}</div>
+                    </th>
+                    <th class="amt budget-2017">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_2019 }}</div>
+                    </th>
+                    <th class="amt budget-2018">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_2020 }}</div>
+                    </th>
+                    <th class="amt change amt">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_change_amt }}</div>
+                    </th>
+                    <th class="amt change pct">
+                        <div class="sorter"><div class="icon"></div></div>
+                        <div class="header">{{ COPY.labels.hdr_change_pct }}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.budget_2020 %}
+            <tr class="{{ row.department|classify }} {{ row.class }}">
+                <td data-title="{{ COPY.labels.hdr_department }}">{{ row.department }}</td>
+                <td data-title="{{ COPY.labels.hdr_2019 }}" class="amt">{% if row.budget_2019 and row.budget_2019|float >= 0 %}${{ row.budget_2019 }}{% elif row.budget_2019 and row.budget_2019|float < 0 %}-${{ row.budget_2019|float|abs }}{% endif %}</td>
+                <td data-title="{{ COPY.labels.hdr_2020 }}" class="amt">{% if row.budget_2020 and row.budget_2020|float >= 0 %}${{ row.budget_2020 }}{% elif row.budget_2020 and row.budget_2020|float < 0 %}-${{ row.budget_2020|float|abs }}{% endif %}</td>
+                <td data-title="{{ COPY.labels.hdr_change_amt }}" class="amt change amt">{% if row.change_amt and row.change_amt != '*' and row.change_amt != '&mdash;' and row.change_amt|float >= 0 %}${{ row.change_amt }}{% elif row.change_amt and row.change_amt != '*' and row.change_amt|float < 0 %}-${{ row.change_amt|float|abs }}{% else %}{{ row.change_amt }}{% endif %}</td>
+                <td data-title="{{ COPY.labels.hdr_change_pct }}" class="amt change pct">{{ row.change_pct_round }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote_table %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote_table|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}

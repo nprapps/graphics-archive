@@ -1,0 +1,44 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div id="graphic" class="graphic">
+        {% for row in COPY.data %}
+        <div class="item-wrapper item-{{ row.type }} {% if row.photo_align %}align-{{ row.photo_align }}{% endif %}">
+            <div class="img-wrapper">
+                <div id="lazy-image-{{ row.idx }}" class="lazy-wrapper" data-src-desktop="assets/desktop/{{ row.filename }}" data-src-mobile="assets/mobile/{{ row.filename }}">
+                    <img src=""  alt="Portrait of {{ row.name }}">
+                </div>
+                {% if row.photo_credit %}<p class="credit">{{ row.photo_credit }}</p>{% endif %}
+            </div>
+            <div class="quote-wrapper">
+                <p class="quote-text">{{ row.quote|smarty }}</p>
+                <p class="quote-header">
+                    <span class="quote-name">{{ row.name }}</span>{% if row.age %}<span class="quote-identifier">, Age {{ row.age|int }}</span>{% endif %}{% if row.identifier %}<span class="quote-identifier"><br/>{{ row.identifier }}</span>{% endif %}{% if row.location %}<span class="quote-identifier"> from {{ row.location }}</span>{% endif %}
+                </p>
+
+                {% if row.photo_caption %}
+                <div class="photo-info">
+                    {% if row.photo_caption %}<p class="caption">{{ row.photo_caption }}</p>{% endif %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>{{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+{{ JS.push('js/lib/imagesloaded.pkgd.js') }}
+{{ JS.push('js/lib/pymchild-scroll-visibility.v1.js') }}
+{{ JS.push('js/lib/underscore.js') }}
+{{ JS.push('js/graphic.js') }}
+{{ JS.render('js/graphic-footer.js') }}
+{% endblock js %}

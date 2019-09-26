@@ -1,0 +1,35 @@
+@import "base";
+
+// ai2html artboard sizes
+@media screen and (min-width: 730px) {
+        #g-ai2html-graphic-small, #g-ai2html-graphic-medium { display: none; }
+}
+
+@media screen and (max-width: 729px) and (min-width: 400px) {
+    #g-ai2html-graphic-small, #g-ai2html-graphic-wide { display: none; }
+}
+
+@media screen and (max-width: 399px) {
+    #g-ai2html-graphic-medium, #g-ai2html-graphic-wide { display: none; }
+}
+
+// Add custom styles here
+
+body {
+  padding-top: 0;
+  padding-bottom: 11px;
+}
+
+.graphic {
+  margin-bottom: 11px;
+
+  p {
+    text-shadow: 1px 1px 3px #333,
+                 0 0 10px #000;
+
+    // background: rgba(50, 50, 50, .5);
+    // padding: 5px;
+    // box-sizing: content-box;
+
+  }
+}
