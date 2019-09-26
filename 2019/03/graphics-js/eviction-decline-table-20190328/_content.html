@@ -1,0 +1,61 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table">
+    <thead>
+      <tr>
+        <th>
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_label %></div>
+        </th>
+        <th class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_2017 %></div>
+        </th>
+        <th class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_2018 %></div>
+        </th>
+        <th class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_value %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY.data.forEach(function(row) { %>
+    <tr class="county-row">
+      <td data-title="<%= COPY.labels.hdr_value %>"><%= row.name %></td>
+      <td data-title="<%= COPY.labels.hdr_value %>" class="amt"><%= t.comma(row.evictions_2017) %></td>
+      <td data-title="<%= COPY.labels.hdr_value %>" class="amt"><%= t.comma(row.evictions_2018) %></td>
+      <td data-title="<%= COPY.labels.hdr_value %>" class="amt <%= row.percent_change_color_bucket %>">
+        <span class="percentage"><%= row.percent_change %>%</span>
+      </td>
+    </tr>
+    <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+  
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

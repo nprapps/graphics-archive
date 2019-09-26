@@ -1,0 +1,46 @@
+@import "./lib/base";
+
+// h1,
+// h2 {
+//   margin-left: auto;
+//   margin-right: auto;
+//   max-width: 650px;
+//   text-align: center;
+// }
+
+.bg { fill: #f1f1f1; }
+
+.axis.x path { display: none; }
+
+.grid line {
+  stroke: #ccc;
+}
+
+.years rect {
+  fill-opacity: 0.85;
+}
+
+.year-labels {
+  circle {
+    fill: #999;
+    stroke: #fff;
+    stroke-width: 1px;
+  }
+
+  line { stroke: #999; }
+
+  text {
+    text-anchor: middle;
+
+    &.gen-name {
+      .knockout-header();
+      font-size: 14px;
+    }
+
+    &.gen-ages,
+    &.gen-dates {
+      fill: #787878;
+      font-size: 12px;
+    }
+  }
+}

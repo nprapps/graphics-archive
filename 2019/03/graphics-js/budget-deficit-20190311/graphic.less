@@ -1,0 +1,21 @@
+@import "./lib/base";
+
+.bars rect {
+  fill: #ccc;
+
+  &.positive { fill: #333; }
+  &.negative { fill: @red3; }
+  &.projected { opacity: 0.7; }
+}
+
+.projected {
+  fill: #ebebeb;
+}
+
+.chart-label {
+    fill: #999;
+    font-style: italic;
+    font-size: 12px;
+    text-anchor: middle;
+    letter-spacing: .3px;
+}

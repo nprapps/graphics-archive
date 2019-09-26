@@ -1,0 +1,37 @@
+@import "./lib/base";
+
+.bar text {
+    &.hidden {
+        display: none;
+    }
+
+    fill: #fff;
+	font-size: 12px;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+}
+
+.admin-bg {
+	fill: #aaa;
+	opacity: 0.2;
+}
+
+.admin-label {
+	fill: #666;
+	text-anchor: middle;
+    font-size: 12px;
+	font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: left;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+}
+
+@media screen and (max-width: 500px) {
+	.bar text, 
+	.admin-label {
+		font-size: 11px;
+	}
+} 

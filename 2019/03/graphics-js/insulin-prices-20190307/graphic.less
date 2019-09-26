@@ -1,0 +1,48 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  // fill: #999;
+}
+
+.generic text {
+  font-size: 10px;
+  font-style: italic;
+  // font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  // font-family: 'Knockout 31 4r';
+  // text-transform: uppercase;
+  // padding-top: 0;
+  // line-height: 1.2;
+  // letter-spacing: .05em;
+  // -webkit-font-smoothing: antialiased;
+}
+
+.annotation-lines {
+  fill: none;
+  stroke-width: 2px;
+  stroke: #777;
+  stroke-dasharray: 4 3;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+  // .generic text {
+  //   font-size: 10px;
+  // }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
