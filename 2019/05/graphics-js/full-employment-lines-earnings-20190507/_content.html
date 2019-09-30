@@ -1,0 +1,70 @@
+<div class='graphic-topper'>
+
+<% if (COPY.labels.wages_headline) { %>
+<h1 id='hed'><%= t.smarty(COPY.labels.wages_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.wages_subhed) { %>
+<h2 id='subhed'><%= t.smarty(COPY.labels.wages_subhed) %></h2>
+<% } %>
+
+
+
+
+
+<select class="change-menu" id="age-menu">
+	<option value="16_and_older_years">16+ years</option>
+</select>
+
+<select class="change-menu" id="race-menu">
+	<option value="all">All races</option>
+	<option value="asian">Asian</option>
+	<option value="black">Black</option>
+	<option value="hispanic">Hispanic</option>
+	<option value="white">White</option>
+</select>
+
+<select class="change-menu" id="sex-menu">
+	<option value="all">All genders</option>
+	<option value="men">Men</option>
+	<option value="women">Women</option>
+</select>
+
+</div>
+
+<div id="line-chart" class="graphic" role="img">
+	<img src="fallback.png" alt="" class="fallback" />
+</div>
+
+
+<div id="line-chart-2" class="graphic" role="img">
+	<img src="fallback.png" alt="" class="fallback" />
+</div>
+<div id="line-chart-3" class="graphic" role="img">
+	<img src="fallback.png" alt="" class="fallback" />
+</div>
+<div class='clearfix'></div>
+
+<!-- <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+<% } %> -->
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+	<h4>Notes</h4>
+	<p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+	<% if (COPY.labels.source) { %>
+	<p>Source: <%= COPY.labels.source %></p>
+	<% } %> <% if (COPY.labels.credit) { %>
+	<p>Credit: <%= COPY.labels.credit %></p>
+	<% } %>
+</div>
+
+<script type="text/javascript">
+	var DATA = <%= JSON.stringify(COPY.dataearnings) %>;
+	var LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>

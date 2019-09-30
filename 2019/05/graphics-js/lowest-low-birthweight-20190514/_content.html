@@ -1,0 +1,66 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table">
+    <thead>
+      <tr>
+        <th>
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header">#</div>
+        </th>
+        <th>
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header">Country</div>
+        </th>
+        <th class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header">Total live births</div>
+        </th>
+        <th class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header">Low weight</div>
+        </th>
+        <th class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header">Rate</div>
+      </tr>
+    </thead>
+
+    <%
+    var commafy = n => n.toLocaleString();
+    %>
+    <% COPY.data.forEach(function(row) { %>
+    <tr class="country-<%= t.classify(row.country) %>">
+      <td><%= row.rank %>
+      <td><%= row.country %></td>
+      <td class="amt"><%= commafy(row.births) %></td>
+      <td class="amt"><%= commafy(row.low_weight) %></td>
+      <td class="amt"><%= row.rate.toFixed(1) %>%</td>
+    </tr>
+    <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+  
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

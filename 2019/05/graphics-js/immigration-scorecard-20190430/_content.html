@@ -1,0 +1,54 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= COPY.labels.headline %></h1>
+<% } %>
+
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table">
+    <thead>
+      <tr>
+        <th>
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_status %></div>
+        </th>
+        <th>
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_issue %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY.data.forEach(function(row) { %>
+    <tr>
+      <td data-title="<%= COPY.labels.hdr_status %>"
+          class="<%=COPY.status_key[row.status] %> status">
+          <span class="status"><img src="./assets/<%= row.status %>.jpg" alt="<%= row.status %>" /></span>
+      </td>
+      <td data-title="<%= COPY.labels.hdr_issue %>" class="issue">
+        <a href="<%= row.link %>" target="_top">
+        <span class="issue-header"><%= row.issue %></span>
+        </a>
+        <div class="desc"><%= row.desc %></div>
+      </td>
+    </tr>
+    <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

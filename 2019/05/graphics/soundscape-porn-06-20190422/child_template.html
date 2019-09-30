@@ -1,0 +1,53 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+{% set thisID = 'photo-6' %}
+{% set basePath = '../soundscape-porn-20190422/' %}
+
+<div id="graphic" class="graphic">
+    <div class="item-wrapper align-{{ COPY.data[thisID].photo_align }} item-{{ COPY.data[thisID].photo_orientation }} audio-button-{{ COPY.data[thisID].audio_button_align }} {% if COPY.data[thisID].quote %}has-quote{% endif %}">
+
+      <div id="graphic-image" class="img-wrapper {% if COPY.data[thisID].photo_credit %}has-credit{% endif %}">
+          <div class="overlay">
+              <span class="instructions"></span>
+              <i class="icon icon-headphones"></i>
+          </div>
+          <div id="lazy-image-{{ thisID }}" class="lazy-wrapper" data-src-desktop="{{ basePath }}assets/images/desktop/{{ COPY.data[thisID].photo }}" data-src-mobile="{{ basePath }}assets/images/mobile/{{ COPY.data[thisID].photo }}">
+              <img src="" alt="Portrait" />
+          </div>
+          <audio id="audio" src="{{ basePath }}assets/audio/{{ COPY.data[thisID].mp3 }}" {% if COPY.data[thisID].loop_audio|upper == 'TRUE' %}loop{% endif %}></audio>
+          {% if COPY.data[thisID].photo_credit %}<p class="credit">{{ COPY.data[thisID].photo_credit|smarty }}</p>{% endif %}
+      </div>
+
+      {% if COPY.data[thisID].quote or COPY.data[thisID].photo_caption %}
+      <div class="quote-wrapper">
+
+          {% if COPY.data[thisID].quote %}
+          <p class="quote-text">{{ COPY.data[thisID].quote|smarty }}</p>
+          {% if COPY.data[thisID].quote_name %}
+          <p class="quote-header">
+            <span class="quote-name">{{ COPY.data[thisID].quote_name|smarty }}</span>{% if COPY.data[thisID].quote_age %}<span class="quote-age">, {{ COPY.data[thisID].quote_age }}</span>{% endif %}
+            {% if COPY.data[thisID].quote_identifier %}<br /><span class="quote-identifier">{{ COPY.data[thisID].quote_identifier|smarty }}</span>{% endif %}
+          </p>
+          {% endif %}
+          {% endif %}
+
+          {% if COPY.data[thisID].photo_caption and COPY.data[thisID].photo_credit %}
+          <div class="photo-info">
+              {% if COPY.data[thisID].photo_caption %}<p class="caption">{{ COPY.data[thisID].photo_caption|smarty }}</p>{% endif %}
+              {% if COPY.data[thisID].photo_credit %}<p class="credit">{{ COPY.data[thisID].photo_credit|smarty }}</p>{% endif %}
+          </div>
+          {% endif %}
+
+      </div>
+      {% endif %}
+    </div>
+</div>
+{% endblock content %}
+
+{% block js %}
+{{ JS.push('js/lib/imagesloaded.pkgd.js') }}
+{{ JS.push('js/lib/pymchild-scroll-visibility.v1.js') }}
+{{ JS.push('js/graphic.js') }}
+{{ JS.render('js/graphic-footer.js') }}
+{% endblock js %}

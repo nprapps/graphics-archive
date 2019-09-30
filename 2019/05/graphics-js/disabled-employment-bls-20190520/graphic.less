@@ -1,0 +1,52 @@
+@import "./lib/base";
+h3 {
+  color: #333;
+  text-align: left;
+  padding-bottom: 10px;
+}
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.area {
+  opacity: .85;
+  &.total {
+    fill: @teal6;
+  }
+  &.unemployed {
+    fill: @teal1;
+  }
+  &.employed {
+    fill: @teal5;
+  }
+  &.not-in-labor-force  {
+    fill: @teal3;
+  }
+}
+
+.top-line {
+  stroke: #222;
+  stroke-width: 3px;
+  fill: none;
+  /*color: ;*/
+}
+
+.value text, .top-line-g text {
+  font-size: 12px;
+  fill: #666666;
+
+}
+
+.top-line-g text  {
+  fill: #222;
+  font-weight: bold;
+}
+
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}

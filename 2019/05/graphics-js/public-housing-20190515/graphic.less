@@ -1,0 +1,40 @@
+@import "./lib/base";
+
+h1 {
+  font-size: 18px;
+  margin-bottom: 22px;
+}
+
+.graphic h3 {
+  .gotham();
+  color: #454545;
+  font-size: 16px;
+  letter-spacing: normal;
+  line-height: 1.4;
+  margin-bottom: 22px;
+  text-transform: none;
+}
+
+@media @screen-mobile {
+  .chart + .chart {
+    border-top: 1px solid #eee;
+    margin-top: 11px;
+    padding-top: 22px;
+  }
+}
+
+.bar {
+  rect {
+    stroke: #fff;
+    stroke-width: .5px;
+  }
+  text {
+    fill: #fff;
+
+    &.hidden { display: none; }
+  }
+}
+
+.labels text {
+  font-size: 12px;
+}

@@ -1,0 +1,41 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.line {
+  stroke: #e8e8e8;
+}
+
+.line.norwalk {
+  stroke: #d3d3d3;
+}
+
+.line.bridgeport {
+  stroke: @teal3;
+}
+.line.stamford {
+  stroke: @teal3;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+

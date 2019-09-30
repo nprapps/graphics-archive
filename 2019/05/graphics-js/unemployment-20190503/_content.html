@@ -1,0 +1,48 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+  aria-label="<%= COPY.labels.screenreader %>"
+<% } %>
+>
+
+<h3><%= COPY.labels.hed_unemployment %></h3>
+<div id="annotated-line-chart" class="chart">
+  <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.mode_secondary != "none") { %>
+<h3><%= COPY.labels.hed_secondary %></h3>
+<div id="column-chart" class="chart"></div>
+<% } %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <p><strong>Notes:</strong> <%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var SECONDARY_MODE = '<%= COPY.labels.mode_secondary %>';
+  var UNEMPLOYMENT_DATA = <%= JSON.stringify(COPY.unemployment) %>;
+
+  <% if (COPY.labels.mode_secondary == "payrolls-year") { %>
+      var SECONDARY_DATA = <%= JSON.stringify(COPY.payrolls_year) %>;
+  <% } else if (COPY.labels.mode_secondary == "payrolls-month") { %>
+      var SECONDARY_DATA = <%= JSON.stringify(COPY.payrolls_month) %>;
+  <% } else if (COPY.labels.mode_secondary == "wages") { %>
+      var SECONDARY_DATA = <%= JSON.stringify(COPY.wages) %>;
+  <% } %>
+</script>

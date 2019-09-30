@@ -1,0 +1,21 @@
+@import "./lib/base";
+
+h1 { margin-bottom: 22px; }
+
+h3 {
+  color: #787878;
+
+  strong { font-weight: normal; }
+}
+
+.chart + .chart {
+  @media @screen-mobile {
+    margin-top: 22px;
+  }
+}
+
+.bars rect {
+  fill: @teal5;
+
+  &.y-2016 { fill: @teal2; }
+}

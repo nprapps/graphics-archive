@@ -1,0 +1,46 @@
+@import "./lib/base";
+
+h1 {
+  .mmedia-constrained-centered();
+  font-size: 18px;
+}
+
+h2 {
+  .mmedia-constrained-centered();
+}
+
+h3 {
+  margin-top: 22px;
+  text-align: center;
+}
+
+h2 + h3 {
+  margin-top: 0;
+}
+
+.key {
+  display: flex;
+  justify-content: center;
+
+  .majority b { background-color: @red2; }
+}
+
+.bars rect {
+  fill: @red2;
+}
+
+.labels {
+  .majority {
+    color: #333;
+    font-weight: bold;
+  }
+}
+
+.value {
+  text.out { fill: #666; }
+
+  .majority {
+    fill: #333;
+    font-weight: bold;
+  }
+}

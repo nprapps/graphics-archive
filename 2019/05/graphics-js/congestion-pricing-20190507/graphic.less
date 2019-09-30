@@ -1,0 +1,79 @@
+@import "./lib/base";
+
+h1, h2 {
+  .mmedia-constrained-centered();
+  text-align: center;
+}
+
+.graphic {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  h3 {
+    margin-bottom: 3px;
+    text-align: center;
+
+    span {
+      color: #787878;
+      display: block;
+      font-size: 12px;
+      margin-top: 2px;
+    }
+  }
+}
+
+.chart {
+  margin-bottom: 33px;
+}
+
+.axis.x {
+  text {
+    fill: #333;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: capitalize;
+    -webkit-font-smoothing: antialiased;
+
+    .dates& {
+      fill: #999;
+      font-size: 11px;
+      font-weight: normal;
+      text-anchor: middle;
+    }
+  }
+}
+
+.sentiment {
+  line {
+    stroke: @teal3;
+    stroke-width: 3px;
+  }
+
+  path {
+    fill: @teal3;
+    fill-opacity: 0.5;
+  }
+
+  text {
+    fill: @teal3;
+    font-size: 11px;
+
+    @media @screen-mobile-above {
+      font-size: 12px;
+    }
+
+    &.before { text-anchor: end; }
+    &.after  { text-anchor: start; }
+  }
+}
+
+.value text {
+  fill: #999;
+  font-size: 10px;
+  font-weight: bold;
+
+  @media @screen-mobile-above {
+    font-size: 12px;
+  }
+}

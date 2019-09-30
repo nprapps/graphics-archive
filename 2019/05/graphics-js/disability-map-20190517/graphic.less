@@ -1,0 +1,32 @@
+@import "./lib/base";
+
+.alert {
+  background-color: @red3;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 0 44px 0;
+  padding: 5px 20px;
+  text-align: center;
+}
+
+h1, h2 {
+  .mmedia-constrained-centered();
+}
+
+.key {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 11px;
+
+  @media @screen-mobile-above {
+    margin-bottom: 0;
+  }
+
+  .key-item {
+    margin-left: 6px;
+    margin-right: 6px;
+
+    &:nth-child(1) b { border: 1px solid #ccc; }
+  }
+}

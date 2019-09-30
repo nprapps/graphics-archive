@@ -1,0 +1,135 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.line {
+  stroke: #ccc;
+  stroke-width: 2px;
+  opacity: 0.4;
+}
+
+.multichart .line {
+  opacity: 1;
+}
+
+h2#subhed {
+  margin-bottom: 9px;
+}
+
+select {
+  padding: 12px;
+  font-size: 14px;
+  margin-bottom: 22px;
+  margin-left: 1px;
+}
+
+.interactivechart {
+  .all-all-all.line {
+    stroke: @teal5;
+    opacity: 1;
+  }
+  #line-chart-2, #line-chart-3 {
+    display: none;
+  }
+}
+
+.natl-average-label,
+.active-label,
+.active-label-stroke,
+.natl-average-label-stroke {
+  fill: black;
+  font-style: italic;
+  .gotham();
+  font-size: 12px;
+  stroke: black;
+  stroke-width: 0.1px;
+  &.active-label-stroke,
+  &.natl-average-label-stroke {
+    stroke: white;
+    stroke-width: 4.5px;
+  }
+}
+
+.gender-label {
+  .gotham();
+  font-size: 12px;
+  font-style: italic;
+  stroke: white;
+  stroke-width: .2px;
+  &.men-chart-label {
+    fill: #999999
+  }
+  &.women-chart-label {
+    fill: #c3c3c3
+  }
+}
+
+.men-line {
+  stroke: #999999
+}
+
+.women-line {
+  stroke: #c3c3c3;
+}
+
+.chart-label {
+  margin: 0 auto;
+  text-align: center;
+  .knockout-header();
+}
+
+.active,
+.active-hover {
+  stroke: @teal3 !important;
+  opacity: 1;
+}
+
+.multichart .graphic {
+  width: 32%;
+  float: left;
+}
+
+.hidden {
+  display: none;
+}
+
+.clearfix {
+  .clearfix();
+}
+
+.graphic-topper, .footnotes, .footer {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#age-menu {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+  .multichart .graphic {
+    width: 100%;
+    float: left;
+    margin-bottom: 22px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
