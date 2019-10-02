@@ -1,0 +1,77 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader" class="year">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_year %></div>
+        </th>
+        <th role="columnheader" class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_ind_share %></div>
+        </th>
+        <th role="columnheader" class="net-support">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_net_support %></div>
+        </th>
+        <th role="columnheader" class="winner">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_winner %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <%
+      var calcBG = function (party, net) {
+        var newClass = 'background-color';
+        var colors = {
+          R: '216,71,43',
+          D: '81,170,222'
+        }
+        var pctOpacity = net / 30;
+        var style = `${newClass}: rgba(${colors[party]},${pctOpacity}); color: ${pctOpacity < .5 ? "#666" : "white"};`;
+        return style;
+      };
+      COPY.data.forEach(function(row) { %>
+    <tr class="y-<%= row.year %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_year %>" class="year"><%= row.year %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_ind_share %>" class="ind-share amt"><%= row.ind_share %>%</td>
+      <td role="cell" data-title="<%= COPY.labels.net_support %>"
+        class="net-support <%= t.classify(row.net_support_party) %>"
+        style="<%= calcBG(row.net_support_party, row.net_support) %>">
+        <%= row.net_support_party %> +<%= row.net_support %>
+      </td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_winner %>"
+        class="winner <%= t.classify(row.winner_party) %>">
+        <%= row.winner %> (<%= row.winner_party %>)
+      </td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

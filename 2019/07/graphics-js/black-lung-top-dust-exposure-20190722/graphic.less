@@ -1,0 +1,87 @@
+@import "./lib/base";
+
+@yes: @teal3;
+@no: #ccc;
+
+h4 {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.stacked-bar {
+  padding: 16px 0;
+}
+
+.stacked-bar + .stacked-bar {
+  border-top: 1px solid #EEE;
+}
+
+.key {
+  margin: 0 0 16px;
+}
+
+.key-item i {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  vertical-align: center;
+
+  &.yes { background: @yes; }
+  &.no { background: @no; }
+}
+
+.sr-only {
+  position: absolute;
+  left: -9999px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  @media @screen-mobile {
+    display: block;
+  }
+
+  .question {
+    flex: 0 0 30%;
+    padding: 4px;
+
+    @media @screen-mobile {
+      padding-left: 0px;
+    }
+  }
+
+  .bar-container {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+
+    .bar {
+      background: black;
+      height: 24px;
+      color: white;
+      text-align: right;
+      overflow: hidden;
+
+      .label {
+        padding: 2px;
+        padding-right: 8px;
+
+      }
+
+      &.no {
+          .label {
+            display: none;
+          }
+      }
+
+      &.yes { background: @yes; }
+      &.no { background: @no; }
+
+    }
+  }
+}

@@ -1,0 +1,49 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="chart" class="graphic">
+
+  <div class="map">
+    <img src="nebraska.png" alt="Map showing the two school districts" />
+  </div>
+
+  <div class="info">
+    <table>
+      <tr>
+        <th></th>
+        <th class="district"><%= COPY.labels.hed_nebraska_district %></th>
+        <th class="neighbor"><%= COPY.labels.hed_nebraska_neighbor %></th>
+      </tr>
+      <% COPY.nebraska.forEach(function(row) { %>
+      <tr>
+        <td><%= row.category %></td>
+        <td class="amt district"><%= row.district %></td>
+        <td class="amt neighbor"><%= row.neighbor %></td>
+      </tr>
+      <% }); %>
+    </table>
+  </div>
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

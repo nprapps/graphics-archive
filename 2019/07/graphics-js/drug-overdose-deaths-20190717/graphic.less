@@ -1,0 +1,59 @@
+@import "./lib/base";
+
+/* Key
+========================================*/
+
+.key-wrap {
+  font-size: .8em;
+  padding: 24px;
+  display: flex;
+  margin: auto;
+  max-width: 400px;
+
+  .key-bucket {
+    flex: 1;
+    border-top-width: 16px;
+    border-top-style: solid;
+    text-align: center;
+    padding-top: 4px;
+    margin: 0 1px;
+  }
+}
+
+/* Grid Map
+========================================*/
+
+.tile-grid-map {
+  margin-bottom: 33px;
+}
+
+.states path {
+  stroke: #BBB;
+  stroke-width: 1;
+}
+
+.state {
+  fill: #eee;
+}
+
+.label {
+  font-family: 'Knockout 31 4r';
+  font-size: 12px;
+  // fill: black;
+}
+
+.label-active {
+  fill: #fff;
+}
+
+@media screen and (max-width: 500px){
+  .label {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 500px){
+  .label {
+    font-size: 8px;
+  }
+}

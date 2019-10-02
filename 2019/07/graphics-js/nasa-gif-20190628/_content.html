@@ -1,0 +1,12 @@
+<div class="graphic-wrapper">
+
+  <div class="graphic" role="img">
+    <img src="https://media.npr.org/assets/img/2019/06/28/rock_large.gif" alt="" class="fallback">
+  </div>
+
+  <div class="caption">
+      <% if (COPY.labels.caption) { %><p><%= t.smarty(COPY.labels.caption) %></p><% } %>
+      <% if (COPY.labels.credit) { %><p class="credit"><%= t.smarty(COPY.labels.credit) %></p><% } %>
+  </div>
+
+</div>

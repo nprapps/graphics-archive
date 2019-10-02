@@ -1,0 +1,55 @@
+<div class="ttt">
+  <h1 class="logo"><img src="img/turningthetables_final.jpg" alt="<%= COPY.labels.headline %>" /></h1>
+
+  <% if (COPY.labels.subhed) { %>
+  <h2><%= t.smarty(COPY.labels.subhed) %></h2>
+  <% } %>
+
+  <div class="artist-grid">
+  <% COPY.artists.forEach(function(v,k) { %>
+    <div class="artist <%= t.classify(v.name) %>">
+      <% if (v.link) { %>
+        <a href="<%= v.link %>">
+      <% } %>
+
+        <img src="img/<%= v.photo %>" alt="Photo of <%= v.name %>" />
+        <div class="artist-info">
+          <h4><%= v.name %></h4>
+          <% if (v.link) { %>
+            <p class="promo-text"><%= v.link_text %></p>
+          <% } else if (v.coming_soon) { %>
+            <p class="coming-soon"><%= v.coming_soon %></p>
+          <% } %>
+        </div>
+
+      <% if (v.link) { %>
+        </a>
+      <% } %>
+    </div>
+  <% }) %>
+  </div>
+
+  <div class="playlist">
+    <%= COPY.labels.playlist_text %>
+    <a href="<%= COPY.labels.playlist_spotify %>">Spotify</a>
+    <a href="<%= COPY.labels.playlist_apple %>">Apple Music</a>
+  </div>
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

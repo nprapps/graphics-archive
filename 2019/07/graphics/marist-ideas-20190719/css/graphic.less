@@ -1,0 +1,211 @@
+@import "base";
+
+@overall:        #666;
+@overall-stroke: #333;
+@democrats:      @blue3;
+@dem-stroke:     @blue2;
+@republicans:    @red3;
+@rep-stroke:     @red2;
+@independents:   @yellow3;
+@ind-stroke:     @yellow2;
+// @independents:   #999;
+// @ind-stroke:     #666;
+// @independents:   #15b16e;
+// @ind-stroke:     #15b16e;
+
+
+body { padding-bottom: 0; }
+
+h1 {
+    font-size: 15px;
+    margin-bottom: 22px;
+    text-align: center;
+
+    strong { color: #333; }
+}
+
+h4 {
+    .gotham();
+    color: #666;
+    font-size: 13px;
+    margin: 0 0 11px 0;
+    text-align: center;
+}
+
+.chart { margin-bottom: 22px; }
+
+.graphic-wrapper { position: relative;  }
+
+.key {
+    display: webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: 0;
+    margin-bottom: 15px;
+
+    .key-item {
+        display: block;
+        margin: 0 0 3px 0;
+        width: 50%;
+
+        b {
+            border: 1.5px solid transparent;
+            border-radius: 50px;
+            height: 10px;
+            overflow: hidden;
+            width: 10px;
+            opacity: 0.7;
+
+        }
+        &.overall b {
+            background-color: @overall;
+            border-color: @overall-stroke;
+        }
+        &.overall label {
+            font-weight: bold;
+            color: #333;
+        }
+        &.republicans b {
+            background: fade(@republicans, 30%);
+            border-color: @rep-stroke;
+        }
+        &.democrats b {
+            background: fade(@democrats, 30%);
+            border-color: @dem-stroke;
+        }
+        &.independents b {
+            background: fade(@independents, 30%);
+            border-color: @ind-stroke;
+        }
+    }
+}
+
+sup {
+    color: #999;
+    line-height: 0;
+    padding-left: 2px;
+}
+
+.bars line {
+    fill: none;
+    stroke-width: 4px;
+    stroke: #ddd;
+}
+
+circle {
+    fill: #D8472B;
+    fill-opacity: .3;
+    stroke: #fff;
+    stroke-opacity: 0.7;
+    stroke-width: 1.5px;
+
+    .overall & {
+        fill: @overall;
+        fill-opacity: 0.8;
+        stroke: @overall-stroke;
+        stroke-opacity: 1;
+    }
+    .democrats & {
+        fill: @democrats;
+        stroke: @dem-stroke;
+    }
+    .republicans & {
+        fill: @republicans;
+        stroke: @rep-stroke;
+    }
+    .independents & {
+        fill: @independents;
+        stroke: @ind-stroke;
+    }
+}
+
+line {
+    .overall & {
+        stroke: @overall-stroke;
+    }
+}
+
+.value text {
+    fill: #666;
+    font-size: 11px;
+    text-anchor: middle;
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+    text-anchor: middle;
+}
+
+.value, .shadow {
+    font-style: italic;
+
+    .overall text {
+        fill: @overall;
+        text-anchor: middle;
+        font-style: normal;
+        font-weight: bold;
+    }
+    .democrats text {
+        fill: @democrats;
+    }
+    .republicans text {
+        fill: @republicans;
+    }
+    .independents text {
+        fill: @ind-stroke;
+    }
+
+    text.hdr {
+        color: #333;
+        font-size: 12px;
+        font-weight: bold;
+        text-anchor: start;
+    }
+}
+
+.labels li {
+    font-size: 13px;
+
+    strong { color: #333; }
+}
+
+@media screen and (min-width: 650px) {
+    // h1,
+    // h2,
+    // .footnotes,
+    // .footer {
+    //     max-width: 650px;
+    //     margin-left: auto;
+    //     margin-right: auto;
+    // }
+
+    .key {
+        justify-content: center;
+        flex-wrap: nowrap;
+        margin-bottom: 22px;
+
+        .key-item {
+            margin: 0 11px;
+            width: auto;
+        }
+    }
+}
+
+.promo {
+    h1 {
+        .knockout-header();
+    }
+    .labels li {
+        font-size: 14px;
+    }
+    .value text,
+    .shadow text {
+        font-size: 13px;
+
+        .hdr { font-size: 14px; }
+    }
+}

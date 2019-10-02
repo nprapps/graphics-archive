@@ -1,0 +1,58 @@
+@import "./lib/base";
+
+h1 {
+  margin-bottom: 11px;
+}
+
+.graphic {
+  img {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: auto;
+
+    @media @screen-mobile {
+      + img { margin-top: 15px; }
+    }
+
+    @media @screen-mobile-above {
+      float: left;
+      width: 48.5%;
+
+      + img { margin-left: 3%; }
+    }
+  }
+}
+
+.graphic {
+  img.aoi {
+  width: 150px;
+  height: auto;
+  float:none;
+  margin: 0 auto;
+
+  @media @screen-mobile-above {
+      display: inline-block;
+      margin: -200px auto 0px 70%;
+
+    }
+  }
+
+}
+
+h2 {
+  
+  @media @screen-mobile-above {
+      display: inline-block;
+      width: 65%
+      
+    }
+
+
+}
+
+
+
+
+
+

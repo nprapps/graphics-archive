@@ -1,0 +1,179 @@
+@import "base";
+
+@good: #5aa58e;
+@moderate: #f1cf54;
+@unhealthy-for-sensitive-groups: #e8a152;
+@unhealthy: #e06b54;
+@very-unhealthy: #9e6387;
+@hazardous: #6b5971;
+@nodata: #999;
+@lightenPct: 30%;
+
+h1, h2,
+.footnote,
+.footer {
+  .mmedia-constrained();
+}
+
+h2.comparison { margin-top: 0; }
+
+.key .key-item {
+    float: none;
+
+    b {
+        border-radius: 4px;
+        width: 45px;
+        height: auto;
+        color: #fff;
+        line-height: 20px;
+        padding: 0 5px;
+        text-align: center;
+        white-space: nowrap;
+        letter-spacing: 0.03em;
+    }
+
+    &.good b { background-color: @good; }
+    &.moderate b { background-color: @moderate; }
+    &.unhealthy-for-sensitive-groups b { background-color: @unhealthy-for-sensitive-groups; }
+    &.unhealthy b { background-color: @unhealthy; }
+    &.very-unhealthy b { background-color: @very-unhealthy; }
+    &.hazardous b { background-color: @hazardous; }
+    &.no-data b { background-color: @nodata; }
+
+    label { white-space: normal; }
+}
+
+#air-quality-chart {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+
+  .annos-g {
+    line {
+      stroke: #999;
+    }
+    text {
+      -webkit-font-smoothing: antialiased;
+      fill: #666;
+      font-size: 11px;
+      font-style: italic;
+    }
+  }
+
+  .bar rect {
+    &.good { fill: lighten(@good, @lightenPct); }
+    &.moderate { fill: lighten(@moderate, @lightenPct); }
+    &.unhealthy-for-sensitive-groups { fill: lighten(@unhealthy-for-sensitive-groups, @lightenPct); }
+    &.unhealthy { fill: lighten(@unhealthy, @lightenPct); }
+    &.very-unhealthy { fill: lighten(@very-unhealthy, @lightenPct); }
+    &.hazardous { fill: lighten(@hazardous, @lightenPct); }
+  }
+
+  .line {
+      fill: none;
+      stroke: #333;
+      stroke-width: 1px;
+      shape-rendering: crispEdges;
+
+      @media @screen-mobile-above {
+        stroke-width: 1px;
+      }
+  }
+}
+
+#stacked-bar-chart {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .group rect {
+    &.good { fill: @good; }
+    &.moderate { fill: @moderate; }
+    &.unhealthy-for-sensitive-groups { fill: @unhealthy-for-sensitive-groups; }
+    &.unhealthy { fill: @unhealthy; }
+    &.very-unhealthy { fill: @very-unhealthy; }
+    &.hazardous { fill: @hazardous; }
+    &.no-data { fill: @nodata; }
+  }
+
+  .labels li.ulaanbaatar-mongolia {
+    color: #333;
+    font-weight: bold;
+  }
+
+  .value text {
+      fill: #fff;
+
+      &.hidden { display: none; }
+  }
+  .ulaanbaatar-mongolia .value text { font-weight: bold; }
+}
+
+@media screen and (min-width: 401px) {
+    .legend-wrap {
+      .mmedia-constrained();
+        text-align: center;
+        margin: 10px auto 0 auto;
+
+        h3 { margin: 0 0 10px 0; }
+    }
+
+    .key {
+      display: flex;
+      flex-wrap: nowrap;
+      margin-top: 0;
+      margin-bottom: 0;
+      justify-content: space-between;
+
+        .key-item {
+            width: 14%;
+            text-align: center;
+            margin: 0;
+
+            b {
+                float: none;
+                font-size: 11px;
+                margin-right: 0;
+            }
+            label {
+                display: block;
+                margin-top: 5px;
+                font-size: 11px;
+                line-height: 1.3;
+                padding: 0 5px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #air-quality-chart {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+    }
+
+    .legend-wrap { margin: 10px 0 0; }
+
+    .key {
+        margin-top: 11px;
+        margin-bottom: 0;
+        display: -webkit-flex;
+        display: flex;
+        // -webkit-flex-direction: column-reverse;
+        flex-direction: column;
+
+        .key-item {
+            margin-bottom: 3px;
+            line-height: 20px;
+            display: block;
+
+            b {
+                font-size: 10px;
+                width: 40px;
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<ul class="key">
+  <% COPY.key.forEach(function(item,k) { %>
+  <li class="key-item classify(item.label)"><b style="background-color: <%= item.color %>"></b><label><%= item.label %></label></li>
+  <% }); %>
+</ul>
+
+<div id="chart" class="graphic" role="img" aria-label="<%- COPY.labels.screenreader %>">
+  <img src="map.png" alt="" class="fallback">
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

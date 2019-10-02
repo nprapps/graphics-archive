@@ -1,0 +1,36 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<ul class="key">
+  <% COPY.legend.forEach(function(d,i) { %>
+  <li class="key-item <%= t.classify(d.label) %>">
+    <b <% if (d.bg_img) { %>style="background-image:url('img/<%= d.bg_img %>'); background-repeat: no-repeat; background-position: 50% 50%;"<% } %> ></b><label><%= d.label %></label>
+  </li>
+  <% }); %>
+</ul>
+
+<div id="chart" class="graphic" role="img" aria-label="<%- COPY.labels.screenreader %>">
+  <img class="resources"src='img/resources.png'/>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

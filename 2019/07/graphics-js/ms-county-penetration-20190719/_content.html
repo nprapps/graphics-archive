@@ -1,0 +1,39 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="chart" class="graphic" role="img" aria-label="<%- COPY.labels.screenreader %>">
+	<div class='legend'>
+		<div class='legend-text'>
+			Flood insurance contracts per 1,000 housing units
+		</div>
+		<div class='legend-ramp'>
+		</div>
+		<div class='legend-values'>
+			<div class='left-legend-val'>0</div>
+			<div class='right-legend-val'>620</div>
+		</div>
+	</div>
+</div>
+  <img src="river-map-ne-no-stroke.png" alt="" class="map-img">
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+  
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

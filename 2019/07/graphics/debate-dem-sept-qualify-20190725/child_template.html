@@ -1,0 +1,57 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    <div class="graphic">
+      <div class="category totals">
+        <h1>{{ COPY.labels.hed_totals|smarty }}</h1>
+        <h2>{{ COPY.labels.hed_rules|smarty }}</h2>
+        <h5>{{ COPY.labels.hed_update|smarty }}</h5>
+      </div>
+
+
+      {% for cat in COPY.group %}
+      <div class="category {{ cat.name|classify }}">
+        <h3>{{ cat.label }}</h3>
+
+        {% for row in COPY.data %}
+        {% if row.group == cat.name %}
+        <div class="data {{ row.name|classify }} {{ row.cat }}">
+          {% if row.image %}<img src="assets/{{ row.image }}" alt="Photo of {{ row.name }}" />{% endif %}
+          <div class="info">
+            <h4>{{ row.name }}</h4>
+            {% if row.title %}<p class="title">{{ row.title }}</p>{% endif %}
+
+              {% if row.poll or row.donor %}
+              <div class="stats">
+                <h5>About The Candidate</h5>
+                {% if row.poll %}<p class="age">{{ row.poll }}</p>{% endif %}
+                {% if row.donor %}<p class="status">{{ row.donor }}</p>{% endif %}
+              </div>
+              {% endif %}
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+      </div>
+      {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <p><strong>Note:</strong> {{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.photo_credit %}<p>Photos: {{ COPY.labels.photo_credit|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var DATA = {{ COPY.data.json() }};
+    </script>
+
+{% endblock content %}

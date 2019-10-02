@@ -1,0 +1,66 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader" class="year">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_position %></div>
+        </th>
+        <th role="columnheader" class="year">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_description %></div>
+        </th>
+        <th role="columnheader" class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_miners %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <%
+      var calcBG = function (miners) {
+        var newClass = 'background-color';
+        var colors = '23,128,126';
+        var pctOpacity = miners / 34;
+        var style = `${newClass}: rgba(${colors},${pctOpacity}); color: ${pctOpacity < .4 ? "#666" : "white"};`;
+        return style;
+      };
+      COPY.data.forEach(function(row) { %>
+    <tr class="y-<%= row.year %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_position %>" class="job"><%= row.position %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_description %>" class="year"><%= row.description %></td>
+      <td role="cell" data-title="<%= COPY.labels.net_support %>"
+        class="miners"
+        style="<%= calcBG(row.miners) %>">
+        <%= row.miners %>
+      </td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

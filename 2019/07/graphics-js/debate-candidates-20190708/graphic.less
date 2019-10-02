@@ -1,0 +1,198 @@
+@import "./lib/base";
+
+@gutter-margin: 6px;
+@screen-large-above: ~"screen and (min-width: 850px)";
+
+@default-bg:      #f1f1f1;
+@default-border:  transparent;
+@dem-bg:          lighten(@blue6, 5%);
+@dem-border:      @blue4;
+@gop-bg:          lighten(@red6, 5%);
+@gop-border:      @red4;
+
+* { box-sizing: border-box; }
+
+// h1, h2,
+// .footnotes,
+// .footer {
+//   @media @screen-mobile-above {
+//     .mmedia-constrained();
+//   }
+// }
+//
+// h1, h2 {
+//   @media @screen-mobile-above {
+//     text-align: center;
+//   }
+// }
+.candidate.joe-biden .analysis .widont { display: inline-block; }
+.graphic {
+  display: flex;
+  flex-wrap: wrap;
+  // justify-content: center;
+  justify-content: flex-start;
+
+  h2.subhed {
+    .gotham();
+    color: #666;
+    font-size: 16px;
+    margin: 33px 0 6px 0;
+    width: 100%;
+
+    &:first-child { margin-top: 0; }
+  }
+
+  .candidate {
+    width: 100%;
+
+    @media @screen-mobile-above {
+      width: calc(~'50% - (@{gutter-margin} * 2)');
+    }
+
+    @media @screen-medium-above {
+      width: calc(~'33% - (@{gutter-margin} * 2)');
+    }
+
+    @media @screen-large-above {
+      width: calc(~'25% - (@{gutter-margin} * 2)');
+    }
+  }
+}
+
+.candidate {
+  background-color: @default-bg;
+  border: 1px solid @default-border;
+  margin: 6px 0;
+  padding: 10px 15px 10px 15px;
+
+  @media @screen-mobile-above {
+    margin: 6px 12px 6px 0;
+  }
+
+  &.dem {
+    background-color: @dem-bg;
+    border: 1px solid @dem-border;
+  }
+
+  &.gop {
+    background-color: @gop-bg;
+    border: 1px solid @gop-border;
+  }
+
+  h3 {
+    .gotham();
+    color: #333;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: normal;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-transform: none;
+
+    @media @screen-mobile-above {
+      margin-top: 0;
+      text-align: center;
+    }
+  }
+
+  p.title {
+    .gotham();
+    font-size: 12px;
+    margin: 3px 0 11px 40px;
+
+    @media @screen-mobile-above {
+      margin-top: 3px;
+      margin-left: 0;
+      text-align: center;
+    }
+  }
+
+  p.analysis {
+    font-size: 13px;
+    margin: 0;
+
+    @media @screen-mobile-above {
+      &:before {
+        content: "";
+        display: block;
+        border-bottom: 1px solid #bababa;
+        margin: -11px auto 15px auto;
+        padding-bottom: 11px;
+        width: 50px;
+      }
+    }
+  }
+
+  img {
+    display: block;
+
+    @media @screen-mobile {
+      float: left;
+      margin-right: 10px;
+      width: 30px;
+      height: 30px;
+    }
+
+    @media @screen-mobile-above {
+      width: 70px;
+      height: 70px;
+      float: none;
+      margin-left: auto;
+      margin-right: auto;
+      padding: none;
+      padding-bottom: 10px;
+      padding-left: 10px;
+    }
+  }
+
+    // &.total-raised {
+    //   @media @screen-mobile {
+    //     border-top: 1px solid #fff;
+    //     margin-top: 11px;
+    //     padding-top: 11px;
+    //   }
+    //   @media @screen-mobile-above {
+    //     &:before {
+    //       content: "";
+    //       display: block;
+    //       border-bottom: 1px solid #bababa;
+    //       margin: 0 auto 15px auto;
+    //       padding-bottom: 11px;
+    //       width: 50px;
+    //     }
+    //   }
+    // }
+
+  h4,
+  label {
+    .knockout-header();
+    color: #666;
+    display: block;
+    font-size: 12px;
+    margin-bottom: 3px;
+  }
+
+  span.value {
+    .gotham();
+    color: #333;
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  span.valueBar {
+    background-color: #666;
+    display: block;
+    height: 3px;
+    margin-bottom: 2px;
+  }
+  &.dem .valueBar { background-color: @dem-border; }
+  &.gop .valueBar { background-color: @gop-border; }
+
+  p.source {
+    color: #999;
+    font-size: 11px;
+    font-style: italic;
+    margin: 11px 0 0 0;
+  }
+}

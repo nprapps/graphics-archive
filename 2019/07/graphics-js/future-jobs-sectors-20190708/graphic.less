@@ -1,0 +1,17 @@
+@import "./lib/base";
+
+.labels li {
+  &.negative {
+    text-align: left;
+  }
+  &.positive {
+    text-align: right;
+  }
+}
+
+.value text.out { fill: #666; }
+
+.bars rect {
+  &.positive { fill: @blue3; }
+  &.negative { fill: #bababa; }
+}

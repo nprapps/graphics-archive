@@ -1,0 +1,36 @@
+@import "./lib/base";
+
+h1 {
+  margin-bottom: 11px;
+}
+
+.graphic {
+  div {
+    box-sizing: border-box;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-bottom: 6px;
+    }
+
+    p.caption {
+      color: #767676;
+      font-size: 12px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    @media @screen-mobile {
+      + div { margin-top: 22px; }
+    }
+
+    @media @screen-mobile-above {
+      float: left;
+      width: 48.5%;
+
+      + div { margin-left: 3%; }
+    }
+  }
+}

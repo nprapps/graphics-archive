@@ -1,0 +1,35 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="chart" class="graphic">
+  <div class="anim">
+    <img src="img/nature06288-s1-helper.gif" alt="Animation" />
+    <p class="caption"><%= t.smarty(COPY.labels.caption_helper) %></p>
+  </div>
+  <div class="anim">
+    <img src="img/nature06288-s6-hinderer.gif" alt="Animation" />
+    <p class="caption"><%= t.smarty(COPY.labels.caption_hinderer) %></p>
+  </div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p><%= COPY.labels.credit %></p>
+  <% } %>
+</div>
