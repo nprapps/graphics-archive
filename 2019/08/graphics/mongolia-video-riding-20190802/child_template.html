@@ -1,0 +1,23 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+  <a href="https://apps.npr.org/mongolia/">
+    <div id="video" class="video-wrapper">
+      <video autoplay muted playsinline loop class="drone-video"></video>
+    </div>
+  </a>
+
+  {% if COPY.labels.caption_riding or COPY.labels.credit %}
+  <div class="caption">
+    {% if COPY.labels.caption_riding %}<p class="cutline">{{ render(COPY.labels.caption_riding)|smarty }}</p>{% endif %}
+    {% if COPY.labels.credit %}<p class="credit">{{ COPY.labels.credit|smarty }}</p>{% endif %}
+  </div>
+  {% endif %}
+
+{% endblock content %}
+
+{% block js %}
+  {{ JS.push('js/graphic.js') }}
+  {{ JS.render('js/graphic-footer.js') }}
+{% endblock js %}

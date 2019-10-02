@@ -1,0 +1,78 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="">
+
+<%
+var questions = {};
+var stances = new Set();
+var totals = {};
+
+COPY.data.forEach(function(row) {
+  var { question, stance, result } = row;
+  if (!questions[question]) questions[question] = {};
+  questions[question][stance] = result;
+  totals[question] = totals[question] ? totals[question] + result : result;
+  stances.add(stance);
+});
+%>
+
+  <div class="table" role="table">
+    <div class="rowgroup">
+      <ul class="color-key" role="row">
+        <li role="columnheader" class="sr-only">
+          Question
+        <% for (var s of stances) { %>
+        <li role="columnheader">
+          <i class="<%= t.classify(s) %> block"></i> <%= s %>
+        <% } %>
+      </ul>
+    </div>
+
+    <div class="rows" role="rowgroup">
+      <% 
+      Object.keys(questions).forEach(function(question) {
+        var q = questions[question];
+      %>
+      <div class="row" role="row">
+        <div class="label" role="cell"><%= question.replace(/\*(.+)\*/, (_, g) => `<b>${g}</b>`) %></div>
+
+        <div class="bar-container" role="presentation">
+          <% 
+          for (var stance of stances) { 
+            var s = q[stance];
+            var total = totals[question];
+            %>
+          <div class="bar <%= t.classify(stance) %>" data-size="<%= s < 6 ? "small" : "large" %>" role="cell" style="width: <%= s %>%">
+            <span class="bar-label"><%= s.toFixed(1) %>%</span>
+          </div>
+          <% } %>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+  
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

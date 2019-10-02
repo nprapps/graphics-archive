@@ -1,0 +1,59 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="">
+
+  <div class="table" role="table">
+    <div class="rowgroup">
+      <ul class="color-key" role="row">
+        <li role="columnheader" class="sr-only">
+          Demographic
+        <li role="columnheader">
+          <i class="support block"></i> <%= COPY.labels.support %>
+        <li role="columnheader">
+          <i class="oppose block"></i> <%= COPY.labels.oppose %>
+        <li role="columnheader">
+          <i class="dont-know block"></i> <%= COPY.labels.dont_know %>
+      </ul>
+    </div>
+
+    <div class="rows" role="rowgroup">
+      <% COPY.data.forEach(function(row) { %>
+      <div class="row" role="row">
+        <div class="label" role="cell"><%= row.demographic %></div>
+
+        <div class="bar-container" role="presentation">
+          <% ["support", "oppose", "dont_know"].forEach(function(field) { %>
+          <div class="bar <%= field.replace(/_/, "-") %>" data-size="<%= row[field] < 6 ? "small" : "large" %>" role="cell" style="width: <%= row[field] %>%">
+            <span class="bar-label"><%= row[field] %>%</span>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+  
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

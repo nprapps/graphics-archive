@@ -1,0 +1,97 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<%
+var grouped = {};
+COPY.data.forEach(function(org) {
+  if (org.parent) {
+    grouped[org.parent].children.push(org);
+  } else {
+    grouped[org.name] = org;
+    org.children = [];
+  }
+});
+
+var markish = function(str) {
+  return "<p>" + str
+    .replace(/\[([^\]]+)\]\(([^\)]+)\)/g, (all, text, url) => `<a href="${url}">${text}</a>`)
+    .replace(/\*(.+?)\*/g, (all, text) => `<b>${text}</b>`)
+    .split(/\n/g)
+    .join("</p><p>");
+};
+
+var commafy = function(n) {
+  var fixed = n.toFixed(2);
+  var dot = fixed.indexOf(".");
+  for (var i = dot - 3; i > 0; i -= 3) {
+    fixed = fixed.slice(0, i) + "," + fixed.slice(i);
+  }
+  return fixed;
+}
+
+%>
+
+<div class="group-container">
+<%
+for (var k in grouped) {
+  var parent = grouped[k];
+%>
+<div class="group" data-org="<%= t.classify(k) %>">
+  <a href="<%= parent.url %>"><h3 class="org-name"><%= parent.name %></h3></a>
+  <div class="description">
+    <%= markish(parent.description) %>
+  </div>
+  <h4>Leadership</h4>
+  <div class="leadership">
+    <%= markish(parent.leadership) %>
+  </div>
+
+  <% if (parent.children.length) { %>
+  <h4 class="subhead">Entities</h4>
+  <ul class="entities">
+    <% parent.children.forEach(function(child) { %>
+    <li>
+      <a href="<%= child.url %>"><h3 class="org-name"><%= child.name %></h3></a>
+      <div class="description"><%= markish(child.description) %></div>
+      <% if (child.leadership) { %>
+      <h4>Leadership</h4>
+      <div class="leadership">
+        <%= markish(child.leadership) %>  
+      </div>
+      <% } %>
+      <% if (child.raised) { %>
+      <h4>2018 Election</h4>
+      <ul class="fundraising">
+        <li> <b><%= COPY.labels.total_raised %></b>: $<%= commafy(child.raised) %>
+        <li> <b><%= COPY.labels.total_spent %></b>: $<%= commafy(child.spent) %>
+        <li> <b><%= COPY.labels.cash_on_hand %></b>: $<%= commafy(child.cash_on_hand) %>
+      </ul>
+      <% } %>
+    <% }) %>
+  </ul>
+  <% } %>
+</div>
+<% } %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+  
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

@@ -1,0 +1,38 @@
+@import "base";
+
+.labels {
+    li {
+        text-align: left;
+    }
+}
+
+.chart {
+    margin-bottom: 33px;
+
+    &:last-child { margin-bottom: 0; }
+
+    h3 {
+        font-size: 16px;
+        margin-bottom: 11px;
+    }
+
+    h4 {
+        .gotham();
+        font-size: 14px;
+        font-weight: 400;
+        margin: 0 0 11px 0;
+    }
+
+    .key {
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+}
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}

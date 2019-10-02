@@ -1,0 +1,97 @@
+@import "./lib/base";
+
+.sr-only {
+  position: absolute;
+  left: -1000px;
+  width: 1px;
+  height: 1px;
+}
+
+.support {
+  background: @orange3;
+  color: black;
+}
+
+.oppose {
+  background: @teal3;
+  color: white;
+}
+
+.dont-know {
+  background: #666;
+  color: white;
+}
+
+.color-key {
+  margin: 0;
+  padding: 12px 0;
+  list-style-type: none;
+  text-align: center;
+
+  .block {
+    display: inline-block;
+    vertical-align: middle;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  li {
+    display: inline-block;
+    padding: 0 8px;
+  }
+}
+
+.rows {
+  .row {
+    padding: 4px 0;
+    display: block;
+    align-items: center;
+
+    @media @screen-mobile-above {
+      display: flex;
+      padding: 1px 0;
+    }
+  }
+
+  .label {
+    flex: 0 0 100px;
+  }
+
+  .row:nth-child(1) .label {
+    font-weight: bold;
+  }
+
+  .bar-container {
+    flex: 1;
+  }
+}
+
+.bar-container {
+  display: flex;
+  height: 32px;
+  align-items: stretch;
+
+  .bar {
+    text-align: right;
+    height: 32px;
+    position: relative;
+
+    .bar-label {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 4px;
+      font-size: 13px;
+      .gotham();
+
+      @media @screen-mobile {
+        font-size: 11px;
+        right: 2px;
+      }
+    }
+
+    &[data-size="small"] .bar-label {
+      .sr-only;
+    }
+  }
+}
