@@ -1,0 +1,49 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: @red3;
+}
+
+.annotation text {
+    font-size: 12px;
+    font-weight: bold;
+
+  }
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+
+  .annotation text {
+    font-size: 10px;
+  }
+
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+.annotation {
+  circle {
+    fill: @red3;
+    stroke: none;
+  }
+  line {
+    stroke: #999;
+  }
+  text {
+    fill: @red3;
+  }
+}

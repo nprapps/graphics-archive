@@ -1,0 +1,83 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 1.5px;
+  stroke: @teal5;
+}
+
+.lines.projected {
+  stroke-dasharray: 4px 2px;
+}
+
+.line {
+  opacity: 0.6;
+}
+
+line.annotation {
+  stroke: #999;
+}
+
+.line.noTarget {
+  stroke-width: 1 px;
+  stroke: @orange3;
+
+}
+
+.line.ga {
+  stroke: @orange3;
+  stroke-width: 3px;
+  opacity: 1;
+}
+
+.line.nc {
+  stroke:@teal1;
+}
+
+.lines.projected {
+  stroke-dasharray: 4px 2px;
+}
+
+.value text {
+  font-size: 11px;
+  fill: #555;
+}
+
+
+.value.noTarget.ga {
+  fill: @orange3;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+span.mandates {
+  border-bottom: 2px solid @teal5;
+  color: @teal5;
+}
+
+span.noMandates {
+  border-bottom: 2px solid @orange3;
+  color: @orange3;
+
+}
+
+span.NC {
+  border-bottom: 2px solid @teal1;
+  color: @teal1;
+}
+
+
+
+
+

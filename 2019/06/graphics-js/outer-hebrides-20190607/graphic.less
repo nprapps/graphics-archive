@@ -1,0 +1,25 @@
+@import "./lib/base";
+
+h1 {
+  margin-bottom: 11px;
+}
+
+.graphic {
+  img {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: auto;
+
+    @media @screen-mobile {
+      + img { margin-top: 15px; }
+    }
+
+    @media @screen-mobile-above {
+      float: right;
+      width: 48.5%;
+
+      + img { margin-right: 3%; }
+    }
+  }
+}

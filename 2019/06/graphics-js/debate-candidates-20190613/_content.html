@@ -1,0 +1,63 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic">
+
+  <% var days = [ 'one', 'two' ];
+     days.forEach(function(day) { %>
+
+       <h2 class="subhed"><%= COPY.labels['hed_' + day] %></h2>
+
+       <% COPY.data.forEach(function(row) {
+       if (row.qualify == "yes" && row.which_debate == day) { %>
+
+        <div class="candidate <%= t.classify(row.name) %> <%= row.group %>">
+          <% if (row.image) { %>
+            <img src="https://apps.npr.org/dailygraphics/graphics/prez-candidates-jan-list-20190116/assets/<%= row.image %>" alt="Photo of <%= row.name %>" />
+          <% } %>
+
+          <div class="info">
+            <h3><%= t.smarty(row.name) %></h3>
+
+            <% if (row.title) { %>
+              <p class="title"><%= t.smarty(row.title) %></p>
+            <% } %>
+
+            <% if (row.analysis) { %>
+              <p class="analysis"><%= t.smarty(row.analysis) %></p>
+            <% } %>
+          </div>
+        </div>
+
+  <%
+       }});
+     })
+  %>
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.photo_credit) { %>
+  <p>Photos: <%= COPY.labels.photo_credit %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

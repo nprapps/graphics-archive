@@ -1,0 +1,43 @@
+@import "./lib/base";
+
+h1 {
+  font-size: 18px;
+
+  @media @screen-mobile-above {
+    text-align: center;
+  }
+}
+
+.key {
+  @media @screen-mobile-above {
+    display: flex;
+    justify-content: center;
+  }
+
+  .key-item {
+    @media @screen-mobile-above {
+      margin: 0 9px;
+    }
+  }
+}
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.group rect {
+	fill-opacity: 0.9;
+}
+
+.group.overall rect {
+	fill-opacity: 1;
+}
+
+.labels li.overall {
+	font-weight: bold;
+	color: #333
+}

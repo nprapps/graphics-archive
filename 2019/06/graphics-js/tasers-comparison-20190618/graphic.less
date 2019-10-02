@@ -1,0 +1,35 @@
+@import "./lib/base";
+
+h1 { font-size: 18px; }
+
+h3 {
+  font-size: 14px;
+  margin-left: 80px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.graphic {
+  @media @screen-mobile-above {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.city {
+  width: 100%;
+  display: block;
+  overflow: auto;
+
+  @media @screen-mobile {
+    + .city { margin-top: 15px; }
+  }
+
+  @media @screen-mobile-above {
+    width: 31%;
+
+    + .city {
+      border-left: 1px solid #eee;
+    }
+  }
+}

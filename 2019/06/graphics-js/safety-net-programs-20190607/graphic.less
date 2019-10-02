@@ -1,0 +1,118 @@
+@import "lib/base";
+
+
+h1 {
+  margin-bottom: 15px;
+}
+
+/* General table styling */
+td {
+  color: #666;
+}
+
+tr td:first-child,
+tr th:first-child {
+  padding-left: 0px;
+}
+
+tr td:last-child,
+tr th:last-child {
+  padding-right: 0px;
+}
+
+
+tr {
+  height: 44px;
+}
+
+body.hp {
+  padding-top: 0;
+  padding-bottom: 10px
+}
+
+table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 22px;
+}
+
+table th,
+table td {
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  .knockout-header();
+  border-bottom: 2px solid #eee;
+  padding-top: 0;
+  vertical-align: bottom;
+}
+
+table td {
+  border-bottom: 1px solid #eee;
+  vertical-align: top
+}
+
+.promise-header {
+  .gotham();
+  color: #333;
+  font-size: 14px;
+}
+
+.promise-notes {
+  color: #888;
+  margin-top: 8px;
+}
+
+a .promise-header {
+  color: #5076b8;
+
+  &:hover {
+    color: #bccae5;
+  }
+}
+
+.flag {
+  .knockout-header();
+  color: #999;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+/* Status column */
+
+.status span {
+  .knockout-header();
+  padding: 3px 8px;
+  vertical-align: middle;
+  border-radius: 3px;
+
+  .challenged& {
+    background-color: @red4;
+    color: white;
+  }
+
+  .in-place& {
+    background-color: #70b270;
+  	color: white;
+  }
+
+  .pending& {
+    background-color: @yellow5;
+  	color: #666;
+  }
+
+  .proposed& {
+    background-color: @blue4;
+    color: white;
+  }
+
+  .withdrawn& {
+    background-color: #eee;
+    color: #666;
+  }
+}

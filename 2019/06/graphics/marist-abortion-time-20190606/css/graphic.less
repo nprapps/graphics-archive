@@ -1,0 +1,52 @@
+@import "base";
+
+h1 {
+  font-size: 18px;
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+
+    .more-strict,
+    .less-strict,
+    .kept-as-now {
+      stroke-dasharray: 4px 2px;
+    }
+}
+
+.value text {
+    font-size: 12px;
+    font-weight: bold;
+    // fill: #999;
+}
+
+/*
+ * larger-than-mobile-screen styles
+ */
+@media @screen-mobile-above {
+    .key { display: none; }
+}
+
+/*
+ * small-screen styles
+ */
+@media @screen-mobile {
+    .value text { font-size: 11px; }
+}
+
+/*
+ * promo styles
+ */
+.promo {
+  h1 {
+    .knockout-header();
+    font-size: 18px;
+  }
+  .value text {
+    font-size: 16px;
+  }
+}

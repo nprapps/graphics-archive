@@ -1,0 +1,39 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="chart" class="graphic" role="img" aria-label="<%- COPY.labels.screenreader %>">
+  <div class="city">
+    <h3>Los Angeles</h3>
+    <iframe src="https://features.apmreports.org/tasers/charts/examples/column-basic/los-angeles.html" width="100%" height="400" scrolling="no" frameborder="0"></iframe>
+  </div>
+  <div class="city">
+    <h3>Houston</h3>
+    <iframe src="https://features.apmreports.org/tasers/charts/examples/column-basic/houston.html" width="100%" height="400" scrolling="no" frameborder="0"></iframe>
+  </div>
+  <div class="city">
+    <h3>New York</h3>
+    <iframe src="https://features.apmreports.org/tasers/charts/examples/column-basic/new-york.html" width="100%" height="400" scrolling="no" frameborder="0"></iframe>
+  </div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

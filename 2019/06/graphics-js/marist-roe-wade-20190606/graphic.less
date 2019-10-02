@@ -1,0 +1,89 @@
+@import "./lib/base";
+
+h1 {
+  @media @screen-mobile-above {
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+h2 {
+  @media @screen-mobile-above {
+    text-align: center;
+  }
+}
+
+.key {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0;
+    margin-bottom: 15px;
+
+    @media @screen-mobile-above {
+        justify-content: center;
+        flex-wrap: nowrap;
+        margin-bottom: 25px;
+    }
+
+    .key-item {
+        .clearfix();
+        box-sizing: border-box;
+        margin: 0 0 11px 0;
+
+        @media @screen-mobile {
+          padding: 0 18px 0 0;
+          width: 50%;
+        }
+
+        @media @screen-mobile-above {
+          margin-bottom: 0;
+          padding: 0 6px;
+          width: 16%;
+        }
+
+        b {
+          @media @screen-mobile-above {
+            display: block;
+            float: none;
+            margin: 0 auto 6px auto;
+            width: 100%;
+            height: 5px;
+          }
+        }
+
+        label {
+          display: block;
+          white-space: normal;
+
+          @media @screen-mobile {
+            margin-left: 25px;
+          }
+
+          @media @screen-mobile-above {
+            text-align: center;
+          }
+        }
+    }
+}
+
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+// .group rect {
+// 	fill-opacity: 0.9;
+// }
+//
+// .group.overall rect {
+// 	fill-opacity: 1;
+// }
+
+.labels li.overall {
+	font-weight: bold;
+	color: #333
+}

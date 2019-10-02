@@ -1,0 +1,28 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.lines.projected {
+  stroke-dasharray: 4px 2px;
+}
+
+.value text {
+  font-size: 11px;
+  fill: #777;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
