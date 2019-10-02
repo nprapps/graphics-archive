@@ -1,0 +1,65 @@
+@import "./lib/base";
+
+h1 {
+  margin-bottom: 22px;
+}
+
+.lines {
+  fill: none;
+  // stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  // fill: #999;
+}
+
+.axis-label {
+  fill: #666;
+  font-size: 11px;
+  font-style: italic;
+  text-anchor: middle;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+// specific to newsletter display
+body.newsletter {
+  max-width: 400px;
+
+  h1 {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 11px;
+  }
+
+  h2 {
+    font-size: 12px;
+    margin-top: 0;
+  }
+
+  .key {
+    margin-top: -11px;
+    margin-bottom: 15px;
+  }
+
+  .y0-text,
+  .y1-text {
+    font-size: 12px;
+  }
+
+  .footnotes,
+  .footer { display: none; }
+}

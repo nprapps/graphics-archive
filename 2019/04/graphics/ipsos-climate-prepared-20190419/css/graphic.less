@@ -1,0 +1,174 @@
+@import "base";
+
+@overall:           #787878;
+@teach:             #ed823a;
+@noteach:           #678e6f;
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 22px;
+    text-align: center;
+
+    strong { color: #333; }
+}
+
+h4 {
+    .gotham();
+    color: #666;
+    font-size: 13px;
+    margin: 0 0 11px 0;
+    text-align: center;
+}
+
+.chart { margin-bottom: 22px; }
+
+.graphic-wrapper { position: relative; }
+
+.key {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+
+    @media @screen-mobile-above {
+      -webkit-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+    }
+
+    .key-item {
+        box-sizing: border-box;
+        display: block;
+        margin: 0 0 6px 0;
+        padding: 0 6px;
+        width: auto;
+
+        b {
+            border: 1.5px solid transparent;
+            border-radius: 50px;
+            height: 10px;
+            overflow: hidden;
+            width: 10px;
+
+        }
+
+        label { white-space: normal; }
+
+        &.overall label {
+            font-weight: bold;
+            color: #333;
+        }
+        &.overall b { background-color: @overall; }
+        &.teach b { background-color: @teach; }
+        &.noteach b { background-color: @noteach; }
+    }
+}
+
+sup {
+    color: #999;
+    line-height: 0;
+    padding-left: 2px;
+}
+
+.bars line {
+    fill: none;
+    stroke-width: 4px;
+    stroke: #ddd;
+}
+
+circle {
+    fill: #D8472B;
+    fill-opacity: 1;
+    stroke: transparent;
+    stroke-opacity: 1;
+    stroke-width: 1.5px;
+
+    .overall & { fill: @overall; }
+    .teach & { fill: @teach; }
+    .noteach & { fill: @noteach; }
+}
+
+line {
+    .overall & { stroke: @overall; }
+}
+
+.value text {
+    fill: #666;
+    font-size: 11px;
+    text-anchor: middle;
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+    text-anchor: middle;
+}
+
+.value, .shadow {
+    font-style: italic;
+
+    .overall text {
+        fill: @overall;
+        text-anchor: middle;
+        font-style: normal;
+        font-weight: bold;
+    }
+    .teach text {
+        fill: @teach;
+    }
+    .noteach text {
+        fill: @noteach;
+    }
+
+    text.hdr {
+        color: #333;
+        font-size: 12px;
+        font-weight: bold;
+        text-anchor: start;
+    }
+}
+
+.labels li {
+    font-size: 13px;
+
+    strong { color: #333; }
+}
+
+@media screen and (min-width: 650px) {
+    // h1,
+    // h2,
+    // .footnotes,
+    // .footer {
+    //     max-width: 650px;
+    //     margin-left: auto;
+    //     margin-right: auto;
+    // }
+
+    .key {
+        justify-content: center;
+        flex-wrap: nowrap;
+        margin-bottom: 22px;
+
+        .key-item {
+            margin: 0 11px;
+            width: auto;
+        }
+    }
+}
+
+.promo {
+    h1 {
+        .knockout-header();
+    }
+    .labels li {
+        font-size: 14px;
+    }
+    .value text,
+    .shadow text {
+        font-size: 13px;
+
+        .hdr { font-size: 14px; }
+    }
+}

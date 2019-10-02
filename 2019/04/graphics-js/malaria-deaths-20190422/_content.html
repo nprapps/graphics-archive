@@ -1,0 +1,55 @@
+<% if (COPY.labels.headline) { %>
+<h1>
+  <%= t.smarty(COPY.labels.headline) %>
+</h1>
+<% } %>
+
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<% if (COPY.labels.topChartLabel) { %>
+<div class='line-chart-title subtitle-label'>
+  <h2>
+    <%= t.smarty(COPY.labels.topChartLabel) %>
+  </h2>
+</div>
+<% } %>
+<div id="line-chart" class="graphic" role="img" <% if (COPY.labels.screenreader) { %>
+  aria-label="
+  <%- COPY.labels.screenreader %>"
+  <% } %>
+  >
+  <img src="fallback.png" alt="" class="fallback" />
+</div>
+<div class='stacked-bar-title subtitle-label'>
+  <h2>
+    <%= t.smarty(COPY.labels.bottomChartLabel) %>
+  </h2>
+</div>
+<div id='stacked-bar-chart'></div>
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p>
+    <%= COPY.labels.footnote %>
+  </p>
+</div>
+<% } %>
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source:
+    <%= COPY.labels.source %>
+  </p>
+  <% } %>
+  <% if (COPY.labels.credit) { %>
+  <p>Credit:
+    <%= COPY.labels.credit %>
+  </p>
+  <% } %>
+</div>
+<script type="text/javascript">
+var DATA = <%= JSON.stringify(COPY.data) %>;
+var DATArawNumbers = <%= JSON.stringify(COPY.dataNumbers) %>;
+</script>

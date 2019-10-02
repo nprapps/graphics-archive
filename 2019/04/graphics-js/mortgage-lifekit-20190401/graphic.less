@@ -1,0 +1,91 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.graphic {
+  width: 48%;
+  float: left;
+}
+
+.interest-shade {
+  opacity: .5;
+  fill: @orange5;
+}
+
+.clearfix {
+  .clearfix();
+}
+
+ul.key {
+  display: none;
+}
+
+.chart-title {
+  width: 100%;
+  text-align:center;
+  .knockout-header();
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+
+
+.chart-subtitle {
+  .knockout-header();
+  font-size: 12px;
+  margin-bottom: 18px;
+}
+
+.chart-title span {
+  background-color: @yellow4;
+  padding: 2px;
+
+}
+
+.x.axis g:last-of-type text {
+  text-anchor:start;
+  transform: translate(-4px,0px);
+}
+
+text.total-paid {
+  fill: @red3;
+}
+
+text.equity {
+  fill: @teal3;
+}
+
+text.interest {
+  fill: @orange3;
+}
+
+
+@media screen and (max-width: 600px) {
+  .graphic {
+  width: 100%;
+  float: left;
+}
+}
+
+
+
+@media screen and (max-width: 500px) {
+  // .value text {
+  //   font-size: 10px;
+  // }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}

@@ -1,0 +1,102 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<%
+var min = 1980;
+var max = 2019;
+var cities = {};
+COPY.data.forEach(function(row) {
+  var { start, city, end } = row;
+  var endYear = row.endYear = (typeof end == "string" && end.match(/present/)) ? 2019 : end
+  if (!cities[city]) cities[city] = { city, mayors: [], start: Infinity, end: 0 };
+  cities[city].mayors.push(row);
+  if (cities[city].start > start) cities[city].start = start;
+  if (cities[city].end < endYear) cities[city].end = endYear;
+});
+
+cities = Object.keys(cities).map(c => cities[c]);
+cities.sort(function(a, b) {
+  return a.start - b.start;
+  // if (a.end == b.end && a.end == 2019) {
+  //   return a.start - b.start;
+  // }
+  // return a.end - b.end;
+})
+
+var xScale = n => (n - min) / (2019 - min) * 100;
+
+%>
+
+<ul class="color-key">
+  <li> <i class="black block"></i> African American
+  <li> <i class="asian block"></i> Asian American
+  <li> <i class="latina block"></i> Latina
+</ul>
+
+<div id="chart" class="graphic">
+
+  <div class="row axis">
+    <div class="city"></div>
+    <div class="timeline">
+      <div class="bars">
+        <% [1980, 1990, 2000, 2010].forEach(function(year) { %>
+          <div class="year-line" style="left: <%= xScale(year) %>%">
+            <%= year %>
+          </div>
+        <% }) %>
+      </div>
+      <div class="detail hidden"></div>
+    </div>
+  </div>
+
+  <% cities.forEach(function(c) { var mayors = c.mayors; %>
+  <div class="row <%= c.end == 2019 ? "present" : "" %>">
+    <div class="city"><%= c.city %></div>
+
+    <div class="timeline">
+      <div class="bars">
+        <% [1980, 1990, 2000, 2010].forEach(function(year) { %>
+          <div class="year-line" style="left: <%= xScale(year) %>%"></div>
+        <% }) %>
+        <% mayors.forEach(function(mayor) { %>
+          <div class="term" data-ethnicity="<%= mayor.ethnicity %>"
+          style="left: <%= xScale(mayor.start) %>%; width: <%= xScale(mayor.endYear) - xScale(mayor.start) %>%">
+          </div>
+        <% }) %>
+      </div>
+
+      <div class="detail hidden">
+        <ul>
+          <% mayors.forEach(function(mayor) { %>
+          <li> 
+            <span class="years"><%= mayor.start %>-<%= mayor.end %></span>: <%= mayor.name %>
+          <% }) %>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  <% }) %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+  
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

@@ -1,0 +1,64 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+
+  <%
+    var grouped = {};
+    COPY.data.forEach(function(d) {
+      if (!grouped[d['Status']]) grouped[d['Status']] = [];
+      grouped[d['Status']].push(d);
+    });
+
+    for (var status in grouped) {
+  %>
+
+  <table class="<%= t.classify(status) %>">
+    <caption><%= COPY.labels['hed_' + status] %></caption>
+
+    <% grouped[status].forEach(function(row) { %>
+      <tr class="<%= t.classify(row['State']) %>">
+        <td class="state"><%= row['State'] %></td>
+        <td class="status">
+          <% if (row['Enacted']) { %>Enacted in <%= row['Enacted'] %><% } %>
+          <% if (row['Repealed']) { %><br />Repealed in <%= row['Repealed'] %><% } %>
+        </td>
+        <td class="summary">
+          <%= t.smarty(row['Summary of law']) %>
+
+          <% if (row['Exact Statute'] && row['Exact Statute'] != 'NA') { %>
+            <cite><% if (row['Source']) { %><a href="<%= row['Source'] %>"><% } %><%= row['Exact Statute'] %><% if (row['Source']) { %></a><% } %></cite>
+          <% } %>
+
+        </td>
+      </tr>
+    <% }) %>
+
+  </table>
+
+  <%
+    };
+  %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

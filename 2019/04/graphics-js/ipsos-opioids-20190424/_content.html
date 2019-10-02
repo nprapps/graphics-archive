@@ -1,0 +1,60 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<% ["familiarity", "responsibility"].forEach(function(sheet) { %>
+<div class="stacked-bar graphic">
+  <%
+var data = COPY[sheet];
+var first = data[0];
+var props = Object.keys(first).filter(l => l != "label" && l != "total");
+var classify = p => p.toLowerCase().replace(/'/, "").replace(/\W/, "-");
+data.forEach(function(row) {
+  row.total = props.reduce((t, p) => t + row[p], 0);
+});
+var asPercent = (row, prop) => Math.round(row[prop] / row.total * 100) + "%";
+  %>
+
+  <div class="data" role="table">
+    <ul class="key" role="row">
+      <li class="sr-only" role="columnheader">Question</li>
+      <% props.forEach(function(p) { %>
+      <li class="key-item" role="columnheader"> <i class="<%= classify(p) %>"></i> <%= p %>
+      <% }) %>
+    </ul>
+    <% data.forEach(function(row) { %>
+    <div class="row" role="row">
+      <div class="question" role="cell"><%= row.label %></div>
+      <div class="bar-container" role="presentation">
+        <% props.forEach(function(p) { var v = row[p] / row.total * 100 %>
+        <div class="bar <%= classify(p) %>" role="cell" style="flex-basis: <%= v %>%">
+          <div class="<%= v >= 7 ? "label" : "sr-only" %>"><%= asPercent(row, p) %></div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
+
+<% }) %>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.data) %>;
+</script>

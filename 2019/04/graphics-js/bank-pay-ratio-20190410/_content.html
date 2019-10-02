@@ -1,0 +1,55 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table">
+    <thead>
+      <tr>
+        <th>
+          <div class="header"><%= COPY.labels.bank %></div>
+        </th>
+        <th class="amt">
+          <div class="header"><%= COPY.labels.ceo %></div>
+        </th>
+        <th class="amt">
+          <div class="header"><%= COPY.labels.emp %></div>
+        </th>
+        <th class="amt">
+          <div class="header"><%= COPY.labels.ratio %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY.data.forEach(function(row) { %>
+    <tr>
+      <td data-title="<%= COPY.labels.bank %>"><%= row.bank %></td>
+      <td data-title="<%= COPY.labels.ceo %>" class="amt"><%= row.ceo %></td>
+      <td data-title="<%= COPY.labels.emp %>" class="amt"><%= row.employee %></td>
+      <td data-title="<%= COPY.labels.ratio %>" class="amt"><%= row.ratio %></td>
+    </tr>
+    <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+  
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

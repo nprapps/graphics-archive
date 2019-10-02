@@ -1,0 +1,38 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.key .key-item label {
+  white-space: normal;
+}
+
+.value text,
+.annotations text {
+  font-size: 12px;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+.value text .date,
+.annotations text .date {
+  font-weight: bold;
+}
+
+.annotations .dots {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+@media screen and (max-width: 500px) {
+  .value text,
+  .annotations text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+}

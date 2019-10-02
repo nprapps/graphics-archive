@@ -1,0 +1,89 @@
+@import "./lib/base";
+
+@strong-agree: @orange2;
+@slight-agree: @orange3;
+@slight-disagree: @teal3;
+@strong-disagree: @teal2;
+@yes: @orange4;
+@no: @teal4;
+@dont-know: #888;
+
+.stacked-bar {
+  padding: 16px 0;
+}
+
+.stacked-bar + .stacked-bar {
+  border-top: 1px solid #EEE;
+}
+
+.key {
+  margin: 0 0 16px;
+}
+
+.key-item i {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  vertical-align: center;
+
+  &.yes { background: @yes; }
+  &.no { background: @no; }
+  &.strongly-agree { background: @strong-agree; }
+  &.somewhat-agree { background: @slight-agree; }
+  &.somewhat-disagree { background: @slight-disagree; }
+  &.strongly-disagree { background: @strong-disagree; }
+  &.dont-know { background: @dont-know; }
+}
+
+.sr-only {
+  position: absolute;
+  left: -9999px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  @media @screen-mobile {
+    display: block;
+  }
+
+  .question {
+    flex: 0 0 30%;
+    padding: 4px;
+
+    @media @screen-mobile {
+      padding-left: 0px;
+    }
+  }
+
+  .bar-container {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+
+    .bar {
+      background: black;
+      height: 24px;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+
+      .label {
+        padding: 2px;
+      }
+
+      &.yes { background: @yes; }
+      &.no { background: @no; }
+      &.strongly-agree { background: @strong-agree; }
+      &.somewhat-agree { background: @slight-agree; }
+      &.somewhat-disagree { background: @slight-disagree; }
+      &.strongly-disagree { background: @strong-disagree; }
+      &.dont-know { background: @dont-know; }
+    }
+  }
+}

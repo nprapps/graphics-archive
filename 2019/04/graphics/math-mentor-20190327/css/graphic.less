@@ -1,0 +1,106 @@
+@import "base";
+
+// Add custom styles here
+.graphic {
+  @media @screen-mobile-above {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  div { box-sizing: border-box; }
+}
+
+.student {
+  .clearfix();
+
+  @media @screen-mobile {
+    display: flex;
+
+    + .student {
+      border-top: 2px solid #eee;
+      margin-top: 11px;
+      padding-top: 11px;
+    }
+  }
+
+  @media @screen-mobile-above {
+    display: block;
+    margin-bottom: 44px;
+    width: 48%;
+
+    &:nth-child(2n + 1) {
+      margin-right: 2%;
+    }
+    &:nth-child(2n) {
+      margin-left: 2%;
+    }
+  }
+
+  .photo {
+    @media @screen-mobile { width: 34%; }
+    @media @screen-mobile-above { margin-bottom: 11px; }
+
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  .quote {
+    padding-left: .75em;
+
+    @media @screen-mobile {
+      padding-left: 6%;
+      width: 60%;
+    }
+
+    blockquote {
+        .gotham();
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0 auto .5em auto;
+        color: #737a7a;
+        position: relative;
+
+        @media @screen-mobile-above {
+          font-size: 18px;
+          margin-bottom: 1.5em;
+        }
+
+        &:before {
+            content: open-quote;
+            transform: translateX(-100%);
+            display: inline-block;
+            position: absolute;
+        }
+
+        &:after {
+            content: close-quote;
+        }
+    }
+
+    .quote-header {
+      .gotham();
+      font-size: 12px;
+      margin: 0 auto;
+      text-transform: uppercase;
+      color: #858e8e;
+
+      @media @screen-mobile-above {
+        font-size: 14px;
+      }
+
+      &:before {
+          content: '\2014';
+      }
+
+      .quote-name { font-weight: 700; }
+      .quote-identifier {
+        color: #737a7a;
+        display: block;
+        text-transform: none;
+      }
+    }
+
+  }
+}

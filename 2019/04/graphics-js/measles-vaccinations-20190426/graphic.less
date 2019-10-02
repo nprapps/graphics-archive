@@ -1,0 +1,25 @@
+@import "./lib/base";
+
+.bars rect {
+  fill: @teal2;
+}
+
+.value text.out {
+  fill: #333;
+}
+
+.labels .united-states {
+  font-weight: bold;
+}
+
+.vaccine-line {
+  line {
+    stroke: fade(@red3, 80%);
+    stroke-dasharray: 2px 2px;
+  }
+
+  .stop {
+    font-size: 12px;
+    fill: @red1;
+  }
+}

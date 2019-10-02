@@ -1,0 +1,158 @@
+@import "base";
+
+
+body {
+    padding-bottom: 0;
+}
+
+h1, h2 {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 650px;
+    text-align: center;
+}
+
+.all {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 0 2px;
+  background-color: @yellow5;
+  color: #333;
+
+}
+
+.some {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 0 2px;
+  background-color: @teal6;
+  color: #333;
+
+}
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 22px;
+}
+
+h2 {
+    margin-top: -11px;
+}
+
+.footnotes,
+.footer {
+    margin-left: 11px;
+    margin-right: auto;
+    max-width: 650px;
+    padding-top: 22px;
+}
+
+.graphic {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.text {
+    .gotham();
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    font-weight: 100;
+    margin-bottom: 22px;
+    overflow: hidden;
+    padding: 3px 15px 0 15px;
+    text-align: center;
+
+    &.text-15 {
+      padding-bottom: 8px;
+      background-color: #f8f8f8;
+      border: 2px solid #dfdfdf;
+      border-radius: 5px;
+      blockquote {
+        color: #454545;
+      }
+    }
+
+    blockquote {
+        color: #999;
+        font-size: 11px;
+        line-height: 1.6;
+        margin: 0;
+
+        strong {
+            color: #666;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 0 2px;
+
+
+          .positive&,
+          .negative&.positive {
+              background-color: @yellow5;
+              color: #333;
+          }
+          .negative&,
+          .positive&.negative {
+              background-color: @teal6;
+              color: #333;
+            }
+        }
+    }
+
+    cite {
+        .knockout-header();
+        color: #787878;
+        display: block;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        margin-bottom: 7px;
+
+
+        a:link, a:visited { color: #787878; border-bottom: 2px solid #ddd; }
+        a:hover, a:active { color: #bccae5; border-bottom: 0px solid #ddd; }
+
+        strong {
+            color: #454545;
+            font-weight: 700;
+        }
+    }
+}
+
+
+@media screen and (min-width: 501px){
+    .graphic {
+        .text { width: 33%; }
+    }
+}
+
+@media screen and (min-width: 701px){
+    .graphic {
+        .text {
+            width: 25%;
+            padding-left: 22px;
+            padding-right: 22px;
+        }
+    }
+}
+
+@media screen and (max-width: 500px){
+    .graphic {
+        justify-content: left;
+        .text {
+            margin-bottom: 11px;
+            padding: 5px 11px 0 11px;
+            text-align: left;
+            width: 50%;
+
+            &.text-15 {
+              width: 100%;
+              margin-top: 15px;
+              padding-bottom: 11px;
+            }
+
+            blockquote { line-height: 1.4; }
+        }
+    }
+}

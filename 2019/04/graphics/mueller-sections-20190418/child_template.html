@@ -1,0 +1,30 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <p class="instructions">{{ COPY.labels.instructions }}</p>
+
+    {% for section in COPY.data %}
+    <section class="{{ section.section_hed|classify }}">
+      <h1><a href="https://apps.npr.org/documents/document.html?id=5955997-Muellerreport#document/p{{ section.start_page|int }}">{{ section.section_hed|smarty }}</a></h1>
+      <h2>{{ section.pages|int }} {% if (section.pages|int == 1) %}page{% else %}pages{% endif %}</h2>
+      <a href="https://apps.npr.org/documents/document.html?id=5955997-Muellerreport#document/p{{ section.start_page|int }}"><img src="assets/{{ section.file }}" alt="" /></a>
+    </section>
+    {% endfor %}
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}

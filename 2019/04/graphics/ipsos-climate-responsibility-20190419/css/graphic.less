@@ -1,0 +1,30 @@
+@import "base";
+
+// Add custom styles here
+h1, h2 {
+    @media @screen-mobile-above {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 650px;
+    }
+}
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 22px;
+
+    strong { color: #333; }
+}
+
+.bars rect {
+  fill: #ed823a;
+}
+
+.bars.bg rect {
+  fill: #eee;
+}
+
+.labels {
+  strong { color: #333; }
+}

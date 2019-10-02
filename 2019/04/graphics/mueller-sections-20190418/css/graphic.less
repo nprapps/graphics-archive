@@ -1,0 +1,42 @@
+@import "base";
+
+// Add custom styles here
+section {
+  margin: 0 0 22px 0;
+
+  h1 {
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 3px 0;
+  }
+
+  h2 {
+    margin: 0 0 22px 0;
+  }
+
+  h1,h2 {
+    .mmedia-constrained-centered();
+  }
+
+  img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.instructions {
+  .mmedia-constrained-centered();
+  color: #666;
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 55px;
+}
+
+.footnotes,
+.footer {
+  .mmedia-constrained();
+}

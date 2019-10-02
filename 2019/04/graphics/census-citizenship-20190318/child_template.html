@@ -1,0 +1,36 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    <h2>A question about citizenship or naturalization has been included on the census for either <span class="all">all households</span> or <span class="some">selective households</span>, on and off, since 1820.</h2>
+
+
+    <div id="graphic" class="graphic">
+    {% for text in COPY.data %}
+        <div class="text {{ text.highlight|classify }} text-{{ loop.index }}">
+            <cite>{% if text.url %}<a href="{{ text.url }}">{% endif %}{{ text.date }}{%if text.url %}</a>{% endif %}</cite>
+            {% if text.image %}<img src="assets/{{ text.image }}" alt="{{ text.date }} Census"/>{% endif %}
+            <blockquote>{{ text.text_fmt }}</blockquote>
+        </div>
+    {% endfor %}
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+{% endblock js %}

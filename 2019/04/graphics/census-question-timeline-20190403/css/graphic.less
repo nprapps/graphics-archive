@@ -1,0 +1,116 @@
+@import "base";
+
+@census-bg:     @red6;
+@census-text:   @red2;
+@state-bg:       @blue6;
+@state-text:     @blue2;
+@wh-bg:           @yellow6;
+@wh-text:         @yellow1;
+@doj-bg:          @teal6;
+@doj-text:        @teal2;
+@dhs-bg:          #d1d2f5;
+@dhs-text:        #5859ad;
+@commerce-bg:       @orange6;
+@commerce-text:     @orange2;
+
+a, a:link, a:visited {
+    color: #4774CC;
+    text-decoration:  none;
+}
+
+a:hover, a:active { color: #bccae5; }
+
+// ai2html artboard sizes
+@media screen and (min-width: 730px) {
+        #g-ai2html-graphic-small, #g-ai2html-graphic-medium { display: none; }
+}
+
+@media screen and (max-width: 729px) and (min-width: 400px) {
+    #g-ai2html-graphic-small, #g-ai2html-graphic-wide { display: none; }
+}
+
+@media screen and (max-width: 399px) {
+    #g-ai2html-graphic-medium, #g-ai2html-graphic-wide { display: none; }
+}
+
+// Add custom styles here
+h1,
+h2 {
+  .mmedia-constrained-centered();
+}
+
+.footnotes,
+.footer {
+  .mmedia-constrained();
+}
+
+.key {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .key-item {
+    .gotham();
+    box-sizing: border-box;
+    font-size: 13px;
+    margin: 0 3px 6px 3px;
+    padding: 6px 10px;
+
+    &.state {
+      background-color: @state-bg;
+      color: @state-text;
+    }
+    &.commerce {
+      background-color: @commerce-bg;
+      color: @commerce-text;
+    }
+    &.census {
+      background-color: @census-bg;
+      color: @census-text;
+    }
+    &.doj {
+      background-color: @doj-bg;
+      color: @doj-text;
+    }
+    &.wh {
+      background-color: @wh-bg;
+      color: @wh-text;
+    }
+    &.dhs {
+      background-color: @dhs-bg;
+      color: @dhs-text;
+    }
+  }
+
+}
+
+.graphic {
+  span {
+    padding: 0 5px;
+
+    &.state {
+      background-color: @state-bg;
+      color: @state-text;
+    }
+    &.census {
+      background-color: @census-bg;
+      color: @census-text;
+    }
+    &.doj {
+      background-color: @doj-bg;
+      color: @doj-text;
+    }
+    &.wh {
+      background-color: @wh-bg;
+      color: @wh-text;
+    }
+    &.dhs {
+      background-color: @dhs-bg;
+      color: @dhs-text;
+    }
+    &.commerce {
+      background-color: @commerce-bg;
+      color: @commerce-text;
+    }
+  }
+}

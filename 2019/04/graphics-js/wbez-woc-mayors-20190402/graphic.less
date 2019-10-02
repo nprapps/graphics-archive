@@ -1,0 +1,129 @@
+@import "./lib/base";
+
+@black: @red4;
+@asian: @blue2;
+@latina: @yellow5;
+
+h2 {
+  margin-bottom: 10px;
+}
+
+.color-key {
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+  margin: 10px 0;
+
+  li {
+    display: inline-block;
+    margin: 3px 8px;
+  }
+
+  .block {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+
+    &.black { background: @black; }
+    &.asian { background: @asian; }
+    &.latina { background: @latina; }
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  cursor: pointer;
+
+  &.present .city {
+    font-weight: bold;
+    color: #333;
+    // font-style: italic;
+  }
+
+  .city {
+    flex: 0 0 160px;
+    text-align: right;
+    padding-right: 4px;
+    padding-bottom: 4px;
+
+    @media @screen-mobile {
+      flex-basis: 40%;
+    }
+  }
+
+  .timeline {
+    flex: 1;
+  }
+}
+
+.axis {
+  color: #888;
+  font-style: italic;
+  margin-bottom: 0;
+
+  .bars {
+    background: white;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  @media @screen-mobile {
+    .desktop { display: none; }
+    .mobile { display: block; }
+  }
+}
+
+.bars {
+  background: #F8F8F8;
+  position: relative;
+  height: 24px;
+  border-bottom: 1px solid white;
+  @bar-padding: 6px;
+
+  .year-line {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    border-left: 1px solid #CCC;
+    padding-left: 3px;
+  }
+
+  .term {
+    position: absolute;
+    background: #CCC;
+    top: @bar-padding;
+    bottom: @bar-padding;
+    border-left: 1px solid white;
+
+    &[data-ethnicity="African-American"] { background: @black }
+    &[data-ethnicity="Asian-American"] { background: @asian }
+    &[data-ethnicity="Latina"] { background: @latina }
+  }
+}
+
+.detail {
+  border-left: 2px dashed #EEE;
+
+  &.hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  ul {
+    // list-style-type: none;
+    padding: 4px 0px 10px 20px;
+    margin: 0;
+
+    li {
+      margin-bottom: 4px;
+    }
+  }
+}

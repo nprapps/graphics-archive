@@ -1,0 +1,107 @@
+@import "./lib/base";
+
+h2 {
+  margin-bottom: 28px;
+}
+
+h2 strong {
+  color: #333;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+  .moe-key {
+    display: block;
+  }
+}
+
+.subtitle-label {
+  .knockout-header();
+}
+
+.graphic-wrapper {
+  margin-bottom: 39px;
+}
+
+.line.under-5 {
+  stroke: @red3;
+}
+
+.line.all-ages {
+  stroke: @yellow3;
+}
+
+
+.under-five, .under-5 b, .under-5.stacked-bar {
+  background: @red3 !important;
+}
+
+.moe-under5, .under-5-uncertainty-interval b {
+  fill: @red3;
+  background: @red3;
+  opacity: .3
+}
+
+.allAges, .all-ages b {
+  background: @yellow3 !important;
+}
+
+
+.moe-allages, .all-ages-uncertainty-interval b {
+  fill: @yellow3;
+  background: @yellow3;
+  opacity: .3
+}
+
+.five-and-older {
+  background: #c3c3c3;
+}
+
+.stacked-bar {
+  margin-bottom: 33px;
+  float:left;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 11px;
+  line-height: 25px;
+}
+
+.stacked-bar-title h2 {
+  margin-bottom: 3px;
+}
+
+
+
+
+.key {
+  margin-bottom: 12px;
+}
+
+.moe-key {
+  margin-bottom: 21px;
+}
+
+text strong {
+  font-weight: bold;
+}

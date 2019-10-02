@@ -1,0 +1,86 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.annotations .dots {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.annotations text {
+    font-size: 12px;
+    fill: #999;
+}
+
+.negative-shade {
+  fill: @red2;
+  opacity: .1;
+}
+
+.shading-label {
+  text-anchor: end;
+  fill: @red3;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.annotation-0 {
+  text-anchor: end;
+}
+
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+  .annotations text {
+    /*font-size: 10px; */
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+
+
+// specific to newsletter display
+body.newsletter {
+  max-width: 400px;
+
+  h1 {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+
+  h2 {
+    font-size: 12px;
+    margin-top: 0;
+  }
+
+  .key {
+    margin-top: -11px;
+    margin-bottom: 15px;
+  }
+
+  .y0-text,
+  .y1-text {
+    font-size: 12px;
+  }
+
+  .footnotes,
+  .footer { display: none; }
+}
