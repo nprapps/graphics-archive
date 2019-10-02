@@ -1,0 +1,65 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+
+    <div class="trump-pardons">
+        {% if COPY.labels.headline_bios %}<h1>{{ COPY.labels.headline_bios|smarty }}</h1>{% endif %}
+        {% if COPY.labels.subhed_bios %}<h2>{{ render(COPY.labels.subhed_bios)|smarty }}</h2>{% endif %}
+
+        {% for row in COPY.bios %}
+        <div class="bio {{ row.name|classify }}">
+                <img src="assets/{{ row.image }}"/>
+                <h4>
+                  {{ row.name }}
+                </h4>
+                <p class="pardon-date">
+                  Granted: {{ row.date_pardon }}
+                </p>
+                <p class="status">
+                  Status: {{ row.status }}
+                </p>
+                <p class="description">
+                  {{ row.description }}
+                </p>
+                <div class="trump-quote">
+
+                    <p>
+
+                      {{ row.quote }}
+                    </p>
+                    <p class="quote-hed">
+                        {{ row.quote_hed }}
+                    </p>
+                </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="trump-chart">
+        {% if COPY.labels.headline_chart %}<h1>{{ COPY.labels.headline_chart|smarty }}</h1>{% endif %}
+        {% if COPY.labels.subhed_chart %}<h2>{{ COPY.labels.subhed_chart|smarty }}</h2>{% endif %}
+        <div id="line-chart" class="graphic">
+            <img src="fallback.png" alt="[Chart]" class="fallback" />
+        </div>
+    </div>
+
+    {% if COPY.labels.footnote_chart %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote_chart|smarty }}</p>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+        {% if COPY.labels.photo_credit %}<p>Photos: {{ COPY.labels.photo_credit|smarty }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+    </div>
+
+    <script type="text/javascript">
+        var DATA = {{ COPY.data.json() }};
+    </script>
+
+{% endblock content %}

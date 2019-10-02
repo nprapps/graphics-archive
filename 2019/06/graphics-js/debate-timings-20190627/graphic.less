@@ -1,0 +1,51 @@
+@import "./lib/base";
+
+h2, h2,
+.footer,
+.footnote {
+  max-width: 400px;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+h2 {
+  margin-top: -9px;
+  font-style: italic;
+}
+
+.labels li {
+  font-size: 13px;
+
+  &.cross-talk,
+  &.debate-1 {
+    font-style: italic;
+    color: #999;
+  }
+}
+
+
+.bars rect {
+  fill: @blue3;
+
+  &.cross-talk { fill: #ccc; }
+  &.debate-1 { fill: @blue5; }
+}
+
+.value text {
+  font-size: 12px;
+
+  &.out {
+    fill: #666;
+  }
+  &.cross-talk,
+  &.debate-1 {
+    font-style: italic;
+
+    &.out { fill: #999; }
+  }
+}

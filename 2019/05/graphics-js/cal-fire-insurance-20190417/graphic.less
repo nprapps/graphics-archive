@@ -1,0 +1,25 @@
+@import "./lib/base";
+
+.bars rect {
+  fill: @red3;
+}
+
+line.pointer-line {
+  stroke: #999999;
+}
+
+.pointer-text {
+  text-anchor: end;
+  .gotham();
+  font-size: 11px;
+}
+
+@media (max-width: 330px) {
+  .value text {
+    font-size: 9px
+  }
+
+  .pointer-text {
+  	font-size: 10px;
+  }
+}

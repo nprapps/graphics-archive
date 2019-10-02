@@ -1,0 +1,111 @@
+@import "base";
+
+.trump-pardons,
+.trump-chart {
+    h1 {
+        color: #454545;
+        font-size: 17px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    h2 {
+        font-style: italic;
+    }
+}
+
+.trump-pardons {
+    padding-bottom: 33px;
+    margin-bottom: 33px;
+    border-bottom: 3px solid #eee;
+    // border-top: 1px solid #eee;
+    // padding-top: 22px;
+
+    .bio {
+      .trump-quote {
+        border-left: 2px solid #e0e0e0;
+        padding-left: 20px;
+        margin-right: 35%;
+        font-style: italic;
+      }
+
+      .clearfix();
+        padding-bottom: 22px;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 22px;
+      &:last-child{
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: none;
+      }
+    }
+    h4 {
+      .gotham();
+      color: #454545;
+      margin-top: 0;
+      margin-bottom: 11px;
+      font-size: 16px;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 15px;
+      &.pardon-date {
+        margin-bottom: 0;
+        color: #787878;
+      }
+      &.status {
+        color: #787878;
+      }
+      &.quote-hed {
+        margin-bottom: 0;
+      }
+    }
+    img {
+      float: right;
+      width: 33%;
+      margin-left: 10px;
+    }
+}
+
+.lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+}
+
+.value text {
+    font-size: 12px;
+    fill: #999;
+
+    &.trump {
+        fill: #454545;
+        font-weight: bold;
+    }
+}
+
+text.axis-label {
+    fill: #999;
+    font-size: 12px;
+    text-anchor: middle;
+}
+
+@media screen and (max-width: 500px) {
+    .trump-pardons {
+      .bio {
+        p {
+          font-size: 13px;
+        }
+        .trump-quote {
+          margin-right: 20%;
+        }
+      }
+    }
+    .value text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 501px) {
+    .key {
+        display: none;
+    }
+}

@@ -1,0 +1,42 @@
+@import "base";
+
+.axis {
+    fill: #666;
+    font-weight: bold;
+    font-size: 11px;
+
+    path { display: none; }
+}
+
+.lines line {
+    stroke-width: 3px;
+    stroke: #ddd;
+    shape-rendering: auto;
+}
+
+.dots circle {
+    fill: #ddd;
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.value text {
+    font-size: 11px;
+    fill: #333;
+}
+
+.label text {
+    font-size: 11px;
+    // fill: #333;
+}
+
+.background {
+    fill: #eee;
+}
+
+
+@media screen and (max-width: 500px) {
+    .key .key-item label {
+        font-size: 11px;
+    }
+}
