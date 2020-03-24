@@ -1,0 +1,69 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+    
+    
+
+
+<ul class="key">
+	<li class="key-item label_discrim_yes">
+		<b style="background-color: rgb(216, 71, 43);"></b>
+	 	<label><%= t.smarty(COPY.labels.label_discrim_yes) %></label>
+	</li>
+	<li class="key-item label_discrim_no">
+		<b style="background-color: rgb(239, 198, 55);"></b>
+		<label><%= t.smarty(COPY.labels.label_discrim_no) %></label>
+	</li>
+</ul>
+
+<div class='graphic-wrapper top-level'>
+	<h3 class='graphic-title'><%= t.smarty(COPY.labels.chart1) %></h3>
+<div id="line-chart1" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+></div>
+</div>
+
+<div class='graphic-wrapper top-level'>
+	<h3 class='graphic-title'><%= t.smarty(COPY.labels.chart2) %></h3>
+<div id="line-chart2" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+></div>
+</div>
+
+<div class='graphic-wrapper top-level'>
+	<h3 class='graphic-title'><%= t.smarty(COPY.labels.chart3) %></h3>
+<div id="line-chart3" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+></div>
+</div>
+
+<div class='clearfix'></div>
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATALIB = <%= JSON.stringify(COPY.whiteLib) %>;
+    var DATAMOD = <%= JSON.stringify(COPY.whiteMod) %>;
+    var DATACONSERV = <%= JSON.stringify(COPY.whiteConserv) %>;
+</script>

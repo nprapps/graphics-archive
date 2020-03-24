@@ -1,0 +1,64 @@
+<%
+  var people = [];
+  COPY.lawmakers.forEach(function(row) {
+    if (row.type.split("-")[0] == "leaders") {
+      people.push(row);
+    }
+  }); 
+%>
+
+<div class="roster">
+  <h3>TKTK</h3>
+  <ul class="roster-block">
+    <% people.forEach(function(row) { 
+        var tweets = [];
+        var re = /(?<!\\),/
+        tweets = row.text.split(re).sort(function(a, b){
+          if (a.includes("{positive}")) {
+            return a.length - b.length - 10;  
+          } else if (b.includes("{positive}")) {
+            return a.length - b.length + 10;  
+          } else {
+            return a.length - b.length;
+          }
+          
+       })
+
+    %>
+      <li class="i<%= people.length %>">
+        <div class="mugtop">
+          <img src="./mugs/<%= row.photo %>" class="mug" alt="<%= row.name%>">
+        </div>
+        <div class="metadata">
+          <div class="name"><%= row.name %> (<%= row.state_district %>)</div>
+          <div class="title"><%= row.title %></div> 
+          <div class="tweets">Number of times mentioned: <%= row.total_tweets %></div> 
+        </div>
+        <div>          
+          <div class="text">
+            <% tweets.forEach(function(item) { %>
+              <%
+                if (item.includes("{positive}")) {
+                  var thisText = item.replace("{positive}","");
+                  var thisClass = "pos";
+                } else {
+                  var thisText = item;
+                  var thisClass = "neg";
+                }
+              %>
+
+              <div class="text-item <%= thisClass %>">                
+                <%= thisText.replace("\\", "") %>
+              </div>
+            <% }); %>            
+          </div>
+        </div>
+      </li>   
+    <% }); %>
+  </ul>
+</div>
+
+
+<div class="photo credits">
+Photos: <%= people.map(row => `${row.credit} (${row.name.trim().split(" ").pop()})`).join("; ") %>
+</div>

@@ -1,0 +1,64 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+<%
+var unkeyed = [...new Set(Object.keys(COPY.data))].sort().map(k => COPY.data[k]);
+
+var asCountries = status => unkeyed
+  .filter(c => c.status == status)
+  .map(c => c.country);
+
+var asList = status => asCountries(status).join(", ")
+  // .replace(/, ([\w ]+)$/, " and $1");
+%>
+
+<ul class="key-container">
+  <li> <i class="block Allow"></i> Allowed (<%= asCountries("Allow").length %>)
+  <li> <i class="block Banned"></i> Banned (<%= asCountries("Banned").length %>)
+  <li> <i class="block Undecided"></i> Undecided (<%= asCountries("Undecided").length %>)
+  <li> <i class="block No info"></i> No data (<%= asCountries("No info").length %>)
+</ul>
+    <%= await t.include("./countries.svg") %>
+</div>
+
+<div class="lists">
+
+  <div class="allow country-list">
+    <h3><%= COPY.labels.allow %></h3>
+    <%= asList("Allow") %>
+  </div>
+
+  <div class="banned country-list">
+    <h3><%= COPY.labels.banned %></h3>
+    <%= asList("Banned") %>
+  </div>
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<% if ("data" in COPY) { %>
+<script type="text/javascript">
+window.DATA = <%= JSON.stringify(COPY.data) %>;
+</script>
+<% } %>

@@ -1,0 +1,39 @@
+@import "./lib/base";
+
+.bar text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+body {
+	max-width: 650px;
+	margin: 0 auto;	
+}
+
+.mmedia-constrained {
+  .mmedia-constrained();
+
+    &.center {
+      text-align: center; 
+    }
+    
+
+  
+}
+
+.key {
+  text-align: center;
+}
+
+@media @screen-mobile {
+  .mmedia-constrained.center {
+    text-align: left;
+  }
+
+  .key {
+    text-align: left;
+  }
+}

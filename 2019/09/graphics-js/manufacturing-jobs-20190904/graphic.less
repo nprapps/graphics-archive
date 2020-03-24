@@ -1,0 +1,70 @@
+@import "./lib/base";
+
+.recession { fill: #ebebeb; }
+
+.chart-label {
+    fill: #999;
+    font-style: italic;
+    font-size: 12px;
+    text-anchor: middle;
+    letter-spacing: .3px;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+    // font-weight: bold;
+    fill: #666;
+    -webkit-font-smoothing: antialiased;
+}
+
+.annotation text {
+    font-size: 12px;
+    // font-weight: bold;
+    fill: #666;
+    -webkit-font-smoothing: antialiased;
+
+  }
+
+.dots {
+    stroke: #fff;
+    stroke-width: 1px;
+  }
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+
+  .annotation text {
+    font-size: 10px;
+  }
+
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+.annotation {
+  circle {
+    fill: @red3;
+    stroke: none;
+  }
+  line {
+    stroke: #999;
+  }
+  text {
+    fill: @red3;
+  }
+}

@@ -1,0 +1,103 @@
+<div>
+
+
+
+<% if (COPY.labels.cards_headline) { %>
+<h1><%= t.smarty(COPY.labels.cards_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.cards_subhead) { %>
+<h2><%= t.smarty(COPY.labels.cards_subhead) %></h2>
+<% } %>
+
+<%
+
+    var calcBG = function (amt) {
+      var newClass = 'background-color';
+      var colors = {
+        positive: '216,71,43',
+        negative: '25,158,57'
+      }
+      if (isNaN(amt)) {
+        var style = `color: "#666";`;
+      } else {            
+        var pctOpacity = Math.abs(amt) / 100;
+        var sign = Math.sign(amt) == 1 ? "positive" : "negative";
+        var style = `${newClass}: rgba(${colors[sign]},${pctOpacity}); color: ${pctOpacity < .5 ? "#666" : "white"};`;
+      }
+      return style;
+    }; 
+ 
+%>
+
+<% COPY.data.forEach(function(row) { %>
+	<% if (row.inCards) { %>
+
+    <div class="card">		
+      <div class="header">
+        <div class="header-inner">
+          <h3 class="gotham">
+            <b><%= row.item_name_for_card %></b> <br>
+            <%= row.brand %> 
+          </h3>
+        </div>
+      </div>
+
+      <!-- <div class="card-inner" style="<%= calcBG(row.priceChange) %>"> -->
+      <div class="card-inner">
+        
+        <div class="amt-highlight">
+          <!-- <h3>+<%= parseFloat(row.priceChange).toFixed(0) %>%</h3> -->
+          <div class="img-cont">
+            <img src="img/<%= row.cardImage%>">
+          </div> 
+        </div>
+        <div id="line-chart<%= row.index %>" class="graphic" role="img">
+        </div>
+      </div>			
+		</div>
+	<% } %>   
+<% }) %>
+
+
+<div class='clearfix' style="clear: both;"></div>
+
+
+<% if (COPY.labels.footnote2) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote2 %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.cards_credit) { %><p>Credit: <%= COPY.labels.cards_credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = [];
+
+    var copy = <%= JSON.stringify(COPY.data) %>;
+    copy.forEach(function(row,i) {
+      if (row.inCards) {
+        DATA.push([
+          {
+            date: 1,
+            amt: parseFloat(row.priceChangeNull)
+          },
+          {
+            date: 2,
+            amt: parseFloat(row.priceChangeDec)
+          },
+          {
+            date: 3,
+            amt: parseFloat(row.priceChange)
+          }
+        ])
+      }
+    })
+
+</script>
+
+</div>

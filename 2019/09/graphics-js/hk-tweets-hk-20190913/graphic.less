@@ -1,0 +1,217 @@
+@import "./lib/base";
+
+.mmedia-constrained {
+  .mmedia-constrained();
+
+  &.center {
+    text-align: center; 
+  }
+}
+
+h2 {
+  margin-bottom: 0px;
+}
+
+.clearer {
+  clear: both;
+}
+
+.graphic {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.card-container {
+  width: 33%;  
+  margin-top:5px;
+  margin-bottom:5px;
+
+
+  .card-inner {
+    margin:10px 5px;
+    padding:15px;
+    padding-top: 15px;
+    padding-bottom:5px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    height: 100%;
+    position: relative;
+
+  }
+
+}
+
+.user-cont {
+  .names {
+    float: left;
+  }
+
+  .tweet_time {
+    float: right;
+  }
+
+
+  h3 {
+    margin-bottom: 5px;
+    // font-size: 15px;
+  }
+
+  .user_display_name {
+    color: #333;
+    font-size: 14px;
+  }
+  .user_screen_name {
+    color: #999;
+  }
+}
+
+.tweet_time {
+  // padding-bottom: 10px;
+  font-size: 11px;
+  color: #999;
+  text-align: right;
+}
+
+.translation {
+  padding-top:10px;
+
+}
+
+.tweet_text, .translation {
+  padding-bottom: 10px;
+  line-height: 20px;
+  color: #111;
+  
+  .head-highlight {
+    font-style: italic;
+    color: #777;
+  }  
+}
+
+.translation strong, h2 strong {
+  // color: #fff;
+  // padding:2px 4px;
+  // border-radius: 3px;
+  // color
+  // font-weight: 400;
+  // text-decoration: underline;
+  // text-decoration-style: wavy;
+  // text-decoration-color:
+  border-bottom: 2px solid lighten(rgb(17, 96, 94), 9%);
+  text-shadow:
+    1.5px 2px #f1f1f1,
+    1.5px -2px #f1f1f1,
+    -1.5px 2px #f1f1f1,
+    -1.5px -2px #f1f1f1;
+}
+
+h2 strong {
+ text-shadow:
+    1.5px 2px #fff,
+    1.5px -2px #fff,
+    -1.5px 2px #fff,
+    -1.5px -2px #fff; 
+}
+
+.tweet_text .show-button {
+
+  color: #777;  
+  margin-top: 0px;
+  cursor: pointer;
+  text-decoration: underline;
+
+}
+
+.see-more {
+  margin: 0 auto;
+  padding-top: 20px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
+  padding: 4px;
+  font-weight: bold;
+  display: block;
+  color: #4774CC;
+}
+
+.more {
+  display: none;
+
+}
+
+.more, .original {
+  padding-bottom: 10px;
+  display: none;
+  &.show {
+    display: block;
+  }
+}
+
+.tweet-info {
+  padding-bottom: 20px;
+}
+
+.tweet-metas {
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
+  // height: 50px;
+  left: 0px;
+  // padding-top: 10px;
+}
+
+.engagement {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  // padding-left: 10px;
+
+  
+  div {
+    width: 33%;
+    height: 30px;
+    text-align: center;
+
+    .num {
+      vertical-align: top;
+      padding-left:4px;
+    }
+
+    img {
+      width: 20px;
+    }
+
+    &.retweet {
+      // padding-top: 2px;
+      img {
+        width: 25px;
+      }
+    }
+  }
+}
+
+/*
+* larger-than-small-screen styles
+* ~ defining some desktop-only styles here to avoid
+* ~ writing extra mobile styles to undo them.
+*/
+@media @screen-mobile-above {
+  
+}
+
+/*
+* small-screen styles
+*/
+@media @screen-mobile {
+  .card-container {
+    width: 100%;
+  }
+
+  .mmedia-constrained.center {
+    text-align: left;
+  }
+
+}

@@ -1,0 +1,78 @@
+<div class="card-container <%= row.more %>">
+  <div class="card-inner">
+     <!-- <div class="data-item userid"><%= row.userid %></div> -->
+    <div class="tweet-info">
+      <div class="user-cont">
+        <div class="names">
+          <h3>
+            <% if (row.user_display_name) { %>  
+              <span class="data-item user_display_name"><%= row.user_display_name %></span>
+              <br>
+              <span class="data-item user_screen_name">@<%= row.user_screen_name %></span>
+            <% } else { %>
+              <span class="data-item user_screen_name">[Name Withheld]</span>
+            <% } %> 
+            
+          </h3>
+        </div>         
+        <div class="data-item tweet_time">
+          <%
+            var apMonths = [ "Jan.", "Feb.", "March", "April", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec." ];
+
+            var styleDate = function (date) {
+              var [day, time] = date.split(" ");
+              var [hour,min] = time.split(":");
+              var [y,m,d] = day.split("-");              
+              var ampm = parseFloat(hour) < 12 ? "a.m." : "p.m.";
+              var hour = parseFloat(hour) < 12 ? hour : hour - 12;
+              var hour = hour == 0 ? 12 : hour;
+
+              date = `${apMonths[m-1]} ${parseInt(d)}, ${y} at ${hour}:${min} ${ampm}`;
+              return date;
+            }; 
+          %>
+
+          <%= styleDate(row.tweet_time) %>
+        </div> 
+        <div class="clearer"></div>
+      </div>
+
+      <div class="data-item translation">
+        <% if (row.translation) { %>  
+          <%= row.translation %> <span class="head-highlight">(Translated from Chinese)</span>
+        <% } else { %>
+          <%= row.tweet_text %> 
+        <% } %> 
+      </div>          
+
+
+      <% if (row.translation) { %>  
+        
+      <div class="data-item tweet_text">
+        <div class="original">        
+          <%= row.tweet_text %> 
+        </div>          
+        <div class="show-button">See original text</div>
+      </div>
+        
+      <% } %> 
+    </div>
+    <div class="tweet-metas">          
+      <div class="engagement">
+        <div class="reply">
+          <img alt="reply icon" src="img/reply.png">
+          <span class="num"><%= row.replies %></span>
+        </div>
+        <div class="retweet">
+          <img alt="retweet icon" src="img/retweet.png">
+          <span class="num"><%= row.retweets %></span> 
+        </div>
+        <div class="like">
+          <img alt="like icon" src="img/like.png">
+          <span class="num"><%= row.likes %></span>
+        </div>
+      </div> 
+ 
+    </div>
+  </div>     
+</div>

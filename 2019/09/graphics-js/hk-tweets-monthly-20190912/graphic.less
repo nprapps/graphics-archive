@@ -1,0 +1,46 @@
+@import "./lib/base";
+
+.bar text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.dark-green,
+.light-green {
+	// color: #fff;
+	// padding:2px 4px;
+	// border-radius: 3px;
+	text-shadow:
+    1px 1px #fff,
+    1px -1px #fff,
+    -1px 1px #fff,
+    -1px -1px #fff; 
+}
+
+.light-green {
+	border-bottom: 2px solid rgb(139, 192, 191);
+}
+
+.dark-green {
+	border-bottom: 2px solid rgb(17, 96, 94);
+}
+
+
+.mmedia-constrained {
+  .mmedia-constrained();
+
+    &.center {
+      text-align: center; 
+    }
+    
+}
+
+
+@media @screen-mobile {
+  .mmedia-constrained.center {
+    text-align: left;
+  }
+}

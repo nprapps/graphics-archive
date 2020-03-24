@@ -1,0 +1,43 @@
+<%= await t.include("./partials/_header.html") %>
+
+<%
+  var people = [];
+  COPY.lawmakers.forEach(function(row) {
+    if (row.type.split("-")[0] == "combo") {
+      people.push(row);
+    }
+  }); 
+
+  var page = {
+      people: people,
+      lede: COPY.labels.lede_squad,
+      subhed: COPY.labels.subhed,
+      tweet_phrases: COPY.tweet_phrases
+  }
+%>
+
+<%= await t.include("./partials/_cards.html", {page}) %>
+
+<%
+  var people = [];
+  COPY.lawmakers.forEach(function(row) {
+    if (row.type.split("-")[0] == "squad") {
+      people.push(row);
+    }
+  }); 
+
+  var page = {
+    people: people,
+    tweet_phrases: COPY.tweet_phrases,    
+    credits: {
+      credit: COPY.labels.credit,
+      footnote: COPY.labels.footnote
+    }
+  }
+%>
+
+<%= await t.include("./partials/_cards.html", {page}) %>
+
+<%= await t.include("./partials/_credits.html", {page}) %>
+
+<%= await t.include("./partials/_footer.html") %>

@@ -1,0 +1,59 @@
+@import "./lib/base";
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.key li {
+  padding-bottom: 10%;
+}
+
+h1 {
+	font-size: 18px;
+	text-align: center;
+}
+
+h3 {
+	text-align: center;
+}
+
+.sub-chart {
+	margin-top: 20px;
+}
+
+
+.key {
+	text-align: center;
+}
+
+// .key-item:last-child {
+// 	@media @screen-mobile {
+//     vertical-align: middle;
+//     padding-top: 2%;
+//   }
+// }
+
+rect {
+	// opacity: 0.8
+}
+
+.overall .value text { font-weight: bold; }
+
+.labels li {
+  font-size: 12px;
+
+  &.overall {
+    font-weight: bold;
+    color: #333;
+  }
+}
+
+.group rect {
+  opacity: 0.8;
+
+  .overall& { opacity: 1; }
+}

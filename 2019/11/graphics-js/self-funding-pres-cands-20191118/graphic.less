@@ -1,0 +1,90 @@
+@import "./lib/base";
+
+
+.key {
+	float: left;
+	margin-bottom: 5px;
+}
+
+.key .key-item {
+	margin: 0px;
+
+	b {
+		margin-right: 2px;
+	}
+}
+
+.key1 {
+	margin-right: 13px;
+}
+
+.key label {
+	margin-left: 3px;
+	font-size: 11px;
+}
+
+.bars rect {
+	fill: @teal6;
+}
+
+.self-bars rect {
+	fill: @teal2;
+}
+
+
+/*
+
+
+.bars rect.I-party {
+	fill: @orange4;
+}
+
+.self-bars rect.I-party {
+	fill: @orange2;
+}
+
+
+.bars rect.D-party {
+	fill: @blue4;
+}
+
+.bars rect.R-party {
+	fill: @red4;
+}
+
+.self-bars .R-party {
+	fill: @red1;
+}
+
+.self-bars .D-party {
+	fill: @blue1;
+}*/
+
+.xaxis-faketext {
+	text-anchor: middle;
+	font-size: 12px;
+
+
+
+/*	&.donald-trump-2016 {
+		font-weight: bold;
+		fill: #000;
+	}*/
+}
+
+
+
+.value text.out {
+	display: none;
+}
+
+
+@media (max-width: 500px) {
+	.xaxis-faketext {
+		font-size: 10px;
+
+		&.jon-huntsman-r-4 {
+			font-size: 9px;
+		}
+	}
+}

@@ -1,0 +1,39 @@
+<%= await t.include("./partials/_header.html") %>
+
+<div class="mmedia-constrained center">
+
+  <h1><%= t.smarty(COPY.labels.headline_guo) %></h1>
+  <h2><%= t.smarty(COPY.labels.subhed) %></h2>
+</div>
+
+<div class="graphic" id="table-graphic">
+  <% for (var i = 0; i < COPY.data.length; i++) {%>  
+    <% var row = COPY.data[i]; %>
+  
+    <% if (row.type == "guo") { %>    
+      <%= await t.include("./partials/_cards.html", {row}) %>
+    <% } %>
+    
+  <% } %>
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes mmedia-constrained">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %> <%= COPY.labels.footnote2 %></p>
+</div>
+<% } %>
+
+<div class="footer mmedia-constrained">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+  
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+
+<%= await t.include("./partials/_footer.html") %>

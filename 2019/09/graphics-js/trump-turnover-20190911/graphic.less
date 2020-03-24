@@ -1,0 +1,100 @@
+@import "./lib/base";
+
+@filled:    #999;
+@announced: #121212;
+@unfilled:  @red3;
+
+.key .key-item {
+  b {
+    border-radius: 20px;
+    background: rgba(@filled, .4);
+    border: 1px solid rgba(@filled, .4);
+  }
+  &.announced b {
+    background: rgba(@announced, .6);
+    border-color: rgba(@announced, 1);
+  }
+  &.unfilled b {
+    background: rgba(@unfilled, .6);
+    border-color: rgba(@unfilled, 1);
+  }
+}
+
+
+.bars line {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #F5D1CA;
+}
+
+.dots circle {
+    stroke-width: 1px;
+    stroke: #999;
+    fill: #999;
+    fill-opacity: 0.4;
+    stroke-opacity: 0.4;
+
+    &.announced {
+      stroke: #121212;
+      fill: #121212;
+      stroke-opacity: 1;
+      fill-opacity: 0.6;
+    }
+    &.unfilled {
+      stroke: @red3;
+      fill: @red3;
+      stroke-opacity: 1;
+      fill-opacity: 0.6;
+    }
+    &.annotate {
+      stroke-opacity: 1;
+      stroke: #121212;
+    }
+}
+
+.value text {
+    font-size: 11px;
+    fill: #999;
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}
+
+.annotations {
+  text {
+    .knockout-header();
+    fill: #454545;
+    font-size: 12px;
+
+    @media @screen-mobile-above {
+      font-size: 13px;
+    }
+
+    &.departure { }
+    &.time-to-fill { }
+  }
+}
+
+.dot-labels {
+  line {
+    stroke: #787878;
+    stroke-width: 1px;
+  }
+  text {
+    font-style: italic;
+    font-size: 11px;
+    fill: #787878;
+    text-anchor: start;
+
+    &.left { text-anchor: start; }
+    &.right { text-anchor: end; }
+  }
+}
+
+.labels li {
+  text-align: left;
+}

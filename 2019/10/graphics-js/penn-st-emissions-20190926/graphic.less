@@ -1,0 +1,80 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.annotations .dots {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.annotations text {
+    font-size: 12px;
+    fill: #999;
+}
+
+.line.projected {
+  stroke-dasharray: 5,5;
+  stroke: @red3;
+}
+
+.goal-line {
+  stroke: black;
+  stroke-dasharray: 5,5;
+  stroke-width: 2px;
+}
+
+.goal-line-text {
+  /*text-anchor: end;*/
+}
+
+.goal-line-text-shadow {
+  stroke: white;
+  stroke-width: 8px;
+}
+
+text.Projected {
+  text-anchor: end;
+}
+
+.annotations text {
+  fill: #777;
+}
+
+.shading {
+  fill: #ebebeb;
+}
+
+.chart-label {
+    fill: #999;
+    font-style: italic;
+    font-size: 12px;
+    text-anchor: middle;
+    letter-spacing: 0.3px;
+}
+
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 11px;
+  }
+  .annotations text { 
+    font-size: 11px; 
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+

@@ -1,0 +1,169 @@
+@import "./lib/base";
+
+
+
+svg {
+  overflow: visible;
+}
+
+.axis line {
+  fill: #333;
+}
+
+.axis {
+  fill: #333;
+}
+
+text.axis  {
+  fill: #333;
+}
+
+.zero-line, .mid-line {
+  stroke-width: 1px;
+  stroke: #333;
+  opacity: 0.6;
+}
+
+.mid-line {
+  // stroke-dasharray: 2 3;
+  // stroke: #fff;
+}
+
+.tick {
+  display: none;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 16px;
+  
+  fill: #000;
+  .gotham();
+
+  font-weight: bold;
+
+}
+
+.graphic-wrapper.top-level {
+    // width: 25%;
+    float: left;
+    /*margin-right: 2%;*/
+}
+
+.graphic {
+  margin-bottom: 0px;
+}
+
+.key .key-item label {
+  white-space: unset;
+}
+
+.card {
+  width: 25%;
+  float: left;  
+  padding: 7px;
+  padding-bottom: 15px;
+  
+  .header {
+    height: 30px;
+    position: relative;
+
+    .header-inner { 
+      position: absolute;
+      text-align: center;
+      margin: 0 auto;
+      bottom: 0;
+      width: 100%;
+    }
+   
+   h3 {
+      .gotham();
+      margin-bottom: 0px;      
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0.2px;
+      padding-bottom: 5px; 
+
+      b {
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .sub-header {
+    position: absolute;
+  }
+
+  .card-inner {
+    position: relative;
+    
+    background-color: #f1f1f1;
+    // border: 1px solid #333;
+    border-radius: 5px;
+    padding:10px;    
+    margin: 0 auto;
+    z-index: -3;
+
+    .amt-highlight {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      // background-color: rgba(255,255,255,0.9);
+      // border-radius: 50%;
+      width: 50%;
+      height: auto;
+      
+
+
+      h3 {
+        color: #333;
+        text-align: center;
+        margin-top: 23px;
+        font-size: 25px;
+        margin-left: 5px;
+      }
+
+    }
+  }
+}
+
+.img-cont {
+  width: 100%;
+  // padding-top:5%;
+  margin: 0 auto;
+  opacity: 0.4;
+  position: absolute;
+}
+
+
+
+.img-icon img, .img-cont img {
+  outline: none !important;
+}
+
+
+@media screen and (max-width: 500px) {
+  .card {
+    width: 50%;    
+    padding-bottom: 20px;
+  }
+
+  .value text {
+    // font-size: 10px;
+  }
+
+  .graphic-wrapper.top-level {
+    width: 100%;  
+  }
+
+}
+
+@media screen and (min-width: 500px) {
+  
+}

@@ -1,0 +1,48 @@
+@import "./lib/base";
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+h1 {
+	font-size: 18px;
+	text-align: center;
+	// margin-bottom: 10px;
+}
+
+h2 {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+h3 {
+	// text-align: center;
+	padding-left: 10px;
+}
+
+.sub-chart {
+	margin-top: 10px;
+	width: 50%;
+	float: left;
+
+	@media @screen-mobile {
+		width: 100%;
+	}
+}
+
+
+.key {
+	text-align: center;
+}
+
+.key-item:last-child {
+	margin-right: 0px;
+}
+
+rect {
+	// opacity: 0.8
+}

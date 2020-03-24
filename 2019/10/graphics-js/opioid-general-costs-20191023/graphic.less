@@ -1,0 +1,136 @@
+@import "./lib/base";
+
+.value text {
+  fill: #fff;
+  font-size: 13px;
+}
+.value text.hidden {
+  display: none;
+}
+.total h3 {
+  text-align: center;
+  font-family: 'Knockout 31 4r', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+}
+.axis.x {
+  display: none;
+}
+.tick {
+  display: none;
+}
+circle {
+  fill: #999;
+  stroke: #fff;
+  stroke-width: 1px;
+}
+line {
+  stroke: #999;
+}
+.pull-labels text {
+  text-anchor: middle;
+  font-family: 'Knockout 31 4r', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+}
+.pull-labels {
+  display: block;
+}
+.pull-labels line.line-2 {
+  display: none;
+}
+.pull-labels line.line-1 {
+  display: none;
+}
+.pull-labels line.line-0 {
+  display: none;
+}
+.pull-labels text {
+  text-anchor: middle;
+  font-family: 'Knockout 31 4r', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  -webkit-font-smoothing: antialiased;
+  font-size: 12px;
+}
+.pull-labels text.mortality {
+  display: none;
+}
+.pull-labels text.health-care {
+  display: none;
+}
+.pull-labels text.lost-productivity-265b {
+  display: none;
+}
+.pull-labels text.child-and-family-and-education-assistance-9b {
+  width: 100px;
+}
+.top-labels text {
+  text-anchor: middle;
+  font-family: 'Knockout 31 4r', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  -webkit-font-smoothing: antialiased;
+  font-size: 12px;
+}
+.top-labels text.child-and-family-and-education-assistance-9b {
+  display: none;
+}
+.top-labels text.criminal-justice-109b {
+  display: none;
+}
+.top-labels line.line-4 {
+  display: none;
+}
+.top-labels line.line-3 {
+  display: none;
+}
+@media screen and (max-width: 500px) {
+  .pull-labels text {
+    font-size: 12px;
+  }
+  .pull-labels line.line-3 {
+    display: none;
+  }
+  .pull-labels line.line-2 {
+    display: block;
+  }
+  .pull-labels circle.circle-3 {
+    display: none;
+  }
+  .top-labels text.criminal-justice-109b {
+    display: block;
+  }
+  .top-labels text.lost-productivity-265b {
+    display: none;
+  }
+  .top-labels circle.circle-3 {
+    display: block;
+  }
+  .top-labels line.line-2 {
+    display: none;
+  }
+  .top-labels line.line-3 {
+    display: block;
+  }
+  .pull-labels text.mortality {
+    display: none;
+  }
+  .pull-labels text.health-care {
+    display: none;
+  }
+  .pull-labels text.lost-productivity-265b {
+    display: block;
+  }
+  .pull-labels text.criminal-justice-109b {
+    display: none;
+  }
+}

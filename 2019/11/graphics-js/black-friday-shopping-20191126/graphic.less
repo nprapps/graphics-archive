@@ -1,0 +1,63 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.lines .line {
+  display: none;
+}
+
+.lines .show {
+  display: block !important;
+}
+
+.key b, .lines {
+  opacity: .75;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+/*
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}*/
+
+.hide {
+  display: none;
+}
+
+.highlight-key label {
+  font-weight: bold !important;
+  color: black !important;
+}
+
+.day-label {
+  fill: #555;
+  text-anchor: middle;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.highlight-grid {
+  stroke-width: 2px;
+}
+
+.highlight-strong-grid {
+  stroke: #d3d3d3;
+  stroke-width: 3px;
+}

@@ -1,0 +1,39 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="chart" class="graphic" role="img" aria-label="<%- COPY.labels.screenreader %>">
+
+  <% COPY.data.forEach(function(row,i) { %>
+  <div class="exchange exchange-<%= i %>" role="row">
+    <h3>
+      <span class="name name-<%= i %>"><%= row.name %></span>
+      <span class="date"><%= row.date %></span>
+    </h3>
+    <p class="content"><%= row.content %></p>
+  </div>
+  <% }) %>
+
+  <!-- <img src="fallback.png" alt="" class="fallback"> -->
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

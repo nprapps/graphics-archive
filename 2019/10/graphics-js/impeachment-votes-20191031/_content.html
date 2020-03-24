@@ -1,0 +1,64 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_name %></div>
+        </th>
+        <th class="vote" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_vote %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_rating %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_statement %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY.data.forEach(function(row) { %>
+    <tr class="state-<%= t.classify(row.name) %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_name %>" class="name"><strong><%= row.name %></strong> <span class="district">(D-<%= row.state %>)</span></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_vote %>" class="vote <%= t.classify(row.vote) %>">
+        <span  class="<%= t.classify(row.vote) %>"><%= row.vote %></span>
+      </td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_rating %>" class="rating"><%= row.rating %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_statement %>" class="statement">
+        <strong><a href="<%= row.source %>"><%= row.statement_date %>:</a></strong>
+        &ldquo;<%= t.smarty(row.statement) %>&rdquo;
+      </td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

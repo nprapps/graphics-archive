@@ -1,0 +1,32 @@
+@import "./lib/base";
+
+.lines {
+  opacity: .8;
+
+  .projected {
+    opacity: .7;
+  }
+}
+
+.grid .tick {
+  color: #333;
+  opacity: .2;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}

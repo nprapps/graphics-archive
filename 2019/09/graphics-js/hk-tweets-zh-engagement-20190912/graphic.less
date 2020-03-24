@@ -1,0 +1,28 @@
+@import "./lib/base";
+
+.highlight { fill: #ebebeb; }
+
+.chart-label {
+    fill: #999;
+    font-style: italic;
+    font-size: 12px;
+    text-anchor: middle;
+    letter-spacing: .3px;
+}
+
+
+.mmedia-constrained {
+  .mmedia-constrained();
+
+    &.center {
+      text-align: center; 
+    }
+    
+}
+
+
+@media @screen-mobile {
+  .mmedia-constrained.center {
+    text-align: left;
+  }
+}

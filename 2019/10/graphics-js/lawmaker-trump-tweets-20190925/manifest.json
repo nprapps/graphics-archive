@@ -1,0 +1,17 @@
+{
+  "files": [
+    "index.html",
+    "leaders.html",
+    "squad.html",
+    "committee.html",
+    "graphic.js",
+    "graphic.less",
+    "*.png",
+    "*.jpg",
+    "*.json",
+    "!manifest.json",
+    "*.geojson",
+    "*.csv"
+  ],
+  "sheet": "1QrQrGKuwy3Ck_HXpXJ1mEsORY51Yev6Bv5Cra0DM1LI"
+}

@@ -1,0 +1,40 @@
+@import "./lib/base";
+
+h1, h2 {
+  @media @screen-mobile-above {
+    .mmedia-constrained-centered();
+  }
+}
+
+h1 {
+  font-size: 18px;
+  margin-bottom: 22px;
+
+  strong { color: #454545; }
+}
+
+.graphic-inner {
+  padding-bottom: 30px;
+}
+
+.key {
+  margin-top: 0;
+  margin-bottom: 22px;
+
+  @media @screen-mobile-above {
+    display: flex;
+    justify-content: center;
+  }
+
+  .key-item {
+    @media @screen-mobile-above {
+      margin: 0 9px;
+    }
+  }
+}
+
+.value text {
+    fill: #fff;
+
+    &.hidden { display: none; }
+}

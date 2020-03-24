@@ -1,0 +1,94 @@
+<div class="roster">
+  <% if (page.lede) { %>
+    <h1><%= page.lede %></h1>
+  <% } %>
+
+  <% if (page.subhed) { %>
+    <h2><%= page.subhed %></h2>
+    <!-- <h2>
+      Selected tweet descriptions are classified as <span class="text-item positive">postive</span>, <span class="text-item negative">negative</span>, and <span class="text-item neutral">neutral</span>. Frequently used terms are <span class="text-item neutral multi">outlined</span> and show frequency of use. For all others, click on the term to see the original tweet.
+    </h2> -->
+  <% } %>
+
+  <ul class="roster-block">
+    <% page.people.forEach(function(row) { 
+        var tweets = [];
+
+        var tweet_raw = page.tweet_phrases;       
+
+        tweet_raw.forEach(function(tweet) {          
+          if (tweet.person == row.name) {
+            tweets.push(tweet);
+          }
+        })
+        tweets.sort(function(a,b){
+          return a.text.length - b.text.length;
+        })
+      
+
+      if (row.photo) {
+        var photo = row.photo  
+      } else {
+        var photo = "placeholder.png"
+      }
+
+    %>
+      <li class="i<%= page.people.length %>">
+        
+        <% if (page.people.length > 1) { %>
+        <div class="mugtop">
+          <img src="./mugs/<%= photo %>" class="mug" alt="<%= row.name%>">
+        </div>
+        <div class="metadata">
+          <div class="name"><%= row.name %> (<%= row.state_district %>)</div>
+          <div class="title"><%= row.title %></div> 
+          <div class="tweets">Number of times mentioned: <%= row.total_tweets %></div> 
+        </div>
+        <% } else { %>
+        <div class="metadata">
+          <div class="name"><%= row.name %></div>
+          
+          <div class="tweets">Number of times mentioned as a group: <%= row.total_tweets %></div> 
+        </div>
+        <% } %>
+        <div>          
+          <div class="text">
+            <% 
+            if (tweets.length === 0) {
+            %>
+              <div><i>No individual tweets about <%= row.name %></i></div>
+            <%
+            } else {
+              tweets.forEach(function(item) { 
+                if (item.tweet_link != "") {
+            %>
+              <a href="<%= item.tweet_link %>" target="_blank">
+                <div class="text-item <%= item.sentiment %>">
+                  <%= item.text %>
+                </div>
+              </a>
+            <%
+                } else {
+            %>
+              <div class="text-item multi <%= item.sentiment %>">
+                <%= item.text %>
+                <span>
+                  <%= item.number_of_references %>
+                </span>
+              </div>
+            <%
+                } 
+              });             
+            }
+            %>
+          </div>
+          <% if (row.show_more_type != undefined) { 
+          console.log(row.show_more_type)
+          %>
+          <div class="see-more active <%= row.show_more_type %>">↓ Show more</div>
+          <% } %>
+        </div>
+      </li>   
+    <% }); %>
+  </ul>
+</div>

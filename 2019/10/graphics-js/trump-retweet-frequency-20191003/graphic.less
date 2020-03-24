@@ -1,0 +1,46 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 2px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.area {
+  opacity: .8;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    // display: none;
+  }
+}
+
+.annotation-lines path {
+  stroke: #888;
+  stroke-width: 1;
+  stroke-dasharray: 2 2;
+}
+
+.annotation-labels text {
+  text-align: right;
+  text-anchor: end;
+  fill: #888;
+  font-size: 14px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 12px;
+  }
+}

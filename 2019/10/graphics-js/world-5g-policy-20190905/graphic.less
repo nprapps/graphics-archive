@@ -1,0 +1,100 @@
+@import "./lib/base";
+
+@missing: #E8E8E8;
+@banned: @orange3;
+@no-info: #DDD;
+@undecided: @yellow5;
+@allow: @teal3;
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+h1 {
+  margin-bottom: 12px;
+}
+
+.missing {
+  background: @missing;
+  fill: @missing;
+}
+
+.Banned {
+  fill: @banned;
+  background: @banned;
+}
+
+.No.info {
+  fill: @no-info;
+  background: @no-info;
+}
+
+.Undecided {
+  fill: @undecided;
+  background: @undecided;
+}
+
+.Allow {
+  fill: @allow;
+  background: @allow;
+}
+
+.key-container {
+  list-style-type: none;
+  margin: 0;
+  padding: 4px 0 24px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+
+  li {
+    display: inline-block;
+    padding: 0 8px;
+  }
+
+  i.block {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    margin-right: 2px;
+    // vertical-align: middle;
+    border-radius: 100%;
+  }
+}
+
+.graphic svg {
+  path[id] {
+    stroke: fade(white, 40%);
+    stroke-width: 1;
+  }
+}
+
+.lists {
+  @media @screen-mobile-above {
+    display: flex;
+  }
+
+  .undecided h3 {
+    border-bottom: 2px solid @undecided;
+  }
+
+  .banned h3 {
+    border-bottom: 2px solid @banned;
+  }
+
+  .allow h3 {
+    border-bottom: 2px solid @allow;
+  }
+}
+
+h3 {
+  margin-bottom: 0;
+  font-size: 16px;
+}
+
+.country-list {
+  list-style-type: none;
+  margin: 0;
+  padding:0 4px 12px;
+  flex: 1;
+}

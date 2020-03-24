@@ -1,0 +1,87 @@
+@import "./lib/base";
+
+.portrait-block {
+
+  .row.side-by-side {
+    display: flex;
+    align-items: center;
+
+    @media @screen-mobile {
+      display: block;
+    }
+  }
+
+  hr {
+    width: 300px;
+    max-width: 50%;
+    border: 2px solid #EEE;
+    margin: 30px auto;
+  }
+
+  .image-container {
+    flex: 0 1 50%;
+
+    img {
+      margin: auto;
+      width: 100%;
+      max-width: 1200px;
+      display: block;
+    }
+  }
+
+  &.right .image-container {
+    order: 2;
+  }
+
+  .caption {
+    padding: 2em;
+    flex: 1;
+    max-width: 600px;
+    margin: auto;
+  }
+
+  blockquote {
+    .gotham();
+    color: #858e8e;
+    font-size: 1.4rem;
+    margin: 0 0 1rem;
+    padding: 0;
+    line-height: 1.4;
+    position: relative;
+
+    &::before {
+      content: "“";
+      position: absolute;
+      margin-left: -10px;
+    }
+
+    &::after {
+      content: "”";
+    }
+  }
+
+  cite {
+    .gotham();
+    font-size: 1.1rem;
+    display: inline-block;
+    margin-top: 16px;
+    font-style: normal;
+
+    .name {
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: .5rem;
+    }
+
+    .description {
+      font-size: 1rem;
+      color: #555;
+    }
+  }
+}
+
+hr {
+  border: 1px solid lightgray;
+  width: 200px;
+  max-width: 50%;
+}

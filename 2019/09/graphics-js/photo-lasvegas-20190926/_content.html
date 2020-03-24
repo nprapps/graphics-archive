@@ -1,0 +1,26 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% COPY.data.forEach(function(portrait) { %>
+<div class="portrait-block <%= portrait.alignment || "" %>">
+  <div class="row <%= portrait.full ? "full-width" : "side-by-side" %>">
+    <div class="image-container">
+      <img src="./photos/<%= portrait.image %>" alt="">
+      <% if (portrait.photo_credit) { %>
+      <p class="credit"><%= portrait.photo_credit %></p>
+      <% } %>
+    </div>
+    <div class="caption">
+      <blockquote><%= t.smarty(portrait.caption) %></blockquote>
+      <cite>
+        <div class="name"><%= t.smarty(portrait.name) %></div>
+        <% if (portrait.description) { %>
+        <div class="description"><%= t.smarty(portrait.description) %></div>
+        <% } %>
+      </cite>
+    </div>
+  </div>
+  <hr>
+</div>
+<% }) %>

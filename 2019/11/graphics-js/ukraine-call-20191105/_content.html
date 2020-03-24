@@ -1,0 +1,76 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="graphic" class="graphic">
+
+<%
+  // SETUP
+  var countries = [...new Set(COPY.data.map(o => o['country']))];
+  var departments = [...new Set(COPY.data.map(o => o['department']))];
+  console.log(departments);
+
+  countries.forEach(function(country, c) {
+    var countryData = COPY.data.filter(function(person, p) {
+      return person.country == country;
+    });
+%>
+    <div class="country <%= t.classify(country) %>">
+      <h3><%= COPY.labels['hed_' + country] %></h3>
+
+<%
+      departments.forEach(function(dept, d) {
+        var deptData = countryData.filter(function(person, p) {
+          return person.department == dept;
+        });
+        if (deptData.length > 0) {
+%>
+          <% if ((country == "usa" && (d == 0 || d == 4)) || (country == "ukraine" && (d == 0 || d == 6))) { %>
+          <div class="column">
+          <% } %>
+          <div class="department <%= t.classify(dept) %> <% if (dept == '') { %>president<% } %>">
+          <% if (dept != '') { %> <h4><%= dept %></h4> <% } %>
+<%
+          deptData.forEach(function(person, p)  {
+%>
+            <div class="person <%= t.classify(person.name) %> <% if (person.image) { %>hasimg<% } %>">
+            <% if (person.image) { %> <img src="<%= person.image %>" alt="Photo of <%= person.name %>" /><% } %>
+            <% if (person.name) { %> <h5><%= t.smarty(person.name) %></h5> <% } %>
+            <% if (person.title) { %> <p><%= t.smarty(person.title) %></p> <% } %>
+            </div>
+<%
+          });
+%>
+          </div>
+
+          <% if ((country == "usa" && (d == 3 || d == 5)) || (country == "ukraine" && (d == 0 || d == 6))) { %>
+          </div>
+          <% } %>
+<%
+        }
+      });
+%>
+
+    </div>
+<%
+  });
+%>
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.photo_credit) { %><p>Photos: <%= COPY.labels.photo_credit %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>

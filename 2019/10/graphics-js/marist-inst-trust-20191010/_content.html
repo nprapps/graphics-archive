@@ -1,0 +1,79 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+
+<ul class="key">
+	<li class="key-item key-0 approve">
+		<b style="background-color: rgb(227, 141, 44);"></b>		
+		<label>A great deal/A good amount</label>
+	</li>
+	<li class="key-item key-1 unsure">
+		<b style="background-color: rgb(187, 187, 187);"></b>
+		<label>Unsure (Vol.)</label>
+	</li>
+	<li class="key-item key-2 disapprove">
+		<b style="background-color: rgb(23, 128, 126);"></b>
+		<label>Not very much/Not at all</label>
+	</li>
+</ul>
+
+<div class="graphic" id="master-graphic">
+	<div class="sub-chart">
+		<h3 id="labelViz1"></h3>
+		<div id="stacked-bar-chart1"></div>
+	</div> 
+	<div class="sub-chart">
+		<h3 id="labelViz2"></h3>
+		<div id="stacked-bar-chart2"></div>
+	</div> 
+	<div class="sub-chart">
+		<h3 id="labelViz3"></h3>
+		<div id="stacked-bar-chart3"></div>
+	</div> 
+	<div class="sub-chart">
+		<h3 id="labelViz4"></h3>
+		<div id="stacked-bar-chart4"></div>
+	</div> 	
+	<div class="sub-chart">
+		<h3 id="labelViz5"></h3>
+		<div id="stacked-bar-chart5"></div>
+	</div> 	
+	<div class="sub-chart">
+		<h3 id="labelViz6"></h3>
+		<div id="stacked-bar-chart6"></div>
+	</div> 	
+	<div class="sub-chart">
+		<h3 id="labelViz7"></h3>
+		<div id="stacked-bar-chart7"></div>
+	</div> 	
+	<div class="sub-chart">
+		<h3 id="labelViz8"></h3>
+		<div id="stacked-bar-chart8"></div>
+	</div> 	
+	<div id="fallback">
+		<img src="fallback.png" alt="" class="fallback" />	
+	</div>
+	
+</div>
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.data) %>;
+</script>

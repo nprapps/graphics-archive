@@ -1,0 +1,112 @@
+@import "./lib/base";
+
+h1 {
+  font-weight: bold;
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 22px;
+}
+
+.graphic {
+  margin-bottom: 22px;
+
+  @media @screen-mobile-above {
+    display: flex;
+  }
+
+  * { box-sizing: border-box; }
+
+  .country {
+    .clearfix();
+  }
+
+  .ukraine {
+    @media @screen-mobile {
+      border-top: 1px solid #eee;
+      margin-top: 22px;
+      padding-top: 22px;
+
+      .column {
+        width: 50%;
+        float: left;
+        padding-right: 22px;
+      }
+    }
+    @media @screen-mobile-above {
+      padding-left: 22px;
+      border-left: 2px solid #eee;
+      width: 33%;
+
+      .column + .column { margin-top: 22px; }
+    }
+  }
+
+  .usa {
+    @media @screen-mobile-above {
+      padding-right: 22px;
+      width: 66%;
+    }
+
+    .column {
+      width: 50%;
+      float: left;
+      padding-right: 22px;
+    }
+  }
+
+  .department {
+    + .department { margin-top: 22px; }
+
+    &.president {
+      background-color: #f1f1f1;
+      padding: 10px;
+    }
+  }
+
+  .person {
+    + .person { margin-top: 10px; }
+  }
+
+  h3 {
+    color: @red3;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  h4 {
+    .knockout-header();
+    color: #787878;
+    font-size: 12px;
+    margin: 0 0 6px 0;
+    width: 100%;
+  }
+
+  h5 {
+    .gotham();
+    font-weight: bold;
+    font-size: 13px;
+    margin: 0;
+
+    @media @screen-mobile-above {
+      font-size: 14px;
+    }
+  }
+
+  p {
+    .gotham();
+    color: #787878;
+    font-size: 12px;
+    margin: 3px 0 0 0;
+  }
+
+  .hasimg h5,
+  .hasimg p {
+    margin-left: 45px;
+  }
+
+  img {
+    float: left;
+    width: 40px;
+    border-radius: 50%;
+  }
+}

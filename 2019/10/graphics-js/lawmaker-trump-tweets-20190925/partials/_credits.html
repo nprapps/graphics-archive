@@ -1,0 +1,10 @@
+<div class="credit-container footnotes">
+	<p class="note"><strong>Note:</strong> <%= page.credits.footnote %></p>
+	<br>
+	<p>
+		Photos: <%= page.people.map(row => `${row.credit} (${row.name.trim().split(" ").pop()})`).join("; ") %>
+	</p>
+	<p>
+		Credit: <%= page.credits.credit %>
+	</p>
+</div>
