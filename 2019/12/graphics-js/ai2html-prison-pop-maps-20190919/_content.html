@@ -1,0 +1,122 @@
+<!-- 
+possibly label map district boundaries
+top chart - black for prisoners/gray for nonprisoners
+  -->
+
+
+
+
+<!-- <% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+ -->
+
+
+
+
+
+<% 
+var fmtComma = require("./lib/helpers/fmtComma");
+var cities = ['waupun', 'florence', 'grafton', 'oldham'];
+var citiesFull = ["Waupun, Wis.", "Florence, Ariz.", "Grafton Village, Ohio", "Oldham County, Ky."]
+var maxPops = {"oldham": '2,000', "florence": '5,400', "grafton": '2,100', "waupun": '1,600'}
+var totalPops = {"oldham": '2,000', "florence": '5,400', "grafton": '2,100', "waupun": '1,600'}
+%>
+
+<div class='interactive-container'>
+
+	<div class='instructions'>In some prison towns, officials have come up with creative ways to avoid forming voting districts made up primarily of incarcerated people.</div>
+	<div class='instructions'>Tap a small map to see how local governments are forming their boundaries.</div>
+
+	<div class='minis-container'>
+
+	<%
+	for (i in cities) {
+		var thisCity = cities[i]
+		var thisCityFull = citiesFull[i]
+
+		if (thisCity != 'waupun') {
+	%>
+
+
+
+			<div id="graphic-mini-<%= cities[i] %>" class="graphic-mini" data-city='<%=thisCity%>' role="img">
+			    <img src='img/mini-<%=thisCity%>.png'>
+				<div class='city-name'><%= thisCityFull %></div>
+			</div>
+
+
+
+
+	<%	}} %>
+
+	</div>
+	<hr>
+</div>
+
+<% 
+for (i in cities) {
+	var thisCity = cities[i]
+	var thisCityFull = citiesFull[i]
+	var thisCityData = COPY.data.filter(d=>d.shortName == thisCity)[0]
+%>
+
+
+
+			<div id="graphic-<%= cities[i] %>" class="graphic graphic-<%=thisCity%>" role="img">
+				<h1 class='city-name'><strong><%= thisCityFull %></strong></h1>
+				<div class='pop-title'>
+					<h4>Total Population In 2010</h4>
+				</div>
+				<div class='city-distribution'>
+					<div class='prison-pop-bar pop-bar' style='width:<%= ((thisCityData['total_prison']/thisCityData['population'])*100).toFixed(1) %>%'></div>
+					<div class='perm-pop-bar pop-bar' style='width:<%= ((1 - (thisCityData['total_prison']/thisCityData['population'])) * 100).toFixed(1) %>%'></div>
+				</div>
+				<div class='measurements-container'>
+					<div class='pop-measaurement prison-measure-container'>
+						<div class='prison-measure'>Incarcerated: <strong><%= fmtComma(thisCityData['total_prison']) %></strong></div>
+					</div>
+					<div class='pop-measaurement perm-measure-container'>
+						<div class='perm-measure'>Not incarcerated: <strong><%= fmtComma(thisCityData['population'] - thisCityData['total_prison']) %></strong></div>
+					</div>
+				</div>
+
+				
+				<div class='description'><%= COPY.descriptions[thisCity] %></div>
+			    <div class='legend-container'>
+					<h4 class='legend-title'>Population By Census Block</h4>
+					<div class='teal-scale-container scale-container'>
+						<div class='scale-scale teal-scale'></div>
+						<div class='legend-labels'>
+							<div class='left-label'>0</div>
+							<div class='right-label'><%=maxPops[thisCity]%></div>
+						</div>
+						<div class='clearfix'></div>
+					</div>
+				</div>
+				<%= await t.include(`ai2html-graphic-${thisCity}.html`) %>
+				
+			</div>
+
+
+
+
+<%	}%>
+
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>

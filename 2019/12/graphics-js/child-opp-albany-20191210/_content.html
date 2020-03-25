@@ -1,0 +1,80 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.Field %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.Neigh_A %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.Neigh_C %></div>
+        </th>        
+      </tr>
+    </thead>
+
+      <%
+        var calcBG = function (amt) {
+          var newClass = 'background-color';
+          var colors = {
+            positive: '216,71,43',
+            negative: '25,158,57'
+          }
+          if (isNaN(amt)) {
+            var style = `color: "#666";`;
+          } else {            
+            var pctOpacity = Math.abs(amt) / 50;
+            var sign = Math.sign(amt) == 1 ? "positive" : "negative";
+            var style = `${newClass}: rgba(${colors[sign]},${pctOpacity}); color: ${pctOpacity < .5 ? "#666" : "white"};`;            
+          }
+          return style;
+        }; 
+      %>
+
+    <% COPY.data.forEach(function(row) { %>
+    <tr class="state" role="row">
+      <td role="cell" class="" >
+        <b><%= row.Field %></b>
+          <% if (row.Details !== "") { %>
+            <span class="">
+            <%= row.Details %>
+            </span>
+          <% } %>
+      </td>  
+      <td role="cell" class="amt" ><%= row.Neigh_A %></td>
+      <td role="cell" class="amt" ><%= row.Neigh_C %></td>
+    </tr>
+  <% }) %>
+
+  </table>
+  <div class='show-hide'>&darr; Show more</div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+  
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

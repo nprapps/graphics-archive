@@ -1,0 +1,206 @@
+@import "./lib/base";
+
+.lead {
+	h1, h2 {
+		.mmedia-constrained-centered()	
+	}
+
+	h2 {
+		line-height: 110%;
+
+		span.green {
+			color: #fff;
+			background-color: #5b904c;
+			border: 2px solid #fff;
+			padding: 4px;
+			padding-top: 0px;
+			padding-bottom: 1px;
+			border-radius: 4px;
+			display: inline-block;
+			margin-bottom: -2px;
+			// text-shadow: 0px 0px 10px #000;
+			// box-shadow: 5px 10px inset;
+
+			-webkit-box-shadow: inset 0px 0px 10px 1px rgba(0,0,0,0.75);
+			-moz-box-shadow: inset 0px 0px 10px 1px rgba(0,0,0,0.75);
+			box-shadow: inset 0px 0px 4px 1px rgba(0,0,0,0.25),  0 0px 1px #000;;
+		}
+
+		line-height: 20px;
+	}	
+}
+
+
+.footer {
+	.mmedia-constrained()
+}
+
+#g-ai2html-graphic-box p {
+	opacity: 1 !important;
+	
+}
+
+#g-ai2html-graphic-box {
+	.g-labels {
+		p {
+			.gotham() !important;
+			font-weight: 700 !important;
+			text-shadow: 0px 0px 10px #000;
+			color: #fff;
+		}
+	}
+
+	.g-res_label {
+		p {
+			color: #fff;
+		}
+	}
+
+	.g-town_names {
+		p {
+			// color: #ddd !important;
+			// text-shadow: 0px 0px 4px #fff;
+			color: #666 !important;
+		}
+	}
+
+	.g-small_label {
+		p {
+			color: #fff !important;
+		}
+	}
+
+	.g-inset {
+		p {
+			.gotham() !important;
+			// text-shadow: 0px 0px 4px #fff;
+			// color: #000 !important;		
+			// text-shadow: 1px 1px 1px #fff;	
+		}
+	}	
+
+	.g-mobile_labels p, .g-inset p {
+		.gotham() !important;
+		text-shadow: 0px 0px 1px #fff;
+		color: #444 !important;
+
+		font-size: 19px;
+		line-height: 20px;
+		letter-spacing: 4px;
+
+		&.g-aiPstyle1 {
+			color: #fff !important;
+			text-shadow: 0px 0px 5px #000 !important;
+			letter-spacing: 0.5px;
+			font-size: 14px;
+			line-height: 16px;
+			font-weight: bold !important;
+			// text-transform: uppercase;
+		}
+	}
+
+	.g-mobile_labels p {
+		display: none;
+	}
+
+	.g-scale p {
+		color: #fff;
+		font-weight: 400;
+		text-shadow: 0px 0px 2px #444 !important;
+	}
+}
+
+#g-ai2html-graphic-inset { 
+	
+}
+
+.g-labels p, .g-res_label p { 
+	font-size: 14px !important;
+	line-height: 16px !important;
+}
+
+#g-ai2html-graphic-medium-labels, #g-ai2html-graphic-large-labels {
+	position: absolute !important;
+	top: 0;
+}
+
+
+// ai2html artboard sizes
+@media screen and (max-width: 1200px) {
+
+}
+@media screen and (min-width: 801px) {
+	#g-ai2html-graphic-medium-labels {
+		display:  none;
+	}
+}
+
+@media screen and (max-width: 800px) {
+#g-ai2html-graphic-large-labels {
+	display: none;
+}
+
+
+    .g-labels p, .g-res_label p, .g-inset p { 
+    	font-size: 12px !important;
+    	line-height: 12px !important;
+    }
+
+    .g-small_label p {
+    	font-size: 12px !important;
+    	line-height: 12px !important;
+    }
+
+	.g-mobile_labels p, .g-town_names p {
+		font-size: 10px !important; 
+		line-height: 11px !important;
+	}
+
+}
+
+@media screen and (min-width: 601px) {
+    #g-ai2html-graphic-small { display: none; }
+
+    #g-ai2html-graphic-inset { 
+    	position: absolute !important;
+		right: 10px;
+		width: 30%;
+		bottom: 10px;		
+		border: 3px solid white;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #g-ai2html-graphic-medium-labels, 
+    #g-ai2html-graphic-large-labels, 
+    #g-ai2html-graphic-large { display: none; }
+
+
+    #g-ai2html-graphic-inset { 
+    	border: 0;    	
+    }
+
+    #g-ai2html-graphic-small { 
+    	border-bottom: 3px solid white;
+    }
+
+    .g-labels p, .g-res_label p, .g-inset p { 
+    	font-size: 11px !important;
+    	line-height: 12px !important;
+    }
+
+	 .g-town_names p {
+		font-size: 10px !important; 
+		line-height: 10px !important;
+
+	}
+
+	.g-mobile_labels p, .g-inset p {
+		display: block !important;
+		font-size: 15px !important;
+		line-height: 15px !important;
+		// letter-spacing: 10px !important;
+	}
+}
+
+// Add custom styles here

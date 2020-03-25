@@ -1,0 +1,50 @@
+@import "./lib/base";
+
+h2 {
+  span:not(.widont) {
+    border-radius: 4px;
+    padding: 2px 5px;
+    white-space: nowrap;
+  }
+
+  .ratio {
+    background-color: @orange3;
+    color: #fff;
+  }
+  .recession {
+    background-color: #ebebeb;
+  }
+}
+
+svg .recession { fill: #ebebeb; }
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.annotations .dots {
+  stroke: #fff;
+  stroke-width: 1px;
+}
+
+.annotations text,
+.value text {
+  fill: #666;
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+
+  @media @screen-mobile {
+    font-size: 11px;
+  }
+}
+
+@media @screen-mobile {
+  // .value text {
+  //   font-size: 10px;
+  // }
+}
+
+@media @screen-mobile-above {
+}

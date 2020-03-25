@@ -1,0 +1,94 @@
+@import "./lib/base";
+
+.portrait-block {
+
+  .row.side-by-side {
+    display: flex;
+    align-items: center;
+
+    @media @screen-mobile {
+      display: block;
+    }
+  }
+
+  hr {
+    width: 300px;
+    max-width: 50%;
+    border: 2px solid #EEE;
+    margin: 30px auto;
+  }
+
+  .image-container {
+    flex: 0 1 50%;
+
+    img {
+      margin: auto;
+      width: 100%;
+      max-width: 1200px;
+      display: block;
+    }
+
+    .img-credit {
+      font-size: 10px;
+      font-style: italic;
+      line-height: 20px;
+      color: #767676;
+      font-family: Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0; 
+    }
+  }
+
+  &.right .image-container {
+    order: 2;
+  }
+
+  .caption {
+    padding: 2em;
+    flex: 1;
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .title {
+    .gotham();
+    font-size: 1.2rem;
+    font-style: bold;
+    margin: 0 0 1rem;
+  }
+
+  .poem {
+    .gotham();
+    // font-size: 12px;
+    margin: 0 0 1rem;
+    padding: 0;
+    line-height: 1.4;
+    position: relative;
+  }
+
+  cite {
+    .gotham();
+    // font-size: 1.1rem;
+    display: inline-block;
+    margin-top: 16px;
+    font-style: normal;
+
+    .name {
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: .5rem;
+    }
+
+    .description {
+      // font-size: 1rem;
+      color: #555;
+      font-style: italic;
+    }
+  }
+}
+
+hr {
+  border: 1px solid lightgray;
+  width: 200px;
+  max-width: 50%;
+}

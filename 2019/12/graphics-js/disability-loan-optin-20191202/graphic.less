@@ -1,0 +1,64 @@
+@import "./lib/base";
+
+
+.graphic-bottom {
+	font-size: 15px;
+	.knockout();
+	line-height: 21px;
+	margin-bottom: 3px;
+	width: 100%;
+	max-width: none;
+
+	span {
+		font-size: 27px;
+		font-weight: bold;
+		color: @teal3;
+	}
+
+	span.gray-text {
+		color: #ccc;
+	}
+
+}
+
+
+.fallback {
+	display: none;
+}
+
+.graphic-bottom-bars {
+	/*max-width: 650px;*/
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	.clearfix();
+	div {
+		float:left;
+		height: 23px;
+		background: #eeb37e
+	}
+
+	.highlight-bar {
+		background: #72b5c7;
+	}
+}
+
+.axis-svg {
+	width: 100%;
+	height: 55px;
+}
+
+.axis-svg line {
+	stroke-width: 1px;
+	stroke: #ccc;
+}
+
+.noOptIn-text {
+	text-anchor: middle;
+	fill: #666;
+	font-size: 12px;
+}
+
+.bold-text {
+	font-weight: bold;
+}

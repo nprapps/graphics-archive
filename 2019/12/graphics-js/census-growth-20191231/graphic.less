@@ -1,0 +1,30 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.dots circle {
+  stroke: #fff;
+  stroke-width: 1px;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  // fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 11px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}

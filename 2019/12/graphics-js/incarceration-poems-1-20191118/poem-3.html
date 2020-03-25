@@ -1,0 +1,27 @@
+<%= await t.include("./partials/header.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% COPY.poem_3.forEach(function(portrait) { %>
+<div class="portrait-block <%= portrait.alignment || "" %>">
+  <div class="row <%= portrait.full ? "full-width" : "side-by-side" %>">
+    <div class="image-container">
+      <img src="./photos/<%= portrait.image %>" alt="">
+      <div class="img-credit"><%= portrait.credit %></div>
+    </div>
+    <div class="caption">
+      <div class="title"><%= portrait.title %></div>
+      <div class="poem"><%= portrait.poem %></div>
+      <cite>
+        <div class="name"><%= portrait.name %></div>
+        <div class="description"><%= portrait.description %></div>
+      </cite>
+    </div>
+  </div>
+  <!-- <hr> -->
+</div>
+<% }) %>
+
+<%= await t.include("./partials/footer.html") %>

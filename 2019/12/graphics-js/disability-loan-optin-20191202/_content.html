@@ -1,0 +1,41 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed_short) { %>
+<h2><%= t.smarty(COPY.labels.subhed_short) %></h2>
+<% } %>
+
+<div id="" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<div class='graphic-bottom graphic-bottom-bars'>
+	<div class='gray-bar'></div>
+	<div class='highlight-bar'></div>
+</div>
+<svg class='axis-svg'></svg>
+
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<% if ("data" in COPY) { %>
+<script type="text/javascript">
+window.DATA = <%= JSON.stringify(COPY.data) %>;
+window.LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>
+<% } %>

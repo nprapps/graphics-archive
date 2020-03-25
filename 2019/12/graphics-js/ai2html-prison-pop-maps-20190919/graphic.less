@@ -1,0 +1,235 @@
+@import "./lib/base";
+
+// ai2html artboard sizes
+@media screen and (min-width: 730px) {
+    #g-ai2html-graphic-oldham-small, #g-ai2html-graphic-oldham-medium { display: none; }
+    #g-ai2html-graphic-florence-small, #g-ai2html-graphic-florence-medium { display: none; }
+    #g-ai2html-graphic-grafton-small, #g-ai2html-graphic-grafton-medium { display: none; }
+    #g-ai2html-graphic-waupun-small, #g-ai2html-graphic-waupun-medium { display: none; }
+}
+
+@media screen and (max-width: 729px) and (min-width: 400px) {
+    #g-ai2html-graphic-oldham-small, #g-ai2html-graphic-oldham-wide { display: none; }
+    #g-ai2html-graphic-florence-small, #g-ai2html-graphic-florence-wide { display: none; }
+    #g-ai2html-graphic-grafton-small, #g-ai2html-graphic-grafton-wide { display: none; }
+    #g-ai2html-graphic-waupun-small, #g-ai2html-graphic-waupun-wide { display: none; }
+}
+
+@media screen and (max-width: 399px) {
+    #g-ai2html-graphic-oldham-medium, #g-ai2html-graphic-oldham-wide { display: none; }
+    #g-ai2html-graphic-florence-medium, #g-ai2html-graphic-florence-wide { display: none; }
+    #g-ai2html-graphic-grafton-medium, #g-ai2html-graphic-grafton-wide { display: none; }
+    #g-ai2html-graphic-waupun-medium, #g-ai2html-graphic-waupun-wide { display: none; }
+}
+
+// Add custom styles here
+
+.interactive-container {
+	display: none;
+}
+
+.graphic {
+	margin-bottom: 04px;
+}
+
+h1.city-name {
+	text-align: center;
+	color: #222222;
+	margin-bottom: 14px;
+}
+
+
+div.city-name {
+	text-align: center;
+	width: 100%;
+	.gotham();
+	font-size: 10px;
+}
+
+.selected-city div.city-name {
+	font-weight: bold;
+	color: #111;
+}
+
+
+.pop-title {
+	text-align: center;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom: 8px;
+	width: 100%;
+	font-size: 14px;
+	/*span {
+		background-color: #94C0BF;
+		color: white;
+		padding: 4px;
+		border-radius: 3px;
+	}*/
+}
+
+.district-label {
+	background-color: #6C2315;
+	color: white;
+	padding: 3px;
+	border-radius: 3px;
+}
+
+
+.scale-container {
+	width: 100%;
+	max-width: 350px;
+	margin: 0 auto;
+	height: 32px;
+}
+
+.scale-scale {
+	height:12px;
+}
+
+
+.teal-scale {
+	background: rgb(255,255,255);
+	background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(23,128,126,1) 100%);
+}
+
+h4 {
+	margin-bottom: 7px;
+	.knockout-header();
+}
+
+.legend-container {
+	display: block;
+	width: 100%;
+	max-width: 350px;
+	margin: 22px auto 5px auto;
+	text-align: center;
+}
+
+
+.legend-labels {
+	width: 100%;
+	max-width: 350px;
+	margin: 0 auto;
+	margin-bottom: 2px;
+	margin-top: 2px;
+	font-size: 12px;
+	color: #777777;
+}
+
+
+.left-label {
+	float:left;width:33%;
+	text-align: left;
+}
+
+.middle-label {
+	margin:0 auto;width:33%;
+	float: right;
+	text-align:center;
+}
+
+.right-label {
+	float:right;width:33%;
+	text-align:right;
+}
+
+.clearfix {
+	.clearfix();
+}
+
+.graphic-mini {
+	width: 20%;
+	display: inline-block;
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+.minis-container div:last-of-type {
+	margin-right: 0px;
+}
+
+.graphic-mini img:hover {
+	opacity: .5
+}
+
+.minis-container {
+	width: 100%;
+	max-width: 350px;
+	margin: 10px auto 25px auto;
+	text-align: center;
+}
+
+hr {
+	margin-bottom: 25px;
+	max-width: 600px;
+	border-top: .5px solid #d3d3d3;
+}
+
+
+.instructions {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	font-style: italic;
+	margin-top: 22px;
+
+}
+
+
+
+.description {
+	font-size: 14px;
+	max-width: 600px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+
+.ai2html {
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.city-distribution {
+	max-width: 600px;
+	margin: 0 auto 3px auto;
+	.clearfix();
+}
+
+.pop-bar {
+	height: 10px;
+	float:left;
+}
+
+.prison-pop-bar {
+	background: #222;
+}
+
+.perm-pop-bar {
+	background: #999;
+}
+
+.measurements-container {
+	width: 100%;
+	max-width: 600px;
+	margin: 0 auto;
+	height: 25px;
+	font-size: 12px;
+}
+
+
+.prison-measure-container {
+	float: left;
+	text-align: left
+}
+
+.perm-measure-container {
+	float: right;
+	text-align: right;
+	.clearfix();
+}
+
+.footer {
+	max-width: 600px;
+	margin: 0 auto;
+}

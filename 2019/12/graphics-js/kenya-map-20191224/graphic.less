@@ -1,0 +1,49 @@
+@import "./lib/base";
+
+.map  {
+
+}
+
+// ai2html artboard sizes
+@media screen and (min-width: 940px) {
+	// .map img {
+	// 	width: 50%;
+	// 	float: left;
+
+	// 	&:last-child {
+	// 		border-left: 5px solid white;
+	// 	}
+	// }
+
+	.map {
+		position: absolute;
+	}
+
+	.map {
+		height: 100%;
+		width: 100%;
+		position: relative;
+	}
+
+	.map img:last-child {
+		position: absolute;
+		border: 5px solid white;
+		// width: 50%;
+		width: 400px;
+		right: 0;
+		bottom: 0;
+		
+	}
+}
+
+@media screen and (min-width: 540px) and (max-width: 939px) {
+	.map img:last-child {	
+		width: 300px;
+		position: absolute;
+		border-left: 5px solid white;
+		border-top: 5px solid white;
+
+		right: 0;
+		bottom: 0;
+	}
+}
