@@ -1,0 +1,332 @@
+@import "./lib/base";
+
+.small-mults-container {
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.footer, .footnotes {
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
+	margin-top: 25px;
+}
+
+.small-mult {
+	/*width: 300px;*/
+	display: inline-block;
+	margin-right: 10px;
+	margin-bottom: 22px;
+}
+
+.small-mult:hover {
+	opacity: .3;
+	cursor: pointer;
+}
+
+.small-mult h4 {
+	text-align: center;
+	margin-bottom: 0px;
+	.gotham();
+	color: #666666;
+}
+
+
+.large-container {
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 33px;
+	margin-bottom: 33px;
+}
+
+.large-title {
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 30px;
+
+	h1 {
+		margin-bottom: 8px;
+
+	  strong { color: #454545; }
+	}
+}
+
+.large-title h2 {
+	margin-top: 0px;
+}
+
+.large-title h4 {
+	.knockout-header();
+	margin-bottom: 5px;
+	font-size: 16px;
+
+}
+
+.large-title p {
+	.gotham();
+	font-size: 12px;
+	margin-top: 5px;
+	margin-bottom: 15px;
+
+}
+
+.large-map {
+	width: 48%;
+	text-align: center;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.large-map.map-only {
+	width: 100%;
+	max-width: 650px;
+}
+
+.large-response {
+	width: 48%;
+	margin-left: 10px;
+	text-align: left;
+	display: inline-block;
+	vertical-align: top;
+	line-height: 1.6;
+	font-size: 15px;
+	font-family: Gotham, Helvetica, Arial, sans-serif;
+
+	br {
+		line-height: 3;
+	}
+	p {
+		max-width: 640px;
+	}
+}
+
+.hidden-small-mult {
+	display: none;
+}
+
+.hidden {
+	display: none;
+}
+
+.click-instructions {
+	/*.gotham();*/
+	text-align: center;
+	/*color: #111111;*/
+}
+
+
+.click-instructions h1 {
+	font-size: 17px;
+}
+
+.click-instructions h2 {
+
+}
+
+.dropdowns-container {
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	margin-bottom: 25px;
+}
+
+.dropdowns-container option {
+	font-size: 20px;
+}
+
+
+.scale-scale {
+	width: 100%;
+	max-width: 350px;
+	margin: 0 auto;
+	height: 11px;
+}
+
+.green-scale {
+	background: rgb(247,252,245);
+	background: linear-gradient(90deg, rgba(247,252,245,1) 0%, rgba(133,204,133,1) 48%, rgba(1,68,26,1) 100%);
+
+}
+
+.red-scale {
+	background: rgb(255,245,240);
+	background: linear-gradient(90deg, rgba(255,245,240,1) 0%, rgba(251,116,85,1) 48%, rgba(103,0,12,1) 100%);
+}
+
+.scale-container {
+	display: inline-block;
+	width: 40%;
+}
+
+.scale-container:first-of-type {
+	margin-right: 22px;
+}
+
+.legend-container {
+	margin-top: 20px;
+}
+
+.legend-labels {
+	width: 100%;
+	max-width: 350px;
+	margin: 0 auto;
+	height: 22px;
+	margin-bottom: 22px;
+	margin-top: 2px;
+	font-size: 12px;
+	color: #777777;
+}
+
+
+.left-label {
+	float:left;width:33%;
+	text-align: left;
+}
+
+.middle-label {
+	margin:0 auto;width:33%;
+	float: right;
+	text-align:center;
+}
+
+.right-label {
+	float:right;width:33%;
+	text-align:right;
+}
+
+.clearfix {
+	.clearfix();
+}
+
+.map-desc-title {
+	width: 50%;
+	text-align: center;
+	float: right;
+	.knockout-header();
+}
+
+
+
+
+.map-desc-title:first-of-type {
+	float:left;
+}
+
+.map-desc-title.city-response-title {
+	width: 100%;
+	display: block;
+	padding-bottom:23px;
+	margin-top:-3px;
+}
+
+.map-desc-title-mobile {
+	float:none;
+	text-align: center;
+	width:100%;
+	margin: 0 auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.classify-type {
+	padding: 3px;
+	border-radius: 3px;
+	font-weight: bold;
+	color: white;
+	text-transform: uppercase;
+	&.strong {
+		background-color: #333333;
+	}
+	&.moderate {
+		background-color: #555555;
+	}
+	&.slight {
+		background-color: #777777;
+	}
+	&.weak-or-no {
+		background-color: #999999;
+	}
+}
+
+
+/*begin dropdown css*/
+
+
+
+select,
+option {
+  color: #414141;
+  display: inline-block;
+  font-size: 15px;
+  width: 200px;
+}
+
+select:first-of-type {
+	margin-right: 33px;
+}
+
+select {
+  top: 0;
+  height: 30px;
+  background: #F0F0F0;
+  border: 0 none;
+}
+
+option {
+  position: relative;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/**/
+
+
+
+
+@media (max-width: 800px) {
+
+
+	.map-desc-title.city-response-title {
+		padding-bottom:13px;
+		margin-top:10px;
+	}
+
+	.scale-container {
+		display: block;
+		width: 98%;
+	}
+
+	.red-scale-container {
+		margin-top: 20px;
+	}
+
+
+	.large-map,
+	.large-response {
+		width: 100%;
+		text-align: left;
+	}
+
+
+
+	select,
+	option {
+	  width: 135px;
+	}
+
+	select:first-of-type {
+		margin-right: 13px;
+	}
+}
+
+
+@media (max-width: 500px) {
+
+	.small-mult:hover {
+		opacity: default;
+		cursor: default;
+	}
+}

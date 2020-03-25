@@ -1,0 +1,168 @@
+@import "./lib/base";
+
+body {
+	padding: 0px !important;
+}
+
+.small-mults-container {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.small-mult {
+	width: 33%;
+	display: inline-block;
+	margin-bottom: 22px;
+	transition: 1s opacity;
+}
+
+
+.small-mult h4 {
+	text-align: center;
+	.knockout-header();
+	margin-bottom: 0px;
+}
+
+
+.large-container {
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.large-title {
+	.knockout-header();
+}
+
+.large-map {
+	width: 48%;
+	text-align: right;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.large-response {
+	width: 48%;
+	margin-left: 10px;
+	text-align: left;
+	display: inline-block;
+	vertical-align: top;
+	line-height: 2;
+	font-size: 15px;
+	font-family: Gotham, Helvetica, Arial, sans-serif;
+
+	br {
+		line-height: 4;
+	}
+	p {
+		max-width: 640px;
+	}
+}
+
+.hidden-small-mult {
+	display: none;
+}
+
+.hidden {
+	display: none;
+}
+
+.click-instructions {
+	.gotham();
+	text-align: center;
+	color: #111111;
+}
+
+.dropdowns-container {
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	max-width: 400px;
+}
+
+.dropdowns-container option {
+	font-size: 20px;
+}
+
+
+.green-scale {
+	background: rgb(247,252,245);
+	background: linear-gradient(90deg, rgba(247,252,245,1) 0%, rgba(133,204,133,1) 48%, rgba(1,68,26,1) 100%);
+	width: 100%;
+	max-width: 350px;
+	margin: 0 auto;
+	height: 22px;
+}
+
+.red-scale {
+	background: rgb(255,245,240);
+	background: linear-gradient(90deg, rgba(255,245,240,1) 0%, rgba(251,116,85,1) 48%, rgba(103,0,12,1) 100%);
+	width: 100%;
+	max-width: 350px;
+	margin: 0 auto;
+	height: 22px;
+}
+
+.legend-container {
+	margin-top: 20px;
+}
+
+.legend-labels {
+	width: 100%;
+	max-width: 350px;
+	margin: 0 auto;
+	height: 22px;
+	margin-bottom: 22px;
+	margin-top: 2px;
+	font-size: 13px;
+	color: #777777;
+}
+
+
+.left-label {
+	float:left;width:33%;
+	text-align: left;
+}
+
+.middle-label {
+	margin:0 auto;width:33%;
+	float: right;
+	text-align:center;
+}
+
+.right-label {
+	float:right;width:33%;
+	text-align:right;
+}
+
+.clearfix {
+	.clearfix();
+}
+
+.map-desc-title {
+	width: 50%;
+	text-align: center;
+	float: right;
+	.knockout();
+}
+
+.map-desc-title:first-of-type {
+	float:left;
+}
+
+
+
+@media (max-width: 500px) {
+	.large-map,
+	.large-response {
+		width: 100%;
+		text-align: left;
+	}
+
+	.small-mult {
+		width: 50%;
+		display: inline-block;
+		margin-bottom: 22px;
+	}
+}

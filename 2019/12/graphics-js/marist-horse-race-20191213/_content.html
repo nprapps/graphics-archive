@@ -1,0 +1,78 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th class="group" role="columnheader"><div class="sorter"><div class="icon"></div></div><div class="header"><%= COPY.labels.hdr_q  %></div></th>
+        <th class="candidate" role="columnheader"><div class="sorter"><div class="icon"></div></div><div class="header"><%= COPY.labels.hdr_biden  %></div></th>
+        <th class="candidate long" role="columnheader"><div class="sorter"><div class="icon"></div></div><div class="header"><%= COPY.labels.hdr_sanders  %></div></th>
+        <th class="candidate" role="columnheader"><div class="sorter"><div class="icon"></div></div><div class="header"><%= COPY.labels.hdr_warren  %></div></th>
+        <th class="candidate long2" role="columnheader"><div class="sorter"><div class="icon"></div></div><div class="header"><%= COPY.labels.hdr_buttigieg  %></div></th>
+        <!-- <th role="columnheader"><div class="sorter"><div class="icon"></div></div><div class="header"><%= COPY.labels.hdr_other  %></div></th>
+        <th role="columnheader"><div class="sorter"><div class="icon"></div></div><div class="header"><%= COPY.labels.hdr_undecided  %></div></th> -->
+      </tr>
+    </thead>
+
+    <%
+
+    var d3 = {
+      ...require("d3-axis/dist/d3-axis.min"),
+      ...require("d3-scale/dist/d3-scale.min"),
+      ...require("d3-selection/dist/d3-selection.min")
+    };
+
+    var scale = d3
+      .scaleLinear()
+      .domain([0, 30])
+      .range([0, 1]);
+
+      var darkFunction = function(input) {
+        if (input > 15) {
+          return 'light';
+        } else {
+          return 'dark';
+        }
+      }
+  %>
+  <% COPY.data.forEach(function(row) { %>
+    
+  <% if (row.groupLine) { %>
+    <tr class="groupLine" role="row">
+  <% } else { %>
+    <tr class="" role="row">
+  <% } %>
+
+      <td class="amt group change dark" role="cell"=><%= row.hdr_q %></td>                        
+      <td class="amt candidates change <%= darkFunction(row.hdr_biden.replace('%', '')) %>" role="cell" style="background-color: rgb(81, 170, 222, <%= scale(row.hdr_biden.replace('%', '')) %>)"><%= row.hdr_biden %></td>
+      <td class="amt candidates change <%= darkFunction(row.hdr_sanders.replace('%', '')) %>" role="cell" style="background-color: rgb(81, 170, 222, <%= scale(row.hdr_sanders.replace('%', '')) %>)"><%= row.hdr_sanders %></td>
+      <td class="amt candidates change <%= darkFunction(row.hdr_warren.replace('%', '')) %>" role="cell" style="background-color: rgb(81, 170, 222, <%= scale(row.hdr_warren.replace('%', '')) %>)"><%= row.hdr_warren %></td>
+      <td class="amt candidates change <%= darkFunction(row.hdr_buttigieg.replace('%', '')) %>" role="cell" style="background-color: rgb(81, 170, 222, <%= scale(row.hdr_buttigieg.replace('%', '')) %>)"><%= row.hdr_buttigieg %></td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

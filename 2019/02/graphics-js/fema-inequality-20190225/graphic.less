@@ -1,0 +1,29 @@
+@import "./lib/base";
+
+.cat {
+  .clearfix();
+
+  + .cat {
+    border-top: 1px solid #eee;
+    margin-top: 22px;
+    padding-top: 22px;
+  }
+
+  > h3 {
+    font-size: 16px;
+  }
+}
+
+.counties {
+  path {
+    // fill: #f1f1f1;
+  }
+}
+
+.states {
+  path {
+    fill: none;
+    stroke: #fff;
+    stroke-width: .5px;
+  }
+}

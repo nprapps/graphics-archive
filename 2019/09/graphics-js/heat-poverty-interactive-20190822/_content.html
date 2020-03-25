@@ -1,0 +1,58 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="chart" class="graphic" role="img" aria-label="<%- COPY.labels.screenreader %>">
+	<div class="large-title" id="large-title"></div>
+	<div class='dropdowns-container'>
+		<select class='state-select'>
+			<option value='state-select'>Select a state</option>
+			<%
+			var addedStates = [];
+			for(var i=0; i < COPY.data.length; i++) {
+			if (addedStates.indexOf(COPY.data[i].state) == -1 ){
+			addedStates.push(COPY.data[i].state)
+			var stateDict = {"Alaska": "Alaska", "Ariz.": "Arizona", "Calif.": "California", "Colo.": "Colorado", "D.C.": "Washington, D.C.", "Fla.": "Florida", "Ga.": "Georgia", "Idaho": "Idaho", "Ill.": "Illinois", "Ind.": "Indiana", "Kan.": "Kansas", "Ky.": "Kentucky", "La.": "Louisiana", "Md.": "Maryland", "Mass.": "Massachusetts", "Mich.": "Michigan", "Minn.": "Minnesota", "Mo.": "Missouri", "Neb.": "Nebraska", "Nev.": "Nevada", "N.J.": "New Jersey", "N.M.": "New Mexico", "N.Y": "New York", "N.C.": "North Carolina", "Ohio": "Ohio", "Okla.": "Oklahoma", "Ore.": "Oregon", "Pa.": "Pennsylvania", "Tenn.": "Tennessee", "Tex.": "Texas", "Va.": "Virginia", "Wash.": "Washington", "Wisc.": "Wisconsin" }
+			%>
+			   <option value='<%= COPY.data[i].state %>'><%= stateDict[COPY.data[i].state] %> </option>
+			<% }} %>
+		</select>
+		<select class='city-select'>
+			<option>Select a city</option>
+		</select>
+	</div>
+	<div class='large-container'>
+	</div>
+	<div class='click-instructions'>
+		<h1>Cities With The Strongest Correlations Between Heat And Income</h1>
+		<h2>Tap a small map to view details.</h2>
+	</div>
+
+
+	<div class='small-mults-container'></div>
+  <img src="fallback.png" alt="" class="fallback">
+</div>
+
+<% if (COPY.labels.footnote_int) { %>
+<div class="footnotes">
+	<p><strong>Note:</strong> <%= COPY.labels.footnote_int %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script>
+	window.DATA = <%= JSON.stringify(COPY.data) %>;
+</script>

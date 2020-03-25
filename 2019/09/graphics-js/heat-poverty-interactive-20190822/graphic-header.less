@@ -1,0 +1,111 @@
+@import "./lib/base";
+
+body {
+	padding: 0px !important;
+}
+
+
+.city-container {
+	width: 22%;
+	display: inline-block;
+	text-align: center;
+	margin-right: 2%;
+}
+
+.city-title {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	.gotham();
+	color: #666666;
+}
+
+.city-img {
+	width: 49%;
+	display: inline-block
+}
+
+
+
+.legend-labels {
+	width: 100%;
+	max-width: 350px;
+	margin: 0 auto;
+	height: 22px;
+	margin-bottom: 22px;
+	margin-top: 2px;
+	font-size: 13px;
+	color: #777777;
+}
+
+.scale-scale {
+	width: 100%;
+	max-width: 350px;
+	margin: 0 auto;
+	height: 11px;
+}
+
+.blue-scale {
+	background: rgb(247,251,255);
+	background: linear-gradient(90deg, rgba(247,251,255,1) 0%, rgba(107,174,214,1) 50%, rgba(8,48,107,1) 100%);
+
+}
+
+.green-scale {
+	background: rgb(247,252,245);
+	background: linear-gradient(90deg, rgba(247,252,245,1) 0%, rgba(133,204,133,1) 48%, rgba(1,68,26,1) 100%);
+
+}
+
+.red-scale {
+	background: rgb(255,245,240);
+	background: linear-gradient(90deg, rgba(255,245,240,1) 0%, rgba(251,116,85,1) 48%, rgba(103,0,12,1) 100%);
+}
+
+.legend-container {
+	margin-top: 30px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.red-scale-container, .green-scale-container {
+	display: inline-block;
+	width: 130px;
+	margin: 7px auto 0px auto;
+	text-align: center;
+} 
+
+
+.red-scale-container {
+	margin-right: 20px;
+}
+
+.left-label {
+	float:left;width:33%;
+	text-align: left;
+}
+
+.middle-label {
+	margin:0 auto;width:33%;
+	float: right;
+	text-align:center;
+}
+
+.right-label {
+	float:right;width:33%;
+	text-align:right;
+}
+
+.clearfix {
+	.clearfix();
+}
+
+
+@media (max-width: 500px) {
+	.city-container {
+		width: 46%;
+		display: inline-block;
+		text-align: center;
+		margin-right: 2%;
+	}
+}

@@ -1,0 +1,87 @@
+@import "./lib/base";
+
+// ai2html artboard sizes
+@media screen and (min-width: 730px) {
+    #g-ai2html-graphic-small, #g-ai2html-graphic-medium { display: none; }
+}
+
+@media screen and (max-width: 729px) and (min-width: 400px) {
+    #g-ai2html-graphic-small, #g-ai2html-graphic-wide { display: none; }
+}
+
+@media screen and (max-width: 399px) {
+    #g-ai2html-graphic-medium, #g-ai2html-graphic-wide { display: none; }
+}
+
+// Add custom styles here
+
+h1 {
+  margin-bottom: 22px;
+
+  strong { color: #454545; }
+}
+
+.legend-labels {
+	width: 100%;
+	max-width: 350px;
+	margin: 0 auto;
+	height: 22px;
+	margin-bottom: 22px;
+	margin-top: 2px;
+	font-size: 13px;
+	color: #777777;
+}
+
+.scale-scale {
+	width: 100%;
+	max-width: 350px;
+	margin: 0 auto;
+	height: 15px;
+}
+
+.green-scale {
+	background: rgb(247,252,245);
+	background: linear-gradient(90deg, rgba(247,252,245,1) 0%, rgba(133,204,133,1) 48%, rgba(1,68,26,1) 100%);
+
+}
+
+.red-scale {
+	background: rgb(255,245,240);
+	background: linear-gradient(90deg, rgba(255,245,240,1) 0%, rgba(251,116,85,1) 48%, rgba(103,0,12,1) 100%);
+}
+
+.legend-container {
+	margin-top: 20px;
+}
+
+
+.left-label {
+	float:left;width:33%;
+	text-align: left;
+}
+
+.middle-label {
+	margin:0 auto;width:33%;
+	float: right;
+	text-align:center;
+}
+
+.right-label {
+	float:right;width:33%;
+	text-align:right;
+}
+
+.clearfix {
+	.clearfix();
+}
+
+h1 {
+	text-align: center;
+}
+
+h1, h2, .footer, .footnotes {
+	width: 100%;
+	max-width: 650px;
+	margin-left: auto;
+	margin-right: auto;
+}

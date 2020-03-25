@@ -1,0 +1,29 @@
+{
+"type": "FeatureCollection",
+"name": "population_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "ADM1_EN": "Darkhan-Uul", "2018": 105923, "perc_2018": 3.270763837, "1991": 85655, "perc_1991": 3.934148992 }, "geometry": { "type": "Point", "coordinates": [ 106.280964334162235, 49.416127212408973 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Dornogovi", "2018": 69304, "perc_2018": 2.140016965, "1991": 47152, "perc_1991": 2.16569953 }, "geometry": { "type": "Point", "coordinates": [ 109.804992330792288, 44.429723126751767 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Dundgovi", "2018": 46628, "perc_2018": 1.439811714, "1991": 51883, "perc_1991": 2.38299518 }, "geometry": { "type": "Point", "coordinates": [ 106.27400741249744, 45.521719434652901 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Govisumber", "2018": 17796, "perc_2018": 0.5495172271, "1991": 12191, "perc_1991": 0.5599347424 }, "geometry": { "type": "Point", "coordinates": [ 108.568561267963631, 46.468696392107262 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Omnogovi", "2018": 66722, "perc_2018": 2.060288178, "1991": 44819, "perc_1991": 2.058544436 }, "geometry": { "type": "Point", "coordinates": [ 104.121575123724995, 43.285728761427556 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Selenge", "2018": 111403, "perc_2018": 3.439979077, "1991": 92732, "perc_1991": 4.259196828 }, "geometry": { "type": "Point", "coordinates": [ 105.5, 49.8 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "To'v", "2018": 95662, "perc_2018": 2.953917564, "1991": 103771, "perc_1991": 4.766220011 }, "geometry": { "type": "Point", "coordinates": [ 105.7, 47.5 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Dornod", "2018": 80984, "perc_2018": 2.500680103, "1991": 82220, "perc_1991": 3.776378847 }, "geometry": { "type": "Point", "coordinates": [ 115.465742351129833, 48.158014040333114 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Hentii", "2018": 77028, "perc_2018": 2.378523992, "1991": 74498, "perc_1991": 3.421706049 }, "geometry": { "type": "Point", "coordinates": [ 110.445575167872462, 47.890032298920417 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Sukhbaatar", "2018": 62322, "perc_2018": 1.924421928, "1991": 54909, "perc_1991": 2.521979884 }, "geometry": { "type": "Point", "coordinates": [ 113.542636015647716, 46.222672258686679 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Ulaanbaatar", "2018": 1491375, "perc_2018": 46.05171131, "1991": 591489, "perc_1991": 27.16719226 }, "geometry": { "type": "Point", "coordinates": [ 107.165424322027889, 47.915530204317932 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Arxangai", "2018": 96720, "perc_2018": 2.986587222, "1991": 91127, "perc_1991": 4.1854789 }, "geometry": { "type": "Point", "coordinates": [ 101.026632906705004, 47.878612003748835 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Bayankhongor", "2018": 88356, "perc_2018": 2.728317831, "1991": 80289, "perc_1991": 3.687687682 }, "geometry": { "type": "Point", "coordinates": [ 99.517038223515698, 45.252648224185279 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Bulgan", "2018": 62214, "perc_2018": 1.921087029, "1991": 56644, "perc_1991": 2.601668735 }, "geometry": { "type": "Point", "coordinates": [ 103.397892413652073, 48.962300855250341 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Khovsgol", "2018": 133964, "perc_2018": 4.136633278, "1991": 110166, "perc_1991": 5.059943469 }, "geometry": { "type": "Point", "coordinates": [ 99.912078501549388, 50.234933803663964 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Orkhon", "2018": 105987, "perc_2018": 3.272740073, "1991": 58991, "perc_1991": 2.709466852 }, "geometry": { "type": "Point", "coordinates": [ 104.298276655725346, 49.044400252669966 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Ovorkhangai", "2018": 117112, "perc_2018": 3.616265537, "1991": 103734, "perc_1991": 4.764520595 }, "geometry": { "type": "Point", "coordinates": [ 102.712881774036418, 45.837909628336497 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Bayan-Olgii", "2018": 105090, "perc_2018": 3.245041885, "1991": 100171, "perc_1991": 4.600871387 }, "geometry": { "type": "Point", "coordinates": [ 89.849860266586887, 48.54472505302067 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Govi-Altai", "2018": 58471, "perc_2018": 1.80550808, "1991": 65935, "perc_1991": 3.028405975 }, "geometry": { "type": "Point", "coordinates": [ 95.946682636350829, 45.344014992362339 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Khovd", "2018": 88330, "perc_2018": 2.727514985, "1991": 83323, "perc_1991": 3.827039828 }, "geometry": { "type": "Point", "coordinates": [ 92.289209049255732, 46.901556270227111 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Uvs", "2018": 84309, "perc_2018": 2.603351759, "1991": 91256, "perc_1991": 4.191403892 }, "geometry": { "type": "Point", "coordinates": [ 92.94033127027437, 49.633371610050041 ] } },
+{ "type": "Feature", "properties": { "ADM1_EN": "Zavkhan", "2018": 72779, "perc_2018": 2.247320424, "1991": 94263, "perc_1991": 4.329515924 }, "geometry": { "type": "Point", "coordinates": [ 96.44518155329348, 48.297361775296977 ] } }
+]
+}

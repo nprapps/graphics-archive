@@ -1,0 +1,35 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="chart" class="graphic" role="img" aria-label="<%- COPY.labels.screenreader %>">
+	<% var cities = ["oakland", "los-angeles", "minneapolis", "lexington"];
+	for (i in cities) {
+		var cityObj = COPY.data.filter(d => d['city-dash'].toLowerCase() == cities[i])[0]%>
+		<div class='city-container'>
+			<div class='city-title'><%= cityObj.city + ", " + cityObj.state  %></div>
+			<div class='city-img city-img-heat'><img src='./minimaps/JPEG/heat%20<%= cityObj['city-dash']  %>.jpg'></div>
+			<div class='city-img city-img-income'><img src='./minimaps/JPEG/income%20<%= cityObj['city-dash']  %>.jpg'></div>
+		</div>
+		 
+	<% } %>
+<div class='legend-container'></div>
+	
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+
+
+<script>
+	window.DATA = <%= JSON.stringify(COPY.data) %>;
+</script>	

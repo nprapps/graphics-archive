@@ -1,0 +1,38 @@
+@import "./lib/base";
+
+.chart {
+  .clearfix();
+
+  + .chart {
+    border-top: 1px solid #eee;
+    margin-top: 22px;
+    padding-top: 22px;
+  }
+
+  > h3 {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  h4 {
+    color: #777;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0 0 11px 0;
+  }
+}
+
+.trend {
+  path {
+    fill-opacity: 0.5;
+    stroke-width: 2px;
+  }
+  text {
+    font-size: 12px;
+    text-anchor: middle;
+  }
+}
+
+.axis-label {
+  text-anchor: middle;
+}
