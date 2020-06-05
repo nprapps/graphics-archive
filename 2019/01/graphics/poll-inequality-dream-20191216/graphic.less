@@ -1,0 +1,32 @@
+@import "./lib/base";
+
+h1 {
+  font-size: 18px;
+
+  strong {
+    font-weight: bold;
+    color: #333;
+  }
+}
+
+.value text {
+    fill: #fff;
+
+    .group.overall & { font-weight: bold; }
+
+    &.left {
+      text-anchor: start;
+
+      &.center { text-anchor: middle; }
+      &.out { text-anchor: end; }
+    }
+
+    &.right {
+      text-anchor: end;
+
+      &.center { text-anchor: middle; }
+      &.out { text-anchor: start; }
+    }
+    &.centered { text-anchor: middle; }
+    &.hidden { display: none; }
+}

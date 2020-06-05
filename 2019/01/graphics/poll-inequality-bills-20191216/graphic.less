@@ -1,0 +1,111 @@
+@import "./lib/base";
+
+h1 { font-size: 18px; }
+
+// Base table styles
+table {
+  border-collapse: collapse;
+  padding: 0;
+  margin-bottom: 22px;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+
+  tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+  }
+
+  td { vertical-align: top; }
+}
+
+// Tablesorter styles
+table {
+  th {
+    &.sort-header {
+      cursor: pointer;
+
+      &::-moz-selection,
+      &::selection {
+        background: transparent;
+      }
+
+      .sorter {
+        border-top: 2px solid #404040;
+        visibility: hidden;
+
+        .icon {
+          content: '';
+          width: 1px;
+          margin: 3px auto 7px auto;
+          border-width: 0 4px 4px;
+          border-style: solid;
+          border-color: #404040 transparent;
+        }
+      }
+
+      &:hover .sorter {
+        visibility: visible;
+      }
+    }
+
+    &[aria-sort="descending"] .sorter,
+    &[aria-sort="ascending"] .sorter,
+    &[aria-sort="ascending"]:hover .sorter {
+      visibility: visible;
+      opacity: 0.4;
+    }
+
+    &[aria-sort="descending"] .sorter .icon {
+      border-bottom: none;
+      border-width: 4px 4px 0;
+    }
+  }
+}
+
+/*
+* larger-than-small-screen styles
+* ~ defining some desktop-only styles here to avoid
+* ~ writing extra mobile styles to undo them.
+*/
+// @media @screen-mobile-above {
+  table {
+    th, td {
+      padding: 10px;
+
+      // comment these two out if you want to highlight particular rows
+      &:first-child { padding-left: 0; }
+      // &:last-child { padding-right: 0; }
+
+      &.amt {
+        text-align: center;
+        width: 18%;
+      }
+    }
+
+    th {
+      border-bottom: 2px solid #eee;
+      padding-top: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    td {
+      border-bottom: 1px solid #eee;
+
+      &.amt {
+        border-color: #fff;
+        border-left: 1px solid #fff;
+        vertical-align: middle;
+      }
+    }
+  }
+// }

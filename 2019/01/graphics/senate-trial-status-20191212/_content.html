@@ -1,0 +1,92 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<!-- <h2><%= t.smarty(COPY.labels.subhed) %></h2> -->
+<% } %>
+
+<div id="" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+<!-- 	<div class='active-pointer'>
+		<h5>We are here &#8594;</h5>
+	</div> -->
+	<div class='house-wrapper chamber-wrapper'>
+		<h1><%= COPY.labels.house_vote %></h1>
+		<% if (COPY.labels.house_vote_info) { %>
+			<p><span class="info"><%= COPY.labels.house_vote_info %></span></p>
+		<% } %>
+	</div>
+	<svg class="house-arrow" width="2" height="7"><line x1="1" x2="1" y1="0" y2="7" class="arrow-line"></line></svg>
+	<div class='house-wrapper chamber-wrapper'>
+		<h1><%= COPY.labels.house_send %></h1>
+		<% if (COPY.labels.house_send_info) { %>
+			<p><span class="info"><%= COPY.labels.house_send_info %></span></p>
+		<% } %>
+	</div>
+	<svg class="house-arrow" width="2" height="20"><line x1="1" x2="1" y1="0" y2="20" class="arrow-line"></line></svg>
+	<div class='senate-wrapper chamber-wrapper'>
+		<h1>Senate trial</h1>
+		<div id="step-1" <% if (STEP == 1 || (STEP == 'n/a' && COPY.labels.active_step == '1')) { %>class="active-step"<% } %>>
+			<%= t.smarty(COPY.labels.sen_step_1) %>
+			<% if (COPY.labels.sen_step_1_info) { %>
+				<span class="info"><%= COPY.labels.sen_step_1_info %></span>
+			<% } %>
+		</div>
+		<div id='step-2' <% if (STEP == 2 || (STEP == 'n/a' && COPY.labels.active_step == '2')) { %>class="active-step"<% } %>>
+			<%= t.smarty(COPY.labels.sen_step_2) %>
+			<% if (COPY.labels.sen_step_2_info) { %>
+				<span class="info"><%= COPY.labels.sen_step_2_info %></span>
+			<% } %>
+		</div>
+		<div id='step-3' <% if (STEP == 3 || (STEP == 'n/a' && COPY.labels.active_step == '3')) { %>class="active-step"<% } %>>
+			<%= t.smarty(COPY.labels.sen_step_3) %>
+			<% if (COPY.labels.sen_step_3_info) { %>
+				<span class="info"><%= COPY.labels.sen_step_3_info %></span>
+			<% } %>
+		</div>
+	</div>
+	<svg class="after-sen-arrow" width="102" height="32">
+		<line x1="50" x2="50" y1="0" y2="20" class="arrow-line"></line>
+		<line x1="1" x2="50" y1="20" y2="20" class="arrow-line"></line>
+		<line x1="100" x2="50" y1="20" y2="20" class="arrow-line"></line>
+		<line x1="100" x2="100" y1="20" y2="32" class="arrow-line"></line>
+		<line x1="1" x2="1" y1="20" y2="32" class="arrow-line"></line>
+	</svg>
+	<div class='sen-remove-wrapper chamber-wrapper end-wrapper'><h1>President removed</h1></div>
+	<div class='sen-acquit-wrapper chamber-wrapper end-wrapper'><h1>President stays</h1></div>
+
+</div>
+
+<% console.log(PARAM); if ( PARAM == 'embed' ) { %>
+	<% if ( COPY.labels.embed_more ) { %>
+		<div class='embed-more'><%= COPY.labels.embed_more %></div>
+	<%} %>
+	<% if ( COPY.labels.embed_more_2 ) { %>
+		<div id='option-embed-more' class='embed-more'><%= COPY.labels.embed_more_2 %></div>
+	<%} %>
+<%} %>
+
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <!-- <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %> -->
+</div>
+
+<% if ("data" in COPY) { %>
+<script type="text/javascript">
+window.LABELS = <%= JSON.stringify(COPY.labels) %>;
+window.ACTIVESTEP = <%= JSON.stringify(STEP) %>;
+</script>
+<% } %>

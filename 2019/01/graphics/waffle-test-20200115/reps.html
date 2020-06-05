@@ -1,0 +1,45 @@
+<%= await t.include("./partials/_header.html") %>
+<div class="mmedia-constrained center">
+
+	<% if (COPY.labels.headline_trump) { %>
+	<h1><%= t.smarty(COPY.labels.headline_trump) %></h1>
+	<% } %>
+
+	<% if (COPY.labels.subhed_trump) { %>
+	<h2><%= t.smarty(COPY.labels.subhed_trump) %></h2>
+	<% } %>
+
+	<%= await t.include("./partials/_legend.html") %>
+
+</div>
+
+<div id="column-chart" class="graphic trump" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+	<div class="clearer"></div>
+    <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.trump) %>;
+    var DATA_BIG = <%= JSON.stringify(COPY.dem_natl) %>;
+    var BLOCKSIZE = <%= JSON.stringify(COPY.labels.blockSize) %>;
+	var BLOCKSPERCOLUMN = <%= JSON.stringify(COPY.labels.blocks_per_column) %>;
+
+</script>
+
+<%= await t.include("./partials/_footer.html") %>

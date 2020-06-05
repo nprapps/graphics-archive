@@ -1,0 +1,75 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_name %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_lower %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_middle %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_upper %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_top %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <%
+      var calcBG = function (val) {
+        var newClass = 'background-color';
+        var colors = '227,141,44';
+        var pctOpacity = val / 60;
+        if (isNaN(pctOpacity)) {
+          pctOpacity = 0;
+        }
+        var style = `${newClass}: rgba(${colors},${pctOpacity}); color: ${pctOpacity < .7 ? "#454545" : "white"};`;
+        return style;
+      };
+      COPY.data.forEach(function(row) { %>
+    <tr role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_name %>"><%= row.name %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_lower %>" class="amt" style="<%= calcBG(row.lower) %>"><%= row.lower %>%</td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_middle %>" class="amt" style="<%= calcBG(row.middle) %>"><%= row.middle %>%</td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_upper %>" class="amt" style="<%= calcBG(row.upper) %>"><%= row.upper %>%</td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_top %>" class="amt" style="<%= calcBG(row.top) %>"><%= row.top %>%</td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

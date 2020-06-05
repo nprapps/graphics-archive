@@ -1,0 +1,125 @@
+@import "./lib/base";
+
+.g-cities, .g-notes {
+	p {
+		color: #fff !important;
+		-webkit-font-smoothing: antialiased;  		
+	}
+}
+
+.g-cities {
+	text-shadow: 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 5px #000;	
+}
+ 
+
+
+.show-for-mobile, .g-notes {
+	font-weight: 400;
+	p {
+		line-height:15px !important;
+	}	
+
+	span.top {
+		
+		background-color: rgba(0,0,0,0.5);
+		// width: 5px !important;
+		padding-left:10px;
+		padding-right: 10px;		
+		padding-top:3px;
+		padding-bottom: 3px;
+		margin-bottom: 2px;
+
+		border-radius: 5px;
+		display: inline-block;
+		
+		text-shadow: none;
+	}
+	span.number {	
+		// width: 5px !important;
+		padding-left:10px;
+		padding-right: 10px;		
+		padding-top:3px;
+		padding-bottom: 3px;
+		// margin-bottom: 2px;
+
+		border-radius: 5px;
+		display: inline-block;
+		
+		text-shadow: none !important;
+
+		background-color: rgba(255,255,255,1);
+		color: #333;
+		font-weight: 700;
+		margin-right: 5px;
+		line-height: 12px;
+
+		&.one, &.two {
+			// color: rgb(156,255,0);
+			// color: #fff;
+			background-color: lighten(rgb(156,255,0),10%);
+		}					
+
+		&.three {
+			// color: rgb(12,232,150);
+			// color: #fff;
+			background-color: lighten(rgb(12,232,150),10%);
+		}
+
+		&.four {
+			// color: rgb(255,48,0);
+			// color: #fff;
+			background-color: lighten(rgb(255,48,0),15%);
+		}
+	}
+}
+
+
+// ai2html artboard sizes
+@media screen and (min-width: 600px) {
+    #g-_ai2html-graphic-small { display: none; }
+    .show-for-mobile, .show-for-mobile-text {
+    	display: none;
+    }
+}
+
+@media screen and (max-width: 599px) {
+	#g-_ai2html-graphic-large { display: none; }
+
+	.exception {
+		text-shadow: 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 5px #000 !important;
+	}
+
+	.g-cities {
+		opacity: .9;
+		font-size: 1px !important;
+	}
+
+
+    span.top {
+    	background-color: transparent !important;
+    }
+
+    span.hide-for-mobile {
+    	display: none;
+    }
+
+    .show-for-mobile-text {
+    	display: inline;
+    }
+
+	.show-for-mobile {
+		display: block;
+		padding-bottom: 20px;
+
+		span.hide-for-mobile {
+	    	display: inline;
+	    }
+		
+		.exception {
+			text-shadow: none !important;
+		}
+	}
+
+}
+
+// Add custom styles here

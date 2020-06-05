@@ -1,0 +1,193 @@
+@import "./lib/base";
+
+h1,h2,ul.key {
+  .mmedia-constrained-centered();
+}
+
+.footnotes, .footer {
+ .mmedia-constrained(); 
+}
+
+@colorChoice1: @red3;
+@colorChoice2: @orange3;
+@colorChoice3: @blue3;
+@colorChoice4: @teal3;
+@colorChoice5: @yellow3;
+@colorChoice6: #a65628;
+@colorChoice7: #984ea3;
+
+
+.active[class*="stomach"] {
+  stroke: @colorChoice1;
+  b {
+    background-color:  @colorChoice1 !important;
+  }
+}
+
+.active[class*="colorectum"] {
+  stroke: @colorChoice2;
+  b {
+    background-color:  @colorChoice2 !important;
+  }
+}
+
+.active[class*="liver"] {
+  stroke: @colorChoice3;
+  b {
+    background-color:  @colorChoice3 !important;
+  }
+}
+
+.active[class*="pancreas"] {
+  stroke: @colorChoice4;
+  b {
+    background-color:  @colorChoice4 !important;
+  }
+}
+
+.active[class*="lung"] {
+  stroke: @colorChoice5;
+  b {
+    background-color:  @colorChoice5 !important;
+  }
+}
+
+.active[class*="breast"], .active[class*="prostate"] {
+  stroke: @colorChoice6;
+  b {
+    background-color:  @colorChoice6 !important;
+  }
+}
+
+.active[class*="uterus"], .active[class*="leukemia"] {
+  stroke: @colorChoice7;  
+  b {
+    background-color:  @colorChoice7 !important; 
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+
+  button {
+    .knockout-header();
+    background: #fff;
+    border: 1px solid #eee;
+    color: #555555;
+    font-size: 13px;
+    line-height: 33px;
+    margin: 0;
+    padding: 0 15px;
+    -webkit-user-select: none;
+    user-select: none;
+
+    &:nth-child(1) {
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+
+    &:nth-child(2) {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+
+    + button { border-left: none; }
+
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: #bccae5;
+      color: #bccae5;
+      cursor: pointer;
+      outline: none;
+    }
+
+    &.active {
+      color: #fff;
+
+      background-color: #555555;
+      border-color: #555555;
+    }
+  }
+}
+
+.chart {
+  @media @screen-mobile {
+    + .chart {
+      margin-top: 22px;
+    }
+  }
+
+  h3 {
+    font-size: 13px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+}
+
+.axis-label {
+  fill: #666;
+  font-size: 13px;
+  // font-style: italic;
+  text-anchor: middle;
+
+  .x.axis & {
+    @media @screen-mobile {
+      text-anchor: start;
+    }
+  }
+}
+
+ul.key {
+  max-width: 500px;
+  margin-top: 11px;
+  margin-bottom: 22px;
+}
+
+.key-item {
+  display: none !important;
+
+  &.active {
+    display: inline-block !important;
+  }
+}
+
+.lines {
+  fill: none;
+  stroke: #eee;  
+  stroke-width: 2.5px;
+
+  .line {
+    opacity: 0;
+
+    &.active {
+      opacity: 1;   
+    }
+  }  
+}
+
+.value,
+.shadow {
+  text {
+    display: none;
+    fill: #666;
+    font-size: 11px;
+    text-anchor: end;
+
+    &.active {
+      display: block;
+    }
+
+    @media @screen-mobile-above {
+      font-size: 12px;
+    }
+  }
+}
+.shadow text {
+  fill: #fff;
+  stroke: #fff;
+  stroke-width: 3px;
+}
