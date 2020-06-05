@@ -1,0 +1,300 @@
+<!-- <% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %> -->
+
+<div id="" class="graphic <%= thisMeasure %>" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+
+
+<% 
+
+var { classify, COLORS, makeTranslate, fmtComma, formatStyle, getAPMonth } = require("./lib/helpers");
+var showCands = 10
+
+var ignoreCols = ['measure_name', 'bracket', 'Steyer'];
+
+var candSort = function(a, b) {
+	if (a.measure > b.measure) {
+		return -1
+	}
+	return 1
+}
+
+
+var candSortTotal = function(a, b) {
+
+
+	if (typeof a == "string") {
+		a = COPY.candmeta.filter(x=>x.last == a)[0]
+		b = COPY.candmeta.filter(x=>x.last == b)[0]
+	}
+	else {
+		a = COPY.candmeta.filter(x=>x.last == a.candName)[0]
+		b = COPY.candmeta.filter(x=>x.last == b.candName)[0]
+	}
+
+
+
+	if (a.votes > b.votes) {
+		return -1
+	}
+	return 1
+}
+
+ %>
+
+
+
+
+
+ <h1><%= COPY.measureLabels.filter(d=>d.measure == thisMeasure)[0].label %></h1>
+
+
+ <div class='top-container'>
+
+	<div class='candidate-key top-box'>
+
+ 	<%  var quartiles = ['first_quartile', 'second_quartile', 'third_quartile', 'fourth_quartile']  ;
+
+ 		for (i in quartiles) {
+ 			var thisQuartile = quartiles[i];
+
+
+ 		var orderedCands = COPY.candmeta.map(x=>x.last).sort(candSortTotal)
+			%>
+
+ 				<%
+
+		 	if (i==0){
+				for (candInd in orderedCands) {
+					if (candInd >= showCands) {
+						continue
+					}
+					var thiscandName = orderedCands[candInd]
+					var thisCandUrl = COPY.candmeta.filter(d => d.last == thiscandName)[0].url
+						// console.log(thiscandName)
+							%>
+								<div class='cand-row'>
+									<div class='cand-name-container'>
+										<img src='<%=thisCandUrl%>'>
+										<h4 class='cand-name'><%= thiscandName %></h4>
+									</div>
+								</div>
+							<%
+				}
+				%>
+		</div> 
+		<%
+			}
+			%>
+
+
+
+
+
+	<div class='<%= thisQuartile %>-container top-box'>
+			<h3>Counties in <%= thisQuartile.replace("_", " ").replace("first", "1st").replace("second", '2nd').replace("third", '3rd').replace("fourth", '4th') %></h3>
+			<% 
+
+				var rangeText = ""
+				var thisSoFar = COPY.sofar_data.filter(x=>x.measure_name == thisMeasure)[0]
+				if (i==0) {
+					rangeText = "Below " + thisSoFar.first
+				}
+				if (i==1) {
+					rangeText = "Between " + thisSoFar.first + " and " + thisSoFar.second_lower
+				}
+				if (i==2) {
+					rangeText = "Between " + thisSoFar.second + " and " + thisSoFar.third
+				}
+				if (i==3) {
+					rangeText = "Above " + thisSoFar.third
+				}
+
+
+
+
+			%>
+			 <h3 class='rangetext'><%= rangeText %></h3>
+			<% 
+			var DATA = COPY.data;
+			var measureDATA = DATA.filter(d => d['measure_name'] == thisMeasure);
+			measureDATA = measureDATA.filter(d => d['bracket'] == thisQuartile)[0];
+
+			orderedCands = []
+			Object.keys(measureDATA).forEach(function(key, ind) {
+				if (ignoreCols.indexOf(key) == -1) {
+					orderedCands.push({"candName": key, 'measure': parseFloat(measureDATA[key])})
+				}
+			}) 
+
+			orderedCands = orderedCands.sort(candSortTotal)
+
+
+
+			for (candInd in orderedCands) {
+				if (candInd >= showCands) {
+					continue
+				}
+				var thiscandName = orderedCands[candInd].candName
+				var thisCandUrl = COPY.candmeta.filter(d => d.last == thiscandName)[0].url
+						%>
+							<div class='cand-row'>
+								<div class='bar not-stacked-bar <%= thisQuartile + " " + thiscandName %>' data-pct='<%= measureDATA[thiscandName] %>'></div>
+								<div class='pct-label'><%= (measureDATA[thiscandName] * 100).toFixed(0) %>%</div>
+							</div>
+						<%
+			} %>
+		</div>
+
+
+
+	<%
+ 		}
+
+
+ 		var iToPosKey = {0: 'first', 1: 'second', 2: 'third', 3: 'max'};
+ 		var thisSoFar = COPY.sofar_data.filter(x => x.measure_name == thisMeasure)[0]
+ 	%>
+
+
+
+
+	</div>
+
+
+	
+
+	<div class='bottom-container '>
+
+
+	
+		<div class='all-labels'>
+			<div class='cand-breakdown-row all-labels'>
+				<div class='cand-name-container'>
+				</div>
+			<div class='stacked-bar-container'>
+				<% pctCandData = COPY.canddata.filter(d => d.candidate == 'All' && d.measure_name == thisMeasure)[0]; %>
+				<div class='bar stacked-bar first_quartile all-labels' style='width: <%= Math.floor(pctCandData.first_quartile_pct * 100) %>%'><%=thisSoFar[iToPosKey[0]]%> <%= COPY.measureLabels.filter(d=>d.measure == thisMeasure)[0].shortlabel.toLowerCase() %></div>
+				<div class='bar stacked-bar second_quartile all-labels' style='width: <%= Math.floor(pctCandData.second_quartile_pct * 100) %>%' ><%=thisSoFar[iToPosKey[1]]%></div>
+				<div class='bar stacked-bar third_quartile all-labels' style='width: <%= Math.floor(pctCandData.third_quartile_pct * 100) %>%'><%=thisSoFar[iToPosKey[2]]%></div>
+				<div class='bar stacked-bar fourth_quartile all-labels' style='width: <%= Math.floor(pctCandData.fourth_quartile_pct * 100) %>%' ><%=thisSoFar[iToPosKey[3]]%></div>
+			</div>
+			</div>
+		</div>
+
+		<div class='cand-breakdown-row All'>
+			<div class='cand-name-container'>
+				<h4 class='cand-name'>Overall</h4>
+			</div>
+			<div class='stacked-bar-container'>
+				<% pctCandData = COPY.canddata.filter(d => d.candidate == 'All' && d.measure_name == thisMeasure)[0]; %>
+				<div class='bar stacked-bar first_quartile all' style='width: <%= (pctCandData.first_quartile_pct * 100) %>%'></div>
+				<div class='bar stacked-bar second_quartile all' style='width: <%= (pctCandData.second_quartile_pct * 100) %>%' ></div>
+				<div class='bar stacked-bar third_quartile all' style='width: <%= (pctCandData.third_quartile_pct * 100) %>%'></div>
+				<div class='bar stacked-bar fourth_quartile all' style='width: <%= (pctCandData.fourth_quartile_pct * 100) %>%' ></div>
+			</div>
+		</div>
+
+		<div class='cand-breakdown-row num-row'>
+			<div class='cand-name-container'>
+			</div>
+			<div class='stacked-bar-container'>
+				<% pctCandData = COPY.canddata.filter(d => d.candidate == 'All' && d.measure_name == thisMeasure)[0]; %>
+				<div class='axis-num' style='width: 0%; white-space: nowrap;'><div>Vote share</div></div>
+				<div class='axis-num' style='width: 25%'><div>25%</div></div>
+				<div class='axis-num' style='width: 25%'><div>50%</div></div>
+				<div class='axis-num' style='width: 25%'><div>75%</div></div>
+				<div class='axis-num' style='width: 22%'><div>100%</div></div>
+			</div>
+		</div>
+
+		<div class='cand-breakdown-row scale-row'>
+			<div class='cand-name-container'>
+			</div>
+			<div class='stacked-bar-container'>
+				<% pctCandData = COPY.canddata.filter(d => d.candidate == 'All' && d.measure_name == thisMeasure)[0]; %>
+				<div class='axis-scale' style='width: 25%'><div></div></div>
+				<div class='axis-scale' style='width: 25%'><div></div></div>
+				<div class='axis-scale' style='width: 25%'><div></div></div>
+				<div class='axis-scale' style='width: 25%'><div></div></div>
+			</div>
+		</div>
+		
+
+		<% 
+		var overallOrderCands = []; 
+
+		for (candI in COPY.candmeta) {
+			var thisData = COPY.candmeta[candI];
+			overallOrderCands.push({"candName": thisData.last, 'measure': thisData.votes})
+		}
+
+		overallOrderCands = overallOrderCands.sort(candSort);
+
+
+
+
+		for (candInd in overallOrderCands) {
+			var thiscandName = overallOrderCands[candInd].candName
+			var thisCandUrl = COPY.candmeta.filter(d => d.last == thiscandName)[0].url
+			var pctCandData = COPY.canddata.filter(d => d.candidate == thiscandName && d.measure_name == thisMeasure)[0]
+			%>
+				<div class='cand-breakdown-row <%= thiscandName %>'>
+					<div class='cand-name-container'>
+						<img src='<%=thisCandUrl%>'>
+						<!-- <h4 class='cand-name'><%= thiscandName %></h4> -->
+					</div>
+					<div class='stacked-bar-container'>
+						<div class='bar stacked-bar first_quartile <%= thiscandName %>' style='width: <%= (pctCandData.first_quartile_pct * 100) %>%' data-raw-votes='<%= overallOrderCands[candInd].measure %>' ></div>
+						<div class='bar stacked-bar second_quartile <%= thiscandName %>' style='width: <%= (pctCandData.second_quartile_pct * 100) %>%' data-raw-votes='<%= overallOrderCands[candInd].measure %>'  ></div>
+						<div class='bar stacked-bar third_quartile <%= thiscandName %>' style='width: <%= (pctCandData.third_quartile_pct * 100) %>%' data-raw-votes='<%= overallOrderCands[candInd].measure %>' ></div>
+						<div class='bar stacked-bar fourth_quartile <%= thiscandName %>' style='width: <%= (pctCandData.fourth_quartile_pct * 100)  %>%' data-raw-votes='<%= overallOrderCands[candInd].measure %>' ></div>
+					</div>
+				</div>
+			<%
+		}
+
+		%>
+
+	</div>
+
+
+
+
+</div>
+
+<!-- this should for whatever measure leads the piece -->
+<%if (thisMeasure == 'Percent Estimate!!EMPLOYMENT STATUS!!Civilian labor force!!Unemployment Rate') {%>
+	<div class='explanation-text'>
+		<h3>How to read these charts</h3>
+		<%= COPY.labels.howtoread1%>
+		<%= COPY.labels.howtoread2%>
+	</div>	
+<%}%>	
+
+<% if (COPY.labels.footnote && thisMeasure == 'Percent Estimate!!EMPLOYMENT STATUS!!Civilian labor force!!Unemployment Rate') { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<% if ("data" in COPY) { %>
+<script type="text/javascript">
+window.DATA = <%= JSON.stringify(COPY.data) %>;
+window.CANDDATA = <%= JSON.stringify(COPY.canddata) %>;
+</script>
+<% } %>

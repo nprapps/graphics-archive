@@ -1,0 +1,62 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="row">
+<div class="column">
+<h3 class="county-name">Hays County</h3>
+<div id="column-chart-hays" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div></div> 
+
+<div class="column">
+    <h3 class="county-name">Tarrant County</h2>
+
+<div id="column-chart-tarrant" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div></div>
+</div>
+
+<div class="fortbend">
+<h3 class="county-name">Fort Bend County</h2>
+
+<div id="column-chart-fortbend" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+      var DATA = {
+    "hays": <%= JSON.stringify(COPY.data_hays) %>,
+    "tarrant": <%= JSON.stringify(COPY.data_tarrant) %>,
+    "fortbend": <%= JSON.stringify(COPY.data_fortbend) %>
+  }
+</script>

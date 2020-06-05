@@ -1,0 +1,313 @@
+@import "./lib/base";
+
+h1 {
+	text-align: center;
+	margin-bottom: 12px;
+}
+
+.top-box {
+	width: 20%;
+	display: inline-block;
+	margin-top: 33px;
+	/*background: @red6;*/
+	/*padding: 4px;*/
+
+}
+
+.candidate-key {
+	width: 150px;
+}
+
+h3 {
+	height: 15px;
+	margin-bottom: 0px;
+}
+
+.rangetext {
+	margin-bottom: 44px;
+	font-weight: bold;
+}
+
+.cand-row {
+	height: 44px;
+}
+
+.not-stacked-bar {
+	height: 40px;
+	margin-top: 4px;
+	background: #666;
+	vertical-align: middle;
+}
+
+.low-container .not-stacked-bar {
+	background: @blue5
+}
+
+.cand-name-container {
+	text-align: left;
+	width: 120px;
+	margin-top: 8px;
+}
+
+.bottom-container .cand-name-container{
+	text-align: center;
+	width: 70px;
+}
+
+.bottom-container .All  .cand-name-container{
+	text-align: right;
+	padding-right: 14px;
+}
+
+.cand-name-container img {
+	width: 35px;
+	height: 35px;
+	display: inline-block
+}
+
+.cand-name-container h4 {
+	display: inline-block;
+	margin-left: 10px;
+	margin-top: -18px;
+}
+
+.pct-label {
+	font-size: 11px;
+	text-align: center;
+	margin: 0 auto;
+	vertical-align: middle;
+}
+
+.cand-name-container, .not-stacked-bar, .pct-label, .stacked-bar-container {
+	display: inline-block;
+}
+
+h4 {
+	margin-top: 0px;
+	margin-bottom: 3px;
+	vertical-align: middle;
+	.gotham();
+	font-size: 12px;
+}
+
+.bottom-container {
+	width: 100%;
+	max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.stacked-bar-container {
+	width: 80%;
+	vertical-align: top;
+};
+
+.stacked-bar {
+	display: inline-block;
+	height: 8px;
+	background: gray;
+	margin-left: -5px;
+	border-left: 2px solid white;
+}
+
+.stacked-bar.low {
+	background: @blue5;
+}
+
+.stacked-bar.high {
+	background: @blue2;
+}
+
+.stacked-bar {
+	/*&.first {
+		background: @blue5;
+	}
+	&.second {
+		background: @blue4;
+	}
+	&.third {
+		background: @blue3;
+	}
+	&.fourth {
+		background: @blue1;
+	}*/
+}
+
+.cand-breakdown-row.All {
+	margin-bottom: 0px;
+}
+
+.stacked-bar.all-labels {
+	background: white;
+	text-align: right;
+	font-weight: bold;
+	.knockout();
+	color: black !important;
+	opacity: 1;
+	font-size: 11px;
+	line-height: 11px;
+}
+
+.all-labels.fourth_quartile {
+	padding-right: -33px;
+}
+
+
+
+.bar.Biden {
+	background: @teal3;
+}
+
+
+.bar.Gabbard {
+	background: @blue3;
+}
+
+
+.bar.Sanders {
+	background: @yellow3;
+}
+
+
+.first_quartile {
+	opacity: .3;
+}
+
+.second_quartile {
+	opacity: .6;
+}
+
+.third_quartile {
+	opacity: .8;
+}
+
+@axisheight: 7px;
+
+
+.axis-scale {
+	height: @axisheight;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	display: inline-block;
+	margin-left: -5px;
+	padding-top: @axisheight/2;
+
+	div {
+		height: 1px;
+		background: #999;
+		vertical-align: middle;
+	}
+}
+
+
+
+.axis-num {
+	display: inline-block;
+	text-align: right;
+	font-size: 11px;
+}
+
+.axis-num div:first-of-type {
+	margin-right: -3px;
+}
+
+
+.num-row {
+	margin-bottom: -4px;
+}
+
+.explanation-text, .footnotes {
+	margin-bottom: 30px;
+	margin-top: 30px;
+
+	width: 100%;
+	max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+
+
+.explanation-text p {
+	font-style: italic;
+	font-size: 13px;
+}
+
+
+
+
+body > div.graphic.Percent.Estimate\!\!EDUCATIONAL.ATTAINMENT\!\!Population.\32 5.years.and.over\!\!Bachelor\'s.degree.or.higher > div.bottom-container > div.all-labels > div > div.stacked-bar-container > div.bar.stacked-bar.second_quartile.all-labels {
+	opacity: 0;
+}
+
+
+
+/*bring bar charts to 100%*/
+
+
+@media(max-width: 850px) {
+	.top-box {
+		width: 30%;
+		/*display: block;*/
+	}
+
+	h3 {
+		font-size: 11px;
+	}
+
+	.third_quartile-container {
+		margin-left: 30%;
+	}
+}
+
+
+
+@media(max-width: 500px) {
+
+	.top-box {
+		width: 55%;
+		/*display: block;*/
+	}
+
+	.candidate-key.top-box {
+		width: 40%;
+	}
+
+	.second_quartile-container, .third_quartile-container, .fourth_quartile-container {
+		margin-left: 40%;
+	}
+
+
+	.bottom-container .cand-name-container{
+		text-align: center;
+		width: 50px;
+	}
+
+	.bottom-container .All  .cand-name-container{
+		text-align: left;
+		padding-right: 12px;
+		font-size: 11px;
+	}
+
+	/*.num-row .axis-num {
+		margin-left: 25px;
+	}*/
+
+	.num-row .axis-num:first-of-type div {
+		margin-left: -33px;
+	}
+
+	.num-row .axis-num:last-of-type {
+		margin-left: -15px;
+	}
+
+
+	.cand-name-container h4 {
+		margin-left: 0px;
+	}
+
+	.all-labels {
+		display: none;
+	}
+}

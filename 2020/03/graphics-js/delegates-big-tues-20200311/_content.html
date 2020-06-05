@@ -1,0 +1,71 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.name %></div>
+        </th>
+        <th role="columnheader" >
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.Total %></div>
+        </th>
+        <th role="columnheader" class="right">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.Undecided %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.Biden %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.Sanders %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.Other %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY.data.forEach(function(row) { %>
+    <tr class="state" role="row">
+      <td class="" role="cell" data-title="<%= COPY.labels.name %>"><%= row.name %></td>
+      <td class="total biden false-dropout has-dels bg-0" role="cell" data-title="<%= COPY.labels.Total %>"><%= row.Total %></td>
+      <td class="total biden false-dropout bg-0 right" role="cell" data-title="<%= COPY.labels.Undecided %>"><%= row.Undecided %></td>
+      <td class="total biden false-dropout has-dels bg-0" role="cell" data-title="<%= COPY.labels.Biden %>"><%= row.Biden %></td>
+      <td class="total biden false-dropout has-dels bg-0" role="cell" data-title="<%= COPY.labels.Sanders %>"><%= row.Sanders %></td>
+      <td class="total biden false-dropout bg-0" role="cell" data-title="<%= COPY.labels.Other %>"><%= row.Other %></td>
+    </tr>
+  <% }) %>
+
+  </table>
+
+  <p class="report-link"><a href="https://www.npr.org/2020/02/10/799979293/how-many-delegates-do-the-2020-presidential-democratic-candidates-have">View Full Delegate Report &rsaquo;</a></p>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

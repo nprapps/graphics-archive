@@ -1,0 +1,50 @@
+
+<div class="graphic"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+
+
+	<div id="graphic1" class="graphic-inner">
+		<h1><%= t.smarty(COPY.labels.headline) %></h1>
+		<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+
+		<!-- <% if (COPY.labels.type) { %>
+		<h3><%= t.smarty(COPY.labels.type) %></h3>
+		<% } %> -->
+
+		<div id="stacked-bar-chart" ></div>
+	</div>
+	<!-- <div id="graphic2" class="graphic-inner">
+
+		<% if (COPY.labels.type2) { %>
+		<h3><%= t.smarty(COPY.labels.type2) %></h3>
+		<% } %>
+
+		<div id="stacked-bar-chart-two" ></div>
+	</div> -->
+
+	<div id="fallback-cont">
+		<img src="fallback.png" alt="" class="fallback" />
+	</div>
+
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.virg_black) %>;
+    // var DATA2 = <%= JSON.stringify(COPY.texas_latinx) %>;
+</script>
