@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title><%= slug %></title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="robots" content="noindex" />
+    <base target="_blank">
+    <link rel="stylesheet" href="./graphic.css">
+    <script>window.GOOGLE_ANALYTICS_ID = "<%= config.analyticsID %>";</script>
+</head>
+<body>
+    <div class="animation">
+        <%= await t.include("_map_animation.html") %>    
+    </div>
+    
+
+    <script src="./graphic.js"></script>
+    <script src="./animation.js"></script>
+</body>
+</html>

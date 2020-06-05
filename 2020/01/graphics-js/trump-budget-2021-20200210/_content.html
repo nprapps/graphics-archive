@@ -1,0 +1,41 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2 class='subhed'><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id='headers-wrapper'>
+	<div class='col-header' id='agency-header'>Agency</div>
+	<div class='col-header' id='chart-header'>Change from FY 2020</div>
+</div>
+
+
+<div id="bar-chart" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+<img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.click_sub) { %>
+<button  data-more="Show All Cabinet And Major Agencies ▼" data-less="Show Fewer ▲" class='click-sub'><%= t.smarty(COPY.labels.click_sub) %></button>
+<% } %>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.data) %>;
+</script>

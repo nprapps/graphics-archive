@@ -1,0 +1,52 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="chart" class="graphic" role="img" aria-label="<%- COPY.labels.screenreader %>">
+  <% COPY.group.forEach(function(cat) { %>
+    <div class="category <%= t.classify(cat.name) %>">
+      <h3><%= cat.label %></h3>
+
+      <% COPY.data.forEach(function(row) {
+         if (row.group == cat.name) { %>
+        <div class="data <%= t.classify(row.name) %> <%= row.group %>">
+          <% if (row.image) { %>
+              <img src="https://apps.npr.org/dailygraphics/graphics/prez-candidates-jan-list-20190116/assets/<%= row.image %>" alt="Photo of <%= row.name %>" />
+          <% } %>
+          <div class="info">
+            <h4><%= t.smarty(row.name) %></h4>
+            <% if (row.title) { %>
+              <p class="title"><%= row.title %></p>
+            <% } %>
+          </div>
+        </div>
+      <% }
+        }); %>
+    </div>
+  <% }); %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.photo_credit) { %>
+  <p>Photos: <%= COPY.labels.photo_credit %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

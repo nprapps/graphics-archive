@@ -1,0 +1,49 @@
+<% 
+  var MAPLABELS = COPY.labels_warning; 
+  var currentSheet = COPY.labels.activeSheet;
+%>
+
+
+<div class="head">
+  <% if (COPY.labels_warning.headline) { %>
+  <h1><%= t.smarty(COPY.labels_warning.headline) %></h1>
+  <% } %>
+
+  <% if (COPY.labels_warning.subhed) { %>
+  <h2><%= t.smarty(COPY.labels_warning.subhed) %></h2>
+  <% } %>
+
+
+</div>
+
+
+<div id="graphic" class="graphic" role="img"
+  <% if (COPY.labels_warning.screenreader) { %>
+  aria-label="<%- COPY.labels_warning.screenreader %>"
+  <% } %>
+>
+
+
+    <div class="world-map map-container">
+      <%= await t.include("_warning.html", {COPY, MAPLABELS}) %>  
+    </div>
+
+    <%= await t.include("_partials/_WarningKey.html") %>    
+  
+    
+</div>
+<!-- <ul class="key bottom">
+    <li class="key-item key-0 yes">
+      <b class="key0"></b>
+      <label><%= COPY.labels_warning.hasCases %></label>
+    </li>
+  </ul> -->
+
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels_warning.footnote %></p>
+</div>
+<div class="footer">
+  <% if (COPY.labels_warning.source) { %><p>Source: <%= COPY.labels_warning.source %></p><% } %>
+  <% if (COPY.labels_warning.credit) { %><p>Credit: <%= COPY.labels_warning.credit %></p><% } %>
+</div>

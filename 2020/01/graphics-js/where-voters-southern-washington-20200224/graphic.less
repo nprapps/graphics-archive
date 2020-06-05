@@ -1,0 +1,41 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.key { .mmedia-constrained-centered(); }
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+.graphic {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h2, .footer, .footnotes {
+  .mmedia-constrained();
+}
+
+h1 {
+  .mmedia-constrained-centered();
+
+}

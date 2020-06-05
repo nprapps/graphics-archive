@@ -1,0 +1,88 @@
+<!-- usa -->
+<% if (COPY.labels.headline_usa) { %>
+<h1><%= t.smarty(COPY.labels.headline_usa) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="bar-chart-usa" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+<img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<!-- community -->
+<% if (COPY.labels.headline_community) { %>
+<h1><%= t.smarty(COPY.labels.headline_community) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="bar-chart-community" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+<img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<!-- govt -->
+<% if (COPY.labels.headline_govt) { %>
+  <h1><%= t.smarty(COPY.labels.headline_govt) %></h1>
+  <% } %>
+  
+  <% if (COPY.labels.subhed) { %>
+  <h2><%= t.smarty(COPY.labels.subhed) %></h2>
+  <% } %>
+  
+  <div id="bar-chart-govt" class="graphic" role="img"
+    <% if (COPY.labels.screenreader) { %>
+    aria-label="<%- COPY.labels.screenreader %>"
+    <% } %>
+  >
+  <img src="fallback.png" alt="" class="fallback" />
+  </div>
+
+<!-- travel -->
+<% if (COPY.labels.headline_travel) { %>
+  <h1><%= t.smarty(COPY.labels.headline_travel) %></h1>
+  <% } %>
+  
+  <% if (COPY.labels.subhed) { %>
+  <h2><%= t.smarty(COPY.labels.subhed) %></h2>
+  <% } %>
+  
+  <div id="bar-chart-travel" class="graphic" role="img"
+    <% if (COPY.labels.screenreader) { %>
+    aria-label="<%- COPY.labels.screenreader %>"
+    <% } %>
+  >
+  <img src="fallback.png" alt="" class="fallback" />
+  </div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = {
+    "usa": <%= JSON.stringify(COPY.data_usa) %>,
+    "community": <%= JSON.stringify(COPY.data_community) %>,
+    "govt": <%= JSON.stringify(COPY.data_govt) %>,
+    "travel": <%= JSON.stringify(COPY.data_travel) %>
+  }
+</script>

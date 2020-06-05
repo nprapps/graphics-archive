@@ -1,0 +1,50 @@
+<% var MAPLABELS = COPY.labels_only %>
+
+<div class="head">
+  <% if (COPY.labels.headline) { %>
+  <h1><%= t.smarty(COPY.labels.headline) %></h1>
+  <% } %>
+
+  <% if (COPY.labels.subhed) { %>
+  <h2><%= t.smarty(COPY.labels.subhed) %></h2>
+  <% } %>
+
+
+</div>
+
+
+<div id="graphic" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+
+    <%= await t.include("_partials/_key.html") %>    
+
+    <%= await t.include("_china.html", {COPY, MAPLABELS}) %>
+
+    <div class="no-shows">
+     
+      <!-- <span class="hide-for-mobile">
+          <span class="count nostyle">Not Shown:</span><br>
+        <span class="count low">Australia</span><br class="hide-no-map">
+        <span class="count low">Canada</span><br class="hide-no-map">
+        <span class="count low">France</span><br class="hide-no-map">
+        <span class="count low">Germany</span><br class="hide-no-map">
+        <span class="count low">United States</span>
+      </span> -->
+      <!-- <%= COPY.labels_only.notshown %> -->
+    </div>
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <p><strong>Note:</strong> <%= COPY.labels_only.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>

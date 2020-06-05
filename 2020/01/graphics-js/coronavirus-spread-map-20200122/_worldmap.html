@@ -1,0 +1,101 @@
+<% 
+  var MAPLABELS = COPY.labels 
+  var currentSheet = COPY.labels.activeSheet;
+%>
+
+
+<div class="head">
+  <% if (COPY.labels.headline) { %>
+  <h1><%= t.smarty(COPY.labels.headline) %></h1>
+  <% } %>
+
+  <% if (COPY.labels.subhed) { %>
+  <h2><%= t.smarty(COPY.labels.subhed) %></h2>
+  <% } %>
+
+
+</div>
+
+
+<div id="graphic" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+
+    <%= await t.include("_partials/_key.html") %>    
+
+    <div class="world-map map-container">
+      <%= await t.include("_world.html", {COPY, MAPLABELS}) %>  
+    </div>
+    
+</div>
+
+<% 
+  var caseData = COPY[`'${currentSheet}'`]; 
+  var ChinaTotal = 0;
+  caseData.forEach(function(row) {
+    if (row.admin == "province" || row.admin == "Special Administrative Region") {
+      ChinaTotal += row.count;
+    }
+  });
+%>
+
+<div class="detail">
+  <%
+    var adminLabels = ["Countries/<wbr>Territories"];
+  %>
+  
+  <div class="div-table">
+    <div class="cell-group">
+      <div class="cell"><h3 class="table-header"><%= adminLabels[0] %></h3></div>
+      <div class="cell amt"><h3>Cases</h3></div>
+    </div>
+  </div>
+  <div class="div-table">
+<!--     <div class="cell-group">
+      <div class="cell">China</div>
+      <div class="cell amt highest"><%= t.comma(ChinaTotal) %></div>
+    </div> -->
+    <%
+      caseData.forEach(function(row) {
+        if (row.admin == "country" && row.show != "no") {
+
+          var countClass = null;
+          if (row.count > 0 && row.count <= 10) {
+            countClass = "low";
+          } else if (row.count > 10 && row.count <= 100) {
+            countClass = "med";
+          } else if (row.count > 100 && row.count <= 1000) {
+            countClass = "high";
+          } else if (row.count > 1000) {
+            countClass = "highest";
+          }
+    %>
+
+    
+
+    <div class="cell-group">
+      <div class="cell <%= row.istotal %>"><%= row.name_display %></div>
+      <div class="cell amt <%= countClass %>"><%= t.comma(row.count) %> </div>
+    </div>
+
+    <%
+        }
+      });
+    %>
+
+    <% if (COPY.labels_world.footnote) { %>
+    <div class="footnotes">
+      <p><%= COPY.labels_world.footnote %></p>
+    </div>
+    <% } %>
+
+  </div>
+</div>
+
+
+<div class="footer">
+  <% if (COPY.labels_world.source) { %><p>Source: <%= COPY.labels_world.source %></p><% } %>
+  <% if (COPY.labels_world.credit) { %><p>Credit: <%= COPY.labels_world.credit %></p><% } %>
+</div>

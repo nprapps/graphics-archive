@@ -1,0 +1,64 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_group %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_four %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_eight %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_sixteen %></div>
+        </th>
+        <th class="amt pct" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_pct_change %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY.data.forEach(function(row) { %>
+    <tr class="<%= t.classify(row.group) %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_group %>"><%= row.group %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_four %>" class="amt"><%= row.four %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_eight %>" class="amt"><%= row.eight %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_sixteen %>" class="amt"><%= row.sixteen %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_sixteen %>" class="amt pct"><%= row.pct_change %></td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

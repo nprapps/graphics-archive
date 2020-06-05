@@ -1,0 +1,434 @@
+@import "./lib/base";
+
+// @low:     @yellow6;
+// @med:     @orange6;
+// @high:    @red6;
+
+@low:     #ffdfd8;
+@med:     #e9a090;
+@high:    #cb614e;
+@highest:    #653027;
+
+h1 {
+  margin-bottom: 25px;
+}
+
+.key, .head {
+  .mmedia-constrained-centered();
+}
+
+.world {
+
+  max-width: 1000px;
+  margin: 0 auto;
+
+  .footer, .footnotes {
+    .mmedia-constrained();   
+  }  
+}
+
+.footer, .footnotes {
+  // .mmedia-constrained();
+}
+
+.key {
+  margin-bottom: 22px;
+
+  .key-item b {
+    &.key0 {background-color: @low;}
+    &.key1 {background-color: @med;}
+    &.key2 {background-color: @high;}
+    &.key3 {background-color: @highest;}
+  }
+}
+
+span.count {
+  display: inline-block;
+  border-radius: 5px;
+  padding: 3px;
+  margin-top:2px;
+  margin-bottom:2px;
+
+  &.low,
+  &.medium,
+  &.high,
+  &.highest  {
+    border: 1px solid #999;
+    opacity: 0.9;
+  }
+
+  &.low { background-color: @low;}
+  &.medium { background-color: @med;}
+  &.high { background-color: @high;  }
+  &.highest { background-color: @highest;  }
+
+  .small {
+    font-weight: normal;
+  }
+}
+
+// Add custom styles here
+.g-place_labels p, .g-wuhan p {
+  color: #333333 !important;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 5px #fff;
+}
+
+.g-wuhan p {
+  font-size: 16px !important;
+  font-weight: bold;
+  text-shadow: 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 5px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 5px #fff;
+}
+
+.g-country_label p {
+  color: #707070 !important;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff;
+}
+
+.g-water_labels {
+  z-index: 0;
+}
+
+.g-country_label, .g-place_labels {
+  z-index: 1;
+}
+
+.g-water_labels p {
+  font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif !important;
+  font-style: italic;
+  font-size: 30px !important;
+  line-height: 34px !important;
+}
+
+.g-scale {
+    font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    line-height: 14px;
+    color: #676767;
+}
+
+// .show-for-mobile {
+//   display: none;
+// }
+
+// .no-shows {
+//   display: none;
+// }
+  .hide-for-mobile {
+    display: none;
+  }
+
+  .no-shows {
+    display: block;
+    text-align: center;
+
+    br.hide-no-map {
+      display: none;
+    }
+    
+    .hide-for-mobile {
+      display: inline;
+    }    
+
+    .count {
+    font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04166666666667em;
+    color: #000000;
+    font-weight: bold;
+
+    &.nostyle {
+      font-weight: normal;
+    }
+    }
+  }
+
+@media screen and (max-width: 499px) {
+
+  .g-country_label p {
+    font-size: 16px !important;
+    line-height: 13px !important;
+  }
+  .g-place_labels p {
+    font-size: 11px !important;
+  }
+
+  .g-water_labels p  {
+    font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif !important;
+    font-style: italic;
+    font-size: 20px !important;
+    line-height: 22px !important;
+  }
+}
+
+
+// ai2html artboard sizes
+@media screen and (min-width: 730px) {
+    // #g-_ai2html-graphic-small, #g-_ai2html-graphic-medium { display: none; }
+}
+
+@media screen and (max-width: 729px) and (min-width: 400px) {
+    // #g-_ai2html-graphic-small, #g-_ai2html-graphic-wide { display: none; }
+}
+
+@media screen and (max-width: 399px) {
+    // #g-_ai2html-graphic-medium, #g-_ai2html-graphic-wide { display: none; }
+}
+
+// Add custom styles here
+.detail {
+  // .mmedia-constrained();
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  margin-top: 15px;
+
+  h3 { width: 100%; }
+
+  .detail-table { width: 48%; }
+
+  // .div-table-head {
+  //  border-collapse: collapse; 
+  //  + table { margin-top: 22px; }
+
+  //  caption {
+  //    .knockout-header();
+  //    font-size: 13px;
+  //    text-align: left;
+  //    border-bottom: 2px solid #ccc;
+  //  }
+
+  //  td, .cell {
+  //    padding: 4px 0;
+  //    font-size: 12px;
+  //    border-bottom: 1px solid #eee;
+  //  }
+  // }
+
+  .table-class, .div-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    + table { margin-top: 22px; }
+
+    caption {
+      .knockout-header();
+      font-size: 13px;
+      text-align: left;
+      border-bottom: 2px solid #ccc;
+    }
+
+    td, .cell {
+      padding: 4px 0;
+      font-size: 12px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .amt {
+      color: #454545;
+      text-align: right;
+      padding-left: 5px;
+      padding-right: 5px;
+      border-color: #fff;
+      width: 20%;
+    }
+
+    .low {
+      background-color: @low;
+    }
+    .med {
+      background-color: @med;
+      color: #fff;
+    }
+    .high {
+      background-color: @high;
+      color: #fff;
+    }
+    .highest {
+      background-color: @highest;
+      color: #fff;
+    }
+
+    &.total {
+      caption { display: none; }
+      td {
+        border-top: 1px solid #eee;
+
+        &:first-child {
+          .knockout-header();
+          color: #333;
+          padding-left: 5px;
+          background-color: #eee;
+        }
+
+        &.high {
+          background: #666;
+        }
+      }
+    }
+  }
+}
+
+.map-container {
+  // width: 50%;
+}
+
+.world {
+  .div-table {
+    .mmedia-constrained();
+
+    width: 100%;
+    column-count: 3;
+    column-width: 33%; 
+
+    .cell-group {
+      width: 100%;
+      display: inline-flex;
+
+      .cell {
+        float: left;
+        width: 75%;
+      }
+
+      .cell.amt {
+        float: right;
+        width: 25%;
+      }
+    }
+
+    @media screen and (max-width: 499px) {
+      column-count: 2;
+      column-width: 50%; 
+    }
+  }
+}
+
+.footnotes {
+  margin-top: 11px;
+
+  p { line-height: 1.4; }
+}
+
+
+@offwhite: rgba(255,255,255,0.9);
+
+// for twitter image
+.twitter {
+  .head {
+    position: absolute;
+    left: 90px;
+    z-index: 1;
+    background-color: @offwhite;
+    margin: 10px;
+    padding: 10px;
+    max-width: 550px;
+
+    h1 {
+      margin-bottom: 0px;
+      font-weight: bold;
+    }
+
+    &:after {
+      content: "Data as of Jan. 30 at 6 p.m. Hong Kong time.";
+      font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+      color: #666;
+      font-style: italic;
+    }
+  }
+
+  .key {
+    left: 100px;
+    position: absolute;
+    margin: 75px 0 33px 0;
+    z-index: 1;
+    background-color: @offwhite;
+    max-width: 550px;
+    padding-bottom:10px;
+    padding-left:15px
+  }
+}
+
+@bubble: #ddd;
+
+
+
+.animation {
+  .head-parent {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    max-width: unset;
+
+    h1 {
+      margin-bottom: 0px;
+      font-weight: bold;
+    }
+
+    .head {
+      background-color: @offwhite;
+    }
+
+    .head, .key, .timeline {
+      margin: 10px;
+      padding: 10px;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .key {
+      padding-left:25px;
+    }
+
+    .timeline {        
+      padding-top: 0px;
+
+      ul {
+        padding: 0px;
+        margin-top: 0px;
+
+      }
+
+      li {
+        display: inline-block;
+        background-color: @bubble;
+        width: 10px;
+        height: 10px;
+        border-radius:5px;
+        margin-left:5px;
+        margin-right: 5px;
+        
+        .date {
+          opacity: 0;
+          pointer-events: none;
+          overflow: visible;
+          width: 100px;
+          margin-left: -50px;
+          text-align: center;
+          margin-top: -20px;
+        }
+        &.active {
+          background-color: #999;
+
+          .date {
+            opacity: 1;
+          }
+        }        
+      }
+    }
+  }
+}
+
+h3 {
+  word-wrap: auto;
+
+}
+
+.total-worldwide {
+  font-weight: bold;
+  border-top: 1px solid #999999;
+
+}

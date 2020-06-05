@@ -1,0 +1,264 @@
+{
+  "races": [
+    {
+      "id": "17277",
+      "eevp": 99,
+      "type": "First Alignment Caucus",
+      "party": "Dem",
+      "results": [
+        {
+          "id": "17277",
+          "party": "Dem",
+          "updated": 1581040479140,
+          "precincts": 1765,
+          "reporting": 1764,
+          "reportingPercentage": 99.94,
+          "winners": [],
+          "total": 176436,
+          "candidates": [
+            {
+              "first": "Bernie",
+              "last": "Sanders",
+              "party": "Dem",
+              "id": "1445",
+              "votes": 43671,
+              "percentage": 24.75
+            },
+            {
+              "first": "Pete",
+              "last": "Buttigieg",
+              "party": "Dem",
+              "id": "67933",
+              "votes": 37557,
+              "percentage": 21.29
+            },
+            {
+              "first": "Elizabeth",
+              "last": "Warren",
+              "party": "Dem",
+              "id": "62244",
+              "votes": 32533,
+              "percentage": 18.44
+            },
+            {
+              "first": "Joe",
+              "last": "Biden",
+              "party": "Dem",
+              "id": "1036",
+              "votes": 26384,
+              "percentage": 14.95
+            },
+            {
+              "first": "Amy",
+              "last": "Klobuchar",
+              "party": "Dem",
+              "id": "51526",
+              "votes": 22469,
+              "percentage": 12.73
+            },
+            {
+              "first": "Andrew",
+              "last": "Yang",
+              "party": "Dem",
+              "id": "67936",
+              "votes": 8821,
+              "percentage": 5
+            },
+            {
+              "first": "Tom",
+              "last": "Steyer",
+              "party": "Dem",
+              "id": "67935",
+              "votes": 3083,
+              "percentage": 1.75
+            },
+            {
+              "last": "Uncommitted",
+              "party": "Dem",
+              "id": "100004",
+              "votes": 984,
+              "percentage": 0.56
+            },
+            {
+              "first": "Tulsi",
+              "last": "Gabbard",
+              "party": "Dem",
+              "id": "62589",
+              "votes": 334,
+              "percentage": 0.19
+            },
+            {
+              "first": "Michael",
+              "last": "Bloomberg",
+              "party": "Dem",
+              "id": "32324",
+              "votes": 217,
+              "percentage": 0.12
+            },
+            {
+              "first": "Michael",
+              "last": "Bennet",
+              "party": "Dem",
+              "id": "59911",
+              "votes": 164,
+              "percentage": 0.09
+            },
+            {
+              "last": "Other",
+              "party": "Dem",
+              "id": "100007",
+              "votes": 159,
+              "percentage": 0.09
+            },
+            {
+              "first": "Deval",
+              "last": "Patrick",
+              "party": "Dem",
+              "id": "51516",
+              "votes": 50,
+              "percentage": 0.03
+            },
+            {
+              "first": "John",
+              "last": "Delaney",
+              "party": "Dem",
+              "id": "61562",
+              "votes": 10,
+              "percentage": 0.01
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "17278",
+      "eevp": 99,
+      "type": "Final Alignment Caucus",
+      "party": "Dem",
+      "results": [
+        {
+          "id": "17278",
+          "party": "Dem",
+          "updated": 1581040479140,
+          "precincts": 1765,
+          "reporting": 1764,
+          "reportingPercentage": 99.94,
+          "winners": [],
+          "total": 172521,
+          "candidates": [
+            {
+              "first": "Bernie",
+              "last": "Sanders",
+              "party": "Dem",
+              "id": "1445",
+              "votes": 45826,
+              "percentage": 26.56
+            },
+            {
+              "first": "Pete",
+              "last": "Buttigieg",
+              "party": "Dem",
+              "id": "67933",
+              "votes": 43195,
+              "percentage": 25.04
+            },
+            {
+              "first": "Elizabeth",
+              "last": "Warren",
+              "party": "Dem",
+              "id": "62244",
+              "votes": 34771,
+              "percentage": 20.15
+            },
+            {
+              "first": "Joe",
+              "last": "Biden",
+              "party": "Dem",
+              "id": "1036",
+              "votes": 23691,
+              "percentage": 13.73
+            },
+            {
+              "first": "Amy",
+              "last": "Klobuchar",
+              "party": "Dem",
+              "id": "51526",
+              "votes": 21181,
+              "percentage": 12.28
+            },
+            {
+              "first": "Andrew",
+              "last": "Yang",
+              "party": "Dem",
+              "id": "67936",
+              "votes": 1780,
+              "percentage": 1.03
+            },
+            {
+              "last": "Uncommitted",
+              "party": "Dem",
+              "id": "100004",
+              "votes": 1418,
+              "percentage": 0.82
+            },
+            {
+              "first": "Tom",
+              "last": "Steyer",
+              "party": "Dem",
+              "id": "67935",
+              "votes": 413,
+              "percentage": 0.24
+            },
+            {
+              "last": "Other",
+              "party": "Dem",
+              "id": "100007",
+              "votes": 205,
+              "percentage": 0.12
+            },
+            {
+              "first": "Michael",
+              "last": "Bloomberg",
+              "party": "Dem",
+              "id": "32324",
+              "votes": 20,
+              "percentage": 0.01
+            },
+            {
+              "first": "Tulsi",
+              "last": "Gabbard",
+              "party": "Dem",
+              "id": "62589",
+              "votes": 17,
+              "percentage": 0.01
+            },
+            {
+              "first": "Michael",
+              "last": "Bennet",
+              "party": "Dem",
+              "id": "59911",
+              "votes": 4,
+              "percentage": 0
+            },
+            {
+              "first": "John",
+              "last": "Delaney",
+              "party": "Dem",
+              "id": "61562",
+              "votes": 0,
+              "percentage": 0
+            },
+            {
+              "first": "Deval",
+              "last": "Patrick",
+              "party": "Dem",
+              "id": "51516",
+              "votes": 0,
+              "percentage": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

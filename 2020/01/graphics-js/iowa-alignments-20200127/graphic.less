@@ -1,0 +1,87 @@
+@import "./lib/base";
+
+.bars line {
+  fill: none;
+  stroke-width: 3px;
+}
+
+.value text.in {
+  fill: #999;
+}
+
+.value text {
+  font-size: 13px;
+}
+
+.guiding-lines line {
+  fill: none;
+  stroke-width: 1px;
+  stroke: #ddd;
+  stroke-dasharray: 3px 3px;
+}
+
+.labels {
+  span {
+    font-size: 13px;
+    padding-right: 5px;
+  }
+  // li.buttigieg {
+  //   font-weight: bold;
+  //   color: #454545;
+  // }
+  li.sanders {
+    font-weight: bold;
+  }
+}
+
+.results {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  border: none;
+
+  li {
+    position: absolute;
+    text-align: right;
+    font-size: 12px;
+    line-height: 1.3;
+    // color: #666;
+    display: table;
+    -webkit-font-smoothing: antialiased;
+    padding-right: 15px;
+
+    span {
+      display: block;
+    }
+
+    // span {
+    //   display: table-cell;
+    //   vertical-align: middle;
+    // }
+  }
+}
+
+.header {
+  .knockout-header();
+  fill: #454545;
+  text-anchor: end;
+}
+
+.final {
+  font-weight: bold;
+}
+
+.key {
+  margin-bottom: 0px;
+}
+
+@media @screen-mobile {
+  .value text {
+    font-size: 12px;
+  }
+
+  .labels {
+    span { font-size: 12px; }
+  }
+}

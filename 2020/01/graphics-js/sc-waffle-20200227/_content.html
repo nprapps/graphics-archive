@@ -1,0 +1,67 @@
+<%= await t.include("./partials/_header.html") %>
+<div class="mmedia-constrained center">
+
+	<% if (COPY.labels.headline_dem) { %>
+	<h1><%= t.smarty(COPY.labels.headline_dem) %></h1>
+	<% } %>
+
+	<% if (COPY.labels.subhed_dem) { %>
+	<h2><%= t.smarty(COPY.labels.subhed_dem) %></h2>
+	<% } %>
+
+	<ul class="key">
+		<li class="key-item key-1">
+			<b class="c0"></b>
+			<label><%= COPY.labels.type1 %></label>
+		</li>
+		<li class="key-item key-2">
+			<b class="c1"></b>
+			<label><%= COPY.labels.type2 %></label>
+		</li>
+		<li class="key-item key-3">
+			<b class="c2"></b>
+			<label><%= COPY.labels.type3 %></label>
+		</li>
+		<li class="key-item key-4">
+			<b class="c3"></b>
+			<label><%= COPY.labels.type4 %></label>
+		</li>
+		<li class="key-item key-5">
+			<b class="c4"></b>
+			<label><%= COPY.labels.type5 %></label>
+		</li>
+
+	</ul>
+
+</div>
+
+<div id="column-chart" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+	<div class="clearer"></div>
+    <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.dem_natl) %>;
+    var DATA_BIG = <%= JSON.stringify(COPY.dem_natl) %>;
+    var BLOCKSIZE = <%= JSON.stringify(COPY.labels.blockSize) %>;
+	var BLOCKSPERCOLUMN = <%= JSON.stringify(COPY.labels.blocks_per_column) %>;
+    
+</script>
+
+<%= await t.include("./partials/_footer.html") %>

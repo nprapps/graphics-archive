@@ -1,0 +1,86 @@
+<% if (COPY.labels.headline) { %>
+  <h1><%= t.smarty(COPY.labels.headline) %></h1>
+  <% } %>
+  
+  <% if (COPY.labels.subhed) { %>
+  <h2><%= t.smarty(COPY.labels.subhed) %></h2>
+  <% } %>
+  
+  <div class="graphic" id="table-graphic">
+    <table id="state-table" role="table">
+      <thead role="rowgroup">
+        <tr role="row">
+          <th role="columnheader">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.hdr_name %></div>
+          </th>
+          <th role="columnheader">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.hdr_how %></div>
+          </th>
+          <th role="columnheader">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.hdr_mistake %></div>
+          </th>
+          <th role="columnheader">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.hdr_longshort %></div>
+          </th>
+          <th role="columnheader">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.hdr_hormone %></div>
+          </th>
+          <th role="columnheader">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.hdr_sti %></div>
+          </th>
+        </tr>
+      </thead>
+  
+      <% COPY.data.forEach(function(row) { %>
+      <tr role="row">
+        <td role="cell" data-title="<%= COPY.labels.hdr_name %>" class="bc-name"><%= row.name %><img src="assets/icon-<%=row.img%>.png" class="icon-bc" alt="icon of <%=row.img%>"></td>
+        <td role="cell" data-title="<%= COPY.labels.hdr_how %>" class="how-column"><%= row.hdr_how %></td>
+        <td role="cell" data-title="<%= COPY.labels.hdr_mistake %>" class="mistake-column">   
+          <span class="rate-mobile" style="background-color: <%= row.color%>;"><%= row.mistake_number%></span>       
+          <div class="bar">
+            <% if (row.mistake_2) { %>
+            <div class="slider-range" style="width: <%= row.mistake_2 - row.hdr_mistake %>%; margin-left: <%= row.hdr_mistake %>%"></div>
+            <% } else{ %>
+            <div class="slider" style="margin-left: <%= row.hdr_mistake%>%;"></div>
+            <% } %>
+          </div>
+          <% if (row.mistake_2) { %>
+            <span class="rate" style="margin-left: <%= row.hdr_mistake + 20 %>px;"><%= row.hdr_mistake %>%-<%= row.mistake_2 %>%</span>
+            <span class="mistake-text"><%= row.mistake_text %></span>
+          <% } else{ %>
+            <span class="rate" style="margin-left: <%= row.hdr_mistake + 35 %>px;"><%= row.hdr_mistake %>%</span>
+            <span class="mistake-text"><%= row.mistake_text %></span>
+            <% } %>
+          </td>
+        <td role="cell" data-title="<%= COPY.labels.hdr_longshort %>" class="longshort-column"><%= row.hdr_longshort %></td>
+        <td role="cell" data-title="<%= COPY.labels.hdr_hormone %>" class="hormone-column"><%= row.hdr_hormone %></td>
+        <td role="cell" data-title="<%= COPY.labels.hdr_sti %>" class="sti-column"><span class="<%= row.hdr_sti %>"><%= row.hdr_sti %></span></td>
+      </tr>
+    <% }) %>
+  
+    </table>
+  
+  </div>
+  
+  <% if (COPY.labels.footnote) { %>
+  <div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+  </div>
+  <% } %>
+  
+  <div class="footer">
+    <% if (COPY.labels.source) { %>
+    <p>Source: <%= COPY.labels.source %></p>
+    <% } %>
+    
+    <% if (COPY.labels.credit) { %>
+    <p>Credit: <%= COPY.labels.credit %></p>
+    <% } %>
+  </div>

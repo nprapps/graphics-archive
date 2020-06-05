@@ -1,0 +1,99 @@
+<% 
+  var MAPLABELS = COPY.labels;
+  var currentSheet = COPY.labels.activeSheet;
+%>
+
+<div class="head">
+  <% if (COPY.labels.headline) { %>
+  <h1><%= t.smarty(COPY.labels.headline) %></h1>
+  <% } %>
+
+  <% if (COPY.labels.subhed) { %>
+  <h2><%= t.smarty(COPY.labels.subhed) %></h2>
+  <% } %>
+
+
+</div>
+
+
+<div id="graphic" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+
+    <%= await t.include("_partials/_key.html") %>    
+
+    <%= await t.include("_china.html", {COPY, MAPLABELS}) %>
+</div>
+
+<% var caseData = COPY[`'${currentSheet}'`]; %>
+
+<div class="detail">
+  <%
+    var adminLabels = [ "China: Provinces", "China: Administrative areas", "Country Totals", "Total" ];
+    var admin = [ "province", "Special Administrative Region", "country", "total" ];
+  %>
+
+  <%
+    admin.forEach(function(thisAdmin, i) {
+      if (i == 0 || i == 1) {
+  %>
+  <div class="detail-table">
+  <%
+      }
+  %>
+
+  <table class="table-class <%= t.classify(thisAdmin) %>">
+    <caption><%= adminLabels[i] %></caption>
+
+    <%
+      caseData.forEach(function(row) {
+        if (row.admin == thisAdmin) {
+
+          var countClass = null;
+          if (row.count > 0 && row.count <= 10) {
+            countClass = "low";
+          } else if (row.count > 10 && row.count <= 100) {
+            countClass = "med";
+          } else if (row.count > 100 && row.count <= 1000) {
+            countClass = "high";
+          } else if (row.count > 1000) {
+            countClass = "highest";
+          }
+    %>
+
+    <tr>
+      <td><%= row.name_display %></td>
+      <td class="amt <%= countClass %>"><%= t.comma(row.count) %></td>
+    </tr>
+
+    <%
+        }
+      });
+    %>
+
+  </table>
+
+  <%
+    if (i == 0 || i == 3) {
+  %>
+
+    <% if (COPY.labels.footnote && i == 3) { %>
+    <div class="footnotes">
+      <p><%= COPY.labels.footnote %></p>
+    </div>
+    <% } %>
+
+  </div>
+  <%
+    }
+    });
+  %>
+</div>
+
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>

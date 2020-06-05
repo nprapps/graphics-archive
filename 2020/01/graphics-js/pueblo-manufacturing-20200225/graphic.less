@@ -1,0 +1,40 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.axis path, .axis line { stroke: #eee; }
+
+.mmedia-constrained {
+  .mmedia-constrained();
+
+    &.center {
+      text-align: center;
+    }
+
+}
+
+.key { .mmedia-constrained-centered(); }
+
+.graphic { max-width: 1000px; margin: 0 auto; }
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}

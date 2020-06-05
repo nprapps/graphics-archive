@@ -1,0 +1,168 @@
+@import "./lib/base";
+.head {
+  .mmedia-constrained-centered();
+}
+
+.footer {
+  .mmedia-constrained();
+}
+
+svg {
+  overflow: visible;
+  margin-bottom: 30px;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.annotations .dots {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.annotations text {
+    font-size: 12px;
+    fill: #999;
+}
+
+
+.annotation-date {
+  font-weight: bold;
+}
+
+.annotation-cases {
+  font-style: italic;
+}
+
+.anno-line {
+  fill: none;
+  stroke: #333;
+}
+
+#anno-divs {
+  position: absolute;
+  width: 100%;
+  top: 25px;
+  left: 25px;
+
+  .anno-div {
+    position: absolute;
+    width: 300px;
+    background-color: rgba(255,255,255,0.9);    
+    padding: 8px;
+    border: 1px solid #ccc;
+
+
+    p {
+      color: #333;
+      font-size: 12px;
+      line-height: 12px;
+    }
+
+    .header {
+      padding: 0px;
+
+      h4 {
+        padding: 2px 5px 2px 5px;
+        margin-left: 5px;
+        background-color: @red3;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: normal;
+        font-size: 12px;
+      }
+
+      h4, p {
+        display: inline;
+      }
+
+      p {
+        .knockout-header();
+
+        font-weight: bold;
+      }
+    } 
+
+    .anno-body {
+      p {
+        margin: 0;
+        padding: 0;
+        padding-top: 5px;
+      }
+    }
+  }
+}
+
+.date-lines {
+  stroke-width: 1.5px;
+  stroke: #aaa;
+  stroke-dasharray: 5px 4px;
+}
+
+.monthLines {
+  text {
+    .knockout-header();
+
+    text-anchor: end;
+    // font-style: italic;x
+    fill: #333;
+
+    &.bold {
+      font-weight: bold;
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+  .annotations text { 
+    font-size: 10px; 
+  }
+
+  .anno-body {
+      p {
+        padding-top: 5px !important;
+      }
+  }
+
+  .anno-div {
+    width: 260px !important;
+  }
+
+  .monthLines {
+  text {
+      font-size: 12px;
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+.areas {
+  fill-opacity: 50%;
+}
+
+.axis-label {
+  text {
+    fill: #555;
+    text-anchor: middle;
+    font-style: italic;
+}
+}

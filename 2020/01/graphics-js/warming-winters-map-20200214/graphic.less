@@ -1,0 +1,98 @@
+@import "./lib/base";
+
+// ai2html artboard sizes
+@media screen and (min-width: 730px) {
+    #g-_ai2html-graphic-small, #g-_ai2html-graphic-medium { display: none; }
+}
+
+@media screen and (max-width: 729px) and (min-width: 400px) {
+    #g-_ai2html-graphic-small, #g-_ai2html-graphic-wide { display: none; }
+}
+
+@media screen and (max-width: 399px) {
+    #g-_ai2html-graphic-medium, #g-_ai2html-graphic-wide { display: none; }
+}
+
+// Add custom styles here
+@-1: #92C5DE;
+@0: #ffffff;
+@1: #F9E2D8;
+@2: #F4B6A2;
+@3: #F37C65;
+@4: #EA4832;
+@5: #BD3027;
+@6: #91181C;
+@7: #640011;
+
+.graphic { max-width: 1000px; margin: 0 auto; }
+
+// .mmedia-constrained {
+//   .mmedia-constrained();
+//
+//     &.center {
+//       text-align: center;
+//     }
+//
+// }
+
+.key {
+  .mmedia-constrained-centered();
+  // margin: 0 auto;
+  margin-bottom: 22px;
+  margin-top: 12px;
+
+  .key-item { margin: 0;}
+
+  // .key-text { margin-top: 10px; }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    // float: left;
+
+  li {
+    display: inline-block;
+    // float: left;
+    width: 45px;
+    margin-bottom: 6px;
+    text-align: center;
+    font-size: 80%;
+    list-style: none;
+
+    .box {
+      display: inline-block;
+      float: left;
+      height: 15px;
+      width: 50px;
+
+        &.key0 { background-color: @-1; }
+        &.key1 { background-color: @0; border: 1px solid #d3d3d3}
+        &.key2 { background-color: @1; }
+        &.key3 { background-color: @2; }
+        &.key4 { background-color: @3; }
+        &.key5 { background-color: @4; }
+        &.key6 { background-color: @5; }
+        &.key7 { background-color: @6; }
+        &.key8 { background-color: @7; }
+    }
+
+    .key-text { padding-top: 40%; }
+  }
+}
+}
+
+@media @screen-mobile {
+
+  // .mmedia-constrained.center {
+  //   text-align: left;
+  // }
+
+  .key ul li { display: block; width: 20px; }
+
+  .key ul li .box {
+    display: block;
+    float: left;
+    height: 15px;
+    width: 25px;
+  }
+}

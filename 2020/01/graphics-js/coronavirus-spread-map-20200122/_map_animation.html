@@ -1,0 +1,64 @@
+<% var MAPLABELS = COPY.labels_only %>
+<% var timelineData = COPY.timeline; %>
+
+<div class="head-parent">
+  <div class="head">
+    <% if (COPY.labels.headline) { %>
+    <h1><%= t.smarty(COPY.labels.headline) %></h1>
+    <% } %>
+
+    <% if (COPY.labels.subhed) { %>
+    <h2><%= t.smarty(COPY.labels.subhed) %></h2>
+    <% } %>  
+
+    <%= await t.include("_partials/_key.html") %>
+
+    <div class="timeline">
+      <% var dateLength = Object.keys(timelineData[0]).length; %>
+      <ul class="a<%= dateLength %>">
+        <% Object.keys(timelineData[0]).forEach(function(item,i){          
+          if (i > 0) { %>
+          <li class="poo">
+            <div class="date"><%= item %>
+            </div>
+          </li>
+            
+        <%} 
+        }) %>
+
+        
+
+      </ul>
+    </div>
+
+  </div>
+  
+
+
+</div>
+
+
+<div id="graphic" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>    
+    
+    <%= await t.include("_china.html", {COPY, MAPLABELS}) %>
+
+    <div class="no-shows">
+      <%= COPY.labels_only.notshown %>
+    </div>
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <p><strong>Note:</strong> <%= COPY.labels_only.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
