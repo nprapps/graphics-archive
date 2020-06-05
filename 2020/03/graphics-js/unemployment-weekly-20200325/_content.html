@@ -1,0 +1,98 @@
+<%
+  var COLORS = require("./lib/helpers/colors")
+
+  var thresholds = COPY.labels_map.legend_labels.split('|');
+  thresholds.forEach(function(t, i) {
+    thresholds[i] = Number(t);
+  });
+  thresholds.push(1000);
+  console.log(thresholds.length);
+
+  var colorScale = function(val) {
+    var bgColor = "#fff";
+    var textColor = "#fff";
+
+    if (val >= thresholds[0] && val < thresholds[1]) {
+      bgColor = COLORS["red5"];
+    } else if (val >= thresholds[1] && val < thresholds[2]) {
+      bgColor = COLORS["red4"];
+    } else if (val >= thresholds[2] && val < thresholds[3]) {
+      bgColor = COLORS["red3"];
+    } else if (val >= thresholds[3] && val < thresholds[4]) {
+      bgColor = COLORS["red2"];
+    } else if (val >= thresholds[4]) {
+      bgColor = COLORS["red1"];
+    }
+
+    var style = `background-color: ${bgColor}; color: ${textColor};`;
+    return style;
+  }
+%>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_state_name %></div>
+        </th>
+        <th role="columnheader" class="amt current">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_this_week %></div>
+        </th>
+        <th role="columnheader" class="amt prior">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_prior_week %></div>
+        </th>
+        <th role="columnheader" class="amt change">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_change %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_pct_change %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY.data.forEach(function(row) { %>
+    <tr class="state-<%= t.classify(row.state_name) %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_state_name %>">
+        <span class="desktop"><%= row.state_name %></span><span class="mobile"><%= row.state_ap %></span><% if (row.footnote) { %>*<% } %>
+      </td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_this_week %>" class="amt current"><%= t.comma(row.this_week) %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_prior_week %>" class="amt prior"><%= t.comma(row.prior_week) %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_change %>" class="amt change"><% if (row.change > 0) { %>+<% } %><%= t.comma(row.change) %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_pct_change %>" class="amt" style="<%= colorScale(row.pct_change) %>"><% if (row.pct_change > 0) { %>+<% } %><%= t.comma(row.pct_change) %>%</td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<button data-more="<%= COPY.labels.toggle_more %>" data-less="<%= COPY.labels.toggle_less %>"><%= COPY.labels.toggle_more %></button>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <p><strong>Notes:</strong> <%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

@@ -1,0 +1,224 @@
+@import "./lib/base";
+
+h1 {
+	text-align: center;
+}
+
+.bars rect {
+	fill: @red2;
+}
+
+/*.graphic {
+	width: 48%;
+	display: inline-block;	
+}
+*/
+.graphic-hed {
+	text-align: center;
+	display: inline-block;
+	width: 62%;
+	&.region-hed {
+		width: 190px;
+	}
+}
+
+.anno-line {
+	stroke-width: 20px;
+	stroke: #888;
+}
+.median-line {
+  stroke-width: 2px;
+  stroke: #777;
+  stroke-dasharray: 2;
+
+  @media @screen-mobile {
+    stroke-width: 1px;
+  }
+}
+
+.hidden {
+	display: none;
+}
+
+.faded {
+	fill: @red5 !important;
+}
+
+.side-text {
+	fill: white;
+	text-anchor: middle;
+	.knockout-header();
+}
+.median-text {
+  fill: #777;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.auto-count {
+  font-weight: bold;
+  color: #A23520;
+}
+
+.auto-table-hed {
+  .knockout-header();
+  line-height: 1.2;
+  text-align: left;
+  vertical-align: bottom;
+  border-bottom: 2px solid #eee;
+  color: #666;
+  align-items: flex-end;
+}
+
+.auto-table-hrr {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.auto-table-hrr, .auto-table-hed {
+	tr {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    font-size: 12px;
+  }
+  td {
+    padding: 10px;
+    flex: 1;
+  }
+}
+
+.intro-auto-text {
+	text-align: center;
+}
+
+.labels li {
+	text-align: left;
+	margin-left: 30px;
+}
+
+
+
+
+
+
+
+
+
+/*lookup*/
+
+form {
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 22px;
+	ul {
+		text-align: left;
+	}
+}
+
+
+
+.combobox-wrapper {
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
+}
+
+.combobox-label {
+  font-size: 1em;
+  margin-right: 5px;
+  .knockout();
+  text-transform: uppercase;
+  color: #333;
+
+}
+
+.listbox,
+.grid {
+  min-width: 230px;
+  background: white;
+  border: 1px solid #ccc;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 1.7em;
+  z-index: 1;
+}
+
+.listbox {
+  .gotham();
+  z-index: 999;
+
+  li {
+    padding: 5px;
+    font-size: 0.8em;
+  }
+}
+
+.listbox .result {
+  cursor: default;
+  margin: 0;
+}
+
+.grid .result-row {
+  padding: 2px;
+  cursor: default;
+  margin: 0;
+}
+
+.listbox .result:hover,
+.grid .result-row:hover {
+  background: rgb(139, 189, 225);
+}
+
+.listbox .focused,
+.grid .focused {
+  background: rgb(139, 189, 225);
+}
+
+.grid .focused-cell {
+  outline-style: dotted;
+  outline-color: green;
+}
+
+.combobox-wrapper input {
+  .gotham();
+  font-size: 0.8em;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  line-height: 1.5em;
+  padding: 5px;
+  width: 200px;
+}
+
+.combobox-dropdown {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0 0 2px;
+  height: 1.5em;
+  border-radius: 0 2px 2px 0;
+  border: 1px solid #aaa;
+}
+
+.grid .result-cell {
+  display: inline-block;
+  cursor: default;
+  margin: 0;
+  padding: 0 5px;
+}
+
+.grid .result-cell:last-child {
+  float: right;
+  font-size: 12px;
+  font-weight: 200;
+  color: #333;
+  line-height: 24px;
+}
+
+
+@media(max-width: 500px) {
+	.graphic-hed {
+		width: 30%;
+	}
+}

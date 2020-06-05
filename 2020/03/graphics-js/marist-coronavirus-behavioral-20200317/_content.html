@@ -1,0 +1,62 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed_travel) { %>
+<h3><%= t.smarty(COPY.labels.subhed_travel) %></h3>
+<% } %>
+
+<div id="bar-chart-travel" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<!-- crowds -->
+
+    
+    <% if (COPY.labels.subhed_crowd) { %>
+    <h3><%= t.smarty(COPY.labels.subhed_crowd) %></h3>
+    <% } %>
+    
+    <div id="bar-chart-crowd" class="graphic" role="img"
+    <% if (COPY.labels.screenreader) { %>
+    aria-label="<%- COPY.labels.screenreader %>"
+    <% } %>
+    >
+        <img src="fallback.png" alt="" class="fallback" />
+    </div>
+
+    <!-- eating out -->
+    
+    <% if (COPY.labels.subhed_eating) { %>
+    <h3><%= t.smarty(COPY.labels.subhed_eating) %></h3>
+    <% } %>
+    
+    <div id="bar-chart-eating" class="graphic" role="img"
+    <% if (COPY.labels.screenreader) { %>
+    aria-label="<%- COPY.labels.screenreader %>"
+    <% } %>
+    >
+        <img src="fallback.png" alt="" class="fallback" />
+    </div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.data_travel) %>;
+	var DATA2 = <%= JSON.stringify(COPY.data_crowd) %>;
+	var DATA3 = <%= JSON.stringify(COPY.data_eating) %>;
+</script>

@@ -1,0 +1,52 @@
+@import "./lib/base";
+
+h1, h2 {
+	text-align: center;
+}
+
+rect.white-bar {
+	fill: white;
+}
+
+.anno-line {
+	stroke-width: px;
+	stroke: #666;
+	&.cutoff {
+		stroke: #222;
+		/*stroke-width: 2px;*/
+	}
+}
+
+.anno-text {
+	.gotham();
+	font-size: 13px;
+	text-anchor: end;
+	&.end {
+		fill: #666;
+		text-anchor: start;
+	}
+	&.joint {
+		text-anchor: middle;
+	}
+}
+
+span.highlight {
+	padding: 3px;
+	background: @teal3;
+	color: white;
+	border-radius: 3px;
+}
+
+.left-label {
+	line-height: 1.6;
+}
+
+b {
+	color: #444;
+}
+
+.footer {
+	max-width: 650px;
+	margin-left: auto;
+	margin-right: auto;
+}

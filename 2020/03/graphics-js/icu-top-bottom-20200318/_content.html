@@ -1,0 +1,63 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<form id="ex2" autocomplete="off">
+  <label id="ex2-label" class="combobox-label">
+    Search for a county
+  </label>
+  <div class="combobox-wrapper">
+    <div role="combobox"
+      aria-expanded="false"
+      aria-owns="ex2-listbox"
+      aria-haspopup="listbox"
+      id="ex2-combobox">
+      <input type="text"
+        aria-autocomplete="list"
+        aria-controls="ex2-listbox"
+        aria-labelledby="ex2-label"
+        id="ex2-input">
+    </div>
+    <ul
+      aria-labelledby="ex2-label"
+      role="listbox"
+      id="ex2-listbox"
+      class="listbox hidden">
+    </ul>
+  </div>
+</form>
+
+<div class='auto-text'></div>
+
+
+
+<div id="bar-chart" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+<img src="fallback.png" alt="" class="fallback" />
+</div>
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.data) %>;
+  var ALLDATA = <%= JSON.stringify(COPY.alldata) %>;
+  var LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>

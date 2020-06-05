@@ -1,0 +1,92 @@
+<%
+  var calcBG = function (val) {
+    var newClass = 'background-color';
+    var colors = {
+      'negative': '227,141,44',
+      'positive': '23,128,126'
+    };
+    var pctOpacity = Math.abs(val) / 250;
+    if (pctOpacity > 1) {
+      pctOpacity = 1;
+    }
+    if (isNaN(pctOpacity)) {
+      pctOpacity = 0;
+    }
+    var polarity = val > 0 ? "positive" : "negative";
+    var style = `${newClass}: rgba(${colors[polarity]},${pctOpacity}); color: ${pctOpacity < .4 ? `rgba(${colors[polarity]},1)` : "white"};`;
+    return style;
+  };
+%>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <% COPY.data.forEach(function(row, i) {
+    var isHeader = false;
+    if (i == 0 || row.category != COPY.data[i-1].category) {
+      isHeader = true;
+    }
+
+    var isFinal = false;
+    if (i == (COPY.data.length - 1) || row.category != COPY.data[i+1].category) {
+      isFinal = true;
+    }
+  %>
+
+    <% if (isHeader) { %>
+    <table id="state-table" role="table">
+      <caption><%= row.category %></caption>
+      <thead role="rowgroup">
+        <tr role="row">
+          <th role="columnheader">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.hdr_name %></div>
+          </th>
+          <th class="amt" role="columnheader">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.hdr_mar7 %></div>
+          </th>
+          <th class="amt" role="columnheader">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.hdr_mar14 %></div>
+          </th>
+        </tr>
+      </thead>
+    <% } %>
+
+    <tr role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_name %>"><%= row.name %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_mar7 %>" class="amt" style="<%= calcBG(row.mar7) %>"><% if (row.mar7 > 0) { %>+<% }%><%= row.mar7 %>%</td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_mar14 %>" class="amt" style="<%= calcBG(row.mar14) %>"><% if (row.mar14 > 0) { %>+<% }%><%= row.mar14 %>%</td>
+    </tr>
+
+    <% if (isFinal) { %>
+    </table>
+    <% } %>
+
+  <% }); %>
+</div>
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
