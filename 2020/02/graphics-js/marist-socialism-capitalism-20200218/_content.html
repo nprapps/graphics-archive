@@ -1,0 +1,73 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<!-- <ul class="key">
+  <li class="key-item male-incidence">
+    <span class="head"><label>Favorable</label></span>
+   	<div class="before-after">
+      <label><%= COPY.labels.incidence %></label>
+      <b style="background-color: rgb(139, 192, 191);"></b>
+      <b style="background-color: rgb(23, 128, 126);"></b>
+      <label><%= COPY.labels.mortality %></label>
+    </div>
+  </li>
+  <li class="key-item female-incidence">
+    <span class="head"><label>Female</label></span>
+   	<div class="before-after">
+      <label><%= COPY.labels.incidence %></label>
+      <b style="background-color: rgb(241, 198, 150);"></b>
+   	  <b style="background-color: rgb(227, 141, 44);"></b>   	
+      <label><%= COPY.labels.mortality %></label>
+    </div>
+  </li>
+  <li class="key-item combined-incidence">
+    <span class="head"><label>Unfavorable</label></span>
+    <div class="before-after">
+      <label><%= COPY.labels.incidence %></label>
+      <b style="background-color: rgb(153, 153, 153);"></b>
+      <b style="background-color: rgb(85, 85, 85);"></b>
+      <label><%= COPY.labels.mortality %></label>
+    </div>
+  </li>
+</ul>
+ -->
+
+<ul class="key">
+	<li class="key-item key-0 millennials">
+		<b style="background-color: rgb(23, 128, 126);"></b>
+		<label>Socialism</label>
+	</li>
+	<li class="key-item key-1 overall-population">		
+		<b style="background-color: rgb(227, 141, 44);"></b>   	
+		<label>Capitalism</label>
+	</li>
+</ul>
+
+<div id="stacked-bar-chart" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.data) %>;
+</script>
