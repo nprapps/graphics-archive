@@ -1,0 +1,124 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+
+<%
+  var calcBG = function (val, col) {
+    var newClass = 'background-color';
+    var colors = {
+      'electorate': '170, 170, 170',
+      'candidate': '35,123,189'
+    };
+    var pctOpacity = val / 60;
+    if (isNaN(pctOpacity)) {
+      pctOpacity = 0;
+    }
+    var style = `${newClass}: rgba(${colors[col]},${pctOpacity}); color: ${pctOpacity < .65 ? "#454545" : "white"};`;
+    return style;
+  };
+
+  [ 'college', 'nocollege' ].forEach(function(thisTable) {
+%>
+
+
+<table id="state-table" role="table">
+  <caption><%= COPY.labels['hed_' + thisTable] %></caption>
+  <thead role="rowgroup">
+    <tr role="row">
+      <th role="columnheader" class="state">
+        <div class="sorter"><div class="icon"></div></div>
+        <div class="header"><span><%= COPY.labels.hdr_state %></span></div>
+      </th>
+      <th class="amt electorate" role="columnheader">
+        <div class="sorter"><div class="icon"></div></div>
+        <div class="header"><span><%= COPY.labels.hdr_share %></span></div>
+      </th>
+      <th class="amt" role="columnheader">
+        <div class="sorter"><div class="icon"></div></div>
+        <div class="header"><span>Biden</span></div>
+      </th>
+      <th class="amt" role="columnheader">
+        <div class="sorter"><div class="icon"></div></div>
+        <div class="header"><span>Sanders</span></div>
+      </th>
+      <th class="amt" role="columnheader">
+        <div class="sorter"><div class="icon"></div></div>
+        <div class="header"><span>Warren</span></div>
+      </th>
+      <th class="amt" role="columnheader">
+        <div class="sorter"><div class="icon"></div></div>
+        <div class="header"><span>Bloomberg</span></div>
+      </th>
+      <th class="amt" role="columnheader">
+        <div class="sorter"><div class="icon"></div></div>
+        <div class="header"><span>Klobuchar</span></div>
+      </th>
+      <th class="amt" role="columnheader">
+        <div class="sorter"><div class="icon"></div></div>
+        <div class="header"><span>Buttigieg</span></div>
+      </th>
+    </tr>
+  </thead>
+
+  <%
+    COPY.data.forEach(function(row) {
+      if (row.chart == thisTable) {
+  %>
+  <tr role="row">
+    <td role="cell" data-title="<%= COPY.labels.hdr_state %>" class="state"><%= t.ap_state(row['State']) %></td>
+    <td role="cell" data-title="<%= COPY.labels.hdr_share %>" class="amt electorate" style="<%= calcBG(row.share, 'electorate') %>"><%= row.share %>%</td>
+    <td role="cell" data-title="Biden" class="amt" style="<%= calcBG(row['Biden'], 'candidate') %>">
+      <% if (row['Biden']) { %> <%= row['Biden'] %>% <% } else { %> &ndash; <% } %>
+    </td>
+    <td role="cell" data-title="Sanders" class="amt" style="<%= calcBG(row['Sanders'], 'candidate') %>">
+      <% if (row['Sanders']) { %> <%= row['Sanders'] %>% <% } else { %> &ndash; <% } %>
+    </td>
+    <td role="cell" data-title="Warren" class="amt" style="<%= calcBG(row['Warren'], 'candidate') %>">
+      <% if (row['Warren']) { %> <%= row['Warren'] %>% <% } else { %> &ndash; <% } %>
+    </td>
+    <td role="cell" data-title="Bloomberg" class="amt" style="<%= calcBG(row['Bloomberg'], 'candidate') %>">
+      <% if (row['Bloomberg']) { %> <%= row['Bloomberg'] %>% <% } else { %> &ndash; <% } %>
+    </td>
+    <td role="cell" data-title="Klobuchar" class="amt" style="<%= calcBG(row['Klobuchar'], 'candidate') %>">
+      <% if (row['Klobuchar']) { %> <%= row['Klobuchar'] %>% <% } else { %> &ndash; <% } %>
+    </td>
+    <td role="cell" data-title="Buttigieg" class="amt" style="<%= calcBG(row['Buttigieg'], 'candidate') %>">
+      <% if (row['Buttigieg']) { %> <%= row['Buttigieg'] %>% <% } else { %> &ndash; <% } %>
+    </td>
+  </tr>
+<%
+    }
+  });
+%>
+
+</table>
+
+<%
+  });
+%>
+
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
