@@ -1,0 +1,71 @@
+@import "./lib/base";
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+h1 {
+	font-size: 18px;
+	// margin-bottom: 10px;
+}
+
+h2 {
+	margin-bottom: 10px;
+}
+
+h3, h4.sum {
+	// text-align: center;
+	// padding-left: 10px;
+}
+
+h3 {
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.graphic h4 {
+  font-size: 12px;
+  font-weight: normal;
+  margin-top: 0px;
+}
+
+.sub-chart {
+	margin-top: 20px;
+  margin-right: 2%;
+	width: 48%;
+	float: left;
+
+	@media @screen-mobile {
+		width: 100%;
+	}
+}
+
+.sum {
+  font-family: 'Knockout 31 4r', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+    color: #666;
+    display: block;
+    font-size: 12px;
+    // margin-bottom: 3px;
+}
+
+.strong { color: #333; }
+
+.key {
+	text-align: center;
+}
+
+.key-item:last-child {
+	margin-right: 0px;
+}
+
+rect {
+	// opacity: 0.8
+}

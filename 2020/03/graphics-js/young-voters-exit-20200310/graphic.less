@@ -1,0 +1,37 @@
+@import "./lib/base";
+
+.bar text {
+  fill: #fff;
+  font-size: 11px;
+  text-anchor: middle;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.x.axis {
+  &.category {
+    text {
+      font-weight: bold;
+      fill: #454545;
+      text-anchor: middle;
+    }
+  }
+
+  &.bars {
+    line,
+    path {
+      display: none;
+    }
+  }
+}
+
+/*
+ * small-screen styles
+ */
+@media @screen-mobile {
+  .bar text {
+    font-size: 10px;
+  }
+}
