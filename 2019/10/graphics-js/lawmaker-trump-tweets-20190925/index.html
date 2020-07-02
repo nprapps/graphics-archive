@@ -1,0 +1,40 @@
+<%= await t.include("./partials/_header.html") %>
+
+<style type="text/css">
+body {
+  width: 90%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+textarea {
+  border: none;
+  padding: 16px 8px;
+  background: #ddd;
+  font-family: monospace;
+  height: 100px;
+  display: block;
+  width: 100%;
+  margin-bottom: 22px;
+}
+</style>
+
+  <h1>Graphics In This Project</h1>
+
+  <%
+    var mainifest = require("./manifest.json")
+    mainifest.files.forEach(function(file) {
+      if (file.search('.html') > 0 && file != 'index.html') {
+        var slug = file.split('.html')[0];
+  %>
+
+        <p><strong><a href="<%= file %>"><%= slug %></a></strong></p>
+
+        <textarea><p data-pym-loader data-child-src="https://apps.npr.org/dailygraphics/graphics/lawmaker-trump-tweets-20190925/<%= file %>" id="responsive-embed-lawmaker-trump-tweets-20190925-<%= slug %>"> Loading... </p> <script src="https://pym.nprapps.org/npr-pym-loader.v2.min.js"></script></textarea>
+
+  <%
+      }
+    });
+  %>
+
+<%= await t.include("./partials/_footer.html") %>

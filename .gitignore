@@ -8,7 +8,7 @@
 dailygraphics.sublime-*
 graphics.sublime-*
 
-**/index.html
+**/graphics/*/index.html
 **/child.html
 **/assets/*
 **/*/assets/*
