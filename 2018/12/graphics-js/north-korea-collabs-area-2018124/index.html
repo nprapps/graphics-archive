@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title><%= slug %></title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="robots" content="noindex" />
+    <base target="_blank">
+    <link rel="stylesheet" href="./css/graphic.css">
+    <script>window.GOOGLE_ANALYTICS_ID = "<%= config.analyticsID %>";</script>
+</head>
+<body>
+
+    <%= await t.include("_content.html") %>
+
+    <script src="https://pym.nprapps.org/pym.v1.min.js"></script>
+    <script src="./js/graphic.js"></script>
+</body>
+</html>
