@@ -1,0 +1,363 @@
+@import "./lib/base";
+
+body {
+  padding-top: 0;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1, h2,
+.footnotes,
+.footer {
+  .mmedia-constrained();
+}
+
+.graphic {
+  h4 {
+    .gotham();
+    font-size: 14px;
+    margin: 0 0 11px 0;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+
+    strong {
+      color: @teal3;
+      padding-bottom: 1px;
+
+      &::before {
+        content: "\2B22";
+        display: inline-block;
+        margin-top: -2px;
+        padding-right: 3px;
+        font-size: 108%;
+        vertical-align: top;
+      }
+    }
+    i {
+      font-style: normal;
+      padding-bottom: 1px;
+      white-space: nowrap;
+
+      &::before {
+        content: "\2B22";
+        display: inline-block;
+        padding-right: 3px;
+        font-size: 108%;
+        vertical-align: top;
+        color: @orange4;
+      }
+    }
+  }
+}
+
+#ballots {
+  @media @screen-mobile-above {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .map {
+    margin-bottom: 22px;
+
+    @media @screen-mobile {
+      border-top: 2px solid #eee;
+      padding-top: 22px;
+
+      &:first-child {
+        border-top: none;
+        padding-top: 0;
+      }
+    }
+
+    @media @screen-mobile-above {
+      width: 47%;
+      border: none;
+    }
+  }
+
+  hr {
+    display: none;
+
+    @media @screen-mobile-above {
+      border: none;
+      width: 2px;
+      background-color: #eee;
+      margin: 0 0 22px 0;
+      display: block;
+
+      &:nth-child(4) {
+        width: 100%;
+        height: 2px;
+      }
+
+      &:nth-child(5) {
+        margin-top: 22px;
+      }
+    }
+  }
+
+  .key,
+  #mail-ballots .key-2,
+  #mail-applications .key,
+  #absentee-noexcuse .key,
+  #absentee-excuse .key {
+    display: none;
+  }
+}
+
+
+/* Key
+========================================*/
+.key-wrap {
+  .key {
+    margin: 0 0 18px 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+
+    .key-item {
+      display: inline-block;
+      margin: 0 18px 0 0;
+      padding: 0;
+      line-height: 15px;
+    }
+    .key-item b {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-right: 6px;
+      float: left;
+    }
+    .key-item label {
+      white-space: nowrap;
+      font-size: 12px;
+      color: #666;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+
+  // Numeric scale style
+  &.numeric-scale {
+    width: 100%;
+    text-align: center;
+
+    h3 {
+      margin-bottom: 5px;
+    }
+
+    .key {
+      .key-item {
+        margin: 0 1px 0 0;
+        position: relative;
+      }
+
+      .key-item b {
+        width: 45px;
+        height: 10px;
+        margin-right: 0;
+      }
+
+      .key-item label {
+        position: absolute;
+        bottom: -20px;
+        left: -15%;
+
+        &.end-label {
+          left: auto;
+          right: -25%;
+        }
+      }
+    }
+  }
+}
+
+/* Grid Map
+========================================*/
+
+.tile-grid-map {
+  margin-bottom: 33px;
+}
+
+.state {
+  fill: #eee;
+}
+
+.states {
+  .active {
+    stroke: @orange3;
+    stroke-width: 2px;
+  }
+}
+
+.info {
+  display: none;
+
+  &.active { display: block; }
+}
+
+.header {
+  display: none;
+
+  &.active { display: inline-block; }
+}
+
+.note {
+  text-align: center;
+}
+
+.label {
+  font-family: 'Knockout 31 4r';
+  // font-size: 12px;
+  font-size: 15px;
+  fill: #979797;
+}
+
+.label-active {
+  fill: #fff;
+}
+
+// @media screen and (max-width: 500px){
+//   .label {
+//     font-size: 15px;
+//   }
+// }
+//
+@media screen and (min-width: 768px){
+  .label {
+    font-size: 12px;
+  }
+}
+
+// CALENDAR
+#state-spotlight {
+  .mmedia-constrained();
+  margin-bottom: 22px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 22px;
+
+  h4 {
+    text-align: center;
+    font-size: 16px;
+    margin-botttom: 0;
+
+    b { color: @teal3; }
+  }
+
+  dl {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 13px;
+
+    dt, dd {
+      width: calc(50% - 11px);
+      margin: 0 0 3px 0;
+      border-top: 1px solid #eee;
+      padding: 9px 0 6px 0;
+    }
+
+    dt {
+      font-weight: bold;
+    }
+  }
+
+  .state-select {
+    text-align: center;
+    margin-bottom: 22px;
+    background-color: #f1f1f1;
+    background-color: lighten(@teal6, 5%);
+    padding: 22px 11px;
+
+    label {
+      .knockout-header();
+      font-size: 13px;
+      color: #333;
+    }
+  }
+
+}
+.calendar {
+  display: none;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-bottom: 11px;
+  
+  &.active { display: flex; }
+
+  .month {
+    width: calc((100% / 3) - 3px);
+
+    @media @screen-mobile-above {
+      width: calc((100% / 3) - 6px);
+    }
+
+    table {
+      border-collapse: separate;
+      border-spacing: 1px;
+      width: 100%;
+
+      caption {
+        .knockout-header();
+        font-size: 10px;
+        background-color: lighten(@teal6, 5%);
+        color: @teal2;
+        padding: 3px 0;
+        border: 1px solid #fff;
+
+        @media @screen-mobile-above {
+          font-size: 12px;
+          padding: 5px 0;
+        }
+      }
+
+      th {
+        .knockout-header();
+        text-align: center;
+        color: #666;
+        font-size: 11px;
+        background-color: #ddd;
+
+        @media @screen-mobile-above {
+          font-size: 12px;
+          padding: 3px 0;
+        }
+      }
+
+      td {
+        background: #f1f1f1;
+        width: calc(100% / 7);
+        text-align: center;
+        font-size: 11px;
+        -webkit-font-smoothing: antialiased;
+        color: #f1f1f1;
+
+        @media @screen-mobile-above {
+          font-size: 12.5px;
+          padding: 3px 0;
+          color: #ccc;
+        }
+
+        &:empty {
+          background: #fff;
+        }
+
+        &.deadline {
+          background-color: @orange6;
+          color: @orange2;
+          font-weight: bold;
+          border: 1px solid @orange4;
+        }
+
+        &.election-day {
+          background-color: @orange5;
+          border: 2px solid @orange2;
+          // border-radius: 15px;
+        }
+      }
+    }
+  }
+}
