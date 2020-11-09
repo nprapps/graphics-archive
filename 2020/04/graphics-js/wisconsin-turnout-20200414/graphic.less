@@ -1,0 +1,41 @@
+@import "./lib/base";
+
+.bars rect {
+  fill: @teal6;
+}
+
+h1, h2 {
+	.mmedia-constrained-centered();
+}
+
+.key { .mmedia-constrained-centered(); }
+
+.footnotes, .footer {
+	.mmedia-constrained();
+}
+
+.value text.in { fill: #666; }
+
+rect.bar {
+  &.bar-2008 {
+    fill: @teal3;
+    color: white;
+  }
+  &.bar-2012 {
+    fill: @teal3;
+    color: white;
+  }
+  &.bar-2016 {
+    fill: @teal3;
+    color: white;
+  }
+  &.bar-2020 {
+    fill: @teal3;
+    color: white;
+  }
+}
+
+text.values.value-2008.in { fill: #fff; }
+text.values.value-2012.in { fill: #fff; }
+text.values.value-2016.in { fill: #fff; }
+text.values.value-2020.in { fill: #fff; }

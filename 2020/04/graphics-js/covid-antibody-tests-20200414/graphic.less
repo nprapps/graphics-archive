@@ -1,0 +1,61 @@
+@import "./lib/base";
+
+form.antibody-tests {
+  display: flex;
+
+  @media @screen-mobile {
+    display: block;
+  }
+
+  .section {
+    padding: 12px;
+    border: 2px solid fade(black, 10%);
+    border-radius: 8px;
+
+    &.inputs {
+      background: #F8F8F8;
+    }
+
+    &.outputs {
+      padding: 24px;
+      background: #F2F7F7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .gotham();
+      font-size: 20px;
+      text-align: center;
+
+      .output {
+        font-size: 28px;
+        font-weight: bold;
+        display: block;
+      }
+    }
+
+    & + .row {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 20px;
+      .gotham();
+      font-weight: normal;
+    }
+
+    .chatter {
+      font-style: italic;
+    }
+
+    input[type=range] {
+      width: 100%;
+    }
+  }
+
+  hr {
+    margin: 20px;
+  }
+
+
+}

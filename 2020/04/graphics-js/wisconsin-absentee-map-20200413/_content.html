@@ -1,0 +1,34 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+<div id="map-container" class="graphic" role="img">
+  <div class="key-wrap">
+    <% if (COPY.labels.legend_head) { %>
+      <h3><%= COPY.labels.legend_head %></h3>
+    <% } %>
+    <ul class="key"></ul>
+  </div>
+
+  <img src="wisconsin.png" alt="" class="center-img" />
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+	var COPY = <%= JSON.stringify(COPY.labels) %>;
+</script>

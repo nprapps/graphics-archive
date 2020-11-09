@@ -1,0 +1,120 @@
+<%
+  var categories = Object.keys(COPY.categories);
+
+  // filter out cases — we'll get those from elsewhere
+  var data = COPY.data_formatted.filter(function(row) {
+    return row.type != "Cases";
+  });
+
+  // via https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_groupby
+  var grouped = data.reduce((r, v, i, a, k = v.date) => ((r[k] || (r[k] = [])).push(v), r), {});
+  var days = Object.keys(grouped);
+%>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="chart" class="graphic">
+  <div class="header">
+    <div class="category date-info">Date</div>
+    <% categories.forEach(function(cat) { %>
+      <div class="category <% t.classify(cat) %>"><%= COPY.categories[cat] %></div>
+    <% }); %>
+  </div>
+
+  <% days.forEach(function(thisDay) { %>
+  <div class="day">
+
+    <div class="category date-info">
+      <h4 class="date">
+        <%= t.ap_date(grouped[thisDay][0].date) %>
+        <span class="cases">
+          <%
+            var cases = 0;
+            var deaths = 0;
+
+            COPY.us_cases_deaths.forEach(function(d) {
+              if (d.date_formatted == grouped[thisDay][0].date) {
+                cases = d.cases;
+                deaths = d.deaths;
+              }
+            })
+
+            var caseWord = cases == 1 ? "case" : "cases";
+            var deathWord = deaths == 1 ? "death" : "deaths";
+          %>
+          <strong><%= t.comma(cases) %></strong> U.S. <%= caseWord %>, <strong><%= t.comma(deaths) %></strong>&nbsp;<%= deathWord %>
+        </span>
+      </h4>
+    </div>
+
+    <%
+      // make a div for every category even if it's gonna be empty
+      // for layout reasons
+      categories.forEach(function(category) {
+    %>
+      <div class="category <%= t.classify(category) %>"><%
+          // show events that are in this category
+          var filteredItems = grouped[thisDay].filter(function(item) {
+            return item.type == category;
+          });
+
+          if (filteredItems.length > 0) { %><h3><%= COPY.categories[category] %></h3><% }
+
+          filteredItems.forEach(function(item) {
+        %>
+        <div class="item <% if (item.trump) { %>trump<% } %> <% if (item.tweet) { %>tweet<% } %> <% if (item.new) { %>new<% } %>">
+          <% if (item.img) { %>
+            <div class="thumb <% if (item.trump) { %>trump<% } %> <% if (item.tweet) { %>tweet<% } %>"><img src="img/<%= item.img %>" alt="" /></div>
+          <% } %>
+          <% if (item.new) { %><p class="new"><b>New</b></p><% } %>
+          <p class="desc">
+            <%= t.smarty(item.text) %>
+            <% if (!item.attribution && item.link) { %>
+              <a href="<%= item.link %>">(Source)</a>
+            <% } %>
+          </p>
+          <% if (item.attribution) { %>
+            <cite>&mdash;
+              <% if (item.link) { %>
+                <a href="<%= item.link %>"><%= t.smarty(item.attribution) %></a>
+              <% } else { %>
+                <%= t.smarty(item.attribution) %>
+              <% } %>
+            </cite>
+          <% } %>
+        </div>
+        <%
+          });
+        %></div>
+    <% }); %>
+
+  </div>
+  <% }); %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+
+  <% if (COPY.labels.photos) { %>
+  <p>Photos: <%= COPY.labels.photos %></p>
+  <% } %>
+</div>

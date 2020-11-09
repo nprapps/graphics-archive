@@ -1,0 +1,40 @@
+@import "./lib/base";
+
+h3 {
+    margin-bottom: 0px;
+    text-align: center;
+  }
+
+  .graphic {
+      margin-bottom: 0px;
+    //   width: 50%;
+    //   display: inline-block;
+  }
+
+
+
+  @media @screen-mobile-above{
+    .column {
+        float: left;
+        width: 50%;
+      }
+      
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    
+      .chongqing {
+        width: 50%
+    
+    }
+  }
+
+  .thirty { fill: #ebebeb; }
+
+  .chart-label {
+    fill: #999;
+    font-style: italic;
+    font-size: 12px;
+    }

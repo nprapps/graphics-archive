@@ -1,0 +1,82 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<% var columns = [
+  "name",
+  "sector",
+  "deaths",
+  "rating",
+  "residents",
+  "resident_pct"
+  // "county_pct"
+]; %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <%
+          columns.forEach(function(column) {
+        %>
+        <th role="columnheader">
+          <div class="header <%= column %>"><%= COPY.labels[column] %></div>
+        </th>
+        <% }); %>
+      </tr>
+    </thead>
+
+    <%
+    var comma = n => n.toLocaleString();
+    var percent = n => n + "%";
+    var formats = {
+      deaths: comma,
+      rating: comma,
+      residents: comma,
+      resident_pct: comma
+      // county_pct: percent
+    };
+
+    var boldFunction = function(input) {
+      if (input >= '46' && input != "Incomplete reporting" && input != "7") {
+        return 'bold';
+      }
+    };
+    %>
+
+    <tbody>
+    <% COPY.data.forEach(function(row) { %>
+      <tr class="" role="row">
+        <% columns.forEach(function(c) { %>
+        <td role="cell" class="<%= c %> <%= boldFunction(row.resident_pct.replace('%', '')) %>" data-title="<%= COPY.labels[c] %>">
+          <%= formats[c] ? formats[c](row[c]) : row[c] %>
+        </td>
+        <% }) %>
+      </tr>
+    <% }) %>
+    </tbody>
+  </table>
+
+  <!-- <button aria-hidden=true class="expander">Show more</button> -->
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

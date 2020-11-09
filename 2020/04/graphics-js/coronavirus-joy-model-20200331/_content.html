@@ -1,0 +1,90 @@
+<% 
+var { classify} = require("./lib/helpers");
+%>
+
+<% if (COPY.labels.headline && state != "all" && type != "bed") { %>
+
+	
+	<h1>
+		<% if (state == "New York") {%>
+			<%= t.smarty(COPY.labels.NY_hed) %>
+		<% 
+		}
+		if (state == "California") {%>
+			<%= t.smarty(COPY.labels.CA_hed) %>
+		<% 
+		}
+		if (state == "Massachusetts") {%>
+			<%= t.smarty(COPY.labels.MA_hed) %>
+		<% 
+		}
+		if (state == "all") {%>
+			<%= t.smarty(COPY.labels.headline) %>
+		<% 
+		}%>
+	</h1>
+
+	<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } else if (type == "bed") { %>
+	<h1><%= t.smarty(COPY.labels.headline_bed) %> <%= state %></h1>
+<% } else { %>
+
+<div class='dropdown-container'>
+	<select id="dropdown" class="state-dropdown">
+		<option value="">Select a state</option>
+	</select>
+</div>
+
+
+<h2 class='<%=classify(state)%>-h2'>Daily deaths <%= t.smarty(COPY.labels.subhed.toLowerCase()) %></h2>
+<h4 class='<%=classify(state)%>-h4'>Hover or tap on a state to see its high and low estimate ranges</h4>
+
+<% } %>
+
+<div id="line-chart" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+  <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+
+
+
+<% if (state == "all") {%>
+
+<div class='auto-text'></div>
+
+<button class="toggle-table" data-more="Show all (ordered by peak date) ▼" data-less="Show less ▲">Show all (ordered by peak date) ▼</button>
+
+<%}%>
+
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+
+  <% if (state == "all") {%>
+		<p>Credit: <%= COPY.labels.all_credit %></p>
+	<% } else { %>
+		<p>Credit: <%= COPY.labels.credit %></p>
+  
+  <% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.data) %>;
+  var TYPE;
+  var AGGDATA = <%= JSON.stringify(COPY.aggregate_data) %>;
+  var DATEOVERRIDE = <%= JSON.stringify(COPY.dateoverride) %>;
+  <% if (state) { %>var STATE = <%= JSON.stringify(state) %>;<% } %>
+  <% if (type == "bed") { %> var TYPE = "bed";<% } %>
+</script>

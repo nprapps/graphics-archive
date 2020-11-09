@@ -1,0 +1,89 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="row">
+<div class="column">
+<h3 class="county-name">Guangdong</h3>
+<div id="column-chart-guangdong" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div></div> 
+
+<div class="column">
+    <h3 class="county-name">Beijing</h2>
+
+<div id="column-chart-beijing" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div></div>
+</div>
+
+<div class="row">
+<div class="column">
+<h3 class="county-name">Shanghai</h3>
+<div id="column-chart-shanghai" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div></div> 
+
+<div class="column">
+    <h3 class="county-name">Fujian</h2>
+
+<div id="column-chart-fujian" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div></div>
+</div>
+
+<div class="chongqing">
+<h3 class="county-name">Chongqing</h2>
+<div id="column-chart-chongqing" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div>
+</div>
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = {
+    "beijing": <%= JSON.stringify(COPY.data_beijing) %>,
+    "guangdong": <%= JSON.stringify(COPY.data_guangdong) %>,
+    "fujian": <%= JSON.stringify(COPY.data_fujian) %>,
+    "hebei": <%= JSON.stringify(COPY.data_hebei) %>,
+    "chongqing": <%= JSON.stringify(COPY.data_chongqing) %>,
+    "shanghai": <%= JSON.stringify(COPY.data_shanghai) %>
+  };
+
+</script>

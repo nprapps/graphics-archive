@@ -1,0 +1,77 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<% var columns = [
+  // "ticker",
+  "company",
+  "sector",
+  "loan",
+  "market_cap",
+  "employees",
+  // "sales",
+  "income"
+]; %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <%
+          columns.forEach(function(column) {
+        %>
+        <th role="columnheader">
+          <div class="header <%= column %>"><%= COPY.labels[column] %></div>
+        </th>
+        <% }); %>
+      </tr>
+    </thead>
+
+    <%
+    var comma = n => n.toLocaleString();
+    var millions = n => (n < 0 ? "-$" : "$") + Math.abs(n).toFixed(1) + "M";
+    var formats = {
+      market_cap: millions,
+      loan: millions,
+      employees: comma,
+      sales: millions,
+      income: millions
+    };
+    %>
+
+    <tbody>
+    <% COPY.data.forEach(function(row) { %>
+      <tr class="" role="row">
+        <% columns.forEach(function(c) { %>
+        <td role="cell" class="<%= c %>" data-title="<%= COPY.labels[c] %>">
+          <%= formats[c] ? formats[c](row[c]) : row[c] %>  
+        </td>
+        <% }) %>
+      </tr>
+    <% }) %>
+    </tbody>
+  </table>
+
+  <button aria-hidden=true class="expander">Show more</button>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+  
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

@@ -1,0 +1,65 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+
+<% if (COPY.labels.subhed_race) { %>
+<h3><%= t.smarty(COPY.labels.subhed_race) %></h3>
+<% } %>
+
+<div id="bar-chart-race" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.subhed_gender) { %>
+<h3><%= t.smarty(COPY.labels.subhed_gender) %></h3>
+<% } %>
+
+<div id="bar-chart-gender" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.subhed_conditions) { %>
+<h3><%= t.smarty(COPY.labels.subhed_conditions) %></h3>
+<% } %>
+
+<div id="bar-chart-conditions" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = {
+    "race": <%= JSON.stringify(COPY.race) %>,
+    "gender": <%= JSON.stringify(COPY.gender) %>,
+    "conditions": <%= JSON.stringify(COPY.conditions) %>
+  };
+</script>

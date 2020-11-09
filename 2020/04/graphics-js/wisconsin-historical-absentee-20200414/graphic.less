@@ -1,0 +1,25 @@
+@import "./lib/base";
+
+.bars rect { fill: @orange3; }
+
+h1, h2 {
+	.mmedia-constrained-centered();
+}
+
+.key { .mmedia-constrained-centered(); }
+
+.footnotes, .footer {
+	.mmedia-constrained();
+}
+
+rect.bar {
+  &.bar-nov-16 {
+    fill: @orange6;
+  }
+  &.bar-nov-18 {
+    fill: @orange6;
+  }
+}
+
+text.values.value-nov-16.in { fill: #666; }
+text.values.value-nov-18.in { fill: #666; }

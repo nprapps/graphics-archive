@@ -1,0 +1,170 @@
+body.data-table {
+  .graphic {
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 0;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: linear-gradient(0deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 100%);
+    }
+
+    &.open {
+      height: auto;
+      margin-bottom: 0px;
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  button {
+    .gotham();
+    background-color: #fff;
+    border: none;
+    border-top: 1px solid #ddd;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #4774CC;
+    display: block;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 22px;
+    padding: 10px;
+    text-transform: uppercase;
+    width: 100%;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+  }
+
+  // Base table styles
+  table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    tr.shadedrow,
+    tr.state-united-states {
+      background-color: #f1f1f1;
+      color: #333;
+      font-weight: bold;
+    }
+
+    th {
+      .knockout-header();
+      line-height: 1.2;
+      text-align: left;
+      vertical-align: bottom;
+    }
+
+    td { vertical-align: top; }
+  }
+
+  // Tablesorter styles
+  table {
+    th {
+      &.sort-header {
+        cursor: pointer;
+
+        &::-moz-selection,
+        &::selection {
+          background: transparent;
+        }
+
+        .sorter {
+          border-top: 2px solid #404040;
+          visibility: hidden;
+
+          .icon {
+            content: '';
+            width: 1px;
+            margin: 3px auto 7px auto;
+            border-width: 0 4px 4px;
+            border-style: solid;
+            border-color: #404040 transparent;
+          }
+        }
+
+        &:hover .sorter {
+          visibility: visible;
+        }
+      }
+
+      &[aria-sort="descending"] .sorter,
+      &[aria-sort="ascending"] .sorter,
+      &[aria-sort="ascending"]:hover .sorter {
+        visibility: visible;
+        opacity: 0.4;
+      }
+
+      &[aria-sort="descending"] .sorter .icon {
+        border-bottom: none;
+        border-width: 4px 4px 0;
+      }
+    }
+  }
+
+  /*
+  * larger-than-small-screen styles
+  * ~ defining some desktop-only styles here to avoid
+  * ~ writing extra mobile styles to undo them.
+  */
+  // @media @screen-mobile-above {
+    table {
+      th, td {
+        padding: 10px;
+
+        // comment these two out if you want to highlight particular rows
+        &:first-child { padding-left: 0; }
+        // &:last-child { padding-right: 0; }
+
+        &.amt {
+          text-align: right;
+          width: 18%;
+        }
+        &.state,
+        &.most {
+          font-weight: bold;
+          color: #454545;
+        }
+        &.current,
+        &.prior,
+        &.change {
+          border-right: 1px solid #eee;
+        }
+      }
+
+      th {
+        border-bottom: 2px solid #eee;
+        padding-top: 0;
+      }
+
+      td {
+        border-bottom: 1px solid #eee;
+        vertical-align: middle;
+
+        &.change { color: @red3; }
+      }
+    }
+  // }
+
+  .desktop { display: none; }
+  .mobile { display: inline; }
+
+  @media @screen-mobile-above {
+    .desktop { display: inline; }
+    .mobile { display: none; }
+  }
+}

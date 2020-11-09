@@ -1,0 +1,37 @@
+@import "./lib/base";
+
+.bars rect {
+  fill-opacity: 0.6;
+
+  .trump & { fill: @orange3; }
+  .pence & { fill: @orange3; }
+  .others & { fill: #ccc; }
+}
+
+.area path {
+  stroke: none;
+  fill-opacity: 0.6;
+
+  .trump & { fill: @orange3; }
+  .pence & { fill: @orange3; }
+  .others & { fill: #ccc; }
+}
+
+.lines path {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #666;
+}
+
+.annotation {
+  text-anchor: start;
+  font-size: 11px;
+  font-style: italic;
+  fill: #555;
+}
+
+@media @screen-mobile {
+  .chart + .chart {
+    margin-top: 22px;
+  }
+}

@@ -1,0 +1,38 @@
+<%= await t.include("./partials/_header.html") %>
+<div class="mmedia-constrained center">
+
+	<%= await t.include("./partials/_legend.html") %>
+
+</div>
+
+
+
+<div id="column-chart" class="graphic main" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+	<div class="clearer"></div>
+    <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.data) %>;
+    var DATA_BIG = <%= JSON.stringify(COPY.data) %>;
+    var BLOCKSIZE = <%= JSON.stringify(COPY.labels.blockSize) %>;
+	var BLOCKSPERCOLUMN = <%= JSON.stringify(COPY.labels.blocks_per_column) %>;
+
+</script>
+

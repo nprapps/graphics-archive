@@ -1,0 +1,67 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_state_name %></div>
+        </th>
+        <th role="columnheader" class="amt current">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_march_21 %></div>
+        </th>
+        <th role="columnheader" class="amt prior">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_march_28 %></div>
+        </th>
+        <th role="columnheader" class="amt change">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_april_4 %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_change %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY.data.forEach(function(row) { %>
+    <tr class="state-<%= t.classify(row.state_name) %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_state_name %>" class="state">
+        <span class="desktop"><%= row.state_name %></span><span class="mobile"><%= row.state_ap %></span><% if (row.footnote) { %>*<% } %>
+      </td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_march_21 %>" class="amt current <% if (row.march_21 > row.march_28 && row.march_21 > row.april_4) { %>most<% } %>"><%= t.comma(row.march_21) %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_march_28 %>" class="amt prior <% if (row.march_28 > row.march_21 && row.march_28 > row.april_4) { %>most<% } %>"><%= t.comma(row.march_28) %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_april_4 %>" class="amt prior <% if (row.april_4 > row.march_21 && row.april_4 > row.march_28) { %>most<% } %>"><%= t.comma(row.april_4) %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_change %>" class="amt change"><% if (row.change > 0) { %>+<% } %><%= t.comma(row.total) %></td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<button data-more="<%= COPY.labels.toggle_more %>" data-less="<%= COPY.labels.toggle_less %>"><%= COPY.labels.toggle_more %></button>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <p><strong>Notes:</strong> <%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

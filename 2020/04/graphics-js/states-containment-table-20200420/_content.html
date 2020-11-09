@@ -1,0 +1,132 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<% if (COPY.labels.lastUpdate) { %>
+<h2 class="last-update"><%= t.smarty(COPY.labels.lastUpdate) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table-may" role="table">
+    <thead role="rowgroup">
+      <tr role="row head">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_may %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"></div>
+        </th>
+        <!--<th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_peak_date %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_deaths %></div>
+        </th>-->
+      </tr>
+    </thead>
+
+  <% COPY.data_may.forEach(function(row) { %>
+    <tr class="state" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_date %>" class="date-cell"><%= row.date %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_state %>" class="state-list"><%= row.name %></td>
+      <!--<td role="cell" data-title="<%= COPY.labels.hdr_peak_date %>"><%= row.peak_deaths_date %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_deaths %>"><%= row.peak_deaths %></td>-->
+
+    </tr>
+  <% }) %>
+
+  </table>
+
+  <table id="state-table-june" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_june %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"></div>
+        </th>
+        <!--<th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_peak_date %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_deaths %></div>
+        </th>-->
+      </tr>
+    </thead>
+
+  <% COPY.data_june.forEach(function(row) { %>
+    <tr class="state" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_date %>" class="date-cell"><%= row.date %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_state %>" class="state-list"><%= row.name %></td>
+      <!--<td role="cell" data-title="<%= COPY.labels.hdr_peak_date %>"><%= row.peak_deaths_date %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_deaths %>"><%= row.peak_deaths %></td>-->
+
+    </tr>
+  <% }) %>
+
+  </table>
+
+  <table id="state-table-july" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_july %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"></div>
+        </th>
+        <!--<th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_peak_date %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_deaths %></div>
+        </th>-->
+      </tr>
+    </thead>
+
+  <% COPY.data_july.forEach(function(row) { %>
+    <tr class="state" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_date %>" class="date-cell"><%= row.date %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_state %>" class="state-list"><%= row.name %></td>
+      <!--<td role="cell" data-title="<%= COPY.labels.hdr_peak_date %>"><%= row.peak_deaths_date %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_deaths %>"><%= row.peak_deaths %></td>-->
+
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+  
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

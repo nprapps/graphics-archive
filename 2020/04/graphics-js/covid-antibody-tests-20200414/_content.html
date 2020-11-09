@@ -1,0 +1,49 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<form class="antibody-tests">
+  <div class="inputs">
+    <div class="row section">
+      <label for="disease-rate"><%= COPY.labels.diseaseRate %>: <span class="output"></span>%</label>
+      <p class="chatter"><%= COPY.labels.diseaseChatter %></p>
+      <input type="range" min="1" max="30" step="1" value="1" id="disease-rate" class="live-label">
+    </div>
+
+    <div class="row section">
+      <label for="false-rate"><%= COPY.labels.falseRate %>: <span class="output"></span>%</label>
+      <p class="chatter"><%= COPY.labels.falseChatter %></p>
+      <input type="range" min="1" max="15" step="1" value="5" id="false-rate" class="live-label">
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="outputs section">
+    <div aria-live="polite">
+      <%= COPY.labels.chanceOutput %>:
+      <span class="output"></span>
+    </div>
+  </div>
+</form>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+  
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

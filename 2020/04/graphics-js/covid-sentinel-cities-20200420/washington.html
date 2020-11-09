@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en">
+<%= await t.include("_partials/_head.html") %>
+
+<body>
+
+    <%= await t.include("_content.html", {COPY, "city_name":"washington"}) %>
+
+    <script src="./graphic.js"></script>
+</body>
+</html>
