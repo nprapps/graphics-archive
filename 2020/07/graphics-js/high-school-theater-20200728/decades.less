@@ -1,0 +1,146 @@
+#decades {
+  --y1600:      #ebebeb;
+  --y1600-dark: #999;
+  --y1930:      #f7e39b;
+  --y1930-dark: #EFC637;
+  --y1960:      #c6d2ae;
+  --y1960-dark: #99a363;
+  --y1990:      #8bc0bf;
+  --y1990-dark: #17807e;
+
+  h1 { margin-bottom: 22px; }
+  .key { margin-bottom: 22px; }
+
+  h1,
+  .key,
+  .footnotes,
+  .footer {
+    .mmedia-constrained();
+  }
+
+  h3 {
+    .knockout-header();
+    margin: 0 0 6px 0;
+    font-size: 14px;
+  }
+
+  .key {
+    .key-item {
+      &.hed {
+        @media @screen-mobile {
+          display: block;
+          margin-bottom: 6px;
+        }
+
+        label { color: #444; }
+      }
+      &.year-1600 b { background-color: var(--y1600); }
+      &.year-1930 b { background-color: var(--y1930); }
+      &.year-1960 b { background-color: var(--y1960); }
+      &.year-1990 b { background-color: var(--y1990); }
+    }
+  }
+
+  .group {
+    display: flex;
+    flex-wrap: wrap;
+
+    @media @screen-medium-above {
+      justify-content: center;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0 0 15px 0;
+      padding: 0 15px 0 0;
+      width: 50%;
+
+      @media @screen-mobile-above {
+        width: 33%;
+        padding: 0 10px;
+      }
+
+      > li {
+        display: table;
+        width: 100%;
+        background-color: #f1f1f1;
+        margin: 0 0 2px 0;
+        font-size: 12px;
+        color: #444;
+
+        &.active {
+          color: #fff;
+          cursor: pointer;
+          opacity: 1;
+          transition: color 0.2s ease-out,
+          background-color 0.2s ease-out,
+          border-color 0.2s ease-out;
+        }
+
+        &.year-1600 {
+          background-color: var(--y1600);
+          opacity: 0.9;
+
+          &.active { background-color: var(--y1600-dark); }
+        }
+
+        &.year-1930,
+        &.year-1940,
+        &.year-1950 {
+          background-color: var(--y1930);
+          opacity: 0.9;
+
+          &.active { background-color: var(--y1930-dark); }
+        }
+        &.year-1960,
+        &.year-1970,
+        &.year-1980 {
+          background-color: var(--y1960);
+          opacity: 0.9;
+
+          &.active { background-color: var(--y1960-dark); }
+        }
+        &.year-1990,
+        &.year-2000,
+        &.year-2010 {
+          background-color: var(--y1990);
+          opacity: 0.9;
+
+          &.active { background-color: var(--y1990-dark); }
+        }
+
+        &.hed {
+          .knockout();
+          background: none;
+          padding: 0 0 5px 0;
+          font-size: 13px;
+          color: #666;
+          border-color: transparent;
+        }
+
+        span {
+          display: table-cell;
+          vertical-align: top;
+          padding: 5px;
+          pointer-events: none;
+
+          &.rank {
+            width: 20px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  .musicals .group ul {
+    @media @screen-medium-above {
+      width: 25%;
+    }
+  }
+  .plays .group ul {
+    @media @screen-medium-above {
+      width: 20%;
+    }
+  }
+
+}

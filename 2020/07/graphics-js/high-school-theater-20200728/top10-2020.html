@@ -1,0 +1,48 @@
+<%= await t.include("lib/_head.html", { COPY, slug, config, pageType: "top10" }) %>
+
+<% if (COPY.labels.top10_2020_hed) { %>
+<h1><%= t.smarty(COPY.labels.top10_2020_hed) %></h1>
+<% } %>
+
+<% if (COPY.labels.top10_2020_subhed) { %>
+<h2><%= t.smarty(COPY.labels.top10_2020_subhed) %></h2>
+<% } %>
+
+<div id="top10" class="graphic">
+  <% [ "play", "musical" ].forEach(function(genre) { %>
+    <div class="genre <% genre %>">
+
+      <h3><%= t.smarty(COPY.labels["top10_hdr_" + genre]) %></h3>
+
+      <ul>
+        <% COPY.top10_2020.forEach(function(production) {
+          if (production.type == genre) { %>
+
+        <li>
+          <span class="rank"><%= production.rank %></span>
+          <em><%= t.smarty(production.name) %></em>
+          <% if (production.tie) {%>(tie) <% } %>
+        </li>
+
+        <%  }
+        }) %>
+      </ul>
+
+    </div>
+  <% }); %>
+</div>
+
+<% if (COPY.labels.top10_footnote) { %>
+<div class="footnotes">
+    <p><strong>Note:</strong> <%= COPY.labels.top10_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.top10_source) { %><p>Source: <%= COPY.labels.top10_source %></p><% } %>
+    <% if (COPY.labels.top10_credit) { %><p>Credit: <%= COPY.labels.top10_credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

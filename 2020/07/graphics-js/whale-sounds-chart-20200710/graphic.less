@@ -1,0 +1,62 @@
+@import "./lib/base";
+
+// ai2html artboard sizes
+@media screen and (min-width: 730px) {
+    #g-_ai2html-graphic-small, #g-_ai2html-graphic-medium { display: none; }
+}
+
+@media screen and (max-width: 729px) and (min-width: 500px) {
+    #g-_ai2html-graphic-small, #g-_ai2html-graphic-wide { display: none; }
+}
+
+@media screen and (max-width: 499px) {
+    #g-_ai2html-graphic-medium, #g-_ai2html-graphic-wide { display: none; }
+}
+
+.master-container {
+	.mmedia-constrained();	
+}
+
+// Add custom styles here
+
+.play, .pause {
+	fill: white;
+	display: none;
+
+	&.show {
+		display: block;
+	}
+}
+
+.ai2html button {
+	position: absolute;
+  right: calc(100% + 10px);
+  top: 0;
+  border: none;
+  outline:none; 
+  color: white;
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.g-text-2018 button {
+	background-color: @orange2;
+
+	&:hover {
+		background-color: @orange1;
+	}
+}
+.g-text-2020 button {
+	background-color: @teal3;
+
+	&:hover {
+		background-color: @teal2;
+	}
+}
+
+.g-artboard {
+	margin-left: 0px !important;
+}

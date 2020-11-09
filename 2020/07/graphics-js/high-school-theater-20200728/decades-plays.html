@@ -1,0 +1,66 @@
+<%
+  var dataFiltered = COPY.decades_data.filter(function(d) {
+    return d.type == "play";
+  });
+
+  var decades = dataFiltered.map(o => o['decade']); // equivalent of underscore _.pluck
+  decades = Array.from(new Set(decades)).sort(); // dedupe / _.uniq
+%>
+
+<%= await t.include("lib/_head.html", { COPY, slug, config, pageType: "decades" }) %>
+
+<% if (COPY.labels.decades_plays_headline) { %>
+<h1><%= t.smarty(COPY.labels.decades_plays_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.decades_plays_subhed) { %>
+<h2><%= t.smarty(COPY.labels.decades_plays_subhed) %></h2>
+<% } %>
+
+<div class="graphic plays">
+
+  <ul class="key">
+    <li class="key-item hed"><label>Year written or first produced:</label></li>
+    <li class="key-item key-0 year-1600"><b></b><label>Prior to 1930</label></li>
+    <li class="key-item key-1 year-1930"><b></b><label>1930s-1950s</label></li>
+    <li class="key-item key-2 year-1960"><b></b><label>1960s-1980s</label></li>
+    <li class="key-item key-3 year-1990"><b></b><label>1990s-2010s</label></li>
+  </ul>
+
+  <div class="group">
+    <%
+      decades.forEach(function(decade) {
+        var decadeData = dataFiltered.filter(function(d) {
+          return d.decade == decade;
+        });
+    %>
+      <ul class="d<%= decade %>">
+        <li class="hed"><%= decade %></li>
+
+        <% decadeData.forEach(function(play) { %>
+        <li class="play year-<%= play.decade_written %> <%= t.classify(play.play) %>">
+            <span class="rank"><%= play.rank %></span>
+            <span class="play-name"><%= play.play %></span>
+        </li>
+        <% }); %>
+      </ul>
+    <% }); %>
+  </div>
+
+</div>
+
+<% if (COPY.labels.decades_footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.decades_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.decades_source) { %><p>Source: <%= COPY.labels.decades_source %></p><% } %>
+    <% if (COPY.labels.decades_credit) { %><p>Credit: <%= COPY.labels.decades_credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

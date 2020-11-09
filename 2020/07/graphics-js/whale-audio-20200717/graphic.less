@@ -1,0 +1,96 @@
+@import "./lib/base";
+
+body {
+  .mmedia-constrained();
+}
+
+.content-wrapper {
+  border-top: 4px solid #eee;
+  border-bottom: 4px solid #eee;
+  padding: 22px 0;
+}
+
+h1 {
+  margin-bottom: 22px;
+  width: 100%;
+}
+
+.graphic {
+  @media @screen-mobile-above {
+    display: flex;
+  }
+}
+
+.image {
+  margin-bottom: 11px;
+
+  @media @screen-mobile-above {
+    width: 50%;
+    margin-bottom: 0;
+  }
+}
+
+.audio-block {
+  margin-bottom: 33px;
+
+  @media @screen-mobile-above {
+    width: calc(50% - 22px);
+    margin-left: 22px;
+  }
+
+  .player {
+    display: flex;
+    align-content: center;
+    background-color: #2C63ae;
+    padding: 15px;
+    border-radius: 6px;
+
+    + .player {
+        margin-top: 11px;
+    }
+  }
+
+  h4 {
+    .gotham();
+    color: #fff;
+    font-size: 14px;
+    margin: 0;
+
+    .duration {
+      color: #fff;
+      display: block;
+      font-size: 80%;
+      font-style: normal;
+      margin-top: 1px;
+    }
+  }
+
+  button {
+    border: none;
+    outline:none;
+    color: white;
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    text-align: center;
+    background-color: #fff;
+    margin-right: 10px;
+
+    &:hover { opacity: 0.8; }
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .play, .pause {
+  	fill: white;
+  	display: none;
+
+  	&.show {
+  		display: block;
+  	}
+  }
+}

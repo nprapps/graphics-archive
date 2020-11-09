@@ -1,0 +1,108 @@
+@import "./lib/base";
+
+.header {
+	.mmedia-constrained-centered();
+}
+
+.footnotes,
+.footer {
+	.mmedia-constrained();	
+}
+
+.sub-graphic {
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+}
+
+.boat-path {
+	stroke: #7e7e7e !important;
+}
+
+.boat {
+	fill: #ff00ff;
+}
+
+.hydrophone {
+	fill: #00ffff;
+	fill-opacity: 0.5;
+}
+
+#g-_bg-social {
+	display: none;
+}
+
+#g-_bg-tall-graphic, #g-_bg-wide, #g-_bg-social {
+	.g-labels {
+		p {
+			.gotham() !important;
+			font-weight: 700 !important;
+			text-shadow: 0px 0px 10px #fff, 0px 0px 10px #fff,0px 0px 10px #fff;
+			color: #333;
+			font-size: 20px;
+			line-height: 22px;
+			text-transform: uppercase;
+
+			@media screen and (max-width: 760px) {
+				font-size: 16px;
+				line-height: 18px;
+			}
+		}
+	}
+
+	.g-scale, .g-country {
+		p {
+			.gotham() !important;
+			text-shadow: 0px 0px 10px #fff, 0px 0px 10px #fff,0px 0px 2px #fff;
+			color: #333;
+			font-size: 12px;
+			// line-height: 20px;
+			// letter-spacing: 2px;
+			font-weight: 700 !important;
+			text-transform: uppercase;
+		}
+	}
+	.g-anno, .g-glaciers {
+		p {
+			.gotham() !important;
+			text-shadow: 0px 0px 2px #444;
+			color: #fff !important;
+			font-size: 12px;
+			line-height: 14px;
+			// line-height: 20px;
+			// letter-spacing: 2px;
+		}
+	}
+	.g-anno p {
+		text-shadow: 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 2px #000;
+	}
+
+	.g-scale p {
+		font-size: 14px;
+
+		@media screen and (max-width: 760px) {
+			font-size:11px;
+		}
+	}
+}
+
+.narrow { display: none;}
+
+#g-_bg-tall-graphic, #g-_bg-inset_wide-graphic {
+	display: none;
+
+}
+
+
+@media screen and (max-width: 500px) {
+	#g-_bg-tall-graphic { display: block; }
+	#g-_bg-wide {display: none;}
+
+		.wide {
+		display: none;
+	}
+
+	.narrow {
+		display:block;
+	}
+}

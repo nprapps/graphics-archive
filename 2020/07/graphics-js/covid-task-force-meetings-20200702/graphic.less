@@ -1,0 +1,68 @@
+@import "./lib/base";
+
+h1 {
+  margin-bottom: 25px;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.area path {
+  stroke: none;
+  fill-opacity: 0.6;
+  fill: @orange5;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #666;
+}
+
+.dots {
+  circle {
+    fill: none;
+  }
+
+  .meeting {
+    fill: fade(@teal3, 50%);
+    stroke: fade(@teal3, 50%);
+  }
+}
+
+.key .dot {
+  border-radius: 100%;
+  background: fade(@teal3, 50%);
+}
+
+.meetings {
+  line {
+    stroke: fade(black, 20%);
+    stroke-width: 2px;
+
+    @media @screen-mobile {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  // .key {
+  //   display: none;
+  // }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}

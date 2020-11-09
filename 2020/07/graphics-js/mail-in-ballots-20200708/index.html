@@ -1,0 +1,81 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="key-wrapper">  
+  <ul class="key">
+      <li class="key-item trump"><b></b><label>Trump</label></li>
+      <div class="break"></div>
+    
+      <li class="key-item clinton"><b></b><label>Clinton</label></li>
+  </ul>
+</div>
+
+<% states = ['AZ', 'NV', 'WI', 'MI', 'PA', 'NH', 'FL', 'GA', 'CO', 'NM', 'VA']%>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_state %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_total %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_total_rejected %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_value %></div>
+        </th>
+        <th class="sort-header" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_margin %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY.data.filter(d => states.includes(d.usps) && !isNaN(d.value)).sort((a, b) => Math.abs((a.margin - a.value *100)) - (Math.abs(b.margin - b.value *100))).forEach(function(row) { %>
+    <tr class="state-<%= t.classify(row.usps) %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_state %>"><%= row.name + (row.name == "Wisconsin" ? '*' : '')%></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_total %>"><%= t.comma(row.total_mail) %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_value %>" class="main"><%= row.total_rejected ? t.comma(row.total_rejected) : "Unknown"%></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_value %>" class="main <%= row.difference <= 0 ? 'close' : '' %>"><%= t.comma(row.late_rejected) %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_margin %>" class="<%= row.trump > row.clinton ? 'trump' : 'clinton' %>"><%= t.comma(row.margin) %></td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

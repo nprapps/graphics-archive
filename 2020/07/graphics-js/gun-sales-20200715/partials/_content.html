@@ -1,0 +1,33 @@
+<% if (COPY.labels[chart + "_headline"]) { %>
+<h1><%= t.smarty(COPY.labels[chart + "_headline"]) %></h1>
+<% } %>
+
+<% if (COPY.labels[chart + "_subhed"]) { %>
+<h2><%= t.smarty(COPY.labels[chart + "_subhed"]) %></h2>
+<% } %>
+
+<div id="line-chart" class="graphic" role="img"
+<% if (COPY.labels[chart + "_screenreader"]) { %>
+  aria-label="<%- COPY.labels[chart + "_screenreader"] %>"
+<% } %>
+>
+  <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels[chart + "_footnote"]) { %>
+<div class="footnotes">
+  <p><strong>Note:</strong> <%= COPY.labels[chart + "_footnote"] %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY["data_" + chart]) %>;
+  var CHART = "<%= chart %>";
+</script>
+
+<script src="./graphic.js"></script>

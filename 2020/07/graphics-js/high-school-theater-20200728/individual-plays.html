@@ -1,0 +1,31 @@
+<%= await t.include("lib/_head.html", { COPY, slug, config, pageType: "individualPlays" }) %>
+
+<% if (COPY.labels.individual_plays_headline) { %>
+<h1><%= t.smarty(COPY.labels.individual_plays_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.individual_plays_subhed) { %>
+<h2><%= t.smarty(COPY.labels.individual_plays_subhed) %></h2>
+<% } %>
+
+<div id="play" class="graphic"></div>
+
+<% if (COPY.labels.individual_footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.individual_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.individual_source) { %><p>Source: <%= COPY.labels.individual_source %></p><% } %>
+    <% if (COPY.labels.individual_credit) { %><p>Credit: <%= COPY.labels.individual_credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var GRAPHIC_DATA = <%= JSON.stringify(COPY.play_individual) %>;
+</script>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

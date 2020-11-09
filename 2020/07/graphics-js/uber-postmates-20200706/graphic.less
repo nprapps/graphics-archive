@@ -1,0 +1,42 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.key {
+    display: none;
+  }
+
+path.uber-eats-postmates {
+  // stroke-dasharray: 4 ;
+  stroke-width: 3px;
+}
+
+.text.uber-eats-postmates, .text.uber-eats, .text.postmates {
+  fill: #333;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}

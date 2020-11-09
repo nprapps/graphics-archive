@@ -1,0 +1,39 @@
+@import "./lib/base";
+
+body {
+  --upper-middle-income: @teal2;
+  --lower-middle-income: @teal4;
+}
+
+h2 span {
+  &.hl {
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 4px;
+
+  }
+  &.upper-middle-income { background-color: var(--upper-middle-income); }
+  &.lower-middle-income { background-color: var(--lower-middle-income); }
+}
+
+.bars rect {
+  fill: #999;
+
+  &.high-income { fill: #aaa; }
+  &.upper-middle-income { fill: var(--upper-middle-income); }
+  &.lower-middle-income { fill: var(--lower-middle-income); }
+}
+
+.value text.out {
+  fill: #666;
+}
+
+.labels li {
+  color: #787878;
+
+  &.upper-middle-income,
+  &.lower-middle-income {
+    color: #454545;
+    font-weight: bold;
+  }
+}

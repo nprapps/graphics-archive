@@ -1,0 +1,65 @@
+@import "./lib/base";
+
+#stacked-bar-chart {
+  .chart {
+    &.conservatives,
+    &.roberts {
+      margin-bottom: 7px;
+      padding-bottom: 0;
+      border-bottom: 2px solid #eee;
+    }
+
+    .img-wrapper {
+      width: 50px;
+      padding-right: 10px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 50px;
+      // filter: grayscale(100%) brightness(115%);
+      opacity: 0.9;
+    }
+  }
+
+  .value text {
+      fill: #fff;
+
+      &.hidden {
+          display: none;
+      }
+  }
+
+  .key { margin-top: 0; }
+
+  .labels {
+    li { text-align: left; }
+  }
+}
+
+#bar-chart {
+  b {
+    font-weight: bold;
+    display: block;
+    color: #454545;
+    margin-bottom: 3px;
+  }
+  i {
+    font-style: normal;
+    display: block;
+    color: #787878;
+    font-size: 11px;
+  }
+  .value text.out {
+    fill: #666;
+  }
+  .chart:first-child {
+    margin-bottom: 22px;
+  }
+  .labels li { text-align: left; }
+  .bars rect {
+    &.liberal-bloc { fill: @blue3; }
+    &.conservative-bloc { fill: @red3; }
+  }
+}

@@ -1,0 +1,148 @@
+#individualMusicals,
+#individualPlays {
+  h1,
+  .key,
+  .footnotes,
+  .footer {
+    .mmedia-constrained();
+  }
+
+
+  #graphic { margin-bottom: 11px; }
+
+  .play-selector {
+      border-bottom: 1px solid #eee;
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+
+      label {
+          .knockout-upper();
+          font-size: 12px;
+          color: #787878;
+          letter-spacing: 1px;
+          padding-right: 11px;
+          -webkit-font-smoothing: antialiased;
+      }
+  }
+
+  .meta {
+      margin-top: 22px;
+      margin-bottom: 33px;
+
+      @media screen and (max-width: 500px) {
+          margin-bottom: 11px;
+      }
+
+      h3 {
+          font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+          font-weight: 700;
+          font-size: 14px;
+          text-transform: uppercase;
+          color: #666;
+          margin: 0;
+          -webkit-font-smoothing: antialiased;
+      }
+
+      p {
+          font-size: 12px;
+          margin: 6px 0 0 0;
+          color: #999;
+      }
+
+      img {
+          width: 100px;
+          display: block;
+          float: right;
+      }
+
+      &.featured {
+          &:before,
+          &:after {
+              content: ' ';
+              display: table;
+          }
+          &:after { clear: both; }
+      }
+  }
+
+  .axis {
+      text {
+          .knockout();
+          text-transform: none;
+          font-size: 12px;
+          fill: #666;
+
+          @media screen and (max-width: 500px) {
+              font-size: 10px;
+          }
+      }
+
+      &.x path { display: none; }
+  }
+
+  .bars rect {
+      fill: #ddd;
+
+      &.active { fill: @blue4; }
+  }
+
+  polygon.rank-connector { fill: @blue6; }
+
+  .zero-line  {
+      stroke: #666;
+      stroke-width: 1px;
+      shape-rendering: crispEdges;
+  }
+
+  text.rank-value {
+      font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      -webkit-font-smoothing: antialiased;
+      text-anchor: middle;
+      fill: #fff;
+
+      &.below {
+          fill: @blue3;
+          font-weight: 700;
+
+          &.na {
+              fill: #999;
+              font-weight: 400;
+          }
+      }
+
+      @media screen and (max-width: 500px) {
+          font-size: 12px;
+
+          &.below { font-size: 10px; }
+      }
+
+  }
+
+  @media screen and (min-width: 708px) {
+      h1 {
+          margin: 0 auto 22px auto;
+          max-width: 650px;
+      }
+      .play-selector,
+      .meta,
+      .footnotes,
+      .footer {
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 650px;
+      }
+  }
+
+  @media screen and (min-width: 501px) {
+      #rankings {
+          &:before,
+          &:after {
+              content: ' ';
+              display: table;
+          }
+          &:after { clear: both; }
+      }
+  }
+}

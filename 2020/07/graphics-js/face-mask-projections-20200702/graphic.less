@@ -1,0 +1,57 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.annotations .dots {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.annotations text {
+    font-size: 12px;
+    fill: #999;
+}
+
+path.line.reported-deaths {
+  stroke: #ccc;
+  stroke-width: 4px;
+}
+path.line.average-projected-deaths-with-universal-mask-wearing {
+  stroke-dasharray: 5;
+  stroke: @teal3;
+}
+path.line.average-projected-deaths {
+  stroke-dasharray: 5;
+  stroke: @orange3;
+}
+
+.axis path { color: #ccc; }
+
+text.reported-deaths { display: none; }
+circle.reported-deaths { display: none; }
+
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+  .annotations text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    // display: none;
+  }
+}

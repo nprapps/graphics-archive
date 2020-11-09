@@ -1,0 +1,267 @@
+@import "./lib/base";
+
+// Base table styles
+table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+
+  tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+  }
+
+  td { 
+    vertical-align: top; 
+    &.clinton {
+        background-color: #498dcb50;
+        color: #333;
+      }
+
+      &.trump {
+        background-color: #f05b4e50;
+        color: #333;
+      }
+
+      &.main {
+        font-weight: bold;
+      }
+
+      &.close {
+        background-color: #dddddd90;
+        border-bottom: 1px solid white;
+      }
+  }
+}
+
+// Tablesorter styles
+// table {
+//   th {
+//     &.sort-header {
+//       cursor: pointer;
+
+//       &::-moz-selection,
+//       &::selection {
+//         background: transparent;
+//       }
+
+//       .sorter {
+//         border-top: 2px solid #404040;
+//         visibility: hidden;
+
+//         .icon {
+//           content: '';
+//           width: 1px;
+//           margin: 3px auto 7px auto;
+//           border-width: 0 4px 4px;
+//           border-style: solid;
+//           border-color: #404040 transparent;
+//         }
+//       }
+
+//       &:hover .sorter {
+//         visibility: visible;
+//       }
+//     }
+
+//     &[aria-sort="descending"] .sorter,
+//     &[aria-sort="ascending"] .sorter,
+//     &[aria-sort="ascending"]:hover .sorter {
+//       visibility: visible;
+//       opacity: 0.4;
+//     }
+
+//     &[aria-sort="descending"] .sorter .icon {
+//       border-bottom: none;
+//       border-width: 4px 4px 0;
+//     }
+//   }
+// }
+
+/*
+* larger-than-small-screen styles
+* ~ defining some desktop-only styles here to avoid
+* ~ writing extra mobile styles to undo them.
+*/
+
+  table {
+    th, td {
+      padding: 10px;
+
+      // comment these two out if you want to highlight particular rows
+      &:first-child { padding-left: 0; }
+      &:last-child { padding-right: 0; }
+
+      &.amt { text-align: right; }
+    }
+
+    th {
+      border-bottom: 2px solid #eee;
+      padding-top: 0;
+    }
+
+    td { border-bottom: 1px solid #eee; }
+  }
+
+  @media @screen-mobile { 
+    table {
+    th, td {
+      padding: 10px 10px;
+      }
+    }
+  }
+
+.key-wrapper {
+    // display: flex;
+    // flex-wrap: wrap;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .key {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 8px 0 0;
+    width: 20%;
+    float: right;
+    // width: 50%;
+
+    @media @screen-mobile-above {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+
+    @media @screen-mobile-above {
+      flex-wrap: nowrap;
+    }
+
+    + .key {
+      border-left: 1px solid #ccc;
+      padding-left: 10px;
+    }
+
+    .key-item {
+      display: block;
+      margin-right: 0;
+      padding-right: 8px;
+      margin-bottom: 6px;
+      text-align: left;
+      width: 50%;
+      margin: auto;
+
+      @media @screen-mobile-above {
+        width: 25%;
+      }
+
+      b {
+        display: block;
+        float: left;
+      }
+      label {
+        display: block;
+        white-space: normal;
+        margin-left: 21px;
+      }
+    }
+
+    .trump b { 
+      background: #f05b4e50; 
+    }
+    .clinton b {
+      background: #498dcb50;
+    }
+  }
+
+/*
+* small-screen styles
+*/
+// @media @screen-mobile {
+//   tbody {
+//     display: block;
+//     width: 100%;
+//   }
+
+//   table {
+//     thead { display: none; }
+
+//     tr, th, td {
+//       display: block;
+//       padding: 0;
+//       white-space: normal;
+//     }
+
+//     tr {
+//       border-bottom: 1px solid #eee;
+//       padding: 10px 0;
+
+//       &:first-child { border-top: 1px solid #eee; }
+//     }
+
+//     td {
+//       margin-bottom: 6px;
+
+//       &:empty { display: none; }
+//     }
+
+//     tr td:first-child {
+//       .knockout-header();
+//       color: #333;
+//       font-size: 14px;
+//       margin-bottom: 6px;
+
+//       &:before {
+//         content: '';
+//         display: none;
+//       }
+//     }
+
+//     th[data-title]:before,
+//     td[data-title]:before {
+//       content: attr(data-title) ":\00A0";
+//       display: inline-block;
+//       margin-right: 10px;
+//       width: 70%;
+//     }
+//   }
+// }
+
+
+.slider-wrapper {
+  width:50%;
+  margin: 10px auto 20px auto;
+  
+  input {
+    width: 100%;
+  }
+}
+
+.model-line {
+  stroke: #333;
+}
+
+rect.d50 {
+  background: repeating-linear-gradient(-45deg, #fff, #fff 2px, #51A09E 2px, #51A09E  4px);
+  fill: none;
+}
+
+ .break {
+    @media screen and (max-width: 499px) {
+      flex-basis: 100%;
+      height: 5px;
+    }
+  }
+
+  .labels {
+    margin-top: 35px;
+  }

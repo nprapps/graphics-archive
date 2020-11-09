@@ -1,0 +1,51 @@
+<div class="content-wrapper">
+  <% if (COPY.audio[module].headline) { %>
+  <h1><%= t.smarty(COPY.audio[module].headline) %></h1>
+  <% } %>
+
+  <% if (COPY.audio[module].subhed) { %>
+  <h2><%= t.smarty(COPY.audio[module].subhed) %></h2>
+  <% } %>
+
+  <div class="graphic">
+    <div class="image">
+      <img src="img/<%= COPY.audio[module].image %>" alt="<%= COPY.audio[module].caption %>">
+    </div>
+
+    <div class="audio-block">
+      <div class="player" id="player-1">
+        <audio src="audio/<%= COPY.audio[module].audio_1 %>"></audio>
+        <h4>
+          <%= t.smarty(COPY.audio[module].audio_label_1) %>
+          <i class="duration"><%= COPY.audio[module].audio_duration_1 %></i>
+        </h4>
+      </div>
+
+      <div class="player" id="player-2">
+        <audio src="audio/<%= COPY.audio[module].audio_2 %>"></audio>
+        <h4>
+          <%= t.smarty(COPY.audio[module].audio_label_2) %>
+          <i class="duration"><%= COPY.audio[module].audio_duration_2 %></i>
+        </h4>
+      </div>
+    </div>
+  </div>
+
+  <% if (COPY.audio[module].footnote) { %>
+  <div class="footnotes">
+      <h4>Notes</h4>
+      <p><%= COPY.audio[module].footnote %></p>
+  </div>
+  <% } %>
+
+  <div class="footer">
+      <% if (COPY.audio[module].source) { %><p><%= COPY.audio[module].source %></p><% } %>
+      <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var MODULE = "<%= module %>";
+</script>
+
+<script src="./graphic.js"></script>

@@ -1,0 +1,115 @@
+@import "./lib/base";
+
+.graphic {
+  @media @screen-mobile-above {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .table-wrapper {
+      width: calc(50% - 11px);
+    }
+  }
+}
+
+// Base table styles
+table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 22px;
+
+  caption {
+    .knockout-header();
+    font-size: 14px;
+    background-color: @blue6;
+    padding: 3px 0;
+    margin-bottom: 2px;
+    color: @blue1;
+  }
+
+  tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+    background-color: #f1f1f1;
+    border-bottom: 2px solid #eee;
+    padding: 5px 7px;
+
+    &.amt { border-left-color: #fff; }
+  }
+
+  td {
+    vertical-align: top;
+    padding: 10px 7px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .amt {
+    text-align: right;
+    width: 25%;
+    border-left: 1px solid #eee;
+  }
+
+  td.diff {
+    font-style: italic;
+    color: #999;
+
+    &.increase { color: @blue2; }
+    &.decrease { color: @red3; }
+  }
+
+}
+
+// Tablesorter styles
+table {
+  th {
+    &.sort-header {
+      cursor: pointer;
+
+      &::-moz-selection,
+      &::selection {
+        background: transparent;
+      }
+
+      .sorter {
+        border-top: 2px solid #404040;
+        visibility: hidden;
+
+        .icon {
+          content: '';
+          width: 1px;
+          margin: 3px auto 7px auto;
+          border-width: 0 4px 4px;
+          border-style: solid;
+          border-color: #404040 transparent;
+        }
+      }
+
+      &:hover .sorter {
+        visibility: visible;
+      }
+    }
+
+    &[aria-sort="descending"] .sorter,
+    &[aria-sort="ascending"] .sorter,
+    &[aria-sort="ascending"]:hover .sorter {
+      visibility: visible;
+      opacity: 0.4;
+    }
+
+    &[aria-sort="descending"] .sorter .icon {
+      border-bottom: none;
+      border-width: 4px 4px 0;
+    }
+  }
+}

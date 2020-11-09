@@ -1,0 +1,60 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.highest_headline) { %>
+<h1><%= t.smarty(COPY.labels.highest_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.highest_subhed) { %>
+<h2><%= t.smarty(COPY.labels.highest_subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_state %></div>
+        </th>
+        <th role="columnheader" class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_total %></div>
+        </th>
+        <th role="columnheader" class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_value %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY.data.filter(d => !isNaN(d.value)).sort((a, b) => b.value - a.value).forEach(function(row) { %>
+    <tr class="state-<%= t.classify(row.usps) %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_state %>"><%= row.name + (row.name == "Wisconsin" ? '*' : '')%></td>
+      <td role="cell" class="amt" data-title="<%= COPY.labels.hdr_total %>"><%= t.comma(row.total_mail) %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_value %>" class="amt main <%= row.difference <= 0 ? 'close' : '' %>"><%= (Math.round(row.value * 100 * 100)/100).toFixed(2) + '%'%></td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./highest.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

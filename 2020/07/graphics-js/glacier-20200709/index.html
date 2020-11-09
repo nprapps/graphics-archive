@@ -1,0 +1,73 @@
+<%= await t.include("lib/_head.html") %>
+
+<div class="header">
+	<% if (COPY.labels.headline) { %>
+	<h1><%= t.smarty(COPY.labels.headline) %></h1>
+	<% } %>
+
+	<% if (COPY.labels.subhed) { %>
+	<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+	<% } %>	
+</div>
+
+
+<div id="graphic1" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+	<div class="sub-graphic wide" id="paths">
+		<svg 
+		   version="1.1"
+		   xmlns="http://www.w3.org/2000/svg" 
+		   xmlns:xlink="http://www.w3.org/1999/xlink" 
+		   x="0px" y="0px"
+		   viewBox="0 0 1600 900" 
+		   xml:space="preserve">
+		  <g>
+        <circle class="hydrophone" cx="1525" cy="726">
+          <animate attributeName="r" from="10" to="25" dur="1.5s" begin="0s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" from="1" to="0" dur="1.5s" begin="0s" repeatCount="indefinite"/>
+        </circle>
+        <circle class="hydrophone" cx="1525" cy="726" r="10px"></circle>
+      </g>
+    </svg>
+	</div>
+	<div class="sub-graphic narrow" id="paths">
+		<svg 
+		   version="1.1"
+		   xmlns="http://www.w3.org/2000/svg" 
+		   xmlns:xlink="http://www.w3.org/1999/xlink" 
+		   x="0px" y="0px"
+		   viewBox="0 0 900 1600" 
+		   xml:space="preserve">
+		  <g>
+        <circle class="hydrophone" cy="1525" cx="174">
+          <animate attributeName="r" from="10" to="25" dur="1.5s" begin="0s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" from="1" to="0" dur="1.5s" begin="0s" repeatCount="indefinite"/>
+        </circle>
+        <circle class="hydrophone" cy="1525" cx="174" r="10px"></circle>
+      </g>
+    </svg>
+	</div>
+	<div class="">
+    	<%= await t.include("_bg.html") %>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+<!-- <script src=""></script> -->
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

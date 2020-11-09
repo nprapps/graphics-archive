@@ -1,0 +1,43 @@
+@import "./lib/base";
+
+.annot-line {
+	stroke: @red3;
+	stroke-width: 2px;
+	stroke-dasharray: 3px
+}
+
+.annot-text {
+	fill: @red3;
+	font-size: 13px
+
+}
+
+.anchor-end {
+	text-anchor: end;
+}
+
+.value text {
+	font-size: 13px;
+	&.out {
+		fill: #222;
+	}
+}
+/*
+h2 span.highlight {
+	background: @teal3;
+	color: white;
+	padding: 3px;
+	border-radius: 3px;
+}*/
+
+.labels li span {
+	color: #222
+}
+
+.bars rect:first-of-type {
+	fill: @teal5;
+}
+
+.with-social-distancing span {
+	font-weight: bold;
+}

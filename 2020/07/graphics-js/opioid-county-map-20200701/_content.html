@@ -1,0 +1,96 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<% COPY.data.forEach(function(row) {
+    var matchingDataState = COPY.data.find(
+      item => (item.GEOID == row.GEOID)
+    );
+}); 
+%>
+
+<!-- <div class="search-bar">
+  <div class="search-box">
+    <div class="search-header">Search by County</div>
+    <div>
+      <input list="counties" name="counties" id="search" type="text">
+        <datalist id="counties">
+        </datalist>
+      
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="key-wrap numeric-scale">
+      <div class="key"></div>
+</div> -->
+
+<div class="graphic-wrapper-key">
+  <div class="key-wrap">
+      <div class="key">
+        <div class="key-sub key-first"></div>
+        <div class="key-sub key-second"></div>
+      </div>
+      <div class="labels">
+        <div class="left-label"> 0 </div>
+        <div class="middle-label"> <span> 81.3 </span> <br/> <span>(Peak national rate, 2012)</span></div>
+        <div class="right-label">150+</div>
+      </div>
+    </div>
+  </div>
+
+<div id="counties-wrapper" class="">
+  <div id="map-container" class="graphic" role="img">
+    <img src="opioid-map.png" alt="" />
+  </div>
+
+  <!-- <div class="graphic table" id="counties-table">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_county %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_state %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_amount %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_amount_per %></div>
+        </th>
+      </tr>
+    </thead>
+    <tbody id="counties-table-body">
+    </tbody>
+  </table>
+</div> -->
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4></h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+	var STATES = <%= JSON.stringify(COPY.states) %>;
+  var DATA = <%= JSON.stringify(COPY.data) %>;
+  var LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>
