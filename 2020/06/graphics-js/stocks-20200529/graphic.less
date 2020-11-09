@@ -1,0 +1,89 @@
+@import "./lib/base";
+
+.graphic-container {
+  display: grid;
+  grid-gap: 24px;
+  grid-template-columns: 1fr;
+
+  @media @screen-mobile-above {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.shading path {
+  opacity: .3;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+// @media screen and (min-width: 1000px) {
+  .key {
+    display: none;
+  }
+// }
+
+
+@media screen and (min-width: 650px) {
+  .column {
+      float: left;
+      width: 33.3%;
+    }
+    
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  
+    .unemployment {
+      width: 50%
+      
+  }
+
+  #unemployment-chart {
+    .mmedia-constrained-centered();
+  }
+}
+#dow-chart .dots {
+  display: none;
+}
+
+#sp-chart .dots {
+  display: none;
+}
+
+.median-line {
+  stroke-width: 2px;
+  stroke: #aaa;
+  stroke-dasharray: 2;
+
+  @media @screen-mobile {
+    stroke-width: 1px;
+  }
+}
+
+.anno {
+  font-size: 11px;
+    font-style: italic;
+    fill: #999;
+}
+
+#sp-chart .anno, #unemployment-chart .anno {
+  display: none;
+}

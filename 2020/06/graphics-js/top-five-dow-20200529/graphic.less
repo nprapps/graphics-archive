@@ -1,0 +1,159 @@
+@import "./lib/base";
+
+// Base table styles
+table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+
+  tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+  }
+
+  td { vertical-align: top; }
+}
+
+// Tablesorter styles
+table {
+  th {
+    &.sort-header {
+      cursor: pointer;
+
+      &::-moz-selection,
+      &::selection {
+        background: transparent;
+      }
+
+      .sorter {
+        border-top: 2px solid #404040;
+        visibility: hidden;
+
+        .icon {
+          content: '';
+          width: 1px;
+          margin: 3px auto 7px auto;
+          border-width: 0 4px 4px;
+          border-style: solid;
+          border-color: #404040 transparent;
+        }
+      }
+
+      &:hover .sorter {
+        visibility: visible;
+      }
+    }
+
+    &[aria-sort="descending"] .sorter,
+    &[aria-sort="ascending"] .sorter,
+    &[aria-sort="ascending"]:hover .sorter {
+      visibility: visible;
+      opacity: 0.4;
+    }
+
+    &[aria-sort="descending"] .sorter .icon {
+      border-bottom: none;
+      border-width: 4px 4px 0;
+    }
+  }
+}
+
+/*
+* larger-than-small-screen styles
+* ~ defining some desktop-only styles here to avoid
+* ~ writing extra mobile styles to undo them.
+*/
+@media @screen-mobile-above {
+  table {
+    th, td {
+      padding: 10px;
+
+      // comment these two out if you want to highlight particular rows
+      &:first-child { padding-left: 0; }
+      &:last-child { padding-right: 0; }
+
+      &.amt { text-align: right; }
+    }
+
+    th {
+      border-bottom: 2px solid #eee;
+      padding-top: 0;
+    }
+
+    td { border-bottom: 1px solid #eee; }
+  }
+}
+
+/*
+* small-screen styles
+*/
+@media @screen-mobile {
+  tbody {
+    display: block;
+    width: 100%;
+  }
+
+  table {
+    thead { display: none; }
+
+    tr, th, td {
+      display: block;
+      padding: 0;
+      white-space: normal;
+    }
+
+    tr {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+
+      &:first-child { border-top: 1px solid #eee; }
+    }
+
+    td {
+      margin-bottom: 6px;
+
+      &:empty { display: none; }
+    }
+
+    tr td:first-child {
+      .knockout-header();
+      color: #333;
+      font-size: 14px;
+      margin-bottom: 6px;
+
+      &:before {
+        content: '';
+        display: none;
+      }
+    }
+
+    th[data-title]:before,
+    td[data-title]:before {
+      content: attr(data-title) ":\00A0";
+      display: inline-block;
+      margin-right: 10px;
+      width: 70%;
+    }
+  }
+}
+
+
+.change {
+  color: @teal3;
+  font-weight: bold;
+
+}
+
+.company {
+  font-weight: bold;
+}

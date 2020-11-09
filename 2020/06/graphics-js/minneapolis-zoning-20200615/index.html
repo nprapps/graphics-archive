@@ -1,0 +1,43 @@
+<%= await t.include("lib/_head.html") %>
+
+<h1><%= t.smarty(COPY.labels.headline_1) %></h1>
+<h2><%= t.smarty(COPY.labels.subhed_1) %></h2>
+
+<ul class="key">
+	<li class="key-item key-0">
+		<b class="building light"></b>
+		<label><%= COPY.labels.upzone_1 %></label>
+	</li>
+	<li class="key-item key-0">
+		<b class="building dark"></b>
+		<label><%= COPY.labels.upzone_2 %></label>
+	</li>
+	<!-- <li class="key-item key-1">
+		<b class="building off"></b>
+		<label><%= COPY.labels.upzone_off %></label>
+	</li> -->
+</ul>
+
+<div id="graphic" class="graphic single" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+    <%= await t.include("_upzone.html") %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source_1) { %><p>Source: <%= COPY.labels.source_1 %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

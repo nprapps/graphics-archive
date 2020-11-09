@@ -1,0 +1,94 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <%= COPY.labels.country %>
+        </th>
+        <th class="amt cases" role="columnheader">
+          <%= COPY.labels.cases %>
+        </th>
+        <th role="columnheader">
+          <%= COPY.labels.as_of %>
+        </th>
+        <th class="amt projected" role="columnheader">
+          <%= COPY.labels.projected %>
+        </th>
+        <th aria-hidden="true" class="bars">
+          <%= COPY.labels.bars %>
+        </th>
+        <th class="amt ratio" role="columnheader">
+          <%= COPY.labels.ratio %>
+        </th>
+      </tr>
+    </thead>
+
+    <% 
+      var data = COPY.data;//.filter(d => d.country != "China");
+      var values = data.map(d => d.projected);
+      var ratios = data.map(d => d.ratio);
+      var max = Math.max(...values);
+      var maxRatio = Math.max(...ratios);
+      data.sort((b, a) => a.projected - b.projected);
+
+      var commafy = function(n, d = 1) {
+        var s = n.toFixed(d);
+        for (var i = s.indexOf(".") - 3; i > 0; i -= 3) {
+          s = s.slice(0, i) + "," + s.slice(i);
+        }
+        return s;
+      }
+    %>
+
+    <% data.forEach(function(row) { %>
+    <tr class="<%= t.classify(row.country) %>" role="row">
+      <td class="country" role="cell" data-title="<%= COPY.labels.country %>"><%= row.country %></td>
+      <td role="cell" data-title="<%= COPY.labels.cases %>" class="amt cases"><%= t.comma(row.cases) %></td>
+      <td class="date" role="cell" data-title="<%= COPY.labels.as_of %>"><%= row.date %></td>
+      <td role="cell" data-title="<%= COPY.labels.projected %>" class="amt projected"><%= t.comma(row.projected) %></td>
+      <td role="cell" aria-hidden="true">
+        <div class="bar-container">
+          <!-- <div class="ratio bar" style="width: <%= row.ratio / maxRatio * 100 %>%"></div> -->
+          
+          <div class="actual bar" style="width: <%= row.cases / max * 100 %>%"></div>
+          <div class="projected bar" style="width: <%= (row.projected - row.cases) / max * 100 %>%"></div> 
+         
+        </div>
+      </td>
+      <td role="cell" data-title="<%= COPY.labels.ratio %>" class="amt ratio"><%= commafy(row.ratio) %>x</td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

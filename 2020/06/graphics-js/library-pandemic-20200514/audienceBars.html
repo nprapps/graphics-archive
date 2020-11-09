@@ -1,0 +1,20 @@
+<%= await t.include("_head.html") %>
+
+<h1><%= t.smarty(COPY.labels.headline_audience_bars) %></h1>
+
+<h2><%= t.smarty(COPY.labels.subhed_audience_bars) %></h2>
+
+<div id="line-chart" class="graphic" role="img">
+</div>
+
+<div class="footer">
+  <p>Source: <%= COPY.labels.source_overdrive %></p>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.audience_growth) %>;
+</script>
+<script src="audienceBars.js"></script>
+
+<%= await t.include("_foot.html") %>

@@ -1,0 +1,86 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_company %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_date %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_trough %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_close %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_change %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <%
+
+    var d3 = {
+      ...require("d3-axis/dist/d3-axis.min"),
+      ...require("d3-scale/dist/d3-scale.min"),
+      ...require("d3-selection/dist/d3-selection.min")
+    };
+
+    var scale = d3
+      .scaleLinear()
+      .domain([600, 947])
+      .range([.1, 1]);
+
+      var darkFunction = function(input) {
+        if (input > '800') {
+          return 'light';
+        } else {
+          return 'dark';
+        }
+      }
+
+    COPY.data.forEach(function(row) { %>
+    <tr class="state-<%= t.classify(row.company) %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_company %>" class="company"><%= row.company %></td>
+      <td class="amt" role="cell" data-title="<%= COPY.labels.hdr_date %>" ><%= row.date %></td>
+      <td class="amt" role="cell" data-title="<%= COPY.labels.hdr_trough %>">$<%= row.trough %></td>
+      <td class="amt" role="cell" data-title="<%= COPY.labels.hdr_close %>">$<%= row.close.toFixed(2) %></td>
+      <td class="amt change" role="cell" data-title="<%= COPY.labels.hdr_change %>"><%= row.change %>%</td>
+
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

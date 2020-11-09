@@ -1,0 +1,198 @@
+<%
+  var stateData = COPY.data.filter(function(d) {
+    return d.territory == false;
+  });
+
+  // format bars
+  var sizeBar = function(val, maxVal) {
+    var barWidth = (val / maxVal) * 100;
+    return barWidth;
+  }
+
+  // position the marker
+  var positionMarker = function(val, maxVal) {
+    var pos = (val / maxVal) * 100;
+    return pos;
+  }
+
+  // position the value
+  var positionValue = function(val, maxVal) {
+    var pos = (val / maxVal) * 100;
+    var posDisplay = pos.toFixed(3) + "%";
+    var posAlign = "left";
+    var align = "left";
+
+    if (pos > 70) {
+      posAlign = "right";
+      align = "right";
+      posDisplay = "12px";
+    }
+
+    return `${ posAlign }: ${ posDisplay }; text-align: ${ align }`;
+  }
+
+  // define severity of rate
+  var outbreakSeverity = function(val) {
+    switch(val) {
+      case "red":
+        return "Severe";
+        break;
+      case "orange":
+        return "Significant";
+        break;
+      case "yellow":
+        return "Moderate";
+        break;
+      case "green":
+        return "Mild";
+        break;
+    }
+  }
+
+  // reword the trend for lookup
+  var outbreakTrendLookup = function(val) {
+    switch(val) {
+      case "more":
+        return "higher than";
+        break;
+      case "about the same":
+        return "about the same as";
+        break;
+      case "fewer":
+        return "lower than";
+        break;
+    }
+  }
+
+  // trend arrow
+  var outbreakTrendArrow = function(val, pct) {
+    switch(val) {
+      case "more":
+        return "<i>&#9650;</i>";
+        break;
+      case "fewer":
+        return "<i>&#9660;</i>";
+        break;
+    }
+  }
+
+  // comparison
+  var meetsTarget = function(val, mitigation, suppression) {
+    var meetsMitigation = "does not meet";
+    var meetsSuppression = "does not meet";
+
+    if (val >= mitigation) {
+      meetsMitigation = "meets";
+    } else if ((mitigation - val) < 700) {
+      meetsMitigation = "is close to";
+    }
+
+    if (val >= suppression) {
+      meetsSuppression = "meets";
+    } else if ((suppression - val) < 700) {
+      meetsSuppression = "is close to";
+    }
+
+    if (meetsMitigation == meetsSuppression) {
+      return `<strong>${ meetsMitigation } <span class="mitigation">mitigation</span></strong> and <strong><span class="suppression">suppression</span></strong> testing targets`;
+    } else {
+      return `<strong>${ meetsMitigation } <span class="mitigation">mitigation</span></strong> and <strong>${ meetsSuppression } <span class="suppression">suppression</span></strong> testing targets`;
+    }
+  }
+
+  // get the largest number in a series of numbers
+  var getMax = function(series) {
+    return Math.max(...series);
+  }
+%>
+
+<%= await t.include("./partials/_header.html", { "slug": slug, "config": config, "id": "table" }) %>
+
+<div class="graphic standalone" id="table-graphic">
+  <header>
+    <h2><%= COPY.labels.hed_table %></h2>
+    <p><%= COPY.labels.subhed_table %></p>
+
+    <div class="key-wrapper">
+      <%
+        [ 'testing' ].forEach((keyGroup, i) => {
+          var keyData = COPY.legend.filter(function(k) {
+            return k.group == keyGroup;
+          });
+      %>
+        <ul class="key">
+          <% keyData.forEach(function(keyItem) { %>
+            <li class="key-item <%= keyItem.short %>"><b></b><label><%= keyItem.label %></li>
+          <% }); %>
+        </ul>
+      <% }); %>
+    </div>
+  </header>
+
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_state %></div>
+        </th>
+        <th class="amt outbreak" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_outbreak %> <span class="more"><%= COPY.labels.hdr_outbreak_desc %></span></div>
+        </th>
+        <th class="amt tests" role="columnheader" data-sort-default>
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_tests %> <span class="more"><%= COPY.labels.hdr_tests_recommended %></span></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% stateData.forEach(function(row) { %>
+    <tr class="state <%= t.classify(row.usps) %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_state %>" class="state">
+        <span class="desktop"><%= row.name %></span>
+        <span class="mobile"><%= t.ap_state(row.usps) %></span>
+      </td>
+      <td role="cell" data-sort="<%= row.cases_daily_per_100k %>" data-title="<%= COPY.labels.hdr_outbreak %>" class="amt outbreak <%= t.classify(row.outbreak_status) %>">
+        <div class="bar-wrapper">
+          <span class="bar <%= t.classify(outbreakSeverity(row.ttsi_status)) %>" aria-hidden="true" style="width: <%= sizeBar(row.cases_daily_per_100k, COPY.labels.max_cases) %>%"></span>
+        </div>
+        <span class="value" style="<%= positionValue(row.cases_daily_per_100k, COPY.labels.max_cases) %>">
+          <%= t.comma(row.cases_daily_per_100k) %>
+          <%= outbreakTrendArrow(row.outbreak_status, row.outbreak_status_pct) %>
+        </span>
+      </td>
+      <td role="cell" data-sort="<%= row.target_suppression_per_100k %>" data-title="<%= COPY.labels.hdr_tests %>" class="amt tests">
+        <div class="bar-wrapper">
+          <span class="bar gap" aria-hidden="true" style="width: <%= sizeBar(row.target_suppression_per_100k, COPY.labels.max_tests) %>%"></span>
+          <span class="bar" aria-hidden="true" style="width: <%= sizeBar(row.tests_day_per_100k, COPY.labels.max_tests) %>%"></span>
+          <span class="marker mitigation" aria-hidden="true" style="left: <%= positionMarker(row.target_mitigation_per_100k, COPY.labels.max_tests) %>%"></span>
+          <span class="marker suppression" aria-hidden="true" style="left: <%= positionMarker(row.target_suppression_per_100k, COPY.labels.max_tests) %>%"></span>
+        </div>
+        <% [ "value shadow", "value" ].forEach(function(cls) { %>
+          <span class="<%= cls %>" style="<%= positionValue(row.tests_day_per_100k, COPY.labels.max_tests) %>"><%= t.comma(row.tests_day_per_100k) %></span>
+        <% }); %>
+      </td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <p><strong>Notes:</strong> <%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<%= await t.include("./partials/_footer.html") %>

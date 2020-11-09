@@ -1,0 +1,228 @@
+@import "./lib/base";
+
+.dropdown-wrapper {
+    background: #f1f1f1;
+    padding: 2px;
+}
+
+select.state-dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .mmedia-constrained-centered();
+    margin: 22px 0 15px 15px;
+    height: 25px;
+    display: inline-block;
+}
+
+.checkbox-label {
+	display: block; 
+}
+
+#graphic-container {
+	text-align: center;
+}
+
+#bills-container, #questions-container, #button-container {
+	margin: 5px 0;
+	// max-width: 650px;
+	display: inline-block;
+	width: 100%;
+	padding: 5px 0;
+    min-height: 40px;
+}
+
+#dropdown.section-hidden,
+#bills-container.section-hidden,
+#button-container.section-hidden,
+#questions-container.section-hidden {
+    display: none;
+}
+
+#transition-button {
+    max-width: 200px;
+    height:30px;
+    padding: 5px;
+    position: absolute;
+    font-size: 14px;
+    font-weight: bold;
+    left: 0;
+    background-color: #E38D2C;
+    color: white;
+    outline: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+#bills-apply {
+    font-style: italic;
+    color: #888;
+    position: absolute;
+    left: 120px;
+    height:30px;
+    padding: 8px 5px 5px 5px;
+}
+
+.bill-text, .checkbox-label {
+	padding: 5px 0px 5px 40px;
+	margin: 5px 0;
+	text-align: left;
+}
+
+.bill-text {
+	background-color: #eee;;
+	color: #333;
+	font-size: 14px;
+	padding: 5px;
+}
+
+h2.subheader {
+    font-family: 'Knockout 31 4r', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    color: #df7f2f;
+    margin: 10px 0 0 0;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+h3 {
+    font-family: 'Knockout 31 4r', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    color: #df7f2f;
+    display: inline-block;
+}
+
+.bill-text a {
+	font-size: 12px;
+	white-space: nowrap;
+}
+
+.bill-text.active {
+	background-color: #FFDFAD;
+}
+
+.checkbox-hidden {
+	opacity:0;
+}
+
+.input-div,
+.button-div {
+	position: relative;
+}
+
+label {
+	width: 90%;
+	font-size: 15px;
+    color: #666;
+}
+
+label .custom-checkbox {
+    background-color: transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    border: 2px solid #ccc;
+    cursor: pointer;
+}
+
+label input:checked ~ .custom-checkbox {
+    background-color: #E38D2Ccc;
+    border-radius: 5px;
+    -webkit-transform: rotate(0deg) scale(1);
+    -ms-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+    opacity:1;
+    border: 2px solid #ccc;
+}
+
+input, .custom-checkbox {
+	position: absolute;
+    left: 0;
+    top: 5px;
+    height: 24px;
+    width: 24px;
+}
+
+// topline styles
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 11px;
+
+    > div {
+      width: calc(50% - 11px);
+      text-align: center;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      padding: 0 0 11px 0;
+
+      @media screen and (max-width: 499px) {
+        width: 100%;
+      }
+
+    }
+
+    h2.subheader {
+        flex-basis: 100%;
+        margin: 0;
+    }
+
+    @media screen and (max-width: 499px) {
+        display: inline-block;
+      }
+}
+
+body.max {
+  max-width: 650px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+// .active-bills,
+// .inactive-bills {
+//     @media screen and (min-width: 500px) {
+//         width: 48%;
+//       }
+// }
+
+// .active-bills,
+// .inactive-bills {
+//     @media screen and (min-width: 500px) {
+//         display:inline-block;
+//       }
+// }
+
+// .inactive-bills {
+//     @media screen and (min-width: 500px) {
+//         float: right;
+//       }
+// }
+
+// .active-bills {
+//     @media screen and (min-width: 500px) {
+//         float: left;
+//       }
+// }
+
+
+select {
+  font-size: 16px;
+  color: #333;
+}

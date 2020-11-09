@@ -1,0 +1,159 @@
+@import "./lib/base";
+
+
+h4 {
+  margin: 0;
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom:10px;
+  margin-left: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 10px;
+  padding: 5px;
+
+  tr:first-child td{
+    .gotham();
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid #ccc;
+    font-family: 'Knockout 31 4r', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+    color: var(--secondary);
+  }
+  th {
+    border-bottom: 2px solid #eee;
+    padding-top: 0;
+  }
+
+  td { 
+    border-bottom: 1px solid #eee; 
+  }
+  th, td {
+    padding: 5px;
+
+    &.amt { text-align: left; }
+  }
+}
+
+.United.States {
+  background-color: #C5DFDF40;
+}
+
+/*
+* small-screen styles
+*/
+.graphic {
+  height: 600px;
+  overflow: hidden;
+  margin-bottom: 0;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(0deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 100%);
+  }
+
+  &.open {
+    height: auto;
+    margin-bottom: 0px;
+
+    &:after {
+      display: none;
+    }
+  }
+}
+
+button {
+  .gotham();
+  background-color: #fff;
+  border: none;
+  border-top: 1px solid #ddd;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #4774CC;
+  display: block;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 22px;
+  padding: 10px;
+  text-transform: uppercase;
+  width: 100%;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+}
+
+tbody {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.cost {
+  background-color: @yellow6;
+  color: #444444;
+}
+
+
+.graphic {
+  width: 100%;
+   @media screen and (min-width: 500px) {
+    width: 49%;
+    float: left;
+  }
+}
+
+.graphic.richest {
+   @media screen and (min-width: 500px) {
+    float: right;
+  }
+  .cost {
+    background-color: @teal6;
+    color: #444444;
+  }
+}
+
+.cost {
+  font-weight: bold;
+}
+
+#btn-full-screen {
+  @media screen and (max-width: 499px) {
+    display: none;
+  }
+
+}
+
+#btn-poorest, #btn-richest {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  margin-bottom: 0;
+  @media screen and (min-width: 500px) {
+    display: none;
+  }
+}
+
+.table-wrapper {
+  table:last-of-type {
+    margin-bottom: 35px;
+  }
+}

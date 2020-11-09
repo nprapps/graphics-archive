@@ -1,0 +1,25 @@
+us
+--
+
+
+goals
+-----
+
+
+index
+-----
+
+
+color scale / testing recommendations
+-------------------------------------
+- verify calculations for current status (based on current cases or july 6 projected cases?)
+
+
+for all
+-------
+- double-check all numbers, especially calculated ones
+
+
+for launch
+----------
+- copyedit

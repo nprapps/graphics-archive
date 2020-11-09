@@ -1,0 +1,68 @@
+body#us {
+  .mmedia-constrained();
+
+  h1 {
+    text-align: center;
+    margin-bottom: 22px;
+  }
+
+  .lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+  }
+
+  .area path {
+    stroke: none;
+    fill-opacity: 0.6;
+    fill: @blue4;
+  }
+
+  .value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #454545;
+  }
+
+  .annotation {
+    line {
+      stroke: #ccc;
+      stroke-width: 2px;
+
+      &.mitigation {
+        stroke: var(--mitigation);
+        stroke-dasharray: 6px 2px;
+      }
+      &.suppression {
+        stroke: var(--suppression);
+        stroke-dasharray: 10px 2px 4px 2px;
+      }
+    }
+
+    text {
+      font-size: 12px;
+      // font-weight: bold;
+      fill: #999;
+
+      &.mitigation {
+        fill: var(--mitigation);
+      }
+      &.suppression {
+        fill: var(--suppression);
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .value text,
+    .annotation text {
+      font-size: 11px;
+    }
+  }
+
+  @media screen and (min-width: 500px) {
+    .key {
+      display: none;
+    }
+  }
+}

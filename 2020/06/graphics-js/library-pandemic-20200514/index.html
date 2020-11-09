@@ -1,0 +1,26 @@
+<%= await t.include("_head.html") %>
+
+<h1><%= t.smarty(COPY.labels.headline_national) %></h1>
+
+<h2><%= "" && t.smarty(COPY.labels.subhed_national) %></h2>
+
+<div id="line-chart" class="graphic" role="img">
+  <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote_national %></p>
+</div>
+
+<div class="footer">
+  <p>Source: <%= COPY.labels.source_overdrive %></p>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.format_by_day) %>;
+</script>
+<script src="graphic.js"></script>
+
+<%= await t.include("_foot.html") %>

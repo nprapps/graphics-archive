@@ -1,0 +1,40 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="postcards" class="graphic">
+<% COPY.data.forEach(function(postcard, i) { %>
+  <div class="postcard" id="postcard-<%= i %>">
+    <div class="images">
+      <img src="img/<%= postcard.image_1 %>" alt="Postcard image" />
+      <% if (postcard.image_2) { %><img src="img/<%= postcard.image_2 %>" alt="Image of the reverse side of the postcard" /><% } %>
+    </div>
+    <div class="meta">
+      <p class="caption"><%= postcard.caption %></p>
+      <p class="credit"><%= postcard.credit %></p>
+    </div>
+  </div>
+<% }); %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

@@ -1,0 +1,99 @@
+<%= await t.include("lib/_head.html") %>
+
+<h1><%= t.smarty(COPY.labels.headline_2) %></h1>
+<% if (COPY.labels.subhed_2) { %>
+	<h2><%= t.smarty(COPY.labels.subhed_2) %></h2>
+<% } %>
+
+<!-- <ul class="key">
+	<li class="key-item key-0">
+		<b class="building light"></b>
+		<label><%= COPY.labels.upzone_2 %></label>
+	</li>
+	<li class="key-item key-0">
+		<b class="building dark"></b>
+		<label><%= COPY.labels.upzone_2 %></label>
+	</li> -->
+	<!-- <li class="key-item key-1">
+		<b class="building off"></b>
+		<label><%= COPY.labels.upzone_off %></label>
+	</li> -->
+<!-- </ul> -->
+<div class="multi">	
+	<div id="graphic1" class="graphic" role="img"
+	  <% if (COPY.labels.screenreader) { %>
+	  aria-label="<%- COPY.labels.screenreader %>"
+	  <% } %>
+	>
+		<h2><%= COPY.labels.covenants %></h2>
+	    <%= await t.include("_covenants.html") %>
+	</div>
+	<div id="graphic2" class="graphic" role="img"
+	  <% if (COPY.labels.screenreader) { %>
+	  aria-label="<%- COPY.labels.screenreader %>"
+	  <% } %>
+	>
+		<h2><%= COPY.labels.nonwhite %></h2>
+		 
+			<div class="key-wrap numeric-scale above-maps">   
+				<h3><%= COPY.labels.scaleTitle %></h3> 
+				<div class="key-inner">
+					<ul class="key">
+					  <li class="key-item">
+					    <b class="cat-1"></b>
+					    <div class="label-outter"><div class="label-inner first"><%= COPY.labels.legend1 %></div></div>
+					  </li>
+
+					  <li class="key-item">
+					    <!-- <div class="explainer-upper low">⟵ Less than proportional </div> -->
+					    <b class="cat-2"></b>
+					    <div class="label-outter"><div class="label-inner"><%= COPY.labels.legend2 %></div></div>
+					  </li>
+
+					  <li class="key-item">
+					<!-- 		        <div class="explainer-upper high">
+					      <div class="text">More than proportional</div>
+					      <div class="arrow">⟶</div>
+					    </div> -->
+					    <b class="cat-3"></b>
+					    <div class="label-outter"><div class="label-inner"><%= COPY.labels.legend3 %></div></div>
+					  </li>
+					  <li class="key-item">
+					    <b class="cat-4"></b>
+					    <div class="label-outter"><div class="label-inner"><%= COPY.labels.legend4 %></div></div>
+					  </li>
+
+					  <li class="key-item">
+					    <b class="cat-5"></b>
+					    <div class="label-outter">
+					    	<div class="label-inner"><%= COPY.labels.legend5 %></div>
+					    </div>
+					    <div class="label-outter">
+					    	<div class="label-inner end-label"><%= COPY.labels.legend6 %></div>
+					    </div>
+					    <!-- <label class="end-label">13%</label> -->
+					  </li>
+
+					</ul>
+				</div>
+			</div>
+
+	    <%= await t.include("_nonwhite.html") %>
+	</div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source_2) { %><p>Source: <%= COPY.labels.source_2 %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

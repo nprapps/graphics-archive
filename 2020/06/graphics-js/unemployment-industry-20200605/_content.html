@@ -1,0 +1,65 @@
+<%var showonlymedical = ["Hospitals", "Health care", "Ambulatory health care services", "Offices of physicians", "Offices of dentists", "Offices of other health practitioners", "Outpatient care centers", "Medical and diagnostic laboratories", "Home health care services", "Other ambulatory health care services", "Nursing and residential care facilities", "Nursing care facilities", "Residential mental health facilities", "Community care facilities for the elderly", "Other residential care facilities"];%>
+
+
+<% if (COPY.labels.headline && id !='medical') { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.headline && id =='medical') { %>
+<h1><%= t.smarty(COPY.labels.medical_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed && id !='medical') { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<% if (COPY.labels.subhed && id =='medical') { %>
+<h2><%= t.smarty(COPY.labels.medical_subhed) %></h2>
+<% } %>
+
+
+
+<div class='graphic-wrapper'>
+
+<% if (id == 'medical') {%>
+	<select>
+		<% for (i in showonlymedical) {%>
+			<%= "<option>" + showonlymedical[i] + "</option>" %>
+		<% } %>
+	</select>
+	<div id="line-chart" class="graphic <%=id%>" role="img"
+	<% if (COPY.labels.screenreader) { %>
+	  aria-label="<%- COPY.labels.screenreader %>"
+	<% } %>
+	>
+	  <img src="fallback.png" alt="" class="fallback" />
+	</div>
+<%}%>
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.data) %>;
+  var INDUSTRYDATA = <%= JSON.stringify(COPY.industrytype) %>;
+
+
+  var SHOWONLYMEDICAL = <%= JSON.stringify(showonlymedical) %>;
+  var OVERRIDEDEFAULTMEDICAL = ['Hospitals'];
+  var IDNAME = <%= JSON.stringify(id) %>;
+  var JANAPRRAW = <%= JSON.stringify(COPY.janaprraw) %>;
+
+
+
+</script>

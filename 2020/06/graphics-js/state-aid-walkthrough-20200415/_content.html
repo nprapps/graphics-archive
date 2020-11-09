@@ -1,0 +1,38 @@
+<% if (COPY.labels.headline) { %>
+<h1 class="text-center"><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2 class="text-center"><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="dropdown-wrapper" id="dropdown-id">
+	<h3>Pick your state</h3>
+	<select id="dropdown" class="state-dropdown">
+	</select>
+</div>
+
+<div id="graphic-container" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+var BENEFITS = <%= JSON.stringify(COPY.benefits) %>;
+  var QUESTIONS = <%= JSON.stringify(COPY.questions) %>;
+</script>

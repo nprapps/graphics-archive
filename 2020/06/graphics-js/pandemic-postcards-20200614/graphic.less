@@ -1,0 +1,58 @@
+@import "./lib/base";
+
+#postcards {
+  --postcard-width: 33%;
+
+  @media @screen-mobile-above {
+    --postcard-width: 25%;
+  }
+
+  @media @screen-medium-above {
+    --postcard-width: 20%;
+  }
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  // align-items: flex-start;
+
+  .postcard {
+    box-sizing: border-box;
+    padding: 11px;
+    margin: 0 6px 11px 6px;
+    background-color: #f1f1f1;
+    width: calc(var(--postcard-width) - 12px);
+
+    &.active {
+      width: calc(100% - 12px);
+      max-width: 800px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  img {
+    display: block;
+
+    + img { margin-top: 2px; }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .caption {
+    color: #454545;
+    font-size: 12px;
+    margin-top: 11px;
+    margin-bottom: 6px;
+  }
+
+  .credit {
+    color: #767676;
+    font-size: 10px;
+    font-style: italic;
+  }
+}

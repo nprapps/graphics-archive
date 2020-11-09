@@ -1,0 +1,224 @@
+<%
+  var initialState = "AZ";
+
+  var stateData = COPY.data.filter(function(d) {
+    return d.territory == false;
+  });
+
+  // format bars
+  var sizeBar = function(val, maxVal) {
+    var barWidth = (val / maxVal) * 100;
+    return barWidth;
+  }
+
+  // position the marker
+  var positionMarker = function(val, maxVal) {
+    var pos = (val / maxVal) * 100;
+    return pos;
+  }
+
+  // position the value
+  var positionValue = function(val, maxVal) {
+    var pos = (val / maxVal) * 100;
+    var posDisplay = pos.toFixed(3) + "%";
+    var posAlign = "left";
+    var align = "left";
+
+    if (pos > 70) {
+      posAlign = "right";
+      align = "right";
+      posDisplay = "12px";
+    }
+
+    return `${ posAlign }: ${ posDisplay }; text-align: ${ align }`;
+  }
+
+  // define severity of rate
+  var outbreakSeverity = function(val) {
+    switch(val) {
+      case "red":
+        return "Severe";
+        break;
+      case "orange":
+        return "Significant";
+        break;
+      case "yellow":
+        return "Moderate";
+        break;
+      case "green":
+        return "Mild";
+        break;
+    }
+  }
+
+  // reword the trend for lookup
+  var outbreakTrendLookup = function(val) {
+    switch(val) {
+      case "more":
+        return "higher than";
+        break;
+      case "about the same":
+        return "about the same as";
+        break;
+      case "fewer":
+        return "lower than";
+        break;
+    }
+  }
+
+  // trend arrow
+  var outbreakTrendArrow = function(val, pct) {
+    switch(val) {
+      case "more":
+        return "<i>&#9650;</i>";
+        break;
+      case "fewer":
+        return "<i>&#9660;</i>"
+        break;
+    }
+  }
+
+  // comparison
+  var meetsTarget = function(val, mitigation, suppression) {
+    var meetsMitigation = "does not meet";
+    var meetsSuppression = "does not meet";
+
+    if (val >= mitigation) {
+      meetsMitigation = "meets";
+    } else if ((mitigation - val) < 700) {
+      meetsMitigation = "is close to";
+    }
+
+    if (val >= suppression) {
+      meetsSuppression = "meets";
+    } else if ((suppression - val) < 700) {
+      meetsSuppression = "is close to";
+    }
+
+    if (meetsMitigation == meetsSuppression) {
+      return `<strong>${ meetsMitigation } <span class="mitigation">mitigation</span></strong> and <strong><span class="suppression">suppression</span></strong> testing targets`;
+    } else {
+      return `<strong>${ meetsMitigation } <span class="mitigation">mitigation</span></strong> and <strong>${ meetsSuppression } <span class="suppression">suppression</span></strong> testing targets`;
+    }
+  }
+
+  // get the largest number in a series of numbers
+  var getMax = function(series) {
+    return Math.max(...series);
+  }
+%>
+
+<%= await t.include("./partials/_header.html", { "slug": slug, "config": config, "id": "table" }) %>
+
+<header>
+  <% if (COPY.labels.headline) { %>
+  <h1><%= t.smarty(COPY.labels.headline) %></h1>
+  <% } %>
+
+  <% if (COPY.labels.subhed) { %>
+  <h2><%= t.smarty(COPY.labels.subhed) %></h2>
+  <% } %>
+</header>
+
+<div class="graphic standalone" id="state-spotlight">
+
+  <div class="state-select">
+    <label for="state-picker">Select a location:</label>
+    <select id="state-picker">
+      <option value="">Select one...</option>
+      <% stateData.forEach(function(st) { %>
+        <option value="<%= t.classify(st.usps) %>" <% if (st.usps == initialState) { %>selected<% } %>><%= st.name %></option>
+      <% }); %>
+    </select>
+  </div>
+
+  <% stateData.forEach(function(st) {
+    var maxTests = getMax([ st.tests_day, st.target_mitigation, st.target_suppression, st.cases_daily ]);
+  %>
+  <div class="state-desc <%= t.classify(st.usps) %> <% if (st.usps == initialState) { %>active <% } %>">
+    <p><strong>Outbreak:</strong> <strong class="outbreak <%= t.classify(outbreakSeverity(st.ttsi_status)) %>"><%= outbreakSeverity(st.ttsi_status) %></strong> relative to <% if (st.usps == "DC") { %>the district's <% } else { %>the state's<% } %> population size. New cases are <%= outbreakTrendLookup(st.outbreak_status) %> 2 weeks&nbsp;ago.</p>
+    <p><strong>Testing:</strong> Currently <%= meetsTarget(st.tests_day, st.target_mitigation, st.target_suppression) %>.</p>
+
+    <table>
+      <!-- <tr>
+        <th></th>
+        <th class="amt" colspan="2"><%= COPY.labels.hdr_numbers_actual %></th>
+        <th class="amt"><%= COPY.labels.hdr_numbers_adjusted %></th>
+      </tr> -->
+      <tr class="outbreak">
+        <td class="stat">
+          <%= COPY.labels.tbl_outbreak %><br />
+          <em><%= COPY.labels.dates_cases %></em>
+        </td>
+        <td class="amt numbers">
+          <%= t.comma(st.cases_daily) %> cases/day<br />
+          <em><%= t.comma(st.cases_daily_per_100k) %> per 100K</em>
+        </td>
+        <td class="amt viz">
+          <div class="bar-wrapper">
+            <span class="bar" aria-hidden="true" style="width: <%= sizeBar(st.cases_daily, maxTests) %>%"></span>
+          </div>
+        </td>
+      </tr>
+      <tr class="tests">
+        <td class="stat">
+          <%= COPY.labels.tbl_testing %><br />
+          <em><%= COPY.labels.dates_testing %></em>
+        </td>
+        <td class="amt numbers">
+          <%= t.comma(st.tests_day) %> tests<br />
+          <em><%= t.comma(st.tests_day_per_100k) %> per 100K</em>
+        </td>
+        <td class="amt viz">
+          <div class="bar-wrapper">
+            <span class="bar" aria-hidden="true" style="width: <%= sizeBar(st.tests_day, maxTests) %>%"></span>
+          </div>
+        </td>
+      </tr>
+      <tr class="testing-target mitigation">
+        <td class="stat"><%= COPY.labels.tbl_mitigation %></td>
+        <td class="amt numbers">
+          <%= t.comma(st.target_mitigation) %> tests<br />
+          <em><%= t.comma(st.target_mitigation_per_100k) %> per 100K</em>
+        </td>
+        <td class="amt viz">
+          <div class="bar-wrapper">
+            <span class="bar" aria-hidden="true" style="width: <%= sizeBar(st.target_mitigation, maxTests) %>%"></span>
+          </div>
+        </td>
+      </tr>
+      <tr class="testing-target suppression">
+        <td class="stat"><%= COPY.labels.tbl_suppression %></td>
+        <td class="amt numbers">
+          <%= t.comma(st.target_suppression) %> tests<br />
+          <em><%= t.comma(st.target_suppression_per_100k) %> per 100K</em>
+        </td>
+        <td class="amt viz">
+          <div class="bar-wrapper">
+            <span class="bar" aria-hidden="true" style="width: <%= sizeBar(st.target_suppression, maxTests) %>%"></span>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+  <% }); %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <p><strong>Notes:</strong> <%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<%= await t.include("./partials/_footer.html") %>

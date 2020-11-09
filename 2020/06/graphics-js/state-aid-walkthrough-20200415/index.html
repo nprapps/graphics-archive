@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title><%= slug %></title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="robots" content="noindex" />
+    <base target="_blank">
+    <link rel="stylesheet" href="./graphic.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>window.GOOGLE_ANALYTICS_ID = "<%= config.analyticsID %>";</script>
+</head>
+<body class="max">
+
+    <%= await t.include("_content.html") %>
+
+    <script src="./graphic.js"></script>
+</body>
+</html>

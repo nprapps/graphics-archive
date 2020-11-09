@@ -1,0 +1,128 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<%
+  function getData(data, prefix, suffix) {
+
+      if (!data || isNaN(data)) {
+        return 'N/A';
+      }
+      var str = t.comma(data);
+      if (prefix) {
+        str = prefix + str;
+      }
+      if (suffix) {
+        str = str + ' ' + suffix;
+      }
+      return str;
+    }
+%>
+
+<div class="graphic" id="table-graphic-poorest">
+  <div class="table-wrapper" id="poorest">
+    <h4>Poorest Countries</h4>
+
+    <%
+
+    COPY.poorest.forEach(function(row) { %>
+    <table id="richest-table" role="table">
+      <tr role="row" class="<%= row.country %>">
+        <td colspan="2"> <%= row.country %></td>
+      <tr>
+      <tr role="row" class="<%= row.country %>">
+        <td role="cell" class="name-bold"><%= COPY.labels.hdr_gni %> </td> <td> $<%= getData(row.gni) %></td>
+      </tr>
+      <tr role="row" class="<%= row.country %>">
+        <td role="cell" class="name-bold"><%= COPY.labels.hdr_population %> </td> 
+        <td> <%= getData(row.population) %></td>
+      </tr>
+      <tr role="row" class="<%= row.country %>">
+        <td role="cell" class="name-bold"><%= COPY.labels.hdr_life_expectancy %> </td> <td> <%= getData(row.life_expectancy, '', 'years') %></td>
+      </tr>
+      <tr role="row" class="<%= row.country %>">
+         <td role="cell" class="name-bold" class="contractor"><%= COPY.labels.hdr_median_age %> </td> 
+         <td> <%= getData(row.median_age, '', 'years') %></td>
+      </tr>
+      <tr role="row" class="<%= row.country %>">
+         <td role="cell" lass="contractor"><%= COPY.labels.hdr_physicians %> </td> <td> <%= getData(Number.parseFloat(row.physicians).toFixed(2).toString()) %></td>
+       </tr>
+       <tr role="row" class="<%= row.country %>">
+          <td role="cell" class="amt cost"><%= COPY.labels.hdr_health_sp %> </td> 
+          <td class="amt cost"> <%= getData(row.health_sp, '$') %></td>
+        </tr>
+        <tr role="row" class="<%= row.country %>">
+          <td role="cell" class="name-bold" lass="contractor"><%= COPY.labels.hdr_hosp_beds %> </td> <td> <%= getData(row.hosp_beds) %></td>
+        </tr>
+      </tr>
+  </table>
+  <% }) %>
+
+  <button id="btn-poorest" data-more="<%= COPY.labels.toggle_more %>" data-less="<%= COPY.labels.toggle_less %>"><%= COPY.labels.toggle_more %></button>
+</div>
+</div>
+
+<div class="graphic richest" id="table-graphic-richest">
+<div class="table-wrapper" id="richest">
+    <h4>Richest Countries</h4>
+
+    <%
+    COPY.richest.forEach(function(row) { %>
+    <table id="richest-table" role="table">
+      <tr role="row" class="<%= row.country %>">
+        <td colspan="2"> <%= row.country %></td>
+      <tr>
+      <tr role="row" class="<%= row.country %>">
+        <td role="cell" class="name-bold"><%= COPY.labels.hdr_gni %> </td> <td> $<%= getData(row.gni) %></td>
+      </tr>
+      <tr role="row" class="<%= row.country %>">
+        <td role="cell" class="name-bold"><%= COPY.labels.hdr_population %> </td> 
+        <td> <%= getData(row.population) %></td>
+      </tr>
+      <tr role="row" class="<%= row.country %>">
+        <td role="cell" class="name-bold"><%= COPY.labels.hdr_life_expectancy %> </td> <td> <%= getData(row.life_expectancy, '', 'years') %></td>
+      </tr>
+      <tr role="row" class="<%= row.country %>">
+         <td role="cell" class="name-bold" class="contractor"><%= COPY.labels.hdr_median_age %> </td> 
+         <td> <%= getData(row.median_age, '', 'years') %></td>
+      </tr>
+      <tr role="row" class="<%= row.country %>">
+         <td role="cell" lass="contractor"><%= COPY.labels.hdr_physicians %> </td> <td> <%= getData(Number.parseFloat(row.physicians).toFixed(2).toString()) %></td>
+       </tr>
+       <tr role="row" class="<%= row.country %>">
+          <td role="cell" class="amt cost"><%= COPY.labels.hdr_health_sp %> </td> 
+          <td class="amt cost"> <%= getData(row.health_sp, '$') %></td>
+        </tr>
+        <tr role="row" class="<%= row.country %>">
+          <td role="cell" class="name-bold" lass="contractor"><%= COPY.labels.hdr_hosp_beds %> </td> <td> <%= getData(row.hosp_beds) %></td>
+        </tr>
+      </tr>
+  </table>
+  <% }) %>
+</div>
+<button id="btn-richest" data-more="<%= COPY.labels.toggle_more %>" data-less="<%= COPY.labels.toggle_less %>"><%= COPY.labels.toggle_more %></button>
+</div>
+
+<button id="btn-full-screen" data-more="<%= COPY.labels.toggle_more %>" data-less="<%= COPY.labels.toggle_less %>"><%= COPY.labels.toggle_more %></button>
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+  
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

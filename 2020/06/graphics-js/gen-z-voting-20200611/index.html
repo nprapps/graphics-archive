@@ -1,0 +1,81 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+  <h3 class="hed"><%= t.smarty(COPY.labels.hed_petition) %></h3>
+
+<div id="bar-chart-petition" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+<img src="fallback.png" alt="" class="fallback" />
+</div>
+
+  <h3 class="hed"><%= t.smarty(COPY.labels.hed_social) %></h3>
+
+<div id="bar-chart-social" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+
+
+<img src="fallback.png" alt="" class="fallback" />
+</div>
+
+  <h3 class="hed"><%= t.smarty(COPY.labels.hed_sticker) %></h3>
+
+
+<div id="bar-chart-sticker" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+
+
+<img src="fallback.png" alt="" class="fallback" />
+</div>
+
+  <h3 class="hed"><%= t.smarty(COPY.labels.hed_march) %></h3>
+
+
+<div id="bar-chart-march" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+
+<img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var PETITION = <%= JSON.stringify(COPY.data_petition) %>;
+  var SOCIAL = <%= JSON.stringify(COPY.data_social) %>;
+  var STICKER = <%= JSON.stringify(COPY.data_sticker) %>;
+  var MARCH = <%= JSON.stringify(COPY.data_march) %>;
+
+
+</script>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>
