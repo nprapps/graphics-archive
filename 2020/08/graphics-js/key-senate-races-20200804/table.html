@@ -1,0 +1,60 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.table_headline) { %>
+<h1><%= t.smarty(COPY.labels.table_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.table_subhed) { %>
+<h2><%= t.smarty(COPY.labels.table_subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_state %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_name %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header centered"><%= COPY.labels.hdr_rating %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY.data.forEach(function(row) { %>
+    <tr class="state-<%= row.state %>-<%= row.name %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_state %>" class="state"><%= row.state %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_name %>"><span class="circle circle-<%= row.party %>"><%= row.party %></span> <%= row.name %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_rating %>" class="<%= row.cat %>  centered rating"><%= row.rating %></td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.table_footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.table_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

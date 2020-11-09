@@ -1,0 +1,386 @@
+@import "./lib/base";
+
+@mobile: 599px;
+
+.screencap {
+	.annotation {
+		display: none !important;
+	}
+
+	button {
+		margin: 0px;
+		margin-top: -100px;
+		width: 0px !important;
+
+	}
+	.button-container .time {
+		padding-top: 0px;
+		font-size: 40px;
+		padding-right:15px;
+	}
+}
+
+.header {
+	.mmedia-constrained-centered();
+}
+
+// .footnotes,
+// .footer {
+// 	.mmedia-constrained();
+// }
+
+#g-_bg-zoomer-graphic {
+	display: none;
+}
+
+svg {
+	width: 100%;
+	height: 100%;
+}
+
+.newbern {
+	display: none;
+
+	&.zoom {
+		display: inline-block;
+	}
+
+	&.text {
+		background-color: #c994c7;
+		// background-color: lighten(purple,10%);
+		padding-bottom: 0px;
+		color: white;
+	}
+
+	&.dot {
+
+		fill: purple;
+
+		&.lighter{
+		fill: #c994c7;
+		}
+		// fill-opacity: 0.75;
+	}
+}
+
+.pill {
+	border-radius:3px;
+	padding-right: 2px;
+    padding-left: 2px;
+    padding-bottom: 2px;
+
+    @media screen and (max-width: @mobile) {
+    	padding-bottom: 1px;
+    }
+}
+
+.key {
+	// .gotham();
+	width: 290px;
+	margin: 0 auto;
+	padding-top: 5px;
+	padding-bottom: 20px;
+	position: relative;
+	font-size: 11px;
+	font-style: italic;
+
+
+	div {
+		// display: inline-block;
+		// margin: 0 auto;
+		text-align: center;
+	}
+
+	.pointer {
+		stroke-width: 2.5px;
+		stroke: #333;
+	}
+
+	.rad34, .rad64 {
+		stroke-width: 2px;
+	}
+
+	.icons {
+		width: 80px !important;
+		overflow: visible;
+		margin: 0 auto;
+		// padding-top:25px;
+		height: 100px;
+
+		svg {
+			width: 100%;
+			overflow: visible;
+		}
+	}
+
+	.key-text {
+		position: absolute;
+		width: 150px;
+
+	}
+
+	.trop-key {
+		text-align: right;
+		right: 186px;
+    	top: 62px;
+	}
+
+	.hurricane-key {
+		text-align: left;
+		left: 183px;
+    	// bottom: 55px;
+    	top: 50px;
+	}
+
+	.path-key {
+		text-align: left;
+		left: 65px;
+    	top: 5px;
+    	width: 300px;
+
+	}
+}
+
+[role="img"] img:not([alt]) {
+    outline: none !important;
+}
+
+button img {
+	display: none;
+	outline: none !important;
+
+	&.show {
+		display: block;
+	}
+}
+
+
+.button-container {
+	position: absolute;
+    right: 0;
+    text-align: right;
+    z-index: 100;
+    padding:5px;
+    margin: 5px;
+    background-color: #fff;
+    border-radius: 5px;
+
+    button {
+    	// position: absolute;
+	    // right: calc(100% + 10px);
+	    float: right;
+	    top: 0;
+	    border: none;
+	    outline: none;
+	    color: white;
+	    border-radius: 50%;
+	    height: 32px;
+	    width: 32px;
+	    cursor: pointer;
+	    text-align: center;
+
+	    background-color: #394F78;
+    }
+
+    .time {
+    	.knockout();
+    	float: right;
+    	padding-right: 10px;
+    	padding-top: 6px;
+    	padding-left:5px;
+
+    	// width: 160;
+    }
+
+    @media screen and (max-width: @mobile) {
+    	// position: relative;
+    	right: unset;
+    	margin: 0 auto;
+    	width: 100%;
+    	margin-top: -25px;
+    	// text-al
+
+		.sub-container-button {
+			margin: 0 auto;
+			width: 175px;
+			height: 40px;
+			border-radius: 5px;
+			background-color: #ececec;
+			// margin:5px;
+			padding:5px;
+
+		}
+
+		button {
+			// float: unset;
+			top: unset;
+
+		}
+    }
+}
+
+.annotation {
+	// display: none;
+	opacity: 0;
+
+	-webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+
+	&.active {
+		display: block;
+		opacity: 1;
+	}
+
+	font-size: 14px;
+
+	@media screen and (max-width: @mobile) {
+		font-size: 12px;
+		line-height: 13px;
+		width: 129%;
+	}
+}
+
+.g-explainer_text {
+	@media screen and (max-width: @mobile) {
+		display: none;
+	}
+}
+
+.g-explainer_mobile {
+	display: none;
+
+	.landfall, .tropical_storm_start, .south_of_nc {
+		text-align: right;
+		float: right;
+	}
+
+	@media screen and (max-width: @mobile) {
+		display: block;
+	}
+}
+
+.graphic.zoom {
+	 svg {
+    	// width: 260% !important;
+    	// margin-top: -60%;
+	    max-width: unset !important;
+
+	    width: 203% !important;
+	    margin-top: -46.5%;
+	    max-width: unset !important;
+	    margin-left: 3.5%;
+	}
+
+	#g-_bg-Artboard_1-graphic {
+		display: none;
+	}
+
+	#g-_bg-zoomer-graphic {
+	display: block;
+	}
+
+}
+
+.sub-graphic {
+
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+	pointer-events: none;
+}
+
+
+
+.cones, .cone-key {
+	display: none;
+	fill: @teal3;
+	fill-opacity: 0.05;
+
+
+	&.active {
+		display: block;
+		fill-opacity: 0.2;
+		stroke: @teal3;
+		stroke-width: 1px;
+	}
+	&.secondary {
+		display: block;
+		stroke-opacity: 0.2;
+	}
+}
+
+.rad34 {
+		fill: lighten(@orange3, 10%);
+		stroke: @orange3;
+		stroke-width: 2px;
+	}
+.rad64 {
+	fill: lighten(@red3, 10%);
+	stroke: @red3;
+	stroke-width: 2px;
+}
+
+.orange {
+	background-color: lighten(@orange3, 10%);
+	color: #fff;
+}
+
+.red {
+	background-color: lighten(@red3, 15%);
+	color: #fff;
+}
+
+.teal {
+	background-color: lighten(@teal4,10%);
+	color: #fff;
+	// background-color: rgb;
+}
+
+.wind {
+	display: none;
+
+	&.active {
+		display: block;
+		// stroke-opacity: 0.2;
+		fill-opacity: 0.7;
+	}
+	&.secondary {
+		display: block;
+		&.rad64 {
+			stroke-opacity: 0.2;
+			fill-opacity: 0.2;
+		}
+		&.rad34 {
+			stroke-opacity: 0.1;
+			fill-opacity: 0.1;
+		}
+
+	}
+}
+
+.eyes {
+	display: none;
+	fill: @red2;
+
+	&.active {
+		display: block;
+	}
+}
+
+// ai2html artboard sizes
+@media screen and (min-width: 730px) {
+    #g-_ai2html-graphic-small, #g-_ai2html-graphic-medium { display: none; }
+}
+
+@media screen and (max-width: 729px) and (min-width: 400px) {
+    #g-_ai2html-graphic-small, #g-_ai2html-graphic-wide { display: none; }
+}
+
+@media screen and (max-width: @mobile) {
+    #g-_ai2html-graphic-medium, #g-_ai2html-graphic-wide { display: none; }
+}
+
+// Add custom styles here

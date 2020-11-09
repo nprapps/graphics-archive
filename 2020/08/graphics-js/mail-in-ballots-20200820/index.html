@@ -1,0 +1,72 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<%
+ var getAPMonth = function(date) {
+  var apMonths = [ "Jan.", "Feb.", "March", "April", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec." ];
+  var thisMonth = date.getMonth();
+  return apMonths[thisMonth];
+};
+%>
+
+<div id="table-graphic" class="graphic rejected-table collapsed">
+  <table id="state-table" role="table">
+    <thead role="rowgroup" class="mail-in-table">
+      <tr role="row">
+        <th role="columnheader" class="name main">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_state %></div>
+        </th>
+        <th role="columnheader" class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_value %></div>
+        </th>
+        <th role="columnheader" class="date">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_date %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody class="mail-in-table">
+      <% COPY.data.filter(d => d.total_rejected && !isNaN(d.total_rejected)).forEach(function(row) { %>
+      <tr class="state state-<%= t.classify(row.name) %>" role="row">
+        <td role="cell" data-title="<%= COPY.labels.hdr_state %>" class="name main"><%= (row.usps == "NY" ? "New York" : row.name) + (row.usps == "NY" ? "*" : "")%></td>
+        <td role="cell" data-title="<%= COPY.labels.hdr_value %>" class="amt"><%= t.comma(row.total_rejected)%></td>
+        <td role="cell" data-title="<%= COPY.labels.hdr_date %>" class="date"><%= (row.date) ? (getAPMonth(new Date(row.date)) + " " +  new Date(row.date).getDate()) : ''%></td>
+      </tr>
+    <% }) %>
+
+    </tbody>
+  </table>
+</div>
+<button class="toggle-table" data-more="<%= COPY.labels.toggle_more %>" data-less="<%= COPY.labels.toggle_less %>"><%= COPY.labels.toggle_more %></button>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+  <p><%= COPY.labels.footnote2 %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./highest.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

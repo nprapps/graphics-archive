@@ -1,0 +1,52 @@
+@import "./lib/base";
+
+h1 {
+  margin-bottom: 22px;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+  stroke-linejoin: bevel;
+}
+
+.value text {
+  font-size: 12px;
+  /*font-weight: bold;*/
+  fill: #666;
+}
+
+.highlight-circle {
+  stroke: white;
+  fill: @teal3;
+  stroke-width: 1px;
+}
+
+.highlight-line {
+  stroke: #666;
+  stroke-width: 2px;
+}
+
+.highlight-text {
+  font-size: 12px;
+  fill: #666;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    /*font-size: 10px;*/
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}

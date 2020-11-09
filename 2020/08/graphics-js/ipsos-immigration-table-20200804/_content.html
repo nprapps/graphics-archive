@@ -1,0 +1,88 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_issue %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_data2018 %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header main"><%= COPY.labels.hdr_data2020 %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_change %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <%
+
+    var d3 = {
+      ...require("d3-axis/dist/d3-axis.min"),
+      ...require("d3-scale/dist/d3-scale.min"),
+      ...require("d3-selection/dist/d3-selection.min")
+    };
+
+    var scale = d3
+      .scaleLinear()
+      .domain([15, -15])
+      .range([.1, 1]);
+
+      var colorFunction = function(input) {
+        if (input == "N/A") {
+          return 'background-color: #ccc';
+        } else {
+          return 'background-color: rgb(227, 141, 44,' + scale(input) + ')';
+        }
+      }
+
+      var darkFunction = function(input) {
+        if (input < 1) {
+          return 'light';
+        } else {
+          return 'dark';
+        }
+      }
+
+    COPY.data.forEach(function(row) { %>
+    <tr class="state-<%= t.classify(row.issue) %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_country %>"><%= row.issue %></td>
+      <td class="amt" role="cell" data-title="<%= COPY.labels.hdr_data2018 %>" ><%= row.data2018 == "-" ? row.data2018 : row.data2018 +"%" %></td>
+      <td class="amt main" role="cell" data-title="<%= COPY.labels.hdr_data2020 %>"><%= row.data2020 %>%</td>
+      <td column-width="12%" class="amt change <%= darkFunction(row.change) %>" role="cell" data-title="<%= COPY.labels.hdr_change %>" style=" <%= colorFunction(row.change) %>"><%= row.change == "N/A" ?row.change : row.change + "%" %></td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

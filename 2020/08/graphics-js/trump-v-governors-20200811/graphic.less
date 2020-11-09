@@ -1,0 +1,365 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.areas { opacity: 0.6; }
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.y-label {
+  fill: #999;
+  font-size: 11px;
+  font-style: italic;
+  text-anchor: middle;
+}
+
+.annotations .dots {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.annotations text {
+    font-size: 12px;
+    fill: #999;
+}
+
+.anno-line {
+  fill: none;
+  stroke: #333;
+}
+
+.icon-num, .icon-dots {
+  display: none;
+}
+
+#anno-divs {
+  position: absolute;
+  width: 100%;
+  top: 25px;
+  left: 25px;
+
+  .anno-div {
+    position: absolute;
+    width: 300px;
+    background-color: rgba(255,255,255,1);
+    padding: 8px;
+    border: 1px solid #ccc;
+
+
+    p {
+      color: #333;
+      font-size: 12px;
+      line-height: 12px;
+    }
+
+    .header {
+      padding: 0px;
+
+      h4 {
+        padding: 2px 5px 2px 5px;
+        margin-left: 5px;
+        // background-color: @orange3;
+        border-radius: 5px;
+        color: @orange3;
+        font-weight: normal;
+        font-size: 12px;
+      }
+
+      h4, p {
+        display: inline;
+      }
+
+      p {
+        .knockout-header();
+
+        font-weight: bold;
+      }
+    }
+
+    .anno-body, .anno-action {
+      p {
+        margin: 0;
+        padding: 0;
+        padding-top: 5px;
+      }
+    }
+
+    .anno-action p {
+      font-style: italic;
+      color: #999;
+    }
+  }
+}
+
+span.icon {
+  background-color: @orange3;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  // margin: auto;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  padding: 0;
+  padding-top: 1px;
+}
+
+.date {
+  .knockout-header();
+  color: #333;
+  font-style: bold;
+  font-size: 14px;
+}
+
+// Base table styles
+table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+
+  tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+  }
+
+  td { vertical-align: top; }
+
+}
+
+/*
+* larger-than-small-screen styles
+* ~ defining some desktop-only styles here to avoid
+* ~ writing extra mobile styles to undo them.
+*/
+@media @screen-mobile-above {
+  table {
+    th, td {
+      padding: 10px;
+
+      // comment these two out if you want to highlight particular rows
+      &:first-child { padding-left: 0; }
+      &:last-child { padding-right: 0; }
+
+      &.amt { text-align: right; }
+    }
+
+    th {
+      border-bottom: 2px solid #eee;
+      padding-top: 0;
+    }
+
+    td { border-bottom: 1px solid #eee; }
+
+
+
+    &.collapsed tbody tr:nth-child(n + 10) {
+      .sr-only();
+    }
+  }
+}
+
+// /*
+// * small-screen styles
+// */
+// @media @screen-mobile {
+//   tbody {
+//     // display: block;
+//     width: 100%;
+//   }
+//
+//   table {
+//     // thead { display: none; }
+//
+//     tr, th, td {
+//       // display: block;
+//       padding: 10px;
+//       white-space: normal;
+//     }
+//
+//     tr {
+//       border-bottom: 1px solid #eee;
+//       // padding: 10px 0;
+//
+//       // &:first-child { border-top: 1px solid #eee; }
+//     }
+//
+//     td {
+//       margin-bottom: 6px;
+//
+//       &:empty { display: none; }
+//     }
+//
+//     .th-tested, .th-positive, .th-positive_pct { width: 20%; }
+//
+//     th:first-child, td:first-child {
+//       padding-left: 0;
+//     }
+//
+//     tr.total-all-indian-health-service-areas {
+//       font-weight: bold;
+//       color: #333;
+//       background-color: #f1f1f1;
+//     }
+//
+//
+//
+//
+//     // tr td:first-child {
+//     //   .knockout-header();
+//     //   color: #333;
+//     //   font-size: 14px;
+//     //   margin-bottom: 6px;
+//     //
+//     //   &:before {
+//     //     content: '';
+//     //     display: none;
+//     //   }
+//     // }
+//
+//     th[data-title]:before,
+//     td[data-title]:before {
+//       // content: attr(data-title) ":\00A0";
+//       display: inline-block;
+//       margin-right: 10px;
+//       width: 40%;
+//     }
+//
+//     &.collapsed tbody tr:nth-child(n + 5) {
+//       .sr-only();
+//     }
+//   }
+// }
+
+/*
+* small-screen styles
+*/
+@media @screen-mobile {
+  tbody {
+    // display: block;
+    width: 100%;
+  }
+
+  table {
+    font-size: 13px;
+
+    thead { display: none; }
+
+    tr, th, td {
+      display: block;
+      padding: 0;
+      white-space: normal;
+
+      // .quote, .cases {
+      //   display: block;
+      // }
+    }
+
+    tr {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+
+      &:first-child { border-top: 1px solid #eee; }
+    }
+
+    td {
+      margin-bottom: 6px;
+
+      &:empty { display: none; }
+
+      &.icon {
+        margin: 0;
+      }
+
+      &.cases {
+        color: @orange3;
+        font-size: 12px;
+      }
+
+    }
+
+    tr td:first-child {
+      // .knockout-header();
+      color: white;
+      font-size: 14px;
+      margin-bottom: 8px;
+
+      &:before {
+        content: '';
+        display: none;
+      }
+    }
+
+    // td.cases:after {
+    //   content: attr(data-title) "\00A0";
+    //   display: inline-block;
+    //   color: @orange3;
+    //   // margin-right: 10px;
+    //   // width: 41%;
+    //   // font-weight: bold;
+    //
+    //   // &.cases {
+    //   //   display: inline-block;
+    //   // }
+    // }
+
+    span.table-action {
+      font-style: italic;
+      color: #999;
+    }
+
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+
+  .annotations text {
+    font-size: 14px;
+    fill: white;
+  }
+
+  .icon-dots, .icon-num {
+    display: block;
+  }
+
+  .anno-div {
+    display: none;
+  }
+  .anno-line {
+    display: none;
+  }
+
+  .line-chart {
+    padding-bottom: 10%;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+
+  table { display: none; }
+}

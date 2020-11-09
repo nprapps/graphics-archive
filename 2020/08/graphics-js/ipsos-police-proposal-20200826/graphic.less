@@ -1,0 +1,101 @@
+@import "./lib/base";
+
+h1 {
+  font-size: 18px;
+  margin-bottom: 22px;
+  text-align: center;
+
+  // .knockout-header();
+  // font-size: 16px;
+  // color: #333;
+}
+
+h3 {
+  text-align: center;
+}
+
+.chart + .chart {
+  margin-top: 22px;
+}
+
+.overall .value text {
+      font-weight: bold;
+    }
+    .group rect {
+      opacity: 0.8;
+    }
+    .overall.group rect {
+      opacity: 1;
+    }
+
+.key label {
+    display: block;
+    margin-left: 25px;
+}
+
+.value text {
+    fill: #fff;
+
+    .group.overall & { font-weight: bold; }
+    
+
+    &.left {
+      text-anchor: start;
+
+      &.center { text-anchor: middle; }
+      &.out { text-anchor: end; }
+    }
+
+    &.right {
+      text-anchor: end;
+
+      &.center { text-anchor: middle; }
+      &.out { text-anchor: start; }
+    }
+    &.centered { text-anchor: middle; }
+    &.hidden { display: none; }
+}
+
+.labels li {
+  font-size: 12px;
+
+  &.overall {
+    color: #333;
+    font-weight: bold;
+  }
+}
+
+.key {
+    display: webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+
+    @media @screen-mobile-above {
+        flex-wrap: nowrap;
+        margin-bottom: 33px;
+    }
+
+    .key-item {
+        .clearfix();
+        margin-bottom: 6px;
+        width: auto;
+
+        &:last-child { margin-right: 0; }
+
+        @media @screen-mobile-above { margin-bottom: 0; }
+
+        // &:nth-child(1) { order: 0; }
+        // &:nth-child(2) { order: 2; margin-right: 0;}
+        // &:nth-child(3) { order: 1; }
+
+        label {
+            @media @screen-mobile-above { font-size: 12px; }
+
+            white-space: normal;
+        }
+    }
+}

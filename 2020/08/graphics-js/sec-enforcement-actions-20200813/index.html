@@ -1,0 +1,47 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="master-chart" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+
+  <!-- <div class="subchart"> -->
+    <!-- <h3 id="header-total"><%= COPY.labels.header_total %></h3> -->
+    <div id="line-chart-total"></div>
+  <!-- </div> -->
+  <!-- <div class="subchart">
+    <h3 id="header-insider"><%= COPY.labels.header_insider %></h3>
+    <div id="line-chart-insider"></div>
+  </div> -->
+  <!-- <img src="fallback.png" alt="" class="fallback" /> -->
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var TOTAL = <%= JSON.stringify(COPY.total) %>;
+  var INSIDER = <%= JSON.stringify(COPY.insider) %>;
+</script>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

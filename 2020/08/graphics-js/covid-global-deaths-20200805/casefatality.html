@@ -1,0 +1,37 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.casefatality_headline) { %>
+<h1><%= t.smarty(COPY.labels.casefatality_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.casefatality_subhed) { %>
+<h2><%= t.smarty(COPY.labels.casefatality_subhed) %></h2>
+<% } %>
+
+<div id="bar-chart" class="graphic casefatality" role="img"
+  <% if (COPY.labels.casefatality_screenreader) { %>
+  aria-label="<%- COPY.labels.casefatality_screenreader %>"
+  <% } %>
+>
+<img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.casefatality_footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.casefatality_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.data) %>;
+</script>
+
+<script src="./casefatality.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

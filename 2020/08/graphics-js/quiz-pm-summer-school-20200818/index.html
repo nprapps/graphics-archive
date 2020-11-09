@@ -1,0 +1,131 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="quiz" class="graphic">
+  <% COPY.quiz.forEach(function(row, idx) { %>
+  <div class="question-wrapper" data-question="<%= (idx + 1) %>" style="z-index: <%= ((COPY.quiz.length - idx) * 10) %>">
+    <h3>Question <%= (idx + 1) %> of <%= COPY.quiz.length %></h3>
+    <div class="question">
+      <!-- THE QUESTION -->
+      <div class="q">
+        <% if (row.question_image_name) { %>
+        <div class="photo">
+          <img src="assets/<%= row.question_image_name %>" alt="">
+          <p class="credit"><%= row.question_image_credits %></p>
+        </div>
+        <% } %>
+        <p><%= t.smarty(row.question) %></p>
+      </div>
+
+      <!-- POSSIBLE ANSWERS -->
+      <div class="a">
+        <ul>
+          <%
+            for (var i = 1; i <=4; i++) {
+              if (row["status_" + i] != "None") {
+          %>
+
+          <li class="<%= row["status_" + i] %>">
+            <strong><%= t.smarty(row["option_" + i]) %></strong>
+            <% if (row["status_" + i] == "correct" && row.answer && (idx != 4 || (idx == 4 && i == 4))) { %>
+              <p class="answer">
+                <% if (row.answer_image_name) { %>
+                  <img src="<%= row.answer_image_name %>" alt="">
+                <% } %>
+
+                <%= t.smarty(row.answer) %>
+              </p>
+            <% } %>
+          </li>
+
+          <% }
+            }
+          %>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+  <div id="results">
+    <div class="status">
+      <p><%= COPY.labels.final_status %></p>
+    </div>
+    <div class="diploma">
+      <h4><%= t.smarty(COPY.labels.final_hed) %></h4>
+      <p><%= t.smarty(COPY.labels.final_text) %></p>
+      <p><a href="diploma_sm.png"><img src="diploma_sm.png" alt="Diploma"></a></p>
+      <% if (COPY.labels.final_prompt) { %>
+        <p class="prompt"><%= t.smarty(COPY.labels.final_prompt) %></p>
+      <% } %>
+
+      <div class="link-share social">
+        <h3><%= COPY.labels.social_prompt %></h3>
+        <ul>
+          <li>
+            <%
+            var fbURL = `https://www.facebook.com/dialog/share?app_id=138837436154588&href=${
+              encodeURIComponent(COPY.labels.series_url)
+            }&quote=${
+              encodeURIComponent(COPY.labels.social_text_fb)
+            }`;
+            %>
+            <a
+              href="<%= fbURL %>" target="_new"
+              data-track="clicked-social" data-label="facebook"
+              class="social-link">
+              <%= await t.include("icons/facebook.svg") %> Facebook</a>
+            </a>
+          <li>
+            <%
+            var twURL = `https://twitter.com/intent/tweet?text=${encodeURIComponent(COPY.labels.social_text_twitter)}`
+            %>
+            <a
+              href="<%= twURL %>" target="_new"
+              data-track="clicked-social" data-label="twitter"
+              class="social-link">
+              <%= await t.include("icons/twitter.svg") %> Twitter</a>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="native-share social">
+        <button class="social-link navigator-share">
+          <%= await t.include("icons/share.svg") %>
+          <%= COPY.labels.social_prompt %>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var PROMPTS = <%= JSON.stringify(COPY.prompts) %>;
+  var PROJECT_TEXT = "<%= COPY.labels.social_text_twitter %>";
+  var PROJECT_LINK = "<%= COPY.labels.series_url %>";
+</script>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

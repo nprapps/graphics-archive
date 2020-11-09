@@ -1,0 +1,63 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.pres-admin {
+  rect:nth-child(odd) {
+    fill: #EBEBEB;
+    opacity: 0.7;
+  }
+
+  rect:nth-child(even) {
+    fill: none;
+  }
+}
+
+.pres-label {
+  fill: #999;
+  font-style: italic;
+  font-size: 11px;
+  text-anchor: middle;
+
+  text.trump {
+    text-anchor: start;
+  }
+}
+
+.subchart {
+  padding-bottom: 5%;
+}
+
+#line-chart-insider path.line { stroke: @orange3; }
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+
+  .pres-label text:nth-child(even) {
+    margin-top: 5%;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}

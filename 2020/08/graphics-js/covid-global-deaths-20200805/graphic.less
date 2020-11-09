@@ -1,0 +1,31 @@
+@import "./lib/base";
+
+.labels li {
+  text-align: left;
+
+  &.united-states {
+    color: #333;
+    font-weight: bold;
+  }
+}
+
+.bars rect {
+  fill: @orange5;
+
+  &.united-states {
+    fill: @orange3;
+  }
+}
+
+.value text {
+  fill: #666;
+  &.in { fill: #333; }
+  &.united-states {
+    fill: #333;
+    font-weight: bold;
+  }
+}
+
+.zero-line {
+  stroke: #999;
+}

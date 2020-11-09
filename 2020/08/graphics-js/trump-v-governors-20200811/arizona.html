@@ -1,0 +1,88 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline_arizona) { %>
+<h1><%= t.smarty(COPY.labels.headline_arizona) %></h1>
+<% } %>
+
+<!-- <% if (COPY.labels.subhed_arizona) { %>
+<h2><%= t.smarty(COPY.labels.subhed_arizona) %></h2>
+<% } %> -->
+
+<div id="graphic" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+  <div id="annotated-line-chart" class="line-chart" role="img"></div>
+
+  <table id="quote-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_icon %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_date %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_quote %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_cases %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <%
+    var comma = n => n.toLocaleString();
+
+    COPY.arizona.forEach(function(row) {
+      if (row.annotate) { %>
+        <tr class="quote-<%= row.icon %>" role="row">
+          <td class="icon-box" role="cell" data-title="<%= COPY.labels.hdr_icon %>">
+            <span class="icon"><%= row.icon %></span>
+            <span class="date"><%= row.date_label %></span>
+          </td>
+          <!-- <td class="date" role="cell" data-title="<%= COPY.labels.hdr_date %>" ><%= row.date %></td> -->
+          <td class="quote-box" role="cell" data-title="<%= COPY.labels.hdr_quote %>">
+            <% if (row.action) { %>
+              <span class="table-action"><%= row.action %></span><br><br>
+              <% } %>
+            <span class="quote"><%= row.annotate %></span>
+          </td>
+          <td class="cases" role="cell" data-title="<%= COPY.labels.hdr_cases %>">
+            <span class=case-num">
+              <%= comma(row.amount) %> COVID-19 cases
+            </span>
+          </td>
+        </tr>
+      <% }
+    }) %>
+  </table>
+
+  <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.arizona) %>;
+</script>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

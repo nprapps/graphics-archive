@@ -1,0 +1,70 @@
+<%
+  var STATES = COPY.stateNames;
+%>
+
+<div class="nav-container">
+  <div class="head">
+    <h1><%= t.smarty(COPY.labels.nav_hed) %></h1>
+    
+  </div>
+	
+
+	<!-- link to main story -->
+	<div></div>
+
+	<!-- links to child stories -->
+	<div class="table-container"></div>
+  <div class="head lower">
+    <h2><%= t.smarty(COPY.labels.nav_chatter) %></h2>
+    <!-- <p></p> -->
+  </div>
+  <div class="states" role=table>
+    <div class="div-table table1" role="rowgroup">
+      <a href=" <%= STATES[0].link %>" target="_blank"> 
+        <div class="cell-group state data" role="row">
+          <div class="cell" role="cell">
+            <span class="name"><%= STATES[0].table_label %></span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    
+    <div class="div-table table2" role="rowgroup">
+
+      <%
+        STATES.forEach(function(row,i) {
+          if (i!=0) {
+          var sign = +row.yearAmount <= 0 ? "" : "+";
+          var name_display = row.table_label ? row.table_label : row.label;
+          var amount = row.yearAmount ? `${sign}${Math.floor(row.yearAmount*100)}%` : "<i>no data</i>";
+          var amountClass = +row.yearAmount < 0 ? "negative" : "positive";
+          
+          // var explainer = i ==1 ? " percent change in YTD state revenue compared to last year" : "";
+          var explainer = i ==1 ? "" : "";
+      %>
+
+      <%
+        if (!row.noLink) {
+      %>
+      <a href=" <%= row.link %>" target="_blank"> 
+        <div class="cell-group state data" role="row">
+          <div class="cell" role="cell">
+              <%= name_display %>
+          </div>
+        </div>
+      </a>
+      <%} else { %>
+        <div class="cell-group state noData" role="row">
+          <div class="cell" role="cell">
+            <%= name_display %>
+          </div>
+        </div>
+      <% } %>
+      <%
+       }});
+      %>
+    </div>
+  </div>
+
+</div>

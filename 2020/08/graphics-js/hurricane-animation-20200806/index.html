@@ -1,0 +1,86 @@
+<%
+	var l = COPY.labels;
+%>
+
+<!-- <div style="width:100%;height:1000px;"></div> -->
+
+<%= await t.include("lib/_head.html") %>
+<!-- <div class="screencap"> -->
+<div class="header">
+	<% if (l.headline) { %>
+	<h1><%= t.smarty(l.headline) %></h1>
+	<% } %>
+
+	<% if (l.subhed) { %>
+	<h2><%= t.smarty(l.subhed) %></h2>
+	<% } %>
+</div>
+
+<div class="key">
+		<div class="path-key key-text">Projected path ("cone of uncertainty")</div>
+		<div class="trop-key key-text">Tropical storm force winds<br>(39 mph to 73 mph)</div>
+		<div class="hurricane-key key-text">Hurricane force winds<br>(74 mph or more)</div>
+		<div class="icon icons">
+			<%= await t.include("_hurricane_key.html") %>
+		</div>
+</div>
+
+<div id="button1" class="button-container">
+	<div class="sub-container-button">
+		<button class="" aria-label="play">
+			<img src="./icons/play.svg" class="play show" width="24px">
+			<img src="./icons/pause.svg" class="pause">
+			<img src="./icons/replay.svg" class="replay">
+		</button>
+		<div class="time">August 30,2018</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+<div id="graphic" class="graphic" role="img"
+  <% if (l.screenreader) { %>
+  aria-label="<%- l.screenreader %>"
+  <% } %>
+>
+	<div class="sub-graphic" id="sub-graphic1">
+  	<svg
+  	xmlns="http://www.w3.org/2000/svg"
+  	version="1.2"
+  	baseProfile="tiny"
+  	width="800"
+  	height="600"
+  	viewBox="0 0 800 600"
+  	x="0px" y="0px"
+  	xml:space="preserve">
+  		<%= await t.include("_cones.html") %>
+  		<%= await t.include("_wind.html") %>
+  		<%= await t.include("_eyes.html") %>
+  	</svg>
+
+  </div>
+  <div class="">
+  	<%= await t.include("_bg.html", {l}) %>
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+<% if (l.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= l.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (l.source) { %><p>Source: <%= l.source %></p><% } %>
+  <% if (l.credit) { %><p>Credit: <%= l.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.data) %>;
+  var DURATION = <%= JSON.stringify(l.duration_sum) %>;
+</script>
+
+<script src="./graphic.js"></script>
+<!-- </div> -->
+<%= await t.include("lib/_foot.html") %>
