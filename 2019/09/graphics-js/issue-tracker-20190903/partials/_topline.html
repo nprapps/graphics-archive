@@ -1,0 +1,23 @@
+<div class="topline">
+  <% stances.forEach(function(stance, i) { %>
+
+  <ul class="stance stance-<%= i %> <%= t.classify(stance) %>">
+    <li class="hdr-stance"><%= stance %></li>
+    <%
+      candidateData.forEach(function(candidate) {
+        if (isValidCandidate(candidate, issue, stance)) {
+    %>
+
+    <li>
+      <img src="https://apps.npr.org/dailygraphics/graphics/prez-candidates-jan-list-20190116/assets/<%= COPY.candidates_active[candidate.candidate].image %>" alt="">
+      <%= t.smarty(candidate.candidate) %>
+    </li>
+
+    <%
+        }
+      });
+    %>
+  </ul>
+
+  <% }); %>
+</div>

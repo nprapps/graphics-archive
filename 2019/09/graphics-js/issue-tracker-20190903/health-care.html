@@ -1,0 +1,164 @@
+<%
+  var thisIssue = "healthcare";
+  var thisIssueId = "health-care";
+
+  // FILTER FOR VALID ISSUES
+  var issueData = COPY[thisIssue + "_issues"].filter(function(issue) {
+    return issue.publish == true;
+  });
+
+  // FILTER FOR ACTIVE CANDIDATES
+  var candidateData = COPY[thisIssue + "_candidates"].filter(function(candidate) {
+    if (COPY.candidates_active[candidate.candidate]) {
+      return candidate;
+    }
+  });
+
+  // HELPER FUNCTION: DOES THIS CANDIDATE HAVE DATA FOR THIS CATEGORY?
+  var isValidCandidate = function(candidate, issue, stance) {
+    var isValid = false;
+
+    // if the active issue matches the issue in this row
+    // AND if the candidate's stance matches the stance we're looking at (equating blank with unclear)
+
+    if (candidate.issue == issue.id && (candidate.stance == stance || (stance == 'Unclear' && candidate.stance == '') || (stance == 'Unclear' && !candidate.stance))) {
+      isValid = true;
+    }
+
+    return isValid;
+  }
+%>
+
+<%= await t.include("./partials/_header.html") %>
+
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="<%= thisIssueId %>">
+
+  <%
+    issueData.forEach(function(issue) {
+      var stances = issue.stances.split(',');
+  %>
+
+  <section class="issue" id="<%= issue.id %>">
+    <div class="issue-title">
+      <h2><%= t.smarty(issue.title) %></h2>
+      <div class="issue-description">
+        <%= t.smarty(issue.description) %>
+      </div>
+    </div>
+
+    <div class="topline">
+      <% stances.forEach(function(stance, i) { %>
+
+      <ul class="stance stance-<%= i %> <%= t.classify(stance) %>">
+        <li class="hdr-stance"><%= stance %></li>
+        <%
+          candidateData.forEach(function(candidate) {
+            if (isValidCandidate(candidate, issue, stance)) {
+        %>
+
+        <li class="<%= t.classify(candidate.candidate) %> <% if (COPY.candidates_active[candidate.candidate].active) { %>active<% } else { %>inactive<% } %>">
+          <%= t.smarty(candidate.candidate) %>
+          <% if (candidate.new) { %><span class="flag"><%= candidate.new %></span><% } %>
+        </li>
+
+        <%
+            }
+          });
+        %>
+      </ul>
+
+      <% }); %>
+    </div>
+
+    <div class="detail" id="detail-<%= issue.id %>">
+      <table>
+        <caption><%= t.smarty(COPY.labels.hed_detail) %></caption>
+
+        <%
+          stances.forEach(function(stance, i) {
+
+            candidateData.forEach(function(candidate) {
+              if (isValidCandidate(candidate, issue, stance)) {
+        %>
+
+        <tr class="<%= t.classify(candidate.candidate) %> stance-<%= i %> <%= t.classify(stance) %> <% if (COPY.candidates_active[candidate.candidate].active) { %>active<% } else { %>inactive<% } %>">
+          <td class="stance"><%= stance %></td>
+          <td class="candidate">
+            <img src="https://apps.npr.org/dailygraphics/graphics/prez-candidates-jan-list-20190116/assets/<%= COPY.candidates_active[candidate.candidate].image %>" alt="">
+          </td>
+          <td class="details">
+            <strong>
+              <%= t.smarty(COPY.candidates_active[candidate.candidate].name) %>
+              <% if (candidate.new) { %><span class="flag"><%= candidate.new %></span><% } %>
+            </strong>
+            <% if (candidate.details) { %>
+              <p class="stance-detail">
+                <%= t.smarty(candidate.details) %>
+
+                <% if (candidate.source_link || candidate.source_label) { %>
+                  <span class="stance-source">
+
+                    <% if (candidate.source_label && candidate.source_link) { %>(Source: <a href="<%= candidate.source_link %>"><%= candidate.source_label %></a>)<% } %>
+
+                    <% if (!candidate.source_label && candidate.source_link) { %><a href="<%= candidate.source_link %>">
+                    (Source)</a><% } %>
+
+                    <% if (candidate.source_label && !candidate.source_link) { %>(Source: <%= candidate.source_label %>)<% } %>
+
+                  </span>
+                <% } %>
+              </p>
+            <% } %>
+          </td>
+        </tr>
+
+        <%
+              }
+            });
+          });
+        %>
+
+      </table>
+    </div>
+
+    <button data-more="<%= COPY.labels.toggle_more %>" data-less="<%= COPY.labels.toggle_less %>"><%= COPY.labels.toggle_more %></button>
+
+  </section>
+
+  <%
+    });
+  %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.photo_credit) { %>
+  <p>Photos: <%= COPY.labels.photo_credit %></p>
+  <% } %>
+
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+
+<%= await t.include("./partials/_footer.html") %>

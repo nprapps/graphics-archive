@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title><%= slug %></title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="robots" content="noindex" />
+    <base target="_blank">
+    <link rel="stylesheet" href="./graphic.css">
+    <script>window.GOOGLE_ANALYTICS_ID = "<%= config.analyticsID %>";</script>
+</head>
+<body>
+
+
+<!-- <% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+ -->
+<div id="" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+<div class='step-chart chart dem'>
+    <h1><%= COPY.labels['step-hed'] %></h1>
+    <div class="wrapper"></div>
+</div>
+</div>
+
+
+
+
+
+
+        <div class="footer footnotes">
+        <p>Note: <%= COPY.labels.footnote_step %></p>
+        </div>
+
+
+<script type="text/javascript">
+
+var CANDIDATES = <%= JSON.stringify(COPY.candidates) %>;
+var CANDIDATES_GROUPED = <%= JSON.stringify(COPY.candidates_grouped) %>;
+var DEM_DATES = <%= JSON.stringify(COPY.dem) %>;
+var DATA_DEM = <%= JSON.stringify(COPY.dem) %>;
+var HTMLFILE = 'step-chart';
+
+
+
+
+</script>
+
+
+
+    <script src="./graphic.js"></script>
+</body>
+</html>

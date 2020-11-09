@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title><%= slug %></title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="robots" content="noindex" />
+  <base target="_blank">
+  <link rel="stylesheet" href="./graphic.css">
+  <script>window.GOOGLE_ANALYTICS_ID = "<%= config.analyticsID %>";</script>
+</head>
+<body>
+
+
+<!-- <% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+-->
+
+
+<%
+var sortLast = function(a, b){
+  if (a.name > b.name)  return 1
+    return -1
+}
+
+COPY.candidates.sort(sortLast)
+
+%>
+
+<div class="detail dem">
+
+            <h1>Delegates Awarded, State By State</h1>
+            <table>
+                <thead>
+                    <th>State</th>
+                    <th class="total"><div><span>total</span></div></th>
+                    <th class="unassigned"><div><span>undecided</span></div></th>
+
+                        <%for (c in COPY.candidates) {%>
+                            <th class="total <%= COPY.candidates[c].name.toLowerCase() %>"><div><span><%= COPY.candidates[c].name %></span></div></th>
+                        <%}%>
+
+
+
+
+                </thead>
+                <tbody>
+
+                    <% var lastDate = "";
+                    var showDate = true;
+                    for (i in COPY.dem) {
+                        var thisState = COPY.dem[i]
+                        if (thisState.date == lastDate) {showDate = false;}
+                            else {showDate = true;}
+                        lastDate = thisState.date;
+                    %>
+
+
+                    <% if (showDate ==true) {%>
+                        <tr class='<%=thisState.usps%>-date date-row'>
+                            <td>
+                                <span class="date"><%=thisState.date%></span>
+                            </td>
+
+                            <td class="total"></td>
+                            <td class="unassigned"></td>
+                            <%for (c in COPY.candidates) {%>
+                                <td class="total <%= COPY.candidates[c].name.toLowerCase() %>"></td>
+                            <%}%>
+                        </tr>
+                    <% } %>
+
+
+                      <tr class="<%=thisState.usps%> showdate-<%= showDate %>">
+                        <td class="state">
+
+                            <% if (thisState.link != undefined) {%>
+
+                            <a href='<%= thisState.link %>'>
+                            <%}%>
+
+                            <span class="desktop"><%=thisState.state%></span>
+                            <span class="mobile"><%=thisState.state%></span>
+                            <% if (thisState.link != 'undefined') {%>
+                             </a>
+                            <%}%>
+                        </td>
+                        <td class="total">
+                        </td>
+                        <td class="unassigned">
+                        </td>
+
+                        <%for (c in COPY.candidates) {
+                        var dropoutText = 'false'
+                        if (COPY.candidates[c].dropoutdate.indexOf('2020') > -1) {
+                            dropoutText = 'true'
+                        }
+                            %>
+
+
+
+                            <td class="total <%= COPY.candidates[c].name.toLowerCase() + " " + dropoutText%>-dropout"></td>
+
+                        <%}%>
+
+
+
+
+
+                    </tr>
+
+                    <%}%>
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+
+
+
+    <% if (COPY.labels.footnote) { %>
+    <div class="footnotes">
+      <p><%= COPY.labels.footnote %></p>
+    </div>
+    <% } %>
+
+    <div class="footer">
+      <p>*Postponed from original dates due to coronavirus concerns</p>
+      <p>Source: AP estimates, Democratic National Committee</p>
+    </div>
+
+    <script type="text/javascript">
+
+      var CANDIDATES = <%= JSON.stringify(COPY.candidates) %>;
+      var CANDIDATES_GROUPED = <%= JSON.stringify(COPY.candidates_grouped) %>;
+      var DEM_DATES = <%= JSON.stringify(COPY.dem) %>;
+      var DATA_DEM = <%= JSON.stringify(COPY.dem) %>;
+      var HTMLFILE = 'cand-table';
+
+    </script>
+
+    <script src="./graphic.js"></script>
+  </body>
+  </html>

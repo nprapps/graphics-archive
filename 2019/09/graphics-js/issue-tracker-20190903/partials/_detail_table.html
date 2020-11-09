@@ -1,0 +1,49 @@
+<div class="detail" id="detail-<%= issue.id %>">
+  <table>
+    <caption><%= t.smarty(COPY.labels.hed_detail) %></caption>
+
+    <%
+      stances.forEach(function(stance, i) {
+
+        candidateData.forEach(function(candidate) {
+          if (isValidCandidate(candidate, issue, stance)) {
+    %>
+
+    <tr class="<%= t.classify(candidate.candidate) %> stance-<%= i %> <%= t.classify(stance) %>">
+      <td class="stance"><%= stance %></td>
+      <td class="candidate">
+        <img src="https://apps.npr.org/dailygraphics/graphics/prez-candidates-jan-list-20190116/assets/<%= COPY.candidates_active[candidate.candidate].image %>" alt="">
+      </td>
+      <td class="details">
+        <strong><%= t.smarty(COPY.candidates_active[candidate.candidate].name) %></strong>
+        <% if (candidate.details) { %>
+          <p class="stance-detail">
+            <%= t.smarty(candidate.details) %>
+
+            <% if (candidate.source_link || candidate.source_label) { %>
+              <span class="stance-source">
+
+                <% if (candidate.source_label && candidate.source_link) { %>(Source: <a href="<%= candidate.source_link %>"><%= candidate.source_label %></a>)<% } %>
+
+                <% if (!candidate.source_label && candidate.source_link) { %><a href="<%= candidate.source_link %>">
+                (Source)</a><% } %>
+
+                <% if (candidate.source_label && !candidate.source_link) { %>(Source: <%= candidate.source_label %>)<% } %>
+
+              </span>
+            <% } %>
+          </p>
+        <% } %>
+      </td>
+    </tr>
+
+    <%
+          }
+        });
+      });
+    %>
+
+  </table>
+</div>
+
+<button data-more="<%= COPY.labels.toggle_more %>" data-less="<%= COPY.labels.toggle_less %>"><%= COPY.labels.toggle_more %></button>

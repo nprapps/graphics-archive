@@ -1,0 +1,131 @@
+<!-- <% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+ -->
+<div id="" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+</div>
+
+
+
+
+
+    <div id="" class="graphic">
+        <div class="chart dem">
+            <h3>Total Delegates Awarded</h3>
+            <div class="wrapper"></div>
+        </div>
+        <div class='step-chart chart dem'>
+            <h3><%= COPY.labels.step-hed %></h3>
+            <div class="wrapper"></div>
+        </div>
+        <div class="detail dem">
+            <h3>Delegates Awarded, State By State</h3>
+            <table>
+                <thead>
+                    <th>State</th>
+                    <th class="total total"><div><span>total</span></div></th>
+
+                        <%for (c in COPY.candidates) {%>
+	                        <th class="total <%= COPY.candidates[c].name.toLowerCase() %>"><div><span><%= COPY.candidates[c].name %></span></div></th>
+                    	<%}%>
+
+
+
+
+                </thead>
+                <tbody>
+
+                	<% var lastDate = "";
+                	var showDate = true;
+                	for (i in COPY.dem) {
+                		var thisState = COPY.dem[i]
+                		if (thisState.date == lastDate) {showDate = false;}
+                			else {showDate = true;}
+                		lastDate = thisState.date;
+                	%>
+
+
+                    <% if (showDate ==true) {%>
+	                    <tr class='<%=thisState.usps%>-date date-row'>
+	                    	<td>
+	                    		<span class="date"><%=thisState.date%></span>
+	                    	</td>
+
+	                        <td class="unassigned total"></td>
+	                        <%for (c in COPY.candidates) {%>
+	                            <td class="total <%= COPY.candidates[c].name.toLowerCase() %>"></td>
+	                        <%}%>
+	                    </tr>
+                    <% } %>
+
+
+                	  <tr class="<%=thisState.usps%> showdate-<%= showDate %>">
+                        <td class="state">
+
+                            <span class="desktop"><%=thisState.state%></span>
+                            <span class="mobile"><%=thisState.state%></span>
+                        </td>
+                        <td class="unassigned total">
+                        </td>
+
+                        <%for (c in COPY.candidates) {%>
+
+
+                            <td class="total <%= COPY.candidates[c].name.toLowerCase() + " " +COPY.candidates[c].dropout %>-dropout"></td>
+
+                        <%}%>
+
+
+
+
+
+                    </tr>
+
+                    <%}%>
+
+
+
+
+                </tbody>
+            </dtable>
+        </div>
+
+
+    </div>
+
+
+    <div class="footnotes">
+        <h4>Notes</h4>
+
+    </div>
+
+
+    <div class="footer">
+        <p>Source: AP estimates, Democratic National Committee</p>
+
+    </div>
+
+
+
+
+
+<script type="text/javascript">
+
+
+var CANDIDATES = <%= JSON.stringify(COPY.candidates) %>;
+var CANDIDATES_GROUPED = = <%= JSON.stringify(COPY.candidates_grouped) %>;
+var DEM_DATES = <%= JSON.stringify(COPY.dem) %>;
+var DATA_DEM = <%= JSON.stringify(COPY.dem) %>;
+
+
+
+
+</script>
