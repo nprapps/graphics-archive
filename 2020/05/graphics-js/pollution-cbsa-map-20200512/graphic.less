@@ -1,0 +1,225 @@
+@import "./lib/base";
+
+// @COLOR_LOW: #FFDFAD;
+// @COLOR_HIGH: #F8A25B;
+
+.key, .head {
+  .mmedia-constrained-centered();
+}
+
+.footnotes, .footer {
+  .mmedia-constrained(); 
+}
+
+#graphic {
+  max-width: 1000px;
+  margin: 0 auto;
+  z-index: -1;
+}
+
+// .key {
+//   margin: 0;
+// }
+
+
+// .key-item b {
+//   &.key0 {background-color: @COLOR_LOW; border:1px solid @COLOR_HIGH;}
+// }
+
+.key-wrap {
+    .key {
+      margin: 0 0 18px 0;
+      padding: 0;
+      list-style-type: none;
+
+      .key-item {
+        display: inline-block;
+        margin: 0 18px 0 0;
+        padding: 0;
+        line-height: 15px;
+      }
+      .key-item b {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        margin-right: 6px;
+        float: left;
+      }
+      .key-item label {
+        white-space: nowrap;
+        font-size: 12px;
+        color: #666;
+        font-weight: normal;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
+
+    // Numeric scale style
+    &.numeric-scale {
+      width: 100%;
+      text-align: center;
+
+      h3 {
+        margin-bottom: 5px;
+      }
+
+      .key {
+        .key-item {
+          margin: 0 1px 0 0;
+          position: relative;
+        }
+
+        .detail {
+          position: relative;
+          margin: 0 auto;
+          
+          width:1px;
+
+          .pointer {
+            width: 1px;
+            height: 35px;
+            background-color: black;
+            position: absolute;
+            top: 5px;
+
+          }
+
+          .inner {
+            position: absolute;
+            width: 150px;            
+            text-align: center;
+            top: 35px;
+            // left: -10px;
+            right: -75px;
+            font-size: 12px;
+            font-weight: normal;
+            color: #777;
+            font-style: italic;
+            // margin: -22px 0 22px 0;
+            // line-height: 1.6;
+          }
+          
+
+          &.p1 {
+            .pointer {
+              left: 5px;
+            }
+          }
+
+          @media screen and (max-width: 500px) {
+            .inner {
+              font-size: 11px;
+              width: 130px;
+            }
+
+            &.p1 .inner {
+              text-align: right;
+              right: 0px;
+              top: 30px;              
+            }
+            &.p2 .inner {
+              right: -65px;
+            }
+          }
+        }
+
+        @media screen and (max-width: 500px) {
+          margin-bottom: 60px;
+        }
+
+        .key-item b {
+          
+          width: 55px;
+          height: 10px;
+          margin-right: 0;
+
+          @media screen and (max-width: 500px) {
+            width: 35px;
+          }          
+        }
+
+        .key-item:last-child b, .key-item:first-child b {
+          width: 95px;
+
+          @media screen and (max-width: 500px) {
+            width: 55px;
+          }
+        }
+
+        .key-item:last-child  {
+          label {
+            left: -25%;
+          }
+        } 
+
+        .key-item label {
+          position: absolute;
+          bottom: -20px;
+          left: -41%;
+          text-align: center;
+          width: 45px;
+
+          &.end-label {
+            left: auto;
+            right: -35%;
+
+            @media screen and (max-width: 500px) {
+              right: -50%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+.g-labels p, .g-sticky_labels p {
+	.gotham() !important;
+
+  color: #333333 !important;
+  font-weight: bold !important;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 2px 2px 2px #fff, 2px 2px 2px #fff, -2px -2px 5px #fff;
+
+  span {
+  	font-weight: normal;
+  }
+  // text-shadow: 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 5px #fff;
+}
+
+.pittsburgh {
+  text-align: right;
+}
+
+.g-sticky_labels {
+  h3 {
+    margin-bottom: 0px;
+    text-shadow: 2px 2px 2px #fff, 2px 2px 2px #fff, -2px -2px 5px #fff;
+  }
+
+  .label {
+    margin-top: -2px;
+  } 
+
+  p, h3 {
+    // text-shadow: 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 5px #fff
+  }
+}
+ 
+
+// ai2html artboard sizes
+@media screen and (min-width: 730px) {
+}
+
+@media screen and (max-width: 500px) {
+  .g-labels p, .g-sticky_labels p {
+    font-size: 12px !important;
+    line-height: 14px !important;
+  }
+
+  .g-labels p {
+    display: none;
+  }
+
+}
+
+// Add custom styles here

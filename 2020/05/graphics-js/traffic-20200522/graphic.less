@@ -1,0 +1,47 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+#axis-label {
+  font-style: italic;
+  font-weight: bold;
+  fill: #666;
+}
+
+.median-line {
+  stroke-width: 2px;
+  stroke: #aaa;
+  stroke-dasharray: 2;
+
+  @media @screen-mobile {
+    stroke-width: 1px;
+  }
+}
+
+.anno {
+  font-size: 12px;
+    font-style: italic;
+    fill: #999;
+}

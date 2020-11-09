@@ -1,0 +1,103 @@
+<div class="mmedia-constrained center">
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+</div>
+
+<div id="chart" class="graphic" role="img" aria-label="<%- COPY.labels.screenreader %>">
+  <div class="gating outer">
+    <h1><%= COPY.labels.hdr_gating %></h1>
+    <div class="gating">
+      <div class="inner"><%= COPY.labels.gating_one %></div>
+    </div>
+    <div class="gating">
+      <div class="inner"><%= COPY.labels.gating_two %></div>
+    </div>
+  </div>
+
+  <div class="line"></div>
+  <div class="gating note">
+    <span class="note-inner"><%= COPY.labels.gating_note %></span>
+  </div>
+  <div class="line"></div>
+  <div class="phase-1 outer">
+    <h1><%= COPY.labels.phase_one %></h1>
+    <div class="list-outer">
+      <h1><%= COPY.labels.individuals %></h1>
+      <ul class="list-inner">
+        <% COPY.p1_i.forEach(function(bullet) { %>
+          <li class="bullet"><%= bullet.individuals %></li>
+        <% }) %>
+      </ul>
+    </div>
+    <div class="list-outer">
+      <h1><%= COPY.labels.employers %></h1>
+      <ul class="list-inner">
+        <% COPY.p1_e.forEach(function(bullet) { %>
+          <li class="bullet"><%= bullet.employers %></li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+  <div class="line"></div>
+  <div class="phase-2 outer">
+    <h1><%= COPY.labels.phase_two %></h1>
+    <div class="list-outer">
+      <h1><%= COPY.labels.individuals %></h1>
+      <ul class="list-inner">
+        <% COPY.p2_i.forEach(function(bullet) { %>
+          <li class="bullet"><%= bullet.individuals %></li>
+        <% }) %>
+      </ul>
+    </div>
+    <div class="list-outer">
+      <h1><%= COPY.labels.employers %></h1>
+      <ul class="list-inner">
+        <% COPY.p2_e.forEach(function(bullet) { %>
+          <li class="bullet"><%= bullet.employers %></li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+  <div class="line"></div>
+  <div class="phase-3 outer">
+    <h1><%= COPY.labels.phase_three %></h1>
+    <div class="list-outer">
+      <h1><%= COPY.labels.individuals %></h1>
+      <ul class="list-inner">
+        <% COPY.p3_i.forEach(function(bullet) { %>
+          <li class="bullet"><%= bullet.individuals %></li>
+        <% }) %>
+      </ul>
+    </div>
+    <div class="list-outer">
+      <h1><%= COPY.labels.employers %></h1>
+      <ul class="list-inner">
+        <% COPY.p3_e.forEach(function(bullet) { %>
+          <li class="bullet"><%= bullet.employers %></li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer mmedia-constrained">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

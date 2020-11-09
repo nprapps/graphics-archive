@@ -1,0 +1,59 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.annotations .dots {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.annotations text {
+    font-size: 12px;
+    fill: #999;
+}
+
+.emergency-line {
+  stroke-width: 2px;
+  stroke: #aaa;
+  stroke-dasharray: 2;
+
+  @media @screen-mobile {
+    stroke-width: 1px;
+  }
+}
+
+.emergency-label, .emergency-label-us {
+  fill: #999;
+  font-size: 12px;
+  letter-spacing: .3px;
+  @media screen and (max-width: 500px) {
+    font-size: 10px;
+  }
+}
+
+.emergency-label-us { font-style: italic; }
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+  .annotations text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    // display: none;
+  }
+}

@@ -1,0 +1,42 @@
+body#models {
+  h1, h2 {
+    .mmedia-constrained-centered();
+  }
+  .footer,
+  .footnotes {
+    .mmedia-constrained();
+  }
+
+  rect.highlight {
+    fill: #f1f1f1;
+  }
+
+  .bars rect {
+    &.model { fill: @blue2; }
+    &.actual { fill: @blue4; }
+  }
+
+  .labels .actual {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .value text.out {
+    fill: #666;
+
+    &.actual {
+      fill: #333;
+      font-weight: bold;
+    }
+  }
+
+  .value text.in {
+    text-anchor: end;
+  }
+
+  @media @screen-mobile {
+    .chart + .chart {
+      margin-top: 15px;
+    }
+  }
+}

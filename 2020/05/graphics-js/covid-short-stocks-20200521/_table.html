@@ -1,0 +1,65 @@
+<%
+  var sectors = COPY.data.map(o => o['sector']); // equivalent of underscore _.pluck
+  sectors = Array.from(new Set(sectors)); // dedupe / _.uniq
+
+  var shadeBG = function(val) {
+    var max = 315000;
+    // var rgb = "23,128,126"; // teal
+    var rgb = "227,141,44"; // orange
+    var alpha = Math.round((val/max) * 100) / 100;
+    var textColor = alpha > .5 ? "#FFF" : "#454545";
+    return `background: rgba(${ rgb }, ${ alpha }); color: ${ textColor }`;
+  }
+%>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+
+  <% sectors.forEach(function(sector) { %>
+    <table id="state-table" role="table">
+      <caption><%= sector %></caption>
+
+      <%
+        COPY.data.forEach(function(row) {
+          if (row.sector == sector && row.display == true) {
+      %>
+      <tr class="state-<%= t.classify(row.label_display) %>" role="row">
+        <td role="cell" data-title="<%= COPY.labels.hed_name %>" class="name"><%= row.label_display %><% if (row.footnote == true) { %>*<% } %></td>
+        <td role="cell" data-title="<%= COPY.labels.hed_desc %>" class="desc"><%= t.smarty(row.desc) %></td>
+        <td role="cell" data-title="<%= COPY.labels.hed_amt %>" class="amt" style="<%= shadeBG(row.max) %>"><%= row.min_display %>-<%= row.max_display %></td>
+      </tr>
+    <%
+        }
+      });
+    %>
+
+    </table>
+  <% }) %>
+
+</div>
+
+<button data-more="<%= COPY.labels.toggle_more %>" data-less="<%= COPY.labels.toggle_less %>"><%= COPY.labels.toggle_more %></button>
+
+<% if (COPY.labels.footnote_table) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote_table %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

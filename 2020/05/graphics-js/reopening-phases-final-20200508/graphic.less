@@ -1,0 +1,83 @@
+@import "./lib/base";
+
+h1, h2 {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+h1 { margin-bottom: 33px; }
+h2 { margin-bottom: 22px; margin-top: -22px; }
+
+.footer { max-width: 500px; margin: 0 auto; }
+
+// .graphic { max-width: 600px; margin: 0 auto; }
+
+.graphic h1 {
+  margin-bottom: 11px;
+  margin-top: 11px;
+  .knockout-header();
+}
+
+.gating { text-align: center; max-width: 500px; margin: 0 auto; }
+
+.outer {
+  background-color: @orange6;
+  border: 2px solid @orange3;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.gating-1, .gating-2 {
+	padding: 10px 5px 10px 10px;
+	margin: 0px 5px 12px 5px;
+}
+
+.inner {
+  color: white;
+  background-color: @orange3;
+  .gotham();
+	font-size: 12px;
+  max-width: 90%;
+  margin: 0 auto;
+	padding: 10px 5px 10px 10px;
+	margin-bottom: 22px;
+}
+
+.line {
+  border-left: 2px solid #ccc;
+	height: 30px;
+  margin-left: 50%;
+  top: 0;
+}
+
+.gating.note {
+  padding: 15px 0px 15px 0px;
+
+  .note-inner {
+    .gotham();
+  	font-size: 12px;
+    color: #777777;
+  }
+}
+
+.list-outer {
+  h1 {
+    color: white;
+    padding: 11px 0px 0px 0px;
+  }
+
+  li { margin: 10px 0; }
+  color: white;
+  .gotham();
+  font-size: 12px;
+  background: @orange3;
+  max-width: 90%;
+  margin: 0 auto;
+  ul { padding: 0px 23px 11px 40px; }
+  margin-bottom: 22px;
+}
+
+// @media @screen-mobile {
+//   .footer { margin-left: 0%; }
+// }

@@ -1,0 +1,153 @@
+@import "./lib/base";
+
+h1,h2, .footer, .footnotes, h3, .graphic-wrapper:not(.graphic-wrapper-all) {
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+
+.projection {
+  stroke: @orange3;
+  opacity: .4;
+} 
+
+.covid-forecast-hub-ensemble {
+  stroke: @teal3;
+  opacity: 1;
+}
+
+.date-button {
+  color: #888;
+  white-space: nowrap;
+}
+
+.active-date {
+  font-weight: bold;
+  color: black;
+}
+
+.proj-date {
+  text-align: center;
+  background: #E8E8E8;
+  padding: 12px;
+  span {
+    margin-right: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+    display: inline-block;
+  }
+}
+
+.as-of-text {
+  margin-bottom: 9px;
+}
+
+.animate {
+  margin-top: 13px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  color:white;
+  span {
+    padding: 3px 6px 3px 6px;
+    border-radius: 4px;
+    span {
+      font-weight: bold;
+      padding: 0px;
+    }
+  }
+  .on {
+    background: @teal5;
+  }
+  .off {
+    background: @red4;
+  }
+}
+
+.proj-date span:last-of-type {
+  margin-right: 0px;
+}
+
+
+
+
+.proj-date .control {
+  border: solid #999;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  &.fwd-control {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  &.back-control {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+}
+
+.month-shade {
+  fill: white;
+}
+
+.month-shade-dark {
+  fill: #F8F8F8  ;
+}
+
+.month-name {
+  .gotham();
+  text-anchor: middle;
+  font-size: 12px;
+}
+
+#line-chart {
+  text-align: center;
+}
+
+.line-chart-sm {
+  width: 48%;
+  min-width: 150px;
+  display: inline-block;
+}
+
+.model-title {
+  margin-top: 15px;
+}
+
+.key {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 8px;
+  .model-projection b {
+    opacity: .6
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+/*@media screen and (min-width: 500px) {*/
+  /*.key {*/
+    /*display: none;*/
+  /*}*/
+/*}*/

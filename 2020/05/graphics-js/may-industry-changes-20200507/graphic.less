@@ -1,0 +1,119 @@
+@import "./lib/base";
+
+
+h1, h2, .footer {
+  .mmedia-constrained()
+}
+
+h1,h2 {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+
+.graphic.index {
+  width:24%;
+  display: inline-block;
+  /*max-width: 330px;*/
+  min-width: 300px;
+}
+
+.lines path {
+  fill: none;
+  stroke-width: .5px;
+  stroke: #ccc;
+  opacity: .35
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.endlabel.hidden {
+  display: none;
+}
+
+.lines path {
+  stroke: @red3;
+  /*.goods {
+    stroke: @orange3;
+  }
+  .services {
+    stroke: @red3;
+  }  
+  .government {
+    stroke: @yellow3;
+  }*/
+}
+
+
+.goods b {
+  background: @orange3;
+}
+.services b {
+  background: @red3;
+}  
+.government b {
+  background: @yellow3;
+}
+
+.lines path.active {
+  stroke-width: 3px;
+  opacity: 1;
+}
+
+.endlabel.active {
+  display: block;
+  fill: #222;
+  stroke: #fff;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-opacity: 0.7;
+  paint-order: stroke fill;
+}
+
+
+select {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 400px;
+  font-size: 14px;
+  margin-top: 35px;
+  text-align: center;
+}
+
+
+.key {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.key-item {
+  .knockout-header();
+  font-size: 14px;
+}
+
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 11px;
+  }
+  .graphic.index {
+    width: 100%;
+    display: block;
+  }
+}
+/*
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}*/

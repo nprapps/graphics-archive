@@ -1,0 +1,108 @@
+body#historic-payroll {
+  h1, h2 {
+    .mmedia-constrained-centered();
+  }
+  .footer,
+  .footnotes {
+    .mmedia-constrained();
+  }
+
+  h2 { margin-bottom: 11px; }
+
+  .chart { margin-bottom: 11px; }
+
+  .recession { fill: #ebebeb; }
+
+  .chart-label {
+    fill: #666;
+    font-style: italic;
+    font-size: 12px;
+    text-anchor: middle;
+    letter-spacing: .3px;
+    stroke: #fff;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-opacity: 0.7;
+    paint-order: stroke fill;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .annotations text,
+  .value text {
+    fill: #454545;
+    stroke: #fff;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-opacity: 0.7;
+    paint-order: stroke fill;
+    font-size: 11px;
+    -webkit-font-smoothing: antialiased;
+
+    &:last-child {
+      font-weight: bold;
+      fill: @red3;
+      font-size: 12px;
+    }
+
+    @media @screen-mobile {
+      font-size: 10px;
+
+      &:last-child {
+        font-size: 11px;
+      }
+    }
+  }
+
+  circle {
+    &.negative { fill: @red3; }
+    &.positive { fill: #454545; }
+  }
+
+  .lines path {
+    stroke-width: 1px;
+  }
+
+  .area {
+    stroke-width: 1px;
+    @media @screen-mobile-above {
+      stroke-width: 0;
+    }
+
+    // fill-opacity: 0.7;
+    paint-order: stroke fill;
+
+    &.below {
+      fill: @red3;
+      stroke: @red3;
+    }
+    &.above {
+      fill: #333;
+      stroke: #333;
+    }
+  }
+
+  #annotated-line-chart {
+    .annotations .dots {
+      stroke: #fff;
+      stroke-width: 1px;
+    }
+
+    .lines {
+      fill: none;
+      stroke-width: 2px;
+      stroke-linejoin: bevel;
+    }
+  }
+
+  #column-chart {
+    .bars rect {
+      fill: #333;
+      fill-opacity: 0.7;
+
+      &.negative { fill: @red3; }
+      &.preliminary { opacity: 0.7; }
+    }
+  }
+}

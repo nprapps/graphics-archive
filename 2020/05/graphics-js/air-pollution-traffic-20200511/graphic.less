@@ -1,0 +1,59 @@
+@import "./lib/base";
+
+body {
+  max-width: 730px;
+  margin: auto;
+}
+
+.hed, .subhed, .line-chart, .footer, .footnotes {
+  .mmedia-constrained();
+}
+
+.car-label {
+  color: white;
+  background-color: #17807E;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+.truck-label {
+  color: white;
+  background-color: #E38D2C;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.shelter { fill: #ebebeb; }
+
+.chart-label {
+    fill: #999;
+    font-style: italic;
+    font-size: 12px;
+    text-anchor: middle;
+    letter-spacing: .3px;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+/*@media screen and (min-width: 500px) {*/
+  .key {
+    display: none;
+  }
+/*}*/

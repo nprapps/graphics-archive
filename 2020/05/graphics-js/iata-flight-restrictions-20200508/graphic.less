@@ -1,0 +1,76 @@
+@import "./lib/base";
+
+h1 {
+  margin-bottom: 15px;
+
+  @media @screen-mobile-above {
+    text-align: center;
+  }
+}
+
+ul.key {
+  display: block;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 15px;
+
+  @media @screen-mobile-above {
+    text-align: center;
+  }
+
+  li {
+    display: inline-block;
+    padding: 0 8px;
+  }
+
+  i.block {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .key-item label {
+    white-space: normal;
+  }
+}
+
+path {
+  stroke: white;
+  stroke-width: .5px;
+}
+
+.category(@tag, @color) {
+  [data-category="@{tag}"] {
+    fill: @color;
+    background: @color;
+  }
+}
+
+// orginal palette
+// @suspended: #db4325;
+// @countries: lighten(#eda14f, 10%);
+// @nationals: mix(@suspended, @countries, 50%);
+// @open: @teal5;
+// @none: @teal3;
+
+// school money palette
+// @suspended: #d8432e;
+// @nationals: #ed9d5e;
+// @countries: #e8e2bf;
+// @open: #61c3b0;
+// @none: #116264;
+
+// via https://gka.github.io/palettes/#/5|d|df6222,ed9d5e,ebe3a7|a7eecd,277273|1|1
+@suspended: #df6222;
+@nationals: #e69a59;
+@countries: #ebe3a7;
+@open: #69ae9f;
+@none: #277273;
+
+.category(none, @none);
+.category(flights_suspended, @suspended);
+.category(nationals_only, @nationals);
+.category(countries, @countries);
+.category(open, @open);
+.category(no_data, #CCC);

@@ -1,0 +1,239 @@
+<%
+  var stateData = COPY.data.filter(function(d) {
+    return d.territory == false;
+  });
+
+  // format bars
+  var sizeBar = function(val, maxVal) {
+    var barWidth = (val / maxVal) * 100;
+    return barWidth;
+  }
+
+  // position the marker
+  var positionMarker = function(val, maxVal) {
+    var pos = (val / maxVal) * 100;
+    return pos;
+  }
+
+  // position the value
+  var positionValue = function(val, maxVal) {
+    var pos = (val / maxVal) * 100;
+    var posDisplay = pos.toFixed(3) + "%";
+    var posAlign = "left";
+    var align = "left";
+
+    if (pos > 90) {
+      posAlign = "right";
+      align = "right";
+      posDisplay = "12px";
+    }
+
+    return `${ posAlign }: ${ posDisplay }; text-align: ${ align }`;
+  }
+
+  // format positive tests
+  var getPctPositive = function(val) {
+    var pct_display = null;
+    var pct_positive = (Number(val) * 100).toFixed(1);
+    if (isNaN(Number(val))) {
+      pct_display = "n/a";
+    } else {
+      pct_display = pct_positive + "%";
+    }
+    return pct_display;
+  }
+%>
+
+<%= await t.include("./partials/_header.html", { "slug": slug, "config": config, "id": "table" }) %>
+
+<header>
+  <% if (COPY.labels.headline) { %>
+  <h1><%= t.smarty(COPY.labels.headline) %></h1>
+  <% } %>
+
+  <% if (COPY.labels.subhed) { %>
+  <h2><%= t.smarty(COPY.labels.subhed) %></h2>
+  <% } %>
+</header>
+
+<div class="graphic" id="state-spotlight">
+
+  <div class="state-select">
+    <label for="state-picker">Select a location:</label>
+    <select id="state-picker">
+      <option value="">Select one...</option>
+      <% stateData.forEach(function(st) { %>
+        <option value="<%= t.classify(st.usps) %>" <% if (st.usps == "NJ") { %>selected<% } %>><%= st.name %></option>
+      <% }); %>
+    </select>
+  </div>
+
+  <% stateData.forEach(function(st) { %>
+  <div class="state-desc <%= t.classify(st.usps) %> <% if (st.usps == "NJ") { %>active <% } %>">
+    <%
+      // define severity of rate
+      var labelDeaths = "";
+      if (st.deaths_per_100k > 60) {
+        labelDeaths = "severe";
+      } else if (st.deaths_per_100k > 25 && st.deaths_per_100k <= 60) {
+        labelDeaths = "moderate";
+      } else {
+        labelDeaths = "mild";
+      }
+
+      // define if it meets testing targets
+      var testDiff = st.target - st.tests_day;
+      if (st.tests_day_per_100k < (st.target_per_100k * .5) && Math.abs(testDiff) > 1000) {
+        var labelTesting = "far fewer than";
+      } else if (st.tests_day_per_100k < st.target_per_100k && Math.abs(testDiff) < 500) {
+        var labelTesting = "close to";
+      } else if (st.tests_day_per_100k < st.target_per_100k) {
+        var labelTesting = "fewer than";
+      } else if (st.tests_day_per_100k > st.target_per_100k) {
+        var labelTesting = "more than"
+      } else {
+        var labelTesting = "meeting";
+      }
+
+      // define if it meets positivity targets
+      if (st.pct_positive_tests_day <= .1) {
+        var labelPositive = "meets";
+      } else {
+        var labelPositive = "exceeds";
+      }
+    %>
+
+    <p><strong>Outbreak:</strong> In <% if (st.usps == "DC") { %>the <% } %><%= st.name %>, the COVID-19 outbreak has been <strong><%= labelDeaths %></strong> relative to <% if (st.usps == "DC") { %>the district's <% } else { %>the state's<% } %> population size.</p>
+    <p><strong>Testing vs. Target:</strong> <% if (st.usps == "DC") { %>The <% } %><%= st.name %> currently averages <span class="testing"><%= t.comma(st.tests_day) %> tests per day</span> &mdash; <strong><%= labelTesting %></strong> the estimated minimum needed by May 15.</p>
+    <p><strong>Positive Test Ratio:</strong> In the past week, <span class="positive"><%= getPctPositive(st.pct_positive_tests_day) %> of tests have come back positive.</span> This <strong><%= labelPositive %> the recommended rate</strong> of 10% or lower.</p>
+
+    <table>
+      <tr>
+        <th></th>
+        <th class="amt"><%= COPY.labels.hdr_numbers_actual %></th>
+        <th class="amt"><%= COPY.labels.hdr_numbers_adjusted %></th>
+      </tr>
+      <tr class="deaths">
+        <td>COVID-19 deaths</td>
+        <td class="amt"><%= t.comma(st.deaths) %> deaths</td>
+        <td class="amt"><%= t.comma(st.deaths_per_100k) %> per 100K</td>
+      </tr>
+      <tr class="testing">
+        <td>Daily testing (7-day average)<br /><em>April 30-May 6</em></td>
+        <td class="amt"><%= t.comma(st.tests_day) %> tests</td>
+        <td class="amt"><%= t.comma(st.tests_day_per_100k) %> per 100K</td>
+      </tr>
+      <tr class="testing-target">
+        <td>Minimum daily testing needed by May 15</td>
+        <td class="amt"><%= t.comma(st.target) %> tests</td>
+        <td class="amt"><%= t.comma(st.target_per_100k) %> per 100K</td>
+      </tr>
+    </table>
+
+  </div>
+  <% }); %>
+</div>
+
+<div class="graphic" id="table-graphic">
+  <header>
+    <h2>See How All The States Are Doing</h2>
+    <p><em>To sort the table, click or tap the column headers.</em></p>
+
+    <div class="key-wrapper">
+      <%
+        [ 'testing', 'positive' ].forEach((keyGroup, i) => {
+          var keyData = COPY.legend.filter(function(k) {
+            return k.group == keyGroup;
+          });
+      %>
+        <ul class="key">
+          <% keyData.forEach(function(keyItem) { %>
+            <li class="key-item <%= keyItem.short %>"><b></b><label><%= keyItem.label %></li>
+          <% }); %>
+        </ul>
+      <% }); %>
+    </div>
+  </header>
+
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_state %></div>
+        </th>
+        <th class="amt deaths" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_cases_overall %> <span class="more"><%= COPY.labels.hdr_deaths %></span></div>
+        </th>
+        <th class="amt tests" role="columnheader" data-sort-default>
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_tests %> <span class="more"><%= COPY.labels.hdr_tests_recommended %></span></div>
+        </th>
+        <th class="amt positive" role="columnheader" data-sort-method="number">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_positive %> <span class="more"><%= COPY.labels.hdr_positive_recommended %></span></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% stateData.forEach(function(row) { %>
+    <tr class="state <%= t.classify(row.usps) %> <% if (row.usps == "NJ") { %>active<% } %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_state %>" class="state">
+        <span class="desktop"><%= row.name %></span>
+        <span class="mobile"><%= t.ap_state(row.usps) %></span>
+      </td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_deaths %>" class="amt deaths">
+        <div class="bar-wrapper">
+          <span class="bar" aria-hidden="true" style="width: <%= sizeBar(row.deaths_per_100k, COPY.labels.max_deaths) %>%"></span>
+        </div>
+        <span class="value" style="<%= positionValue(row.deaths_per_100k, COPY.labels.max_deaths) %>"><%= t.comma(row.deaths_per_100k) %></span>
+      </td>
+      <td role="cell" data-sort="<%= row.target_per_100k %>" data-title="<%= COPY.labels.hdr_tests %>" class="amt tests">
+        <div class="bar-wrapper">
+          <span class="bar gap" aria-hidden="true" style="width: <%= sizeBar(row.target_per_100k, COPY.labels.max_tests) %>%"></span>
+          <span class="bar" aria-hidden="true" style="width: <%= sizeBar(row.tests_day_per_100k, COPY.labels.max_tests) %>%"></span>
+          <span class="marker" aria-hidden="true" style="left: <%= positionMarker(row.target_per_100k, COPY.labels.max_tests) %>%"></span>
+        </div>
+        <% [ "value shadow", "value" ].forEach(function(cls) { %>
+          <span class="<%= cls %>" style="<%= positionValue(row.tests_day_per_100k, COPY.labels.max_tests) %>"><%= t.comma(row.tests_day_per_100k) %></span>
+        <% }); %>
+      </td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_positive %>" class="amt positive">
+        <div class="bar-wrapper">
+          <%
+            var positiveDiff = row.pct_positive_tests_day - COPY.labels.recommended_positive;
+          %>
+          <span class="bar" aria-hidden="true" style="width: <%= sizeBar(row.pct_positive_tests_day, COPY.labels.max_positive) %>%"></span>
+          <% if (positiveDiff > 0) { %>
+          <span class="bar gap" aria-hidden="true" style="left: <%= positionMarker(COPY.labels.recommended_positive, COPY.labels.max_positive) %>%; width: <%= sizeBar(positiveDiff, COPY.labels.max_positive) %>%"></span>
+          <% } %>
+          <span class="marker" aria-hidden="true" style="left: <%= positionMarker(COPY.labels.recommended_positive, COPY.labels.max_positive) %>%"></span>
+        </div>
+        <% [ "value shadow", "value" ].forEach(function(cls) { %>
+          <span class="<%= cls %>" style="<%= positionValue(row.pct_positive_tests_day, COPY.labels.max_positive) %>"><%= getPctPositive(row.pct_positive_tests_day) %></span>
+        <% }); %>
+      </td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <p><strong>Notes:</strong> <%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<%= await t.include("./partials/_footer.html") %>

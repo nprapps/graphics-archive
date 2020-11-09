@@ -1,0 +1,50 @@
+body#us {
+  h1 {
+    margin-bottom: 22px;
+  }
+
+  .lines {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+  }
+
+  .area path {
+    stroke: none;
+    fill-opacity: 0.6;
+    fill: @blue4;
+  }
+
+  .value text {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #666;
+  }
+
+  .annotation {
+    line {
+      stroke: @blue2;
+      stroke-width: 2px;
+      stroke-dasharray: 6px 2px;
+    }
+
+    text {
+      font-size: 12px;
+      font-weight: bold;
+      fill: @blue2;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .value text,
+    .annotation text {
+      font-size: 11px;
+    }
+  }
+
+  @media screen and (min-width: 500px) {
+    .key {
+      display: none;
+    }
+  }
+}

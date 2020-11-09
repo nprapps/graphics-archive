@@ -1,0 +1,319 @@
+@import "./lib/base";
+
+// Base table styles
+table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+
+  tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+  }
+
+  td { vertical-align: middle; }
+}
+
+// Tablesorter styles
+table {
+  th {
+    &.sort-header {
+      cursor: pointer;
+
+      &::-moz-selection,
+      &::selection {
+        background: transparent;
+      }
+
+      .sorter {
+        border-top: 2px solid #404040;
+        visibility: hidden;
+
+        .icon {
+          content: '';
+          width: 1px;
+          margin: 3px auto 7px auto;
+          border-width: 0 4px 4px;
+          border-style: solid;
+          border-color: #404040 transparent;
+        }
+      }
+
+      &:hover .sorter {
+        visibility: visible;
+      }
+    }
+
+    &[aria-sort="descending"] .sorter,
+    &[aria-sort="ascending"] .sorter,
+    &[aria-sort="ascending"]:hover .sorter {
+      visibility: visible;
+      opacity: 0.4;
+    }
+
+    &[aria-sort="descending"] .sorter .icon {
+      border-bottom: none;
+      border-width: 4px 4px 0;
+    }
+  }
+}
+
+/*
+* larger-than-small-screen styles
+* ~ defining some desktop-only styles here to avoid
+* ~ writing extra mobile styles to undo them.
+*/
+@media @screen-mobile-above {
+  button{
+    display: none;
+  }
+  table {
+    th, td {
+      padding: 10px;
+
+      // comment these two out if you want to highlight particular rows
+      &:first-child { padding-left: 0; }
+      &:last-child { padding-right: 0; }
+
+      &.amt { text-align: right; }
+    }
+
+    th {
+      border-bottom: 2px solid #eee;
+      padding-top: 0;
+    }
+
+    td { border-bottom: 1px solid #eee; }
+  }
+  .location {
+    width: 17%;
+  }
+  .contractor {
+    width: 20%;
+  }
+  .status {
+    width: 20%;
+  }
+  .beds {
+    width: 15%;
+  }
+  .open span {
+    background-color: @teal4;
+    color: white;
+  }
+  
+  .status span {
+    font-family: 'Knockout 31 4r';
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 1.2;
+    letter-spacing: .05em;
+    -webkit-font-smoothing: antialiased;
+    padding: 3px 8px;
+    vertical-align: middle;
+    border-radius: 3px
+  }
+  
+  .not-yet-built span {
+    background-color: @orange5;
+    color: @yellow1;
+  }
+   .name-bold {
+     font-weight: bold;
+     color: #555
+   }
+
+   .cost {
+     background-color: @teal6;
+     color: #444444;
+   }
+  
+}
+
+/*
+* small-screen styles
+*/
+@media @screen-mobile {
+  .graphic {
+    height: 600px;
+    overflow: hidden;
+    margin-bottom: 0;
+  
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: linear-gradient(0deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 100%);
+    }
+  
+    &.open {
+      height: auto;
+      margin-bottom: 0px;
+  
+      &:after {
+        display: none;
+      }
+    }
+  }
+  
+  button {
+    .gotham();
+    background-color: #fff;
+    border: none;
+    border-top: 1px solid #ddd;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #4774CC;
+    display: block;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 22px;
+    padding: 10px;
+    text-transform: uppercase;
+    width: 100%;
+  
+    &:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+  }
+
+  tbody {
+    display: block;
+    width: 100%;
+  }
+  .cost {
+    background-color: @teal6;
+    color: #444444;
+  }
+
+  table {
+    thead { display: none; }
+
+    tr, th, td {
+      display: block;
+      padding: 0;
+      white-space: normal;
+    }
+
+    tr {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+
+      &:first-child { border-top: 1px solid #eee; }
+    }
+
+    td {
+      margin-bottom: 6px;
+
+      &:empty { display: none; }
+    }
+
+    tr td:first-child {
+      .knockout-header();
+      color: #333;
+      font-size: 14px;
+      margin-bottom: 6px;
+
+      &:before {
+        content: '';
+        display: none;
+      }
+    }
+
+    th[data-title]:before,
+    td[data-title]:before {
+      content: attr(data-title) ":\00A0";
+      // display: inline-block;
+      // margin-right: 10px;
+      width: 40%;
+      // font-weight:bold;
+    }
+  }
+
+  .cost {
+
+    font-weight: bold;
+  }
+
+}
+
+td.light {
+  color: white;
+  // text-align: right;
+}
+
+.bar-beds {
+  height: 20px;
+  background-color: @orange3;
+  display: block;
+  margin-bottom: 5px;
+  margin-right: 5px;
+
+
+}
+
+.bar-patient {
+  height: 20px;
+  background-color: @teal3;
+  display: block;
+  text-align: left;
+  margin-right: 5px;
+
+}
+
+.row {
+  display: flex;
+}
+
+// .column {
+//   flex: 50%;
+// }
+
+// .status {
+//   width: 20%;
+// }
+
+// .text-patients {
+//   color: @teal3;
+// }
+
+// .text-beds {
+//   color: @orange3;
+// }
+
+// .open span {
+// 	background-color: @teal4;
+// 	color: white;
+// }
+
+// .status span {
+//   font-family: 'Knockout 31 4r';
+//   font-weight: normal;
+//   text-transform: uppercase;
+//   line-height: 1.2;
+//   letter-spacing: .05em;
+//   -webkit-font-smoothing: antialiased;
+//   padding: 3px 8px;
+//   vertical-align: middle;
+//   border-radius: 3px
+// }
+
+// .not-yet-built span {
+// 	background-color: @orange5;
+// 	color: @yellow1;
+// }

@@ -1,0 +1,26 @@
+<%= await t.include("./partials/_header.html", { "slug": slug, "config": config, "id": "historic_unemployment" }) %>
+
+<h1><%= t.smarty(COPY.labels.headline_historic_unemployment) %></h1>
+
+<h2><%= t.smarty(COPY.labels.subhed_historic_unemployment) %></h2>
+
+<div id="annotated-line-chart" class="graphic chart">
+  <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.footnote_historic_unemployment) { %>
+<div class="footnotes">
+  <p><strong>Notes:</strong> <%= COPY.labels.footnote_historic_unemployment %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <p>Source: <%= COPY.labels.source_historic_unemployment %></p>
+  <p>Credit: <%= COPY.labels.credit_historic_unemployment %></p>
+</div>
+
+<script type="text/javascript">
+  var UNEMPLOYMENT_DATA = <%= JSON.stringify(COPY.historic_unemployment) %>;
+</script>
+
+<%= await t.include("./partials/_footer.html") %>

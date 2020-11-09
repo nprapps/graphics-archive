@@ -1,0 +1,89 @@
+@import "./lib/base";
+
+// ai2html artboard sizes
+@media screen and (min-width: 730px) {
+    #g-_ai2html-graphic-small, #g-_ai2html-graphic-medium { display: none; }
+}
+
+@media screen and (max-width: 729px) and (min-width: 400px) {
+    #g-_ai2html-graphic-small, #g-_ai2html-graphic-wide { display: none; }
+}
+
+@media screen and (max-width: 399px) {
+    #g-_ai2html-graphic-medium, #g-_ai2html-graphic-wide { display: none; }
+}
+
+// Add custom styles here
+@0: #fff5eb;
+@1: #fedbb7;
+@2: #fdac67;
+@3: #f67722;
+@4: #d14501;
+@5: #7f2704;
+
+// .graphic { max-width: 1000px; margin: 0 auto; }
+//
+// .footnotes, .footer {
+//   .mmedia-constrained();
+// }
+
+h1 { text-align: center; }
+
+.key {
+  .mmedia-constrained-centered();
+  // margin: 0 auto;
+  margin-bottom: 12px;
+  margin-top: 12px;
+
+  .key-item { margin: 0;}
+
+  // .key-text { margin-top: 10px; }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    // float: left;
+
+  li {
+    display: inline-block;
+    // float: left;
+    width: 75px;
+    margin-bottom: 6px;
+    text-align: center;
+    font-size: 80%;
+    list-style: none;
+
+    .box {
+      display: inline-block;
+      float: left;
+      height: 15px;
+      width: 80px;
+
+        &.key0 { background-color: @0; border: 1px solid #d3d3d3; }
+        &.key1 { background-color: @1; }
+        &.key2 { background-color: @2; }
+        &.key3 { background-color: @3; }
+        &.key4 { background-color: @4; }
+        &.key5 { background-color: @5; }
+    }
+
+    .key-text { padding-top: 40%; text-align: left; margin-left: -10%; }
+  }
+}
+}
+
+@media @screen-mobile {
+
+  // .mmedia-constrained.center {
+  //   text-align: left;
+  // }
+
+  .key ul li { display: block; width: 20px; }
+
+  .key ul li .box {
+    display: block;
+    float: left;
+    height: 15px;
+    width: 25px;
+  }
+}

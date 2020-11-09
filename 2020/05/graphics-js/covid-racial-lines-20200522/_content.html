@@ -1,0 +1,31 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic-container" aria-description="<%- COPY.labels.screenreader %>" role="img">
+	<!-- <h2><%= t.smarty(COPY.labels.subhed1) %></h2> -->
+  <div id="line-chart" class="graphic"></div>
+  <!-- <h2><%= t.smarty(COPY.labels.subhed2) %></h2> -->
+  <div id="step-chart" class="graphic"></div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  window.data_known = <%= JSON.stringify(COPY.mock_known) %>;
+  window.data_states = <%= JSON.stringify(COPY.mock_states) %>;
+</script>

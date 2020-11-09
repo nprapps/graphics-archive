@@ -1,0 +1,56 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic-wrapper-key race">
+  <h3 class="race-header">Percent White</h3>
+  <div class="key-wrap">
+      <div class="key race"></div>
+      <div class="labels">
+        <div class="median-line race"></div>
+        <div class="left-label race"></div>
+        <div class="middle-label race"></div>
+        <div class="right-label race"></div>
+      </div>
+    </div>
+  <div id="race-map-container" class="graphic" role="img">
+  </div>
+</div>
+
+<div class="graphic-wrapper-key income">
+  <h3 class="income-header">Median Household Income</h3>
+  <div class="key-wrap">
+      <div class="key income"></div>
+      <div class="labels">
+        <div class="median-line income"></div>
+        <div class="left-label income"></div>
+        <div class="middle-label income"></div>
+        <div class="right-label income"></div>
+      </div>
+    </div>
+  <div id="income-map-container" class="graphic" role="img">
+  </div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var TRACTS = <%= JSON.stringify(COPY.dallas) %>;
+  var LABELS = <%= JSON.stringify(COPY.labels) %>;
+  var SITES = <%= JSON.stringify(COPY.sites) %>;
+</script>

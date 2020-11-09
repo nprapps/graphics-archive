@@ -1,0 +1,33 @@
+<%= await t.include("./partials/_header.html", { "slug": slug, "config": config, "id": "models" }) %>
+
+<% if (COPY.labels.headline_models) { %>
+<h1><%= t.smarty(COPY.labels.headline_models) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed_models) { %>
+<h2><%= t.smarty(COPY.labels.subhed_models) %></h2>
+<% } %>
+
+<div id="bar-chart" class="graphic" role="img"
+<% if (COPY.labels.screenreader_models) { %>
+  aria-label="<%- COPY.labels.screenreader_models %>"
+<% } %>
+>
+</div>
+
+<% if (COPY.labels.footnote_models) { %>
+<div class="footnotes">
+  <p><strong>Notes:</strong> <%= COPY.labels.footnote_models %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source_models) { %><p>Source: <%= COPY.labels.source_models %></p><% } %>
+  <% if (COPY.labels.credit_models) { %><p>Credit: <%= COPY.labels.credit_models %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.data_models) %>;
+</script>
+
+<%= await t.include("./partials/_footer.html") %>

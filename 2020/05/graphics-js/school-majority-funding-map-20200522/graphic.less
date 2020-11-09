@@ -1,0 +1,41 @@
+@import "./lib/base";
+
+// ai2html artboard sizes
+@media screen and (min-width: 730px) {
+    #g-_ai2html-graphic-small, #g-_ai2html-graphic-medium { display: none; }
+}
+
+@media screen and (max-width: 729px) and (min-width: 400px) {
+    #g-_ai2html-graphic-small, #g-_ai2html-graphic-wide { display: none; }
+}
+
+@media screen and (max-width: 399px) {
+    #g-_ai2html-graphic-medium, #g-_ai2html-graphic-wide { display: none; }
+}
+
+// Add custom styles here
+.legend { .mmedia-constrained-centered(); }
+
+.key {
+  margin-bottom: 11px;
+
+  .key-item label {
+    white-space: normal;
+    text-align: left;
+  }
+}
+
+h1, h2 { text-align: center; }
+
+// .graphic { max-width: 1000px; margin: 0 auto; }
+
+// .footnotes, .footer {
+//   .mmedia-constrained();
+// }
+
+@media @screen-mobile {
+  .legend { max-width: 300px; }
+
+  .key .key-item b { margin-top: 2px; margin-right: 5px; }
+
+}

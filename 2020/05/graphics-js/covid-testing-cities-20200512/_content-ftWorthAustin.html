@@ -1,0 +1,80 @@
+<% if (COPY.labels.ftworth_headline) { %>
+<h1><%= t.smarty(COPY.labels.ftworth_headline) %></h1>
+<% } %>
+
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic-wrapper-city" id="Fort-Worth">
+  <h3 class="city-header">Fort Worth</h3>
+  <div class="graphic-wrapper-key race">
+    <h2 class="race-header">Percent White</h2>
+    <div class="key-wrap">
+        <div class="key race"></div>
+        <div class="labels">
+          <div class="median-line race"></div>
+          <div class="left-label race"></div>
+          <div class="middle-label race"></div>
+          <div class="right-label race"></div>
+        </div>
+      </div>
+    <div id="race-map-container" class="graphic" role="img">
+    </div>
+  </div>
+</div>
+
+<div class="graphic-wrapper-city" id="Austin">
+  <h3 class="city-header">Austin</h3>
+  <div class="graphic-wrapper-key race">
+    <h2 class="race-header">Percent White</h2>
+    <div class="key-wrap">
+        <div class="key race"></div>
+        <div class="labels">
+          <div class="median-line race"></div>
+          <div class="left-label race"></div>
+          <div class="middle-label race"></div>
+          <div class="right-label race"></div>
+        </div>
+      </div>
+    <div id="race-map-container" class="graphic" role="img">
+    </div>
+  </div>
+</div>
+
+<div class="graphic-wrapper-city" id="El-Paso">
+  <h3 class="city-header">El Paso</h3>
+  <div class="graphic-wrapper-key race">
+    <h2 class="race-header">Percent White</h2>
+    <div class="key-wrap">
+        <div class="key race"></div>
+        <div class="labels">
+          <div class="median-line race"></div>
+          <div class="left-label race"></div>
+          <div class="middle-label race"></div>
+          <div class="right-label race"></div>
+        </div>
+      </div>
+    <div id="race-map-container" class="graphic" role="img">
+    </div>
+  </div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var TRACTS = <%= JSON.stringify(COPY.ft_worth) %>;
+  var LABELS = <%= JSON.stringify(COPY.labels) %>;
+  var SITES = <%= JSON.stringify(COPY.sites) %>;
+</script>

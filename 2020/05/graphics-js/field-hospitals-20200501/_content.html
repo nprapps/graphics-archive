@@ -1,0 +1,118 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_name %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_location %></div>
+        </th>
+        <!--<th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header" class="status"><%= COPY.labels.hdr_status %></div>
+        </th>-->
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_contractor %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_cost %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_beds %></div>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_patients %></div>
+        </th>
+
+      </tr>
+    </thead>
+
+    <%
+
+    var d3 = {
+      ...require("d3-axis/dist/d3-axis.min"),
+      ...require("d3-scale/dist/d3-scale.min"),
+      ...require("d3-selection/dist/d3-selection.min")
+    };
+
+    var scale = d3
+      .scaleLinear()
+      .domain([9000000, 155500000])
+      .range([.1, 5]);
+
+    var scaleBar = d3
+      .scaleLinear()
+      .domain([0, 4000])
+      .range([0, 100]);
+
+      var darkFunction = function(input) {
+        if (input > '19000000') {
+          return 'light';
+        } else {
+          return 'dark';
+        }
+      }
+
+    COPY.data.forEach(function(row) { %>
+    <tr role="row">
+      <td role="cell" class="name-bold" data-title="<%= COPY.labels.hdr_name %>"><%= row.name %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_location %>" class="location"><%= row.location %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_contractor %>" class="contractor"><%= row.contractor %></td>
+
+      <!--<td role="cell" data-title="<%= COPY.labels.hdr_status %>" class="status <%= t.classify(row.status)%>"><span><%= row.status %></span></td>-->
+      <!--<td class="amt cost <%= darkFunction(row.cost) %>" role="cell" data-title="<%= COPY.labels.hdr_cost %>" style="background-color: rgb(23, 128, 126, <%= scale(row.cost) %>)">$<%= t.comma(row.cost) %></td>-->
+      
+      <td class="amt cost" role="cell" data-title="<%= COPY.labels.hdr_cost %>">$<%= t.comma(row.cost) %></td>
+
+      <td role="cell" data-title="<%= COPY.labels.hdr_beds %>" class="amt beds">
+      <!--<div class="row">
+      <div class="bar-beds" style="width: <%= scaleBar(row.beds) %>%"></div>-->
+      <!--<div class="column text-beds">--><%= t.comma(row.beds) %><!--</div>-->
+      <!--</div>-->
+      <!--<div class="row">
+      <div class="bar-patient" style="width: <%= scaleBar(row.patients) %>%"></div>-->
+      </td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_patients %>" class="amt">
+      <!--<div class="column text-patients">--><%= t.comma(row.patients) %><!--</div>-->
+      <!--</div>-->
+      </td>
+    </tr>
+  <% }) %>
+
+  </table>
+
+</div>
+
+<button data-more="<%= COPY.labels.toggle_more %>" data-less="<%= COPY.labels.toggle_less %>"><%= COPY.labels.toggle_more %></button>
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+  
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

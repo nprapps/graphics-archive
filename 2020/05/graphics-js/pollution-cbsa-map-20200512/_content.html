@@ -1,0 +1,54 @@
+<%
+	var l = COPY.labels;
+%>
+
+<div class="head">
+	<% if (COPY.labels.headline) { %>
+	<h1><%= t.smarty(COPY.labels.headline) %></h1>
+	<% } %>
+
+	<% if (COPY.labels.subhed) { %>
+	<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+	<% } %>
+
+<div id="key-container">
+  <div class="key-wrap">
+    <% if (COPY.labels.legend_head) { %>
+      <h3><%= COPY.labels.legend_head %></h3>
+    <% } %>
+    <ul class="key"></ul>
+  </div>
+</div>
+  
+
+<!-- 	<ul class="key bottom">
+    <li class="key-item key-0 yes">
+      <b class="key0"></b>
+      <label><%= COPY.labels.hasCases %></label>
+    </li>
+  </ul> -->
+</div>
+
+<div id="graphic" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+    <%= await t.include("_usa.html", {l}) %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var COPY = <%= JSON.stringify(COPY.labels) %>;
+</script>

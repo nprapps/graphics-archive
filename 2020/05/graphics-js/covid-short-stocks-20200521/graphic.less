@@ -1,0 +1,69 @@
+@import "./lib/base";
+
+h1 {
+  margin-bottom: 22px;
+}
+
+.bars line {
+  fill: none;
+  stroke-width: 18px;
+  stroke: @teal6;
+}
+
+.value text {
+  font-size: 12px;
+  fill: @teal2;
+  text-anchor: middle;
+
+  &.left {
+    text-anchor: start;
+  }
+}
+
+.labels {
+  li {
+    text-align: left;
+    border-bottom: 1px solid #eee;
+
+    &:first-child {
+      border-top: 1px solid #eee;
+    }
+  }
+  strong {
+    color: #454545;
+
+    @media @screen-mobile {
+      display: block;
+    }
+
+    @media @screen-mobile-above {
+      margin-right: 10px;
+    }
+  }
+  i {
+    font-style: normal;
+    color: #999;
+
+    @media @screen-mobile {
+      display: block;
+      margin-top: 2px;
+    }
+  }
+  span.desc {
+    display: block;
+    // font-size: 11px;
+    margin-top: 2px;
+  }
+}
+
+// .value text {
+//     font-size: 11px;
+//     fill: #999;
+// }
+//
+// .shadow text {
+//     font-size: 11px;
+//     fill: #fff;
+//     stroke: #fff;
+//     stroke-width: 5px;
+// }

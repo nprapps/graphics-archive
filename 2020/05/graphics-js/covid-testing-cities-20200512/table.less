@@ -1,0 +1,137 @@
+@import "./lib/base";
+
+// Base table styles
+table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+
+  tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+  }
+
+  td { vertical-align: top; }
+}
+
+// Tablesorter styles
+table {
+  th {
+    &.sort-header {
+      cursor: pointer;
+
+      &::-moz-selection,
+      &::selection {
+        background: transparent;
+      }
+
+      .sorter {
+        border-top: 2px solid #404040;
+        visibility: hidden;
+
+        .icon {
+          content: '';
+          width: 1px;
+          margin: 3px auto 7px auto;
+          border-width: 0 4px 4px;
+          border-style: solid;
+          border-color: #404040 transparent;
+        }
+      }
+
+      &:hover .sorter {
+        visibility: visible;
+      }
+    }
+
+    &[aria-sort="descending"] .sorter,
+    &[aria-sort="ascending"] .sorter,
+    &[aria-sort="ascending"]:hover .sorter {
+      visibility: visible;
+      opacity: 0.4;
+    }
+
+    &[aria-sort="descending"] .sorter .icon {
+      border-bottom: none;
+      border-width: 4px 4px 0;
+    }
+  }
+}
+
+/*
+* larger-than-small-screen styles
+* ~ defining some desktop-only styles here to avoid
+* ~ writing extra mobile styles to undo them.
+*/
+
+table {
+  th, td {
+    padding: 8px;
+
+    // comment these two out if you want to highlight particular rows
+    &:first-child { padding-left: 0; }
+
+    &.amt { text-align: right; }
+  }
+
+  th {
+    border-right: 1px solid #eee; 
+    border-bottom: 2px solid #eee;
+
+  }
+
+  tr {
+    th:last-of-type {
+      border-right: none;
+    }
+  }
+
+  td { 
+    border-bottom: 1px solid #eee; 
+    border-right: 1px solid #eee; 
+    text-align: right;
+  }
+
+  td.mobile-header {
+    display: none;
+  }
+
+  .race {
+    background-color: #fff;
+    border-right: 1px solid #eee;
+  }
+  .income {
+    background-color: #51a09e10;
+  }
+
+  .race-header {
+    background-color: #aaa;
+    color: white;
+  }
+
+  .income-header {
+    background-color: #51a09e;
+    color: white;
+  }
+
+  .city {
+    font-weight: bold;
+    text-align: left
+  }
+}
+
+.text-aligned {
+  max-width: 650px;
+  margin: auto;
+}
+

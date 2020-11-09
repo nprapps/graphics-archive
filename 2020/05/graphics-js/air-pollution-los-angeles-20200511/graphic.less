@@ -1,0 +1,28 @@
+@import "./lib/base";
+
+body {
+  max-width: 730px;
+  margin: auto;
+}
+
+.hed, .subhed, .line-chart, .footer, .footnotes {
+	.mmedia-constrained();
+}
+
+.bars rect {
+	fill: @teal5;
+}
+
+.bar-0.trucks-and-buses, .bar-4.passenger-cars {
+	fill: @teal3;
+}
+
+.trucks-and-buses, .passenger-cars {
+	font-weight: bold;
+	color: #999;
+}
+
+.xlabel {
+	font-size: 12px;
+	fill: #666;
+}

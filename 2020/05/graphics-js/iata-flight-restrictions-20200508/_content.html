@@ -1,0 +1,46 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<ul class="key">
+  <%
+    "flights_suspended nationals_only countries open none".split(" ").forEach(function(prop) {
+  %>
+  <li class="key-item">
+    <b class="block" data-category="<%= prop %>"></b>
+    <label>
+      <%= COPY.labels[prop] %>
+      <span class="count" data-count="<%= prop %>"></span>
+    </label>
+  <% }); %>
+</ul>
+
+<div id="" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<% if ("data" in COPY) { %>
+<script type="text/javascript">
+window.DATA = <%= JSON.stringify(COPY.data) %>;
+</script>
+<% } %>

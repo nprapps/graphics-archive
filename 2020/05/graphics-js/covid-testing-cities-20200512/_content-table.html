@@ -1,0 +1,90 @@
+<% if (COPY.labels.table_hed) { %>
+<h1><%= t.smarty(COPY.labels.table_hed) %></h1>
+<% } %>
+
+<% if (COPY.labels.table_subhed) { %>
+<h2><%= t.smarty(COPY.labels.table_subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row" class="overall-headers">
+        <th role="columnheader">
+        </th>
+        <th role="columnheader" colspan="2" class="race-header">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_race %></div>
+        </th>
+        <th role="columnheader">
+        </th>
+      </tr>
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header">City</div>
+        </th>
+        <th role="columnheader" class="race">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_above_median %></div>
+        </th>
+        <th role="columnheader" class="race">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_below_median %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_difference %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <%
+  var calcBG = function (val) {
+    var newClass = 'background-color';
+    var colors = {
+      'positive': '227,141,44',
+      'negative': '23,128,126'
+    };
+    var pctOpacity = Math.abs(val) / (250/20);
+    if (pctOpacity > 1) {
+      pctOpacity = 1;
+    }
+    if (isNaN(pctOpacity)) {
+      pctOpacity = 0;
+    }
+    var polarity = val > 0 ? "positive" : "negative";
+    var style = `${newClass}: rgba(${colors[polarity]},${pctOpacity}); color: #333;`;
+    return style;
+  };
+%>
+
+    <% COPY.table.forEach(function(row) { %>
+    <tr class="state-<%= t.classify(row.city) %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_state %>" class="city"><%= row.city %></td>
+      <td class="mobile-header" role="cell" data-title="<%= COPY.labels.hdr_race %>" class="race"></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_above_median %>" class="race"><%= row.above_median.toFixed() %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_below_median %>" class="race"><%= row.below_median.toFixed()%></td>
+      <td role="cell" class="race" style="<%= calcBG(row.difference) %>"><%= row.difference.toFixed()%></td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+  
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

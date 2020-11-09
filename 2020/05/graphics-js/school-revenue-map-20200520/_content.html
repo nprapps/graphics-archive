@@ -1,0 +1,63 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="graphic" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+<div class="key divlocks">
+  <h3 class="key-title"><%= t.smarty(COPY.labels.key) %></h3>
+  <!-- <ul class="key-scale">
+    <li class="key-item key-x">
+      <div class="box keyx"></div>
+    </li>
+    <li class="key-item key-0">
+      <div class="box key0"></div>
+      <div class="key-text">$0</div>
+    </li>
+    <li class="key-item key-1">
+      <div class="box key1"></div>
+      <div class="key-text">$1</div>
+    </li>
+    <li class="key-item key-2">
+      <div class="box key2"></div>
+      <div class="key-text">$1000</div>
+    </li>
+    <li class="key-item key-3">
+      <div class="box key3"></div>
+      <div class="key-text">$5000</div>
+    </li>
+    <li class="key-item key-4">
+      <div class="box key4"></div>
+      <div class="key-text">$10,000</div>
+    </li>
+    <li class="key-item key-5">
+      <div class="box key5"></div>
+      <div class="key-text">$20,000</div>
+    </li>
+    <li class="key-item key-6">
+      <div class="key-text">$20,000+</div>
+    </li>
+  </ul> -->
+</div>
+
+    <%= await t.include("_ai2html-graphic.html") %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer mmedia-constrained">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>

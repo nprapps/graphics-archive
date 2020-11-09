@@ -1,0 +1,310 @@
+@import "./lib/base";
+
+@COLOR_LOW1: #FFDFAD;
+@COLOR_HIGH1: #F8A25B;
+@infectionColor: #F8A25B;
+// @infectionColorHigh: lighten(rgb(191, 102, 29),10%);
+@infectionColorHigh: rgb(223, 127, 48);
+
+// @COLOR_LOW1: @yellow5;
+// @COLOR_HIGH1: @yellow2;
+
+@BUBBLE_STROKE: #555;
+@BUBBLE_FILL: #000;
+@DEATH_STROKE: @red1;
+@DEATH_FILL: @red2;
+
+h1, h2 {
+	.mmedia-constrained-centered();
+}
+
+.key-wrap {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 35px;
+    .labels {
+      position: relative;
+      width: 100%;
+      margin: auto;
+      margin-top: 2px;
+      font-size: 11px;
+      color: #777777;
+
+      .right-label,
+      .left-label,
+      .middle-label {
+        position: absolute;
+      }
+
+      .middle-label {
+        -webkit-transform: translate(-50%, 0); 
+        font-style: italic;
+        max-width: 50px;
+      }
+
+      .median-line {
+        position: absolute;
+        top: -19px;
+        height: 18px;
+        border-right: 1px solid;
+        width: 0;
+      }
+
+      .right-label {
+        right:0;
+      }
+
+      .left-label {
+        left:0;
+      }
+    }
+    .key {
+      height: 15px;
+      width: 100%;
+      display: block;
+      margin: 0 auto;
+      outline: none;
+
+      // &.race {
+      //   background: linear-gradient(to right, #d08fc1, rgb(242, 227, 180) 30%, #f3684b);
+      // }
+      
+      // &.income {
+      //   background: linear-gradient(to right, #e38d2c, rgb(247, 227, 155) 26%, #51a09e);
+      // }
+
+      .key-item {
+        display: inline-block;
+        margin: 0 18px 0 0;
+        padding: 0;
+        line-height: 15px;
+      }
+      .key-item b {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        margin-right: 6px;
+        float: left;
+      }
+      .key-item label {
+        white-space: nowrap;
+        font-size: 12px;
+        color: #666;
+        font-weight: normal;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
+
+    // Numeric scale style
+    &.numeric-scale {
+      width: 100%;
+      text-align: center;
+
+      h3 {
+        margin-bottom: 5px;
+      }
+
+      .key {
+        .key-item {
+          margin: 0 1px 0 0;
+          position: relative;
+        }
+
+        .key-item b {
+          width: 45px;
+          height: 10px;
+          margin-right: 0;
+        }
+
+        .key-item label {
+          position: absolute;
+          bottom: -20px;
+          left: -50%;
+          text-align: center;
+          width: 45px;
+
+          &.end-label {
+            left: auto;
+            right: -50%;
+          }
+        }
+      }
+    }
+  }
+
+
+h1 {
+  margin-bottom: 0px;
+}
+
+h2 {
+  margin-top: 10px;
+  font-style: italic;
+  margin-bottom:0px;
+}
+
+.footnotes, .footer {
+	.mmedia-constrained();
+}
+
+.graphic-wrapper-city {
+  overflow: auto;
+  @media screen and (min-width: 500px) {
+    float: left;
+    width: 33%;
+  }
+  @media screen and (max-width: 499px) { 
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+.district {
+  stroke-width: .5px
+}
+
+.roads {
+  stroke-width: 1.5px
+}
+
+.graphic-wrapper-key {
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+
+  @media screen and (max-width: 499px) {
+    width: 100%;
+  }
+
+  &.race {
+    float:left;
+  }
+}
+
+#Fort-Worth,
+#Austin,
+#El-Paso,
+#houston {
+  .graphic-wrapper-key {
+    width: 100%;
+  }
+}
+
+#Fort-Worth,
+#Austin {
+  border-right: 1px solid #ccc;
+}
+
+h3 {
+  margin: 10px 0 5px 0;
+}
+
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+
+  label {
+    .knockout-header();
+    background: #fff;
+    border: 1px solid #eee;
+    color: #555555;
+    font-size: 13px;
+    line-height: 25px;
+    margin: 0;
+    padding: 0 10px;
+    -webkit-user-select: none;
+    user-select: none;
+
+    &:first-of-type {
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+
+    &:last-of-type {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+
+    + button { border-left: none; }
+
+    @media screen and (max-width: 499px) {
+      margin-top: 5px;
+
+      &:nth-of-type(2) {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+
+      &:nth-of-type(3) {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 499px) {
+    flex-wrap: wrap;
+    }
+
+  input {
+    .sr-only();
+  }
+
+  .break {
+    @media screen and (max-width: 499px) {
+      flex-basis: 100%;
+      height: 0;
+    }
+  }
+
+  input:hover,
+  input:focus {
+    + label {
+      z-index: 999;
+      cursor: pointer;
+      background: #bbb;
+      border: 1px solid #bbb;
+      color: #fff;
+
+      &.label-deaths {
+        background: @red5;
+        border: 1px solid @red5;
+      }
+
+    }
+  }
+
+  input:checked + label {
+    color: #fff;
+
+    background-color: #555555;
+    border-color: #555555;
+
+    &.label-deaths {
+      background-color: #A23520;
+      border-color: #A23520;
+    }
+  }
+}
+
+.city-header {
+  text-align: center;
+}
+
+.city-table {
+  th.race-header,
+  th.income-header
+   {
+    text-transform: uppercase;
+    background-color: #e2e2e2;
+    font-style: normal;
+  }
+
+}
+
+.text-aligned {
+  max-width: 650px;
+  margin: auto;
+}
