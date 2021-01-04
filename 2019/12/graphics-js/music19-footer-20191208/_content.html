@@ -1,0 +1,57 @@
+<%
+  <!-- var themeColorName = COPY.themes[theme].color; -->
+  var themeColorName = "songs-navy";
+
+  var filterStories = function(mode) {
+    var filtered = COPY.data.filter(function(story, s) {
+      if (mode == "list" && story.type == "list") {
+        return story;
+      }
+
+      if (mode == "theme" && story.type == "story" && story.theme_primary == theme) {
+        return story;
+      }
+
+      if (mode == "other" && story.type == "story" && story.theme_primary != theme) {
+        return story;
+      }
+    });
+    return filtered;
+  }
+
+  var listStories = filterStories("list");
+  var themeStories = filterStories("theme");
+  var otherStories = filterStories("other");
+
+  var storyTypes = [
+    { type: "list", data: listStories },
+    { type: "theme", data: themeStories },
+    { type: "other", data: otherStories }
+  ];
+%>
+
+<footer class="graphic" data-theme="<%= theme %>" data-theme-color="<%= themeColorName %>">
+  <% if (COPY.labels.headline) { %><h1><%= COPY.labels.headline %></h1><% } %>
+
+<% storyTypes.forEach(function(type) { %>
+  <div class="type <%= type.type %>">
+    <% if (COPY.labels['hed_' + type.type]) { %><h3><%= COPY.labels['hed_' + type.type] %></h3><% } %>
+
+<% type.data.forEach(function(story, s) { %>
+    <div class="story id<%= story.id %>" data-id="<%= story.id %>">
+      <a href="https://npr.org/<%= story.id %>">
+        <% if (story.image) { %><img src="<%= story.image %>" alt=""><% } %>
+        <h4><%= t.smarty(story.headline) %></h4>
+      </a>
+    </div>
+<% }); %>
+
+<% if (type.type == "other") { %>
+  <div class="story"></div>
+  <div class="story"></div>
+<% } %>
+
+  </div>
+
+<% }); %>
+</footer>

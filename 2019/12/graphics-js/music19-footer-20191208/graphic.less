@@ -1,0 +1,194 @@
+@import "./lib/base";
+
+@songs-salmon:            #ea9e7b;
+@songs-glow-in-the-dark:  #cdfc8f;
+@songs-green:             #60957a;
+@songs-navy:              #1a3d44;
+@songs-olive:             #8ab35c;
+@albums-pink:             #ee887b;
+@albums-mint:             #98fcd7;
+@albums-navy:             #1d4561;
+@albums-blue:             #3f799c;
+@albums-green:            #5eaa91;
+
+.setup-theme(@color, @colorName, @linkColor) {
+  footer[data-theme-color="@{color}"] {
+    --primary: @colorName;
+    --primaryLight: lighten(@colorName, 15%);
+    --primaryDark: darken(@colorName, 15%);
+    --secondary: @linkColor;
+    --secondaryLight: lighten(@linkColor, 15%);
+    --secondaryDark: darken(@linkColor, 15%);
+  };
+}
+
+.setup-theme('songs-salmon', @songs-salmon, @songs-navy);
+.setup-theme('songs-glow-in-the-dark', @songs-glow-in-the-dark, @songs-navy);
+.setup-theme('songs-green', @songs-green, @songs-glow-in-the-dark);
+.setup-theme('songs-navy', @songs-navy, @songs-glow-in-the-dark);
+.setup-theme('songs-olive', @songs-olive, @songs-glow-in-the-dark);
+.setup-theme('albums-pink', @albums-pink, @albums-mint);
+.setup-theme('albums-mint', @albums-mint, @albums-navy);
+.setup-theme('albums-navy', @albums-navy, @albums-mint);
+.setup-theme('albums-blue', @albums-blue, @albums-pink);
+.setup-theme('albums-green', @albums-green, @albums-mint);
+
+
+.graphic {
+  // background: var(--primary, #eee);
+  padding: 20px 15px;
+  border: 5px solid #eee;
+  border-top-color: var(--secondary, #eee);
+  border-right-color: var(--primary, #eee);
+  border-bottom-color: var(--primary, #eee);
+  border-left-color: var(--secondary, #eee);
+
+  @media @screen-mobile-above {
+    padding: 20px;
+  }
+  @media @screen-medium-above {
+    padding: 20px 30px 30px 30px;
+  }
+
+  h1 {
+    .knockout-header();
+    color: #767676;
+    font-size: 14px;
+    margin: 0 0 20px 0;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+
+    strong { font-weight: normal; }
+  }
+
+  h4 {
+    .gotham();
+    font-weight: normal;
+    margin: 1em 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    display: block;
+
+    &:link,
+    &:visited {
+      color:  var(--primary, inherit);
+
+      strong {
+        color: var(--primaryDark, inherit);
+      }
+    }
+    &:hover h4,
+    &:focus h4 {
+      opacity: 0.7;
+    }
+  }
+
+}
+
+.type {
+  h3 {
+    flex-basis: 100%;
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: #767676;
+  }
+
+  &.list {
+    padding-bottom: 20px;
+
+    @media @screen-mobile-above {
+      display: flex;
+      // justify-content: center;
+      justify-content: space-between;
+    }
+
+    > div {
+      @media @screen-mobile {
+        + div {
+          margin-top: 11px;
+        }
+      }
+      @media @screen-mobile-above {
+        width: calc(50% - 10px);
+      }
+
+      h4 {
+        font-size: 15px;
+        @media @screen-mobile-above {
+          font-size: 17px;
+        }
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--secondary, #eee);
+        padding: 7px 10px 7px 7px;
+        border-radius: 5px;
+        background: var(--secondaryLight, #eee);
+      }
+
+      img {
+        margin-right: 10px;
+        height: 100px;
+        width: 100px;
+      }
+    }
+  }
+
+  &.theme {
+    padding-bottom: 20px;
+
+    @media @screen-medium-above {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      > div {
+        width: calc(50% - 10px);
+      }
+    }
+
+    > div {
+      border-top: 1px solid #eee;
+    }
+
+    h4 {
+      font-size: 14px;
+
+      @media @screen-medium-above {
+        font-size: 15px;
+      }
+    }
+  }
+
+  &.other {
+    border-top: 2px solid var(--secondary, #eee);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 5px;
+
+    > div {
+      border-bottom: 1px solid #eee;
+      width: calc(50% - 10px);
+
+      @media @screen-mobile-above {
+        width: calc(33% - 15px);
+      }
+      @media @screen-medium-above {
+        width: calc(25% - 20px);
+      }
+
+      // yes, it's a stupid hack to fill out the grid.
+      &:empty {
+        height: 0;
+        border: none;
+      }
+    }
+
+    h4 { font-size: 12px; }
+  }
+}
