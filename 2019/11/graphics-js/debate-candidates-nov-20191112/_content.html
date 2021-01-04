@@ -1,0 +1,87 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<!-- <%
+
+var d3 = {
+  ...require("d3-axis/dist/d3-axis.min"),
+  ...require("d3-scale/dist/d3-scale.min"),
+  ...require("d3-selection/dist/d3-selection.min")
+};
+
+var scale = d3
+  .scaleLinear()
+  .domain([0, 8])
+  .range([.1, 1]);
+
+%> -->
+
+<div id="table-graphic" class="graphic" role="img" aria-label="<%- COPY.labels.screenreader %>">
+  <table id="debate-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_candidate %></div>
+        </th>
+        <th class="center" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_nov %></div>
+          <div class="header total"><%= COPY.labels.hdr_nov_total %></div>
+        </th>
+        <th class="center" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_dec %></div>
+          <div class="header total"><%= COPY.labels.hdr_dec_total %></div>
+        </th>
+      </tr>
+    </thead>
+
+  <% COPY.data.forEach(function(row) { %>
+  <tr class="candidate-<%= t.classify(row.name) %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_candidate %>">
+        <div class="data <%= t.classify(row.name) %> nov-<%= row.november %> dec-<%= row.december %>">
+          <% if (row.image) { %>
+              <img src="https://apps.npr.org/dailygraphics/graphics/prez-candidates-jan-list-20190116/assets/<%= row.image %>" alt="Photo of <%= row.name %>" />
+          <% } %>
+          <div class="info">
+            <h4><%= t.smarty(row.name) %></h4>
+            <% if (row.title) { %>
+              <p class="title"><%= row.title %></p>
+            <% } %>
+          </div>
+        </div>
+        </td>
+
+        <td class="nov center nov-<%= row.november %>" role="cell" data-title="<%= COPY.labels.hdr_nov %>"><%= row.november %></td>
+        <td class="dec center dec-<%= row.december %>" role="cell" data-title="<%= COPY.labels.hdr_dec %>"><%= row.december %></td>
+      <% }); %>
+    </tr>
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.photo_credit) { %>
+  <p>Photos: <%= COPY.labels.photo_credit %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

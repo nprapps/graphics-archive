@@ -1,0 +1,57 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="chart" class="graphic">
+    <% COPY.data.forEach(function(race, i) { %>
+    <% if (i == 0 || (i > 0 && race.state != COPY.data[i-1].state)) { %>
+    <table>
+      <tr class="header">
+        <th class="state"><%= race.state %></th>
+        <th>Current</th>
+        <th>Winner</th>
+      </tr>
+    <% } %>
+
+    <tr>
+      <td class="type"><%= race.type %></td>
+      <td class="current <%= race.current_party %>">
+        <%= race.current %>
+        <% if (race.current_detail) { %>
+          <span class="detail">(<%= race.current_detail %>)</span>
+        <% } %>
+      </td>
+      <td class="winner <%= race.winner_party %>"><%= race.winner %></td>
+    </tr>
+
+    <% if (i == (COPY.data.length - 1) || (i > 0 && race.state != COPY.data[i+1].state)) { %>
+    </table>
+    <% }; %>
+
+    <% }); %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p class="source story">Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.source_hp) { %>
+  <p class="source hp">Source: <%= COPY.labels.source_hp %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p class="credit">Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

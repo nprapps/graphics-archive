@@ -1,0 +1,111 @@
+@import "./lib/base";
+
+h1 {
+  margin-bottom: 22px;
+
+  .hp & { display: none; }
+}
+
+.hp .graphic {
+  margin-bottom: 0;
+}
+
+.footer {
+  .source.hp { display: none; }
+
+  .hp & {
+    .source.hp { display: block; }
+    .source.story { display: none; }
+    .credit { display: none; }
+  }
+}
+
+// Base table styles
+table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 22px;
+
+  .hp & { margin-bottom: 6px; }
+
+  tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+    border-bottom: 2px solid #ccc;
+
+    &.state {
+      background-color: #AAA;
+      color: #fff;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    }
+  }
+
+  th, td {
+    padding: 10px;
+
+    .hp & { padding: 7px 10px; }
+
+    // comment these two out if you want to highlight particular rows
+    // &:first-child { padding-left: 0; }
+    // &:last-child { padding-right: 0; }
+
+    &.amt { text-align: right; }
+  }
+
+  td {
+    border-bottom: 2px solid #fff;
+    background-color: #f1f1f1;
+    vertical-align: top;
+
+    &.type {
+      font-weight: bold;
+      color: #454545;
+      white-space: nowrap;
+    }
+
+    &.current,
+    &.winner {
+      width: 35%;
+    }
+
+    &.current {
+      &.r { color: @red3; }
+      &.d { color: @blue3; }
+    }
+
+    &.winner {
+      border-color: #fff;
+
+      &.r {
+        background-color: @red3;
+        color: #fff;
+      }
+      &.d {
+        background-color: @blue3;
+        color: #fff;
+      }
+    }
+
+    .detail {
+      display: block;
+      font-size: 11px;
+      margin-top: 3px;
+      color: #787878;
+
+      .hp & { display: none; }
+    }
+  }
+
+}
