@@ -1,0 +1,150 @@
+@import "./lib/base";
+
+@screen-mobile-above: ~"screen and (min-width: 601px)";
+@screen-mobile: ~"screen and (max-width: 600px)";
+
+@district:        #E38D2C;
+@district-light:  lighten(@district, 35%);
+// @neighbor:        #3A9B88;
+// @neighbor-light:  lighten(@neighbor, 45%);
+@neighbor:        #17807E;
+// @neighbor-light:  lighten(@neighbor, 15%);
+@neighbor-light: #ACCCC9;
+@gutter-margin:   11px;
+
+body {
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1, h2, .key {
+  .mmedia-constrained-centered();
+}
+
+.footnotes, .footer {
+  .mmedia-constrained();
+}
+
+img.wide {
+  display: none !important;
+}
+
+@media @screen-mobile-above {
+  .map {
+    display: flex;
+    align-items: center;
+  }
+
+  img.mobile {
+    display: none !important;
+  }
+
+  img.wide {
+    display: block !important;
+  }
+}
+
+.graphic {
+  margin-bottom: (@gutter-margin * 2);
+
+  @media @screen-mobile-above {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .info {
+    @media @screen-mobile-above {
+      width: calc(~'55% - (@{gutter-margin})');
+    }
+  }
+  .map {
+    @media @screen-mobile-above {
+      width: calc(~'45% - (@{gutter-margin})');
+    }
+  }
+
+  .map {
+    margin: 0 auto (@gutter-margin * 2) auto;
+
+    @media @screen-mobile-above {
+      margin: 0;
+    }
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #333;
+
+    th, td {
+        padding: 10px;
+
+        // comment these two out if you want to highlight particular rows
+        &:first-child { padding-left: 0; }
+        // &:last-child { padding-right: 0; }
+
+        &.amt { text-align: right; }
+
+        &.neighbor {
+          border-bottom-color: #fff;
+          border-left: 1px solid #fff;
+          width: 30%;
+        }
+
+        &.district {
+          border-bottom-color: #fff;
+          width: 30%;
+        }
+
+        &.diff {
+          color: #999;
+          font-style: italic;
+          white-space: nowrap;
+        }
+    }
+
+    th {
+        .knockout-header();
+        border-bottom: 2px solid #eee;
+        line-height: 1.2;
+        text-align: left;
+        vertical-align: middle;
+
+        &.neighbor {
+          background-color: @neighbor;
+          color: #fff;
+          text-align: center;
+        }
+
+        &.district {
+          background-color: @district;
+          color: #fff;
+          text-align: center;
+        }
+    }
+
+    td {
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+
+      &.neighbor {
+        background-color: @neighbor-light;
+        border-bottom-color: #fff;
+      }
+      &.district {
+        background-color: @district-light;
+        border-bottom-color: #fff;
+      }
+    }
+  }
+}
