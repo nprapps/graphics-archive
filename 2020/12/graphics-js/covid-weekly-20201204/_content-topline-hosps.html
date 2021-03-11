@@ -1,0 +1,188 @@
+<%
+  var timeseries = COPY.timeseries_states.filter(r => !r.Province_State);
+  timeseries.forEach(function(row) {
+    var [y, m, d] = row.Report_Date_String.split("/").map(Number);
+    row.reported = [m, d, y].join("/");
+    row.timestamp = new Date(y + 2000, m - 1, d);
+  });
+  timeseries.sort((a, b) => b.timestamp - a.timestamp);
+  // console.log(timeseries)
+  var [ today, yesterday ] = timeseries;
+  var cases = today.Confirmed;
+  var deaths = today.Deaths;
+  var casesDelta = cases - yesterday.Confirmed;
+  var deathsDelta = deaths - yesterday.Deaths;
+
+  var casesNow = cases;
+  var deathsNow = deaths;
+  COPY.daily_us_totals.forEach((st, i) => {
+    if (st.state == "United States") {
+      casesNow = st.confirmed_override ? st.confirmed_override : st.confirmed;
+      deathsNow = st.deaths_override ? st.deaths_override : st.deaths;
+    }
+  });
+
+  var [ US ] = COPY.daily_us_totals.filter(r => r.state == "United States");
+
+  var [ current_date ] = t.ap_date(today.reported).split(",");
+
+  // calculate 7 day average for cases and deaths
+  var casesNewAvg = (timeseries[0].Confirmed-timeseries[7].Confirmed)/7;
+  var deathsNewAvg = (timeseries[0].Deaths-timeseries[7].Deaths)/7;
+  // console.log(deathsNewAvg)
+
+  // calculate 7 day avg from 2 weeks ago
+  var daysAgoAvg = 14;
+  var casesPreviousAvg = (timeseries[daysAgoAvg-1].Confirmed-timeseries[daysAgoAvg+6].Confirmed)/7;
+  var deathsPreviousAvg =  (timeseries[daysAgoAvg-1].Deaths-timeseries[daysAgoAvg+6].Deaths)/7;
+  // console.log(deathsPreviousAvg)
+
+  // calculate percent difference between old and new 7-day avg's
+
+  // var casesPercent = 10.2;
+  // var deathsPercent = 1.2;
+
+  var casesPercent = casesNewAvg / casesPreviousAvg * 100 - 100;
+  var deathsPercent = deathsNewAvg / deathsPreviousAvg * 100 - 100;
+
+  // calculate the sign of each percent for display
+  var casesSign = Math.sign(casesPercent) == 1 ? "+" : "-" ;
+  var deathsSign = Math.sign(deathsPercent) == 1 ? "+" : "-" ;
+
+
+  // days since Feb 29, 2020.
+  var startDate = new Date("02/29/2020");
+  var thisDate = new Date();
+
+  // To calculate the time difference of two dates
+  var Difference_In_Time = thisDate.getTime() - startDate.getTime();
+
+  // To calculate the no. of days between two dates
+  var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+
+  var DAYSSINCESTART = Math.floor(Difference_In_Days);
+%>
+<!-- <div id="topline" class="graphic promo highlight_cases <%= mode %>"> -->
+<div id="topline" class="graphic <%= mode %>">
+  <% if (COPY.labels.topline_headline) { %>
+  <!-- <h1><%= t.smarty(COPY.labels.topline_headline.replace("19", "19 Hospitalizations")) %></h1> -->
+  <% } %>
+
+  <% if (COPY.labels.subhed) { %>
+  <h2><%= t.smarty(COPY.labels.subhed) %></h2>
+  <% } %>
+
+  <div class="stats">
+
+
+    <%
+    // add in hosp data
+    var sortDateDesc = function(a,b){
+      var fmtADate = new Date(a.Date)
+      var fmtBDate = new Date(b.Date)
+      if (fmtADate > fmtBDate) {
+        return -1;
+      }
+      return 1;
+    }
+    var hospsDataLength = COPY.hosps_data.length;
+    COPY.hosps_data = COPY.hosps_data.sort(sortDateDesc)
+
+
+    US.hospitalizations = COPY.hosps_data[0]['Currently hospitalized/Now hospitalized']
+    var hospsDelta = COPY.hosps_data[0]['Currently hospitalized/Now hospitalized'] - COPY.hosps_data[1]['Currently hospitalized/Now hospitalized'];
+    var hospsDeltaSign = Math.sign(hospsDelta) == 1 ? "+" : "-" ;
+    var recent7DayAvgHosps = (COPY.hosps_data.slice(0, 7).map(x=>x['Currently hospitalized/Now hospitalized']).reduce((a, b) => a + b, 0)) / 7
+    var prev7DayAvgHosps = (COPY.hosps_data.slice(7, 14).map(x=>x['Currently hospitalized/Now hospitalized']).reduce((a, b) => a + b, 0)) / 7
+    var hospsPercent = 100 * (recent7DayAvgHosps - prev7DayAvgHosps) / prev7DayAvgHosps;
+    var hospsSign = Math.sign(hospsPercent) == 1 ? "+" : "-" ;
+
+
+    // add hosp data to timeseries
+
+
+    for (i in COPY.hosps_data) {
+      var row = COPY.hosps_data[i];
+      var prevRow = COPY.hosps_data[parseInt(i)+1]
+      row['Currently hospitalized/Now hospitalized'] = row['Currently hospitalized/Now hospitalized'] == 'N/A' ? 0 : row['Currently hospitalized/Now hospitalized']
+      var [m, d, y] = row.Date.split("/").map(Number);
+      var reported = [m, d, y].join("/");
+      // console.log(row)
+      // console.log(prevRow)
+      // console.log("=====")
+      var matchingTimeseries = timeseries.filter(x=>x.reported == reported)[0];
+      matchingTimeseries.current_hospitalizations = row['Currently hospitalized/Now hospitalized'];
+      if (i==hospsDataLength-1) {
+        matchingTimeseries.new_hospitalizations = row['Currently hospitalized/Now hospitalized'];
+      }
+      else {
+        matchingTimeseries.new_hospitalizations = row['Currently hospitalized/Now hospitalized'] - prevRow['Currently hospitalized/Now hospitalized'];
+      }
+      matchingTimeseries.new_hospitalizations = matchingTimeseries.new_hospitalizations == null ? 0 : matchingTimeseries.new_hospitalizations
+    }
+
+
+    %>
+
+
+    <div class="hospitalizations">
+      <h3>Current Hospitalizations</h3>
+      <div class="hospitalizations total">
+        <h4>Total</h4>
+        <p><%= t.comma(US.hospitalizations) %></p>
+      </div>
+      <hr />
+      <div class="hospitalizations latest">
+        <h4><%= current_date %></h4>
+        <p>
+          <%=hospsDeltaSign + t.comma(hospsDelta) %>
+        </p>
+      </div>
+      <hr />
+      <div class="hospitalizations latest">
+        <h4>2-week trend</h4>
+        <p>
+          <%= hospsSign %><%= hospsPercent.toFixed(1) %>%
+        </p>
+      </div>
+      <div class="hospitalizations trend">
+        <!-- <h4>Last 4 Weeks</h4> -->
+        <div id="chart-hospitalizations"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footnotes">
+    <div>
+      <% if (COPY.data_anomalies.filter(d => d.footnote).length) { %>
+      <span class="legend-square"></span>
+      <span class="footnote-text"> <%= COPY.labels.topline_anomaly_label %>
+        <% for (anomaly of COPY.data_anomalies) {
+          if (anomaly.footnote) {%>
+          <%=anomaly.footnote.trim()%>
+          <% }
+        } %>
+      </span><br />
+      <% } %>
+
+      <% if (COPY.labels.topline_footnote) { %><%= COPY.labels.topline_footnote %><% } %>
+    </div>
+  </div>
+
+  <div class="footer">
+      <% if (COPY.labels.sourcehosps) { %>
+        <p>Source: <%= COPY.labels.sourcehosps %>. Data as of <%=COPY.labels.hospAsOf%>.</p>
+      <% } %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  console.clear();
+
+
+  var TIMESERIES_DATA = <%= JSON.stringify(timeseries.slice(0, DAYSSINCESTART).reverse()) %>;
+  var DAYSSINCESTART = <%= DAYSSINCESTART %>;
+  var ANOMALY_DATA = <%= JSON.stringify(COPY.data_anomalies) %>;
+  var LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>

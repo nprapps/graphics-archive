@@ -1,0 +1,117 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <!-- <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_issue %></div>
+        </th> -->
+
+
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header main" ><%= COPY.labels.hdr_person %></div>
+          <div class="header header-mobile main" ><%= COPY.labels.hdr_person %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header main"><%= COPY.labels.hdr_Total %></div>
+          <div class="header header-mobile"><%= COPY.labels.hdr_Total %></div>
+        </th>
+        
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_Republican %></div>
+          <div class="header header-mobile"><%= COPY.labels.hdr_mobile_gop %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_Democrat %></div>
+          <div class="header header-mobile"><%= COPY.labels.hdr_mobile_dem %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_Independent %></div>
+          <div class="header header-mobile"><%= COPY.labels.hdr_mobile_ind %></div>
+        </th>
+        
+      </tr>
+    </thead>
+
+    <%
+
+    var d3 = {
+      ...require("d3-axis/dist/d3-axis.min"),
+      ...require("d3-scale/dist/d3-scale.min"),
+      ...require("d3-selection/dist/d3-selection.min")
+    };
+
+    var scale = d3
+      .scaleLinear()
+      .domain([0, 100])
+      .range([0, 1]);
+
+      var colorFunction = function(input) {
+        if (input == "N/A") {
+          return 'background-color: #ccc';
+        } else {
+          return 'background-color: rgba(23, 128, 126,' + scale(input) + ')';
+        }
+      }
+
+      var darkFunction = function(input) {
+        if (input > 50) {
+          return 'light';
+        } else {
+          return 'dark';
+        }
+      }
+
+    COPY.data.forEach(function(row) { %>
+    <tr class="state-<%= t.classify(row.Person) %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_person %>"><%= row.Person %></td>
+
+      <td  class="amt total change <%= darkFunction(row.Total) %>" role="cell" data-title="<%= COPY.labels.hdr_total %>" style=" <%= colorFunction(row.Total) %>">
+  <%= row.Total == "N/A" ?row.Total : Math.round(row.Total) + "%" %>    
+</td>
+
+<td  class="amt change <%= darkFunction(row.Republican) %>" role="cell" data-title="<%= COPY.labels.hdr_republican %>" style=" <%= colorFunction(row.Republican) %>">
+  <%= row.Republican == "N/A" ?row.Republican : Math.round(row.Republican) + "%" %>    
+</td>
+<td  class="amt change <%= darkFunction(row.Democrat) %>" role="cell" data-title="<%= COPY.labels.hdr_democrat %>" style=" <%= colorFunction(row.Democrat) %>">
+  <%= row.Democrat == "N/A" ?row.Democrat : Math.round(row.Democrat) + "%" %>    
+</td>
+<td  class="amt change <%= darkFunction(row.Independent) %>" role="cell" data-title="<%= COPY.labels.hdr_independent %>" style=" <%= colorFunction(row.Independent) %>">
+  <%= row.Independent == "N/A" ?row.Independent : Math.round(row.Independent) + "%" %>   
+</td>
+
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

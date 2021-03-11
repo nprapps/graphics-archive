@@ -1,0 +1,220 @@
+@import "./lib/base";
+
+h1, h2 {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.graphic {
+  max-width: 1000px;
+  margin: 0 auto;
+  // padding-left: 5px;
+}
+
+// .footer, .footnotes {
+//   .mmedia-constrained();
+// }
+
+.key {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+
+  .square {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0;
+    float: none;
+
+    &.outline {
+      border: 1px solid #777;
+      background-color: white;
+    }
+  }
+
+  .key-label {
+    display: inline-block;
+    margin-right: 10px;
+
+    &.outline {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+}
+
+.total-wrapper {
+  // margin-left: 20px;
+  margin-bottom: 10px;
+
+  .total-waffle {
+    max-width: 50px;
+    margin: 0 auto;
+    margin-top: 5px;
+    // margin-bottom: 80px;
+  }
+
+  .total-label {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .total-amt {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    .knockout-header();
+    color: black;
+  }
+}
+
+.state-wrapper {
+  // background-image: linear-gradient(#000, #000);
+  // background-size: 2px 100%;
+  // background-repeat: no-repeat;
+  // background-position: center center;
+  position: relative;
+  margin-right: 20px;
+  // margin-left: 20px;
+  // z-index: 1000;
+}
+
+.state {
+  display: inline-block;
+  margin-bottom: 20px;
+  position: relative;
+  // max-width: 500px;
+}
+
+.state-header, .total-label {
+  .knockout-header();
+  color: black;
+  margin-bottom: 10px;
+}
+
+.state-header {
+  // padding-left: 10px;
+}
+
+.square {
+  width: 7px;
+  height: 7px;
+  margin-right: 1px;
+  margin-bottom: 1px;
+  background: black;
+  border-radius: 1px;
+
+  &.winning-votes {
+    background-color: @blue2;
+  }
+
+  &.democratic-votes {
+    background-color: @blue5;
+  }
+
+  &.republican-votes {
+    background-color: @red5;
+  }
+
+  &.other-votes {
+    background-color: @yellow5;
+  }
+
+  &.difference {
+    background-color: #ccc;
+  }
+
+  @media @screen-mobile {
+		width: 5px;
+		height: 5px;
+	}
+}
+
+#grouped-chart, #winning-chart {
+
+  .waffle-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 40px;
+    align-content: flex-start;
+
+    @media screen and (max-width: 500px) {
+      height: 60px;
+    }
+  }
+
+  .waffle-group + .waffle-group {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .state {
+    display: block;
+  }
+
+  .total-waffle {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 50px;
+    align-content: flex-start;
+
+    @media screen and (max-width: 600px) {
+      height: 40px;
+    }
+
+    @media screen and (max-width: 500px) {
+      height: 30px;
+    }
+  }
+
+  .waffle-label {
+    width: 80px;
+    overflow-wrap: normal;
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.3;
+    color: #666;
+  }
+
+  .waffle-group {
+    display: flex;
+  }
+
+  .break {
+    width: 10px;
+    height: 50px;
+  }
+
+  .state-winning {
+    font-size: 12px;
+    display: block;
+    overflow-wrap: normal;
+    width: 80px;
+    font-size: 12px;
+    line-height: 1.3;
+
+    @media screen and (max-width: 500px) {
+      width: 70px;
+    }
+  }
+}
+
+// ---------------- waffle bar styles ---------------------
+
+.anno-line {
+  stroke: #666;
+  stroke-width: 2px;
+  stroke-dasharray: 3px;
+}
+
+.anno-text {
+  color: #666;
+}

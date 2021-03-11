@@ -1,0 +1,151 @@
+<%
+  var timeseries = COPY.timeseries_states.filter(r => !r.Province_State);
+  timeseries.forEach(function(row) {
+    var [y, m, d] = row.Report_Date_String.split("/").map(Number);
+    row.reported = [m, d, y].join("/");
+    row.timestamp = new Date(y + 2000, m - 1, d);
+  });
+  timeseries.sort((a, b) => b.timestamp - a.timestamp);
+  // console.log(timeseries)
+  var [ today, yesterday ] = timeseries;
+  var cases = today.Confirmed;
+  var deaths = today.Deaths;
+  var casesDelta = cases - yesterday.Confirmed;
+  var deathsDelta = deaths - yesterday.Deaths;
+
+  var casesNow = cases;
+  var deathsNow = deaths;
+  COPY.daily_us_totals.forEach((st, i) => {
+    if (st.state == "United States") {
+      casesNow = st.confirmed_override ? st.confirmed_override : st.confirmed;
+      deathsNow = st.deaths_override ? st.deaths_override : st.deaths;
+    }
+  });
+
+  var [ US ] = COPY.daily_us_totals.filter(r => r.state == "United States");
+
+  var [ current_date ] = t.ap_date(today.reported).split(",");
+
+  // calculate 7 day average for cases and deaths
+  var casesNewAvg = 0;
+  var deathsNewAvg = 0;
+  for (i = 0; i < 7; i++) {
+    casesNewAvg += timeseries[i].Confirmed-timeseries[i + 1].Confirmed;
+    deathsNewAvg += timeseries[i].Deaths-timeseries[i + 1].Deaths;
+  }
+  casesNewAvg = casesNewAvg / 7;
+  deathsNewAvg = deathsNewAvg / 7;
+
+  // calculate 7 day avg from 2 weeks ago
+  var daysAgoAvg = 14;
+  var casesPreviousAvg = 0;
+  var deathsPreviousAvg = 0;
+  for (i = daysAgoAvg; i < (daysAgoAvg + 7); i++) {
+    casesPreviousAvg += timeseries[i].Confirmed-timeseries[i + 1].Confirmed;
+    deathsPreviousAvg += timeseries[i].Deaths-timeseries[i + 1].Deaths;
+  }
+  casesPreviousAvg = casesPreviousAvg / 7;
+  deathsPreviousAvg = deathsPreviousAvg / 7;
+
+  // calculate percent difference between old and new 7-day avg's
+
+  // var casesPercent = 10.2;
+  // var deathsPercent = 1.2;
+
+  var casesPercent = casesNewAvg / casesPreviousAvg * 100 - 100;
+  var deathsPercent = deathsNewAvg / deathsPreviousAvg * 100 - 100;
+
+  // calculate the sign of each percent for display
+  var casesSign = Math.sign(casesPercent) == 1 ? "+" : "-" ;
+  var deathsSign = Math.sign(deathsPercent) == 1 ? "+" : "-" ;
+
+
+  // days since Feb 29, 2020.
+  var startDate = new Date("02/29/2020");
+  var thisDate = new Date();
+
+  // To calculate the time difference of two dates
+  var Difference_In_Time = thisDate.getTime() - startDate.getTime();
+
+  // To calculate the no. of days between two dates
+  var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+
+  var DAYSSINCESTART = Math.floor(Difference_In_Days);
+%>
+<!-- <div id="topline" class="graphic promo highlight_cases <%= mode %>"> -->
+<div id="topline" class="graphic <%= mode %>">
+  <% if (COPY.labels.topline_headline) { %>
+  <!-- <h1><%= t.smarty(COPY.labels.topline_headline.replace("19", "19 Deaths")) %></h1> -->
+  <% } %>
+
+  <% if (COPY.labels.subhed) { %>
+  <h2><%= t.smarty(COPY.labels.subhed) %></h2>
+  <% } %>
+
+  <div class="stats">
+
+
+    <div class="deaths">
+      <h3>Deaths</h3>
+      <div class="deaths total">
+        <h4>Total</h4>
+        <p><%= t.comma(US.deaths_override || US.deaths) %></p>
+      </div>
+      <hr />
+      <div class="deaths latest">
+        <h4><%= current_date %></h4>
+        <p>
+          +<%= t.comma(deathsDelta) %>
+          <!-- <span class="change">(+<%= deathsPercent.toFixed(1) %>%)</span> -->
+        </p>
+      </div>
+      <hr />
+      <div class="deaths latest">
+        <h4>2-week trend</h4>
+        <p>
+          <%= deathsSign %><%= deathsPercent.toFixed(1) %>%
+        </p>
+      </div>
+      <div class="deaths trend">
+        <!-- <h4>Last 4 Weeks</h4> -->
+        <div id="chart-deaths"></div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div class="footnotes">
+    <div>
+      <% if (COPY.data_anomalies.filter(d => d.footnote).length) { %>
+      <span class="legend-square"></span>
+      <span class="footnote-text"> <%= COPY.labels.topline_anomaly_label %>
+        <% for (anomaly of COPY.data_anomalies) {
+          if (anomaly.footnote) {%>
+          <%=anomaly.footnote.trim()%>
+          <% }
+        } %>
+      </span><br />
+      <% } %>
+
+      <% if (COPY.labels.topline_footnote) { %><%= COPY.labels.topline_footnote %><% } %>
+    </div>
+  </div>
+
+  <div class="footer">
+      <% if (COPY.labels.source) { %>
+        <p>Source: <%= COPY.labels.source %>. Data as of <%=COPY.labels.dataAsOf%>.</p>
+      <% } %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  console.clear();
+
+
+  var TIMESERIES_DATA = <%= JSON.stringify(timeseries.slice(0, DAYSSINCESTART).reverse()) %>;
+  var DAYSSINCESTART = <%= DAYSSINCESTART %>;
+  var ANOMALY_DATA = <%= JSON.stringify(COPY.data_anomalies) %>;
+  var LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>

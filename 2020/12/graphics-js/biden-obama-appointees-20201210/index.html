@@ -1,0 +1,60 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+ 
+</div>
+
+<div class="legend-wrapper">
+	<div class="legend">
+		<div class="did text">12</div> 
+		<div class="text">were Obama appointees</div>
+	</div>
+	<div class="legend">
+		<div class="not text">4</div> 
+		<div class="text">were not</div>
+	</div>
+</div>
+
+<div class="container">
+	<% COPY.data.forEach(function(r) { %>
+		<div class="person <%= r.obama == 'Yes' ? 'obama' : '' %>">
+			<div class="image">
+				<img class="mug" src="./images/<%= r.image %>" alt="Photo of <%= r.name %>"></img>
+			</div>
+			<div class="label">
+				<div class="name"><%= r.first %> <%= r.last %></div>
+				<div><%= r.position %></div>
+			</div>
+		</div>
+	<% }) %>
+</div>
+
+<div class="link"><a href="https://www.npr.org/2020/11/17/933848488/biden-administration-heres-who-has-been-nominated">See all of Biden's nominees and appointees so far ›</a></div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Photos: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

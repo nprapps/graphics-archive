@@ -1,0 +1,49 @@
+<div class="mmedia-constrained center">
+
+  <% if (COPY.labels.states_headline) { %>
+  <h1><%= t.smarty(COPY.labels.states_headline2) %></h1>
+  <% } %>
+
+  <% if (COPY.labels.states_subhed2) { %>
+  <h2><%= t.smarty(COPY.labels.states_subhed2) %></h2>
+  <% } %>
+  <h2><%= t.smarty(COPY.labels.states_updated) %> </h2>
+</div>
+
+<div class="controls" id="toggle-button" aria-hidden="true">
+  <% var controls = [
+    { label: COPY.labels.states_chart3, data: "new_total", checked: true, type: "log"},
+    { label: COPY.labels.states_chart4, data: "new_deaths", type: "log"},
+    <!-- { label: COPY.labels.states_chart1, data: "raw_data", type: "log"}, -->
+    <!-- { label: COPY.labels.states_chart2, data: "per_capita", type: "linear"}, -->
+  ];%>
+  <% controls.forEach(function({ label, data, checked, type }) { %>
+  <input type="radio" name="chart-mode" value="<%= data %>" id="<%= data %>" <%= checked ? "checked" : "" %>>
+  <label for="<%= data %>" class="label-<%= data %>"><%= label %></label>
+  <% }) %>
+</div>
+<select id="dropdown" class="state-dropdown "></select>
+
+<div id="line-chart" class="graphic" role="img">
+    <!-- <img src="fallback.png" alt="" class="fallback" /> -->
+</div>
+
+<% if (COPY.labels.states_footnote) { %>
+<div class="footnotes mmedia-constrained">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.states_curve_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer mmedia-constrained">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit:
+    <%= COPY.labels.states_curve_credit %>
+</p><% } %>
+</div>
+
+<script type="text/javascript">
+  var TIMESERIES_DATA = <%= JSON.stringify(COPY.timeseries_states) %>;
+  var POPULATION = <%= JSON.stringify(COPY.state_populations) %>;
+  var LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>

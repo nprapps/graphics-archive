@@ -1,0 +1,58 @@
+<div class="div-table header">
+  <div class="cell-group">
+    <!-- <div class="cell"></div> -->
+    <div class="cell amt timeline">
+      <div class="middle">
+        <% if (COPY.labels.subhedTable_override) { %>
+          <h2><%= t.smarty(COPY.labels.subhedTable_override) %></h2>
+        <% } else { %>
+        <h2><%= t.smarty(COPY.labels.subhedTable) %></h2>
+        <% } %>
+        <h3><%= COPY.labels.heatmap_legend_head %></h3>
+        <div class="key-wrap" aria-hidden="true">
+          <div class="key">
+
+        </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="cell amt"></div>
+    <div class="cell amt"></div> -->
+  </div>
+</div>
+
+<div class="div-table slim" role="rowgroup">
+  <div class="cell-group top" role="row" >
+    <div class="cell cell-header hidden" role="columnheader"></div>
+    <div class="cell cell-header timeline" role="columnheader">
+      <span class="header-span state"><%= COPY.labels.heatmap_cases %></span>
+    </div>
+    <div class="cell cell-header" role="columnheader" style="width: 44%;">
+      <%= COPY.labels.heatmap_totals %>
+    </div>
+  </div>
+  <div class="cell-group" role="row">
+
+    <div class="cell cell-header state" role="columnheader">
+      <span class="header-span state">
+        <%= COPY.labels.heatmap_state %>
+      </span>
+    </div>
+     <div class="cell amt timeline" aria-hidden="true">
+      <div class="sub-cell week i2">
+        <%= COPY.labels.heatmap_week3 %>
+      </div>
+      <div class="sub-cell week i2">
+        <%= COPY.labels.heatmap_week2 %>
+      </div>
+      <div class="sub-cell week i1">
+        <%= COPY.labels.heatmap_week1 %>
+      </div>
+      <div class="sub-cell week i0">
+        <%= COPY.labels.heatmap_week0 %>
+      </div>
+    </div>
+    <div class="cell amt cell-header" role="columnheader"><span class="header-span">Cases</span></div>
+    <div class="cell amt cell-header" role="columnheader"><span class="header-span">Deaths</span></div>
+  </div>
+</div>

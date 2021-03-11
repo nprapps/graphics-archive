@@ -1,0 +1,128 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<%
+  
+  var merged = new Map();
+  for (var row of COPY.data) {
+    var { year, cause } = row;
+    if (!merged.has(cause)) {
+      merged.set(cause, { cause });
+    }
+    var mortality = merged.get(cause);
+    mortality[year] = row;
+  }
+
+  var filtered = [...merged.values()];
+  filtered = filtered.filter(v => v[2019]?.rank < 11 || v[2000]?.rank < 11);
+  filtered.forEach(function(v) {
+    v.shift = v[2000].rank - v[2019].rank;
+    v.delta = v[2000].cdr - v[2019].cdr;
+  });
+  filtered.sort(function(a, b) {
+    var aRank = a[2019] ? a[2019].rank : a[2000].rank + 100;
+    var bRank = b[2019] ? b[2019].rank : b[2000].rank + 100;
+    return aRank - bRank;
+  });
+
+%>
+
+<div class="graphic slopegraph" role="img" aria-label="<%= COPY.labels.screenreader %>"></div>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="header"><%= COPY.labels.header_cause %></div>
+        </th>
+        <th role="columnheader" class="amt">
+          <div class="header"><%= COPY.labels.header_2019_rank %></div>
+        </th>
+        <th role="columnheader" class="amt">
+          <div class="header"><%= COPY.labels.header_rank_change %></div>
+        </th>
+        <th role="columnheader" class="amt">
+          <div class="header"><%= COPY.labels.header_2000_rank %></div>
+        </th>
+        <th role="columnheader" class="amt">
+          <div class="header"><%= COPY.labels.header_2000_deaths %></div>
+        </th>
+        <th role="columnheader" class="amt">
+          <div class="header"><%= COPY.labels.header_2019_deaths %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% filtered.forEach(function(row) { %>
+    <tr class="" role="row">
+      <td role="cell" data-title="<%= COPY.labels.header_cause %>">
+        <%= row.cause %>
+      </td>
+      <td role="cell" data-title="<%= COPY.labels.header_2019_rank %>" class="amt">
+        <%= row[2019] ? row[2019].rank : "-" %>
+      </td>
+      <td role="cell" data-title="<%= COPY.labels.header_rank_change %>" class="amt">
+
+        <% if (row.shift) { %>
+          <% if (row.shift > 0) { %>
+            +<%= row.shift %>
+            <svg class="change" width="12" height="16">
+              <path d="M0,12 L6,4, L12,12Z" fill="#51A09E" />
+            </svg>
+          <% } else { %>
+              <%= row.shift %>
+              <svg class="change" width="12" height="16">
+                <path d="M0,4 L6,12, L12,4Z" fill="#ECA395" />
+              </svg>
+          <% } %>
+        <% } else { %>
+        -
+        <% } %>
+      </td>
+      <td role="cell" data-title="<%= COPY.labels.header_2000_rank %>" class="amt">
+        <%= row[2000]?.rank %>
+      </td>
+      <td role="cell" data-title="<%= COPY.labels.header_2000_deaths %>" class="amt">
+        <%= (row[2000]?.cdr).toLocaleString() %>
+      </td>
+      <td role="cell" data-title="<%= COPY.labels.header_2019_deaths %>" class="amt">
+        <%= (row[2019]?.cdr).toLocaleString() %>
+      </td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script>
+  window.DATA = <%= JSON.stringify(filtered) %>;
+  window.LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

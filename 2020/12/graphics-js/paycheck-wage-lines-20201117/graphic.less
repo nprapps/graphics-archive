@@ -1,0 +1,46 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.annotations .dots {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.annotations text {
+    font-size: 12px;
+    fill: #999;
+}
+
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+  .annotations text { 
+    font-size: 10px; 
+  }
+}
+
+.axis-label {
+  text-align: center;
+  .gotham();
+  font-size: 11px;
+  fill: #666;
+  position: absolute;
+  margin-bottom: 35px;
+  margin-top: -13px;
+  font-style: italic;
+}
+
+

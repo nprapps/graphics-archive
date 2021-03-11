@@ -1,0 +1,77 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.agreement_headline) { %>
+<h1><%= t.smarty(COPY.labels.agreement_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.agreement_subhed) { %>
+<h2><%= t.smarty(COPY.labels.agreement_subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="header"><%= COPY.labels.header_question %></div>
+        </th>
+        <th role="columnheader">
+          <div class="header agree"><%= COPY.labels.header_nonvoters %></div>
+        </th>
+        <th role="columnheader">
+          <div class="header agree"><%= COPY.labels.header_voters %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <%
+      var d3 = require("d3-scale");
+      var scale = d3.scaleLinear().range(["white", "#E38D2C"]).domain([0, .8]);
+      var percent = v => Math.round(v * 100) + "%";
+    %>
+
+    <% COPY.agreement.forEach(function(row) { %>
+    <tr role="row">
+      <td role="cell" data-title="<%= COPY.labels.header_question %>"><%= row.question %></td>
+      <td 
+        role="cell" 
+        class="agree" 
+        data-title="<%= COPY.labels.header_nonvoters %>"
+        style="background-color: <%= scale(row.nonvoter) %>; color: <%= row.nonvoter >= .5 ? "white" : "inherit" %>"
+      >
+        <%= percent(row.nonvoter) %>  
+      </td>
+      <td 
+        role="cell" 
+        class="agree" 
+        data-title="<%= COPY.labels.header_voters %>"
+        style="background-color: <%= scale(row.voter) %>; color: <%= row.voter >= .5 ? "white" : "inherit" %>"
+      >
+        <%= percent(row.voter) %>  
+      </td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

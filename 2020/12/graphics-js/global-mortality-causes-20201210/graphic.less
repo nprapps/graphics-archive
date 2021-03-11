@@ -1,0 +1,188 @@
+@import "./lib/base";
+
+// slope graph styles
+.key {
+  text-align: center;
+}
+
+.key-item .dot {
+  width: 1em;
+  height: 1em;
+  // border-radius: 100%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.axis {
+  fill: #454545;
+  font-weight: bold;
+  font-size: 12px;
+
+  path {
+    display: none;
+  }
+}
+
+.lines line {
+  stroke-width: 2px;
+  stroke: #ddd;
+  shape-rendering: auto;
+  stroke-opacity: 0.7;
+
+  @media @screen-mobile {
+    stroke-width: 1.5px;
+  }
+
+  &.dropped {
+    stroke-opacity: 0.5;
+  }
+}
+
+.dots circle {
+  fill: #ddd;
+  stroke: #fff;
+  stroke-width: 1px;
+}
+
+.value text {
+  font-size: 11px;
+  font-weight: normal;
+
+  .cdr {
+    font-weight: bold;
+  }
+}
+
+.label text {
+  font-size: 11px;
+}
+
+// Base table styles
+table {
+  .sr-only;
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+
+  tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+  }
+
+  td {
+    vertical-align: top;
+  }
+
+  svg {
+    display: inline-block;
+    vertical-align: text-bottom;
+  }
+}
+
+/*
+* larger-than-small-screen styles
+* ~ defining some desktop-only styles here to avoid
+* ~ writing extra mobile styles to undo them.
+*/
+@media @screen-mobile-above {
+  table {
+    th,
+    td {
+      padding: 10px;
+
+      // comment these two out if you want to highlight particular rows
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+
+      &.amt {
+        text-align: right;
+      }
+    }
+
+    th {
+      border-bottom: 2px solid #eee;
+      padding-top: 0;
+    }
+
+    td {
+      border-bottom: 1px solid #eee;
+    }
+  }
+}
+
+/*
+* small-screen styles
+*/
+@media @screen-mobile {
+
+  tbody {
+    display: block;
+    width: 100%;
+  }
+
+  table {
+    
+    thead {
+      display: none;
+    }
+
+    tr,
+    th,
+    td {
+      display: block;
+      padding: 0;
+      white-space: normal;
+    }
+
+    tr {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+
+      &:first-child {
+        border-top: 1px solid #eee;
+      }
+    }
+
+    td {
+      margin-bottom: 6px;
+
+      &:empty {
+        display: none;
+      }
+    }
+
+    tr td:first-child {
+      .knockout-header();
+      color: #333;
+      font-size: 14px;
+      margin-bottom: 6px;
+
+      &:before {
+        content: "";
+        display: none;
+      }
+    }
+
+    th[data-title]:before,
+    td[data-title]:before {
+      content: attr(data-title) ":\00A0";
+      display: inline-block;
+      margin-right: 10px;
+      width: 70%;
+    }
+  }
+}

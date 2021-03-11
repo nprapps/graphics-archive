@@ -1,0 +1,52 @@
+<%
+  var freqs = COPY.testing_frequency.map(o => o['base_frequency']); // equivalent of underscore _.pluck
+  freqs = Array.from(new Set(freqs)); // dedupe / _.uniq
+%>
+
+<%= await t.include("lib/_head.html") %>
+
+<div id="sector-screening">
+
+  <% if (COPY.labels.headline) { %>
+  <h1><%= t.smarty(COPY.labels.headline) %></h1>
+  <% } %>
+  <% if (COPY.labels.subhed) { %>
+  <h2><%= t.smarty(COPY.labels.subhed) %></h2>
+  <% } %>
+
+  <%
+    freqs.forEach((freq, i) => {
+      freqData = COPY.testing_frequency.filter(f => f.base_frequency == freq);
+  %>
+    <div class="graphic sector" id="freq-<%= t.classify(freq) %>">
+      <h3><%= t.smarty(freq) %></h3>
+
+      <dl>
+        <% freqData.forEach(function(d) { %>
+          <dt><b><%= t.smarty(d.population) %></b></dt>
+          <% if (d.desc) { %>
+          <dd><%= t.smarty(d.desc) %>
+          <% } %>
+
+        <% }) %>
+      </dl>
+    </div>
+  <% }); %>
+
+  <% if (COPY.labels.footnote) { %>
+  <div class="footnotes">
+      <h4>Notes</h4>
+      <p><%= t.smarty(COPY.labels.footnote) %></p>
+  </div>
+  <% } %>
+
+  <div class="footer">
+      <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+      <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+  </div>
+
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

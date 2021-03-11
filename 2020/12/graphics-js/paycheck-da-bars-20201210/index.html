@@ -1,0 +1,61 @@
+<%= await t.include("lib/_head.html") %> <% if (COPY.labels.headline) { %>
+<h1 class="header"><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %> <% if (COPY.labels.subhed) { %>
+<h2 class="header"><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div
+  id="graphic"
+  class="graphic"
+  role="img"
+>
+  <ul class="key">
+    <li class="key-item key-0 utilities-other-bills">
+      <b style="background-color: rgb(74, 122, 132);"></b
+      ><label>Utilities &amp; other bills</label>
+    </li>
+    <li class="key-item key-1 health">
+      <b style="background-color: rgb(180, 193, 154);"></b
+      ><label>Health </label>
+    </li>
+    <li class="key-item key-2 groceries">
+      <b style="background-color: rgb(122, 158, 147);"></b
+      ><label>Groceries</label>
+    </li>
+    <li class="key-item key-3 car-loan">
+      <b style="background-color: rgb(40, 85, 111);"></b><label>Car loan</label>
+    </li>
+    <li class="key-item key-4 set-aside-for-tax">
+      <b style="background-color: rgb(251, 241, 205);"></b
+      ><label>Set aside for tax</label>
+    </li>
+    <li class="key-item key-5 other-expenses">
+      <b style="background-color: rgb(247, 227, 155);"></b
+      ><label>Other expenses</label>
+    </li>
+    <li class="key-item key-6 paychecks">
+      <b style="background-color: rgb(204, 204, 204);"></b
+      ><label>Paychecks</label>
+    </li>
+  </ul>
+  <%= await t.include("_ai2html-graphic.html") %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %> <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

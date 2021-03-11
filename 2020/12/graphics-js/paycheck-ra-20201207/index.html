@@ -1,0 +1,34 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1 class="header"><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2 class="header"><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="graphic" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+<ul class="key"><li class="key-item key-5 paychecks"><b style="background-color: rgb(204, 204, 204);"></b><label>Paychecks</label></li><li class="key-item key-6 unemployment-benefits"><b style="background-color: rgb(136, 136, 136);"></b><label>Unemployment benefits</label></li></ul>
+    <%= await t.include("_ai2html-graphic.html") %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

@@ -1,0 +1,213 @@
+#topline {
+
+  .footer,
+  .footnote {
+    text-align: left;
+  }
+
+  &.newsletter {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 22px 0;
+  }
+
+  h1 {
+    .newsletter& {
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 0;
+    }
+  }
+
+  h2 { margin-top: 5px; }
+
+  .stats {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 11px;
+
+    > div {
+      width: 100%;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      background-color: #f1f1f1;
+      padding: 0 0 11px 0;
+
+
+      > div {
+        width: calc(33% - 10px - 1px);
+        margin: 0 5px;
+
+        &.trend {
+          width: 100%;
+          margin: 10px 0 0 0;
+          border-top: 1px solid #ccc;
+          padding-top: 11px;
+        }
+      }
+    }
+
+    hr {
+      margin: 0;
+      background-color: #ccc;
+      width: 1px;
+      border: none;
+    }
+
+    h3 {
+      padding-bottom: 6px;
+      margin-bottom: 11px;
+      border-bottom: 1px solid #ccc;
+      flex-basis: 100%;
+      background-color: #666;
+      color: #fff;
+      padding: 6px;
+    }
+
+    h4 {
+      .knockout-header();
+      font-size: 12px;
+      margin: 0 0 3px 0;
+    }
+
+    p {
+      .gotham();
+      font-weight: bold;
+      margin: 0;
+
+      .change {
+        display: block;
+        font-size: 75%;
+        font-style: italic;
+        font-weight: normal;
+        margin-top: 2px;
+      }
+    }
+
+    h4, p { color: @red3; }
+
+    @media screen and (max-width: 499px) {
+      // display: unset;
+
+      > div {
+        width: 100%;
+
+        > div {
+          // width: 100%;
+        }
+      }
+    }
+  }
+
+  .lines {
+    fill: none;
+    stroke-width: 2px;
+    stroke-dasharray: 4px 2px;
+    stroke: @red3;
+  }
+  .deaths .lines path {
+    stroke: @red3;
+  }
+
+  .area path {
+    stroke: @red5;
+    stroke-width: 0.5px;
+    fill-opacity: 0.8;
+    fill: @red5;
+  }
+  .deaths .area path {
+    stroke: @red5;
+    fill: @red5;
+  }
+
+  .special-area path {
+    stroke: #EFDB9B;
+    fill: #EFDB9B;
+  }
+
+  text.avg {
+    font-size: 11px;
+    font-style: italic;
+    fill: #666;
+    text-anchor: middle;
+  }
+
+  .annotations {
+    circle {
+      stroke: #fff;
+      stroke-width: 1px;
+    }
+    text {
+      font-size: 10px;
+      fill: #454545;
+
+      &.value-0 { text-anchor: end; }
+    }
+  }
+  .cases circle { fill: #999; }
+  .deaths circle { fill: @red3; }
+
+  .deaths circle.special { fill: #333; }
+}
+
+.footnotes > p,
+.footnotes > div {
+  text-align: left;
+  margin: 2px 0 0 0;
+  font-size: 11px;
+  line-height: 1.7;
+  color: #999;
+}
+
+.footnotes .footnote-text {
+  padding-right: 15px;
+  margin-left: 10px;
+}
+
+.legend-square {
+  height: 10px;
+  width: 10px;
+  background-color: #EFDB9B;
+  padding-right: 15px;
+}
+
+.promo {
+  &.highlight_cases .deaths, &.highlight_deaths .cases {
+    display: none !important;
+  }
+  .special-area {
+    display: none;
+  }
+  .stats > div {
+    width: 100% !important;
+    background-color: #fff !important;
+
+    .latest, .total {
+      display: none;
+    }
+
+    .trend {
+      border-top:0px !important;
+      padding-top: 0px !important;
+    }
+  }
+
+  .area path {
+    fill: #F1C696 !important;
+  }
+  .lines {
+    stroke: rgb(227, 141, 44) !important;
+  }
+  .annotations text {
+    font-size: 14px !important;
+  }
+}
+
+.grid .tick line {
+  stroke: #ccc !important;
+  stroke-width: .5px;
+}

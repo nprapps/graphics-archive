@@ -1,0 +1,301 @@
+@import "./lib/base";
+@import "./us";
+
+@screen-mobile-above: ~"screen and (min-width: 601px)";
+@screen-mobile: ~"screen and (max-width: 600px)";
+
+/*
+ * SECTOR DETAIL PAGES
+ */
+#sector-screening {
+  --header-width: 100px;
+
+  @media @screen-mobile-above {
+    --header-width: 175px;
+  }
+
+  .sector {
+    display: flex;
+    margin-bottom: 22px;
+
+    + .sector {
+      border-top: 1px solid #eee;
+      padding-top: 22px;
+    }
+
+    h3 {
+      width: var(--header-width);
+      margin: 0;
+      text-align: right;
+      padding-right: 20px;
+
+      @media @screen-mobile-above {
+        font-size: 13px;
+      }
+    }
+
+    dl {
+      width: calc(100% - var(--header-width));
+      margin: 0;
+    }
+
+    dt {
+      .gotham();
+      margin: 0;
+      font-size: 13px;
+
+      @media @screen-mobile-above {
+        font-size: 15px;
+      }
+
+      b {
+        font-weight: normal;
+        background-color: #999;
+        color: #fff;
+        padding: 5px;
+      }
+    }
+
+    dd {
+      margin: 6px 0 0 0;
+      font-size: 12px;
+      font-style: italic;
+      color: #787878;
+    }
+
+    dt + dt,
+    dd + dt {
+      padding-top: 15px;
+    }
+  }
+  #freq-20-random-testing dt b { background-color: @blue3; }
+  #freq-once-a-week dt b { background-color: @blue2; }
+  #freq-twice-a-week dt b { background-color: @blue1; }
+}
+
+/*
+ * TESTING TARGET NUMBERS
+ */
+.state-select {
+  text-align: center;
+  margin-bottom: 22px;
+  background-color: #f1f1f1;
+  padding: 22px 11px;
+
+  label {
+    .knockout-header();
+    font-size: 13px;
+    color: #333;
+  }
+}
+
+#targets {
+  .state-table {
+    display: none;
+
+    &.active { display: block; }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    line-height: 1.4;
+    margin-bottom: 22px;
+
+    @media @screen-mobile-above {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    th, td {
+      padding: 10px;
+    }
+
+    th {
+      .knockout-header();
+      text-align: left;
+
+      &.sector {
+        // background-color: @blue6;
+        // border-top: 2px solid #ccc;
+        color: #333;
+      }
+
+      &.base {
+        background-color: @yellow5;
+        border-top: 2px solid @yellow3;
+        border-left: 1px solid @yellow3;
+        border-right: 1px solid @yellow3;
+      }
+    }
+
+    .hdr {
+      background-color: mix(@blue2, @blue3, 50%);
+      .knockout-header();
+      color: #fff;
+
+      em {
+        .sans-serif();
+        text-transform: none;
+        letter-spacing: normal;
+        padding-left: 5px;
+      }
+    }
+
+    td {
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+
+    td.sector {
+      font-weight: bold;
+      color: #333;
+      background-color: @blue6;
+      border-color: #fff;
+    }
+
+    .target {
+      width: 25%;
+      border-left: 1px solid #eee;
+    }
+
+    .share {
+      width: 35px;
+      text-align: right;
+      font-style: italic;
+      color: #999;
+      padding-left: 0;
+    }
+
+    .has-note {
+      .target,
+      .share {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .note {
+        border-left: 1px solid #eee;
+        font-size: 12px;
+        color: #787878;
+        font-style: italic;
+        padding-top: 3px;
+      }
+    }
+
+    .not-tested {
+      &.target,
+      &.share,
+      &.note {
+        color: #787878;
+        font-style: italic;
+        background-color: #f1f1f1;
+        border-bottom-color: #fff;
+      }
+    }
+
+    tfoot {
+      td {
+        font-weight: bold;
+        border-top: 2px solid #ccc;
+        -webkit-font-smoothing: antialiased;
+
+        &.sector {
+          border-top: 2px solid @blue2;
+          background-color: @blue2;
+          color: #fff;
+          .knockout-header();
+        }
+
+        &.base {
+          background-color: @yellow5;
+          border-color: @yellow3;
+          border-bottom-color: #fff;
+        }
+      }
+
+      .current-tests {
+        td {
+          border-top: 1px solid #fff;
+
+          &.sector {
+            background-color: #787878;
+          }
+          &.base {
+            background-color: #999;
+            color: #fff;
+            border-color: transparent;
+            border-top-color: #fff;
+          }
+        }
+      }
+    }
+
+    caption {
+      .knockout-header();
+      font-size: 16px;
+      margin-bottom: 11px;
+    }
+
+    thead {
+      td {
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+        color: #fff;
+
+        &.sector {
+          .knockout-header();
+          color: #fff;
+          border-right: none;
+        }
+        &.base {
+          font-weight: bold;
+          border-left: none;
+        }
+      }
+
+      .current-tests {
+        td {
+          border-bottom: 2px solid #fff;
+          color: #454545;
+
+          &.sector {
+            background-color: #999;
+            background-color: mix(@yellow3, @yellow5, 50%);
+          }
+          &.base {
+            background-color: mix(#bababa, #999, 50%);
+            background-color: @yellow5;
+          }
+        }
+      }
+
+      .target-tests {
+        td.sector,
+        td.base {
+          background-color: @blue1;
+          border-bottom: 1px solid #fff;
+        }
+        td.base {
+          background-color: mix(@blue1, @blue2, 50%);
+        }
+        td.base.share {
+          color: @blue5;
+        }
+      }
+
+    }
+  }
+
+  .state-name {
+    font-size: 15px;
+  }
+
+  sup {
+    line-height: 0;
+    padding-left: 2px;
+    font-weight: normal;
+    font-size: 70%;
+  }
+}

@@ -1,0 +1,36 @@
+<%= await t.include("./lib/_header.html", { "slug": slug, "config": config, "id": "us" }) %>
+
+<% if (COPY.labels.headline_us) { %>
+<h1><%= t.smarty(COPY.labels.headline_us) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed_us) { %>
+<h2><%= t.smarty(COPY.labels.subhed_us) %></h2>
+<% } %>
+
+<div id="line-chart" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+  <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.footnote_us) { %>
+<div class="footnotes">
+  <p><strong>Notes:</strong> <%= t.smarty(COPY.labels.footnote_us) %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source_us) { %><p>Source: <%= COPY.labels.source_us %></p><% } %>
+  <% if (COPY.labels.credit_us) { %><p>Credit: <%= COPY.labels.credit_us %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.data_us) %>;
+</script>
+
+<script src="./us.js"></script>
+
+<%= await t.include("./lib/_foot.html") %>
