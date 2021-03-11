@@ -1,0 +1,77 @@
+@import "./lib/base";
+
+h1, h2  {
+	.mmedia-constrained-centered();
+}
+
+.value text:nth-of-type(2), .x .tick:nth-of-type(2) {
+	display: none;
+}
+
+.bars rect {
+	fill: @orange3;
+}
+
+.bars rect.bar-current {
+	fill: #999;
+}
+
+.bars rect.bar-best-case {
+	fill: @orange4;
+}
+
+.bars rect.bar-worst-case {
+	fill: @orange2;
+}
+
+.value text {
+	font-size: 13px;
+}
+
+.explainer {
+	margin: 0 auto;
+	/*width: 400px;*/
+	max-width: 100%;
+}
+
+.explainer-row {
+	margin: 13px 0px 13px 0px;
+	.gotham();
+	line-height: 1.5;
+	font-size: 13px;
+	margin-left: 109px;
+}
+
+.explainer-row span {
+	.knockout-header();
+	padding: 4px;
+	border-radius: 4px;
+	color: white;
+	width: 100px;
+	text-align: center;
+	display: inline-block;
+	margin-right: 3px;
+	margin-left: -106px;
+}
+
+.explainer-row.projection span {
+	background: @orange3;
+}
+.explainer-row.best-case span {
+	background: @orange4;
+}
+.explainer-row.worst-case span {
+	background: @orange2;
+}
+.explainer-row.current span {
+	background: #999;
+}
+
+
+.extra-annots {
+	text-anchor: middle;
+	font-family: Helvetica, Arial, sans-serif;
+	font-style: italic;
+	font-size: 12px;
+	fill: #555;
+}

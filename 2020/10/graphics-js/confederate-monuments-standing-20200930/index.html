@@ -1,0 +1,89 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_name %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_city_county %></div>
+        </th>
+        <!-- <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_state %></div>
+        </th> -->
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_description %></div>
+        </th>
+        <!-- <th class="amt sort-header" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_date %></div>
+        </th> -->
+      </tr>
+    </thead>
+
+    <% COPY.data.forEach(function(row) {
+      if (row.header == "Y") { %>
+        <th colspan="4" class="subhead <%= t.classify(row.state) %>" role="row">
+          <div role="cell" ><%= row.state %></div>
+        </th>
+        <tr class="<%= t.classify(row.name) %>" role="row">
+          <td class="name-bold" role="cell" data-title="<%= COPY.labels.hdr_name %>"><%= row.name %></td>
+          <td role="cell" data-title="<%= COPY.labels.hdr_city_county %>"><%= row.city_county %></td>
+          <td role="cell" data-title="<%= COPY.labels.hdr_description %>">
+            <%= row.description %>
+            <span class="source"> (<a href="<%= row.link %>" >Source</a>) </div>
+          </td>
+          <td role="cell" data-title="<%= COPY.labels.hdr_date %>" class="amt"><%= row.date %></td>
+        </tr>
+      <% } else { %>
+        <tr class="<%= t.classify(row.name) %>" role="row">
+          <td class="name-bold" role="cell" data-title="<%= COPY.labels.hdr_name %>"><%= row.name %></td>
+          <td role="cell" data-title="<%= COPY.labels.hdr_city_county %>"><%= row.city_county %></td>
+          <td role="cell" data-title="<%= COPY.labels.hdr_description %>">
+            <%= row.description %>
+            <span class="source"> (<a href="<%= row.link %>" >Source</a>) </span>
+          </td>
+          <td role="cell" data-title="<%= COPY.labels.hdr_date %>" class="amt"><%= row.date %></td>
+        </tr>
+      <% } %>
+  <% }) %>
+
+  </table>
+</div>
+
+<button aria-hidden=true class="expander">Show All &#9660;</button>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

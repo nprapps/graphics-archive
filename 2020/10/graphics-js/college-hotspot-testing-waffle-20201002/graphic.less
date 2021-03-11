@@ -1,0 +1,131 @@
+@import "./lib/base";
+
+h2, h1 {
+	text-align: center;
+	.mmedia-constrained();
+}
+
+
+.footer, .footnotes {
+	.mmedia-constrained();
+}
+
+.graphic {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	.clearfix();
+}
+
+.container-100 {
+	width: 650px;
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+	.clearfix();
+}
+
+.key {
+	.mmedia-constrained();
+}
+
+.unit {
+	display: block;
+	width: 15px;
+	height: 15px;
+	background: white;
+	margin: 2px;
+	float: left;
+	background: #ccc;
+}
+
+.unit-regular, .large-cities b {
+	background: @red1;
+}
+
+.unit-surveillance, .medium-cities b {
+	background: @red3;
+}
+
+.unit-at, .smallrural-towns b {
+	background: @red5;
+}
+
+.unit-unknown, .unk-key b {
+	background: #ccc;
+}
+
+.key-label {
+	font-size: 16px;
+  	text-shadow: -1px  1px 2px #000,
+				  1px  1px 2px #000,
+				  1px -1px 2px #000,
+				 -1px -1px 2px #000;
+	color: white;
+	position: absolute;
+}
+
+.key-label-big {
+	top:30px;
+	left: 15px;
+}
+
+.key-label-med {
+	top:270px;
+	left: 15px;
+}
+
+.key-label-sm {
+	top: 312px;
+	left: 70px;
+}
+
+.key-label-unk {
+	top: 312px;
+	left: 215px;
+}
+
+@media (max-width: 659px) {
+
+
+	.container-100 {
+		width: 300px;
+		margin-left: auto;
+	}
+
+	.unit {
+		width: 12px;
+		height: 12px;
+	}
+
+	.key-label {
+		font-size: 13px;
+	  	text-shadow: -1px  1px 2px #000,
+					  1px  1px 2px #000,
+					  1px -1px 2px #000,
+					 -1px -1px 2px #000;
+	}
+
+	.key-label-big {
+		top:30px;
+		left: 5px;
+	}
+
+	.key-label-med {
+		top:180px;
+		left: 5px;
+	}
+
+	.key-label-sm {
+		top: 215px;
+		left: 35px;
+		width: 90px;
+		text-align: left;
+		line-height: 1;
+	}
+
+	.key-label-unk {
+		top: 215px;
+		left: 105px;
+	}
+}

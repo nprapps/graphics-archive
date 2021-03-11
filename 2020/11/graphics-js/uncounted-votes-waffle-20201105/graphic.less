@@ -1,0 +1,164 @@
+@import "./lib/base";
+
+h1 {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  max-width: 600px;
+  line-height: 28px;
+}
+
+h1.liveblog {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.graphic {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.footer, .footnotes {
+  .mmedia-constrained();
+}
+
+.key {
+  text-align: center;
+  margin-bottom: 0px;
+  margin-top: 10px;
+
+  .square {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0;
+    float: none;
+
+    &.outline {
+      border: 1px solid #777;
+      background-color: white;
+    }
+  }
+
+  .key-label {
+    display: inline-block;
+    margin-right: 10px;
+
+    &.outline {
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
+
+}
+
+.total-wrapper {
+  // margin-left: 20px;
+  margin-bottom: 50px;
+
+  .total-waffle {
+    max-width: 50px;
+    margin: 0 auto;
+    margin-top: 5px;
+  }
+
+  .total-label {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .total-amt {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    .knockout-header();
+    color: black;
+  }
+}
+
+.state-wrapper {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.state {
+  display: inline-block;
+  margin: 10px;
+  max-width: 90px;
+
+  position: relative;
+  // max-width: 500px;
+}
+
+.state-header, .total-label {
+  .knockout-header();
+  color: black;
+}
+
+.state-winning {
+  margin-bottom: 5px;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.square-container {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.square {
+  width: 7px;
+  height: 7px;
+  margin-right: 1px;
+  margin-bottom: 1px;
+  background: black;
+  border-radius: 1px;
+  float: left;
+
+  &.votes-2020 {
+    background-color: #a9a9a9;
+  }
+
+  &.votes-2016 {
+    background-color: @red2;
+  }
+
+  &.true {
+    background-color: @blue2;
+  }
+
+  &.false {
+    background-color: @red2;
+  }
+}
+
+.waffle-group {
+  display: block;
+}
+
+.waffle-wrapper {
+  text-align: center;
+
+  div {
+    flex-direction: column;
+  }
+}
+
+.hed-label {
+  color: white;
+  padding: 2px;
+  border-radius: 4px;
+
+  &.new {
+    background-color: #a9a9a9;
+  }
+
+  &.old {
+    background-color: @red2;
+  }
+}
+
+.state-wrapper.liveblog {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,127 @@
+<%
+  var thisGraphic = "financial_national_table"
+
+  var calcBGColor = function (val) {
+    var newClass = 'background-color';
+    var colorRGB = "227,141,44";
+    var max = 100;
+    var opacity = (val / max) + .1;
+    var distanceFromZero = Math.abs(0 - val);
+
+    var style = `background-color: rgba(${colorRGB}, ${opacity}); color: ${distanceFromZero >= 90 ? '#fff' : '#454545'};`;
+    return style;
+  };
+%>
+
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels[thisGraphic + "_city"]) { %>
+  <h3 class="city <%= t.classify(COPY.labels[thisGraphic + "_city"]) %>"><b><%= t.smarty(COPY.labels[thisGraphic + "_city"]) %></b></h3>
+<% } %>
+
+<% if (COPY.labels[thisGraphic + "_headline"]) { %>
+<h1><%= t.smarty(COPY.labels[thisGraphic + "_headline"]) %></h1>
+<% } %>
+
+<% if (COPY.labels[thisGraphic + "_subhed"]) { %>
+<h2><%= t.smarty(COPY.labels[thisGraphic + "_subhed"]) %></h2>
+<% } %>
+
+<div class="graphic <%= thisGraphic %>" id="table-graphic">
+  <table id="state-table" role="table">
+
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="tablelabel" class="category tlabel">
+        </th>
+        <th role="tablelabel" class="amt tlabel">
+        </th>
+        <th role="tablelabel" class="amt tlabel">
+        </th>
+        <th role="tablelabel" class="amt tlabel">
+          <h3 class="header"><%= COPY.labels[thisGraphic + "_labelone"] %></h3>
+        </th>
+        <th role="tablelabel" class="amt tlabel">
+        </th>
+        <th role="tablelabel" class="amt tlabel">
+        </th>
+        <th role="tablelabel" class="amt tlabel">
+          <h3 class="header"><%= COPY.labels[thisGraphic + "_labeltwo"] %></h3>
+        </th>
+        <th role="tablelabel" class="amt tlabel">
+        </th>
+      </tr>
+    </thead>
+
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader" class="category columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels[thisGraphic + "_category"] %></div>
+        </th>
+        <th role="columnheader" class="amt race-total columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels[thisGraphic + "_total"] %></div>
+        </th>
+        <th role="columnheader" class="amt race-bottom columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels[thisGraphic + "_bottom"] %></div>
+        </th>
+        <th role="columnheader" class="amt race-middle columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels[thisGraphic + "_middle"] %></div>
+        </th>
+        <th role="columnheader" class="amt race-top columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels[thisGraphic + "_top"] %></div>
+        </th>
+        <th role="columnheader" class="amt race-latino columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels[thisGraphic + "_latino"] %></div>
+        </th>
+        <th role="columnheader" class="amt race-black columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels[thisGraphic + "_black"] %></div>
+        </th>
+        <th role="columnheader" class="amt race-white columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels[thisGraphic + "_white"] %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY[thisGraphic].forEach(function(row, i) { %>
+    <tr class="<%= t.classify(row.category) %> row-<%= i %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels[thisGraphic + "_category"] %>" class="category"><%= row.category %></td>
+      <td role="cell" data-title="<%= COPY.labels[thisGraphic + "_total"] %>" class="amt race-total" style="<%= calcBGColor(row.total) %>"><%= row.total %>%</td>
+      <td role="cell" data-title="Income <%= COPY.labels[thisGraphic + "_bottom"] %>" class="amt race-bottom" style="<%= calcBGColor(row.bottom) %>"><%= row.bottom %>%</td>
+      <td role="cell" data-title="Income <%= COPY.labels[thisGraphic + "_middle"] %>" class="amt race-middle" style="<%= calcBGColor(row.middle) %>"><%= row.middle %>%</td>
+      <td role="cell" data-title="Income <%= COPY.labels[thisGraphic + "_top"] %>" class="amt race-top" style="<%= calcBGColor(row.top) %>"><%= row.top %>%</td>
+      <td role="cell" data-title="<%= COPY.labels[thisGraphic + "_latino"] %>" class="amt race-latino" style="<%= calcBGColor(row.latino) %>"><%= row.latino %>%</td>
+      <td role="cell" data-title="<%= COPY.labels[thisGraphic + "_black"] %>" class="amt race-black" style="<%= calcBGColor(row.black) %>"><%= row.black %>%</td>
+      <td role="cell" data-title="<%= COPY.labels[thisGraphic + "_white"] %>" class="amt race-white" style="<%= calcBGColor(row.white) %>"><%= row.white %>%</td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels[thisGraphic + "_footnote"]) { %>
+<div class="footnotes">
+  <p><strong>Note:</strong> <%= COPY.labels[thisGraphic + "_footnote"] %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels[thisGraphic + "_source"]) { %>
+  <p>Source: <%= COPY.labels[thisGraphic + "_source"] %></p>
+  <% } %>
+
+  <% if (COPY.labels[thisGraphic + "_credit"]) { %>
+  <p>Credit: <%= COPY.labels[thisGraphic + "_credit"] %></p>
+  <% } %>
+</div>
+
+<script src="./table.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

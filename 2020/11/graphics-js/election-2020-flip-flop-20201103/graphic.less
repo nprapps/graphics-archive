@@ -1,0 +1,266 @@
+@import "./lib/base";
+
+h1, h2 {
+  text-align: center;
+}
+
+.footer, .footnotes {
+  .mmedia-constrained();
+}
+
+.graphic {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.y .tick {
+  font-weight: bold;
+}
+
+// ============ legend styles ================ //
+
+.legend-wrapper {
+  margin: 0 auto;
+  // margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  .line {
+      // margin: 0 auto;
+      margin-top: 5px;
+      width: 80px;
+      height: 50px;
+      background:linear-gradient(90deg, transparent calc(50% - 3px),  rgba(51, 51, 51, .1) calc(50% - 3px), rgba(51, 51, 51, .1) 50%, transparent 5%);
+    }
+
+  .circles-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .circle-label, .circle-title, .line-title {
+    font-size: 12px;
+  }
+
+  .circle-item {
+    margin: 5px;
+  }
+
+  .circle {
+    box-shadow: 0 0 3px #333;
+    border-radius: 50%;
+    opacity: 0.9;
+    display: inline-block;
+    margin: 4px;
+
+    &.circle-1 {
+      width: 6px;
+      height: 6px;
+    }
+
+    &.circle-2 {
+      width: 15.5px;
+      height: 15.5px;
+    }
+
+    &.circle-3 {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+// ========== state total label ============ //
+
+.total-label {
+  color: white;
+  padding: 2px;
+  border-radius: 2px;
+
+  &.won {
+    background-color: #79b8e6;
+  }
+
+  &.lost {
+    background-color: #ed8889;
+  }
+}
+
+// ============ chart styles =============== //
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #000 !important;
+  stroke-opacity: 0.05;
+
+  .line {
+    @media screen and (min-width: 500px) {
+      cursor: pointer;
+
+      &:hover {
+        stroke-opacity: 0.3;
+      }
+    }
+  }
+}
+
+.dots {
+  fill-opacity: 0.6;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+text.axis-label {
+  font-size: 11px;
+  // fill: #aaa;
+
+  &.dem {
+    fill: #275e90;
+  }
+
+  &.gop {
+    fill: #c52011
+  }
+}
+
+circle {
+  @media screen and (min-width: 500px) {
+
+    &:hover {
+      fill-opacity: 1;
+    }
+  }
+}
+
+// ============ subchart chart & header styles ============== //
+
+.state-title {
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Gotham SSm', Helvetica, Arial, sans-serif;
+  color: #666;
+  margin-bottom: 5px;
+  // border-top: 2px solid #ccc;
+  padding-top: 10px;
+  margin-top: 20px;
+}
+
+.type-title {
+  .knockout-header();
+  color: black;
+  text-align: left;
+}
+
+.type-counties {
+  .knockout-header();
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: #818181;
+  text-align: left;
+}
+
+.type-total, .type-shift {
+  font-size: 12px;
+  text-align: center;
+  text-align: left;
+}
+
+.type-shift {
+  margin-bottom: 5px;
+}
+
+.state-total {
+  // .knockout-header();
+  // font-size: 14px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sub-wrapper {
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  height: 50%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+
+  .type-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-top: 30px;
+  }
+}
+
+@media screen and (max-width: 499px) {
+  .sub-wrapper {
+    display: block;
+    margin-bottom: 0;
+  }
+
+  .type-group {
+    margin: 0 auto;
+  }
+
+  .type-hed {
+    display: flex;
+    justify-content: center;
+
+    .type-title {
+      margin-right: 5px;
+    }
+
+    .type-counties {
+      font-size: 14px;
+    }
+  }
+
+  .type-title, .type-shift, .type-total, .type-counties {
+    text-align: center;
+  }
+}
+
+// ============ tooltips !!!! ============ //
+
+#line-tooltip {
+  padding: 5px;
+  border: 1px solid #999;
+  max-width: 200px;
+  position: absolute;
+  z-index: 10;
+
+  table {
+    font-size: 12px;
+    border-collapse: collapse;
+
+    th {
+      text-align: left;
+      vertical-align: bottom;
+      max-width: 60px;
+      color:  #A0A0A0;
+      line-height: 12px;
+    }
+
+    td {
+      padding: 3px 5px;
+      // text-align: right;
+      padding-right: 0px;
+    }
+
+    tr:first-child {
+      border-bottom: 1px solid #ddd;
+    }
+
+    thead {
+      border-bottom: 1px solid #ddd;
+    }
+  }
+}

@@ -1,0 +1,96 @@
+<%
+  var numOfDays = 21;
+
+  var DATA = COPY.daily_countries_total;
+  // var cases_timeline =  COPY.states_confirmed_timeline;
+  // var deaths_timeline = COPY.states_deaths_timeline;
+
+  var today = COPY.labels.dateUpdatedCode
+
+  // join diff datasets
+	// for (var i = 0; i < DATA.length; i++) {
+ //    for (var j = 0; j < cases_timeline.length; j++) {
+ //      if (DATA[i].state == cases_timeline[j].state) {
+ //        DATA[i].casesTimeseries = [];
+ //        for (var date in cases_timeline[j]) {
+ //          if (!isNaN(parseInt(date.charAt(0))) && parseInt(date) <= today) {
+ //            DATA[i].casesTimeseries.push(cases_timeline[j][date]);
+ //          }
+ //        }
+
+ //        break;
+ //      }
+ //    }
+	// }
+
+	DATA.sort(function(a,b){
+		return b.confirmed - a.confirmed;
+	});
+
+  DATA = DATA.filter(function(a){
+    return !isNaN(a.confirmed) && a.confirmed >= 1;
+  });
+
+%>
+
+<!-- <div class="legend">
+  <h1>How to read this chart</h1>
+  <div class="div-table">
+    <div class="cell-group">
+      <div class="cell"><h3 class="table-header">State</h3></div>
+      <div class="cell amt timeline">
+        <h3>New Cases Last three weeks</h3>
+      </div>
+      <div class="cell amt"><h3>Cases</h3></div>
+      <div class="cell amt"><h3>Deaths</h3></div>
+    </div>
+  </div>
+
+</div>
+ -->
+
+<div class="countries" role=table>
+  <%= await t.include("_partials/_table_header.html") %>
+
+  <div class="div-table" role="rowgroup">
+    <%
+      DATA.forEach(function(row) {
+        <!-- var confirmed = row.confirmed ? row.confirmed : 0; -->
+        var confirmed = row.confirmed_override > row.confirmed ? row.confirmed_override : row.confirmed;
+        var deaths = row.deaths_override > row.deaths ? row.deaths_override : row.deaths;
+    %>
+
+    <div class="cell-group country" role="row">
+      <div class="cell" role="cell">
+        <%= row.name_display %>
+      </div>
+      <div class="cell amt d<%= confirmed %>" role="cell">
+        <%= t.comma(confirmed) %>
+      </div>
+      <div class="cell amt deaths d<%= deaths %>" role="cell">
+        <%= t.comma(deaths) %>
+      </div>
+    </div>
+
+    <%
+      });
+    %>
+  </div>
+</div>
+<button class="toggle-table" data-more="<%= COPY.labels.toggle_more %>" data-less="<%= COPY.labels.toggle_less %>"><%= COPY.labels.toggle_more %></button>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <p><strong>Note:</strong> <%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+
+<script type="text/javascript">
+
+</script>

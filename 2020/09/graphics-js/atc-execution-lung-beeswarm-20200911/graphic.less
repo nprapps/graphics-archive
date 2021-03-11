@@ -1,0 +1,53 @@
+@import "./lib/base";
+
+h1, h2, .footer, .footnotes {
+	.mmedia-constrained();
+	text-align: center;
+}
+
+.footer, .footnotes {
+	text-align: left;
+}
+
+
+
+
+.cells path {
+  fill: none;
+  pointer-events: all;
+}
+
+.expected-line {
+	stroke: @blue2;
+	stroke-width: 2px;
+	stroke-dasharray: 8px 10px;
+}
+
+.expected-shade {
+	fill: @blue5;
+	opacity: .5;
+}
+
+g circle {
+	fill: @orange3;
+}
+
+.rep-circle {
+	display: inline-block;
+	background: @orange3;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	margin-right: 5px;
+}
+h3 {
+	text-align: center;
+}
+
+.lung-normal-annot {
+	.gotham();
+	fill: @blue3;
+	font-style: italic;
+	font-size: 12px;
+	text-anchor: middle;
+}

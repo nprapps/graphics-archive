@@ -1,0 +1,183 @@
+<%
+  // build our custom D3 object
+  var d3 = {
+    ...require("d3-scale/dist/d3-scale.min")
+  };
+
+  var { inDays } = require("./util.js");
+
+  var DATA = COPY.daily_us_totals;
+
+  var stateLookup = {};
+  for (var row of COPY.daily_us_totals) {
+    stateLookup[row.state_jhu] = row;
+  }
+
+  var byState = {};
+  var unmatched = new Set();
+  for (var row of COPY.timeseries_states) {
+    var state = row.Province_State || "United States";
+    if (!stateLookup[state]) {
+      unmatched.add(state);
+      continue;
+    }
+    if (!byState[state]) byState[state] = {
+      ...stateLookup[state],
+      days: []
+    };
+    var [y, m, d] = row.Report_Date_String.split("/").map(Number);
+    row.timestamp = new Date(y, m - 1, d);
+    var reported = [m, d, y].join("/");
+    row.dayIndex = inDays(reported);
+    byState[state].days.push(row);
+  }
+
+  var sorted = Object.keys(byState).map(s => byState[s]).sort(function(a, b) {
+    return (b.confirmed_override || b.confirmed) - (a.confirmed_override || a.confirmed);
+  });
+  console.log(`Unable to find matches for: ${[...unmatched].join(", ")}`);
+
+  // calculate 7-day averages
+  sorted.forEach((state) => {
+    state.days.sort((a, b) => a.timestamp - b.timestamp);
+
+    state.days.forEach((d, i) => {
+      if (i > 0) {
+        d.newCases = d['Confirmed'] - state.days[i-1]['Confirmed'];
+      } else {
+        d.newCases = d['Confirmed'];
+      }
+
+      var avg7newCases = 0;
+      var numDaysForAverage = 7;
+      var last7TotalCases = 0;
+      if (i >= 6) {
+        for (var c = 6; c >= 0; c--) {
+          // if new cases are negative, exclude them from the calculation
+          if (state.days[(i - c)].newCases < 0) {
+            numDaysForAverage -= 1;
+          } else {
+            last7TotalCases += state.days[(i - c)].newCases;
+          }
+        }
+        avg7newCases = Math.round(last7TotalCases / numDaysForAverage);
+      }
+      d.avg7newCases = avg7newCases;
+
+      // calculate % difference between avg daily cases today vs. avg daily cases 7 days ago
+      if (i >= 13) {
+        d.pctChangeSinceLastWeek = ((d.avg7newCases - state.days[(i-7)].avg7newCases) / state.days[(i-7)].avg7newCases) * 100;
+      }
+    });
+  });
+
+  // define color scale (copied from the scale for the map)
+  var categories = COPY.labels.change_legend_labels.split("|").map(l => l.trim());
+  categories.forEach(function(d,i) {
+    categories[i] = Number(categories[i]);
+  });
+
+  // via https://gka.github.io/palettes/#/7|d|df6222,ed9d5e,ebe3a7|a7eecd,277273|1|1
+  var colorScale = d3.scaleThreshold()
+    .domain(categories)
+    .range([
+      '#000000', // never used
+      '#549990',
+      '#7dc3ae',
+      '#ebe3a7',
+      '#eeb97a',
+      '#ea8e4f',
+      '#df6222'
+    ]);
+
+  var calcIncreaseRBG = function (val) {
+    val = (val > 101) ? 101 : val;
+    val = val < -101 ? -101 : val;
+    var newClass = 'background-color';
+    var colors = {
+      'negative': '227,141,44',
+      'positive': '23,128,126'
+    };
+    var distanceFromZero = Math.abs(0 - val);
+
+    var style = `${newClass}: ${colorScale(val)};color: ${distanceFromZero >= 50 ? '#e5e5e5' : '#333'};`;
+    return style;
+  };
+
+  // console.log(sorted.map(s => [s.state, s.confirmed]))
+
+%>
+
+<div class="states" role="table" id="state-table">
+  <h1><%= COPY.labels.heatmap_headline %></h1>
+  <%= await t.include("_partials/_table_header.html") %>
+  <div class="div-table" role="rowgroup">
+    <%
+      sorted.forEach(function(row) {
+        var confirmed = row.confirmed_override || row.confirmed || 0;
+        var deaths = row.deaths_override || row.deaths || 0;
+    %>
+
+    <div class="cell-group state" role="row">
+      <div class="cell cell-inner stateName" role="cell">
+        <%= row.state %>
+      </div>
+      <div class="cell amt timeline" aria-hidden="true">
+        <%
+          var sortedDates = row.days.sort((a, b) => b.timestamp - a.timestamp);
+          for (var i = 34; i >= 0; i--) {
+            if (i % 7 == 0 && i < 28) {
+        %>
+           <div
+            data-increase="<%= row.state %>"
+            class="cell sub-cell week"
+            data-count="<%= sortedDates[i].avg7newCases %>"
+            role="cell"
+            style="<% if (Math.abs(sortedDates[i].avg7newCases < 10)) { %>background-color: #f1f1f1; <% } else { %><%= calcIncreaseRBG(sortedDates[i].pctChangeSinceLastWeek)%><% } %>">
+            <%= t.comma(sortedDates[i].avg7newCases) %>
+          </div>
+        <%
+            }
+          }
+        %>
+      </div>
+
+      <div
+        data-confirmed="<%= row.state %>"
+        class="cell amt confirmed cell-inner"
+        data-count="<%= confirmed %>"
+        role="cell">
+        <%= t.comma(confirmed) %>
+      </div>
+      <div
+        data-deaths="<%= row.state %>"
+        class="cell amt deaths cell-inner"
+        data-count="<%= deaths %>"
+        role="cell">
+        <%= t.comma(deaths) %>
+      </div>
+    </div>
+
+    <%
+      });
+    %>
+  </div>
+</div>
+
+<% if (COPY.labels.table_footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.table_footnote %></p>
+</div>
+<% } %>
+
+<script>
+window.DATA = <%= JSON.stringify(COPY.daily_us_totals) %>;
+window.LABELS = <%= JSON.stringify(COPY.labels) %>;
+
+</script>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>

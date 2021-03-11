@@ -1,0 +1,51 @@
+<%= await t.include("lib/_head.html") %>
+
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+
+
+<ul class="key">
+	<li class="key-item key-0 large-cities"><b></b><label>Regularly tests students</label></li>
+	<li class="key-item key-1 medium-cities"><b></b><label>Random surveillance testing</label></li>
+	<li class="key-item key-2 smallrural-towns"><b></b><label>Only at-risk students</label></li>
+	<li class="key-item key-2 unk-key"><b></b><label>No clear plan
+
+</label></li>
+</ul>
+
+
+<div class='container-100 postcontainer'>
+	<% 
+	for (i=1; i<=Object.keys(COPY.postdata).length; i++) {
+	%>
+	<div class='unit unit-<%=COPY.postdata[i].split(" ")[0]%>'></div> 
+	<% } %>
+</div>
+
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

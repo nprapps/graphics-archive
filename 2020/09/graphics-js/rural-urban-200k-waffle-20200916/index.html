@@ -1,0 +1,61 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+
+
+<ul class="key">
+	<li class="key-item key-0 large-cities"><b></b><label>Large Cities</label></li>
+	<li class="key-item key-1 medium-cities"><b></b><label>Medium Cities</label></li>
+	<li class="key-item key-2 smallrural-towns"><b></b><label>Small/Rural Towns</label></li>
+	<li class="key-item key-2 unk-key"><b></b><label>Unknown</label></li>
+</ul>
+
+<div class='container-100 precontainer'>
+	<h3>First 100,00 deaths</h3>
+	<% for (i=0; i<100; i++) {
+	%>
+	<div class='unit unit-<%=COPY.predata[i]%>'></div> 
+	<% } %>
+	<!-- <div class='key-label key-label-big'>Large cities</div> -->
+	<!-- <div class='key-label key-label-med'>Medium cities</div> -->
+	<!-- <div class='key-label key-label-sm'>Small towns/rural</div> -->
+	<!-- <div class='key-label key-label-unk'>Unknown</div> -->
+</div>
+<div class='container-100 postcontainer'>
+	<h3>Second 100,00 deaths</h3>
+	<% for (i=0; i<100; i++) {
+	%>
+	<div class='unit unit-<%=COPY.postdata[i]%>'></div> 
+	<% } %>
+</div>
+
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

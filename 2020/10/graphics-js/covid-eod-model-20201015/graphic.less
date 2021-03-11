@@ -1,0 +1,128 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.annotations .dots {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.annotations text {
+    font-size: 12px;
+    fill: #999;
+}
+
+.key {
+  .key-item {
+    .reported-deaths {
+      display: none;
+    }
+  }
+}
+
+path.line.reported-deaths {
+  stroke: #ccc;
+  stroke-width: 4px;
+}
+path.line.universal-masks {
+  stroke-dasharray: 5;
+  stroke: @teal3;
+}
+path.line.current-projection {
+  stroke-dasharray: 5;
+  stroke: #666;
+}
+
+path.line.mandates-easing {
+  stroke-dasharray: 5;
+  stroke: @orange3;
+}
+
+.axis path { color: #ccc; }
+
+text.reported-deaths { display: none; }
+circle.reported-deaths { display: none; }
+
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+  .annotations text {
+    font-size: 11px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    // display: none;
+  }
+}
+
+// explainer css
+
+.explainer {
+	margin: 0 auto;
+	/*width: 400px;*/
+	max-width: 100%;
+	// margin-bottom: 55px;
+}
+
+.explainer-row {
+	margin: 13px 0px 13px 0px;
+	.gotham();
+	line-height: 1.5;
+	font-size: 13px;
+  margin-left: 29px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.explainer-row .label {
+	line-height: 1;
+	.knockout-header();
+	padding: 5px;
+	border-radius: 4px;
+	color: white;
+	width: 25%;
+	text-align: center;
+  display: inline-block;
+  font-size: 12px;
+	margin-right: 3px;
+  margin-left: -28px;
+  flex: 0 25%;
+  height: 40px;
+}
+
+@media screen and (min-width: 500px) {
+  .explainer-row .label {
+    padding-top: 12px;
+  }
+}
+
+.explainer-row .desc {
+  margin-left: 10px;
+  flex: 0 70%;
+}
+
+.explainer-row.left-level span {
+	background: @orange3;
+}
+
+.explainer-row.center-level span {
+	background: #666;
+}
+
+.explainer-row.right-level span {
+	background: @teal3;
+}

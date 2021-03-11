@@ -1,0 +1,165 @@
+@import "./lib/base";
+@import "./table";
+
+@chicago:         @blue5;
+@chicagoDark:     @blue3;
+@nyc:             @orange5;
+@nycDark:         @orange3;
+@houston:         @red5;
+@houstonDark:     @red3;
+@la:              @teal5;
+@laDark:          @teal3;
+
+
+h1, h2, h3, .key {
+  .mmedia-constrained-centered();
+}
+
+h1 strong {
+  color: #333;
+  text-transform: uppercase;
+  display: block;
+  .knockout-header();
+}
+
+h3.city {
+  font-size: 13px;
+  margin-bottom: 11px;
+
+  b {
+    background-color: @teal2;
+    color: #fff;
+    font-weight: normal;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  &.chicago b { background-color: @chicagoDark }
+  &.houston b { background-color: @houstonDark; }
+  &.los-angeles b { background-color: @laDark; }
+  &.new-york-city b { background-color: @nycDark; }
+  &.nationwide b { background-color: #666; }
+}
+
+.overall span {
+  font-weight: bold;
+  color: #333;
+}
+
+.value text.out {
+  fill: #666;
+}
+
+.caregiving_chicago {
+  .bars rect {
+    fill: @chicago;
+
+    &.bar-0 { fill: @chicagoDark; }
+  }
+
+  .labels li:first-child {
+    font-weight: bold;
+    color: #454545;
+  }
+}
+
+.caregiving_nyc {
+  .bars rect {
+    fill: @nyc;
+
+    &.bar-0 { fill: @nycDark; }
+  }
+
+  .labels li:first-child {
+    font-weight: bold;
+    color: #454545;
+  }
+}
+
+.financial_chicago_detail {
+  .bars rect {
+    fill: @chicago;
+
+    &.bar-0 { fill: @chicagoDark; }
+  }
+
+  .labels li:first-child {
+    font-weight: bold;
+    color: #454545;
+  }
+}
+
+.financial_chicago {
+  .overall .bars rect {
+    fill: @chicagoDark;
+  }
+
+  .by-raceethnicity .bars rect {
+    fill: @chicago;
+  }
+
+  .by-income .bars rect {
+    fill: @chicago;
+  }
+}
+
+.financial_houston {
+  .overall .bars rect {
+    fill: @houstonDark;
+  }
+
+  .by-raceethnicity .bars rect {
+    fill: @houston;
+  }
+
+  .by-income .bars rect {
+    fill: @houston;
+  }
+}
+
+.financial_houston_detail {
+  .key li {
+    &.key-0 b { background-color: @houstonDark; }
+    &.key-1 b { background-color: @houston; }
+  }
+  .bars rect {
+    &.bar-0 { fill: @houstonDark; }
+    &.bar-1 { fill: @houston; }
+  }
+}
+
+.financial_la {
+  .overall .bars rect {
+    fill: @laDark;
+  }
+
+  .by-raceethnicity .bars rect {
+    fill: @la;
+  }
+
+  .by-income .bars rect {
+    fill: @la;
+  }
+}
+
+.financial_nyc {
+  .overall .bars rect {
+    fill: @nycDark;
+  }
+
+  .by-raceethnicity .bars rect {
+    fill: @nyc;
+  }
+
+  .by-income .bars rect {
+    fill: @nyc;
+  }
+}
+
+li.key-item.key-1.among-the-57-of-houston-households-with-jobwage-losses {
+  margin-right: 0;
+}
+
+.financial_national_race, .households_national_covid {
+  .bars rect { fill: #666; }
+}

@@ -1,0 +1,93 @@
+<%
+  var thisGraphic = "financial_national_table"
+
+  var calcBGColor = function (val) {
+    var newClass = 'background-color';
+    var colorRGB = "150,150,150";
+    var max = 100;
+    var opacity = (val / max);
+    var distanceFromZero = Math.abs(0 - val);
+
+    var style = `background-color: rgba(${colorRGB}, ${opacity}); color: ${distanceFromZero >= 90 ? '#fff' : '#454545'};`;
+    return style;
+  };
+%>
+
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels[thisGraphic + "_city"]) { %>
+  <h3 class="city <%= t.classify(COPY.labels[thisGraphic + "_city"]) %>"><b><%= t.smarty(COPY.labels[thisGraphic + "_city"]) %></b></h3>
+<% } %>
+
+<% if (COPY.labels[thisGraphic + "_headline"]) { %>
+<h1><%= t.smarty(COPY.labels[thisGraphic + "_headline"]) %></h1>
+<% } %>
+
+<% if (COPY.labels[thisGraphic + "_subhed"]) { %>
+<h2><%= t.smarty(COPY.labels[thisGraphic + "_subhed"]) %></h2>
+<% } %>
+
+<div class="graphic <%= thisGraphic %>" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader" class="category">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels[thisGraphic + "_category"] %></div>
+        </th>
+        <th role="columnheader" class="amt race-latino">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels[thisGraphic + "_latino"] %></div>
+        </th>
+        <th role="columnheader" class="amt race-black">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels[thisGraphic + "_black"] %></div>
+        </th>
+        <th role="columnheader" class="amt race-native-american">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels[thisGraphic + "_native_american"] %></div>
+        </th>
+        <th role="columnheader" class="amt race-asian">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels[thisGraphic + "_asian"] %></div>
+        </th>
+        <th role="columnheader" class="amt race-white">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels[thisGraphic + "_white"] %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY[thisGraphic].forEach(function(row, i) { %>
+    <tr class="<%= t.classify(row.category) %> row-<%= i %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels[thisGraphic + "_category"] %>" class="category"><% if (i > 0) { %>&mdash;&nbsp;<% } %><%= row.category %></td>
+      <td role="cell" data-title="<%= COPY.labels[thisGraphic + "_latino"] %>" class="amt race-latino" style="<%= calcBGColor(row.latino) %>"><%= row.latino %>%</td>
+      <td role="cell" data-title="<%= COPY.labels[thisGraphic + "_black"] %>" class="amt race-black" style="<%= calcBGColor(row.black) %>"><%= row.black %>%</td>
+      <td role="cell" data-title="<%= COPY.labels[thisGraphic + "_native_american"] %>" class="amt race-native-american" style="<%= calcBGColor(row.native_american) %>"><%= row.native_american %>%</td>
+      <td role="cell" data-title="<%= COPY.labels[thisGraphic + "_asian"] %>" class="amt race-asian" style="<%= calcBGColor(row.asian) %>"><%= row.asian %>%</td>
+      <td role="cell" data-title="<%= COPY.labels[thisGraphic + "_white"] %>" class="amt race-white" style="<%= calcBGColor(row.white) %>"><%= row.white %>%</td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels[thisGraphic + "_footnote"]) { %>
+<div class="footnotes">
+  <p><strong>Note:</strong> <%= COPY.labels[thisGraphic + "_footnote"] %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels[thisGraphic + "_source"]) { %>
+  <p>Source: <%= COPY.labels[thisGraphic + "_source"] %></p>
+  <% } %>
+
+  <% if (COPY.labels[thisGraphic + "_credit"]) { %>
+  <p>Credit: <%= COPY.labels[thisGraphic + "_credit"] %></p>
+  <% } %>
+</div>
+
+<script src="./table.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

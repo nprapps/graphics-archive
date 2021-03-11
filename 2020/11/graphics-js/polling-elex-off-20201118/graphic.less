@@ -1,0 +1,61 @@
+@import "./lib/base";
+
+@gop: #d61f21;
+@dem: #237bbd;
+
+h1 {
+  // margin-bottom: 22px;
+}
+
+// Base table styles
+table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+
+  tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+
+  th, td {
+    padding: 10px;
+
+    // comment these two out if you want to highlight particular rows
+    &:first-child { padding-left: 0; }
+    &:last-child { padding-right: 0; }
+
+    &.amt {
+      text-align: center;
+      width: 22%;
+    }
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+    border-bottom: 2px solid #eee;
+    padding-top: 0;
+  }
+
+  td {
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+
+    &.state {
+      font-weight: bold;
+    }
+
+    // &.d { color: @dem; }
+    // &.r { color: @gop; }
+  }
+}
+
+.national {
+  border-bottom: 2px solid #ccc;
+}

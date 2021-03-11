@@ -1,0 +1,202 @@
+@import "./lib/base";
+
+body {
+}
+
+h1 {
+  text-align: center;
+}
+
+h2, .search-bar {
+  text-align: center;
+  .mmedia-constrained();
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+.footnotes, .footer {
+  .mmedia-constrained();
+}
+
+.graphic {
+  margin-bottom: 0px;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.county-circle {
+  opacity: .45;
+  fill: #d3d3d3;
+  stroke-width: 1px;
+  stroke: white;
+}
+
+.county-circle:hover {
+  opacity: .95;
+  stroke: black;
+  stroke-width: 1.5px;
+}
+
+.more-dem {
+  fill: @blue3;
+}
+
+.more-gop {
+  fill: @red3;
+}
+
+.x-label, .y-label {
+  text-align: center;
+  font-size: 13px;
+  font-style: italic;
+  margin-bottom: 25px;
+  fill: #333;
+  color: #333;
+  line-height: 1.9
+}
+
+.line-zero {
+  stroke: #222;
+  stroke-width: 2px;
+}
+
+#state-tooltip {
+  pointer-events: none;
+  div {
+    .knockout-header();
+    font-weight: bold;
+  }
+  tbody {
+    ul {
+      padding-left: 15px;
+      margin-bottom: 2px;
+    }
+
+  }
+  border: 1px solid #333;
+  padding: 4px;
+  padding-left: 5px;
+  padding-right: 12px;
+  ul {
+    margin-top: 3px;
+  }
+}
+
+
+
+
+
+.search-bar {
+  width: 100%;
+  align-content: center;
+  margin: 0 auto 15px auto;
+  text-align: center;
+  width: 100%;
+  background-color: #eee;
+  padding: 5px;
+
+/*  @media screen and (max-width: 499px) {
+    display: none;
+  }*/
+
+
+  .search-box {
+    width: 300px;
+    display: block;
+    margin: 10px auto 20px auto;
+  }
+
+  input[type=text] {
+    height: 30px;
+    width: 200px;
+  }
+
+  .search-header {
+    margin: 0 0 10px 0;
+    .knockout-header();
+    padding-top: 0;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    color: #333;
+  }
+}
+
+.highlight {
+  opacity: .95;
+  stroke: black;
+  stroke-width:1.5px;
+}
+
+.keybox {
+  width: 230px;
+  margin: 0 auto;
+  margin-bottom: 12px;
+}
+
+.keybox div, .keybox svg {
+  display: inline-block;
+}
+
+.keybox circle {
+  opacity: .6 
+}
+
+.keybox div {
+  vertical-align: middle;
+  margin-top: -10px;
+}
+
+.bidencircle {
+  fill: @blue3;
+}
+
+.trumpcircle {
+  fill: @red3;
+}
+
+.annot-box {
+  stroke: black;
+  stroke-width: 2px;
+  fill: none;
+  stroke-dasharray: 2px 3px;
+}
+
+.annot-text {
+  .gotham();
+  font-style: italic;
+  font-size: 12px;
+  pointer-events: none;
+}
+
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}

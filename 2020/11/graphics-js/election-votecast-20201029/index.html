@@ -1,0 +1,159 @@
+<%= await t.include("lib/_head.html") %>
+
+<%
+  // var SURVEY = require("./votecast/Summary_US_G_1_11_03_20_0400PM.json");
+  // var SURVEY = require("./votecast/Summary_US_G_2_11_03_20_0800PM.json");
+  // var SURVEY = require("./votecast/Summary_US_G_3_11_04_20_1200AM.json");
+  // var SURVEY = require("./votecast/Summary_US_G_4_11_04_20_0100AM.json");
+  // var SURVEY = require("./votecast/Summary_US_G_5_11_04_20_1000AM.json");
+  var SURVEY = require("./votecast/Summary_US_G_6a_11_06_20_1000AM.json");
+%>
+
+<% if (COPY.labels.is_test) { %>
+<div class="test-banner">TEST DATA - NOT FINAL - TEST DATA</div>
+<% } %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<div class="graphic" id="table-graphic">
+  <%
+    COPY.data.forEach((q, i) => {
+      var surveyQuestion = SURVEY.questions.filter((s,k) => {
+        return s.variable == q.question_id;
+      });
+
+      var surveyQuestionResults = surveyQuestion[0].results.filter((s,k) => {
+        return s.raceID == "0" && s.voterType == "Likely voter" && s.summaryType == "horizontal";
+      });
+
+      if (i == 5) {
+        console.log(surveyQuestionResults[0]);
+        console.log(surveyQuestionResults[0].catValues[0]);
+      }
+  %>
+
+    <% if (i == 0 || q.grouping != COPY.data[i-1].grouping) { %>
+      <h3><%= COPY.labels["hdr_" + q.grouping] %></h4>
+    <% } %>
+
+    <% if (q.question_type == "detail") { %>
+      <button data-question="<%= q.question_id.toLowerCase() %>"><strong>SHOW MORE:</strong> <%= t.smarty(q.question_override) %> +</button>
+    <% } %>
+
+    <div class="question <%= q.question_type %> <%= q.question_id.toLowerCase() %>" class="<%= q.question_id.toLowerCase() %>">
+
+    <% if (q.question_override) { %>
+      <h4><%= t.smarty(q.question_override) %></h4>
+    <% } %>
+
+    <table>
+      <!-- <tr class="annot">
+        <th colspan="2">&nbsp;</td>
+        <th colspan="2" class="hdr">Who they voted for</th>
+      </tr> -->
+      <tr>
+        <th class="answer">Response</th>
+        <th class="overall amt">Share of voters</th>
+        <th class="biden amt">Voted for Biden</th>
+        <th class="trump amt">Voted for Trump</th>
+      </tr>
+
+      <% surveyQuestionResults[0].catValues.forEach((r,k) => { %>
+        <tr>
+          <td class="answer"><%= r.catValueText %></td>
+
+          <%
+            var overall_share;
+            var biden_share;
+            var biden_share_display = "n/a";
+            var trump_share;
+            var trump_share_display = "n/a";
+            var biden_lead = false;
+            var trump_lead = false;
+            var no_data = false;
+
+            r.candidateValues.forEach((v, k) => {
+              switch(v.candidateValue) {
+                case "0":
+                  overall_share = v.summaryValue;
+                  if (v.summaryValue == "ND") {
+                    no_data = true;
+                    overall_share = "n/a";
+                  } else if (overall_share > 0 && overall_share < 1) {
+                    overall_share = "<1%";
+                  } else {
+                    overall_share = overall_share.toFixed(0) + "%";
+                  }
+                  break;
+                case "1036":
+                  biden_share = v.summaryValue;
+                  if (v.summaryValue == "ND") {
+                    no_data = true;
+                    biden_share = null;
+                    biden_share_display = "n/a";
+                  } else if (biden_share > 0 && biden_share < 1) {
+                    biden_share_display = "<1%";
+                  } else {
+                    biden_share_display = biden_share.toFixed(0) + "%";
+                  }
+                  break;
+                case "8639":
+                  trump_share = v.summaryValue;
+                  if (v.summaryValue == "ND") {
+                    no_data = true;
+                    trump_share = null;
+                    trump_share_display = "n/a";
+                  } else if (trump_share > 0 && trump_share < 1) {
+                    trump_share_display = "<1%";
+                  } else {
+                    trump_share_display = trump_share.toFixed(0) + "%";
+                  }
+                  break;
+              }
+            });
+
+            if (!no_data && biden_share > trump_share) {
+              biden_lead = true;
+            } else if (!no_data && trump_share > biden_share) {
+              trump_lead = true;
+            }
+          %>
+
+          <td class="amt overall"><%= overall_share %></td>
+          <td class="amt biden <% if (biden_lead) { %>lead<% } %>"><%= biden_share_display %></td>
+          <td class="amt trump <% if (trump_lead) { %>lead<% } %>""><%= trump_share_display %></td>
+
+        </tr>
+      <% }); %>
+    </table>
+
+  </div>
+  <% }); %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

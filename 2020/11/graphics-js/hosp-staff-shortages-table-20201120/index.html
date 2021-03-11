@@ -1,0 +1,71 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic hide-others" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_state %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_usps %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_anticipated %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_ap %></div>
+        </th>
+        
+      </tr>
+    </thead>
+
+    <% COPY.data.forEach(function(row, ind) {
+      var showInit = ind <= 9 ? 'show': 'hide';
+      %>
+    <tr class="state-<%= t.classify(row.state) + " " + showInit %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_state %>"><%= row.state %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_usps %>" class="amt"><%= (row.current * 100).toFixed(0) %>%</td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_anticipated %>" class="amt"><%= (row.anticipated * 100).toFixed(0) %>%</td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_ap %>" class="amt"><%=(row.increase * 100).toFixed(0) > 0 ? "+" : ""%><%= (row.increase * 100).toFixed(0) %> <%= Math.abs((row.increase*100).toFixed(0))==1 ? "pt." : "pts." %></td>
+      
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<button class="toggle-table show-hide" data-more="<%= COPY.labels.toggle_more %>" data-less="<%= COPY.labels.toggle_less %>"><%= COPY.labels.toggle_more %></button>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+  
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

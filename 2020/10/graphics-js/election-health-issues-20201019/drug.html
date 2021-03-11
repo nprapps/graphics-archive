@@ -1,0 +1,59 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline_drug) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="header"><%= COPY.labels.hdr_drug %></div>
+        </th>
+        <th role="columnheader" class="candidates-trump">
+          <div class="headshot"><img src="img/donald_trump.png"></div>
+          <div class="header"><%= COPY.labels.hdr_trump %></div>
+        </th>
+        <th role="columnheader" class="candidates-biden">
+          <div class="headshot"><img src="img/joe_biden.png"></div>
+          <div class="header"><%= COPY.labels.hdr_biden %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY.drug.forEach(function(row) { %>
+    <tr class="<%= t.classify(row.position) %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_drug %>"><%= row.position %></td>
+      <td role="cell" class="<%= COPY.labels.hdr_trump %>" data-title="<%= COPY.labels.hdr_trump %>"><div><%= row.trump %></div></td>
+      <td role="cell" class="<%= COPY.labels.hdr_biden %>" data-title="<%= COPY.labels.hdr_biden %>"><div><%= row.biden %></div></td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

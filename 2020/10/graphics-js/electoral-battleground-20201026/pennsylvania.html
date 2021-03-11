@@ -1,0 +1,100 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+
+<div class="graphic">
+  <div id="stacked-bar-chart"></div>
+  <div id="map-key"></div>
+
+  <div class="controls" aria-hidden="true">
+    <input type="radio" name="map-mode" value="geo" id="mode-geo" checked="">
+    <label for="mode-geo" class="label-geo">
+      <%= await t.include("img/ico-geo.svg") %> Geography
+    </label>
+
+    <input type="radio" name="map-mode" value="cartogram" id="mode-cartogram">
+    <label for="mode-cartogram" class="label-cartogram">
+      <%= await t.include("img/ico-cartogram.svg") %> Electoral weight
+    </label>
+  </div>
+
+  <div id="maps" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+  >
+    <%= await t.include("_partials/_map-geo.svg") %>
+    <%= await t.include("_partials/_map-cartogram.svg") %>
+  </div>
+
+  <div class="sr-only">
+    <%
+      var bidenTotal = 0;
+      var trumpTotal = 0;
+
+      COPY.aggregates.forEach(function(map) {
+        if (map.map == "scenario_1") {
+          bidenTotal = map["1"] + map["2"];
+          trumpTotal = map["4"] + map["5"];
+        }
+      })
+
+    %>
+
+    <p>In this scenario, Biden would have <%= bidenTotal %> electoral votes and Trump would have <%= trumpTotal %>.</p>
+
+    <% [ "1", "5" ].forEach(function(grouping) { %>
+    <h3>
+      <% if (grouping == "1") { %>
+        Biden
+      <% } else if (grouping == "5") { %>
+        Trump
+      <% } %>
+    </h3>
+    <ul>
+      <% COPY.data.forEach(function(state) {
+        if (state.scenario_1 == grouping) {
+      %>
+        <li><%= state.state %> (<%= state.electoral_votes %> electoral votes)</li>
+      <%
+          }
+        });
+      %>
+    </ul>
+    <% }); %>
+  </div>
+</div>
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <p><strong>Notes:</strong> <%= t.smarty(COPY.labels.footnote) %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<% if ("data" in COPY) { %>
+<script type="text/javascript">
+window.map_scenario = "pennsylvania";
+window.map_genre = "bluered";
+window.DATA = <%= JSON.stringify(COPY.data) %>;
+window.LEGEND = <%= JSON.stringify(COPY.legend) %>;
+window.TOTALS = <%= JSON.stringify(COPY.aggregates) %>;
+</script>
+<% } %>
+
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

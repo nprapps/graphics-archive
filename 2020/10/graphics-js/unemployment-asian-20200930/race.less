@@ -1,0 +1,84 @@
+body#race {
+  .mmedia-constrained();
+
+  h1 { margin-bottom: 22px; }
+
+  .chart-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    float: left;
+
+
+    // @media @screen-mobile {
+    //   width: 100%;
+    // }
+  }
+
+  .key {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 30%;
+
+    @media @screen-mobile {
+      margin-left: 10%;
+    }
+  }
+
+  .chart {
+    width: 100%;    
+  }
+
+  .chart + h3 {
+    margin-top: 22px;
+  }
+
+  // text.overall {
+  //   display: none;
+  // }
+
+  .chart-label {
+      fill: #999;
+      font-style: italic;
+      font-size: 12px;
+      text-anchor: middle;
+      letter-spacing: .3px;
+  }
+
+  .annotations text,
+  .value text {
+    fill: #333;
+    stroke: #fff;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-opacity: 0.7;
+    paint-order: stroke fill;
+    font-weight: bold;
+    font-size: 11px;
+    -webkit-font-smoothing: antialiased;
+
+    &.overall {
+      fill: #666;
+      font-weight: normal;
+    }
+
+    // &.i3, &.i6, &.i7 {
+      
+    // }
+
+    @media @screen-mobile {
+      font-size: 10px;
+    }
+  }
+
+  .annotations .dots {
+    stroke: #fff;
+    stroke-width: 1px;
+  }
+
+  .lines {
+    fill: none;
+    stroke-width: 2px;
+  }
+}

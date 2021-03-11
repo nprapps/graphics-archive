@@ -1,0 +1,124 @@
+@import "./lib/base";
+
+body {.mmedia-constrained()}
+
+h1, h2 {
+  text-align: center;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 1.25px;
+  stroke: #777;
+
+  @media screen and (max-width: 500px) {
+    stroke-width: .75px;
+  }
+}
+
+.value text {
+  font-size: 14px;
+  font-weight: bold;
+  fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}
+
+.zero-line {
+  stroke-dasharray: 4;
+    stroke: #fff;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+}
+
+text.shadow {
+  stroke: #fff;
+  stroke-width: 3px;
+  stroke-opacity: .9;
+
+  &.beyond-the-index {
+    stroke: none;
+  }
+}
+
+select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 22px;
+      margin-bottom: 10px;
+  .mmedia-constrained-centered();
+}
+
+.lines {
+  path {
+    opacity: .4;
+  }
+}
+.lines {
+      path.highlight {
+        stroke: @red2;
+        stroke-width: 3px;
+        opacity: 1;
+    }
+}
+
+rect.healthy-maybe {
+  fill: @yellow4;
+    opacity: .1;
+}
+
+rect.unhealthy {
+    fill: #ECA395;
+    opacity: .45;
+}
+
+rect.very-unhealthy {
+  fill: #D8472B;
+  opacity: .35;
+}
+
+rect.hazardous {
+    fill: #8c2f1d;
+    opacity: .3;
+}
+
+rect.shadow {
+  fill: rgba(255, 255, 255, 0.7);
+}
+
+text.unhealthy {
+    fill: #d49285;
+}
+
+text.very-unhealthy {
+  fill: #D8472B;
+}
+
+text.hazardous {
+    fill: @red1;
+}
+
+text.beyond-the-index {
+    fill: #fff;
+  }
+
+h2, h1 {
+  text-align: center;
+}

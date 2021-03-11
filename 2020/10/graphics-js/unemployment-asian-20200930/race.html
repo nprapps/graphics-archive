@@ -1,0 +1,48 @@
+<%= await t.include("./partials/_header.html", { "slug": slug, "config": config, "id": "race" }) %>
+
+<h1><%= t.smarty(COPY.labels.headline_race) %></h1>
+
+<!-- <h2><%= t.smarty(COPY.labels.subhed_race) %></h2> -->
+
+<div class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+  aria-label="<%= COPY.labels.screenreader %>"
+<% } %>
+>
+
+<div class="chart-container">
+	<!-- <h3><%= COPY.labels.label_asian %></h3> -->
+	<div id="annotated-line-chart3" class="chart">  </div>	
+</div>
+
+<!-- <div class="chart-container">
+	<h3><%= COPY.labels.label_latino %></h3>
+	<div id="annotated-line-chart4" class="chart">  </div>	
+</div>
+
+<div class="chart-container">
+	<h3><%= COPY.labels.label_black %></h3>
+	<div id="annotated-line-chart2" class="chart">  </div>	
+</div>
+
+<div class="chart-container">
+	<h3><%= COPY.labels.label_white %></h3>
+	<div id="annotated-line-chart1" class="chart">  </div>	
+</div> -->
+
+<% if (COPY.labels.footnote_race) { %>
+<div class="footnotes">
+  <p><strong>Notes:</strong> <%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source_race) { %><p>Source: <%= COPY.labels.source_race %></p><% } %>
+  <% if (COPY.labels.credit_race) { %><p>Credit: <%= COPY.labels.credit_race %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var UNEMPLOYMENT_DATA = <%= JSON.stringify(COPY.unemployment_by_race) %>;
+</script>
+
+<%= await t.include("./partials/_footer.html") %>

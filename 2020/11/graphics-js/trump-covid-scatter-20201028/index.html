@@ -1,0 +1,62 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class='keybox'>
+	<% var circlewidth = 20 %>
+	<svg class='bidensvg' width='<%=circlewidth%>px' height='<%=circlewidth%>px'>
+		<circle cx='<%=circlewidth/2%>px' cy='<%=circlewidth/2%>px' r='<%=circlewidth/2%>px' class='bidencircle'></circle> 
+	</svg>
+	<div class='biden-text'>County voted for Biden in 2020</div>
+	<svg class='bidensvg' width='<%=circlewidth%>px' height='<%=circlewidth%>px'>
+		<circle cx='<%=circlewidth/2%>px' cy='<%=circlewidth/2%>px' r='<%=circlewidth/2%>px' class='trumpcircle'></circle> 
+	</svg>
+	<div class='biden-text'>County voted for Trump in 2020</div>
+</div>
+
+<div class="search-bar">
+  <div class="search-box">
+    <div class="search-header">Search by County</div>
+    <div>
+      <input list="counties" name="counties" id="search" class='counties' type="text">
+        <datalist id="counties">
+        </datalist>
+      
+    </div>
+  </div>
+</div>
+
+<div id="line-chart" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+  <img src="fallback.png" alt="" class="fallback" />
+</div>
+<div class='x-label'>Shift in margin for Donald Trump from 2016 (percent pts.)</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.data) %>;
+</script>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

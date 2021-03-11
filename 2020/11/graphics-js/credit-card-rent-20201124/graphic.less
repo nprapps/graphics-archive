@@ -1,0 +1,35 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 2px;
+  stroke: #ccc;
+
+  @media @screen-mobile-above {
+    stroke-width: 3px;
+  }
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #666;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 11px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}

@@ -1,0 +1,56 @@
+
+<h1><%= t.smarty(COPY.labels[graphID]) %></h1>
+
+<% if (graphID == "demIncrease") { %>
+<h2><%= t.smarty(COPY.labels[`${graphID}Chatter`]) %></h2>
+<% } %>
+
+
+<% if (graphID == "swing") { %>
+	<div class="legend">
+		<h3><%= t.smarty(COPY.labels[`${graphID}LegendTitle`]) %></h3>
+		<!-- <h2><%= t.smarty(COPY.labels[`${graphID}Explain`]) %></h2> -->
+		<div class="legend-inner">
+			<span class="left">
+				Democrat increase
+			</span>
+			<img alt="" src="img/penn-map-20201111.svg">	
+			<span class="right">
+				Republican increase
+			</span>
+		</div>
+		
+	</div>
+	
+<% } else { %>
+	<div class="legend">
+		<h3><%= t.smarty(COPY.labels[`${graphID}LegendTitle`]) %></h3>
+		<!-- <h2><%= t.smarty(COPY.labels.voteExplain) %></h2>	 -->
+	</div>
+<% } %>
+
+<div class="graphic-master-container">	
+	<div id="map-container" class="graphic" role="img">	    
+	</div>	
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4></h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.data) %>;    
+    var PLACES = <%= JSON.stringify(COPY.places) %>;    
+    var masterConfig = {
+    	"variableName": "<%= variableName %>",
+      	"type": "<%= type %>"
+    } 
+</script>

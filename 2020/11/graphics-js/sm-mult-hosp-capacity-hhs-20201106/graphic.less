@@ -1,0 +1,156 @@
+@import "./lib/base";
+
+h1, h2 {
+  text-align: center;
+}
+
+.footnotes, .footer {
+  .mmedia-constrained();
+}
+
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+  stroke-linejoin: round;
+}
+
+.lines path {
+  stroke-linejoin: round;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.graphic-wrapper {
+  width: 230px;
+  margin-bottom: 35px;
+}
+
+
+.state-title {
+  text-align: center;
+  .knockout-header();
+}
+
+.area {
+  fill: @red3;
+  opacity: .7;
+}
+
+
+
+#line-chart.hide-others {
+  .graphic-wrapper {
+    display: none
+  }
+  .always-show {
+    display: block;
+  }
+}
+
+
+.toggle-table {
+  .gotham();
+    background-color: #fff;
+    border: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #4774CC;
+    display: block;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 22px;
+    padding: 10px;
+    text-transform: uppercase;
+    width: 100%;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+
+  &:focus {
+    outline: none;
+    border: none;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .graphic-wrapper {
+    width: 100%;
+  }
+}
+
+
+
+/*FLEXBOX*/
+
+
+#line-chart {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    }
+
+.graphic-wrapper:nth-child(1) {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    }
+
+.graphic-wrapper:nth-child(2) {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    }

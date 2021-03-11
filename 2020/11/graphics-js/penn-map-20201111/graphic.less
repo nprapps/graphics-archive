@@ -1,0 +1,238 @@
+@import "./lib/base";
+
+@COLOR_LOW1: #FFDFAD;
+@COLOR_HIGH1: #F8A25B;
+
+@BUBBLE_STROKE: #555;
+@BUBBLE_FILL: #000;
+
+@highlight: @orange5;
+
+.graphic {
+  width: 100%;
+  float: left;
+}
+
+h1, h2 {
+	.mmedia-constrained-centered();
+}
+
+h1 {
+  margin-bottom: 0px;
+}
+
+h2 {
+  margin-top: 10px;
+  // font-style: italic;
+  margin-bottom:0px;
+}
+
+.highlight {
+  background-color: @highlight;
+  padding:3px 5px 3px 5px;
+  border-radius: 3px;
+  // color: @blue2;
+  color: #555;
+  // font-weight: bold;
+}
+
+.footnotes, .footer {
+	// .mmedia-constrained();	
+}
+
+.state {
+  fill: #ddd;
+  stroke: #F5F5F5;
+  // stroke: pink;
+  stroke-width:1;
+}
+
+.upDown.dem {
+  .state {
+    &.montgomery,
+    &.bucks,
+    &.chester,
+    &.delaware {
+      fill:@highlight;
+    }
+  }
+
+  .montgomery-county,
+  .bucks-county,
+  .chester-county,
+  .delaware-county {
+    // stroke:@blue4 !important;
+  }
+
+}
+
+.upDown {
+  // font-size: 14px !important;  
+}
+
+.legend {
+  // max-width: 200px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+
+  h3 {
+    text-align: center;
+    margin-bottom: 0px !important;
+  }
+
+  h2 {
+    margin:0 auto;
+  }
+
+  .legend-inner {
+    // width: 150px;
+    // display: block;
+    display: inline;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    font-style: italic;
+    margin-bottom: 0px;
+    font-size: 12px;
+    color: #777
+  }
+
+  // .right {
+  //   float: right;
+  // }
+
+  // .left {
+  //   float: left;
+  // }
+
+  img {
+    width: 100px;
+    display: inline-block;
+    margin: 0 auto;
+  }
+
+}
+
+.arrow {
+  fill: none;
+  stroke: #ff00ff;
+  stroke-width: 2px;
+
+  &.red {
+    stroke: @red3;
+  }
+
+  &.blue {
+    stroke: @blue3;
+  }
+
+  &.teal {
+    stroke: @teal3;
+  }
+
+  &.orange {
+    stroke: @orange3;
+  }
+}
+
+.upDown.dem {
+  .arrow.teal, .arrow.orange {
+    stroke: @blue3;
+  }
+}
+
+.upDown.rep {
+  .arrow.teal, .arrow.orange {
+    stroke: @red3;
+  }
+}
+
+.placeName {
+  font-family: 'Gotham SSm', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-weight: 8700;
+    font-size: 12px;
+    stroke: #fff;
+    stroke-width: 4px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-opacity: 0.7;
+    paint-order: stroke fill;
+}
+
+#state-tooltip {
+  padding: 5px;
+  border: 1px solid #999;
+  max-width: 125px;
+}
+
+.bubble {
+	stroke: @BUBBLE_STROKE;
+  stroke-width: 1;
+  fill: darken(@BUBBLE_FILL, 10%);
+  fill-opacity: 0.2;
+
+  @media screen and (min-width: 500px) {
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 499px) {
+    stroke-width:1;
+  }
+}
+
+
+.label {
+	.gotham();
+
+	font-size: 13px;
+	stroke: #fff;
+	stroke-width: 4px;
+	stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-opacity: 0.7;
+  paint-order: stroke fill;
+
+  &.main {
+  	font-weight: 700;
+  }
+
+  &.secondary {
+  	font-style: italic;
+  }
+}
+
+#state-tooltip .label {
+  font-size: 11px;
+  &.secondary {
+    font-style: normal;
+  }
+}
+
+.annoLine {
+  fill: none;
+  stroke: #333;
+  stroke-width: 2px;
+}
+
+.cell {
+  padding: 4px 0;
+  font-size: 12px;
+  border-bottom: 1px solid #eee;
+
+  &.deaths {
+    font-weight: bold;
+  }
+
+  &.d0 {
+  	color: #ddd;
+    font-weight: normal;
+  }
+}
+
+@media screen and (max-width: 499px) {
+  .hide-on-mobile {
+    display: none !important; 
+  }
+}

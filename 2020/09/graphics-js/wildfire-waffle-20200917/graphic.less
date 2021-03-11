@@ -1,0 +1,210 @@
+@import "./lib/base";
+
+h1, h2 {
+	text-align: center;
+}
+
+body {
+	padding-bottom: 0;
+}
+
+.graphic {
+	padding-bottom: 40px;
+
+	@media @screen-mobile {
+		padding-bottom: 20px;
+	}
+}
+
+.first-label {
+	display: none;
+}
+.year-2011 .first-label {
+	display: inline-block;
+}
+
+.keyy {
+	text-align: center;
+	margin-bottom: 20px;
+	
+	.square {
+		display: inline-block;
+		height: 10px;
+		width: 10px;
+
+		&.outline {
+			background: white;
+			border: 1px solid #777;
+		}
+	}
+
+	.key-wrapper {
+		display: inline-block;
+		margin-right: 10px;
+
+		&.outline {
+			display: block;
+			margin-bottom: 10px;
+		}
+	}
+
+	.gotham();
+	color: #777777;
+	font-size: 12px;
+}
+
+.year-container {
+	display: flex;
+}
+
+.year-hed {
+	display: block;
+	.gotham();
+	color: #777777;
+	text-align: center;
+	margin-right: 3px;
+	font-weight: bold;
+	font-size: 14px;
+	margin-bottom: 4px;
+
+	.mobile {
+		display: none;
+		font-size: 13px;
+	}
+
+	@media @screen-mobile {
+		margin-bottom: 2px;
+
+		.mobile {
+			display: block;
+		}
+		.desktop {
+			display: none;
+		}
+	}
+}
+
+.year {
+	flex: 1;
+	margin-right: 8px;
+
+	@media @screen-mobile {
+		margin-right: 4px;
+	}
+
+	&.year-2020 {
+		margin-right: 0px;
+	}
+}
+
+.counties {
+		// display: flex !important;
+		// flex-direction: column;
+		// flex-wrap: wrap;
+		// max-height: 170px;
+		// columns: 12;
+		width: 70px;
+
+	.square {
+		// flex: 7px;
+		// display: inline-block;
+	}
+
+}
+
+.square {
+	width: 7px;
+	height: 7px;
+	background: black;
+	border-radius: 1px;
+
+	@media @screen-mobile {
+		width: 5px;
+		height: 5px;
+	}
+
+	&.hazardous {
+		background: @red1;
+	}
+	&.very {
+		background: @red3;
+	}
+	&.unhealthy {
+		background: @red5;
+	}
+}
+
+.square-container {
+	display: inline-block;
+	vertical-align: top;
+	// opacity: 60%;
+
+
+	.square {
+		margin-right: 1px;
+		margin-bottom: 1px;
+		float: left;
+
+		&.Los-Angeles {
+			background: red;
+		}
+		&.San-Diego {
+			background: purple;
+		}
+		&.Orange {
+			background: red;
+		}
+		&.Riverside {
+			background: purple;
+		}
+		&.King {
+			background: red;
+		}
+	}
+}
+
+// .year-2020 {
+// 	.square-container {
+// 		opacity: 100%;
+// 	}
+// }
+
+.pop-label {
+	.gotham();
+	display: block;
+	color: #777777;
+	font-size: 12px;
+	position: absolute;
+	max-width: 50px;
+
+	.desktop {
+		margin-top: 5px;
+		display: block;
+	}
+
+	.mobile {
+		display: none;
+		font-size: 10px;
+		margin-top: 4px;
+	}
+
+	@media @screen-mobile {
+		.mobile {
+			display: block;
+		}
+		.desktop {
+			display: none;
+		}
+	}
+}
+
+// .first-label {
+// 	display: none;
+// }
+
+// .year-2011 {
+// 	.first-label {
+// 		display: block;
+// 	}
+// }
+

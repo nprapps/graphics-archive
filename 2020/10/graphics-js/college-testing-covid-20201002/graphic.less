@@ -1,0 +1,149 @@
+@import "./lib/base";
+
+h1,h2 {
+	text-align: center;
+}
+
+
+
+
+circle {
+	fill:  @red3;
+	opacity: .5;
+	&.orange {
+		fill: @orange3;
+	}
+	&.yellow {
+		fill: @yellow3;
+	}
+	&.green {
+		fill: @teal3;
+	}
+}
+
+circle:hover {
+	stroke: black;
+	stroke-width: 2px;
+}
+
+li span {
+	.gotham();
+	padding: 0px;
+}
+
+.footnotes {
+  margin-top: 20px;
+}
+
+.footnotes, .footer {
+	.mmedia-constrained();
+}
+
+#state-tooltip {
+	div {
+		.knockout-header();
+		font-weight: bold;
+	}
+	tbody {
+
+	}
+	border: 1px solid #333;
+	padding: 4px;
+}
+
+
+// Ratings
+  .ratings {
+    .mmedia-constrained();
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 22px;
+    margin-bottom: 22px;
+    justify-content: center;
+    max-width: 672px; // 650px + (11px x 2)
+
+    @media @screen-mobile-above {
+      flex-wrap: none;
+    }
+  }
+
+  .rating {
+    margin: 0;
+    padding: 0 11px 11px 11px;
+    width: calc(50% - 6px);
+
+    @media @screen-mobile {
+      &.orange,
+      &.green {
+        border-left: 1px solid #eee;
+      }
+
+      &.yellow,
+      &.green {
+        border-top: 1px solid #eee;
+        padding-top: 11px;
+      }
+    }
+
+    @media @screen-mobile-above {
+      width: calc(25% - 1px);
+
+      + .rating { border-left: 2px solid #eee; }
+    }
+
+    h3 {
+      font-size: 13px;
+      text-align: center;
+      background-color: #ccc;
+      color: #fff;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-weight: normal;
+      text-align: center;
+      display: block;
+      opacity: .75
+    }
+    &.red h3 { background-color: @red3; }
+    &.orange h3 { background-color: @orange3; }
+    &.yellow h3 { background-color: @yellow3; }
+    &.green h3 { background-color: @teal3; }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+      font-size: 13px;
+
+      + li { margin-top: 6px; }
+
+      strong { color: #333; }
+    }
+  }
+
+
+.xaxis-label {
+  text-align: center;
+  .gotham();
+  font-size: 11px;
+  color: #666;
+  position: absolute;
+  margin-bottom: 35px;
+  margin-top: -13px;
+  font-style: italic;
+}
+
+
+@media(max-width: 500px) {
+	h2 span {
+		display: none;
+	}
+  circle:hover {
+    stroke: none;
+    /*stroke-width: 2px;*/
+  }
+}

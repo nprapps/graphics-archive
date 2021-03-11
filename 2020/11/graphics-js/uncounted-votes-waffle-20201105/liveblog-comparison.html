@@ -1,0 +1,64 @@
+<%= await t.include("lib/_head.html") %>
+
+<% var candName = function(value) {
+  if (value == true) {
+    value = "Biden";
+  }
+
+  if (value == false) {
+    value = "Trump";
+  }
+  return value;
+} %>
+
+<div id="" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+
+<% if (COPY.labels.headline_three) { %>
+<h1 class="liveblog"><%= t.smarty(COPY.labels.headline_three) %></h1>
+<% } %>
+
+<div class="key">
+  <div class="key-label outline">One <div class="square outline"></div> = 10,000 votes </div>
+  <!-- <div class="key-label"><div class="square winning-votes"></div> = winning votes</div>
+  <div class="key-label"><div class="square difference"></div> = votes cast in state</div> -->
+</div>
+
+  <div class="subgraphic">
+    <div class="state-wrapper liveblog">
+      <!-- <hr class="line"> -->
+      <% COPY.margins_2016.forEach(function(row) { %>
+        <div class="state state-<%= row.state %>">
+          <div class="state-header"><%= row.state %></div>
+          <div class="state-winning"><%= t.comma(row.winning_votes) %> winning votes</div>
+
+          <div class="waffle-wrapper">
+            <% for (i = 0; i < Math.round(row.winning_votes / 10000); i++) { %>
+              <div class="square votes-2016"></div>
+            <% } %>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

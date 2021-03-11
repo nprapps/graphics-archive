@@ -1,0 +1,400 @@
+@import "./lib/base";
+
+@gop: #d61f21;
+@gopDim: #F8D6D4;
+@gopDim2: fade(@gop, 50%);
+@gopDim3: lighten(@gopDim, 30%);
+
+@dem: #237bbd;
+@demDim: #D5E5F2;
+@demDim2: fade(@dem, 50%);
+@demDim3: lighten(@demDim, 30%);
+
+.graphic {
+  margin-bottom: 0px;
+
+  th.subhead {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: Helvetica, Arial, sans-serif;
+    text-transform: none;
+    padding-top: 10px;
+  }
+
+  .source a {
+    // color: #A9A9A9;
+    // text-decoration: underline;
+    font-style: italic;
+  }
+}
+
+#table-graphic {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.state-table-container {
+  flex: 0 0 32%;
+  max-width: 100%;
+
+  h3 {
+    font-family: "Gotham SSm", Helvetica, Arial, sans-serif;
+    color: #444;
+    display: block;
+    font-weight: bold;
+    text-transform: unset;
+    letter-spacing: unset;
+    font-size: 18px;
+  }
+
+  @media screen and (max-width: 1100px) {
+    flex: 0 0 30%;
+  }
+
+  @media screen and (max-width: 1000px) {
+    flex: 0 0 100%;
+  }
+
+}
+
+button.expander.e1 {
+  display: none;
+  height: 10px;
+}
+
+#state-table-container-1 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+// Base table styles
+table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 11px;
+  color: #666;
+
+  tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+  }
+
+  td {
+    vertical-align: top; 
+    .gotham();
+    color: #444;
+    font-size: 11px;
+  }
+
+  .name-bold{
+    color: #444444;
+  }
+
+  .percent-in {
+    font-style: italic;
+  }
+}
+
+.dem.uncalled-winner.dem-lead {
+  background-color: #D5E5F2;
+}
+
+.gop.uncalled-winner.gop-lead {
+  background-color: #F8D6D4;
+}
+
+.gop.gop-winner {
+  background-color: #d61f21;
+  color: white;  
+}
+
+.dem.dem-winner {
+  background-color: #237bbd;
+  color: white;
+}
+
+.gop.dem-winner,.dem.gop-winner {
+  background-color: #fff !important;
+}
+
+.white-text {
+  color:white;
+}
+
+.header-sort{
+  cursor: pointer;
+}
+
+td[data-title="Expected Votes (Est.)"], td[data-title="DEM. so far"], td[data-title="GOP so far"] {
+  text-align:right;
+}
+
+.state-width {
+  width: 25%;
+}
+
+.percent-width {
+  width: 15%;
+}
+
+.ev-width {
+  width: 30%
+}
+
+.percent-width, .ev-width, .dem-width, .gop-width {
+  text-align: right;
+}
+
+// key styles
+.dem,
+  .gop,
+  .ind,
+  .yes,
+  .no {
+    i {
+      border-radius: 2px;
+      float: left;
+      margin-top: 2px;
+      height: 10px;
+      width: 1em;
+    }
+    .winner {
+      border-radius: 2px;
+      color: #fff;
+      padding: 0 3px;
+    }
+
+    .leading {
+      border-radius: 2px;
+      padding: 0 3px;
+    }
+  }
+
+  .dem .leading {
+    background-color: @demDim;
+  }
+  .dem .winner {
+    background-color: @dem;
+  }
+  .gop .leading {
+    background-color: @gopDim;
+  }
+  .gop .winner {
+    background-color: @gop;
+  }
+
+  .other-box {
+    background-color: rgb(239, 198, 55);
+  }
+
+  .board-key {
+    color: #666;
+    font-size: 14px;
+    margin: 0 auto;
+
+    li {
+      margin-right: 30px;
+      display: inline-block;
+      margin-bottom: 7px;
+    }
+  }
+
+// Tablesorter styles
+table {
+  th {
+    &.sorter {
+      cursor: pointer;
+
+      &::-moz-selection,
+      &::selection {
+        background: transparent;
+      }
+
+      .sorter {
+        border-top: 2px solid #404040;
+        visibility: visible;
+
+        .icon {
+          content: '';
+          width: 1px;
+          margin: 3px auto 7px auto;
+          border-width: 0 4px 4px;
+          border-style: solid;
+          border-color: #404040 transparent;
+        }
+      }
+
+      &:hover .sorter {
+        visibility: visible;
+      }
+    }
+
+    &[aria-sort="descending"] .sorter,
+    &[aria-sort="ascending"] .sorter,
+    &[aria-sort="ascending"]:hover .sorter {
+      visibility: visible;
+      opacity: 0.4;
+    }
+
+    &[aria-sort="descending"] .sorter .icon {
+      border-bottom: none;
+      border-width: 4px 4px 0;
+    }
+  }
+}
+
+/*
+* larger-than-small-screen styles
+* ~ defining some desktop-only styles here to avoid
+* ~ writing extra mobile styles to undo them.
+*/
+@media @screen-mobile-above {
+  table {
+    th, td {
+      padding: 8px;
+      padding-top:4px;
+      padding-bottom:4px;
+      padding-left: 5px;
+
+      // comment these two out if you want to highlight particular rows
+      &:first-child { padding-left: 0; }
+      // &:last-child { padding-right: 0; }
+
+      // &.amt { text-align: right; }
+    }
+
+    th {
+      border-bottom: 2px solid #eee;
+      padding-top: 0;
+    }
+
+    td { border-bottom: 1px solid #eee; }
+
+    &.collapsed tbody tr:nth-child(n + 8) {
+      .sr-only();
+    }
+
+    &.collapsed::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 0px;
+      // background: linear-gradient(0deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 100%);
+    }
+  }
+}
+
+/*
+* small-screen styles
+*/
+@media @screen-mobile {
+  // tbody {
+  //   display: block;
+  //   width: 100%;
+  // }
+
+  table {
+    &.collapsed tbody tr:nth-child(n + 8) {
+        .sr-only();
+      }
+
+    // thead { display: none; }
+
+    tr, th, td {
+      // display: block;
+      padding: 4px 8px 4px 8px;
+      // white-space: normal;
+      padding-left: 5px;
+    }
+
+    tr {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+
+      th {
+        border-bottom: none;
+      }
+
+      // &:first-child { border-top: 1px solid #eee; }
+    }
+
+    td {
+      margin-bottom: 6px;
+
+      &:empty { display: none; }
+    }
+
+    tr td:first-child {
+      // .knockout-header();
+      // color: #333;
+      // font-size: 14px;
+      margin-bottom: 6px;
+
+      &:before {
+        content: '';
+        display: none;
+      }
+    }
+
+    th[data-title]:before,
+    td[data-title]:before {
+      // content: attr(data-title) ":\00A0";
+      display: inline-block;
+      font-weight: bold;
+      // margin-right: 10px;
+      // width: 70%;
+    }
+
+    &.collapsed::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 0px;
+      // background: linear-gradient(0deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 100%);
+    }
+  }
+}
+
+body{
+  margin-bottom: 0px
+}
+
+button.expander {
+  .gotham();
+  background-color: #fff;
+  border: none;
+  border-top: 1px solid #ddd;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #4774CC;
+  display: block;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 22px;
+  padding: 10px;
+  text-transform: uppercase;
+  width: 100%;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+}

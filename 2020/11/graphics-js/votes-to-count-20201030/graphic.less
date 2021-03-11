@@ -1,0 +1,321 @@
+@import "./lib/base";
+
+
+/* Key
+========================================*/
+
+@gop: #d61f21;
+@gopDim: #F8D6D4;
+@gopDim2: fade(@gop, 50%);
+@gopDim3: lighten(@gopDim, 30%);
+
+@dem: #237bbd;
+@demDim: #D5E5F2;
+@demDim2: fade(@dem, 50%);
+@demDim3: lighten(@demDim, 30%);
+
+.key-wrap {
+  .key {
+    margin: 0 0 18px 0;
+    padding: 0;
+    list-style-type: none;
+
+    .key-item {
+      display: inline-block;
+      margin: 0 18px 0 0;
+      padding: 0;
+      line-height: 15px;
+    }
+    .key-item b {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-right: 6px;
+      float: left;
+    }
+    .key-item label {
+      white-space: nowrap;
+      font-size: 12px;
+      color: #666;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+
+  // path.category-3, path.category-2 {
+  //   stroke: #333;
+  // }
+
+  // text.category-3, text.category-2 {
+  //   color: #333;
+  // }
+
+  // Numeric scale style
+  &.numeric-scale {
+    width: 100%;
+    text-align: center;
+
+    h3 {
+      margin-bottom: 5px;
+    }
+
+    .key {
+      .key-item {
+        margin: 0 1px 0 0;
+        position: relative;
+      }
+
+      .key-item b {
+        width: 45px;
+        height: 10px;
+        margin-right: 0;
+      }
+
+      .key-item label {
+        position: absolute;
+        bottom: -20px;
+        left: -15%;
+
+        &.end-label {
+          left: auto;
+          right: -25%;
+        }
+      }
+    }
+  }
+}
+
+.key-head {
+  font-size: 13px;
+  .gotham();
+  margin-bottom: 0px;
+}
+
+// clipping stuff
+  .clip-hundred {
+    clip-path: inset(0px 0px 0px 0px)
+  }
+
+  .clip-ninenine {
+    clip-path: inset(5px 0px 0px 0px)
+  }
+
+  .clip-seventy-five {
+    clip-path: inset(12px 0px 0px 0px)
+  }
+
+  .clip-fifty {
+    clip-path: inset(20px 0px 0px 0px)
+  }
+
+  .clip-twenty-five {
+    clip-path: inset(28px 0px 0px 0px)
+  }
+
+// @media @screen-mobile-above {
+//   .clip-hundred {
+//     clip-path: inset(0px 0px 0px 0px)
+//   }
+
+//   .clip-ninenine {
+//     clip-path: inset(10px 0px 0px 0px)
+//   }
+
+//   .clip-seventy-five {
+//     clip-path: inset(22px 0px 0px 0px)
+//   }
+
+//   .clip-fifty {
+//     clip-path: inset(40px 0px 0px 0px)
+//   }
+
+//   .clip-twenty-five {
+//     clip-path: inset(58px 0px 0px 0px)
+//   }
+// }
+
+// @media @screen-mobile {
+//   .clip-hundred {
+//     clip-path: inset(0px 0px 0px 0px)
+//   }
+
+//   .clip-ninenine {
+//     clip-path: inset(5px 0px 0px 0px)
+//   }
+
+//   .clip-seventy-five {
+//     clip-path: inset(12px 0px 0px 0px)
+//   }
+
+//   .clip-fifty {
+//     clip-path: inset(20px 0px 0px 0px)
+//   }
+
+//   .clip-twenty-five {
+//     clip-path: inset(28px 0px 0px 0px)
+//   }
+// }
+
+// key styles
+.dem,
+  .gop,
+  .ind,
+  .yes,
+  .no {
+    i {
+      border-radius: 2px;
+      float: left;
+      margin-top: 2px;
+      height: 10px;
+      width: 1em;
+    }
+    .winner {
+      border-radius: 2px;
+      color: #fff;
+      padding: 0 3px;
+    }
+  }
+
+  .dem .leading {
+    background-color: @demDim;
+  }
+  .dem .winner {
+    background-color: @dem;
+    opacity: 0.8;
+  }
+  .gop .leading {
+    background-color: @gopDim;
+  }
+  .gop .winner {
+    background-color: @gop;
+    opacity: 0.8;
+  }
+
+  .other-box {
+    background-color: rgb(239, 198, 55);
+  }
+
+  .board-key {
+    color: #666;
+    font-size: 14px;
+    margin: 0 auto;
+
+    li {
+      margin-right: 30px;
+      display: inline-block;
+      margin-bottom: 7px;
+    }
+  }
+
+  img {
+    margin-top: 10px;
+    
+    @media @screen-mobile-above {
+      width:40%;
+    }
+
+    @media @screen-mobile {
+      width:40%
+    }
+    
+  }
+
+  // Ratings
+  .ratings {
+    .mmedia-constrained();
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 22px;
+    margin-bottom: 22px;
+    justify-content: center;
+    max-width: 672px; // 650px + (11px x 2)
+
+    @media @screen-mobile-above {
+      flex-wrap: none;
+    }
+  }
+
+  .rating {
+    margin: 0;
+    padding: 0 11px 11px 11px;
+    width: calc(20% - 1px);
+
+    @media @screen-mobile {
+      &.orange,
+      &.green,
+      &.yellow {
+        border-left: 2px solid #eee;
+      }
+    }
+
+    @media @screen-mobile-above {
+      width: calc(20% - 1px);
+
+      + .rating { border-left: 2px solid #eee; }
+    }
+
+    h3 {
+      font-size: 13px;
+      text-align: center;
+      background-color: #ccc;
+      color: #fff;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-weight: normal;
+      text-align: center;
+      display: block;
+    }
+    &.red h3 { background-color: var(--red); }
+    &.orange h3 { background-color: var(--orange); }
+    &.yellow h3 { background-color: var(--yellow); }
+    &.green h3 { background-color: var(--green); }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+      font-size: 13px;
+
+      // + li { margin-top: 6px; }
+
+      strong { color: #333; }
+    }
+  }
+
+/* Grid Map
+========================================*/
+
+// .tile-grid-map {
+//   margin-bottom: 33px;
+// }
+
+.state {
+  fill: #eee;
+}
+
+.label {
+  font-family: 'Knockout 31 4r';
+  font-size: 12px;
+  fill: #979797;
+}
+
+.label-active {
+  fill: #fff;
+}
+
+@media screen and (max-width: 500px){
+  .label {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 500px){
+  .label {
+    font-size: 8px;
+  }
+}

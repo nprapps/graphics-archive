@@ -1,0 +1,44 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.annotations .dots {
+  stroke: #fff;
+  stroke-width: 1px;
+}
+
+.annotations text {
+  font-size: 12px;
+  fill: #777;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+  .annotations text {
+    font-size: 10px;
+  }
+}
+
+text.year {
+  font-weight: bold;
+}
+
+text.rep {
+  fill: #d61f21;
+}
+
+text.dem {
+  fill: #237bbd;
+}

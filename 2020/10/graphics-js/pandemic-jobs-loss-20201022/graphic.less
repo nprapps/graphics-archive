@@ -1,0 +1,49 @@
+@import "./lib/base";
+
+
+h1, h2, .graphic, .footnotes, .footer {
+  .mmedia-constrained();
+}
+
+.bar text {
+  fill: #fff;
+  font-size: 11px;
+  text-anchor: middle;
+
+  &.hidden {
+    display: none;
+  }
+
+  &.black {
+    color: #333;
+  }
+}
+
+.x.axis {
+  &.category {
+    text {
+      font-weight: bold;
+      fill: #454545;
+      text-anchor: middle;
+      .knockout-upper();
+      font-size: 13px;
+    }
+  }
+
+  &.bars {
+    line,
+    path {
+      display: none;
+    }
+  }
+}
+
+/*
+ * small-screen styles
+ */
+@media @screen-mobile {
+  .bar text {
+    font-size: 9px;
+    // display: none; 
+  }
+}

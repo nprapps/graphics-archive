@@ -1,0 +1,112 @@
+@import "./lib/base";
+
+h1 {
+	text-align: center;
+}
+
+h2 {
+	.knockout-header();
+	text-align: center;
+}
+
+.graphic {
+	.mmedia-constrained();
+}
+
+.axis {
+  font-size: 11px;
+  fill: #999;
+
+  path {
+    display: none;
+  }
+
+  line {
+    stroke: #eee;
+  }
+}
+
+circle {
+  &.low-end {
+    fill: @orange2;
+  }
+
+  &.in-between {
+    fill: @orange5;
+  }
+
+  &.high-end {
+    fill: @orange5; 
+  }
+}
+
+.cells path {
+  fill: none;
+  pointer-events: all;
+}
+
+.expected-line {
+	stroke: @blue2;
+	stroke-width: 2px;
+	stroke-dasharray: 8px 10px;
+}
+
+.explainer {
+	margin: 0 auto;
+	/*width: 400px;*/
+	max-width: 100%;
+	margin-bottom: 55px;
+}
+
+.explainer-row {
+	margin: 13px 0px 13px 0px;
+	.gotham();
+	line-height: 1.5;
+	font-size: 13px;
+	margin-left: 29px;
+}
+
+.explainer-row span {
+	line-height: 1;
+	.knockout-header();
+	padding: 4px;
+	border-radius: 4px;
+	color: white;
+	width: 20px;
+	text-align: center;
+	display: inline-block;
+	margin-right: 3px;
+	margin-left: -28px;
+}
+
+.explainer-row.left-level span {
+	background: @orange2;
+}
+
+.explainer-row.center-level span {
+	background: @orange5;
+}
+
+.explainer-row.right-level span {
+	background: @blue4;
+}
+
+.expected-label {
+	.gotham();
+	fill: @blue3;
+	font-style: italic;
+	font-size: 12px;
+}
+
+.state-us-virgin-islands, .state-northern-mariana-islands, .state-american-samoa, .state-guam {
+	display: none;
+}
+
+@media (min-width: 650px) {
+	.explainer-row {
+		.mmedia-constrained();
+	}
+	.footer, .footnotes, h1, h2 {
+		.mmedia-constrained();
+	}
+}

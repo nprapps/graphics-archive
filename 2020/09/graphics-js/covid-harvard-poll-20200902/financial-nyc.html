@@ -1,0 +1,42 @@
+<% var thisGraphic = "financial_nyc" %>
+
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels[thisGraphic + "_city"]) { %>
+  <h3 class="city <%= t.classify(COPY.labels[thisGraphic + "_city"]) %>"><b><%= t.smarty(COPY.labels[thisGraphic + "_city"]) %></b></h3>
+<% } %>
+
+<% if (COPY.labels[thisGraphic + "_headline"]) { %>
+<h1><%= t.smarty(COPY.labels[thisGraphic + "_headline"]) %></h1>
+<% } %>
+
+<% if (COPY.labels[thisGraphic + "_subhed"]) { %>
+<h2><%= t.smarty(COPY.labels[thisGraphic + "_subhed"]) %></h2>
+<% } %>
+
+<div id="bar-chart" class="graphic <%= thisGraphic %>" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+</div>
+
+<% if (COPY.labels[thisGraphic + "_footnote"]) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels[thisGraphic + "_footnote"] %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels[thisGraphic + "_source"]) { %><p>Source: <%= COPY.labels[thisGraphic + "_source"] %></p><% } %>
+  <% if (COPY.labels.connie_credit) { %><p>Credit: <%= COPY.labels.connie_credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY[thisGraphic]) %>;
+</script>
+
+<script src="./barMult.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

@@ -1,0 +1,200 @@
+@import "./lib/base";
+
+@gop: #d61f21;
+@gopDim: #F8D6D4;
+@gopDim2: fade(@gop, 50%);
+@gopDim3: lighten(@gopDim, 30%);
+
+@dem: #237bbd;
+@demDim: #D5E5F2;
+@demDim2: fade(@dem, 50%);
+@demDim3: lighten(@demDim, 30%);
+
+// Base table styles
+.test-banner {
+    background: #d62021;
+    background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 0, rgba(255, 255, 255, 0.2) 4px, transparent 4px, transparent 8px);
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-family: "Knockout 31 4r", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: normal;
+    margin: 0 0 33px 0;
+}
+
+.graphic {
+  h3 {
+    .gotham();
+    letter-spacing: normal;
+    font-weight: bold;
+
+    border-top: 2px solid #ddd;
+    font-size: 17px;
+    color: #333;
+    padding-top: 8px;
+    margin-bottom: 11px;
+    background-color: #eee;
+    padding-bottom: 11px;
+    padding-left: 10px;
+
+    @media @screen-mobile-above {
+      margin-bottom: 22px;
+    }
+  }
+
+  h4 {
+    .gotham();
+    font-weight: bold;
+    margin: 0 0 15px 0;
+    color: #454545;
+    font-size: 13px;
+    line-height: 1.35;
+    padding-top: 9px;
+    padding-left: 10px;
+
+    @media @screen-mobile-above {
+      float: left;
+      width: 150px;
+
+      .widont { display: inline-block; }
+    }
+  }
+  .detail h4 {
+    font-style: italic;
+    font-weight: normal;
+    color: #787878;
+  }
+
+  button {
+    margin-top: -30px;
+    margin-bottom: 33px;
+    display: block;
+    border: none;
+    background: none;
+    color: #4774CC;
+    .gotham();
+    font-style: italic;
+    font-size: 12px;
+    width: 100%;
+
+    &:hover, &:active {
+      color: #bccae5;
+      cursor: pointer;
+    }
+
+    &.inactive { display: none; }
+
+    @media @screen-mobile-above {
+      margin-left: 170px;
+      width: calc(100% - 170px);
+    }
+  }
+
+  .question {
+    &.detail {
+      display: none;
+
+      &.active {
+        display: block;
+        margin-top: -22px;
+      }
+    }
+  }
+}
+
+.footer {
+  margin-bottom: 33px;
+}
+
+
+table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 44px;
+
+  @media @screen-mobile-above {
+    margin-left: 170px;
+    width: calc(100% - 170px);
+  }
+
+  th, td {
+    padding: 10px;
+    border-left: 1px solid #eee;
+
+    &:first-child { border-left: 0; }
+
+    // comment these two out if you want to highlight particular rows
+    // &:first-child { padding-left: 0; }
+    // &:last-child { padding-right: 0; }
+
+    &.biden {
+      border-left: 1px solid #ccc;
+    }
+
+    &.amt {
+      text-align: center;
+      width: 25%;
+    }
+    &.overall {
+    }
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+    background-color: #f1f1f1;
+    border-bottom: 2px solid #eee;
+    border-left-color: #ddd;
+
+    &.biden,
+    &.trump {
+      background-color: #ddd;
+    }
+
+    &.trump {
+      border-left-color: #bbb;
+    }
+  }
+  .annot th {
+    background: none;
+    text-align: center;
+    border-left: none;
+    font-style: italic;
+    padding-top: 0;
+  }
+
+  td {
+    vertical-align: middle;
+    border-bottom: 1px solid #eee;
+
+    &.answer {
+      font-weight: bold;
+    }
+
+    &.overall {
+      font-style: italic;
+      // background-color: #f1f1f1;
+    }
+
+    &.biden,
+    &.trump {
+      background-color: #f1f1f1;
+      border-bottom-color: #fff;
+      border-left-color: #ccc;
+    }
+
+    &.biden.lead {
+      color: #fff;
+      background-color: @dem;
+    }
+    &.trump.lead {
+      color: #fff;
+      background-color: @gop;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline_process) { %>
+<h1><%= t.smarty(COPY.labels.headline_process) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed_process) { %>
+<h2><%= t.smarty(COPY.labels.subhed_process) %></h2>
+<% } %>
+
+<div id="block-histogram" class="graphic" role="img"
+<% if (COPY.labels.screenreader_process) { %>
+aria-label="<%- COPY.labels.screenreader_process %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.footnote_process) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote_process %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source_process) { %><p>Source: <%= COPY.labels.source_process %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit_process %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.process_count) %>;
+    var LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

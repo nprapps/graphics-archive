@@ -1,0 +1,57 @@
+@import "./lib/base";
+
+h1 , h2 {
+  text-align: center;
+}
+
+body {
+  .mmedia-constrained();
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.annot-line {
+  stroke: #333;
+  stroke-width: 1px;
+  stroke-dasharray: 6px 4px
+}
+
+.annot-text {
+  .gotham();
+  font-size: 12px;
+  fill: #333;
+}
+
+.annot-text-back {
+  fill: white;
+  stroke: white;
+  stroke-width: 2px;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}

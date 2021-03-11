@@ -1,0 +1,53 @@
+@import "./lib/base";
+
+#column-chart {
+	display: flex;
+	flex-wrap: wrap;
+
+	@media @screen-mobile {
+		display: block;
+	}
+}
+
+.chart {
+	flex: 0 0 50%;	
+	margin-bottom: 30px;
+
+	&:last-child {
+		margin-bottom: 10px;
+	}
+
+	&:nth-child(even) {
+		padding-left: 15px;
+
+		@media @screen-mobile {
+			padding-left: 0;
+		}
+	}
+
+	h3 {
+		text-align: center;
+	}
+}
+
+.bars rect.pos { 
+	fill: @teal3; 
+}
+.bars rect.neg { 
+	fill: @orange3; 
+}
+
+.increase-label {
+  color: white;
+  background-color: @teal3;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+.decrease-label {
+  color: white;
+  background-color: @orange3;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-weight: bold;
+}

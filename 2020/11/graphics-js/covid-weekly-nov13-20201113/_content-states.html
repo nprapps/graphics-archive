@@ -1,0 +1,36 @@
+<div class="mmedia-constrained center">
+
+  <% if (COPY.labels.states_headline) { %>
+  <h1><%= t.smarty(COPY.labels.states_headline) %></h1>
+  <% } %>
+
+  <% if (COPY.labels.subhed) { %>
+  <h2><%= t.smarty(COPY.labels.states_subhed) %></h2>
+  <h2><%= t.smarty(COPY.labels.states_updated) %> </h2>
+  <% } %>
+</div>
+
+<div id="toggle-button"></div>
+<select id="dropdown" class="state-dropdown "></select>
+
+<div id="line-chart" class="graphic" role="img">
+    <!-- <img src="fallback.png" alt="" class="fallback" /> -->
+</div>
+
+<% if (COPY.labels.states_footnote) { %>
+<div class="footnotes mmedia-constrained">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.states_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer mmedia-constrained">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.states_credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var TIMESERIES_DATA = <%= JSON.stringify(COPY.timeseries_states) %>;
+  var POPULATION = <%= JSON.stringify(COPY.state_populations) %>;
+  var LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>

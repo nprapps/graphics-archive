@@ -1,0 +1,59 @@
+@import "./lib/base";
+
+.graphic {
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+.footnotes, .footer, .top {
+	.mmedia-constrained();
+}
+
+h1, h2, .key {
+	text-align: center;
+}
+
+.key {
+	margin-bottom: 22px;
+}
+
+.key-text {
+	font-size: 12px;
+	color: #666;
+	font-weight: normal;
+}
+
+.img-container {
+	display: flex;
+	flex-wrap: wrap;
+	// width: 80%;
+	margin-bottom: 22px;
+	justify-content: center;
+}
+
+.graphic img {
+	width: 40px;
+	height: 50px;
+	object-fit: cover;
+}
+
+.noedema {
+	// opacity: .4;
+	filter: brightness(70%) grayscale(100%);
+}
+
+.edema {
+	// opacity: .8;
+	filter: sepia(100%) hue-rotate(185deg) saturate(150%) brightness(80%);
+}
+
+@media(max-width: 400px) {
+	.graphic img {
+		width: 25px;
+		height: 31px;
+	}
+
+	.img-container {
+		width: 100%;
+	}
+}

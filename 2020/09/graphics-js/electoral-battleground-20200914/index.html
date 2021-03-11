@@ -1,0 +1,144 @@
+<%
+var thisMapScenario = "battleground";
+var thisMapGenre = "battleground";
+%>
+
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+
+<div class="graphic">
+  <div id="stacked-bar-chart"></div>
+  <div id="map-key"></div>
+
+  <div class="controls" aria-hidden="true">
+    <input type="radio" name="map-mode" value="geo" id="mode-geo" checked="">
+    <label for="mode-geo" class="label-geo">
+      <%= await t.include("img/ico-geo.svg") %> Geography
+    </label>
+
+    <input type="radio" name="map-mode" value="cartogram" id="mode-cartogram">
+    <label for="mode-cartogram" class="label-cartogram">
+      <%= await t.include("img/ico-cartogram.svg") %> Electoral weight
+    </label>
+  </div>
+
+  <div id="maps" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+  >
+    <%= await t.include("_partials/_map-geo.svg") %>
+    <%= await t.include("_partials/_map-cartogram.svg") %>
+  </div>
+
+  <div class="sr-only">
+    <%
+      var bidenTotal = 0;
+      var trumpTotal = 0;
+      var tossup = 0;
+
+      COPY.aggregates.forEach(function(map) {
+        if (map.map == "battleground") {
+          bidenTotal = map["1"] + map["2"];
+          trumpTotal = map["4"] + map["5"];
+          tossup = map["3"];
+        }
+      })
+
+    %>
+
+    <p>In this scenario, Biden would have <%= bidenTotal %> electoral votes, Trump would have <%= trumpTotal %> electoral votes, and <%= tossup %> would be tossups.</p>
+
+    <% COPY.legend.forEach(function(grouping) { %>
+    <h3><%= grouping.text %></h3>
+    <ul>
+      <% COPY.data.forEach(function(state) {
+        if (state.battleground == grouping.rating) {
+      %>
+        <li><%= state.state %> (<%= state.electoral_votes %> electoral votes)</li>
+      <%
+          }
+        });
+      %>
+    </ul>
+    <% }); %>
+  </div>
+
+  <%
+    if (thisMapGenre == "battleground") {
+      var changedStates = COPY.data.filter(function(state) {
+        return state[thisMapScenario] != state.was;
+      });
+      changedStates.sort((a, b) => (a[thisMapScenario] > b[thisMapScenario]) ? 1 : -1)
+
+  %>
+  <table class="changed" role="table">
+    <caption>What's Changed?</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th class="state" role="columnheader">State</th>
+        <th class="votes" role="columnheader">Electoral votes</th>
+        <th class="rating" role="columnheader"><a href="<%= COPY.labels.was_link %>"><%= COPY.labels.was_hed %></a></th>
+        <th class="rating" role="columnheader">Now</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+    <% changedStates.forEach(function(state) { %>
+      <tr class="<% t.classify(state.state) %>" role="row">
+          <td class="state" role="cell"><%= state.state_label %></td>
+          <td class="votes" role="cell"><%= state.electoral_votes %></td>
+          <td class="rating cat-<%= state.was %>" role="cell">
+            <% COPY.legend.forEach(function(rating) {
+              if (rating.rating == state.was) { %>
+            <%= rating.text %>
+            <%  }
+            }); %>
+          </td>
+          <td class="rating cat-<%= state[thisMapScenario] %>" role="cell">
+            <% COPY.legend.forEach(function(rating) {
+              if (rating.rating == state[thisMapScenario]) { %>
+            <%= rating.text %>
+            <%  }
+            }); %>
+          </td>
+      </tr>
+    <% }); %>
+    </tbody>
+  </table>
+  <% } %>
+</div>
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <p><strong>Notes:</strong> <%= t.smarty(COPY.labels.footnote) %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<% if ("data" in COPY) { %>
+<script type="text/javascript">
+window.map_scenario = "<%= thisMapScenario %>";
+window.map_genre = "<%= thisMapGenre %>";
+window.DATA = <%= JSON.stringify(COPY.data) %>;
+window.LEGEND = <%= JSON.stringify(COPY.legend) %>;
+window.TOTALS = <%= JSON.stringify(COPY.aggregates) %>;
+</script>
+<% } %>
+
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

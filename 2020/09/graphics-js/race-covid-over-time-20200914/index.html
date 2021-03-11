@@ -1,0 +1,83 @@
+<%= await t.include("lib/_head.html") %>
+
+<%
+var COLORS = {
+	hispanic5: 	"#F1C696",
+	black5:     "#8BC0BF", 
+	aian5: 		"#cba6d1",
+	hispanic3: 	"#E38D2C",
+	black3: 	"#17807E",
+	aian3: 		"#984ea3",
+	white3: 	"#51AADE",
+	white5: 	"#A8D5EF"
+}
+%>
+
+
+<!-- 
+<ul class="key">
+  <li class="key-item male-incidence">
+    <span class="head"><label>Black</label></span>
+   	<div class="before-after">
+      <label>Cases</label>
+      <b style="background-color: <%= COLORS.black5 %> "></b>
+      <b style="background-color: <%= COLORS.black3 %> "></b>
+      <label>Deaths</label>
+    </div>
+  </li>   
+</ul> -->
+
+
+
+<div class="chart-container black-chart-container">
+	<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+	<div id="line-chart-black" class="graphic" role="img">
+	  <img src="fallback.png" alt="" class="fallback" />
+	</div>	
+</div>
+
+<div class="chart-container latinx-chart-container">
+	<h1><%= t.smarty(COPY.labels.headline_latinx) %></h1>
+	<div id="line-chart-latinx" class="graphic" role="img">
+	</div>	
+</div>
+
+<div class="chart-container native-chart-container">
+	<h1><%= t.smarty(COPY.labels.headline_native) %></h1>
+	<div id="line-chart-native" class="graphic" role="img">
+	</div>	
+</div>
+
+<div class="chart-container white-chart-container">
+	<h1><%= t.smarty(COPY.labels.headline_white) %></h1>
+	<div id="line-chart-white" class="graphic" role="img">
+	  <img src="fallback.png" alt="" class="fallback" />
+	</div>	
+</div>
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.data) %>;
+</script>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

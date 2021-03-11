@@ -1,0 +1,102 @@
+<div class="top mmedia-constrained center">
+	<% if (COPY.labels.headline) { %>
+	<h1><%= t.smarty(COPY.labels.headline) %></h1>
+	<% } %>
+
+	<% if (COPY.labels.subhed) { %>
+	<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+	<% } %>
+</div>
+
+<div id="" class="graphic" role="img"
+	<% if (COPY.labels.screenreader) { %>
+	aria-label="<%- COPY.labels.screenreader %>"
+	<% } %>
+	>
+
+<div class="key">
+	<span class="key-item">
+		<img class="noedema photo" src='assets/inmate-icon.png'>
+		<p class="key-text"><%= t.smarty(COPY.labels.key_noedema) %></p>
+	</span>
+	<span class="key-item">
+		<img class="edema photo" src='assets/inmate-icon.png'>
+		<p class="key-text"><%= t.smarty(COPY.labels.key_edema) %></p>
+	</span>
+</div>
+
+<div class="img-container">
+<% 
+
+
+	var stateKey = {"AL": "Alabama",
+					"AR": "Arkansas",
+					"AZ": "Arizona",
+					"FL": "Florida",
+					"GA": "Georgia",
+					"OK": "Oklahoma",
+					"VA": "Virginia",
+					"TN": "Tennessee",
+					"OH": "ohio"}
+
+	dataSort = []
+	COPY.data.forEach(function(d) {
+		if (d["Edema?"] == "N/A") {
+			dataSort.push(d)
+		} else {
+			dataSort.unshift(d)
+		}
+	})
+
+	COPY.data = dataSort.sort((a, b) => a["Edema?"] - b["Edema?"])
+
+for (i in COPY.data) {
+	if (COPY.data[i]["Edema?"] == "N/A") {
+		continue
+	}
+	var filename = "assets/";
+	var edemaclassname = ''
+	filename += COPY.data[i].Name.trim().split(" ").join("-").toLowerCase().replace(",", "").split(".").join("").split("'").join("");
+	filename += "-"
+	filename += stateKey[COPY.data[i].State].toLowerCase();
+	if (COPY.data[i]['Edema?'] == 1) {
+		filename += '-blue.jpg';
+		edemaclassname = 'edema'
+	}
+	else {
+		filename += '-blue.jpg';
+		edemaclassname = 'noedema'
+	}
+	%>
+
+
+	<img class='photo <%= edemaclassname %>' data-src='<%= filename %>' src='<%= filename %>' data-date='<%= COPY.data[i]['Date Of Execution'] %>' onerror="this.onerror=null;this.src='assets/inmate-icon.png';">
+
+	<%
+}
+
+
+ %>
+
+
+</div>
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes mmedia-constrained">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer mmedia-constrained">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<% if ("data" in COPY) { %>
+<script type="text/javascript">
+window.DATA = <%= JSON.stringify(COPY.data) %>;
+</script>
+<% } %>

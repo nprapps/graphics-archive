@@ -1,0 +1,120 @@
+@import "./lib/base";
+
+.zero-line {
+   stroke-dasharray:4 ;
+}
+
+.notes {
+  fill: #333;
+  font-size: 12px;
+  // letter-spacing: 1px;
+  // font-style: italic;
+  -webkit-font-smoothing: antialiased;
+}
+
+#line-chart-black path.line:not(.black),
+#line-chart-latinx path.line:not(.latinx),
+#line-chart-native path.line:not(.native),
+#line-chart-white path.line:not(.white), {
+    display: none;
+}
+
+#line-chart-black text.text:not(.black),
+#line-chart-latinx text.text:not(.latinx),
+#line-chart-native text.text:not(.native),
+#line-chart-white text.text:not(.white), {
+    display: none;
+}
+
+#line-chart-latinx,
+#line-chart-native,
+#line-chart-white {
+  .notes {
+    display: none;
+  }
+}
+
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+
+h1,h2,ul.key {
+  .mmedia-constrained-centered();
+}
+
+h1 {
+  font-size: 18px;
+}
+
+.chart-container, .footer, .footnotes {
+ .mmedia-constrained(); 
+}
+
+.chart-container {
+  // width: 50%;
+  // float: left;
+}
+
+li.key-item {
+  margin:0px 9px 0px 9px !important;
+}
+
+span.head {
+  // padding-bottom: 10px;
+  // padding-left: 6px;
+  // padding-right: 5px;
+
+  label {
+    .gotham();
+
+    font-weight: bold !important;  
+    margin-right: 5px;
+  }
+  
+
+}
+
+.before-after {
+  padding-top: 5px;
+
+  .after-after {
+    position: relative;
+    width: 125px;
+    margin: 0 auto;
+  }
+
+  b {
+    margin-right: 0 !important;
+
+  }
+
+  label {
+    float: left !important;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  // .key {
+  //   display: none;
+  // }
+}
+

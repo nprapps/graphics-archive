@@ -1,0 +1,155 @@
+@import "./lib/base";
+
+@gop: #d61f21;
+@gopDim: #F8D6D4;
+@dem: #237bbd;
+@demDim: #D5E5F2;
+ 
+ h1 {
+  text-align: center;
+  margin-bottom: 10px;
+ }
+
+.lines {
+  fill: none;
+  stroke-width: 2px;
+  stroke: #666 !important;
+  // stroke: #eee !important;
+  stroke-opacity: 0.15;
+
+  // .luzerne-county,
+  // .philadelphia-county,
+  .montgomery-county,
+  .chester-county,
+  .delaware-county,
+  .bucks-county {
+    stroke-opacity: 0.9 !important;
+  }
+}
+
+.areas {
+  stroke: none;
+  fill: #000;
+  fill-opacity: 0.1;
+}
+
+.dots {
+  fill-opacity: 0.1;
+
+  // .philadelphia-county,
+  .montgomery-county,
+  .chester-county,
+  .delaware-county,
+  .bucks-county {
+    fill-opacity: 0.5 !important;
+  }
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.key {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}
+
+.annotation {
+  .gotham();
+  color: #555;
+  font-size: 12px;
+  font-style: italic;
+
+  .bold {
+    font-weight: bold;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  &.right {
+    tspan {
+      text-anchor: start;
+    }
+  }
+}
+
+.x-axis-label {
+  .knockout-upper();
+
+  font-weight: normal;
+  fill: #555;
+  font-size: 14px;
+  line-height: 1.6;  
+
+  &.democratic {
+    fill: @dem;
+    font-size: 12px;
+  }
+
+  &.republican {
+    fill: @gop;
+    font-size: 12px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 10px;
+  }
+}
+
+.y.axis text {
+  .gotham();
+  font-weight: bold;
+}
+
+.annoLine {
+  fill: none;
+  stroke: #999;
+  stroke-width: 2px;
+
+  @media screen and (max-width: 500px) {
+    stroke-width: 1px;
+  }
+}
+
+.legend {
+  margin-left: 3px;
+
+  p {
+    display: inline-block;
+    color: #555555;
+    font-size: 12px;
+
+    @media screen and (max-width: 500px) {
+      font-size: 10px;
+    }
+  }
+  .legend-circle {
+    border-radius: 50%;
+    box-shadow: 0 0 2px #333;
+    height: 10px;
+    width: 10px;
+    display: inline-block;
+  }
+}

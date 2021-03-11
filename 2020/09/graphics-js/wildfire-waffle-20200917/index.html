@@ -1,0 +1,73 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+
+<div class="keyy">
+	<div class="key-wrapper outline">One <div class="square outline"></div> = 100,000 people</div>
+	<div class="key-wrapper"><div class="square hazardous"></div> Hazardous</div>
+	<div class="key-wrapper"><div class="square very"></div> Very unhealthy</div>
+	<div class="key-wrapper"><div class="square unhealthy"></div> Unhealthy</div>
+</div>
+
+	<div class="year-container">
+		<% for (i = 2011; i < 2021; i++) { %>
+			<div class="year year-<%= i %>">
+				<div class="year-hed">
+					<span class="desktop"><%= i %></span>
+					<span class="mobile">'<%= i.toString().slice(-2) %></span>
+				</div>
+
+				<% var total = 0; %>
+
+				<div class="square-container">
+					<% COPY.data.forEach(function(row) { %>
+						<% if (row.year == i.toString()) { %>
+							<% total += row.pop %>
+							<% var count = Math.round(row.pop / 100000); %>
+							<% for (ii = 0; ii < count; ii++) { %>
+							  <div class="square <%= row.category %>"></div>
+							<% } %>
+						<% } %>
+					<% }) %>
+				</div>
+
+				<% var displayTotal = (total / 1000000).toFixed(1) %>
+
+				<div class="pop-label">
+					<span class="desktop"><%= displayTotal + " million"%> <span class="first-label">people</span></span>
+					<span class="mobile"><%= displayTotal %> <span class="first-label">million people</span></span>
+				</div>
+			</div>
+		<% } %>
+	</div>
+
+    <!-- <img src="fallback.png" alt="" class="fallback" /> -->
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

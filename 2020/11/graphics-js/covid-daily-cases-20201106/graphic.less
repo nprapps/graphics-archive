@@ -1,0 +1,38 @@
+@import "./lib/base";
+
+h1 {
+  margin-bottom: 28px;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.area path {
+  stroke: none;
+  fill-opacity: 0.6;
+  fill: @orange5;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #666;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+  .key.one-line {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  // .key {
+  //   display: none;
+  // }
+}

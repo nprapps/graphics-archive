@@ -1,0 +1,75 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <% COPY.data.forEach(function(row) { %>
+  <div class="table-wrapper">
+
+  <table role="table">
+    <h3><%= row.state %></h3>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_type %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_pre %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_post %></div>
+        </th>
+        <!-- <th class="amt diff" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_diff %></div>
+        </th> -->
+      </tr>
+    </thead>
+
+    <% [ "stops", "frisks", "summonses", "arrests" ].forEach(function(area) { %>
+      <tr role="row">
+        <td role="cell" data-title="<%= COPY.labels.hdr_type %>"><%= COPY.labels["lbl_" + area] %></td>
+        <td role="cell" data-title="<%= COPY.labels.hdr_2016 %>" class="amt"><%= row[area + "_pre"] %>%</td>
+        <td role="cell" data-title="<%= COPY.labels.hdr_2020 %>" class="amt"><%= row[area + "_post"] %>%</td>
+        <!-- <td role="cell" data-title="<%= COPY.labels.hdr_diff %>" class="amt diff
+          <% if (row[area + '_diff'] > 0) { %>increase<% } %>
+          <% if (row[area + '_diff'] < 0) { %>decrease<% } %>">
+          <% if (row[area + "_diff"] > 0) { %>+<% } %><%= row[area + "_diff"] %>
+          <% if (Math.abs(row[area + "_diff"]) == 1) { %>pt.<% } else { %>pts.<% } %>
+        </td> -->
+      </tr>
+    <% }); %>
+  </table>
+  </div>
+  <% }); %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

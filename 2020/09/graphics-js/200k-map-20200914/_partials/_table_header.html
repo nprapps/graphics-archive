@@ -1,0 +1,55 @@
+<div class="div-table header">
+  <div class="cell-group">
+    <!-- <div class="cell"></div> -->
+    <div class="cell amt timeline">
+      <div class="middle">
+        <h3><%= COPY.labels.hed_table %></h3>
+        <h2><%= t.smarty(COPY.labels.subhedTable) %></h2>
+        <div class="legend" aria-hidden="true">
+          <div class="leg-item">
+            <div class="mini-cell c1"></div>
+            <div class='m2'>1-10</div>
+          </div>
+                    <div class="leg-item">
+            <div class="mini-cell c2"></div>
+            <div class='m2'>11-100</div>
+          </div>
+                    <div class="leg-item">
+            <div class="mini-cell c3"></div>
+            <div class='m2'>101-1,000</div>
+          </div>
+          <div class="leg-item">
+            <div class="mini-cell c4"></div>
+            <div class='m2'>1,001-10,000</div>
+          </div>
+          <div class="leg-item">
+            <div class="mini-cell c5"></div>
+            <div class='m2'>10,000+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="cell amt"></div>
+    <div class="cell amt"></div> -->
+  </div>
+</div>
+
+<div class="div-table slim" role="rowgroup">
+  <div class="cell-group" role="row">
+
+    <div class="cell cell-header" role="columnheader">State</div>
+     <div class="cell amt timeline" aria-hidden="true">
+      <div class="sub-cell week i1">
+        7
+      </div>
+      <div class="sub-cell week i2">
+        14
+      </div>
+      <div class="sub-cell week i3">
+        21 days ago
+      </div>
+    </div>
+    <div class="cell amt cell-header" role="columnheader">Cases</div>
+    <div class="cell amt cell-header" role="columnheader">Deaths</div>
+  </div>
+</div>

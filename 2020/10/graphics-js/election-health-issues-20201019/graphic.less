@@ -1,0 +1,195 @@
+@import "./lib/base";
+
+// Base table styles
+table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+
+  tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+  }
+
+  td { vertical-align: top; }
+
+  td[data-title="Issue"] {
+    font-weight: bold;
+  }
+}
+
+.Biden, .Trump {
+  width: 350px;
+}
+
+img {
+  width: 40px;
+}
+
+.candidates-biden {
+  text-align: center;
+  border-bottom: 2px solid #237BBD;
+}
+
+.candidates-trump {
+  text-align: center;
+  border-bottom: 2px solid #D62021;
+}
+
+// Tablesorter styles
+table {
+  th {
+    &.sort-header {
+      cursor: pointer;
+
+      &::-moz-selection,
+      &::selection {
+        background: transparent;
+      }
+
+      .sorter {
+        border-top: 2px solid #404040;
+        visibility: hidden;
+
+        .icon {
+          content: '';
+          width: 1px;
+          margin: 3px auto 7px auto;
+          border-width: 0 4px 4px;
+          border-style: solid;
+          border-color: #404040 transparent;
+        }
+      }
+
+      &:hover .sorter {
+        visibility: visible;
+      }
+    }
+
+    &[aria-sort="descending"] .sorter,
+    &[aria-sort="ascending"] .sorter,
+    &[aria-sort="ascending"]:hover .sorter {
+      visibility: visible;
+      opacity: 0.4;
+    }
+
+    &[aria-sort="descending"] .sorter .icon {
+      border-bottom: none;
+      border-width: 4px 4px 0;
+    }
+  }
+}
+
+/*
+* larger-than-small-screen styles
+* ~ defining some desktop-only styles here to avoid
+* ~ writing extra mobile styles to undo them.
+*/
+@media @screen-mobile-above {
+  table {
+    th, td {
+      padding: 10px;
+
+      // comment these two out if you want to highlight particular rows
+      &:first-child { padding-left: 0; 
+        width: 25%;
+      }
+      &:last-child { padding-right: 0; }
+
+      // &.amt { text-align: right; }
+    }
+
+    th {
+      border-bottom: 2px solid #eee;
+      padding-top: 0;
+    }
+
+    td { border-bottom: 1px solid #eee; }
+
+    td[data-title="Issue"] {
+      font-weight: bold;
+    }
+  }
+}
+
+/*
+* small-screen styles
+*/
+@media @screen-mobile {
+  tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .footnotes {
+    display: none;
+  }
+
+  table {
+    thead { display: none; }
+
+    tr, th, td {
+      display: block;
+      padding: 0;
+      white-space: normal;
+    }
+
+    tr {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+
+      &:first-child { border-top: 1px solid #eee; }
+    }
+
+    td {
+      margin-bottom: 12px;
+      display: flex;
+
+      &:empty { display: none; }
+    }
+
+    tr td:first-child {
+      .gotham();
+      font-weight: bold;
+      color: #333;
+      font-size: 16px;
+      margin-bottom: 6px;
+
+      &:before {
+        content: '';
+        display: none;
+      }
+    }
+
+    th[data-title]:before,
+    td[data-title]:before {
+      .knockout-header();
+      content: attr(data-title) "";
+      font-weight: bold;
+      margin-right: 15px;
+      width: 36px;
+      color: #fff;
+      padding: 4px 16px 4px 10px;
+      border-radius: 4px;
+      height: 14px;
+    }
+    
+    td[data-title="Biden"]:before {
+      background-color: #237BBD;
+    }
+
+    td[data-title="Trump"]:before {
+      background-color: #D62021;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import "./lib/base";
+
+// ai2html artboard sizes
+@media screen and (min-width: 750px) {
+    #g-_ai2html-graphic-small, #g-_ai2html-graphic-medium { display: none; }
+}
+
+@media screen and (max-width: 749px) and (min-width: 400px) {
+    #g-_ai2html-graphic-small, #g-_ai2html-graphic-wide { display: none; }
+}
+
+@media screen and (max-width: 399px) {
+    #g-_ai2html-graphic-medium, #g-_ai2html-graphic-wide { display: none; }
+}
+
+// Add custom styles here
+.graphic {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1, h2 {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  margin-bottom: 22px;
+}
+
+.footer {
+  .mmedia-constrained();
+}

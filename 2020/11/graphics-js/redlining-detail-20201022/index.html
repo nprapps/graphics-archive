@@ -1,0 +1,82 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<% var columns = [
+  "label",
+  "tract_a",
+  "tract_d"
+];
+
+var colorFunction = function(input) {
+      if (input >= '0.5') {
+        return 'pink';
+      }
+    };
+%>
+
+<div id="graphic" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+    <%= await t.include("_ai2html-graphic.html") %>
+
+    <table id="state-table" role="table">
+      <thead role="rowgroup">
+        <tr role="row">
+          <th role="columnheader">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.label %></div>
+          </th>
+          <th class="amt <%= t.classify(COPY.labels.tract_a) %>" role="columnheader">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.tract_a %></div>
+          </th>
+          <th class="amt <%= t.classify(COPY.labels.tract_d) %>" role="columnheader">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.tract_d %></div>
+          </th>
+        </tr>
+      </thead>
+
+      <%
+      COPY.data.forEach(function(row) { %>
+      <tr class="<%= t.classify(row.label) %>" role="row">
+        <td role="cell" data-title="<%= COPY.labels.label %>"><%= row.label %></td>
+        <td class="amt" role="cell" data-title="<%= COPY.labels.tract_a %>" ><%= row.tract_a %></td>
+        <td class="amt" role="cell" data-title="<%= COPY.labels.tract_d %>"><%= row.tract_d %></td>
+      </tr>
+    <% }) %>
+
+    </table>
+
+  <div id="lollipop-chart">
+  </div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.data) %>;
+</script>
+
+<%= await t.include("lib/_foot.html") %>

@@ -1,0 +1,61 @@
+@import "./lib/base";
+
+@screen-desktop-above: ~"screen and (min-width: 731px)";
+
+h1, h2 {
+  @media @screen-medium-above {
+    .mmedia-constrained-centered();
+  }
+}
+
+.footnotes,
+.footer {
+  @media @screen-medium-above {
+    .mmedia-constrained();
+  }
+}
+
+.graphic {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  > div {
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid #eee;
+    padding: 20px 15px;
+    background-color: #f1f1f1;
+    border-radius: 6px;
+
+    @media @screen-mobile-above {
+      margin-left: 10px;
+      margin-right: 10px;
+      width: calc(50% - 20px);
+    }
+    @media @screen-desktop-above {
+      width: calc(33% - 20px);
+    }
+  }
+
+  img {
+    border: 1px solid #eee;
+    border-radius: 6px;
+    float: right;
+    margin-left: 10px;
+    width: 120px;
+  }
+
+  h4 {
+    .gotham();
+    color: #555;
+    font-size: 16px;
+    margin: 0 0 6px 0;
+  }
+
+  p {
+    line-height: 1.5;
+    margin: 0;
+  }
+}

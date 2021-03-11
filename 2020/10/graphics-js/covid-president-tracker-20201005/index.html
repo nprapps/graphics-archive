@@ -1,0 +1,91 @@
+<%
+  var groupings = [ "White House", "Congress", "Campaign" ];
+%>
+
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+
+<%
+  groupings.forEach(function(group) {
+    var groupData = COPY.data.filter(function(d) {
+      return d.graphic_grouping == group;
+    });
+%>
+
+    <table id="state-table" role="table">
+      <thead role="rowgroup">
+        <tr role="row">
+          <th role="columnheader" colspan="2" class="group-name">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= group %></div>
+          </th>
+          <th role="columnheader" class="role">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.hdr_role %></div>
+          </th>
+          <th role="columnheader" class="positive">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.hdr_positive %></div>
+          </th>
+        </tr>
+      </thead>
+
+      <% groupData.forEach(function(row) { %>
+      <tr class="<%= t.classify(row.name) %>" role="row">
+        <td role="cell" aria-hidden="true" class="img">
+          <% if (row.img) { %>
+            <img src="images/<%= row.img %>" alt="">
+          <% } %>
+        </td>
+        <td role="cell" data-title="<%= COPY.labels.hdr_name %>" class="name">
+          <strong><%= row.name %></strong>
+        </td>
+        <td role="cell" data-title="<%= COPY.labels.hdr_name %>" class="role">
+          <%= row.role %>
+        </td>
+        <td role="cell" data-title="<%= COPY.labels.hdr_positive %>" class="positive">
+          <%= row["positive-test-annoucement"] %>
+
+        </td>
+      </tr>
+    <% }) %>
+
+    </table>
+
+<% }); %>
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.photos) { %>
+  <p>Photos: <%= COPY.labels.photos %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

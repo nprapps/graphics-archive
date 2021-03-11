@@ -1,0 +1,362 @@
+@import "./lib/base";
+
+#change-map {
+  --red: #A23520;
+  --orange: #E38D2C;
+  --yellow: #EFC637;
+  --green: #51A09E;
+
+  h1,h2 {
+    .mmedia-constrained-centered();
+  }
+  table,
+  .footer,
+  .footnotes {
+    .mmedia-constrained();
+  }
+
+  .map-wrapper {
+    .mmedia-constrained-centered();
+  }
+
+  .map {
+    position: relative;
+  }
+
+  #risk { margin-top: -33px; }
+
+  h2 {
+    font-style: italic;
+    margin-bottom: 0;
+  }
+
+  // Ratings
+  .ratings {
+    .mmedia-constrained();
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 22px;
+    margin-bottom: 22px;
+    justify-content: center;
+    max-width: 672px; // 650px + (11px x 2)
+
+    @media @screen-mobile-above {
+      flex-wrap: none;
+    }
+  }
+
+  .rating {
+    margin: 0;
+    padding: 0 11px 11px 11px;
+    width: calc(50% - 6px);
+
+    @media @screen-mobile {
+      &.orange,
+      &.green {
+        border-left: 1px solid #eee;
+      }
+
+      &.yellow,
+      &.green {
+        border-top: 1px solid #eee;
+        padding-top: 11px;
+      }
+    }
+
+    @media @screen-mobile-above {
+      width: calc(25% - 1px);
+
+      + .rating { border-left: 2px solid #eee; }
+    }
+
+    h3 {
+      font-size: 13px;
+      text-align: center;
+      background-color: #ccc;
+      color: #fff;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-weight: normal;
+      text-align: center;
+      display: block;
+    }
+    &.red h3 { background-color: var(--red); }
+    &.orange h3 { background-color: var(--orange); }
+    &.yellow h3 { background-color: var(--yellow); }
+    &.green h3 { background-color: var(--green); }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+      font-size: 13px;
+
+      + li { margin-top: 6px; }
+
+      strong { color: #333; }
+    }
+  }
+
+  // Base table styles
+  table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 22px;
+
+    caption {
+      .knockout-header();
+      font-weight: normal;
+      text-align: center;
+      color: #454545;
+      font-size: 14px;
+      margin: 0 0 6px 0;
+      padding-top: 22px;
+      line-height: 1.6;
+      border-top: 2px solid #eee;
+    }
+
+    th, td {
+      padding: 10px;
+
+      // comment these two out if you want to highlight particular rows
+      &:first-child { padding-left: 0; }
+      &:last-child { padding-right: 0; }
+
+      &.amt {
+        text-align: right;
+        width: 21%;
+      }
+
+      &.risk { text-align: center; }
+
+      &.risk,
+      &.pop-adjusted,
+      &.past {
+        border-right: 1px solid #eee;
+      }
+    }
+
+    th {
+      .knockout-header();
+      line-height: 1.2;
+      text-align: left;
+      vertical-align: bottom;
+      border-bottom: 2px solid #eee;
+      padding-top: 0;
+    }
+
+    td {
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+
+      &.state {
+        font-weight: bold;
+        color: #333;
+      }
+
+      &.change {
+        font-style: italic;
+      }
+
+      &.risk { text-align: center; }
+
+      &.pop-adjusted {
+        // font-style: italic;
+        // color: #999;
+      }
+    }
+
+    .risk span {
+      .knockout-header();
+      width: 50px;
+      text-align: center;
+      display: inline-block;
+      padding: 3px 5px;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 85%;
+
+      &.green { background-color: var(--green); }
+      &.yellow { background-color: var(--yellow); }
+      &.orange { background-color: var(--orange); }
+      &.red { background-color: var(--red); }
+    }
+  }
+}
+
+/* Key
+========================================*/
+.key-wrap {
+  h3 {
+    text-align: center;
+    margin-bottom: 9px;
+  }
+
+  .key {
+    margin: 0 0 18px 0;
+    padding: 0;
+    list-style-type: none;
+
+    .key-item {
+      display: inline-block;
+      margin: 0 18px 0 0;
+      padding: 0;
+      line-height: 15px;
+    }
+    .key-item b {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-right: 6px;
+      float: left;
+    }
+    .key-item label {
+      white-space: nowrap;
+      font-size: 12px;
+      color: #666;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+
+  #risk & .key {
+    display: flex;
+    justify-content: center;
+  }
+
+  // Numeric scale style
+  --key-item-width: 40px;
+
+  &.numeric-scale {
+    width: 100%;
+    text-align: center;
+
+    h3 { margin-bottom: 5px; }
+
+    .key {
+      .key-item {
+        margin: 0 1px 0 0;
+        position: relative;
+      }
+
+      .key-item b {
+        width: var(--key-item-width);
+        height: 10px;
+        margin-right: 0;
+      }
+
+      .key-item label {
+        position: absolute;
+        bottom: -20px;
+        left: -50%;
+        text-align: center;
+        width: var(--key-item-width);
+
+        &.end-label {
+          left: auto;
+          right: -25%;
+        }
+      }
+    }
+  }
+}
+
+/* Grid Map
+========================================*/
+
+.tile-grid-map {
+  margin-bottom: 33px;
+}
+
+.state {
+  fill: #eee;
+}
+
+.state-active.active {
+  stroke: #000;
+  stroke-width: 1px;
+}
+
+.label {
+  font-family: 'Knockout 31 4r';
+  font-size: 12px;
+  fill: #979797;
+  user-select: none;
+  pointer-events: none;
+}
+
+.label-active {
+  fill: #fff;
+}
+
+#recent .label.category-3 {
+  fill: #787878;
+}
+
+@media screen and (max-width: 500px){
+  .label {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 500px){
+  .label {
+    font-size: 8px;
+  }
+}
+
+
+#state-tooltip {
+  padding: 5px;
+  border: 1px solid #999;
+  max-width: 200px;
+  position: absolute;
+  z-index: 10;
+
+  .tooltip-label {
+    .gotham();
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 3px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 3px;
+  }
+
+  table {
+    font-size: 12px;
+    border-collapse: collapse;
+    margin-bottom: 0;
+
+    th {
+      text-align: left;
+      vertical-align: bottom;
+      max-width: 60px;
+      color:  #A0A0A0;
+      line-height: 12px;
+    }
+
+    td {
+      padding: 3px 5px;
+      text-align: left;
+      border: none;
+
+      &.amt {
+        text-align: left;
+        white-space: nowrap;
+      }
+    }
+
+    thead {
+      border-bottom: 1px solid #ddd;
+    }
+  }
+}

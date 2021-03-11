@@ -1,0 +1,126 @@
+@import "./lib/base";
+
+@media @screen-mobile-above {
+  .chart {
+    display: inline-block;
+    padding-right: 15px;
+    // padding-bottom: 15px;
+  }
+}
+
+.incumbent-wrap {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 12px;
+  color: #666;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  line-height: 15px;
+  margin-bottom: 6px;
+}
+
+rect {
+  &.D {
+    fill: @blue2;
+  }
+  &.R {
+    fill: @red3;
+  }
+  &.I {
+    fill: #15b16e;
+  }
+}
+
+h1 {
+  font-size: 18px;
+  // margin-bottom: 22px;
+  text-align: center;
+
+  strong {
+    color: #333;
+  }
+}
+
+h2 {
+  text-align: center;
+  font-size: 12px;
+}
+
+
+h3 {
+  margin-bottom: 11px;
+  text-align: center;
+}
+
+.chart + .chart {
+  // padding-right: 15px;
+}
+
+.value text {
+    fill: #fff;
+
+    &.left {
+      text-anchor: start;
+
+      &.center { text-anchor: middle; }
+      &.out { text-anchor: end; }
+    }
+
+    &.right {
+      text-anchor: end;
+
+      &.center { text-anchor: middle; }
+      &.out { text-anchor: start; }
+    }
+    &.centered { text-anchor: middle; }
+    &.hidden { display: none; }
+}
+
+// .group rect {
+//   opacity: 0.9;
+//
+//   .overall& { opacity: 1; }
+// }
+
+
+.key {
+    display: webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+
+    @media @screen-mobile-above {
+        flex-wrap: nowrap;
+        margin-bottom: 33px;
+    }
+
+    .key-item {
+        .clearfix();
+        margin-bottom: 6px;
+        width: auto;
+
+        @media @screen-mobile {
+          // width: calc(40% - 18px);
+        }
+
+        @media @screen-mobile-above { margin-bottom: 0; }
+
+        // &:nth-child(1) { order: 0; }
+        // &:nth-child(2) { order: 2; margin-right: 0;}
+        // &:nth-child(3) { order: 1; }
+
+        label {
+            @media @screen-mobile-above { font-size: 12px; }
+
+            white-space: normal;
+        }
+    }
+}
+
+.chart {
+  padding-top: 10px;
+  // border-top: 2px solid #eee;
+}

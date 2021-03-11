@@ -1,0 +1,165 @@
+<%= await t.include("lib/_head.html") %>
+
+<%
+var dataArrays = {};
+dataArrays.uncalled = [];
+dataArrays.dem = [];
+dataArrays.gop = [];
+
+var titles = {
+  uncalled: COPY.labels.uncalled_title,
+  dem: COPY.labels.dem_title,
+  gop: COPY.labels.gop_title
+}
+
+// bucket each race into three buckets
+COPY.data.forEach(function(d){
+  // console.log(d)
+  if (d.called == 0) {
+    if (d.gop > d.dem ) {
+      d.lead = "gop";
+    } else {
+      d.lead = "dem"
+    }
+    dataArrays.uncalled.push(d)
+  } else {
+    if (d.gop > d.dem ) {
+      dataArrays.gop.push(d)
+    } else if (d.dem > d.gop) {
+      dataArrays.dem.push(d)
+    } else {
+      // console.log
+      throw ("EQUAL...ERROR")
+    }
+  }
+})
+
+%>
+
+<% if (COPY.labels.headline) { %>
+<h1 align="center"><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2 align="center"><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="board-key" align="center">
+  <li class="dem">Democrat / <span class="leading">Leading</span> <span class="winner">Winner</span></li>
+  <li class="gop">Republican / <span class="leading">Leading</span> <span class="winner">Winner</span></li>
+</div>
+
+<div class="graphic" id="table-graphic">
+  <%
+    // for loop for each array to create a table
+    var id = 0;
+    for (var item in dataArrays) {
+      id++;
+  %>
+  <div id="state-table-container-<%=id%>" class="state-table-container">
+    <h3><%= titles[item] %></h3>
+    <table id="state-table-<%=id%>" role="table">
+      <thead role="rowgroup" class="header-sort">
+        <tr role="row">
+          <th role="columnheader" class="state-width">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.hdr_state %></div>
+          </th>
+          <th role="columnheader" class="percent-width">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.hdr_percent %></div>
+          </th>
+          <th role="columnheader" class="ev-width">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.hdr_ev %></div>
+          </th>
+          <th role="columnheader" class="dem-width">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.hdr_dem %></div>
+          </th>
+          <th role="columnheader" class="gop-width">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.hdr_gop %></div>
+          </th>
+        </tr>
+      </thead>
+
+      <% 
+
+      var d3 = {
+        ...require("d3-axis/dist/d3-axis.min"),
+        ...require("d3-scale/dist/d3-scale.min"),
+        ...require("d3-selection/dist/d3-selection.min")
+      };
+
+      var voteScale = d3
+        .scaleLinear()
+        .domain([45, 100])
+        .range([0.1, 1]);
+
+        var darkFunction = function(input) {
+          if (input > '2') {
+            return 'light';
+          } else {
+            return 'dark';
+          }
+        }
+
+
+      // sort each bucket from lowest % reporting to highest
+      dataArrays[item].sort(function(a,b){
+        return a.percent - b.percent;
+      });
+
+      <!-- rounds the days -->
+      dataArrays[item].forEach(function(row) {
+        var mil_val = ""
+        if(row.ev > 1000000) {
+          console.log("great")
+          mil_val = (row.ev / 1000000) + " mil"
+        }
+        else {
+          mil_val = t.comma(row.ev)
+        }   
+        <!-- console.log(mil_val) -->
+      %>
+        <tr class="<%= t.classify(row.name) %> white-text" role="row">
+          <td role="cell" data-title="<%= COPY.labels.hdr_state %>"><a href="https://apps.npr.org/elections20-interactive/#/states/<%= row.usps %>/P"><%= row.name %></a></td>
+          <td style="background-color: rgba(200,200,200, <%= voteScale(row.percent) %>)" class="percent-in" role="cell" data-title="<%= COPY.labels.hdr_dem %>" class="amt"><%= row.percent %>% in</td>
+          <td role="cell" data-title="<%= COPY.labels.hdr_ev %>"><%= mil_val %></td>
+          <td class="dem <%= item%>-winner <%= row.lead %>-lead" role="cell" data-title="<%= COPY.labels.hdr_dem %>"><%= row.dem %>%</td>
+          <td class="gop <%= item%>-winner <%= row.lead %>-lead" role="cell" data-title="<%= COPY.labels.hdr_dem %>" class="amt"><%= row.gop %>%</td>
+        </tr>
+      <% }) %>
+
+    </table>
+    <button aria-hidden=true class="expander e<%= id%>">Show All &#9660;</button>
+  </div>
+
+  <%
+    }
+  %>
+</div>
+
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

@@ -1,0 +1,214 @@
+@import "./lib/base";
+
+// ai2html artboard sizes
+@media screen and (min-width: 730px) {
+    #g-_ai2html-graphic-small, #g-_ai2html-graphic-medium { display: none; }
+}
+
+@media screen and (max-width: 729px) and (min-width: 400px) {
+    #g-_ai2html-graphic-small, #g-_ai2html-graphic-wide { display: none; }
+}
+
+@media screen and (max-width: 399px) {
+    #g-_ai2html-graphic-medium, #g-_ai2html-graphic-wide { display: none; }
+}
+
+// Add custom styles here
+ h1, h2 {
+   text-align: center;
+   max-width: 700px;
+   margin: 0 auto;
+   margin-bottom: 22px;
+ }
+
+ .graphic {
+   max-width: 650px;
+   margin: 0 auto;
+   padding-bottom: 22px;
+ }
+
+ .footer {
+   .mmedia-constrained();
+ }
+
+ .g-labels {
+   text-shadow: 2px 2px 2px #fff, 2px 2px 2px #fff, -2px -2px 5px #fff;
+ }
+
+ // Base table styles
+table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+
+  tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+    border-bottom: 2px solid #ccc;
+    // font-size: 14px;
+    padding-top: 0;
+  }
+
+  td { vertical-align: top; }
+
+  th, td {
+    &.amt { text-align: right; }
+  }
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+
+tr.social-vulnerability-index {
+  font-weight: bold;
+  color: #333;
+  // border-bottom: 2px solid #ccc;
+}
+
+.tract-a3 div.header {
+  // background-color: #46B33E;
+  color: #46B33E;
+  // padding: 4px 16px 4px 10px;
+  // border-radius: 4px;
+}
+
+.tract-d5 div.header {
+  // background-color: #CB5666;
+  color: #CB5666;
+  // padding: 4px 16px 4px 10px;
+  // border-radius: 4px;
+}
+
+button.expander {
+  .gotham();
+  background-color: #fff;
+  border: none;
+  border-top: 1px solid #ddd;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #4774CC;
+  display: block;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 22px;
+  padding: 10px;
+  text-transform: uppercase;
+  width: 100%;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+}
+
+/*
+* larger-than-small-screen styles
+* ~ defining some desktop-only styles here to avoid
+* ~ writing extra mobile styles to undo them.
+*/
+@media @screen-mobile-above {
+  table {
+    th, td {
+      padding: 10px;
+
+      // comment these two out if you want to highlight particular rows
+      // &:first-child { padding-left: 0; }
+      // &:last-child { padding-right: 0; }
+
+      &.amt { text-align: right; }
+    }
+
+    th {
+      border-bottom: 2px solid #ccc;
+      font-size: 14px;
+      padding-top: 0;
+    }
+
+    td { border-bottom: 1px solid #eee; }
+
+    &.collapsed tbody tr:nth-child(n + 10) {
+      .sr-only();
+    }
+  }
+}
+
+/*
+* small-screen styles
+*/
+@media @screen-mobile {
+  tbody {
+    // display: block;
+    width: 100%;
+  }
+
+  table {
+    // thead { display: none; }
+
+    tr, th, td {
+      // display: block;
+      padding: 10px;
+      white-space: normal;
+    }
+
+    tr {
+      border-bottom: 1px solid #eee;
+      // padding: 10px 0;
+
+      // &:first-child { border-top: 1px solid #eee; }
+    }
+
+    td {
+      margin-bottom: 6px;
+
+      &:empty { display: none; }
+    }
+
+    th:first-child, td:first-child {
+      padding-left: 0;
+    }
+
+    tr.total-all-indian-health-service-areas {
+      font-weight: bold;
+      color: #333;
+      background-color: #f1f1f1;
+    }
+
+
+
+
+    // tr td:first-child {
+    //   .knockout-header();
+    //   color: #333;
+    //   font-size: 14px;
+    //   margin-bottom: 6px;
+    //
+    //   &:before {
+    //     content: '';
+    //     display: none;
+    //   }
+    // }
+
+    th[data-title]:before,
+    td[data-title]:before {
+      // content: attr(data-title) ":\00A0";
+      display: inline-block;
+      margin-right: 10px;
+      width: 40%;
+    }
+
+    &.collapsed tbody tr:nth-child(n + 5) {
+      .sr-only();
+    }
+  }
+}

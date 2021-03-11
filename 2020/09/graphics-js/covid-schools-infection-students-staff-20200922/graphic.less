@@ -1,0 +1,26 @@
+@import "./lib/base";
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+.learning-model {
+  font-weight: bold;
+}
+
+.bars rect {
+  fill: @orange5;
+
+  &.overall {
+    fill: @orange3;
+  }
+}
+
+.graphic {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.footer, .footnotes, h2, h1 {
+  .mmedia-constrained();
+}

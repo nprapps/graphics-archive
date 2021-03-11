@@ -1,0 +1,253 @@
+<%
+  var sectors = [ "k12", "colleges", "nursing", "prisons", "fire", "healthcare", "food", "cashiers" ]
+%>
+
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.targets_headline) { %>
+<h1><%= t.smarty(COPY.labels.targets_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.targets_subhed) { %>
+<h2><%= t.smarty(COPY.labels.targets_subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="targets">
+  <div class="state-select">
+    <label for="state-picker">Show Testing Targets For:</label>
+    <select id="state-picker">
+      <option value="">Select one...</option>
+      <option value="national" selected>United States</option>
+      <% COPY.states.forEach(function(st) { %>
+        <option value="<%= t.classify(st.name) %>"><%= st.name %></option>
+      <% }); %>
+    </select>
+  </div>
+
+  <div id="national" class="active state-table">
+    <table>
+      <tr>
+        <th class="sector">United States</th>
+        <th class="target base" colspan="2">
+          Base Target
+        </th>
+        <th class="target ideal" colspan="2">
+          Ideal Target
+        </th>
+      </tr>
+      <tr>
+        <td colspan="5" class="hdr"><%= COPY.labels.targets_hed_diagnostic %></td>
+      </tr>
+      <tr class="symptomatic">
+        <td class="sector">
+          <%= COPY.data_targets.symptomatic.sector %>
+        </td>
+        <td class="target base">
+          <%= t.comma(COPY.data_targets.symptomatic.base_amt) %>
+        </td>
+        <td class="share base">
+          <%= COPY.data_targets.symptomatic.base_pct %>%
+        </td>
+        <td class="target ideal">
+          <%= t.comma(COPY.data_targets.symptomatic.ideal_amt) %>
+        </td>
+        <td class="share ideal">
+          <%= COPY.data_targets.symptomatic.ideal_pct %>%
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5" class="hdr"><%= COPY.labels.targets_hed_screening %></td>
+      </tr>
+
+      <tbody>
+      <% sectors.forEach(function(sector) { %>
+        <tr class="<%= t.classify(sector) %> <% if (COPY.data_targets[sector]["base_note"] || COPY.data_targets[sector]["ideal_note"]) { %>has-note<% } %>">
+          <td class="sector" rowspan="2"><%= COPY.data_targets[sector]["sector"] %></td>
+
+          <% if (!isNaN(COPY.data_targets[sector]["base_amt"])) { %>
+          <td class="target base">
+            <%= t.comma(COPY.data_targets[sector]["base_amt"]) %>
+          </td>
+          <td class="share base">
+            <% if (COPY.data_targets[sector]["base_pct"]) { %>
+              <%= COPY.data_targets[sector]["base_pct"] %>%
+            <% } %>
+          </td>
+          <% } else { %>
+            <td class="target base not-tested" colspan="2">
+              <%= COPY.data_targets[sector]["base_amt"] %>
+            </td>
+          <% } %>
+
+          <td class="target ideal">
+            <%= t.comma(COPY.data_targets[sector]["ideal_amt"]) %>
+          </td>
+          <td class="share ideal">
+            <%= COPY.data_targets[sector]["ideal_pct"] %>%
+          </td>
+        </tr>
+        <% if (COPY.data_targets[sector]["base_note"] || COPY.data_targets[sector]["ideal_note"]) { %>
+        <tr class="has-note">
+          <td class="note base <% if (isNaN(COPY.data_targets[sector]["base_amt"])) { %>not-tested <% } %>" colspan="2">
+            <% if (COPY.data_targets[sector]["base_note"]) { %>
+              <%= COPY.data_targets[sector]["base_note"] %>
+            <% } %>
+          </td>
+          <td class="note ideal" colspan="2">
+            <% if (COPY.data_targets[sector]["ideal_note"]) { %>
+              <%= COPY.data_targets[sector]["ideal_note"] %>
+            <% } %>
+          </td>
+        </tr>
+        <% } %>
+      <% }) %>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td class="sector">
+            <%= COPY.data_targets.total.sector %>
+          </td>
+          <td class="target base">
+            <%= t.comma(COPY.data_targets.total.base_amt) %>
+          </td>
+          <td class="share base">
+            <%= COPY.data_targets.total.base_pct %>%
+          </td>
+          <td class="target ideal">
+            <%= t.comma(COPY.data_targets.total.ideal_amt) %>
+          </td>
+          <td class="share ideal">
+            <%= COPY.data_targets.total.ideal_pct %>%
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <% COPY.states.forEach(function(state) {
+    var stateData = [];
+    var stateTestsTotal = 0;
+
+    var allSectors = [ "symptomatic", "k12", "colleges", "nursing", "prisons", "healthcare", "food", "cashiers", "fire" ];
+    allSectors.forEach(function(sector) {
+      // add to data object of values specific to this state
+      stateData[sector] = COPY.data_states[sector][state.usps];
+
+      // add to tally of total tests for this state
+      if (!isNaN(stateData[sector])) {
+        // round to the nearest hundred
+        // stateData[sector] = Math.round(stateData[sector] / 100) * 100;
+
+        stateTestsTotal += stateData[sector];
+      }
+    });
+
+    stateData["total"] = stateTestsTotal;
+    stateData["risk_level"] = COPY.data_states["risk_level"][state.usps]
+
+    // lop through again and calculate % of total for each sector
+    allSectors.forEach(function(sector) {
+      if (!isNaN(stateData[sector])) {
+        stateData[sector + "_share"] = ((stateData[sector] / stateTestsTotal) * 100).toFixed(0);
+      }
+    })
+  %>
+  <div id="<%= t.classify(state.name) %>" class="state-table">
+    <table>
+      <tr>
+        <th class="sector">
+          <span class="state-name"><%= state.name %></span>
+          <span class="risk-level <%= t.classify(stateData.risk_level) %>">Risk: <%= stateData.risk_level %></span>
+        </th>
+        <th class="target base" colspan="2">
+          Base Target
+        </th>
+      </tr>
+      <tr>
+        <td colspan="3" class="hdr"><%= COPY.labels.targets_hed_diagnostic %></td>
+      </tr>
+      <tr class="symptomatic">
+        <td class="sector">
+          <%= COPY.data_targets.symptomatic.sector %>
+        </td>
+        <td class="target base">
+          <%= t.comma(stateData.symptomatic) %>
+        </td>
+        <td class="share base">
+          <%= stateData.symptomatic_share %>%
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="hdr"><%= COPY.labels.targets_hed_screening %></td>
+      </tr>
+
+      <tbody>
+      <% sectors.forEach(function(sector) { %>
+        <tr class="<%= t.classify(sector) %> <% if (COPY.data_targets[sector]["base_note"]) { %>has-note<% } %>">
+          <td class="sector" <% if (COPY.data_targets[sector]["base_note"]) { %>rowspan="2"<% } %>><%= COPY.data_targets[sector]["sector"] %></td>
+
+          <% if (!isNaN(stateData[sector])) { %>
+          <td class="target base">
+            <%= t.comma(stateData[sector]) %>
+          </td>
+          <td class="share base">
+            <% if (stateData[sector + "_share"]) { %>
+              <%= stateData[sector + "_share"] %>%
+            <% } %>
+          </td>
+          <% } else { %>
+            <td class="target base not-tested" colspan="2">
+              Not tested
+            </td>
+          <% } %>
+        </tr>
+        <% if (COPY.data_targets[sector]["base_note"]) { %>
+        <tr class="has-note">
+          <td class="note base <% if (isNaN(stateData[sector])) { %>not-tested <% } %>" colspan="2">
+            <% if (COPY.data_targets[sector]["base_note"] && !isNaN(stateData[sector])) { %>
+              <%= COPY.data_targets[sector]["base_note"] %>
+            <% } %>
+            <% if (COPY.data_targets[sector]["base_red"] && stateData.risk_level == "Red") { %>
+              <%= COPY.data_targets[sector]["base_red"] %>
+            <% } %>
+          </td>
+        </tr>
+        <% } %>
+      <% }) %>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td class="sector">
+            <%= COPY.data_targets.total.sector %>
+          </td>
+          <td class="target base">
+            <%= t.comma(stateData.total) %>
+          </td>
+          <td class="share base">100%</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <% }); %>
+
+</div>
+
+
+
+<% if (COPY.labels.targets_footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= t.smarty(COPY.labels.targets_footnote) %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= t.smarty(COPY.labels.source) %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= t.smarty(COPY.labels.credit) %></p><% } %>
+</div>
+
+<script src="./targets.js"></script>
+
+<%= await t.include("lib/_foot.html") %>
