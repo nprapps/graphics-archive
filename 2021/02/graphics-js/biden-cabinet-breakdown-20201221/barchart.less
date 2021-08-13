@@ -1,0 +1,64 @@
+@import "./lib/base";
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.state-title {
+  margin-left:46px;
+  display: block;
+}
+
+.labels {
+	height: 100px;
+}
+
+
+.biden{
+	font-weight: bold;
+	color: #474747 !important ;
+}
+
+g.group.biden rect.nonwhite, 
+g.group.biden rect.women, 
+g.group.biden rect.government,
+g.group.biden rect.white-men {
+	fill: #11605E !important;
+}
+
+text.men,
+text.white,
+text.non-white-men,
+text.non-government {
+	display:none;
+}
+
+.graphic-wrapper {
+	width: 325px;
+	margin-right: 25px;
+	}
+
+#stacked-bar-chart {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    }

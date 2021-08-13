@@ -1,0 +1,110 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (typeof preset != "undefined" && COPY.labels[`hed_${preset}`]) { %>
+<h1><%= t.smarty(COPY.labels[`hed_${preset}`]) %></h1>
+<% } %>
+
+<div class="graphic"
+  <% if (typeof preset != "undefined") { %>
+  data-preset="<%= preset %>"
+  <% } %>
+>
+  <svg style="display: none" aria-hidden>
+    <polygon id="hex" points="108.4,15.2 42.9,15.2 10.1,71.9 42.9,128.7 108.4,128.7 141.2,71.9 " />
+  </svg>
+   <ul class="key">
+    <li class="normal"> 
+       <svg class="stroked" viewBox="0 0 151.3 143.9">
+        <use href="#hex" data-state="normal" />
+      </svg>
+      <%= COPY.labels.normal %>
+    </li>
+    <li class="vax">
+       <svg class="stroked" viewBox="0 0 151.3 143.9">
+        <use href="#hex" data-state="vaccinated" data-vaccinated="true" />
+      </svg>
+      <%= COPY.labels.vaccinated %>
+    </li>
+    <li class="immune">
+       <svg class="stroked" viewBox="0 0 151.3 143.9">
+        <use href="#hex" data-state="immune" />
+      </svg>
+    </i> <%= COPY.labels.immune %>
+    <li class="recovered">
+      <svg class="stroked" viewBox="0 0 151.3 143.9">
+        <use href="#hex" data-state="recovered"/>
+      </svg>
+      <%= COPY.labels.infected %>
+  </ul>
+
+  <div class="triplets">
+    <% for (var i = 0; i < 3; i++) { %>
+    <div class="item">
+      <h4>&nbsp;</h4>
+
+      <div class="aspect-container">
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          class="hex-triplet"
+          width="600" height="600">
+        </svg>
+      </div>
+
+      <div class="status">
+        <h3>
+          <span class="contagious"><%= COPY.labels.infected %></span>:
+          <span data-status="sick"></span>
+        </h3>
+        <h3>
+          <span class="healthy">Healthy</span>:
+          <span data-status="healthy"></span>
+        </h3>
+      </div>
+
+    </div>
+    <% } %>
+  </div>
+
+  <div class="sim-controls">
+    <button class="play">Run Simulation</button>
+    <!-- <button class="reset">Reset</button> -->
+  </div>
+
+  <div class="presets">
+    <h4>Preset scenarios</h4>
+    <ol>
+      <li>
+        <button class="preset" data-preset="baseline">Baseline</button>
+        - Moderately contagious virus with low vaccination rates
+      <li>
+        <button class="preset" data-preset="highImmunity">High natural immunity</button>
+        - Community that has some immunity due to high levels of exposure to the virus
+      <li>
+        <button class="preset" data-preset="lowImmunity">Low natural immunity</button>
+        - Community that has some natural immunity, but not a lot
+      <li>
+        <button class="preset" data-preset="infectious">More infectious</button>
+        - Previous scenario, but with a more infectious virus
+    </ol>
+  </div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

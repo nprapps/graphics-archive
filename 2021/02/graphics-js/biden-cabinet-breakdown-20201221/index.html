@@ -1,0 +1,103 @@
+<%= await t.include("lib/_head.html") %>
+
+<%
+	var roles = [];
+	COPY.data.forEach(function(r) {
+		if (roles.indexOf(r.Role) < 0) roles.push(r.Role);
+	})
+
+	var data = {};
+	COPY.data.forEach(function(r) {
+		if (!data[r.Role]) { data[r.Role] = []; }
+		data[r.Role].push(r);
+	})
+%>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+
+<div class="controls" aria-hidden="true" id="table-controls">
+  <h3 class="view-label">View by:</h3>
+  <% var controls = [
+  { label: "Race/Ethnicity", data: "Race", checked: true,},
+  { label: "Gender", data: "Gender"},
+  { label: "Experience", data: "Experience"},
+  ];%>
+  <% controls.forEach(function({ label, data, checked}) { %>
+  <input type="radio" name="table-mode" value="<%= data %>" id="mode-<%= data %>" <%= checked ? "checked" : "" %>>
+  <label for="mode-<%= data %>"><%= label %></label>
+  <% }) %>
+</div>
+
+<% var categories = {
+  White: "White",
+  Black: "Black",
+  Latino: "Hispanic",
+  Asian: "Asian",
+  Native: "Native American",
+  Arab: "Middle Eastern",
+  Male: "Male",
+  Female: "Female",
+  Government: "Government",
+  Military: "Military",
+  Business: "Business",
+  Other: "Other"
+}; %>
+
+<div class="key" data-mode="Race">
+  <% for (var c in categories) { %>
+    <div class="key-item <%= c %>"><div class="swatch <%= c %>"></div><%= categories[c] %></div>
+  <% } %>
+  <!-- <div class="experience-note">(Most prominent prior job)</div> -->
+</div>
+
+<table id="state-table" role="table" data-mode="Race">
+
+  <thead role="rowgroup">
+    <tr role="row">
+      <th role="columnheader">Role</th>
+      <th role="columnheader" class="name">Obama</th>
+      <th role="columnheader" class="name">Trump</th>
+      <th role="columnheader" class="name">Biden</th>
+    </tr>
+  </thead>
+
+	<% roles.forEach(function(role) { %>
+    <tr role="row">
+      <td role="cell" class="role"><%= role %></td>
+      <td role="cell" class="name <%= data[role][0].Race %> <%= data[role][0].Gender %> <%= data[role][0].Experience %>"><%= data[role][0].Last %></td>
+      <td role="cell" class="name <%= data[role][2].Race %> <%= data[role][2].Gender %> <%= data[role][2].Experience %>"><%= data[role][2].Last %></td>
+      <td role="cell" class="name <%= data[role][4].Race %> <%= data[role][4].Gender %> <%= data[role][4].Experience %>"><%= data[role][4].Last %></td>
+    </tr>
+	<% }) %>
+
+</table>
+    <!-- <img src="fallback.png" alt="" class="fallback" /> -->
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

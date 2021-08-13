@@ -1,0 +1,104 @@
+<%
+
+var { filtered, average, color_scale, LABELS } = data; 
+
+var toTitleCase = function(str) {
+  return str.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+};
+
+%>
+<% 
+filtered.forEach(function(row) { 
+
+  var pctValid = true;
+  if (row.all_adult_hospital_inpatient_beds_7_day_avg < 0) {
+    pctValid = false;
+  }
+
+  var background = pctValid
+    ? color_scale(row.covid_bed_utilization * 100)
+    : color_scale(0);
+
+  var color = row.covid_bed_utilization >= 0.05 && pctValid ? "white" : "inherit";
+
+  var covidUtilization = row.covid_bed_utilization <= 0 || pctValid == false 
+    ? "No data" 
+    : Math.round(row.covid_bed_utilization * 100) + "%";
+
+  var allUtilization = row.all_adult_bed_utilization <= 0 || pctValid == false
+      ? "No data"
+      : Math.round(row.all_adult_bed_utilization * 100) + "%";
+
+  var covidICU = row.covid_icu_utilization <= 0 || pctValid == false 
+    ? "No data" 
+    : Math.round(row.covid_icu_utilization * 100) + "%";
+
+  var allICU = row.all_adult_icu_utilization <= 0 || pctValid == false
+      ? "No data"
+      : Math.round(row.all_adult_icu_utilization * 100) + "%";
+
+  var hospitalized = row.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg <= 0
+      ? "No data"
+      : row.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg.toFixed(0);
+
+%>
+<tr>
+  <td class="hospital-name">
+    <%= toTitleCase(row.hospital_name ) %>
+    (<%= toTitleCase(row.city) %>, <%= row.state %>)
+  </td>
+  <td class="amt covid" style="background: <%= background %>; color: <%= color %>">
+    <span class="mobile-only inline-header" aria-hidden="true"><%= LABELS.hdr_beds %> by <%= LABELS.hdr_covid %></span>
+    <%= covidUtilization %>  
+  </td>
+  <td class="amt overall">
+    <span class="mobile-only inline-header" aria-hidden="true"><%= LABELS.hdr_beds %> <%= LABELS.hdr_overall.toLowerCase() %></span>
+    <%= allUtilization %>
+  </td>
+  <td class="amt covid">
+    <span class="mobile-only inline-header" aria-hidden="true"><%= LABELS.hdr_icu %> by <%= LABELS.hdr_covid %></span>
+    <%= covidICU %>
+  </td>
+  <td class="amt overall">
+    <span class="mobile-only inline-header" aria-hidden="true"><%= LABELS.hdr_icu %> <%= LABELS.hdr_overall.toLowerCase() %></span>
+    <%= allICU %>
+  </td>
+  <td class="amt">
+    <span class="mobile-only inline-header" aria-hidden="true"><%= LABELS.hdr_covid_patients %></span>
+    <%= hospitalized %>
+  </td>
+</tr>
+<% }); %>
+
+<% if (average) { 
+var covidBeds = "% All Hospital Beds Occupied by COVID";
+var occupiedBeds = "% All Hospital Beds Occupied";
+var totalCovid = "Total COVID Hospitalizations";
+var covidICU = "% All ICU Beds Occupied by COVID";
+var occupiedICU = "% All ICU Beds Occupied";
+
+var toSentenceCase = str => str.replace(/(\w\s+)(\S[a-z])/g, (_, p, w) => p + w.toLowerCase());
+
+var notNumber = n => typeof n != "number";
+var output = (v) => notNumber(v) || v <= 0
+  ? "No data"
+  : Math.round(v);
+
+var cell = (prop, suffix = "") => `
+<td class="amt">
+  <span class="mobile-only inline-header" aria-hidden="true">${toSentenceCase(prop)}</span>
+  ${output(average[prop])}${suffix}
+</td>
+`;
+
+%>
+<tr class="county-avg">
+  <td>Average hospital in county</td>
+  <%= cell(covidBeds, "%") %>
+  <%= cell(occupiedBeds, "%") %>
+  <%= cell(covidICU, "%") %>
+  <%= cell(occupiedICU, "%") %>
+  <%= cell(totalCovid) %>
+<% } %>

@@ -1,0 +1,52 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.pitt_hed) { %>
+<h1><%= t.smarty(COPY.labels.pitt_hed) %></h1>
+<% } %>
+
+<% if (COPY.labels.pitt_subhed) { %>
+<h2><%= t.smarty(COPY.labels.pitt_subhed) %></h2>
+<% } %>
+
+<div class="bubble-legend" aria-hidden="true">
+  <div class="label"><%=COPY.labels.whisker_legend%></div>
+  <div>
+    <div class="bubble-keys b0"></div>
+    <div class="bubble-legend-text t0"></div>
+  </div>
+  <div>
+    <div class="bubble-keys b1"></div>
+    <div class="bubble-legend-text t1"></div>
+  </div>
+  <div>
+    <div class="bubble-keys b2"></div>
+    <div class="bubble-legend-text t2"></div>
+  </div>
+</div>
+<div id="dot-chart" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+  <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.pitt_footnote) { %>
+<div class="footnotes">
+  <p><strong>Notes: </strong><%= COPY.labels.pitt_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.whisker_source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.pittData) %>;
+  var LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>
+
+<script src="./whiskers.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

@@ -1,0 +1,90 @@
+<% if (COPY.labels.headline_cost) { %>
+<h1><%= t.smarty(COPY.labels.headline_cost) %></h1>
+<% } %>
+
+
+<% if (COPY.labels.subhed_cost) { %>
+<h2 id="subhed"><%= t.smarty(COPY.labels.subhed_cost) %></h2>
+<% } %>
+
+<% COPY.counties.forEach(function(row) {
+var state = COPY.fips.find(item => String(item.GEOID) == String(row.GEOID).slice(0,2)
+);
+var matchingDataState = COPY.data.find(
+item => (item.GEOID == row.GEOID && item.name == state.State)
+);
+
+row.state = state.ap;
+row.state_abbr = state.Abbrv;
+row.county = matchingDataState ? matchingDataState.NAMELSAD : "";
+
+row.perc_chg_30_cost = row.perc_chg_30_cost || 0;
+row.avg_chg_30_cost = row.avg_chg_30_cost || 0;
+});
+%>
+
+
+
+  <div class="key-wrap" aria-hidden="true">
+    <div class="key"></div>
+  </div>
+
+  <div id="flood-wrapper" class="wrapper flood">
+    <div class="map-header">
+    </div>
+
+    <div id="map-container" class="graphic" role="img" aria-label="Map of flood risk by county">
+      <div class="map">
+        <img src="fallback.png" class="fallback">
+      </div>
+
+      <!--<h1 id="search-hed"><%= COPY.labels.lookuphed%></h1>-->
+
+      <div class="search-bar">
+        <div class="search-box">
+          <div class="search-header">Search by <b>County</b> to see expected flood damage costs</div>
+          <div>
+            <autocomplete-input list="counties" name="counties" id="search" type="text"></autocomplete-input>
+            <datalist id="counties"></datalist>
+
+          </div>
+        </div>
+      </div>
+      <div class='no-data-msg'>No flood damage data found.</div>
+      <!-- <div class="graphic table" id="flood-table">
+        <div class="flood-card">
+          <div class="label main card" id="card1"></div>
+          <div class="label secondary" id="card2"></div>
+        </div>
+
+      </div> -->
+
+      <div class="tooltip"></div>
+    </div>
+
+    
+  </div>
+
+
+
+</div>
+
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+	var STATES = <%= JSON.stringify(COPY.states) %>;
+    var FLOOD = <%= JSON.stringify(COPY.counties) %>;
+      var LABELS = <%= JSON.stringify(COPY.labels) %>;
+    </script>

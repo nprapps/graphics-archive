@@ -1,0 +1,192 @@
+@import "./lib/base";
+
+// ai2html artboard sizes
+// @media screen and (min-width: 731px) {
+//     #g-_ai2html-baton-small, #g-_ai2html-baton-medium { display: none; }
+// }
+
+@media screen and (min-width: 400px) {
+  #g-_ai2html-baton-small,
+  #g-_ai2html-baton-wide {
+    display: none;
+  }
+  #g-_ai2html-texas-small,
+  #g-_ai2html-texas-wide {
+    display: none;
+  }
+  #g-_ai2html-mobile-small,
+  #g-_ai2html-mobile-wide {
+    display: none;
+  }
+  #g-_ai2html-atlanta-small,
+  #g-_ai2html-atlanta-wide {
+    display: none;
+  }
+
+  .headers {
+    width: 80%;
+    float: left;
+  }
+
+  .map-inset {
+    width: 20%;
+    float: left;
+    img {
+      outline: none;
+    }
+  }
+}
+
+@media screen and (max-width: 399px) {
+  #g-_ai2html-baton-medium,
+  #g-_ai2html-baton-wide {
+    display: none;
+  }
+  #g-_ai2html-texas-medium,
+  #g-_ai2html-texas-wide {
+    display: none;
+  }
+  #g-_ai2html-mobile-medium,
+  #g-_ai2html-mobile-wide {
+    display: none;
+  }
+  #g-_ai2html-atlanta-medium,
+  #g-_ai2html-atlanta-wide {
+    display: none;
+  }
+
+  .headers {
+    width: 75%;
+    float: left;
+  }
+
+  .map-inset {
+    width: 25%;
+    float: left;
+  }
+}
+
+// Add custom styles here
+
+#dot-chart {
+  .bars line {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #f5d1ca;
+  }
+
+  .dots circle,
+  circle.dots {
+    stroke-width: 1px;
+    stroke: #ccc;
+    fill: #ccc;
+  }
+
+  .value text {
+    font-size: 12px;
+    fill: #666;
+
+    @media screen and (max-width: 399px) {
+      font-size: 11px;
+    }
+  }
+
+  .shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+  }
+
+  circle {
+    fill-opacity: 0.6;
+  }
+  .zero-line {
+    stroke: rgb(243, 107, 78);
+    stroke-width: 2px;
+  }
+
+  .legend {
+    text {
+      font-size: 12px;
+      fill: #666;
+    }
+  }
+
+  .labels li {
+    @media screen and (max-width: 399px) {
+      font-size: 11px;
+    }
+  }
+}
+
+.headers {
+  float: left;
+}
+
+.map-inset {
+  float: left;
+  padding-left: 10px;
+  img {
+    outline: none;
+    max-width: 90%;
+    max-height: 80px;
+  }
+}
+.header {
+  float: left;
+  width: 100%;
+}
+
+.graphic {
+  float: left;
+  width: 100%;
+}
+
+body {
+  .mmedia-constrained();
+}
+
+.bubble-legend {
+  text-align: center;
+  margin-top: 10px;
+  height: 30px;
+  color: #666;
+
+  .bubble-legend-text {
+    font-size: 12px;
+    margin: 0 5px 0 5px;
+  }
+
+  div {
+    display: inline-block;
+
+    &.label {
+      display: block;
+      font-size: 12px;
+    }
+  }
+}
+
+.bubble-keys {
+  border: 1px solid #ccc;
+  background: rgba(204, 204, 204, .6);
+  border-radius: 50%;
+  vertical-align: middle;
+  margin: 5px 0 5px 0;
+}
+
+.xaxis-label {
+  fill: #666;
+  font-size: 12px;
+  font-style: italic;
+}
+
+h2 {
+  strong {
+    color: #fff;
+    background: rgb(243, 107, 78);
+    border-radius: 4px;
+    padding: 3px;
+  }
+}

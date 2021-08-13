@@ -1,0 +1,40 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 2px;
+  opacity: .8;
+  stroke: #ccc;
+  // stroke-dasharray: 3 1;
+  stroke-linejoin: round;
+
+  .republicans {
+    stroke-width: 3px;
+    opacity: 1;
+    stroke-dasharray: none;
+  }
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  // fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}

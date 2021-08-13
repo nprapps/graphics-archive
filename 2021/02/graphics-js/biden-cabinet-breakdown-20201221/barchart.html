@@ -1,0 +1,41 @@
+<%= await t.include("lib/_head.html") %>
+
+<link rel="stylesheet" type="text/css" href="barchart.css" />
+
+<% if (COPY.labels.breakdown_headline) { %>
+<h1><%= t.smarty(COPY.labels.breakdown_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.breakdown_subhead) { %>
+<h2><%= t.smarty(COPY.labels.breakdown_subhead) %></h2>
+<% } %>
+
+<div id="stacked-bar-chart" class="graphic" role="img">
+<!-- <div id="stacked-bar-chart2" class="graphic" role="img"> -->
+<!-- <div class="chart-women"></div> -->
+<!--<div class="chart-nonwhite"></div>-->
+<!-- <div class="graphic-wrapper nonwhite"></div>
+<div class="graphic-wrapper government"></div>
+<div class="graphic-wrapper whitemen"></div> -->
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.breakdown_source) { %><p>Source: <%= COPY.labels.breakdown_source %></p><% } %>
+    <% if (COPY.labels.breakdown_credit) { %><p>Credit: <%= COPY.labels.breakdown_credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.Comparison_Formatted) %>;
+</script>
+
+<script src="./barchart.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

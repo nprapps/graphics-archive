@@ -1,0 +1,107 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #adadad;
+}
+
+h1, h2, .graphic,.footnotes,.footer {
+  .mmedia-constrained()
+}
+
+.graphic {
+  max-width: 1000px;
+}
+
+.chart-label {
+  font-size:12px;
+  fill: #17807E;
+}
+
+.state-title {
+  margin-left:35px;
+  text-align: center;
+  .knockout-header();
+}
+
+.footer{
+  margin-top:20px;
+}
+
+
+.graphic-wrapper.overall g.value text:nth-child(2){
+  fill: #17807E;
+}
+
+.graphic-wrapper.travel-spending g.value text:nth-child(1){
+  fill: #E38D2C;
+}
+
+.graphic-wrapper:nth-child(1) {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    }
+
+.graphic-wrapper:nth-child(2) {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    }
+
+@media screen and (max-width: 500px) {
+
+  .graphic-wrapper.overall h3.state-title {
+    margin-top:35px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .graphic-wrapper.overall{
+    padding-left:10px;
+  }
+
+  .graphic-wrapper.travel-spending{
+    padding-right:10px;
+}
+}
+
+#line-chart {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    }
