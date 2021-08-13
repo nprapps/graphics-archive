@@ -1,0 +1,14 @@
+@import "./lib/base";
+
+.bar text {
+    fill: #fff;
+    font-size: 12px;
+
+    &.hidden {
+        display: none;
+    }
+
+    @media @screen-mobile {
+      display: none; 
+    }
+}

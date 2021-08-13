@@ -1,0 +1,139 @@
+@import "./lib/base";
+
+@height: 20px;
+@thick-height: @height * 1.3;
+
+@gop: #d61f21;
+@dem: #237bbd;
+@ind: #15b16e;
+
+h3 {
+  .gotham();
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.chatter {
+  text-align: center;
+  font-size: 12px;
+  .gotham();
+  color: #666;
+}
+
+.winner-icon {
+  color: #444;
+  width: 0.8em;
+  display: inline-block;
+  margin-left: 0;
+}
+
+.number-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+
+  .candidate {
+    flex: 1;
+    text-align: center;
+    max-width: 90px;
+    color: #666;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    .name {
+      .knockout-header();
+      line-height: 1.2em;
+      text-transform: uppercase;
+    }
+    .votes {
+      .gotham();
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+
+  .dem {
+    color: @dem;
+    path { fill: @dem; }
+  }
+  .gop {
+    color: @gop;
+    path { fill: @gop; }
+  }
+  .other {
+    color: @ind;
+    path { fill: @ind; }
+  }
+}
+
+.bar-container {
+  width: 100%;
+  height: @thick-height;
+  background: #ddd;
+  margin: 5px 0 10px;
+  position: relative;
+
+  .bar {
+    height: 100%;
+
+    &.dem {
+      background: @dem;
+      float: left;
+      path { fill: @dem; }
+    }
+    &.gop {
+      background: @gop;
+      float: right;
+      path { fill: @gop; }
+    }
+    &.other {
+      background: @ind;
+      float: left;
+      path { fill: @ind; }
+    }
+  }
+
+  .middle {
+    position: absolute;
+    top: 0;
+    border-left: 1px solid #444;
+    height: @height * 1.5;
+    width: 1px;
+    right: 50%;
+  }
+}
+
+.net-gain-container {
+  text-align: center;
+  margin-top: 10px;
+  // position: absolute;
+  // bottom: 0;
+  // right: 0;
+
+  .gain-label {
+    font-size: 10px;
+    color: #444;
+    padding-bottom: 1px;
+  }
+
+  .net-gain {
+    font-size: 11px;
+    .gotham();
+    font-weight: bold;
+    background: #9a9a9a;
+    color: white;
+    display: inline-block;
+    padding: 3px 6px;
+
+    &.Dem {
+      background: @dem;
+    }
+    &.GOP {
+      background: @gop;
+    }
+  }
+}

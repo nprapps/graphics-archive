@@ -1,0 +1,72 @@
+@import "./lib/base";
+
+.graphics-dad {
+  width: 50%;
+  display: inline-block;
+  float: left;
+
+  h3 {
+    padding-right: 40px;
+
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+
+    h3 {
+      padding-top: 20px;
+    }
+  }
+}
+
+.clearfixie {
+  .clearfix();
+}
+
+.lines {
+  fill: none;
+  stroke-width: 2px;
+  stroke: #ccc;
+}
+
+// h1 { margin-bottom: 15px; }
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #666;
+}
+
+.annotations .dots {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.annotations text {
+    font-size: 12px;
+    fill: #666;
+}
+
+.recession { fill: #ebebeb; }
+
+.chart-label {
+  fill: #999;
+  font-style: italic;
+  font-size: 12px;
+}
+
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+  .annotations text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}

@@ -1,0 +1,104 @@
+<% var data = COPY.data[0] %>
+
+<% var winnerIcon = `<span class="winner-icon" role="img" aria-label="check mark">
+  <svg
+    aria-hidden="true"
+    focusable="false"
+    role="img"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 512 512">
+    <path
+      fill="#333"
+      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path>
+  </svg>
+</span>` %>
+
+<% var gains = { Dem: data.dem - 45, GOP: data.gop - 53, Other: data.ind - 2 } %>
+<% var netGainParty = "none"; %>
+<% var netGain = 0; %>
+<% var topGains = Object.keys(gains).map(k => ({ party: k, gains: gains[k] })).sort((a, b) => b.gains - a.gains); %>
+<% netGainParty = topGains[0].party; %>
+<% netGain = topGains[0].gains; %>
+
+<%= await t.include("lib/_head.html") %>
+
+<!-- <% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %> -->
+
+<div id="" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+  <!-- <img src="fallback.png" alt="" class="fallback" /> -->
+
+  <h3>Senate</h3>
+
+  <div class="number-container">
+    <div class="candidate dem">
+      <div class="name">Dem. <%= data.dem >= 48 ? winnerIcon : "" %></div>
+      <div class="votes"><%= data.dem %></div>
+    </div>
+    <div class="candidate other">
+      <div class="name">Ind.</div>
+      <div class="votes"><%= data.ind %></div>
+    </div>
+    <div class="candidate gop">
+      <div class="name">GOP <%= data.gop >= 51 ? winnerIcon : "" %></div>
+      <div class="votes"><%= data.gop %></div>
+    </div>
+  </div>
+
+  <div class="bar-container">
+    <div class="bar dem" style="width: <%= data.dem + '%' %>"></div>
+    <div class="bar other" style="width: <%= data.ind + '%' %>"></div>
+    <div class="bar gop" style="width: <%= data.gop + '%' %>"></div>
+    <div class="middle"></div>
+  </div>
+
+  <div class="chatter"><strong>51</strong> seats for majority</div>
+
+  <div class="net-gain-container">
+    <div class="gain-label">Net gain</div>
+    <div class="net-gain <%= netGainParty %>">
+      <% if (netGainParty != "none") { %>
+        <%= netGainParty %> +<%= netGain %>
+      <% } else { %>
+        No change
+      <% } %>
+    </div>
+  </div>
+
+</div>
+
+<% if (COPY.labels.footnote && data.gop < 51 && data.dem < 48) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<% if (COPY.labels.alt_footnote && data.gop < 51 && data.dem >= 48) { %>
+<div class="footnotes">
+    <p><strong>Notes:</strong> <%= COPY.labels.alt_footnote %></p>
+</div>
+<% } %>
+
+<% var apMonths = ["Jan.","Feb.","March","April","May","June","July","Aug.","Sept.","Oct.","Nov.","Dec."]; %>
+<% var today = new Date(); %>
+<% var date = apMonths[today.getMonth()] + " " + today.getDate() + ", " + today.getFullYear(); %>
+<% var time = today.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York', timeZoneName: 'short' }); %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %> (as of <%= time %> on <%= date %>)</p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

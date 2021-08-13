@@ -1,0 +1,57 @@
+@import "./lib/base";
+
+h1, h2 {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-bottom: 22px;
+}
+
+.graphic {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.footer, .footnotes {
+  margin-top: 5px; 
+  .mmedia-constrained();
+}
+
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}

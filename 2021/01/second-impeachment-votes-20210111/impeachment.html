@@ -1,0 +1,111 @@
+<%= await t.include("lib/_head.html") %>
+
+<% var winnerIcon = `<span class="winner-icon" role="img" aria-label="check mark">
+  <svg
+    aria-hidden="true"
+    focusable="false"
+    role="img"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 512 512">
+    <path
+      fill="#333"
+      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path>
+  </svg>
+</span>` %>
+
+<% if (COPY.labels.headline_impeach) { %>
+<h1><%= t.smarty(COPY.labels.headline_impeach) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed_impeach) { %>
+<h2><%= t.smarty(COPY.labels.subhed_impeach) %></h2>
+<% } %>
+
+<div id="" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <!-- <img src="fallback.png" alt="" class="fallback" /> -->
+</div>
+
+<% var yesVotes = COPY.data.filter(r => r.vote_impeach == "yes").sort((a,b) => a.party > b.party ? -1 : 1); %>
+<% var noVotes = COPY.data.filter(r => r.vote_impeach == "no").sort((a,b) => a.party < b.party ? -1 : 1); %>
+<% var nonVotes = COPY.data.filter(r => r.vote_impeach == "-").sort((a,b) => a.party < b.party ? -1 : 1); %>
+<% var voteDone = COPY.labels.vote_done_impeach; %>
+
+<div>
+	<h4><strong>Yes:</strong> <%= yesVotes.length %> votes <%= yesVotes.length > noVotes.length && voteDone ? winnerIcon : "" %></h4>
+	<div class="circle-container">
+		<% yesVotes.forEach(function(row) { %>
+			<div class="circle <%= row.party %>"></div>
+		<% }); %>
+	</div>
+</div>
+
+<div>
+	<h4><strong>No:</strong> <%= noVotes.length %> votes <%= noVotes.length > yesVotes.length && voteDone ? winnerIcon : "" %></h4>
+	<div class="circle-container">
+		<% noVotes.forEach(function(row) { %>
+			<div class="circle <%= row.party %>"></div>
+		<% }); %>
+	</div>
+</div>
+
+<div>
+	<h4><strong>Not voting:</strong> <%= nonVotes.length %></h4>
+	<div class="circle-container">
+		<% nonVotes.forEach(function(row) { %>
+			<div class="circle <%= row.party %>"></div>
+		<% }); %>
+	</div>
+</div>
+
+<div class="list-container">
+	<div class="yes">
+		<h3>Voted yes</h3>
+		<% yesVotes.forEach(function(row) { %>
+			<div class="row">
+				<div class="party <%= row.party %>"></div>
+				<span class="name"><%= row.first %> <%= row.last %></span>
+				<span class="state"><%= row.party %>-<%= row.state %></span>
+			</div>
+		<% }); %>
+	</div>
+
+	<div class="no">
+		<h3>Voted no</h3>
+		<% noVotes.forEach(function(row) { %>
+			<div class="row">
+				<div class="party <%= row.party %>"></div>
+				<span class="name"><%= row.first %> <%= row.last %></span>
+				<span class="state"><%= row.party %>-<%= row.state %></span>
+			</div>
+		<% }); %>
+
+		<h3 class="second">Didn't vote</h3>
+		<% nonVotes.forEach(function(row) { %>
+			<div class="row">
+				<div class="party <%= row.party %>"></div>
+				<span class="name"><%= row.first %> <%= row.last %></span>
+				<span class="state"><%= row.party %>-<%= row.state %></span>
+			</div>
+		<% }); %>
+	</div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

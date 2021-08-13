@@ -1,0 +1,100 @@
+@import "./lib/base";
+
+.area.amount {
+  fill: @orange3;
+  opacity: 0.5;
+}
+
+h1, h2 {
+  // .mmedia-constrained-centered();
+}
+
+h2 {
+  // margin-bottom: 5px;
+}
+
+.footnotes, .footer {
+  // .mmedia-constrained(); 
+}
+
+.yLabel {  
+  text-anchor: end;
+  font-style: italic;
+  font-size: 10px;
+  fill: #555;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+
+  &.background {
+    stroke: #ccc !important;
+    stroke-width: 2px;
+    opacity: 0.7;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.anno-line {
+  fill: none;
+  stroke-width: 1px;
+  stroke: #999;  
+}
+
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.annotations .dots {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.annotations text {
+    font-size: 12px;
+    fill: #333;
+    stroke: #fff;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-opacity: 0.7;
+    paint-order: stroke fill;
+
+    &.range {
+      font-style: italic;
+      text-anchor: middle;
+    }
+
+    &.isLeft {
+      text-anchor: end;
+    }
+}
+
+.rectRange {
+  fill: @teal6;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+  .annotations text { 
+    font-size: 10px; 
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+

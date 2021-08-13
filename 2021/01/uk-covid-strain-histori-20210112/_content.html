@@ -1,0 +1,44 @@
+<h1><%= t.smarty(COPY.labels[`headline_${city_name}`]) %></h1>
+<h2><%= t.smarty(COPY.labels[`chatter_${city_name}`]) %></h2>
+
+
+<div id="annotated-line-chart" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+  <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels[`footnote_${city_name}`]) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels[`footnote_${city_name}`] %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+
+
+
+<script type="text/javascript"> 
+  var CITY = <%= JSON.stringify(COPY[city_name]) %>;
+  var OTHER_DATA = <%= JSON.stringify(COPY.other_data) %>;
+</script>
+
+<% if (COPY.labels[`${city_name}_start`]) { %>
+  <script type="text/javascript"> 
+    var range = [ 
+      <%= JSON.stringify(COPY.labels[`${city_name}_start`]) %>, 
+      <%= JSON.stringify(COPY.labels[`${city_name}_end`]) %> 
+    ];  
+  </script>
+<% } else { %>
+<script type="text/javascript"> 
+  var range = false;
+</script>
+<% } %>

@@ -1,0 +1,112 @@
+@import "./lib/base";
+
+// ai2html artboard sizes
+@media screen and (min-width: 601px) {
+    #g-_ai2html-graphic-small { display: none; }
+    .hide-for-desktop {
+    	display: none;
+    }
+}
+
+
+// Add custom styles here
+
+.g-labels p{
+	font-size: 12px !important;
+	line-height: 12px !important;
+	color: #fff !important;
+	// text-shadow: 0px 0px 1px #fff, 0px 0px 1px #fff, 0px 0px 1px #fff, 0px 0px 1px #fff;
+	text-shadow: 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 2px #000;
+}
+
+.g-legend p {
+	font-size: 12px !important;
+	line-height: 12px !important;
+	color: #fff !important;
+	text-shadow: 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 2px #000;
+	// font-weight: 700 !important;
+	// text-shadow: 0px 0px 1px #fff, 0px 0px 1px #fff, 0px 0px 1px #fff, 0px 0px 1px #fff;
+}
+
+.g-places p{
+	font-size: 16px !important;
+	line-height: 16px !important;
+	color: #fff !important;
+	text-shadow: 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 2px #000;
+}
+
+@media screen and (max-width: 600px) {
+	#g-_ai2html-graphic-large { display: none; }
+	.hide-for-mobile {
+		display: none;
+	}
+
+	.entry {
+		// line-height: 
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+
+	.entry .bubble {
+		// width: 10px;
+		// padding: 10px;
+		padding-top: 2px;
+		padding-bottom: 2px;
+		padding-left: 6px;
+		padding-right: 6px;
+		border-radius: 50%;
+		line-height: 15px;
+		margin: 5px;
+		background-color: #ddd;
+		display: inline-block;
+	}
+
+	.g-labels .hide-for-desktop {
+		padding-top: 2px;
+		padding-bottom: 2px;
+		padding-left: 6px;
+		padding-right: 6px;
+		border-radius: 50%;	
+
+		&.id1 {
+			padding-left:7px;
+			padding-right:7px;
+		}
+	}
+
+	.hide-for-desktop.id1, .entry1 .bubble {
+		background-color: #9E1F63 !important;
+		color: #fff;
+		text-shadow: none;
+	}
+	.hide-for-desktop.id2, .entry2 .bubble {
+		background-color: #ED1C24 !important;
+		color: #fff;
+		text-shadow: none;
+	}
+	.hide-for-desktop.id3, .entry3 .bubble {
+		background-color: #FBB040 !important;
+		color: #fff;
+		text-shadow: none;
+	}
+	.hide-for-desktop.id4, .entry4 .bubble {
+		background-color: #F15A29 !important;
+		color: #fff;
+		text-shadow: none;
+	}
+ 
+
+
+	.entry .hide-for-mobile {
+		display: inline;
+	}
+	.entry .hide-for-desktop {
+		display: none;
+	}
+
+	.g-places p{
+		font-size: 13px !important;
+		line-height: 13px !important;
+	}
+    // #g-_ai2html-graphic-medium, #g-_ai2html-graphic-wide { display: none; }
+}
