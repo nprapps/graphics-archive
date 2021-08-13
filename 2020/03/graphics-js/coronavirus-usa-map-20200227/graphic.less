@@ -1,0 +1,53 @@
+@import "./lib/base";
+
+@COLOR_LOW: #FFDFAD;
+@COLOR_HIGH: #F8A25B;
+
+.key, .head {
+  .mmedia-constrained-centered();
+}
+
+#graphic {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.key {
+  margin: 0;
+}
+
+
+.key-item b {
+  &.key0 {background-color: @COLOR_LOW; border:1px solid @COLOR_HIGH;}
+}
+
+.g-labels p, .g-sticky_labels p {
+	.gotham() !important;
+
+  color: #333333 !important;
+  font-weight: bold !important;
+  -webkit-font-smoothing: antialiased;
+
+  span {
+  	font-weight: normal;
+  }
+  // text-shadow: 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 5px #fff;
+}
+
+// ai2html artboard sizes
+@media screen and (min-width: 730px) {
+}
+
+@media screen and (max-width: 500px) {
+  .g-labels p, .g-sticky_labels p {
+    font-size: 12px !important;
+    line-height: 14px !important;
+  }
+
+  .g-labels p {
+    display: none;
+  }
+
+}
+
+// Add custom styles here
