@@ -1,0 +1,145 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<% COPY.counties.forEach(function(row) {
+    var state = COPY.fips.find(item => String(item.GEOID) == String(row.GEOID).slice(0,2)
+    );
+    var matchingDataState = COPY.data.find(
+      item => (item.GEOID == row.GEOID && item.name == state.State)
+    );
+    var matchingDataBiden = COPY.counties_biden.find(
+      itmInner => itmInner.GEOID == row.GEOID
+    );
+    row.state = state.ap;
+    row.state_abbr = state.Abbrv;
+    row.county = matchingDataState ? matchingDataState.NAMELSAD : "";
+
+    row.amountBiden = matchingDataBiden ? matchingDataBiden.data : 0;
+    row.amountBidenPer = matchingDataBiden ? matchingDataBiden.data_pop : 0;
+
+    row.data = row.data || 0;
+    row.data_pop = row.data_pop || 0;
+}); 
+%>
+
+<div class="search-bar">
+  <div class="search-box">
+    <div class="search-header">Search by County</div>
+    <div>
+      <input list="counties" name="counties" id="search" type="text">
+        <datalist id="counties">
+        </datalist>
+      
+    </div>
+  </div>
+</div>
+
+<div class="key-wrap numeric-scale">
+      <div class="key"></div>
+</div>
+
+<div class="controls" aria-hidden="true" style="display:none">
+  <% var controls = [
+    { label: "total", trump: "data", biden: "amountBiden", checked: true},
+    { label: "per 1,000", trump: "data_pop", biden: "amountBidenPer"},
+  ];%>
+  <% controls.forEach(function({ label, trump, biden, checked}) { %>
+  <input type="radio" name="map-mode" data-trump="<%= trump %>" data-biden="<%= biden %>" value="<%= label %>"  <%= checked ? "checked" : "" %> id="mode-<%= trump %>">
+  <label for="mode-<%= trump %>" class="label-<%= label %>"><%= label %></label>
+  <% }) %>
+</div>
+
+<div id="biden-wrapper" class="wrapper biden">
+  <div class="map-header">
+    <h3>Biden</h3>
+  </div>
+  <div id="map-container" class="graphic" role="img">
+  </div>
+  <div class="graphic table" id="biden-table">
+  <table id="state-table-biden" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_county %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_state %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_amount %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_amount_per %></div>
+        </th>
+      </tr>
+    </thead>
+    <tbody id="biden-table-body">
+  </tbody>
+
+  </table>
+</div>
+</div>
+<div id="trump-wrapper" class="wrapper trump">
+  <div class="map-header">
+    <h3>Trump</h3>
+  </div>
+  
+  <div id="map-container" class="graphic" role="img">
+  </div>
+
+  <div class="graphic table" id="trump-table">
+  <table id="state-table-trump" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_county %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_state %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_amount %></div>
+        </th>
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_amount_per %></div>
+        </th>
+      </tr>
+    </thead>
+    <tbody id="trump-table-body">
+    </tbody>
+  </table>
+</div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4></h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+	var STATES = <%= JSON.stringify(COPY.states) %>;
+  var BIDEN = <%= JSON.stringify(COPY.counties_biden) %>;
+  var TRUMP = <%= JSON.stringify(COPY.counties) %>;
+  var LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>

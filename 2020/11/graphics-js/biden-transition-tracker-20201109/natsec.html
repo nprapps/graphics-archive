@@ -1,0 +1,40 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="header">National Security</div>
+
+<div class="list">
+  <% var filtered = COPY.data.filter(d => d.category_key == "natsec" && !d.hide); %>
+  <% var namedPositions = filtered.filter(p => p.name); %>
+  <% var emptyPositions = filtered.filter(p => !p.name); %>
+	<% for (var row of namedPositions) { %>
+		<%= await t.include("_list.html", { row }) %>
+	<% } %>
+	<% for (var row of emptyPositions) { %>
+		<%= await t.include("_list.html", { row }) %>
+	<% } %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+	<% if (COPY.labels.natsec_photos) { %><p>Photos: <%= COPY.labels.natsec_photos %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script>window.TRACKER_FILTER = "natsec";</script>
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

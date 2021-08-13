@@ -1,0 +1,159 @@
+@screen-medium-below: ~"screen and (max-width: 650px)";
+
+#total-raised {
+  border-bottom: 2px solid #eee;
+  margin-bottom: 22px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .desktop {
+    display: none;
+    @media @screen-mobile-above { display: block; }
+  }
+  .mobile {
+    display: block;
+    @media @screen-mobile-above { display: none; }
+  }
+
+  // general structure
+  .candidate {
+    display: flex;
+    flex-wrap: wrap;
+
+    @media @screen-mobile-above {
+      align-items: flex-end;
+      justify-content: space-between;
+
+      .info {
+        order: 0;
+        width: 100%;
+      }
+      .chart { width: 50%; }
+      .photo { width: 50%; }
+    }
+  }
+  .biden {
+    justify-content: flex-end;
+
+    @media @screen-mobile-above {
+      .photo { order: 1; }
+      .chart { order: 2; }
+    }
+  }
+  .trump {
+    @media @screen-mobile-above {
+      .chart { order: 1; }
+      .photo { order: 2; }
+    }
+  }
+
+  // formatting
+  h4 {
+    .gotham();
+    color: #333;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    font-size: 36px;
+    line-height: 1.1;
+  }
+  .biden h4 { color: var(--biden); }
+  .trump h4 { color: var(--trump); }
+
+  h5 {
+    .gotham();
+    font-size: 13px;
+    margin: 0 0 11px 0;
+  }
+  .biden h5 strong { color: var(--biden); }
+  .trump h5 strong { color: var(--trump); }
+
+  p.latest-month {
+    .gotham();
+    font-style: italic;
+    font-size: 11px;
+    margin: 0 0 33px 0;
+    color: #fff;
+
+    @media @screen-mobile-above {
+      font-size: 13px;
+    }
+
+    span {
+      background-color: #ccc;
+      padding: 3px 10px;
+    }
+  }
+  .biden p.latest-month span { background-color: var(--bidenLight); }
+  .trump p.latest-month span { background-color: var(--trumpLight); }
+
+  .biden .info { text-align: right; }
+
+  .chart-wrapper { display: flex; }
+  .biden .chart-wrapper {
+    justify-content: flex-end;
+  }
+
+  .metric {
+    height: var(--total-bar-height);
+    position: relative;
+    width: var(--total-bar-width);
+  }
+  .biden .metric { margin-left: 6px; }
+  .trump .metric { margin-right: 6px; }
+
+  .chart { padding-bottom: 30px; }
+
+  .bar {
+    background-color: #ccc;
+    position: absolute;
+    width: var(--total-bar-width);
+    height: 10px;
+    bottom: 0;
+
+    &.total { background-color: #999; }
+  }
+  .biden .raised .bar {
+    background-color: var(--bidenLight);
+
+    &.total { background-color: var(--biden); }
+  }
+  .trump .raised .bar {
+    background-color: var(--trumpLight);
+
+    &.total { background-color: var(--trump); }
+  }
+
+  .label {
+    .gotham();
+    font-size: 11px;
+    text-align: center;
+    position: absolute;
+    bottom: -20px;
+    width: var(--total-bar-width);
+  }
+
+  .value {
+    .gotham();
+    font-size: 11px;
+    text-align: center;
+    position: absolute;
+    width: var(--total-bar-width);
+  }
+
+  .photo {
+    img {
+      @media @screen-medium-below {
+        max-width: 125px;
+      }
+
+      @media @screen-medium-above {
+        max-width: 100%;
+        max-height: calc(var(--total-bar-height) + 50px);
+      }
+    }
+  }
+  .biden .photo {
+    text-align: right;
+  }
+}

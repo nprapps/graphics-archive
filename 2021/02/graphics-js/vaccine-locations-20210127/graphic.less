@@ -1,0 +1,215 @@
+@import "./lib/base";
+
+body {
+  .mmedia-constrained()
+}
+h1, h2 {
+  .mmedia-constrained-centered()
+}
+
+h3 {
+  text-align: center;
+}
+
+circle {
+  fill: white;
+  fill-opacity: 0.2;
+  stroke-width: 1px;
+  stroke: #555;
+}
+
+path {
+  fill: #fff;
+}
+
+#mobile {
+  @media screen and (min-width: 361px) {
+    transform: rotate(90deg) scale(1.7) translate(-10px, 10px);
+    height: 450px;
+    width: 700px;
+  }
+}
+
+#roads {
+  path {
+    fill: none;
+    stroke-width: .5px;
+    stroke: #fff;
+  }
+}
+.key-wrap {
+  width: 90%;
+  margin: auto;
+  margin-bottom: 50px;
+
+  @media screen and (min-width: 361px) {
+    width: 60%;
+  }
+  .labels {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    margin-top: 2px;
+    font-size: 13px;
+    color: #777777;
+
+    .right-label,
+    .left-label,
+    .middle-label {
+      position: absolute;
+    }
+
+    .middle-label {
+      -webkit-transform: translate(-50%, 0);
+      font-style: italic;
+      max-width: 50px;
+    }
+
+    .median-line {
+      position: absolute;
+      top: -19px;
+      height: 18px;
+      border-right: 1px solid;
+      width: 0;
+    }
+
+    .right-label {
+      right: 0;
+    }
+
+    .left-label {
+      left: 0;
+    }
+  }
+  .key {
+    height: 15px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    outline: none;
+
+    // &.race {
+    //   background: linear-gradient(to right, #d08fc1, rgb(242, 227, 180) 30%, #f3684b);
+    // }
+
+    // &.income {
+    //   background: linear-gradient(to right, #e38d2c, rgb(247, 227, 155) 26%, #51a09e);
+    // }
+
+    .key-item {
+      display: inline-block;
+      margin: 0 18px 0 0;
+      padding: 0;
+      line-height: 15px;
+    }
+    .key-item b {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-right: 6px;
+      float: left;
+    }
+    .key-item label {
+      white-space: nowrap;
+      font-size: 12px;
+      color: #666;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+
+  // Numeric scale style
+  &.numeric-scale {
+    width: 100%;
+    text-align: center;
+
+    h3 {
+      margin-bottom: 5px;
+    }
+
+    .key {
+      .key-item {
+        margin: 0 1px 0 0;
+        position: relative;
+      }
+
+      .key-item b {
+        width: 45px;
+        height: 10px;
+        margin-right: 0;
+      }
+
+      .key-item label {
+        position: absolute;
+        bottom: -20px;
+        left: -50%;
+        text-align: center;
+        width: 45px;
+
+        &.end-label {
+          left: auto;
+          right: -50%;
+        }
+      }
+    }
+  }
+}
+
+div.circle {
+  border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    border: 2px solid #333;
+    float: left;
+}
+
+.circle-legend {
+  height: 15px;
+}
+
+.circle-text {
+  float: left;
+}
+
+
+/* Texas split screen styles */
+/* ------------------------------------- */
+
+@media screen and (min-width: 361px) {
+  .texas {
+    width: 48%;
+    float: left;
+  }
+}
+
+
+#dot-chart {
+.bars line {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #F5D1CA;
+}
+
+.dots circle {
+    stroke-width: 1px;
+    stroke: #fff;
+    fill: rgb(243, 107, 78);
+}
+
+.value text {
+    font-size: 12px;
+    fill: #999;
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}
+
+circle {
+  fill-opacity: .6;
+}
+}
+

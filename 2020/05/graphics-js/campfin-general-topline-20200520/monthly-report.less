@@ -1,0 +1,105 @@
+#monthly {
+  padding-top: 22px;
+  padding-bottom: 11px;
+}
+
+#monthly-report {
+  .mmedia-constrained();
+
+  border-top: 2px solid #eee;
+  padding-top: 22px;
+
+  padding-bottom: 22px;
+  border-bottom: 2px solid #eee;
+
+
+  h1 {
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  ul {
+    clear: both;
+    margin: 0;
+    padding: 0;
+    text-indent: none;
+
+    &.topline {
+      list-style-type: none;
+      margin-bottom: 11px;
+      padding-bottom: 11px;
+    }
+  }
+
+  li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
+
+    + li { margin-top: 11px; }
+  }
+
+  .sources li {
+    font-size: 11px;
+
+    + li { margin-top: 3px;}
+
+    strong { color: #454545; }
+
+    &.sm-dollar,
+    &.large-dollar {
+      strong {
+        color: #666;
+        font-weight: normal;
+      }
+    }
+  }
+
+  h4,
+  label {
+    .knockout-header();
+    color: #666;
+    display: block;
+    font-size: 12px;
+    margin-bottom: 3px;
+  }
+
+  span.value {
+    .gotham();
+    color: #333;
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+
+
+  .graphic.affiliate-reports { 
+    #monthly-report li + li {
+      margin-top: 8px;
+    }
+    span.value {
+      font-size: 14px;
+    }
+  }
+
+  span.valueBar {
+    background-color: #666;
+    display: block;
+    height: 3px;
+    margin-bottom: 2px;
+  }
+  .biden .valueBar { background-color: var(--biden); }
+  .trump .valueBar { background-color: var(--trump); }
+
+  p.source {
+    color: #999;
+    font-size: 11px;
+    font-style: italic;
+    margin: 11px 0 0 0;
+  }
+}

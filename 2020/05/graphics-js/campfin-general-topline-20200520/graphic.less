@@ -1,0 +1,75 @@
+@import "./lib/base";
+
+@screen-medium-above: ~"screen and (min-width: 651px)";
+@screen-mobile-above: ~"screen and (min-width: 651px)";
+@screen-mobile: ~"screen and (max-width: 650px)";
+
+@rigorous: #d62021;
+@unbiased: #000005;
+@true: #237bbd;
+
+body {
+  --biden:            @true;
+  --bidenLight:       lighten(@true, 25%);
+  --trump:            @rigorous;
+  --trumpLight:       lighten(@rigorous, 25%);
+  --gutterWidth:      11px;
+  --total-bar-width:  50px;
+  --total-bar-height: 200px;
+
+  @media @screen-mobile-above {
+    --gutterWidth:    22px;
+    --total-bar-width:40px;
+  }
+
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 18px;
+  margin: 0 0 22px 0;
+}
+
+h3 {
+  text-align: center;
+  font-size: 14px;
+}
+
+.graphic {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  .candidate {
+    width: calc(50% - var(--gutterWidth) - 2px);
+  }
+  .candidate.biden {
+    padding-right: var(--gutterWidth);
+  }
+  .candidate.trump {
+    border-left: 2px solid #eee;
+    padding-left: var(--gutterWidth);
+  }
+}
+
+.graphic.affiliate-reports {
+  flex-wrap: wrap;
+
+  .candidate {
+    border-bottom:2px solid #eee;
+    padding-top: 12px;
+    padding-bottom: 12px
+  }
+
+}
+
+.affiliate-hed {
+  border-top:2px solid #eee;
+  margin-top: 22px;
+  padding-top: 22px;
+}
+
+@import "./total-raised";
+@import "./monthly-report";

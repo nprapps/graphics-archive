@@ -1,0 +1,43 @@
+<div class="dropdown-container">
+<h3><%= COPY.labels.label_dropdown %></h3>
+<select id="dropdown" class="state-dropdown"></select>
+</div>
+
+<div class='text-intro'></div>
+
+<div id="stacked-bar-chart" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+</div>
+
+<div class='auto-text'></div>
+
+<div class='footnote-1'></div>
+<div class='footnote-2'></div>
+<div class='footnote-3'></div>
+
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.data) %>;
+    var LABELS = <%= JSON.stringify(COPY.labels) %>;
+    var TABLE = <%= JSON.stringify(COPY.table) %>;
+
+
+</script>

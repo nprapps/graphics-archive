@@ -1,0 +1,357 @@
+<%
+  // isolate the data values for just the most recent report
+  var latestReport = [];
+  COPY.data.forEach(function(row) {
+    if (row.reportType == COPY.labels.latest_report_date) {
+      var candLast = row.last.toLowerCase();
+      latestReport[candLast] = row;
+    }
+  });
+
+  console.log(latestReport)
+
+  // handle amendments
+
+    var amendedcandLasts = []
+    for (var candLast in latestReport) {
+      if (latestReport[candLast].amended) {
+        amendedcandLasts.push(candLast)
+      }
+    }
+
+    COPY.data_amend.forEach(function(row) {
+      if (row.reportType == COPY.labels.latest_report_date) {
+        var candLast = row.last.toLowerCase();
+        if (row.amended != true && amendedcandLasts.indexOf(candLast) > -1) {
+          latestReport[candLast] = row;
+        }
+      }
+    });
+
+
+
+
+  // establish the max for the bar chart
+  var maxValue = COPY.labels.latest_report_max;
+
+  // format data for the topline
+  var roundMillions = function(val) {
+    val_formatted = (val / 1000000).toFixed(1);
+    return "$" + val_formatted + " million";
+  }
+
+  // size column bars
+  var sizeBars = function(val) {
+    var barScale = (val / maxValue) * 100;
+    return barScale;
+  }
+
+
+  var uniqueAffiliates = Array.from(new Set(COPY.affiliated_data.filter(d=>d.hide != true).map(d=>d.committeeName)));
+  var latestAffiliateFilings = [];
+
+  var sortFilingsEndDate = function(a, b) {
+    if (new Date(a.endDate) > new Date(b.endDate)) {
+      return 1
+    }
+    else {
+      return -1
+    }
+  }
+
+  var sortFilingsCmteType = function(a, b) {
+    if (a.committeeType == "party") {
+      return -1
+    }
+    else {
+      return 1
+    }
+  }
+
+
+  for (i in uniqueAffiliates) {
+    var matchingFilings = COPY.affiliated_data.filter(x=>x.committeeName == uniqueAffiliates[i]);
+    matchingFilings = matchingFilings.sort(sortFilingsEndDate);
+    latestAffiliateFilings.push(matchingFilings.slice(-1)[0])
+  }
+
+  latestAffiliateFilings = latestAffiliateFilings.sort(sortFilingsCmteType)
+
+
+  // handle amendmenets to affiliate filings
+    var removedCounter = 0;
+
+    for (i in latestAffiliateFilings) {
+      var thisFiling = latestAffiliateFilings[i];
+      if (thisFiling.amended) {
+        var matchingAmendedFilings = COPY.affiliated_data_amend.filter(x=>x.amended != true && x.committeeName == thisFiling.committeeName && x.endDate == thisFiling.endDate)
+        console.log(latestAffiliateFilings[i-removedCounter]);
+        console.log(matchingAmendedFilings[0]);
+        console.log('====')
+        latestAffiliateFilings.splice(i - removedCounter,1)
+        removedCounter++
+        latestAffiliateFilings.push(matchingAmendedFilings[0])
+      }
+    }
+
+
+
+
+  var affiliateSlots = [{}];
+
+
+  for (i in latestAffiliateFilings) {
+    var thisFiling = latestAffiliateFilings[i]
+    // for each slot, if avail, take it
+    var foundOpenSlot = false;
+    for (k in affiliateSlots) {
+      if (affiliateSlots[k][thisFiling['last'].toLowerCase()] == undefined) {
+        affiliateSlots[k][thisFiling['last'].toLowerCase()] = thisFiling;
+        foundOpenSlot = true;
+        break;
+      }
+    }
+    if (!foundOpenSlot) {
+      var obj = {};
+      obj[thisFiling['last'].toLowerCase()] = thisFiling
+      affiliateSlots.push(obj)
+    }
+  }
+
+
+  var fullCampaignNames = {"biden": "Biden For President", 'trump': 'Donald J. Trump For President'}
+
+
+
+
+%>
+
+<section id="monthly-report">
+
+  <% if (COPY.labels.hed_topline_monthly) { %>
+  <h1><%= t.smarty(COPY.labels.hed_topline_monthly) %></h1>
+  <% } %>
+
+  <div class="graphic">
+  <% [ "biden", "trump" ].forEach(function(cand) { %>
+    <%
+      var totalRaisedWidth = ((latestReport[cand].totalRaised / maxValue) * 100).toFixed(1);
+      var spendingWidth = ((latestReport[cand].spending / maxValue) * 100).toFixed(1);
+      var cashWidth = ((latestReport[cand].cashOnHand / maxValue) * 100).toFixed(1);
+    %>
+    <div class="candidate <%= cand %>">
+      <h3><%= fullCampaignNames[cand] %></h3>
+      <ul class="topline">
+        <li class="total-raised">
+          <label><%= COPY.labels.hed_raised %>:</label>
+          <% if (latestReport[cand].totalRaised) { %>
+            <span class="valueBar" style="width: <%= totalRaisedWidth %>%;"></span>
+            <span class="value">$<%= t.comma(Math.round(latestReport[cand].totalRaised)) %></span>
+          <% } else { %>
+            <span class="value"><%= COPY.labels.lbl_not_avail %></span>
+          <% } %>
+        </li>
+        <li class="spending">
+          <label><%= COPY.labels.hed_spent %>:</label>
+          <% if (latestReport[cand].spending || latestReport[cand].spending == 0) { %>
+            <span class="valueBar" style="width: <%= spendingWidth %>%;"></span>
+            <span class="value">$<%= t.comma(Math.round(latestReport[cand].spending)) %></span>
+          <% } else { %>
+            <span class="value"><%= COPY.labels.lbl_not_avail %></span>
+          <% } %>
+        </li>
+        <li class="cash-on-hand">
+          <label><%= COPY.labels.hed_cash %>:</label>
+          <% if (latestReport[cand].cashOnHand) { %>
+            <span class="valueBar" style="width: <%= cashWidth %>%;"></span>
+            <span class="value">$<%= t.comma(Math.round(latestReport[cand].cashOnHand)) %></span>
+          <% } else { %>
+            <span class="value"><%= COPY.labels.lbl_not_avail %></span>
+          <% } %>
+        </li>
+      </ul>
+
+      <h4><%= COPY.labels.hed_funding %></h4>
+      <%
+        var showSourcePct = COPY.labels.show_source_percentages;
+        if ((!latestReport[cand].smallDollar && latestReport[cand].smallDollar != 0) || (!latestReport[cand].itemized && latestReport[cand].itemized != 0) || (!latestReport[cand].polCmtes && latestReport[cand].polCmtes != 0) || (!latestReport[cand].loansOther && latestReport[cand].loansOther != 0)) {
+          showSourcePct = false;
+        }
+      %>
+
+      <ul class="sources">
+        <li class="individual">
+          <%
+            var individualTotalPct = latestReport[cand].individualTotalPct.toFixed(0);
+            if (individualTotalPct == '0' && latestReport[cand].individualTotal > 0) {
+                individualTotalPct = '<1';
+            }
+          %>
+          <strong><%= COPY.labels.lbl_indiv %>:</strong>
+          <% if (latestReport[cand].individualTotal || latestReport[cand].individualTotal == 0) { %>
+            $<%= t.comma(Math.round(latestReport[cand].individualTotal)) %>
+            <% if (showSourcePct) { %>
+              (<%= individualTotalPct %>%)
+            <% } %>
+          <% } else { %>
+            <%= COPY.labels.lbl_not_avail %>
+          <% } %>
+        </li>
+        <li class="sm-dollar">
+          <%
+            var smallDollarPct = Math.round(latestReport[cand].smallDollarPct);
+            if (smallDollarPct == '0' && latestReport[cand].smallDollar > 0) {
+                smallDollarPct = '<1';
+            }
+          %>
+          - <strong><%= COPY.labels.lbl_indiv_small %>:</strong>
+          <% if (latestReport[cand].smallDollar || latestReport[cand].smallDollar == 0) { %>
+            $<%= t.comma(Math.round(latestReport[cand].smallDollar)) %>
+            <% if (showSourcePct) { %>
+              (<%= smallDollarPct %>%)
+            <% } %>
+          <% } else { %>
+            <%= COPY.labels.lbl_not_avail %>
+          <% } %>
+        </li>
+        <li class="large-dollar">
+          <%
+            var itemizedPct = latestReport[cand].itemizedPct.toFixed(0);
+            if (itemizedPct == '0' && latestReport[cand].itemized > 0) {
+                itemizedPct = '<1';
+            }
+          %>
+          - <strong><%= COPY.labels.lbl_indiv_large %>:</strong>
+          <% if (latestReport[cand].itemized || latestReport[cand].itemized == 0) { %>
+            $<%= t.comma(Math.round(latestReport[cand].itemized)) %>
+            <% if (showSourcePct) { %>
+              (<%= itemizedPct %>%)
+            <% } %>
+          <% } else { %>
+            <%= COPY.labels.lbl_not_avail %>
+          <% } %>
+        </li>
+        <% if (COPY.labels.show_pacs) { %>
+        <li class="pac">
+          <%
+            var polCmtesPct = Math.round(latestReport[cand].polCmtesPct);
+            if (polCmtesPct == '0' && latestReport[cand].polCmtes > 0) {
+                polCmtesPct = '<1';
+            }
+          %>
+          <strong><%= COPY.labels.lbl_pacs %>:</strong>
+          <% if (latestReport[cand].polCmtes || latestReport[cand].polCmtes == 0) { %>
+            $<%= t.comma(Math.round(latestReport[cand].polCmtes)) %>
+            <% if (showSourcePct) { %>
+              (<%= polCmtesPct %>%)
+            <% } %>
+          <% } else { %>
+            <%= COPY.labels.lbl_not_avail %>
+          <% } %>
+        </li>
+        <% } %>
+        <% if (COPY.labels.show_loans) { %>
+        <li class="self">
+          <%
+            var loansOtherPct = Math.round(latestReport[cand].loansOtherPct);
+            if (loansOtherPct == '0' && latestReport[cand].loansOther > 0) {
+                loansOtherPct = '<1';
+            }
+          %>
+          <strong><%= COPY.labels.lbl_self %>:</strong>
+          <% if (latestReport[cand].loansOther || latestReport[cand].loansOther == 0) { %>
+            $<%= t.comma(Math.round(latestReport[cand].loansOther + latestReport[cand].polCmtes)) %>
+            <% if (showSourcePct) { %>
+              (<%= loansOtherPct %>%)
+            <% } %>
+          <% } else { %>
+            <%= COPY.labels.lbl_not_avail %>
+          <% } %>
+        </li>
+        <% } %>
+      </ul>
+
+      <p class="source">Source:
+        <% if (latestReport[cand].reportLink) { %><a href="<%= latestReport[cand].reportLink %>"><%= latestReport[cand].dataSrc %></a><% } else { %><%= latestReport[cand].dataSrc %><% } %>
+      </p>
+
+    </div>
+
+  <% }); %>
+  </div>
+
+
+  <% if (COPY.labels.hed_topline_affiliates) { %>
+  <h1 class='affiliate-hed'><%= t.smarty(COPY.labels.hed_topline_affiliates) %></h1>
+  <% } %>
+
+
+  <!-- small boxes below main report -->
+  <div class='graphic affiliate-reports'>
+  <% affiliateSlots.forEach(function(slot) { 
+    [ "biden", "trump" ].forEach(function(cand) {
+    if (slot[cand] == undefined) {%>
+      <div class="candidate <%= cand %>"></div>
+    <%}
+    else {
+    var totalRaisedWidth = ((slot[cand].totalRaised / maxValue) * 100).toFixed(1);
+    var spendingWidth = ((slot[cand].spending / maxValue) * 100).toFixed(1);
+    var cashWidth = ((slot[cand].cashOnHand / maxValue) * 100).toFixed(1);
+    var thisReport = slot[cand];%>
+
+    <div class="candidate <%= cand %>">
+      <h3><%=slot[cand].committeeName%><%= slot[cand].committeeType == "JFC" ? "*" : "" %></h3>
+      <ul class="topline">
+        <li class="total-raised">
+          <label>Total raised <%= slot[cand].period_desc %>:</label>
+          <% if (thisReport.totalRaised) { %>
+            <span class="valueBar" style="width: <%= totalRaisedWidth %>%;"></span>
+            <span class="value">$<%= t.comma(Math.round(thisReport.totalRaised)) %></span>
+          <% } else { %>
+            <span class="value"><%= COPY.labels.lbl_not_avail %></span>
+          <% } %>
+        </li>
+        <li class="spending">
+          <label>Total spent <%= slot[cand].period_desc %>:</label>
+          <% if (thisReport.spending || thisReport.spending == 0) { %>
+            <span class="valueBar" style="width: <%= spendingWidth %>%;"></span>
+            <span class="value">$<%= t.comma(Math.round(thisReport.spending)) %></span>
+          <% } else { %>
+            <span class="value"><%= COPY.labels.lbl_not_avail %></span>
+          <% } %>
+        </li>
+        <li class="cash-on-hand">
+          <label>Cash on hand at end of <%= slot[cand].period_desc %>:</label>
+          <% if (thisReport.cashOnHand) { %>
+            <span class="valueBar" style="width: <%= cashWidth %>%;"></span>
+            <span class="value">$<%= t.comma(Math.round(thisReport.cashOnHand)) %></span>
+          <% } else { %>
+            <span class="value"><%= COPY.labels.lbl_not_avail %></span>
+          <% } %>
+        </li>
+      </ul>
+
+      <p class="source">Source:
+        <% if (thisReport.reportLink) { %>
+        <a href="<%= thisReport.reportLink %>"><%= thisReport.dataSrc %></a><% 
+        } else { 
+          %><%= thisReport.dataSrc %><% 
+        } %>
+      </p>
+
+    </div>
+
+    <% }}); %>
+  <% }); %>
+  
+  </div>
+  <% if (COPY.labels.footenote_monthly) { %>
+    <div class="footnotes">
+      <p><%= COPY.labels.footenote_monthly %></p>
+    </div>
+  <% } %>
+</section>
+
+
+
+

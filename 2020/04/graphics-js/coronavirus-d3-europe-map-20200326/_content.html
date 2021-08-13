@@ -1,0 +1,29 @@
+<% if (COPY.labels.europe_headline) { %>
+<h1><%= t.smarty(COPY.labels.europe_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %> 
+<div id="map-container" class="graphic" role="img">
+    <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4></h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.daily_countries_total) %>;
+    var territories = <%= JSON.stringify(COPY.latest_territory_data_jhu) %>;
+    var countries = <%= JSON.stringify(COPY.latest_country_data_jhu) %>;
+    var lookup = <%= JSON.stringify(COPY.country_lookup) %>;
+</script>

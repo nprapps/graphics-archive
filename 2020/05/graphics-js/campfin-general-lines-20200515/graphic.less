@@ -1,0 +1,61 @@
+@import "./lib/base";
+
+body {
+  padding-top: 0px;
+}
+
+.graphic, h1, h2, .footer {
+  text-align: center;
+  .mmedia-constrained();
+}
+
+.footer {
+  .mmedia-constrained();
+  text-align: left;
+}
+
+.footnotes {
+  .mmedia-constrained();
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.lines path.line {
+  stroke: #ccc;
+}
+
+
+.lines path.line.totalraised-donald-trump {
+  stroke: @red3;
+}
+
+.lines path.line.totalraised-joe-biden {
+  stroke: @blue3;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #555;
+}
+
+.key {
+  display: none;
+}
+
+.value text.old-name {
+  font-weight: normal;
+  fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+

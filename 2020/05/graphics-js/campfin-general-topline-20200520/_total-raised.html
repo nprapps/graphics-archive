@@ -1,0 +1,150 @@
+<%
+  // establish the max for the bar chart
+  var maxValue = COPY.topline['raised']['trump_total'];
+  if (COPY.topline['raised']['biden_total'] > COPY.topline['raised']['trump_total']) {
+    maxValue = COPY.topline['raised']['biden_total'];
+  }
+
+  // isolate the data values for just the most recent report
+  var latestReport = [];
+  COPY.data.forEach(function(row) {
+    if (row.reportType == COPY.labels.latest_report_date) {
+      var candName = row.last.toLowerCase();
+      latestReport[candName] = row;
+    }
+  });
+
+
+  // format data for the topline
+  var roundMillions = function(val) {
+    val_formatted = (val / 1000000).toFixed(0);
+    if (val > 1000000000) {
+      val_formatted = (val / 1000000000).toFixed(1);
+      return "$" + val_formatted + " billion";
+    }
+    return "$" + val_formatted + " million";
+  }
+
+  var formatAmounts = function(val, unitFmt) {
+    // assumption: val is already in millions
+    var units = "M";
+    if (val > 1000) {
+      val = val / 1000; // oh we're in billions now
+      units = "B";
+    }
+
+    switch(units) {
+      case "M":
+        if (unitFmt == "full") {
+          units = " million";
+        }
+        return "$" + val.toFixed(0) + units;
+        break;
+      case "B":
+        if (unitFmt == "full") {
+          units = " billion";
+        }
+        return "$" + val.toFixed(2) + units;
+        break;
+    }
+  }
+
+  // size column bars
+  var sizeBars = function(val) {
+    var barScale = (val / maxValue) * 100;
+    return barScale;
+  }
+
+
+  // get most recent party committee filings
+
+
+  var datesort = function(a,b) {
+    if (a > b) {
+      return -1
+    }
+    else {
+      return 1
+    }
+  }
+  var maxEndDate = COPY.data.map(d=>new Date(d.endDate)).sort(datesort)[0]
+
+
+
+  // var recentCampCmteFilings = COPY.data.filter(x=>new Date(x.endDate) == maxEndDate)
+  // var recentPartyCmteFilings = COPY.affiliated_data.filter(x=>new Date(x.endDate) == maxEndDate).map(x=>Obj.create{{x.last: x}})
+
+  var recentPartyCmteFilings = {}
+
+
+  var affilatedMatchDate = COPY.affiliated_data.filter(function(x){
+    return new Date(x.endDate).toString() == maxEndDate.toString();
+  })
+
+
+  for (i in affilatedMatchDate) {
+    var thisfiling = affilatedMatchDate[i]
+    if (thisfiling.committeeType != 'party') {continue}
+    recentPartyCmteFilings[thisfiling.last.toLowerCase()] = thisfiling
+  }
+
+
+
+
+
+%>
+
+<section id="total-raised">
+
+  <div id="total-raised-chart" class="graphic">
+
+    <% [ "biden", "trump" ].forEach(function(cand) { %>
+
+      <div class="candidate <%= cand %>">
+        <div class="photo"><img src="img/<%= cand %>.jpg" alt="Photo of <%= COPY.labels['name_' + cand] %>" /></div>
+        <div class="info">
+          <h4>
+            <span class="desktop"><%= formatAmounts(COPY.topline['raised'][cand + '_total'],"full") %></span>
+            <span class="mobile"><%= formatAmounts(COPY.topline['raised'][cand + '_total'],"short") %></span>
+          </h4>
+          <h5>raised by <strong><%= COPY.labels["name_" + cand] %></strong> and <%= COPY.labels["cmte_" + cand] %></h5>
+
+          <p class="latest-month"><span>$<%= COPY.topline['raised'][cand + '_recent'].toFixed(0) %> million raised&nbsp;<%= COPY.labels.latest_report %></span></p>
+        </div>
+
+        <div class="chart">
+          <div class="chart-wrapper">
+            <div class="raised metric">
+              <div class="label">Raised</div>
+              <div class="value" style="bottom: <%= sizeBars(COPY.topline['raised'][cand + '_total']) %>%"><%= formatAmounts(COPY.topline['raised'][cand + '_total'],"short") %></div>
+              <div class="bar total" style="height: <%= sizeBars(COPY.topline['raised'][cand + '_total']) %>%"></div>
+              <div class="bar recent" style="height: <%= sizeBars(COPY.topline['raised'][cand + '_recent']) %>%"></div>
+            </div>
+            <div class="spent metric">
+              <div class="label">Spent</div>
+              <div class="value" style="bottom: <%= sizeBars(COPY.topline['spent'][cand + '_total']) %>%"><%= formatAmounts(COPY.topline['spent'][cand + '_total'],"short") %></div>
+              <div class="bar total" style="height: <%= sizeBars(COPY.topline['spent'][cand + '_total']) %>%"></div>
+              <div class="bar recent" style="height: <%= sizeBars(COPY.topline['spent'][cand + '_recent']) %>%"></div>
+            </div>
+            <div class="cash metric">
+              <div class="label">Cash</div>
+              <div class="value" style="bottom: <%= sizeBars(COPY.topline['cash'][cand + '_total']) %>%"><%= formatAmounts(COPY.topline['cash'][cand + '_total'],"short") %></div>
+              <div class="bar total" style="height: <%= sizeBars(COPY.topline['cash'][cand + '_total']) %>%"></div>
+              <div class="bar recent" style="height: <%= sizeBars(COPY.topline['cash'][cand + '_recent']) %>%"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    <% }); %>
+
+  </div>
+
+  <% if (COPY.labels.topline_footnote_raised) { %>
+  <div class="footnotes">
+    <p><strong>Note:</strong> <%= COPY.labels.topline_footnote_raised %></p>
+  </div>
+  <% } %>
+
+</section>

@@ -1,0 +1,55 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<% 
+var confirmedList = [];
+var confirmed = 0;
+var needed = 0;
+COPY.data.forEach(function(r) {
+  if (r.hide) return;
+  if (r.status == "Confirmed") { 
+    confirmed += 1;
+    confirmedList.push(r);
+  }
+  if (r.status == "Confirmation needed") needed += 1;
+});
+
+confirmedList.sort((a,b) => (new Date(a.confirmed) - new Date(b.confirmed)) > 0 ? -1 : 1)
+var recent = confirmedList.slice(0,3);
+%>
+
+<h3 class="topline-hed">Among Those Who Need Senate Confirmation...</h3>
+<div class="num-container">
+  <div class="num num-confirmed"><div class="big-num"><%= confirmed %></div> Have been confirmed</div>
+  <div class="num num-needed"><div class="big-num"><%= needed %></div> Are awaiting confirmation</div>
+</div>
+
+<h3 class="updates-hed">Recent updates</h3>
+<div class="recent-container">
+  <% recent.forEach(function(r) { %>
+    <div class="recent"><strong><%= r.confirmed.split(",")[0] %>:</strong> <%= r.name %> confirmed as <span class="nobreak"><%= r.position %></span></div>
+  <% }); %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.other_photos) { %><p>Photos: <%= COPY.labels.other_photos %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./topline.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

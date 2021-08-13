@@ -1,0 +1,247 @@
+@import "./lib/base";
+
+.header {
+	.knockout-header();
+	font-size: 16px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #eee;
+	color: #999;
+}
+
+.row {
+	border-bottom: 1px solid #eee;
+	padding: 20px 0;
+	display: flex;
+	.gotham();
+
+	&.empty {
+		padding: 12px 0;
+
+		.position {
+			font-size: 14px;
+			margin-bottom: 2px;
+		}
+	}
+
+	.image {
+		flex: 0 0 80px;
+
+		img, svg {
+			width: 70px;
+			height: 70px;
+			border-radius: 50%;
+		}
+	}
+	.words {
+		flex: 1;
+
+		.extra {
+			display: none;
+		}
+
+		&.show {
+			.extra {
+				display: block;
+			}
+
+			.more {
+				display: none;
+			}
+			.less {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+.extra {
+	border-top: 1px solid #eee;
+	margin-top: 20px;
+	padding-top: 16px;
+}
+
+.position {
+	font-size: 16px;
+	margin-bottom: 4px;
+}
+.name {
+	font-size: 15px;
+	font-weight: bold;
+	margin-bottom: 4px;
+}
+.arrow {
+	color: #767676;
+	margin-right: 4px;
+
+	@media (max-width: 400px) {
+		display: none;
+	}
+}
+.status {
+	display: inline-block;
+
+	.status-text {
+		.knockout-header();
+		color: white;
+		font-size: 11px;
+		padding: 0 4px 1px;
+		border-radius: 2px;
+		color: #767676;
+  	background: #eee;
+	}
+
+	&.senate-no .status-text {
+    background: @teal3;
+		color: white;
+	}
+	&.senate-needed .status-text {
+    color: #767676;
+  background: #eee;
+	}
+	&.senate-nominated .status-text {
+    background: @teal5;
+    color: white;
+	}
+	&.senate-committee .status-text {
+    background: @teal5;
+    color: white;
+	}
+	&.senate-confirmed .status-text {
+		background: @teal3;
+		color: white;
+	}
+}
+.empty .senate-no .status-text {
+	color: #767676;
+  background: #eee;
+}
+.show-more {
+	.knockout-header();
+	font-size: 14px;
+	margin-top: 10px;
+	cursor: pointer;
+
+	.less {
+		display: none;
+	}
+}
+.announced, .confirmed {
+	// margin-top: 16px;
+	font-size: 12px;
+	color: #888;
+	display: inline-block;
+}
+.extra .confirmed {
+	&::before {
+		content: "| ";
+	}
+}
+@media @screen-mobile {
+	.announced {
+		display: block;
+		margin-bottom: 8px;
+	}
+	.extra .confirmed {
+		display: block;
+
+		&::before {
+			content: "";
+		}
+	}
+}
+.vote-count {
+	.knockout();
+	color: #888;
+
+	a {
+		text-decoration: underline;
+		color: #888;
+	}
+}
+.text, .desc {
+	margin-top: 4px;
+	font-family: @serif;
+	font-size: 15px;
+	line-height: 1.7;
+}
+.desc {
+	margin-top: 8px;
+}
+.checkmark svg {
+	margin-left: 2px;
+	display: none;
+	width: 10px;
+
+	path {
+		fill: @teal3;
+	}
+}
+.checkmark.confirmed svg {
+	display: inline-block;
+}
+.checkmark.no svg {
+	display: inline-block;
+}
+.empty .checkmark.no svg {
+	display: none;
+}
+
+.full-story {
+	margin-top: 5px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #eee;
+}
+
+.num-container {
+	text-align: center;
+}
+.num {
+	.gotham();
+	width: 150px;
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	padding-bottom: 10px;
+
+	&.num-needed {
+		border-left: 1px solid #eee;
+
+		.big-num {
+			color: #787878;
+		}
+	}
+}
+.big-num {
+	font-size: 48px;
+	color: @teal3;
+	font-weight: bold;
+}
+
+.topline-hed {
+	.gotham();
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: normal;
+    text-align: center;
+}
+.updates-hed {
+	.knockout-header();
+	text-align: center;
+    color: #787878;
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+.recent {
+	text-align: center;
+	font-size: 12px;
+	margin-bottom: 3px;
+}
+.nobreak {
+	white-space: nowrap;
+}
+
+.footnotes {
+	margin-top: 10px;
+	font-family: @sans;
+}
