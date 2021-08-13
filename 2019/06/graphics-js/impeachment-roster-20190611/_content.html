@@ -1,0 +1,92 @@
+<%
+// process the data
+var processCopy = require("../impeachment-districts-20190611/processCopy");
+var { byStance, current, ratings, stances } = processCopy(COPY);
+
+var leadership = current.filter(c => c.leadership);
+
+var classify = c => c.replace(/[^\w]/g, "-").toLowerCase();
+%>
+
+<div class="roster-leadership">
+  <%
+  var groups = {};
+  leadership.forEach(function(row) {
+    var [group, index] = row.leadershipOrder.split("-");
+    if (!groups[group]) groups[group] = [];
+    row.groupIndex = index * 1;
+    groups[group].push(row);
+  });
+  var heads = {
+    leaders: COPY.labels.leadership_leadergroup,
+    committee: COPY.labels.leadership_committeegroup
+  }
+  for (var k in groups) {
+    var people = groups[k].sort((a, b) => a.groupIndex - b.groupIndex);
+    %>
+  <h3><%= heads[k] %></h3>
+  <ul class="leadership-block">
+  <%
+    people.forEach(function(row) {
+    %>
+      <li>
+        <div>
+          <img src="./mugs/<%= row.leadership %>" class="mug" alt="<%= row.name%>">
+        </div>
+        <div class="metadata">
+          <div class="name"><%= row.name %> (<%= row.party %>-<%= row.state %>)</div>
+          <div class="title"><%= row.title %></div>
+          <div class="stance <%= classify(row.stance) %>"><%= COPY.labels[row.stance] %></div>
+        </div>
+    <% }); %>
+  </ul>
+  <% } %>
+</div>
+
+<div class="roster-full">
+  <h3><%= COPY.labels.individual_headline %></h3>
+  <h2 class='subhed-chatter'><%= COPY.labels.individual_chatter %></h2>
+
+  <div class="list-container">
+    <%
+    var AP_MONTHS = ["Jan.", "Feb.", "March", "April", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."];
+    var formatDate = d => `${AP_MONTHS[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+    %>
+    <% Object.keys(byStance).forEach(function(s) {
+      var list = byStance[s];
+      if (!list.length) return;
+    %>
+    <div class="stance-list">
+      <h4><b class="<%= classify(s) %>"></b> <%= COPY.labels[s] %> (<%= list.length %>)</h4>
+      <ul>
+        <% list.sort((a, b) => b.date - a.date).forEach(function(row) { %>
+        <li>
+          <button class="reveal-statement" aria-label="Show statement">
+            <span class='member-list-name'><%= t.smarty(row.name) %> (<%= row.party %>-<%= row.state%>)</span>
+             <%= row.date ?  formatDate(row.date).replace(", 2019", "") : "" %>
+            <!-- <img src="./outline-sms-24px.svg" alt=""> -->
+          </button>
+          <% if (row.statement) { %>
+          <div class="statement">
+
+            <blockquote><%= t.smarty(row.statement) %>
+          <% if (row.link) { %>
+              <span>
+              <a class='statement-link' href='<%= row.link %>' target='_blank'>(Source)</a></span>
+          <% } %>
+            </blockquote>
+
+            <!-- <%= row.statement ? '<blockquote>' + row.statement  + '</blockquote><a class="statement-link" target="_blank" ' +  row.link ? `href="${row.link}"` : "" + '>LINK</a>' : "" %> -->
+
+          </div>
+          <% } %>
+        <% }) %>
+      </ul>
+    </div>
+    <% }) %>
+  </div>
+</div>
+
+<div class="photo credits">
+Photos: <%= leadership.map(row => `${row.credit} (${row.name.trim().split(" ").pop()})`).join("; ") %>
+</div>

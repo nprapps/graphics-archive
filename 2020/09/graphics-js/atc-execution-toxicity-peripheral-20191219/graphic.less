@@ -1,0 +1,82 @@
+@import "./lib/base";
+
+h1, h2, .key, .footer {
+    max-width: 650px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h3 {
+    text-align: center;
+}
+
+.label-top {
+    font-style: italic;
+    fill: #555;
+    font-size: 11px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.value text {
+    fill: #fff;
+    font-size: 12px;
+    font-family: 'Knockout 31 4r',Helvetica,Arial,sans-serif;
+    text-anchor: middle;
+    -webkit-font-smoothing: antialiased;
+}
+
+.graphic {
+    width: 100%;
+    float: left;
+    margin-right: 10%;
+}
+
+.graphic:last-of-type {
+    margin-right: 0px;
+}
+
+line.axis-0 {
+    stroke: #999;
+    stroke-width: 1px;
+}
+
+.bin rect {
+    fill: @red3;
+}
+
+.key-item b {
+    background: @red3;
+}
+
+
+#right-block-histogram {
+    margin-top: 30px;
+}
+
+.key .key-item b {
+    width: 12px;
+    height: 12px;
+}
+
+.key .key-item label {
+    vertical-align: top;
+}
+
+.highlight-tick {
+    stroke: #888 !important;
+}
+
+@media screen and (max-width: 700px) {
+    .graphic {
+        width: 100%;
+        margin-bottom: 14px;
+        margin-right: 0px;
+        float: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .value text { font-size: 10px; }
+}
+

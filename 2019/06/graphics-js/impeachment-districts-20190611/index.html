@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title><%= slug %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="robots" content="noindex" />
+    <base target="_blank">
+    <link rel="stylesheet" href="./graphic.css">
+    <script>window.GOOGLE_ANALYTICS_ID = "<%= config.analyticsID %>";</script>
+</head>
+<body>
+
+    <%= await t.include("_content.html") %>
+
+    <script src="./graphic.js"></script>
+</body>
+</html>

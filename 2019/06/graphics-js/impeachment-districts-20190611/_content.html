@@ -1,0 +1,43 @@
+<%
+var processCopy = require("./processCopy");
+var { stances, byStance, ratings } = processCopy(COPY);
+
+var classify = c => c.replace(/[^\w]/g, "-").toLowerCase();
+%>
+
+<h3><%= COPY.labels.district_headline %></h3>
+<h2 class='subhed-chatter'><%= COPY.labels.district_subhed %></h2>
+<div class="stance-breakdown" role="table">
+  <ul class="key-list" role="row">
+    <li role="columnheader" class="sr-only">Stance</li>
+    <% for (var k of ratings) { %>
+    <li role="columnheader"> <i class="block <%= classify(k) %>"></i> <%= k %></li>
+    <% } %>
+  </ul>
+  <%
+  var max = Math.max(...Object.keys(byStance).map(k => byStance[k].length));
+  stances.forEach(function(s) {
+    var breakdown = {};
+    var people = byStance[s];
+    var total = people.length;
+    people.sort((a, b) => b.leanRating - a.leanRating).forEach(function(p) {
+      var { rating } = p;
+      breakdown[rating] = ++breakdown[rating] || 1;
+    });
+  %>
+  <div role="row">
+    <h4 role="cell"><%= COPY.labels[s] %> (<%= byStance[s].length %>)</h4>
+    <div class="stacked-bar" role="presentation">
+      <% for (var k of ratings) {
+        var vsChamber = breakdown[k] / max * 100 || 0;
+        var vsStance = breakdown[k] / total * 100;
+        var vsAll = breakdown[k] / 435 * 100;
+      %>
+      <div role="cell" class="bar <%= classify(k) %> <%= breakdown[k] > 10 ? "labeled" : "no-label" %>" style="flex: 0 0 <%= vsChamber %>%">
+        <span class="label"><%= breakdown[k] || 0 %></span>
+      </div>
+      <% } %>
+    </div>
+  </div>
+  <% }) %>
+</div>

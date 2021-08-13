@@ -1,0 +1,222 @@
+@import "./lib/base";
+@import "../impeachment-chamber-20190611/values";
+
+.roster-leadership {
+  h3 { margin-bottom: 6px; }
+}
+
+.roster-full {
+  h2.subhed-chatter {
+    margin-bottom: 22px;
+  }
+}
+
+.leadership-block {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 0 44px 0;
+  padding: 0;
+  font-size: 13px;
+
+  @media @screen-mobile {
+    display: block;
+  }
+
+  li {
+    margin-bottom: 8px;
+    flex: 0 1 200px;
+    padding: 8px;
+    text-align: center;
+
+    @media @screen-mobile {
+      display: flex;
+      align-items: center;
+      padding: 0;
+      text-align: left;
+    }
+  }
+
+  .mug {
+    display: block;
+    width: 80px;
+    margin: 0 auto 4px;
+    border-radius: 80px;
+
+    @media @screen-mobile {
+      margin-bottom: 0;
+      margin-right: 16px;
+    }
+  }
+
+  .name {
+    color: #333;
+    font-weight: bold;
+  }
+
+  .title {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+
+  .credit {
+    font-size: 80%;
+    font-style: italic;
+  }
+
+  .stance {
+    display: inline-block;
+    padding: 4px 8px;
+    vertical-align: middle;
+    border-radius: 3px;
+    color: black;
+    width: auto;
+
+    &.for {
+      background: @for;
+      color: #fff;
+    }
+    &.no-not-yet {
+      background: @against;
+      color: #fff;
+    }
+    &.unclear {
+      background: @unclear;
+    }
+  }
+}
+
+.list-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-top: -13px;
+
+  @media @screen-mobile {
+    display: block;
+  }
+
+  .stance-list {
+    flex: 1 1 33%;
+    padding: 0 5px;
+  }
+
+  h4 {
+    border-bottom: 1px solid lightgray;
+    text-align: left;
+    padding-bottom: 3px;
+    font-size: 14px;
+
+    b {
+      display: inline-block;
+      height: 12px;
+      width: 12px;
+      border-radius: 15px;
+      margin-top: 3px;
+      margin-right: 3px;
+      vertical-align: top;
+
+      &.for {
+        background: @for;
+      }
+      &.no-not-yet {
+        background: @against;
+      }
+      &.unclear {
+        background: @unclear;
+      }
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 4px 0 20px 0;
+    padding: 0;
+
+    div.show-all {
+      .knockout-header();
+      font-size: 11px;
+      margin: 8px auto 0 auto;
+      text-align: center;
+      background: #eee;
+      font-weight: bold;
+      padding: 4px 6px;
+      cursor: pointer;
+      border-radius: 4px;
+      color: #666;
+      text-decoration: none;
+
+      &:hover, &:focus {
+        color: #bccae5;
+        background-color: #f1f1f1;
+      }
+    }
+  }
+
+  li {
+  }
+
+  .reveal-statement {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 4px 0 8px 0;
+    text-align: left;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    color: #666;
+
+    .member-list-name {
+      font-size: 12px;
+      font-weight: bold;
+      padding-right: 3px;
+      opacity: 1;
+      color: #333;
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+      color: #7b98c5;
+
+      .member-list-name { color: #7b98c5; }
+    }
+
+    img {
+      max-width: 12px;
+      vertical-align: middle;
+    }
+  }
+
+  .statement {
+    display: none;
+    padding: 0 8px 10px 0;
+  }
+
+  .expanded .statement {
+    display: block;
+  }
+
+  .statement-link {
+    &:not([href]),
+    &:not([href]):focus,
+    &:not([href]):hover {
+      color: black;
+    }
+  }
+
+  blockquote {
+    margin: 0;
+    border-left: 2px solid #eee;
+    padding-left: 10px;
+  }
+}
+.photo.credits {
+  font-size: .8rem;
+  font-style: italic;
+}
+
+

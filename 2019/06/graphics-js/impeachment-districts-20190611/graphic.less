@@ -1,0 +1,86 @@
+@import "./lib/base";
+
+@import "../impeachment-chamber-20190611/values";
+
+.stance-breakdown {
+  display: block;
+  overflow: hidden;
+  max-width: 100vw;
+  margin-bottom: 24px;
+
+  h4 {
+    margin-top: 11px;
+    margin-bottom: 3px;
+  }
+
+  .key-list {
+    margin: auto;
+    padding: 0;
+    list-style-type: none;
+    display: block;
+
+    li {
+      display: inline-block;
+      margin-right: 12px;
+    }
+
+    .block {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      margin-right: 8px;
+    }
+  }
+
+  .solid-democratic {
+    background: @blue1;
+  }
+  .likely-democratic {
+    background: @blue3;
+  }
+  .lean-democratic {
+    background: @blue5;
+  }
+  .toss-up-democratic {
+    background: mix(lightgray, blue, 90%);
+  }
+  .likely-republican {
+    background: @red3;
+  }
+  .toss-up-republican {
+    background: mix(lightgray, red, 90%);
+  }
+
+  .lean-republican {
+    background: @red5;
+  }
+  .solid-republican {
+    background: @rep;
+  }
+
+  .stacked-bar {
+    display: flex;
+    // width: 100%;
+    height: 32px;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  .bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
+
+    .label {
+      padding-right: 4px;
+      color: white;
+      font-size: 12px;
+    }
+
+    &.no-label .label {
+      .sr-only;
+    }
+  }
+}
