@@ -1,0 +1,14 @@
+{
+  "files": [
+    "index.html",
+    "graphic.js",
+    "graphic.less",
+    "*.png",
+    "*.jpg",
+    "*.json",
+    "!manifest.json",
+    "*.geojson",
+    "*.csv"
+  ],
+  "sheet": "1gA9Kvw4zjsl84aOwZLB0cQAt-ip0feh2B1yqTvxVLcw"
+}

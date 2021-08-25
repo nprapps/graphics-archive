@@ -1,0 +1,130 @@
+@import "./lib/base";
+
+@import "values";
+
+.stance-breakdown {
+  h4 {
+    margin-top: 11px;
+    margin-bottom: 3px;
+  }
+}
+
+.chamber-key {
+  list-style-type: none;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin-right: 16px;
+  }
+
+  .block {
+    background: transparent;
+    // border: 2px solid white;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 4px;
+    border-radius: 100%;
+    vertical-align: middle;
+
+    &.for {
+      background: @for;
+    }
+    &.no-not-yet {
+      background: @against;
+    }
+    &.unclear {
+      background: @unclear;
+    }
+    &.R {
+      border-color: @rep;
+    }
+    &.D {
+      border-color: @dem;
+    }
+  }
+}
+
+.chamber-container {
+  position: relative;
+  margin-bottom: 24px;
+
+  &::before {
+    display: block;
+    content: "";
+    padding-bottom: 60%;
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  circle {
+    fill: white;
+    stroke: #999;
+    stroke-width: 2px;
+
+    &.for {
+      stroke-width: 0px;
+      fill: @for;
+    }
+
+    &.no-not-yet {
+      stroke-width: 0px;
+      fill: @against;
+    }
+
+    &.unclear {
+      stroke-width: 0px;
+      fill: @unclear;
+    }
+
+    &.R {
+      // stroke: @rep;
+    }
+
+    &.D {
+      // stroke: @dem;
+    }
+  }
+
+  text.annotation {
+    text-anchor: end;
+    fill: #888;
+
+    &.mobile {
+      display: none;
+      font-size: 100px;
+    }
+
+    &.desktop {
+      font-size: 50px;
+    }
+
+    @media @screen-mobile {
+      &.desktop {
+        display: none;
+      }
+
+      &.mobile {
+        display: block;
+      }
+    }
+  }
+
+  line.annotation {
+    stroke: #ccc;
+    stroke-width: 6;
+
+    @media @screen-mobile {
+      stroke-width: 16;
+    }
+  }
+}

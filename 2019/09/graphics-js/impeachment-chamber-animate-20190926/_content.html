@@ -1,0 +1,120 @@
+<%
+// process the data
+var byName = {};
+var statements = COPY.statements
+var statements = COPY.statements.filter(d => new Date(d.date) <= new Date("9/25/19"))
+
+
+
+statements.forEach(function(row) {
+  if (!row.stance) return;
+  var { name, date } = row;
+  if (date && date != "Invalid Date") {
+    var unix = Date.parse(date);
+    var jsDate = new Date(unix);
+    row.date = jsDate;
+  } else {
+    row.date = null;
+  }
+  if (row.lean) {
+    var [party, rating] = row.lean.split("+");
+    rating = rating * 1 || 0;
+    row.leanParty = party;
+    row.leanRating = party == "D" ? rating : 0 - rating;
+  }
+  if (!byName[name]) byName[name] = [];
+  byName[name].push(row);
+});
+var current = [];
+var byStance = {};
+var byRating = {};
+for (var n in byName) {
+  var history = byName[n].sort(function(a, b) {
+    return a.date - b.date;
+  });
+  var latest = history[history.length - 1];
+  var person = { ...latest };
+  var { stance, rating } = latest;
+  person.history = history;
+  byName[n] = person;
+  current.push(person);
+  if (!byStance[stance]) byStance[stance] = [];
+  byStance[stance].push(person);
+}
+
+// console.log(byStance['for'].length)
+
+var currentLen = current.length
+
+for (i=0; i <= 235 - currentLen; i++) {
+  current.push({"party": "D", "stance": "no/not yet"})
+}
+
+
+var ratings = ["Solid Democratic", "Lean Democratic", "Likely Democratic", "Democratic Toss Up"];
+var stances = ["for", "no/not yet", "unclear"];
+
+var classify = c => c.replace(/[^\w]/g, "-").toLowerCase();
+%>
+
+<!-- <% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %> -->
+
+<div class="graphic">
+  <%
+  var chamberJSON = require("./chamber.json");
+  var chamber = chamberJSON.sort((a, b) => a.id - b.id).reverse();
+  %>
+  <h3><%= COPY.labels.chamber_headline %></h3>
+  <ul class="chamber-key" aria-hidden="true">
+    <% stances.forEach(function(s) { %>
+    <li> <i class="block <%= classify(s) %>"></i> <%= COPY.labels[s] %>
+    <% }) %>
+    <!-- <li> <i class="block R"></i> Republican
+    <li> <i class="block D"></i> Democrat -->
+  </ul>
+  <div class="chamber-container" aria-hidden="true">
+    <svg 
+      width="2861.36"
+
+      height="1800"
+      viewBox="0 0 2861.36 1800"
+      preserveAspectRatio="xMidYMid meet">
+      <%
+      current.sort(function(a, b) {
+        if (a.party == b.party) return stances.indexOf(a.stance) - stances.indexOf(b.stance);
+        if (a.party < b.party) return 1;
+        return -1;
+      });
+      var filled = [0, 0]; // [ D, R ]
+      for (var i = 0; i < chamber.length; i++) {
+        var critter = current[i] || { stance: "" };
+        if (critter.party && critter.party == "R") {
+          pathIndex = chamber.length - 1 - filled[1]++;
+        } else {
+          pathIndex = filled[0]++;
+        }
+        var path = chamber[pathIndex];
+        print(`<circle r=20 cx="${path.x}" cy="${path.y}" class="${critter.party} ${classify(critter.stance)}" />`);
+        if (critter.name == "Justin Amash") {
+          print(`
+            <text class="annotation desktop" x=${path.x + 60} y=${path.y + 150}>
+              ${critter.name} (${critter.party}-${critter.state})
+            </text>
+            <text class="annotation mobile" x=${path.x + 60} y=${path.y + 190}>
+              ${critter.name} (${critter.party}-${critter.state})
+            </text>`
+            );
+          print(`<line class="annotation" x1=${path.x} x2=${path.x} y1=${path.y + 30} y2=${path.y + 90} />`);
+          // print(`<line class="annotation" x1=${path.x - 20} x2=${path.x + 20} y1=${path.y + 30} y2=${path.y + 30} />`)
+        }
+      };
+      %>
+    </svg>
+  </div>
+</div>

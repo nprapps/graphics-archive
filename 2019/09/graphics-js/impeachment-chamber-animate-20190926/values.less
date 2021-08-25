@@ -1,0 +1,40 @@
+
+@for: @orange3;
+@against: #888;
+@unclear: #ddd;
+@rep: @red1;
+@dem: @blue1;
+
+.sr-only {
+  position: absolute;
+  left: -1000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+h2 {
+  &.subhed-chatter {
+    margin-top: -10px;
+    margin-bottom: 15px;
+  }
+}
+
+h3 {
+  font-size: 16px;
+}
+
+h4,h3,h2.subhed-chatter {
+  text-align: center;
+}
+
+.stance-breakdown h4 {
+  text-align: left;
+}
+
+h4 {
+  .knockout();
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
