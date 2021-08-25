@@ -1,0 +1,55 @@
+<div class="ttt">
+  <!-- <h1 class="logo"><img src="img/turningthetables_final.jpg" alt="<%= COPY.labels.headline %>" /></h1> -->
+
+  <!-- <% if (COPY.labels.subhed) { %>
+  <h2><%= t.smarty(COPY.labels.subhed) %></h2>
+  <% } %> -->
+<a href="https://www.npr.org/sections/goatsandsoda/2020/10/09/918815890/portraits-of-resilience-how-19-women-around-the-globe-face-the-pandemic" target="_parent">
+  <div class="artist-grid">
+  <% COPY.women.forEach(function(v,k) { %>
+    <div class="artist <%= t.classify(v.name) %>">
+      <% if (v.link) { %>
+        <!-- <a href="#<%= v.link %>" target="_parent"> -->
+      <% } %>
+      
+      <div class="artist-img-wrap">
+        <!-- <div class="artist-info">
+          <h4 class="artist-name"><%= v.name %></h4>
+          <p class="promo-text"><%= v.link_text %></p>
+        </div> -->
+        <!-- <div class="artist-img-overlay"> -->
+          <img src="img/<%= v.photo %>" alt="Photo of <%= v.name %>" />
+          <div class="artist-img-overlay"></div>
+      </div>
+      <div class="artist-info">
+        
+        <h4 class="promo-text"><%= v.link_text %></h4>
+        <p class="artist-name"><%= v.name %> </p>
+        <p class="location-name"><%= v.location %></p>
+      </div>
+<!-- 
+      <% if (v.link) { %>
+        
+      <% } %> -->
+    </div>
+  <% }) %>
+  </div>
+</div>
+</a>
+
+<!-- <% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div> -->
