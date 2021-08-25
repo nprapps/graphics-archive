@@ -1,0 +1,95 @@
+@import "./lib/base";
+
+@screen-tiny: ~"screen and (max-width: 300px)";
+
+body {
+  padding: 22px 0;
+}
+
+#elections-links {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 20px 0;
+  margin: 0;
+
+  h1 {
+    margin: 0 20px 20px 20px;
+    padding-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid #eee;
+
+    @media @screen-tiny {
+      font-size: 14px;
+    }
+
+    img {
+      display: inline;
+      vertical-align: middle;
+      margin-right: 0.4em;
+      height: 16px;
+      width: auto;
+      margin-bottom: 2px;
+
+      @media @screen-tiny {
+        height: 14px;
+      }
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+
+    li {
+      .gotham();
+      width: 50%;
+      margin: 0;
+      padding: 0 20px;
+      font-size: 13px;
+      line-height: 1.4;
+
+      @media @screen-tiny {
+        width: 100%;
+        + li {
+          padding-top: 20px;
+        }
+      }
+
+      @media @screen-mobile-above {
+        width: 25%;
+      }
+
+      @media @screen-mobile {
+        &:nth-child(3),
+        &:nth-child(4) {
+          padding-top: 20px;
+        }
+      }
+
+      strong {
+        .knockout-header();
+        color: #636363;
+        display: inline-block;
+        padding-bottom: 3px;
+        font-size: 12px;
+
+        &:hover {
+          color: #454545;
+        }
+      }
+    }
+  }
+
+  a {
+    display: block;
+
+    &:link, &:visited { color: #5076b8; }
+    &:hover, &:active { color: #214B85; }
+  }
+}

@@ -1,0 +1,20 @@
+<%= await t.include("lib/_head.html") %>
+
+<div id="elections-links" class="graphic">
+  <h1><a href="http://npr.org/elections"><img src="logo-2020-e.svg" alt="">Elections 2020</a></h1>
+
+  <ul>
+  <% COPY.data.forEach(function(link) { %>
+    <li class="link <%= t.classify(link.leadin) %>">
+      <a href="<%= link.url %>">
+        <strong><%= t.smarty(link.leadin) %></strong><br />
+        <%= t.smarty(link.desc) %>
+      </a>
+    </li>
+  <% }); %>
+  </ul>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>
