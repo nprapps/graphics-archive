@@ -1,0 +1,88 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline_election) { %>
+<h1><%= t.smarty(COPY.labels.headline_election) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed_election) { %>
+<h2><%= t.smarty(COPY.labels.subhed_election) %></h2>
+<% } %>
+
+
+<div class="graphic" id="election">
+
+  <div class="graphic" id="charts">
+    <div id="stacked-bar-chart" class="chart new_election active"></div>
+    <!--<div id="stacked-bar-chart" class="chart old"></div>-->
+  </div>
+  <div class="key-wrap active"></div>
+
+ 
+
+  <div id="maps" class="graphic" role="img"
+  <% if (COPY.labels.screenreader_election) { %>
+  aria-label="<%- COPY.labels.screenreader_election %>"
+  <% } %>
+  >
+    <%= await t.include("_partials/_map-cartogram_new_election.svg") %>
+  </div>
+
+  <!--<div class="sr-only">
+    <%
+      var bidenTotal = 0;
+      var trumpTotal = 0;
+      var tossup = 0;
+
+      // COPY.aggregates.forEach(function(map) {
+      //   if (map.map == "battleground") {
+      //     bidenTotal = map["1"] + map["2"];
+      //     trumpTotal = map["4"] + map["5"];
+      //     tossup = map["3"];
+      //   }
+      // })
+
+    %>
+
+    <p>In this scenario, Biden would have <%= bidenTotal %> electoral votes, Trump would have <%= trumpTotal %> electoral votes, and <%= tossup %> would be tossups.</p>
+
+    <% COPY.legend.forEach(function(grouping) { %>
+    <h3><%= grouping.text %></h3>
+    <ul>
+      <% COPY.data.forEach(function(state) {
+        if (state.battleground == grouping.rating) {
+      %>
+        <li><%= state.state %> (<%= state.electoral_votes %> electoral votes)</li>
+      <%
+          }
+        });
+      %>
+    </ul>
+    <% }); %>-->
+  </div>
+</div>
+
+
+<% if (COPY.labels.footnote_election) { %>
+<div class="footnotes">
+  <h4>Notes</h4> 
+  <p><%= t.smarty(COPY.labels.footnote_election) %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source_election) { %><p>Source: <%= COPY.labels.source_election %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<% if ("data" in COPY) { %>
+<script type="text/javascript">
+window.DATA = <%= JSON.stringify(COPY.data) %>;
+window.LEGEND = <%= JSON.stringify(COPY.legend) %>;
+window.TOTALS = <%= JSON.stringify(COPY.aggregates) %>;
+</script>
+<% } %>
+
+
+<script src="./election.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

@@ -1,0 +1,50 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="key-wrap">
+    <ul class="key levels"></ul>
+  </div>
+
+<div id="line-chart" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+  <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes:</h4>
+  <p> <%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA_MICHIGAN = <%= JSON.stringify(COPY.data_michigan) %>;
+  //var DATA_FLORIDA = <%= JSON.stringify(COPY.data_florida) %>;
+  //var DATA_NEW_JERSEY = <%= JSON.stringify(COPY.data_new_jersey) %>;
+  var DATA_PENNSYLVANIA = <%= JSON.stringify(COPY.data_pennsylvania) %>;
+  var DATA_MINNESOTA = <%= JSON.stringify(COPY.data_minnesota) %>;
+  var DATA_ILLINOIS = <%= JSON.stringify(COPY.data_illinois) %>;
+  // var DATA_NORTH_DAKOTA = <%= JSON.stringify(COPY.data_north_dakota) %>;
+  var DATA_NEBRASKA = <%= JSON.stringify(COPY.data_nebraska) %>;
+  var DATA_PUERTO_RICO = <%= JSON.stringify(COPY.data_puerto_rico) %>;
+  // var DATA_VERMONT = <%= JSON.stringify(COPY.data_vermont) %>;
+</script>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

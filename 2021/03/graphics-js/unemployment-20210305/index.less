@@ -1,0 +1,51 @@
+body#index {
+  h1 { margin-bottom: 22px; }
+
+  .chart + h3 {
+    margin-top: 22px;
+  }
+
+  .recession { fill: #ebebeb; }
+
+  .chart-label {
+      fill: #999;
+      font-style: italic;
+      font-size: 12px;
+      text-anchor: middle;
+      letter-spacing: .3px;
+  }
+
+  .annotations text,
+  .value text {
+    fill: #666;
+    font-size: 11px;
+    -webkit-font-smoothing: antialiased;
+
+    @media @screen-mobile {
+      font-size: 10px;
+    }
+  }
+
+  #annotated-line-chart {
+    .annotations .dots {
+      stroke: #fff;
+      stroke-width: 1px;
+    }
+
+    .lines {
+      fill: none;
+      stroke-width: 3px;
+    }
+
+  }
+
+  #column-chart {
+    .bars rect {
+      fill: #333;
+      fill-opacity: 0.7;
+
+      &.negative { fill: @red3; }
+      &.preliminary { opacity: 0.7; }
+    }
+  }
+}

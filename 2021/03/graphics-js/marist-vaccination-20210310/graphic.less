@@ -1,0 +1,90 @@
+@import "./lib/base";
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+.value text {
+    fill: #fff;
+    font-size: 12px;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.vax.graphic {
+
+  .key {
+    text-align: center;
+  }
+
+  rect {
+    opacity: .8;
+  }
+
+  .all-adults {
+    font-weight: bold;
+
+    rect {
+      opacity: 1;
+    }
+  }
+
+}
+
+.moe.graphic {
+  .approve {
+    fill: @teal3;
+    color: @teal3;
+  }
+
+  .disapprove {
+    fill: @orange3;
+    color: @orange3;
+  }
+
+  .unsure {
+    fill: #888;
+    color: #888;
+  }
+
+  rect.moe.inner {
+    fill: url(#inner-stripes);
+  }
+
+  rect.moe.outer {
+    fill: url(#outer-stripes);
+  }
+
+  line.moe {
+    stroke: currentColor;
+    stroke-width: 3px;
+  }
+
+  .value text {
+    font-size: 12px;
+    font-weight: bold;
+    stroke-width: 3px;
+    fill: black;
+    stroke: #FFF8;
+    paint-order: stroke fill;
+    text-anchor: middle;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  text.in {
+    fill: black;
+    stroke: #FFF8;
+    paint-order: stroke fill;
+  }
+
+  text.out {
+    fill: black;
+    stroke: white;
+    paint-order: stroke fill;
+  }
+}

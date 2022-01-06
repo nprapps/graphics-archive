@@ -1,0 +1,85 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #e0e0e0;
+  stroke-opacity: 0.6;
+
+  // &.active { stroke-opacity: 1; }
+
+  .fy2021 {
+    stroke: @red3;
+    stroke-opacity: 1;
+  }
+
+  .uac & {
+    .fy2014 { stroke: #989898; }
+    .fy2019 { stroke: @yellow3; }
+    .fy2020 { stroke: @orange3; }
+  }
+
+  .uac-custody & .fy2020 { stroke: @orange3; }
+
+  .adult & {
+    .fy2020 { stroke: @orange3; }
+    .fy2019 { stroke: @yellow3; }
+  }
+
+  .family & {
+    .fy2020 { stroke: @orange3; }
+    .fy2019 { stroke: @yellow3; }
+  }
+}
+
+.value text {
+  font-size: 12px;
+  fill: #999;
+  display: none;
+
+  &.fy2021 {
+    font-weight: bold;
+    fill: @red3;
+    display: block;
+  }
+
+  .uac-custody & {
+    &.fy2018 { display: block;}
+    &.fy2019 { display: block;}
+    &.fy2020 { fill: @orange3; display: block;}
+  }
+
+  .adult & {
+    &.fy2020 { fill: @orange3; display: block;}
+    &.fy2019 { fill: @yellow2; display: block;}
+  }
+
+  .family & {
+    &.fy2020 { fill: @orange3; display: block;}
+    &.fy2019 { fill: @yellow2; display: block;}
+  }
+
+  .uac & {
+    &.fy2020 { fill: @orange3; display: block; }
+    &.fy2019 { fill: @yellow2; display: block; }
+    &.fy2014 { fill: #989898; display: block; }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}

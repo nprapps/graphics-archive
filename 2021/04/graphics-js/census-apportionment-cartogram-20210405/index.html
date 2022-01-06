@@ -1,0 +1,48 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+
+<div class="graphic" id="apportionment">
+  <div class="key-wrap numeric-scale"></div>
+
+  <div id="maps" class="graphic apportionment" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+  >
+    <%= await t.include("_partials/_map-cartogram_new.svg") %>
+  </div>
+</div>
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4> 
+  <p><%= t.smarty(COPY.labels.footnote) %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<% if ("data" in COPY) { %>
+<script type="text/javascript">
+window.DATA = <%= JSON.stringify(COPY.data) %>;
+window.LEGEND = <%= JSON.stringify(COPY.legend) %>;
+window.TOTALS = <%= JSON.stringify(COPY.aggregates) %>;
+</script>
+<% } %>
+
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

@@ -1,0 +1,34 @@
+@import "./lib/base";
+
+.graphic {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+img.half {
+  max-width: 49%;
+
+  @media screen and (max-width: 650px) {
+      max-width: 100%;
+    }
+}
+
+img.half + img.half {
+  margin-left: 4px;
+
+  @media screen and (max-width: 650px) {
+    margin: 0;
+  }
+}
+
+img.constrained {
+  max-width: 80%;
+  margin: auto;
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: 650px) {
+      max-width: 100%;
+    }
+}

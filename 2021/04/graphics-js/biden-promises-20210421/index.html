@@ -1,0 +1,81 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table">
+    <thead class="sr-only">
+      <tr>
+        <th>
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_promise %></div>
+        </th>
+        <th>
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_status %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <%
+      var categories = COPY.data.map(function(d) {
+        return d.category;
+      });
+      categories = Array.from(new Set(categories));
+
+      categories.forEach((cat, i) => {
+        var catData = COPY.data.filter(function(d) {
+          return d.category == cat;
+        });
+    %>
+
+    <tr>
+      <th colspan="2" class="<%= t.classify(cat) %>">
+        <a href="TKTKTK"><%= cat %></a>
+      </th>
+    </tr>
+
+    <%
+        catData.forEach(function(row) {
+    %>
+    <tr>
+      <td data-title="<%= COPY.labels.hdr_promise %>"
+        class="promise">
+        <!-- <a href="<%= row.link %>" target="_top"> -->
+          <span class="promise-header"><%= t.smarty(row.promise) %></span>
+        <!-- </a> -->
+      </td>
+      <td data-title="<%= COPY.labels.hdr_status %>"
+        class="<%=COPY.status_key[row.status] %> status">
+        <span><%= row.status %></span>
+      </td>
+    </tr>
+    <%
+        });
+      });
+    %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

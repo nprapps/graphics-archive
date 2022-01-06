@@ -1,0 +1,13 @@
+<%= await t.include("lib/_head.html") %>
+
+<div id="budget-highlights" class="graphic social">
+
+<% for (var row of COPY.data) { %>
+  <%= await t.include("partials/_card.html", { row, COPY }) %>
+<% } %>
+
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

@@ -1,0 +1,53 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic">
+	<!-- <h3>Moderna</h3> -->
+	<div id="stacked-column-chart" role="img"
+	<% if (COPY.labels.screenreader) { %>
+	aria-label="<%- COPY.labels.screenreader %>"
+	<% } %>
+	>
+	    <img src="fallback.png" alt="" class="fallback" />
+	</div>
+</div>
+<!-- <div class="graphic">
+	<h3>Pfizer</h3>
+	<div id="stacked-column-chart2" role="img"
+	<% if (COPY.labels.screenreader) { %>
+	aria-label="<%- COPY.labels.screenreader %>"
+	<% } %>
+	>
+	    <img src="fallback.png" alt="" class="fallback" />
+	</div>
+</div> -->
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.data) %>;
+    // var DATA = <%= JSON.stringify(COPY.data_pfizer) %>;
+    var DATA2 = <%= JSON.stringify(COPY.data_moderna) %>;
+    var LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

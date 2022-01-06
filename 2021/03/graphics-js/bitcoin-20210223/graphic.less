@@ -1,0 +1,115 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 2px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #787878;
+}
+
+.annotations .dots {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.annotations text {
+    font-size: 12px;
+    fill: #787878;
+}
+
+.dot-milestones {
+  circle {
+    fill: @orange3;
+    stroke: none;
+  }
+  line {
+    stroke: #ccc;
+    stroke-dasharray: 4px 2px;
+  }
+  text {
+    .sans-serif();
+    text-anchor: middle;
+    fill: #fff;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+
+.area path {
+  fill: @orange3;
+  fill-opacity: .3;
+}
+
+#milestones {
+  display: flex;
+  margin-top: 25px;
+  flex-wrap: wrap;
+
+  @media @screen-mobile-above {
+    justify-content: space-between;
+  }
+
+  h3 {
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+
+  .milestone {
+    margin: 0 0 15px 0;
+    width: 100%;
+
+    @media @screen-mobile-above {
+      width: 22%;
+    }
+  }
+
+  .desc {
+    font-size: 13px;
+    color: #787878;
+  }
+
+  strong {
+    color: @orange3;
+    margin-bottom: 3px;
+    display: block;
+    .knockout-header();
+
+    .num {
+      font-size: 12px;
+      background-color: @orange3;
+      color: #fff;
+      border-radius: 50px;
+      text-align: center;
+      padding: 0px 5px;
+      display: inline-block;
+      margin-right: 3px;
+      .sans-serif();
+      font-weight: bold;
+      -webkit-font-smoothing: antialiased;
+    }
+
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+  .annotations text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}

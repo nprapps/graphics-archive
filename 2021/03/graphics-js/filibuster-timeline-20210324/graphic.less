@@ -1,0 +1,118 @@
+@import "./lib/base";
+
+.dot {
+	font-size: 36px;
+	vertical-align: middle;
+}
+
+.key {
+	color: black;
+	padding: 1px 3px 2px 3px;
+	margin: 0 1px;
+	border-radius: 1px;
+
+	&.easier {
+		background: @teal5;
+	}
+	&.harder {
+		background: @orange5;
+	}
+}
+
+table {
+	border-collapse: collapse;
+
+	th {
+		.knockout-header();
+		padding: 0 10px;
+	}
+
+	tr:last-child {
+		td { padding-bottom: 24px; }
+	}
+
+	td {
+		&:first-child {
+			border-right: 1px solid #BBB;
+			
+			.year {
+				text-align: right;
+				margin-right: -8px;
+			}
+
+			.desc {
+				@media @screen-mobile {
+					padding-right: 10px;
+				}
+			}
+			.narrow {
+				order: 2;
+			}
+		}
+		&:last-child {
+			.year {
+				margin-left: -8px;
+			}
+			.desc {
+				@media @screen-mobile {
+					padding-left: 10px;
+				}
+			}
+		}
+
+		strong {
+			color: #333;
+		}
+
+		.outer {
+			display: flex;
+			margin-top: 24px;
+
+			@media @screen-mobile {
+				display: block;
+			}
+		}
+
+		.inner {
+			vertical-align: top;
+
+			&.wide {
+				flex: 100%;
+
+				@media @screen-mobile {
+					margin-top: -14px;
+				}
+			}
+			&.narrow {
+				flex: 80px;
+			}
+		}
+	}
+}
+
+.year {
+	margin-bottom: 4px;
+	margin-top: -14px;
+
+	.year-label {
+		.gotham();
+		font-weight: bold;
+		color: #333;
+		border-radius: 1px;
+		padding: 2px 4px;
+	}
+
+	&.Harder {
+		.year-label { background-color: @orange5; }
+		.dot { color: @orange3; }
+	}
+	&.Easier {
+		.year-label { background-color: @teal5; }
+		.dot { color: @teal3; }
+	}
+}
+.desc {
+	@media @screen-mobile {
+		font-size: 13px;
+	}
+}

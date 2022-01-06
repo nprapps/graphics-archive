@@ -1,0 +1,49 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.states_headline) { %>
+<h1><%= t.smarty(COPY.labels.states_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.states_subhed) { %>
+<h2><%= t.smarty(COPY.labels.states_subhed) %></h2>
+<% } %>
+<svg x="-100" y="-100" style="display:none" width="" height="" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+      <linearGradient id="Gradient1">
+        <stop class="stop1" offset="0%"/>
+        <stop class="stop2" offset="50%"/>
+        <stop class="stop3" offset="100%"/>
+      </linearGradient>
+  </defs>
+</svg>
+<div id="bar-chart" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+
+<!-- <img src="fallback.png" alt="" class="fallback" /> -->
+</div>
+
+<button aria-hidden=true class="expander">Show all ▼</button>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  
+  <p><strong>Notes: </strong><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.states_credit) { %><p>Credit: <%= COPY.labels.states_credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.stateData) %>;
+  var LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>
+
+<script src="./states.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

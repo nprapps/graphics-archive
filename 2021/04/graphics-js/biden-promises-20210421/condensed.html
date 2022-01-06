@@ -1,0 +1,72 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="condensed">
+  <%
+    var categories = COPY.data.map(function(d) {
+      return d.category;
+    });
+    categories = Array.from(new Set(categories));
+
+    categories.forEach((cat, i) => {
+      var catData = COPY.data.filter(function(d) {
+        return d.category == cat;
+      });
+  %>
+
+  <% if (cat == "COVID-19" || cat == "Immigration") { %>
+    <div class="col">
+  <% } %>
+
+  <div class="category <%= t.classify(cat) %>">
+    <h3><a href="https://www.npr.org/990305593<%= COPY.categories[cat].link %>"><%= cat %></a></h3>
+
+    <div class="promises">
+    <%
+      catData.forEach(function(row) {
+    %>
+    <div class="promise">
+      <h4>
+        <div class="<%=COPY.status_key[row.status] %> status">
+          <span><%= row.status %></span>
+        </div>
+        <%= t.smarty(row.promise) %>
+      </h4>
+    </div>
+    <%
+      });
+    %>
+  </div>
+  </div>
+
+  <% if (cat == "Racial Equity" || cat == "Foreign Policy") { %>
+    </div>
+  <% } %>
+
+    <%
+      });
+    %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

@@ -1,0 +1,68 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+  <table>
+  	<tr>
+  		<th><%= COPY.labels.hdr_threshold %></th>
+  		<th><%= COPY.labels.hdr_application %></th>
+  	</tr>
+  	<% COPY.data.forEach(function(r) { %>
+  		<tr>
+  			<% if (r.type == "Threshold") { %>
+  				<td>
+  					<div class="outer">
+              <div class="inner narrow">
+                <div class="year <%= r.change %>"><span class="year-label"><%= r.year %></span> <span class="dot">&#149;</span></div>
+              </div>
+              <div class="inner wide">
+                <div class="desc"><%= r.desc %></div>
+              </div>
+            </div>
+  				</td>
+  				<td></td>
+  			<% } %>
+  			<% if (r.type == "Application") { %>
+  				<td></td>
+  				<td>
+            <div class="outer">
+              <div class="inner narrow">
+                <div class="year <%= r.change %>"><span class="dot">&#149;</span> <span class="year-label"><%= r.year %></span></div>
+              </div>
+              <div class="inner wide">
+                <div class="desc"><%= r.desc %></div>
+              </div>
+            </div>
+          </td>
+  			<% } %>
+  		</tr>
+  	<% }); %>
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

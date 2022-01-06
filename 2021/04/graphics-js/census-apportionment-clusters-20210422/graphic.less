@@ -1,0 +1,117 @@
+@import "./lib/base";
+
+h1, h2 {
+  text-align: center;
+  .mmedia-constrained-centered();
+  margin: 0 auto;
+}
+
+h1 {
+  margin-bottom: 11px;
+}
+
+h2 {
+  margin-bottom: 50px;
+
+  @media @screen-mobile {
+    margin-bottom: 20px;
+  }
+}
+
+.graphic {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 30px; 
+}
+
+.footnotes, .footer {
+  .mmedia-constrained();
+}
+
+g.nodes {
+  margin-right: 100px;
+}
+
+.tick text {
+  .gotham();
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.domain, .tick line, .grid {
+  display: none;
+}
+
+svg {
+  width: 100%;
+  overflow: visible;
+}
+
+
+@lost: @orange3;
+@gained: @teal3;
+
+circle.lost {
+  fill: @lost;
+  background-color: @lost;
+  color: #eee;
+
+  &.state-circle {
+      stroke: darken(@lost, 8%);
+    }
+}
+
+circle.gained{
+  fill: @gained;
+  background-color: @gained;
+  color: #eee;
+
+  &.state-circle {
+      stroke: darken(@gained, 8%);
+    }
+}
+
+.state-circle {
+  &:hover {
+    @media screen and (min-width: 499px) {
+	  	stroke: black !important;
+	  }
+  }
+}
+
+.state-label {
+  user-select: none;
+  pointer-events: none;
+  text-anchor: middle;
+  font-family: 'Knockout 31 4r';
+  fill: white;
+  -webkit-font-smoothing: antialiased;
+}
+
+.bubble-tooltip {
+  position: absolute;
+  border: 1px solid #eee;
+  background-color: white;
+  padding: 8px;
+  display: none;
+  pointer-events: none;
+
+  &.show {
+    display: block;
+  }
+
+  h3 {
+    font-size: 11px;
+    margin: 0 0 3px 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 3px;
+  }
+
+  .tooltip-label {
+    .gotham();
+    font-size: 10px;
+    color: #666;
+    padding-top: 3px;
+  }
+}

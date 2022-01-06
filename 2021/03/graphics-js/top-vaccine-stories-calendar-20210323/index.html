@@ -1,0 +1,213 @@
+<% 
+	var getCount = function(i, month) {
+		var date = month + "/" + i + "/2021";
+		var count = 0;
+		var topThree = false;
+		if (COPY.data[date].Rank) {
+			console.log(date, COPY.data[date].Rank)
+			var ranks = COPY.data[date].Rank.toString().split(",");
+			ranks.forEach(function(r) {
+				r = parseInt(r);
+				if (r < 21) count += 1;
+				if (r < 2) topThree = true;
+			})
+		}
+		return [count,topThree];
+	};
+%>
+
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="key">
+	<h3><%= COPY.labels.key_title %></h3>
+  <div class="swatch bucket-1"><span>1</span></div>
+  <div class="swatch bucket-2"><span>2</span></div>
+  <div class="swatch bucket-3"><span>3</span></div>
+  <div class="swatch bucket-4"><span>4</span></div>
+  <div class="swatch bucket-5"><span>5</span></div>
+  <div class="swatch bucket-6"><span>6</span></div>
+  <div class="top-true">
+    <div class="swatch"></div>
+    <div class="label"><%= COPY.labels.key_text %></div>
+  </div>
+</div>
+
+<div id="" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <div aria-hidden="true" class="calendar">
+
+      <div class="month">
+        <table>
+          <caption>Jan.</caption>
+          <thead>
+            <tr>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>T</th>
+              <th>F</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+			        <% for(var i=1; i<3; i++) {%>
+                <td class="bucket-<%=getCount(i, 1)[0]%> top-<%=getCount(i, 1)[1]%>"><%= i %></td>
+              <% } %>
+            </tr>
+            <tr>
+              <% for(var i=3; i<10; i++) {%>
+                <td class="bucket-<%=getCount(i, 1)[0]%> top-<%=getCount(i, 1)[1]%>"><%= i %></td>
+              <% } %>
+            </tr>
+            <tr>
+              <% for(var i=10; i<17; i++) {%>
+                <td class="bucket-<%=getCount(i, 1)[0]%> top-<%=getCount(i, 1)[1]%>"><%= i %></td>
+              <% } %>
+            </tr>
+            <tr>
+              <% for(var i=17; i<24; i++) {%>
+                <td class="bucket-<%=getCount(i, 1)[0]%> top-<%=getCount(i, 1)[1]%>"><%= i %></td>
+              <% } %>
+            </tr>
+            <tr>
+              <% for(var i=24; i<31; i++) {%>
+                <td class="bucket-<%=getCount(i, 1)[0]%> top-<%=getCount(i, 1)[1]%>"><%= i %></td>
+              <% } %>
+            </tr>
+            <tr>
+              <% for(var i=31; i<32; i++) {%>
+                <td class="bucket-<%=getCount(i, 1)[0]%> top-<%=getCount(i, 1)[1]%>"><%= i %></td>
+              <% } %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="month">
+        <table>
+          <caption>Feb.</caption>
+          <thead>
+            <tr>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>T</th>
+              <th>F</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <% for(var i=1; i<7; i++) {%>
+                <td class="bucket-<%=getCount(i, 2)[0]%> top-<%=getCount(i, 2)[1]%>"><%= i %></td>
+              <% } %>
+            </tr>
+            <tr>
+              <% for(var i=7; i<14; i++) {%>
+                <td class="bucket-<%=getCount(i, 2)[0]%> top-<%=getCount(i, 2)[1]%>"><%= i %></td>
+              <% } %>
+            </tr>
+            <tr>
+              <% for(var i=14; i<21; i++) {%>
+                <td class="bucket-<%=getCount(i, 2)[0]%> top-<%=getCount(i, 2)[1]%>"><%= i %></td>
+              <% } %>
+            </tr>
+            <tr>
+              <% for(var i=21; i<28; i++) {%>
+                <td class="bucket-<%=getCount(i, 2)[0]%> top-<%=getCount(i, 2)[1]%>"><%= i %></td>
+              <% } %>
+            </tr>
+            <tr>
+              <% for(var i=28; i<29; i++) {%>
+                <td class="bucket-<%=getCount(i, 2)[0]%> top-<%=getCount(i, 2)[1]%>"><%= i %></td>
+              <% } %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+        <div class="month">
+          <table>
+            <caption>March</caption>
+            <thead>
+              <tr>
+                <th>S</th>
+                <th>M</th>
+                <th>T</th>
+                <th>W</th>
+                <th>T</th>
+                <th>F</th>
+                <th>S</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              	<td></td>
+                <% for(var i=1; i<7; i++) {%>
+                  <td class="bucket-<%=getCount(i, 3)[0]%> top-<%=getCount(i, 3)[1]%>"><%= i %></td>
+                <% } %>
+              </tr>
+              <tr>
+                <% for(var i=7; i<14; i++) {%>
+                  <td class="bucket-<%=getCount(i, 3)[0]%> top-<%=getCount(i, 3)[1]%>"><%= i %></td>
+                <% } %>
+              </tr>
+              <tr>
+                <% for(var i=14; i<21; i++) {%>
+                  <td class="bucket-<%=getCount(i, 3)[0]%> top-<%=getCount(i, 3)[1]%>"><%= i %></td>
+                <% } %>
+              </tr>
+              <tr>
+              	<tr>
+                <% for(var i=21; i<28; i++) {%>
+                  <td class="bucket-<%=getCount(i, 3)[0]%> top-<%=getCount(i, 3)[1]%>"><%= i %></td>
+                <% } %>
+              </tr>
+              <tr>
+                <% for(var i=28; i<32; i++) {%>
+                  <td class="bucket-<%=getCount(i, 3)[0]%> top-<%=getCount(i, 3)[1]%>"><%= i %></td>
+                <% } %>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+
+  </div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

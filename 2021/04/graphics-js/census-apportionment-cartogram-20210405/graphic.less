@@ -1,0 +1,850 @@
+@import "./lib/base";
+
+@rigorous: #d62021;
+@unbiased: #000005;
+@true: #237bbd;
+
+@demWinner: #237bbd;
+@gopWinner: #d61f21;
+
+@safe-d:    @true;
+@lean-d:    lighten(@true, 25%);
+// @tossup:    @yellow3;
+@tossup:    #f1c924;
+@lean-r:    lighten(@rigorous, 25%);
+@safe-r:    @rigorous;
+
+// @gained1: #C5DFDF;//#8BC0BF;
+// @gained2: #8BC0BF;
+// @lost1: #F8E2CA;//#F1C696;
+// @lost2: #F1C696;
+// @same: #E0E0E0;
+
+.graphic,.footnotes,.footer,h1,h2 {
+  .mmedia-constrained();
+}
+
+.footnotes,.footer,h1,h2{
+  max-width:650px;
+}
+
+h1,h2{
+  text-align:center;
+}
+
+.graphic {
+  max-width:850px;
+}
+
+.footnotes {
+    margin-top:30px;
+  }
+
+.map {
+  //max-width:1000px;
+  display: none;
+  pointer-events: none;
+
+  &.active { display: block; }
+  // &.cartogram { margin-top: -40px; }
+}
+
+#election {
+  .key-wrap {
+    display:none;
+    &.active {display: block;}
+  }
+  #maps {
+    z-index: 100;
+
+    rect { shape-rendering: crispEdges; stroke:black; stroke-width:0.5px;};//white;}//fill:@same }
+
+    
+
+  text {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-shadow: 0px 0px 10px black;
+      fill:white;
+      fill-opacity:1;
+    //text-shadow: 0px 0px 6px black;
+    // stroke: #fff;
+    // stroke-width: 1px;
+    // stroke-linecap: round;
+    // stroke-linejoin: round;
+    // stroke-opacity: 0.7;
+    // paint-order: stroke fill;
+    //text-shadow: -1px -1px 6px black;
+    -webkit-font-smoothing: antialiased;
+    //fill:#A9A9A9;//#555;
+   // fill-opacity: 0.9;
+    text-anchor: middle;
+    font-weight:normal;
+
+    // &.votes {
+    //   font-weight:bold;
+    // }
+
+  }
+
+  .map.old {
+    rect[winner="dem"] {
+      fill: @demWinner;
+    }
+    rect[winner="gop"] {
+      fill: @gopWinner;
+    }
+    rect {
+      stroke:black;
+    }
+
+    #me {
+      rect:nth-child(2){
+        fill: @gopWinner;
+      }
+    }
+
+    #ne {
+      g:nth-child(3) rect{
+        fill: @demWinner;
+      }
+    }
+
+  }
+
+  .map.new_election {
+
+    text#changedVotes{
+      //text-shadow: 0px 0px 6px white;
+      font-weight:bold;
+    }
+
+    rect {
+      fill-opacity:20%;
+      stroke:white;
+    }
+    rect[winner="dem"] {
+      fill: @demWinner;
+    }
+    rect[winner="gop"] {
+      fill: @gopWinner;
+    }
+
+    rect[changeStatus="gained"]{
+       //fill:black;
+    }
+
+    text {
+      font-weight:normal;
+      //color:white;
+    }
+
+
+    text[winner="dem"] {
+      fill:@demWinner;
+      text-shadow:none;
+      &[changeStatus="lost"]{
+        fill:black;
+        //font-weight:bold;
+        // stroke: #E0E0E0;
+        // stroke-width: 1px;
+        // stroke-linecap: round;
+        // stroke-linejoin: round;
+        // stroke-opacity: 1;
+        // paint-order: stroke fill;
+        text-shadow: 0px 0px 5px white,0px 0px 5px white //,0px 0px 10px white;
+      }
+      &[changeStatus="gained"]{
+        //font-weight:bold;
+        fill:black;
+        text-shadow: 0px 0px 10px white//,0px 0px 10px white;
+      }
+
+      &[changeStatus="same"]{
+        // stroke: white;
+        // stroke-width: 1px;
+        // stroke-linecap: round;
+        // stroke-linejoin: round;
+        // stroke-opacity: 1;
+        // paint-order: stroke fill;
+        fill:black;
+        text-shadow: 0px 0px 10px white//,0px 0px 10px white;
+      }
+    }
+
+    text[winner="gop"] {
+
+      fill:@gopWinner;
+      text-shadow:none;
+      &[changeStatus="lost"]{
+        fill:black;
+        //font-weight:bold;
+        // stroke: #E0E0E0;
+        // stroke-width: 1px;
+        // stroke-linecap: round;
+        // stroke-linejoin: round;
+        // stroke-opacity: 1;
+        // paint-order: stroke fill;
+        text-shadow: 0px 0px 10px white//,0px 0px 10px white;
+      }
+
+      &[changeStatus="gained"]{
+        //font-weight:bold;
+        fill:black;
+        text-shadow: 0px 0px 10px white//,0px 0px 10px white;
+      }
+
+      &[changeStatus="same"]{
+        // stroke: white;
+        // stroke-width: 1px;
+        // stroke-linecap: round;
+        // stroke-linejoin: round;
+        // stroke-opacity: 1;
+        // paint-order: stroke fill;
+        fill:black;
+        text-shadow: 0px 0px 10px white//,0px 0px 10px white;
+      }
+
+
+    }
+
+    // rect {
+    //   stroke:black;
+    // }
+
+    rect[changeStatus="gained"] {
+
+      // fill-opacity:20%;
+      // stroke:white;//#484848;
+    }
+    
+
+
+    rect[changeStatus="same"] {
+
+      // fill: #E0E0E0;
+      // stroke:white;
+
+      // &[winner="dem"]{
+      //   stroke: #D3D3D3;//@demWinner;
+      // }
+
+      // &[winner="gop"]{
+      //   stroke: #D3D3D3;//@gopWinner;
+      // }
+      // //stroke-opacity:40%;
+      // fill:none;
+      // fill-opacity:20%;
+      // stroke:white;
+    }
+
+    rect[changeStatus="lost"] {
+    }
+
+    g[highlightRect='true']{
+      
+
+      &[numberOfStates='1']{
+        rect:nth-last-of-type(1){
+          &[winner='dem']{
+            fill:@demWinner;
+          }
+
+          &[winner='gop']{
+            fill:@gopWinner;
+          }
+          fill-opacity:0.8;
+        }
+      }
+
+      &[numberOfStates='2']{
+        rect:nth-last-of-type(1),rect:nth-last-of-type(2){
+          &[winner='dem']{
+            fill:@demWinner;
+          }
+
+          &[winner='gop']{
+            fill:@gopWinner;
+          }
+          fill-opacity:0.8;
+        }
+      }
+
+      &[numberOfStates='3']{
+        rect:nth-last-of-type(1),rect:nth-last-of-type(2),rect:nth-last-of-type(3){
+          &[winner='dem']{
+            fill:@demWinner;
+          }
+
+          &[winner='gop']{
+            fill:@gopWinner;
+          }
+          fill-opacity:0.8;
+        }
+      }
+
+      &[numberOfStates='-1']{
+        rect:nth-last-of-type(1){
+          &[winner='dem']{
+            stroke:@demWinner;
+            stroke-width:2;
+            fill:none;
+          }
+
+          &[winner='gop']{
+            stroke:@gopWinner;
+            stroke-width:2;
+            fill:none;
+          }
+          fill-opacity:1;
+        }
+      }
+
+      &[numberOfStates='-2']{
+        rect:nth-last-of-type(1),rect:nth-last-of-type(2){
+          &[winner='dem']{
+            stroke:@demWinner;
+            stroke-width:2;
+            fill:none;
+          }
+
+          &[winner='gop']{
+            stroke:@gopWinner;
+            stroke-width:2;
+            fill:none;
+          }
+          fill-opacity:1;
+        }
+      }
+
+      &[numberOfStates='-3']{
+        rect:nth-last-of-type(1),rect:nth-last-of-type(2),rect:nth-last-of-type(3){
+          &[winner='dem']{
+            stroke:@demWinner;
+            stroke-width:2;
+            fill:none;
+          }
+
+          &[winner='gop']{
+            stroke:@gopWinner;
+            stroke-width:2;
+            fill:none;
+          }
+          fill-opacity:1;
+        }
+      }
+      
+    }
+
+    #me {
+      rect:nth-child(2){
+        fill: @gopWinner;
+      }
+    }
+
+    #ne {
+      g:nth-child(3) rect{
+        fill: @demWinner;
+      }
+    }
+  }
+
+  
+  }
+}
+
+#apportionment {
+
+  #maps {
+  z-index: 100;
+
+  rect { 
+    shape-rendering: crispEdges; 
+    stroke:#ffffff; 
+    stroke-width:0.5px;
+
+    //FOR THE PROMO IMAGE
+    //fill:#d6d6d6;
+    };
+
+  text#changedVotes {
+      text-shadow: 1px 1px 6px white;
+      fill: #303030!important;
+  }
+
+  text {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    stroke: #fff;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-opacity: 0.7;
+    paint-order: stroke fill;
+    -webkit-font-smoothing: antialiased;
+    fill:#686868;//#555;
+    //FOR PROMO IMAGE
+    //fill:#474747;
+   // fill-opacity: 0.9;
+    text-anchor: middle;
+    font-weight:normal;
+    fill-opacity:1;
+
+    &.votes {
+      font-weight:bold;
+    }
+
+  }
+
+}
+
+}
+
+
+
+
+
+// .controls {
+//   --icon-height: 20px;
+
+//   @media @screen-mobile-above {
+//     --icon-height: 30px;
+//   }
+
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin-bottom: 5px;
+//   z-index: 500;
+//   pointer-events: fill;
+
+//   @media @screen-mobile-above {
+//     margin-bottom: 0;
+//   }
+
+//   label {
+//     .knockout-header();
+//     background: #f7f7f7;
+//     border: 1px solid #eee;
+//     color: #555555;
+//     font-size: 13px;
+//     line-height: var(--icon-height);
+//     margin: 0;
+//     padding: 0 10px;
+//     -webkit-user-select: none;
+//     user-select: none;
+//     white-space: nowrap;
+
+//     &:first-of-type {
+//       border-top-left-radius: 4px;
+//       border-bottom-left-radius: 4px;
+//     }
+
+//     &:last-of-type {
+//       border-top-right-radius: 4px;
+//       border-bottom-right-radius: 4px;
+//     }
+
+//     + button { border-left: none; }
+
+//     @media screen and (max-width: 499px) {
+//       margin-top: 5px;
+
+//       &:nth-last-of-type(2) {
+//         border-top-right-radius: 4px;
+//         border-bottom-right-radius: 4px;
+//       }
+
+//       &:nth-last-of-type(3) {
+//         border-top-left-radius: 4px;
+//         border-bottom-left-radius: 4px;
+//       }
+//     }
+//   }
+
+//   input {
+//     .sr-only();
+//   }
+
+//   input:hover,
+//   input:focus {
+//     + label {
+//       z-index: 999;
+//       cursor: pointer;
+//       background: #bbb;
+//       border: 1px solid #bbb;
+//       color: #fff;
+
+//       svg path, svg rect {
+//         fill: #fff;
+//       }
+//     }
+//   }
+
+//   input:checked + label {
+//     color: #fff;
+
+//     background-color: #555555;
+//     border-color: #555555;
+
+//     svg path, svg rect {
+//       fill: #ccc;
+//     }
+//   }
+
+//   svg, img {
+//     height: var(--icon-height);
+//     float: left;
+//     margin-right: 5px;
+//     padding-top: 5px;
+//     padding-bottom: 5px;
+
+//     path, rect {
+//       fill: #999;
+//     }
+//     text { display: none; }
+//   }
+// }
+
+// .key {
+//   margin: 6px 0 11px 0;
+//   display: flex;
+//   justify-content: left;
+//   flex-wrap: wrap;
+
+//   .key-item {
+//     //margin-left: 9px;
+//     margin-right: 12px;
+//     margin-bottom: 6px;
+//   }
+
+//   @media @screen-mobile-above {
+//     margin-bottom: 25px;
+
+//     .key-item {
+//       width: auto;
+//       //margin-left: 11px;
+//       margin-right: 20px;
+//     }
+//   }
+// }
+
+//   .cat-1 b { background-color: @safe-d; }
+//   .cat-2 b { background-color: @lean-d; }
+//   .cat-3 b { background-color: @tossup; }
+//   .cat-4 b { background-color: @lean-r; }
+//   .cat-5 b { background-color: @safe-r; }
+
+//   .cat-gained1 { b {background-color:@gained1;}}
+//   .cat-lost1 {b {background-color:@lost1;}}
+//   .cat-gained2 { b {background-color:@gained2;}}
+//   .cat-lost2 {b {background-color:@lost2;}}
+//   .cat-same {b {background-color:@same;}}
+// }
+
+.key-wrap {
+  .key {
+    margin: 0 0 30px 0;
+    padding: 0;
+    list-style-type: none;
+    width: 100%;
+    text-align: center;
+
+    .key-item {
+      display: inline-block;
+      //display:flex;
+      //flex-direction:column;
+      margin: 0 30px 0 0;
+      padding: 0;
+      line-height: 15px;
+    }
+
+    .key-item:last-child{
+      margin-right:0px;
+    }
+    .key-item b {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-right: 6px;
+      float: left;
+
+       &.same-legend:nth-child(1) {
+        margin-right:2px;
+        background: @demWinner;
+        opacity:20%;
+      }
+
+      &.same-legend:nth-child(2){
+          background: @gopWinner;
+          opacity:20%;
+      }
+      
+
+      &.lost-legend:nth-child(1) {
+        margin-right:2px;
+        background: none;
+        border: 2px solid @demWinner;
+        opacity:100%;
+      }
+
+      &.lost-legend:nth-child(2){
+          background: none!important;
+          border: 2px solid @gopWinner;
+          opacity:100%;
+      }
+
+      &.gained-legend {
+        //border: 1px solid black;
+        opacity:80%;
+      }
+
+      &.gained-legend:nth-child(1) {
+        margin-right:2px;
+        background:@demWinner!important;
+      }
+
+      &.gained-legend:nth-child(2) {
+        background:@gopWinner!important;
+      }
+
+
+    }
+    .key-item label {
+      white-space: nowrap;
+      font-size: 12px;
+      color: #666;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+      text-anchor: middle;
+    }
+
+  }
+
+  // Numeric scale style
+  &.numeric-scale {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    opacity:100%;
+
+    h3 {
+      margin-bottom: 5px;
+    }
+
+    .key {
+      .key-item {
+        margin: 0 1px 0 0;
+        position: relative;
+        max-width:12%;
+      }
+
+      .key-item b {
+        width: 45px;
+        height: 10px;
+        margin-right: 0;
+        max-width: 100%;
+        opacity:100%;
+
+      }
+      .key-item label {
+        position: absolute;
+        bottom: -20px;
+        left: 40%;
+
+        &.end-label {
+          left: auto;
+          right: -25%;
+        }
+      }
+    }
+  }
+}
+
+#charts {
+
+  margin-top: 20px;
+  margin-bottom:20px;
+
+
+#stacked-bar-chart {
+  margin-bottom: 0;
+  display: none;
+  pointer-events: none;
+
+  &.active { display: block; }
+
+  @media @screen-mobile-above {
+    margin-bottom: 11px;
+  }
+
+  .bar-labels {
+    fill: #fff;
+    text-anchor: middle;
+    -webkit-font-smoothing: antialiased;
+  }
+
+
+
+  &.new_election {
+    .group {
+    fill-opacity: 60%;
+    // .cat-dem { fill: @safe-d; }
+    // .cat-gop { fill: @safe-r; }
+    }
+    // .group {
+    //   fill-opacity:0.8;
+    // }
+
+    .annotations {
+      .candidate {
+        opacity:1;
+      }
+    }
+  }
+
+  
+
+  .annotations {
+    line {
+      stroke: black;
+      stroke-width: 1px;
+    }
+    .winner-line {
+      text-anchor: middle;
+      font-size: 13px;
+      fill: #787878;
+      //font-style: italic;
+      .knockout();
+
+      @media @screen-mobile {
+        font-size: 11px;
+      }
+    }
+    .candidate {
+      .gotham();
+      font-weight: bold;
+      -webkit-font-smoothing: antialiased;
+
+      &.dem {
+        text-anchor: start;
+        fill: @safe-d;
+      }
+      &.gop {
+        text-anchor: end;
+        fill: @safe-r;
+      }
+
+      &.new_election {
+        font-style:italic;
+      }
+    }
+  }
+}
+}
+
+
+@media @screen-mobile-above {
+  #maps text {
+    font-size: 11px;
+
+    //&.small { font-size: 10px; }
+    &.votes {}
+  }
+
+  .annotations .candidate { font-size: 18px; }
+  .bar-labels { font-size: 12px; }
+}
+
+@media @screen-mobile {
+  #maps text {
+    font-size: 15px;
+
+    //&.small { font-size: 14px; }
+  }
+  rect.changed { stroke-width: 3px; }
+
+  .bar-labels { font-size: 11px; }
+  .annotations .candidate { font-size: 16px; }
+}
+
+
+//----------//
+
+// Base table styles
+table.changed {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 22px;
+
+  caption {
+    // .gotham();
+    // font-weight: bold;
+    // font-size: 15px;
+    // color: #454545;
+    .knockout-header();
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+    margin-bottom: 15px;
+    border-top: 2px solid #eee;
+    padding-top: 22px;
+  }
+
+  tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+
+  th, td {
+    // comment these two out if you want to highlight particular rows
+    &:first-child { padding-left: 0; }
+    &:last-child { padding-right: 0; }
+
+    &.votes,
+    &.rating {
+      text-align: center;
+    }
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+    border-bottom: 2px solid #eee;
+    padding: 0 10px 7px 10px;
+  }
+
+  td {
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+    padding: 7px 10px;
+
+    &.rating {
+      color: #fff;
+      width: 30%;
+      border-color: #fff;
+    }
+    // &.cat-1 { background-color: @safe-d; }
+    // &.cat-2 { background-color: @lean-d; }
+    // &.cat-3 {
+    //   background-color: @tossup;
+    //   color: #454545;
+    // }
+    // &.cat-4 { background-color: @lean-r; }
+    // &.cat-5 { background-color: @safe-r; }
+  }
+}

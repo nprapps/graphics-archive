@@ -1,0 +1,24 @@
+<%= await t.include("./partials/_header.html", { "slug": slug, "config": config, "id": "cumulative-payroll" }) %>
+
+<h1><%= t.smarty(COPY.labels.headline_cumulative_payrolls) %></h1>
+
+<h2><%= t.smarty(COPY.labels.subhed_cumulative_payrolls) %></h2>
+
+<div id="annotated-line-chart" class="graphic chart"></div>
+
+<% if (COPY.labels.footnote_cumulative_payrolls) { %>
+<div class="footnotes">
+  <p><strong>Notes:</strong> <%= COPY.labels.footnote_cumulative_payrolls %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <p>Source: <%= COPY.labels.source_cumulative_payrolls %></p>
+  <p>Credit: <%= COPY.labels.credit_cumulative_payrolls %></p>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.payrolls_cumulative) %>;
+</script>
+
+<%= await t.include("./partials/_footer.html") %>

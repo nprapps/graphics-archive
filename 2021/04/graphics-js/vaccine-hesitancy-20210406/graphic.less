@@ -1,0 +1,140 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 1px;
+  stroke: #ccc;
+}
+
+// .graphic {
+//   max-width: 1000px;
+// }
+
+// .graphic {
+//   margin:auto;
+// }
+
+h1,h2 {
+  margin:auto
+}
+
+h2 {
+  margin-top:10px
+}
+
+//g.x.axis g.tick:nth-child(7){
+//   text {
+//     text-anchor:start;
+//     //padding-left:20px
+//   }
+// }
+
+// .footer {
+//   margin-left:auto;
+//   margin-right:auto;
+// }
+
+.footnotes {
+  margin-top: 25px;
+}
+
+g.x.grid g.tick line{
+    //stroke: #D3D3D3;
+}
+
+.value {
+
+  text {
+
+    font-weight:bold !important;
+    font-size: 14px !important;
+    fill: #989898;
+  }
+
+    &.already-vaccinated {
+      text {
+        fill:#11605E!important;
+      }
+    }
+
+    &.no {
+      text {
+        fill:#EAAA61!important;
+      }
+    }
+
+    &.yes {
+      text {
+        fill:#51A09E!important;
+      }
+    }
+
+    &.date {
+      text {
+        .knockout-header();
+        fill:#555!important;
+        font-weight:normal!important;
+      }
+    }
+
+  
+  //fill: #17807E !important;
+
+  
+}
+
+.footer {
+  margin-top: 15px;
+}
+
+h2 {
+  margin-bottom: 0px;
+}
+
+// .value text {
+//   font-size: 12px;
+//   font-weight: bold;
+//   fill: #999;
+// }
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 11px!important;
+  }
+
+  g.x.axis g.tick:nth-child(3){
+    text {
+      text-anchor:start;
+      //padding-left:20px
+    }
+  }
+
+  // g.x.axis g.tick:nth-child(6),{
+  //   text {
+  //     text-anchor:end;
+  //     //padding-left:20px
+  //   }
+  // }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}
+
+.state-title {
+  margin-left:35px;
+  text-align: center;
+  .knockout-header();
+}
+
+.graphic-wrapper {
+  margin-top:20px;
+}

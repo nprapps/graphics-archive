@@ -1,0 +1,74 @@
+@import "./lib/base";
+
+h1 {
+  margin-bottom: 28px;
+}
+
+
+.dotted-line  {
+  stroke: #666;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+  stroke-dasharray: 5px 5px;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.area path {
+  stroke: none;
+  fill-opacity: 0.6;
+  fill: @orange5;
+}
+
+text.note {
+  font-size: 12px;
+  // font-weight: bold;
+  fill: #333;
+  font-style: italic;
+  text-anchor:end;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: @orange2;
+}
+
+.deaths {
+  .area path {
+    fill: @red5;
+  }
+
+  .value text {
+    fill: @red2;
+  }
+}
+
+.vaccinations {
+  .area path {
+    fill: @teal5;
+  }
+
+  .value text {
+    fill: @teal2;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+  .key.one-line {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  // .key {
+  //   display: none;
+  // }
+}
