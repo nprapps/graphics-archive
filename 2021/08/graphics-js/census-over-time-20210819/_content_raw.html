@@ -1,0 +1,137 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic raw" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader" class="category">
+          <div class="sorter"><div class="icon"></div></div>
+          <h3 class="" ><%= COPY.labels.hdr_issue %></h3>
+        </th>
+        <th role="columnheader" class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header amt"><%= COPY.labels.hdr_2010 %></div>
+        </th>
+        <th role="columnheader" class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header amt"><%= COPY.labels.hdr_2020 %></div>
+        </th>
+        <th role="columnheader" class="amt difference">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header amt "><%= COPY.labels.hdr_dif %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <%
+
+    var d3 = {
+      ...require("d3-axis/dist/d3-axis.min"),
+      ...require("d3-scale/dist/d3-scale.min"),
+      ...require("d3-selection/dist/d3-selection.min")
+    };
+
+    var fmtComma = s => s.toLocaleString("en-US").replace(/\.0+$/, "");
+
+    var scale = d3
+      .scaleLinear()
+      .domain([1000000, 5000000])
+      .range([.05, 0.95]);
+
+       var scaleNeg = d3
+      .scaleLinear()
+      .domain([0, -20000000])
+      .range([.05, 0.95]);
+
+    var yearsScale = d3
+      .scaleLinear()
+      .domain([12000000, 250000000])
+      .range([.25, 0.75]);
+
+      var colorFunction = function(input) {
+        if (input == "N/A") {
+          return 'background-color: #ccc';
+        } else if (input <= 0 ) {
+          return 'background-color: rgb(227, 141, 44,' + scaleNeg(input) + ')';
+        } else {
+          return 'background-color: rgb(23, 128, 126,' + scale(input) + ')';
+        }
+      }
+
+      var colorYearsFunction = function(input) {
+        if (input == "N/A") {
+          return 'background-color: #ccc';
+        } else {
+          return 'background-color: rgb(75, 75, 75,' + yearsScale(input) + ')';
+        }
+      }
+
+      var getFormatted = function(n, mobile, char) {
+        if (!n) return n;
+        if (mobile) {
+          return n > 0 ? (char + (n/1000000).toFixed(1) + 'M') : (n/1000000).toFixed(1) + 'M';
+        }
+        return n > 0 ? (char + fmtComma(Math.round(n/ 1000)*1000)) : fmtComma(Math.round(n /1000)* 1000);
+      }
+
+      var darkFunction = function(input) {
+        if (input >= 3000000 || input <= -8000000) {
+          return 'light';
+        } else {
+          return 'dark';
+        }
+      }
+
+    var darkFunctionYears = function(input) {
+        if (input >= 100000000) {
+          return 'light';
+        } else {
+          return 'dark';
+        }
+      }
+
+    COPY.data_raw.forEach(function(row) { %>
+    <tr class="state-<%= t.classify(row.action) %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_issue %>"><%= row.action %></td>
+<td  class="amt change <%= darkFunctionYears(row.num_2010) %>" role="cell" data-title="<%= COPY.labels.hdr_change %>" style=" <%= colorYearsFunction(row.num_2010) %>">
+  <span class="desktop"><%= getFormatted(row.num_2010, false, '')%></span>
+  <span class="mobile"><%= getFormatted(row.num_2010, true, '')%></span>       
+</td>
+<td  class="amt change <%= darkFunctionYears(row.num_2020) %>" role="cell" data-title="<%= COPY.labels.hdr_change %>" style=" <%= colorYearsFunction(row.num_2020) %>">
+  <span class="desktop"><%= getFormatted(row.num_2020, false, '')%></span>
+  <span class="mobile"><%= getFormatted(row.num_2020, true, '')%></span>    
+</td>
+<td  class="amt change difference <%= darkFunction(row.Difference) %>" role="cell" data-title="<%= COPY.labels.hdr_change %>" style=" <%= colorFunction(row.Difference) %>">
+  <span class="desktop"><%= getFormatted(row.Difference, false, '+')%></span>
+  <span class="mobile"><%= getFormatted(row.Difference, true, '+')%></span>
+  <span class=""><%= row.Difference ? '(' 
+  + (row.Difference > 0 ? '+' : '') + (row.Difference/row.num_2010 *100).toFixed(1) + '%)' : ''%></span>
+  <span class="arrow"><%= row.Difference ? (row.Difference > 0 ? '↑' : '↓') : '' %>     </span>
+</td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <p><strong>Notes: </strong><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

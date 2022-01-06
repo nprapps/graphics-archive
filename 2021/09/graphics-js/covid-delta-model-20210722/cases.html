@@ -1,0 +1,39 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline_cases) { %>
+<h1><%= t.smarty(COPY.labels.headline_cases) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed_cases) { %>
+<h2><%= t.smarty(COPY.labels.subhed_cases) %></h2>
+<% } %>
+
+<div id="line-chart" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+  <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.index_credit) { %><p>Credit: <%= COPY.labels.index_credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.data_cases) %>;
+  var LABELS = <%= JSON.stringify(COPY.labels) %>;
+  var TYPE = "cases";
+</script>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

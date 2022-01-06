@@ -1,0 +1,86 @@
+@import "./lib/base";
+
+#annotated-line-chart {
+  margin-top: 30px;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+
+  .retail_adjusted,
+  .grocery_adjusted {
+    stroke-dasharray: 2px;
+  }
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: bold;
+
+  &.retail_adjusted,
+  &.grocery_adjusted {
+    font-style: italic;
+    font-weight: normal;
+  }
+}
+
+.annotations {
+  .dot {
+    stroke: #fff;
+    stroke-width: 1px;
+    fill: #444;
+  }
+
+  .line {
+    stroke: #999;
+  }
+
+  text {
+    font-size: 12px;
+
+    &.outline {
+      fill: none;
+      stroke-width: 3;
+      stroke: #fff;
+    }
+
+    &.content {
+      stroke: none;
+      fill: #999;
+    }
+
+    tspan:first-of-type {
+      font-weight: bold;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+
+  .label {
+    font-size: 10px;
+  }
+
+  .annotations {
+    text {
+      font-size: 10px;
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key .one-line {
+    display: none;
+  }
+}

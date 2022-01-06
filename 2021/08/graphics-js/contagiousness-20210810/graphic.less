@@ -1,0 +1,26 @@
+@import "./lib/base";
+
+h1 {
+  font-size: 18px;
+  text-align: center;
+
+  b.sick { color: @red3; }
+  b.infect { color: @red5; }
+
+  sub { line-height: 0; }
+}
+
+// ai2html artboard sizes
+@media screen and (min-width: 730px) {
+    #g-_ai2html-graphic-small, #g-_ai2html-graphic-medium { display: none; }
+}
+
+@media screen and (max-width: 729px) and (min-width: 400px) {
+    #g-_ai2html-graphic-small, #g-_ai2html-graphic-wide { display: none; }
+}
+
+@media screen and (max-width: 399px) {
+    #g-_ai2html-graphic-medium, #g-_ai2html-graphic-wide { display: none; }
+}
+
+// Add custom styles here

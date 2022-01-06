@@ -1,0 +1,143 @@
+@import "./lib/base";
+
+#annotated-line-chart {
+  margin-top: 30px;
+}
+
+sup {
+  line-height: 0;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+
+  .projected {
+    stroke-dasharray: 4px;
+  }
+}
+
+.y {
+  .label-axis {
+    stroke: none;
+    fill: #555;
+    text-anchor: start;
+    font-size: 11px;
+    -webkit-font-smoothing: antialiased;
+
+    &.shadow {
+      stroke-width: 4px;
+      stroke: #fff;
+      fill: none;
+    }
+  }
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+// .y {
+//   .tick:first-of-type text {
+//     font-weight: bold;
+//   }
+// }
+
+// .annotations {
+//   .dot {
+//     stroke: #fff;
+//     stroke-width: 1px;
+//     fill: #444;
+//   }
+
+//   .line {
+//     stroke: #999;
+//   }
+
+//   text {
+//     font-size: 12px;
+
+//     &.outline {
+//       fill: none;
+//       stroke-width: 3;
+//       stroke: #fff;
+//     }
+
+//     &.content {
+//       stroke: none;
+//       fill: #999;
+//     }
+
+//     tspan:first-of-type {
+//       font-weight: bold;
+//     }
+//   }
+// }
+
+.covid {
+  line {
+    stroke: #555;
+    stroke-dasharray: 3;
+  }
+
+  text {
+    font-size: 12px;
+    font-style: italic;
+    text-anchor: middle;
+    fill: #555;
+    letter-spacing: 0.3px;
+
+    &.shadow {
+      stroke-width: 8px;
+      stroke: #fff;
+      fill: none;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  span {
+    font-weight: bold;
+
+    &.real {
+      color: @blue2;
+    }
+
+    &.projected {
+      color: @blue4;
+    }
+  }
+
+  .value text {
+    font-size: 10px;
+  }
+
+  .covid text {
+    font-size: 11px;
+    letter-spacing: 0.2px;
+  }
+
+  .label {
+    font-size: 11px;
+  }
+
+  .annotations {
+    text {
+      font-size: 10px;
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key .one-line {
+    display: none;
+  }
+}

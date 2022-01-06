@@ -1,0 +1,123 @@
+<% if (COPY.labels.headline_per) { %>
+<h1><%= t.smarty(COPY.labels.headline_per) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed_per) { %>
+<h2><%= t.smarty(COPY.labels.subhed_per) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader" class="category">
+          <div class="sorter"><div class="icon"></div></div>
+          <h3 class="" ><%= COPY.labels.hdr_issue %></h3>
+        </th>
+        <th role="columnheader" class="amt year">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header amt"><%= COPY.labels.hdr_2010 %></div>
+        </th>
+        <th role="columnheader " class="amt year">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header amt"><%= COPY.labels.hdr_2020 %></div>
+        </th>
+        <th role="columnheader amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header amt"><%= COPY.labels.hdr_dif_per %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <%
+
+    var d3 = {
+      ...require("d3-axis/dist/d3-axis.min"),
+      ...require("d3-scale/dist/d3-scale.min"),
+      ...require("d3-selection/dist/d3-selection.min")
+    };
+
+    var scale = d3
+      .scaleLinear()
+      .domain([0, .06])
+      .range([.25, 0.75]);
+
+    var scaleNeg = d3
+      .scaleLinear()
+      .domain([-.03, -0.12])
+      .range([.05, 0.95]);
+
+    var yearsScale = d3
+      .scaleLinear()
+      .domain([0, .80])
+      .range([.25, 0.75]);
+
+      var colorFunction = function(input) {
+        if (input == "N/A") {
+          return 'background-color: #ccc';
+        } else if (input <= 0 ) {
+          return 'background-color: rgb(227, 141, 44,' + scaleNeg(input) + ')';
+        } else {
+          return 'background-color: rgb(23, 128, 126,' + scale(input) + ')';
+        }
+      }
+
+      var colorYearsFunction = function(input) {
+        if (input == "N/A") {
+          return 'background-color: #ccc';
+        } else {
+          return 'background-color: rgb(75, 75, 75,' + yearsScale(input) + ')';
+        }
+      }
+
+      var darkFunction = function(input) {
+        if (input < -.06) {
+          return 'light';
+        } else {
+          return 'dark';
+        }
+      }
+
+    var darkFunctionYears = function(input) {
+        if (input > .5) {
+          return 'light';
+        } else {
+          return 'dark';
+        }
+      }
+
+    COPY.data.forEach(function(row) { %>
+    <tr class="state-<%= t.classify(row.action) %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_issue %>"><%= row.action %></td>
+<td  class="amt change year <%= darkFunctionYears(row.num_2010) %>" role="cell" data-title="<%= COPY.labels.hdr_change %>" style=" <%= colorYearsFunction(row.num_2010) %>">
+  <%= !row.num_2010 ?row.num_2010 : (row.num_2010*100).toFixed(1) + "%" %>    
+</td>
+<td  class="amt change year <%= darkFunctionYears(row.num_2020) %>" role="cell" data-title="<%= COPY.labels.hdr_change %>" style=" <%= colorYearsFunction(row.num_2020) %>">
+  <%= !row.num_2020 ?row.num_2020 : (row.num_2020*100).toFixed(1) + "%" %>    
+</td>
+<td  class="amt change <%= darkFunction(row.Difference) %>" role="cell" data-title="<%= COPY.labels.hdr_change %>" style=" <%= colorFunction(row.Difference) %>">
+  <%= !row.Difference ? row.Difference : (row.Difference > 0 ? '+' + (row.Difference*100).toFixed(2) + "pts" : (row.Difference*100).toFixed(1) + "pts") %>   
+  <span class="arrow"><%= row.Difference ? (row.Difference > 0 ? '↑' : '↓') : '' %>     </span>
+</td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote_per) { %>
+<div class="footnotes">
+  
+  <p><strong>Notes: </strong><%= COPY.labels.footnote_per %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

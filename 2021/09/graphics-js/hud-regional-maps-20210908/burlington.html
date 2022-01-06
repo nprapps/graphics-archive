@@ -1,0 +1,49 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.burlington_headline) { %>
+<h1><%= t.smarty(COPY.labels.burlington_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.burlington_subhed) { %>
+<h2><%= t.smarty(COPY.labels.burlington_subhed) %></h2>
+<% } %>
+
+<div id="graphic" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+
+    <div class="legend">
+      <div class="legend-item">
+        <span class="square"></span>
+        <span class="legend-text"><%= t.smarty(COPY.labels.flood_zone_label) %></span>
+      </div>
+      <div class="legend-item">
+        <span class="dot br"></span>
+        <span class="legend-text"><%= t.smarty(COPY.labels.burlington_flood_label) %></span>
+      </div>
+      <div class="legend-item">
+        <span class="dot other"></span>
+        <span class="legend-text"><%= t.smarty(COPY.labels.burlington_all_label) %></span>
+      </div>
+    </div>
+
+    <%= await t.include("_burlington-map.html") %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

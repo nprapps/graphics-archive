@@ -1,0 +1,43 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<!-- <div class="key-wrap">
+    <% if (COPY.labels.title) { %>
+    <h3><%= COPY.labels.title %></h3>
+    <% } %>
+    <ul class="key"></ul>
+</div> -->
+
+<!-- <ul class='key'><li class='key-item'><b></b><label>Each square represents one worker who died from heat</label></li></ul> -->
+
+
+<div id="left-block-histogram" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.data) %>;
+    var LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>

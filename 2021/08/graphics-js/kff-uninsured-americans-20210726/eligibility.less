@@ -1,0 +1,30 @@
+@import "./lib/base";
+
+.value text {
+  fill: #fff;
+}
+
+.x,
+.key {
+  display: none;
+}
+
+@media @screen-mobile {
+  .annotation-note-content {
+    font-size: 10px;
+  }
+
+  .platinum {
+    text-anchor: end;
+  }
+}
+
+@media @screen-mobile-above {
+  .annotation-note-content {
+    font-size: 11px;
+
+    .annotation-note-title {
+      font-size: 12px;
+    }
+  }
+}

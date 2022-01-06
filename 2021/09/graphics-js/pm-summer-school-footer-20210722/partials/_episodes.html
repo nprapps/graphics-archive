@@ -1,0 +1,12 @@
+  <ul>
+  <% data.forEach(function(episode, i) { %>
+    <li class="episode-<%= (i + 1) %>">
+      <% if (episode.link) { %><a href="<%= episode.link %>"><% } %>
+      <% if (episode.img_wide) { %><img src="<%= episode.img_wide %>" alt=""><% } %>
+      <% if (episode.episode) { %><strong>Lesson <%= episode.episode %>:</strong><% } %>
+      <%= episode.headline %>
+      <% if (episode.link) { %></a><% } %>
+      <% if (!episode.link && episode.pubdate) { %><span class="coming-soon">(<%= episode.pubdate %>)</span><% } %>
+    </li>
+  <% }); %>
+  </ul>

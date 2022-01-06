@@ -1,0 +1,166 @@
+@import "./lib/base";
+ 
+#graphic {
+    .mmedia-constrained-centered();
+    max-width: 1200px;
+}
+    #g-_sequoias-small { display: none; }
+
+// outside of AI2html
+
+.lead {
+    h1, h2 {
+        .mmedia-constrained-centered()  
+    }
+
+    h2 {
+        line-height: 110%;
+
+        span.green {
+            color: #fff;
+            background-color: #5b904c;
+            border: 2px solid #355114;
+            padding: 4px;
+            padding-top: 0px;
+            padding-bottom: 1px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: -2px;
+            // text-shadow: 0px 0px 10px #000;
+            // box-shadow: 5px 10px inset;
+
+            -webkit-box-shadow: inset 0px 0px 10px 1px rgba(0,0,0,0.75);
+            -moz-box-shadow: inset 0px 0px 10px 1px rgba(0,0,0,0.75);
+            box-shadow: inset 0px 0px 4px 1px rgba(0,0,0,0.25),  0 0px 1px #000;
+        
+
+            &.burn {
+                border: 2px solid #fff;                
+                background-color: lighten(#823014,15%);
+            }
+        }
+
+        line-height: 20px;
+    }   
+}
+
+
+.footer {
+    .mmedia-constrained()
+}
+
+
+
+// Add custom styles here
+
+#g-_sequoias-small, #g-_sequoias-wide {    
+    .g-labels-parks > p  {
+        .knockout-upper();
+        font-weight: 300 !important;        
+        color: #777;
+        font-size: 14px !important;
+        line-height: 20px !important;
+        text-transform: uppercase;
+        letter-spacing: 0.0625em;
+        // max-width: 2300px;
+    }
+
+    .g-labels-cities > p, .g-labels-special p {        
+            .gotham();
+            color: #666 !important;
+            font-style: italic;
+    }
+
+    .g-labels-special p {
+        .knockout();
+        color: #444 !important;
+        font-size: 12px;
+        text-shadow: 0px 0px 3px #fff;
+        text-align: left;
+    }
+
+    .g-sub > p, .g-labels-fire-trees > p {
+        .gotham();
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .g-sub > p {
+        color: #823014 !important;
+        
+    }
+
+    .g-labels-fire-trees > p {
+        color: darken(#647a47,10%) !important;
+    }
+
+    .g-map-extras > p{
+        .gotham();
+        font-size: 11px;
+    }
+
+}
+
+
+// ai2html artboard sizes
+@media screen and (min-width: 1000px) {
+    #g-_sequoias-small { display: none; }
+
+    #g-_sequoias-wide {
+        .g-labels-parks > p  {
+            font-size: 170% !important;
+            line-height: 140% !important;
+
+        }   
+
+        .g-labels-special > p {
+            font-size: 110% !important;
+            line-height: 120% !important;
+        }
+        .g-sub > p, .g-labels-fire-trees > p {
+            font-size: 150% !important;
+            line-height: 110% !important;   
+        }
+        .g-labels-cities > p {
+            font-size: 120%;
+            line-height: 150%;
+        }
+        .g-map-extras > p {
+            font-size: 13px;
+            line-height: 300%;
+        }   
+    }
+
+}
+
+
+// small screens
+
+@media screen and (max-width: 450px) {
+    #g-_sequoias-wide { display: none; }
+    #g-_sequoias-small { display: block; 
+
+        .g-labels-parks > p  {
+            font-size: 120% !important;
+            line-height: 130% !important;
+        }   
+
+        .g-labels-special > p {
+            font-size: 10px !important;
+            line-height: 120% !important;
+        }
+        .g-sub > p, .g-labels-fire-trees > p {
+            font-size: 120% !important;
+            line-height: 110% !important;   
+        }
+        .g-labels-cities > p {
+            font-size: 100%;
+            // line-height: 120%;
+        }
+        .g-map-extras > p {
+            font-size: 12px;
+            line-height: 200%;
+        }   
+    }
+
+}

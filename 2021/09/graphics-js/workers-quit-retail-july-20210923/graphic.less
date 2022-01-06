@@ -1,0 +1,74 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 1.75px;
+  stroke: #ccc;
+
+  .overall-workforce {
+    stroke-width: 1px;
+  }
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  // fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+// @media screen and (min-width: 500px) {
+//   .key {
+//     display: none;
+//   }
+// }
+
+// @media screen and (max-width: 500px) {
+//   .key.one-line {
+//     display: none;
+//   }
+// }
+
+.graphic-wrapper {
+  // width: 50%;
+  float: left;
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
+}
+
+.backdrop {
+  position: absolute;
+  bottom: 0;
+}
+
+h3{
+  margin: 15px auto;
+  text-align: center;
+  font-size: 11px;
+
+  // span {
+  //   vertical-align: super;
+  //   font-size: 70%;
+  // }
+
+  sup {
+    line-height: 0;
+  }
+}
+
+.recession { fill: rgba(245, 245, 245, .4); }
+
+.recession-label {
+    fill: #999;
+    font-style: italic;
+    font-size: 12px;
+    text-anchor: middle;
+    letter-spacing: .3px;
+}

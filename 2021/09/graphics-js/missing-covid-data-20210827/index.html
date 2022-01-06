@@ -1,0 +1,56 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="line-chart" class="graphic" role="img"
+<%
+  var featured = COPY.labels.group_featured.split(",");
+  var all = new Set(COPY.data.filter(d => d.state in COPY.states && d.completion).map(d => d.state));
+  featured.forEach(f => all.delete(f));
+  all = [...all].sort();
+  var groups = { featured, all };
+%>
+>
+  <% for (var [g, grouping] of Object.entries(groups)) { %>
+  <div class="<%= g %>">
+    <% if (COPY.labels[`label_${g}`]) { %>
+      <h3><%= COPY.labels[`label_${g}`] %></h3>
+    <% } %>
+    <div class="grouping">
+    <% grouping.forEach(function(state) { %>
+      <div>
+        <h4><%= COPY.states[state].name %></h4>
+        <div class="chart" data-state="<%= state %>"></div>
+      </div>
+    <% }) %>
+    </div>
+  </div>
+  <% } %>
+  <button class="show-all">Show all states</button>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.data) %>;
+</script>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

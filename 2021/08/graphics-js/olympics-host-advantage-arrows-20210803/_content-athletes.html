@@ -1,0 +1,36 @@
+<% if (COPY.labels.a_headline) { %>
+<h1><%= t.smarty(COPY.labels.a_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.a_subhed) { %>
+<h2><%= t.smarty(COPY.labels.a_subhed) %></h2>
+<% } %>
+
+<div id="dumbbell-chart" class="graphic" role="img"
+  <% if (COPY.labels.a_screenreader) { %>
+  aria-label="<%- COPY.labels.a_screenreader %>"
+  <% } %>
+>
+</div>
+
+<% if (COPY.labels.a_footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.a_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.a_source) { %><p>Source: <%= COPY.labels.a_source %></p><% } %>
+  <% if (COPY.labels.a_credit) { %><p>Credit: <%= COPY.labels.a_credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.data_athletes) %>;
+  var LEGEND = <%= JSON.stringify(COPY.legend) %>;
+  var axisLabel = "<%= COPY.labels.axisLabel %>";
+  var legendLabel1 = "<%= COPY.labels.legendLabel1 %>";
+  var legendLabel2 = "<%= COPY.labels.legendLabel2 %>";
+  var legendLabelMaster = "<%= COPY.labels.a_legendLabelMaster %>";
+  var max = "<%= COPY.labels.a_max %>";
+</script>

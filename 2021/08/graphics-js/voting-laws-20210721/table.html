@@ -1,0 +1,55 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.tbl_headline) { %>
+<h1><%= t.smarty(COPY.labels.tbl_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.tbl_subhed) { %>
+<h2><%= t.smarty(COPY.labels.tbl_subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <% var categories = [ "Expanded access", "Restricted access" ]; %>
+
+  <% categories.forEach(function(cat) { %>
+  <% var catData = COPY.data.filter(d => d.category == cat); %>
+
+  <div class="category <%= t.classify(cat) %>">
+    <h3 class="rating"><span>States That <%= cat %> (<%= catData.length %>)</span></h3>
+
+    <% catData.forEach(function(row) { %>
+      <div class="state <%= t.classify(row.state_name) %>">
+        <h4><%= row.state_name %></h4>
+        <p><strong><%= COPY.labels.tbl_hdr_info %>:</strong> <%= t.smarty(row.info) %></p>
+        <% if (row.more) { %>
+          <p class="more"><a href="<%= row.more %>"><%= t.smarty(COPY.labels.tbl_lbl_more) %> &rsaquo;</a></p>
+        <% } %>
+      </div>
+    <% }) %>
+
+  </div>
+
+  <% }) %>
+</div>
+
+<!-- <button class="toggle-table" data-more="<%= COPY.labels.toggle_more %>" data-less="<%= COPY.labels.toggle_less %>"><%= COPY.labels.toggle_more %></button> -->
+
+<% if (COPY.labels.tbl_footnote) { %>
+<div class="footnotes">
+  <p><strong>Notes:</strong> <%= COPY.labels.tbl_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.tbl_source) { %>
+  <p>Source: <%= COPY.labels.tbl_source %></p>
+  <% } %>
+
+  <% if (COPY.labels.tbl_credit) { %>
+  <p>Credit: <%= COPY.labels.tbl_credit %></p>
+  <% } %>
+</div>
+
+<script src="./table.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

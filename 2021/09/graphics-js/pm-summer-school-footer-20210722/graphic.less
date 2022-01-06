@@ -1,0 +1,131 @@
+@import "./lib/base";
+
+@buttonColor:           #5eb057;
+@buttonColorLight:      lighten(@buttonColor, 10%);
+@buttonColorVeryLight:  lighten(@buttonColor, 20%);
+@buttonColorDark:       #24554d;
+@buttonColorDarkLight:  lighten(@buttonColorDark, 40%);
+@bgGreen:               #dfe287;
+
+.hp {
+  .gotham();
+}
+
+h1 {
+  .knockout-header();
+  text-align: center;
+  font-size: 14px;
+  background-color: @buttonColorDark;
+  color: #fff;
+  padding: 11px 0;
+  margin: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+
+  .hp & {
+    text-align: left;
+    background: none;
+    padding: 0 0 3px 0;
+    border: none;
+    margin-bottom: 11px;
+    .gotham();
+    letter-spacing: normal;
+    font-weight: bold;
+    display: none;
+  }
+
+  a,
+  a:link, a:visited,
+  a:hover, a:active {
+    display: block;
+    color: @bgGreen;
+
+    .hp & {
+      color: #000;
+    }
+  }
+  a:hover, a:active {
+    opacity: 0.7;
+
+    .hp & {
+      color: #2C63ae;
+      opacity: 1;
+    }
+  }
+}
+
+div#episode-list {
+  border: 1px solid @bgGreen;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  padding: 6px 15px 11px 15px;
+  border-top: none;
+  font-size: 14px;
+
+  .hp & {
+    border: none;
+    padding: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  li {
+    margin: 0;
+    padding: 11px 0 11px 0;
+    width: calc(50% - 11px);
+    color: #787878;
+    border-bottom: 1px solid @bgGreen;
+
+    @media @screen-mobile-above {
+      width: calc(33% - 11px);
+    }
+
+    .hp & {
+      // width: 100%;
+      // border-bottom: none;
+      // border-top: 1px solid #eee;
+      border: none;
+
+      // @media @screen-mobile-above {
+      //   width: calc(50% - 11px);
+      // }
+
+      &.episode-7 { display: none; }
+    }
+
+    a, a:link, a:visited {
+      color: #333;
+      display: block;
+    }
+    a:hover, a:active {
+      color: #2C63ae;
+    }
+  }
+
+  img {
+    // float: left;
+    // margin-right: 11px;
+    // width: 120px;
+    // height: 68px;
+    width: 100%;
+    height: auto;
+    display: none;
+    margin-bottom: 6px;
+
+    .hp & {
+      display: block;
+    }
+  }
+
+  .coming-soon {
+    font-style: italic;
+    color: #999;
+  }
+}

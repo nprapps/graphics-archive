@@ -1,0 +1,51 @@
+<%= await t.include("./partials/_header.html") %>
+<div class="mmedia-constrained center">
+
+	<% if (COPY.labels.headline_alone) { %>
+	<h1><%= t.smarty(COPY.labels.headline_alone) %></h1>
+	<% } %>
+
+	<% if (COPY.labels.subhed_alone) { %>
+	<h2><%= t.smarty(COPY.labels.subhed_alone) %></h2>
+	<% } %>
+
+	<ul class="key">
+		<li class="key-item legend">
+			<label>One</label>
+			<span class="legend"></span>
+			<label><%= COPY.labels.legend %></label>
+		</li>
+	</ul>
+
+</div>
+
+<div id="column-chart" class="graphic alone" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+	<div class="clearer"></div>
+    <!-- <img src="fallback.png" alt="" class="fallback" /> -->
+</div>
+
+<% if (COPY.labels.footnote_alone) { %>
+<div class="footnotes">
+    <p><strong>Note:</strong> <%= COPY.labels.footnote_alone %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.alone) %>;
+    var DATA_BIG = <%= JSON.stringify(COPY.alone) %>;
+    var BLOCKSIZE = <%= JSON.stringify(COPY.labels.blockSize) %>;
+	var BLOCKSPERCOLUMN = <%= JSON.stringify(COPY.labels.blocks_per_column) %>;
+	var CHART = "alone";
+
+</script>
+
+<%= await t.include("./partials/_footer.html") %>

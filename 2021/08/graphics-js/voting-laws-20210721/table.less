@@ -1,0 +1,325 @@
+button.toggle-table {
+  .gotham();
+  background-color: #fff;
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #4774cc;
+  display: block;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 22px;
+  padding: 10px;
+  text-transform: uppercase;
+  width: 100%;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+
+  &:focus {
+    outline: none;
+    border: none;
+  }
+}
+
+#table-graphic {
+  // margin-bottom: 6px;
+  margin-bottom: 22px;
+  display: flex;
+  flex-wrap: wrap;
+
+  @media @screen-mobile-above {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  &.collapsed {
+    max-height: 400px;
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50px;
+      background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    }
+  }
+
+  .category {
+    @media @screen-mobile {
+      &.restricted-access {
+        order: 0;
+      }
+      &.expanded-access {
+        order: 1;
+        margin-top: 44px;
+      }
+    }
+
+    @media @screen-mobile-above {
+      width: calc(50% - 22px);
+    }
+  }
+
+  h3.rating {
+    font-size: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 6px;
+    // .gotham();
+    // font-weight: bold;
+    // letter-spacing: normal;
+    // text-transform: capitalize;
+
+    span {
+      &::before {
+          content: "\2B22";
+          display: inline-block;
+          margin-top: -2px;
+          padding-right: 3px;
+          font-size: 108%;
+          vertical-align: top;
+      }
+
+      display: block;
+      // white-space: nowrap;
+    }
+  }
+  .expanded-access {
+    h4,
+    .rating span {
+      color: @expanded;
+    }
+  }
+  .restricted-access {
+    h4,
+    .rating span {
+      color: @restricted;
+    }
+  }
+
+  .state + .state {
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+  }
+
+  h4 {
+    .knockout-header();
+    margin: 0 0 3px 0;
+    font-size: 13px;
+  }
+
+  p {
+    font-size: 13px;
+    margin: 0;
+
+    &.more {
+      margin-top: 3px;
+      font-weight: bold;
+    }
+  }
+
+
+
+  // Base table styles
+  table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+
+    tr.shadedrow {
+      background-color: #f1f1f1;
+      color: #333;
+      font-weight: bold;
+    }
+
+    th {
+      .knockout-header();
+      line-height: 1.2;
+      text-align: left;
+      vertical-align: bottom;
+    }
+
+    // td { vertical-align: top; }
+
+    td.state-name {
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    td.rating {
+      span {
+        &::before {
+            content: "\2B22";
+            display: inline-block;
+            margin-top: -2px;
+            padding-right: 3px;
+            font-size: 108%;
+            vertical-align: top;
+        }
+
+        .knockout-header();
+        display: block;
+        white-space: nowrap;
+      }
+    }
+    .expanded-access {
+      td.state-name,
+      td.rating span {
+        color: @expanded;
+      }
+    }
+    .restricted-access {
+      td.state-name,
+      td.rating span {
+        color: @restricted;
+      }
+    }
+    .openmixedno-major-laws {
+      td.state-name,
+      td.rating span {
+        color: @mixed;
+      }
+    }
+  }
+
+  // Tablesorter styles
+  table {
+    th {
+      &.sort-header {
+        cursor: pointer;
+
+        &::-moz-selection,
+        &::selection {
+          background: transparent;
+        }
+
+        .sorter {
+          border-top: 2px solid #404040;
+          visibility: hidden;
+
+          .icon {
+            content: '';
+            width: 1px;
+            margin: 3px auto 7px auto;
+            border-width: 0 4px 4px;
+            border-style: solid;
+            border-color: #404040 transparent;
+          }
+        }
+
+        &:hover .sorter {
+          visibility: visible;
+        }
+      }
+
+      &[aria-sort="descending"] .sorter,
+      &[aria-sort="ascending"] .sorter,
+      &[aria-sort="ascending"]:hover .sorter {
+        visibility: visible;
+        opacity: 0.4;
+      }
+
+      &[aria-sort="descending"] .sorter .icon {
+        border-bottom: none;
+        border-width: 4px 4px 0;
+      }
+    }
+  }
+
+  /*
+  * larger-than-small-screen styles
+  * ~ defining some desktop-only styles here to avoid
+  * ~ writing extra mobile styles to undo them.
+  */
+  @media @screen-mobile-above {
+    table {
+      th, td {
+        padding: 10px;
+
+        // comment these two out if you want to highlight particular rows
+        &:first-child { padding-left: 0; }
+        &:last-child { padding-right: 0; }
+
+        &.amt { text-align: right; }
+        &.info { width: 60%; }
+      }
+
+      th {
+        border-bottom: 2px solid #eee;
+        padding-top: 0;
+      }
+
+      td { border-bottom: 1px solid #eee; }
+    }
+  }
+
+  /*
+  * small-screen styles
+  */
+  @media @screen-mobile {
+    tbody {
+      display: block;
+      width: 100%;
+    }
+
+    table {
+      thead { display: none; }
+
+      tr, th, td {
+        display: block;
+        padding: 0;
+        white-space: normal;
+      }
+
+      tr {
+        border-bottom: 1px solid #eee;
+        padding: 10px 0;
+
+        &:first-child { border-top: 1px solid #eee; }
+      }
+
+      td {
+        margin-bottom: 6px;
+
+        &:empty { display: none; }
+      }
+
+      tr td:first-child {
+        .knockout-header();
+        color: #333;
+        font-size: 14px;
+        margin-bottom: 3px;
+
+        &:before {
+          content: '';
+          display: none;
+        }
+      }
+
+      // th[data-title]:before,
+      // td[data-title]:before {
+      //   .knockout-header();
+      //   content: attr(data-title);
+      //   display: block;
+      //   color: #787878;
+      //   margin-bottom: 3px;
+      // }
+      //
+      // td[data-title].rating:before { display: none; }
+    }
+  }
+}

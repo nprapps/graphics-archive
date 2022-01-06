@@ -1,0 +1,38 @@
+<%= await t.include("_head-eligibility.html") %>
+
+<% if (COPY.labels.e_headline) { %>
+<h1><%= t.smarty(COPY.labels.e_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.e_subhed) { %>
+<h2><%= t.smarty(COPY.labels.e_subhed) %></h2>
+<% } %>
+
+<div id="stacked-bar-chart" class="graphic" role="img"
+<% if (COPY.labels.e_screenreader) { %>
+aria-label="<%- COPY.labels.e_screenreader %>"
+<% } %>
+>
+</div>
+
+<% if (COPY.labels.e_footnote) { %>
+<div class="footnotes">
+    
+    <p><strong>Notes: </strong><%= COPY.labels.e_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.e_source) { %><p>Source: <%= COPY.labels.e_source %></p><% } %>
+    <% if (COPY.labels.e_credit) { %><p>Credit: <%= COPY.labels.e_credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.data_eligibility) %>;
+    var LABELS = <%= JSON.stringify(COPY.labels) %>;
+    var ANNOTATIONS = <%= JSON.stringify(COPY.annotations) %>;
+</script>
+
+<script src="./eligibility.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

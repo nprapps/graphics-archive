@@ -1,0 +1,71 @@
+@import "./lib/base";
+
+.grouping {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 8px;
+  margin: auto;
+}
+
+.lines {
+  fill: @orange3;
+  stroke-width: 3px;
+  // stroke: #ccc;
+  opacity: .7;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: @orange2;
+}
+
+h3 {
+  font-size: 16px;
+  text-align: center;
+  margin: 24px 0 0;
+}
+
+h4 {
+  text-align: center;
+  margin: 0;
+}
+
+.show-all {
+  margin: 24px auto;
+  text-align: center;
+  background: transparent;
+  border: 1px solid black;
+  .knockout();
+  text-transform: uppercase;
+  cursor: pointer;
+  display: block;
+  padding: 8px 16px;
+
+  &:hover, &:focus {
+    background: fade(@orange3, 20%);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+
+  .all .grouping {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}

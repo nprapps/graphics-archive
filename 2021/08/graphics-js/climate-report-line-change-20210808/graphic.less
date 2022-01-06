@@ -1,0 +1,133 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  // stroke-dasharray: 6px 3px;
+  stroke: #ccc;
+
+  .historical {
+    stroke-width: 3px;
+    stroke-dasharray: none;
+  }
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  // fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}
+
+.end-circles {
+  stroke-width: 1px;
+  stroke: #fff;
+}
+
+.recession {
+  fill: rgba(235, 235, 235, 0.5);
+}
+
+.chart-line {
+  stroke-width: 1px;
+  stroke: #aaa;
+  stroke-dasharray: 2;
+}
+
+.chart-label {
+  fill: #666;
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  stroke: #fff;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-opacity: 0.7;
+  paint-order: stroke fill;
+
+  @media screen and (max-width: 500px) {
+    font-size: 10px;
+  }
+}
+
+.map-container {
+  width: 33.3%;
+  min-height: 100px;
+  float: left;
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
+
+  h4 {
+    .knockout-header();
+    text-align: center;
+  }
+}
+
+.map-key {
+  width: 100%;
+  text-align: center;
+
+  &.mobile {
+    display: none;
+    @media screen and (max-width: 500px) {
+      display: block;
+    }
+  }
+
+  &.desktop {
+    padding-top: 20px;
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
+  }
+
+  img {
+    max-width: 350px;
+  }
+}
+
+// #maps {
+//   border-top: 1px solid #ccc;
+//   padding-top: 20px;
+// }
+
+.body {
+  padding-bottom: 0;
+}
+.map-body {
+  padding: 0;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+b.line-key {
+  border-radius: 50%;
+  background-color: #666;
+  height: 5px;
+  width: 5px;
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 2px;
+}

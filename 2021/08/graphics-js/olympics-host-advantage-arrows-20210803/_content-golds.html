@@ -1,0 +1,36 @@
+<% if (COPY.labels.g_headline) { %>
+<h1><%= t.smarty(COPY.labels.g_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.g_subhed) { %>
+<h2><%= t.smarty(COPY.labels.g_subhed) %></h2>
+<% } %>
+
+<div id="dumbbell-chart" class="graphic" role="img"
+  <% if (COPY.labels.g_screenreader) { %>
+  aria-label="<%- COPY.labels.g_screenreader %>"
+  <% } %>
+>
+</div>
+
+<% if (COPY.labels.g_footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.g_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.g_source) { %><p>Source: <%= COPY.labels.g_source %></p><% } %>
+  <% if (COPY.labels.g_credit) { %><p>Credit: <%= COPY.labels.g_credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.data_golds) %>;
+  var LEGEND = <%= JSON.stringify(COPY.legend) %>;
+  var axisLabel = "<%= COPY.labels.axisLabel %>";
+  var legendLabel1 = "<%= COPY.labels.legendLabel1 %>";
+  var legendLabel2 = "<%= COPY.labels.legendLabel2 %>";
+  var legendLabelMaster = "<%= COPY.labels.g_legendLabelMaster %>";
+  var max = "<%= COPY.labels.g_max %>";
+</script>

@@ -1,0 +1,162 @@
+@import "./lib/base";
+
+@link-blue: #4774CC;
+
+#filters {
+  // .mmedia-constrained-centered();
+  text-align: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 33px;
+
+  input[type=checkbox] {
+    .sr-only();
+  }
+
+  label {
+    .gotham();
+    font-size: 12px;
+    padding: 6px 11px;
+    margin: 0 2px 5px 2px;
+    display: inline-block;
+    background-color: #f1f1f1;
+    border: 1px solid #eee;
+    color: @link-blue;
+    user-select: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  input[type=checkbox]:checked + label {
+    background-color: @link-blue;
+    border-color: @link-blue;
+    color: #fff;
+
+    &[for="genre_all"],
+    &[for="network_all"] {
+      // border-color: #666;
+      // border-width: 2px;
+    }
+  }
+
+  h3 {
+    font-size: 13px;
+    margin-bottom: 11px;
+  }
+
+  .genre {
+    margin-bottom: 22px;
+  }
+}
+
+#filterStatus {
+  &:empty { display: none; }
+
+  .gotham();
+  font-style: italic;
+  font-size: 13px;
+  margin-top: 22px;
+  color: #666;
+}
+
+#reviews {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @media @screen-medium-above {
+    justify-content: center;
+  }
+}
+
+.review {
+  color: #333;
+  padding: 15px;
+  margin-bottom: 11px;
+  // border: 1px solid #dadada;
+  background-color: #f1f1f1;
+  width: 100%;
+
+  @media @screen-mobile-above {
+    width: calc(50% - 6px);
+  }
+  @media @screen-medium-above {
+    width: calc(33% - 10px);
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    > li {
+      margin: 0;
+      padding: 0;
+      font-size: 13px;
+      color: #787878;
+    }
+
+    &.meta {
+      list-style-type: none;
+    }
+
+    &.related {
+      list-style-type: square;
+      margin-bottom: 22px;
+
+      > li {
+        margin-left: 1.2em;
+      }
+    }
+  }
+
+  cite {
+    // display: block;
+    color: #787878;
+    // font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .credit {
+    font-style: italic;
+    margin: 3px 0 0 0;
+    font-size: 11px;
+    color: #787878;
+    line-height: 1.4;
+  }
+
+  .caption {
+    margin: 3px 0 0 0;
+    font-size: 12px;
+    color: #787878;
+  }
+
+  .photo {
+    margin-bottom: 22px;
+  }
+
+  .desc {
+    margin: 0 0 22px 0;
+    line-height: 1.5;
+  }
+}
+
+.footnotes,
+.footer {
+  .mmedia-constrained();
+}

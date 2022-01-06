@@ -1,0 +1,231 @@
+@import "./lib/base";
+
+h1 {
+  font-size: 18px;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 0px;
+  stroke: #ccc;
+}
+
+
+.key {
+  .disapprove {
+    b { background-color:@orange3; opacity:0.3; }
+  }
+  .approve {
+    b { background-color:@teal4; }
+  }  
+  .unsure {
+    b { background-color:#C0C0C0;opacity:0.3; }
+  }
+}
+
+.lines .line:first-of-type {
+
+  stroke-width:2px;
+  stroke: @teal2;
+
+}
+
+.areas  {
+  path#disapprove, path#unsure{
+    opacity:0;
+  }
+}
+
+
+.line .overall {
+  stroke-width:0px;
+}
+
+#current-rate {
+  // fill:#80808073;
+ // fill-opacity: 
+  stroke-width:0px;
+  stroke-dasharray: none;
+}
+
+.graphic {
+  // max-width: 1000px;
+}
+
+
+
+h4 {
+  color: #707070;
+  font-size: 16px;
+  font-family:'Gotham SSm', Helvetica, Arial, sans-serif;
+}
+
+.graphic-wrapper.overall {
+  width: 100%;
+  margin-top:10px;
+
+  svg {
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
+
+
+g.value text{
+  //font-weight:bold !important;
+  font-size: 12px !important;
+  // fill: #28556F !important;
+}
+
+
+  .overlay text {
+    stroke: #fff;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-opacity: 0.4;
+    paint-order: stroke fill;
+    -webkit-font-smoothing: antialiased;
+    font-weight:bold;
+    font-size:11px;
+    text-transform: uppercase;
+    letter-spacing:0.08em;
+    //fill:#808080;
+    font-style:italic;
+  }
+
+
+.value text {
+  //font-size: 12px;
+  font-weight: bold;
+  // fill: #AA6A21;//#808080;
+  fill: @teal2;
+  stroke: #fff;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-opacity: 0.7;
+    paint-order: stroke fill;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+@media screen and (min-width: 500px) {
+  .key {
+    display:none;
+  }
+}
+
+
+
+.state-title {
+  margin-left:40px;
+  margin-bottom:5px;
+  text-align: center;
+  .knockout-header();
+  font-size:14px;
+
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+  h4 {
+  font-size: 14px;
+  }
+  .state-title{
+    font-size:12px;
+    margin-left:25px;
+
+    &#democrat, &#black {
+      margin-left:40px;
+    }
+  }
+}
+
+
+
+.graphic-wrapper {
+  margin-top: 0px;
+}
+
+h1, h2, .graphic,.footnotes,.footer {
+  // .mmedia-constrained()
+}
+
+#area-chart {
+  #party-charts, #race-charts{
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-end;
+  }
+    }
+// .graphic-wrapper:nth-child(1),.graphic-wrapper:nth-child(2),.graphic-wrapper:nth-child(3) {
+//   border-bottom:1px solid #a9a9a9;
+// }
+
+// .graphic-wrapper:nth-child(4),.graphic-wrapper:nth-child(5),.graphic-wrapper:nth-child(6) {
+//   margin-top:60px;
+// }
+
+#race-charts {
+  //border-bottom:2px solid #a9a9a973;
+  margin-bottom:30px;
+  max-width:600px;
+}
+
+#party-charts {
+  max-width:600px;
+}
+// .graphic-wrapper:nth-child(1) {
+//     -webkit-order: 0;
+//     -ms-flex-order: 0;
+//     order: 0;
+//     -webkit-flex: 0 1 auto;
+//     -ms-flex: 0 1 auto;
+//     flex: 0 1 auto;
+//     -webkit-align-self: auto;
+//     -ms-flex-item-align: auto;
+//     align-self: auto;
+//     }
+
+// .graphic-wrapper:nth-child(2) {
+//     -webkit-order: 0;
+//     -ms-flex-order: 0;
+//     order: 0;
+//     -webkit-flex: 0 1 auto;
+//     -ms-flex: 0 1 auto;
+//     flex: 0 1 auto;
+//     -webkit-align-self: auto;
+//     -ms-flex-item-align: auto;
+//     align-self: auto;
+//     }
+
+
+// .graphic-wrapper:nth-child(2) {
+//     -webkit-order: 0;
+//     -ms-flex-order: 0;
+//     order: 0;
+//     -webkit-flex: 0 1 auto;
+//     -ms-flex: 0 1 auto;
+//     flex: 0 1 auto;
+//     -webkit-align-self: auto;
+//     -ms-flex-item-align: auto;
+//     align-self: auto;
+//     }

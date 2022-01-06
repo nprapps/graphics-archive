@@ -1,0 +1,70 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<!-- <ul class="key">
+    <li class="key-item approve">
+      <b></b>
+      <label>Approve</label>
+    </li>   
+    <li class="key-item disapprove">
+      <b></b>
+      <label>Disapprove</label>
+    </li>     
+    <li class="key-item unsure">
+      <b></b>
+      <label>Unsure</label>
+    </li>
+  </ul> -->
+
+
+
+
+<div id="area-chart" role="img">
+  <!-- <% if (COPY.labels.race_responses) { %> -->
+    <!-- <h4 id="race-label"><%= t.smarty(COPY.labels.race_responses) %></h4> -->
+  <!-- <% } %> -->
+    <div id="party-charts" class="graphic" >
+      <img src="fallback.png" alt="" class="fallback" />
+    </div>
+  
+  <% if (COPY.labels.screenreader) { %>
+    aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+
+  
+</div>
+
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA_OVERALL = <%= JSON.stringify(COPY.data_overall) %>;
+  var DATA_WHITE = <%= JSON.stringify(COPY.data_white) %>;
+  var DATA_BLACK = <%= JSON.stringify(COPY.data_black) %>;
+  var DATA_LATINO = <%= JSON.stringify(COPY.data_latino) %>;
+  var DATA_REPUBLICAN = <%= JSON.stringify(COPY.data_gop) %>;
+  var DATA_DEMOCRAT = <%= JSON.stringify(COPY.data_dem) %>;
+  var DATA_INDEPENDENT = <%= JSON.stringify(COPY.data_ind) %>;
+</script>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

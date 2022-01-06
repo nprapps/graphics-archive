@@ -1,0 +1,75 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<svg class="defs" style="position: absolute; left: -1000px;">
+  <pattern id="inner-stripes"
+    class="stripes"
+    width="10" height="10"
+    patternUnits="userSpaceOnUse"
+    patternTransform="rotate(45)"
+  >
+    <path
+      d="M5,0L5,10"
+      stroke="rgba(255, 255, 255, .5)"
+      stroke-width="5"
+    ></path>
+  </pattern>
+  <pattern id="outer-stripes"
+    class="stripes"
+    width="10" height="10"
+    patternUnits="userSpaceOnUse"
+    patternTransform="rotate(45)"
+  >
+    <path
+      d="M5,0L5,10"
+      stroke="rgba(255, 255, 255, .8)"
+      stroke-width="5"
+    ></path>
+    <path
+      d="M0,0L0,10"
+      stroke="rgba(255, 255, 255, .6)"
+      stroke-width="5"
+    ></path>
+    <path
+      d="M10,0L10,10"
+      stroke="rgba(255, 255, 255, .6)"
+      stroke-width="5"
+    ></path>
+  </pattern>
+</svg>
+<div id="bar-chart" class="moe graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+<img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.data) %>;
+  var PAST = <%= JSON.stringify(COPY.past) %>;
+  var PRESENT = <%= JSON.stringify(COPY.present) %>;
+</script>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

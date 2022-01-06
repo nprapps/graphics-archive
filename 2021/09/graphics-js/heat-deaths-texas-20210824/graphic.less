@@ -1,0 +1,206 @@
+@import "./lib/base";
+
+h1,
+h2 {
+  //   max-width: 650px;
+  //   width: 100%;
+  //   margin-left: auto;
+  //   margin-right: auto;
+  // .mmedia-constrained-centered();
+}
+
+.footer,
+.footnotes {
+  // .mmedia-constrained();
+}
+
+#left-block-histogram {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+sup {
+  line-height: 0;
+}
+
+// h3 {
+//   text-align: center;
+// }
+
+.key-wrap {
+  .key {
+    margin: 5px 0 20px 0;
+    padding: 0;
+    list-style-type: none;
+
+    .key-item {
+      display: inline-block;
+      margin: 0 18px 0 0;
+      padding: 0;
+      line-height: 15px;
+    }
+    .key-item b {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-right: 6px;
+      //float: left;
+    }
+    .key-item label {
+      white-space: nowrap;
+      font-size: 12px;
+      color: #666;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+
+      @media @screen-mobile {
+        font-size: 11px;
+      }
+    }
+  }
+
+  // Numeric scale style
+  &.numeric-scale {
+    --block-width: 40px;
+
+    @media @screen-mobile-above {
+      --block-width: 45px;
+    }
+
+    width: 100%;
+    text-align: center;
+
+    h3 {
+      margin-bottom: 5px;
+      margin: 0 auto;
+      max-width: 400px;
+      @media @screen-mobile {
+        max-width: 270px;
+      }
+      text-align: center;
+    }
+
+    .key {
+      .key-item {
+        margin: 0 1px 0 0;
+        position: relative;
+      }
+
+      .key-item b {
+        width: var(--block-width);
+        height: 10px;
+        margin-right: 0;
+      }
+
+      .key-item label {
+        position: absolute;
+        bottom: -20px;
+        left: -50%;
+        text-align: center;
+        width: var(--block-width);
+
+        @media @screen-mobile {
+          bottom: -18px;
+        }
+
+        &.end-label {
+          left: auto;
+          right: -50%;
+        }
+      }
+    }
+  }
+}
+
+.label-top {
+  font-style: italic;
+  fill: #555;
+  font-size: 11px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.value text {
+  fill: #fff;
+  font-size: 12px;
+  font-family: "Knockout 31 4r", Helvetica, Arial, sans-serif;
+  text-anchor: middle;
+  -webkit-font-smoothing: antialiased;
+}
+
+.graphic {
+  width: 100%;
+  float: left;
+  margin-right: 10%;
+}
+
+.graphic:last-of-type {
+  margin-right: 0px;
+}
+
+line.axis-0 {
+  stroke: #999;
+  stroke-width: 1px;
+}
+
+.bin rect {
+  // fill: @red3;
+}
+
+// .key-item b {
+//   background: @red3;
+// }
+
+#right-block-histogram {
+  margin-top: 30px;
+}
+
+// .key .key-item b {
+//   width: 12px;
+//   height: 12px;
+// }
+
+// .key .key-item label {
+//   vertical-align: top;
+// }
+
+.highlight-tick {
+  stroke: #888 !important;
+}
+
+.graphic {
+  width: 100%;
+  margin-bottom: 14px;
+  margin-right: 0px;
+  float: none;
+}
+
+.grid .tick text {
+  fill: #555;
+  stroke: none;
+
+  &.shadow {
+    text-anchor: start;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 3;
+  }
+
+  &.label {
+    text-anchor: start;
+  }
+}
+
+.tick text {
+  font-size: 11px;
+
+  @media @screen-mobile {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .value text {
+    font-size: 10px;
+  }
+}

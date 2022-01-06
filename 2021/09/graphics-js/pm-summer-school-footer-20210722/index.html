@@ -1,0 +1,16 @@
+<%= await t.include("lib/_head.html") %>
+<% var season = 1 %>
+<% var data = COPY.data.filter(d => d.season == season); %>
+
+<footer>
+  <h1><a href="<%= COPY.labels.series_link %>"><%= COPY.labels["title_" + season] %></a></h1>
+
+  <div id="episode-list">
+    <%= await t.include("partials/_episodes.html", { data }) %>
+  </div>
+</footer>
+
+<script>window.SEASON = <%= season %>;</script>
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

@@ -1,0 +1,133 @@
+@import "./lib/base";
+
+.footer,
+.footnotes {
+  .mmedia-constrained();
+}
+
+.mmedia-constrained {
+  .mmedia-constrained();
+
+  &.center {
+    text-align: center;
+  }
+}
+
+.tick text {
+	text-anchor: middle;
+}
+
+.sub.graphic {
+	float: left;
+}
+
+.clearer {
+	clear: both;
+}
+
+svg {
+	overflow: visible;
+}
+
+.stroked(){
+	stroke: black;
+	stroke-width: 1px;
+}
+
+.bars rect, b {
+	opacity: 0.8;
+  min-width: 5px; 
+
+  &.alone {
+    fill: @orange3;
+    background-color: @orange3;
+  }
+
+	&.c0 {
+		fill: @orange3;
+		background-color: @orange3;
+	}
+
+	&.c1 {
+		fill: @teal3;
+		background-color: @teal3;
+	 }
+}
+
+.combination .hispanic-or-latino {
+  .bars rect, b {
+    fill: @teal3;
+    background-color: @teal3;
+  }
+}
+
+.key {
+	margin-bottom:22px;
+}
+
+.key-item.legend {
+	margin-right: 0px;
+}
+
+.key-item span {
+	display: inline-block;
+	border: 1px solid #666;
+	width: 10px;
+	height: 10px;
+	margin-bottom: -1px;
+}
+
+.graphic-wrapper {
+	h3 {
+		margin-bottom:-15px;
+		margin-left: 15px;
+		font-size: 15px;
+	}
+
+	h4 {
+
+		margin: 0px;
+		margin-top:15px;
+		margin-left: 15px;
+		margin-bottom:-15px;
+		// display: none;
+		font-weight: normal;
+		font-size: 13px;
+	}
+
+	margin-right: 8px;
+	margin-left: 8px;
+}
+
+@media @screen-mobile-above {
+  .graphic.alone,
+  .graphic.combination {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .graphic.sub {
+      float: none;
+      // max-width: 350px;
+    }
+  }
+}
+
+@media @screen-mobile {
+  h3, h4 {
+    // max-width: 150px;
+  }
+
+  .graphic {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .graphic.sub {
+    float: left;
+    max-width: 150px;
+  }
+}

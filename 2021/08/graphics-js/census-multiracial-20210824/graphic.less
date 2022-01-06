@@ -1,0 +1,319 @@
+@import "./lib/base";
+
+// Base table styles
+table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+
+  tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+
+  .state-united-states {
+    border-top: 2px solid #a9a9a9;
+  }
+
+  th {
+    .knockout-header();
+    // line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+    line-height: 20px;
+  }
+
+  td {
+    vertical-align: top;
+    line-height: 20px;
+  }
+
+  td.light {
+    color: white;
+    text-align: right;
+  }
+}
+
+// Tablesorter styles
+table {
+  table-layout: fixed;
+  th {
+    &.sort-header {
+      cursor: pointer;
+
+      &::-moz-selection,
+      &::selection {
+        background: transparent;
+      }
+
+      .sorter {
+        border-top: 2px solid #404040;
+        visibility: hidden;
+
+        .icon {
+          content: "";
+          width: 1px;
+          margin: 3px auto 7px auto;
+          border-width: 0 4px 4px;
+          border-style: solid;
+          border-color: #404040 transparent;
+        }
+      }
+
+      &:hover .sorter {
+        visibility: visible;
+      }
+    }
+
+    &[aria-sort="descending"] .sorter,
+    &[aria-sort="ascending"] .sorter,
+    &[aria-sort="ascending"]:hover .sorter {
+      visibility: visible;
+      opacity: 0.4;
+    }
+
+    &[aria-sort="descending"] .sorter .icon {
+      border-bottom: none;
+      border-width: 4px 4px 0;
+    }
+  }
+}
+
+/*
+* larger-than-small-screen styles
+* ~ defining some desktop-only styles here to avoid
+* ~ writing extra mobile styles to undo them.
+*/
+@media @screen-mobile-above {
+  span.mobile {
+    display: none;
+  }
+
+  span.desktop {
+    display: inline-block;
+  }
+  table {
+    th,
+    td {
+      padding: 10px;
+
+      // comment these two out if you want to highlight particular rows
+      &:first-child {
+        width: 40%;
+        padding-left: 0;
+      }
+      // &:last-child { padding-right: 0; }
+
+      &.amt {
+        text-align: right;
+        width: 15%;
+        &.main {
+          font-weight: bold;
+        }
+
+        &.year {
+          width: 15%;
+        }
+
+        &.difference {
+          width: 45%;
+        }
+      }
+    }
+
+    th {
+      border-bottom: 1px solid #eee;
+      padding-top: 0;
+
+      &.year {
+        width: 15%;
+      }
+    }
+
+    td {
+      border-bottom: 1px solid #eee;
+    }
+  }
+}
+
+div.header.amt {
+  text-align: right;
+}
+
+/*
+* small-screen styles
+*/
+@media @screen-mobile {
+  span.mobile {
+    display: inline-block;
+  }
+
+  span.desktop {
+    display: none;
+  }
+
+  .hide-for-mobile {
+    display: none;
+  }
+
+  .show-for-mobile {
+    display: inline;
+  }
+
+  td:first-child,
+  th:first-child {
+    width: 35%;
+    padding-left: 0px;
+    line-height: 20px;
+  }
+
+  // tbody {
+  //   display: block;
+  //   width: 100%;
+  // }
+  //
+  table {
+    // thead { display: none; }
+    //
+    .header {
+      text-align: center;
+    }
+
+    .header.main {
+      font-weight: bold;
+      text-align: left;
+    }
+    //
+    tr {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+
+      // &:first-child { border-top: 1px solid #eee; }
+    }
+
+    td {
+      // margin-bottom: 6px;
+      //
+      // &:empty { display: none; }
+      padding: 3% 2%;
+      line-height: 20px;
+      &.amt {
+        width: 15%;
+        text-align: right;
+        &.main {
+          font-weight: bold;
+        }
+
+        &.year {
+          width: 15%;
+        }
+
+        &.difference {
+          width: 40%;
+        }
+      }
+    }
+
+    th.amt {
+      padding-top: 2%;
+      padding-bottom: 2%;
+      padding-right: 3%;
+      text-align: right;
+      width: 15%;
+
+      &.difference {
+        width: 25%;
+      }
+
+      &.year {
+        width: 15%;
+      }
+    }
+
+    th {
+      padding-bottom: 2%;
+    }
+
+    //
+    //   tr td:first-child {
+    //     .knockout-header();
+    //     color: #333;
+    //     font-size: 14px;
+    //     margin-bottom: 6px;
+    //
+    //     &:before {
+    //       content: '';
+    //       display: none;
+    //     }
+    //   }
+    //
+    //   th[data-title]:before,
+    //   td[data-title]:before {
+    //     content: attr(data-title) ":\00A0";
+    //     display: inline-block;
+    //     margin-right: 10px;
+    //     width: 70%;
+    //   }
+  }
+}
+
+h3 {
+  margin: 15px 0 5px 0;
+}
+
+.main {
+  font-weight: bold;
+}
+
+.state-immigration {
+  background-color: #eee;
+}
+
+span.arrow {
+  margin-left: 5px;
+  font-weight: bold;
+  font-size: 20px;
+
+  @media @screen-mobile {
+    margin-left: 2px;
+    font-size: 18px;
+  }
+}
+
+th,
+td {
+  &.year {
+    width: 15%;
+  }
+
+  &.category {
+    width: 40%;
+  }
+}
+
+.graphic.raw {
+  @media @screen-mobile {
+    td, th {
+      &.difference {
+        width: 40%;
+      }
+    }
+  }
+  @media @screen-mobile-above {
+    td, th {
+      &.difference {
+        width: 30%;
+      }
+    }
+  }
+}
+
+span.desktop {
+  display: inline-block;
+  @media @screen-mobile {
+    display: none;
+  }
+}
