@@ -1,0 +1,81 @@
+@import "base";
+
+.wrapper {
+  .mmedia-constrained();
+}
+
+.bottom {
+  display: none;
+}
+
+.grid .tick {
+  stroke: #ccc;
+}
+
+.subhed-label {
+  padding: 2px;
+  border-radius: 3px;
+  color: white;
+
+  &.increase {
+    background-color: @teal3;
+  }
+
+  &.decrease {
+    background-color: @orange3;
+  }
+
+  &.same {
+    background-color: #a9a9a9; 
+  }
+}
+
+// text.white, text.black {
+//   font-weight: bold;
+// }
+
+.axis {
+    fill: #666;
+    font-weight: bold;
+    font-size: 12px;
+
+    path { display: none; }
+}
+
+.lines line {
+    stroke-width: 3px;
+    stroke: #ddd;
+    shape-rendering: auto;
+}
+
+.dots circle {
+    fill: #ddd;
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.value text {
+    font-size: 11px;
+    fill: #333;
+}
+
+.label text {
+    font-size: 11px;
+    fill: #333;
+}
+
+@media @screen-mobile-above {
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  header {
+    width: 50%;
+  }
+
+  .graphic {
+    width: 48%;
+  }
+}

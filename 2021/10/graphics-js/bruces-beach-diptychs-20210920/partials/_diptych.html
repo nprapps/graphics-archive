@@ -1,0 +1,38 @@
+<% COPY.data.forEach(function(portrait) { %>
+<div class="portrait-block">
+  <div class="row side-by-side">
+    <div class="image-container">
+      <% [ "visual1", "visual2" ].forEach(function(v) { %>
+        <% if (portrait[v + "_type"] == "photo") { %>
+          <div class="visual img">
+            <img src="./synced/<%= portrait[v + "_filename"] %>" alt="">
+          </div>
+        <% } %>
+        <% if (portrait[v + "_type"] == "video") { %>
+          <div class="visual vid">
+            <video autoplay muted playsinline loop class="player">
+              <source src="./synced/<%= portrait[v + "_filename"] %>" type="video/mp4">
+            </video>
+          </div>
+        <% } %>
+      <% }); %>
+    </div>
+
+    <div class="caption">
+        <% if (portrait.caption) { %>
+          <p><%= t.smarty(portrait.caption) %></p>
+        <% } %>
+        <% if (portrait.credit) { %>
+          <p class="credit">Credit: <%= t.smarty(portrait.credit) %></p>
+        <% } %>
+        <% if (COPY.labels.toggle_prompt) { %>
+          <p class="prompt"><%= COPY.labels.toggle_prompt %></p>
+        <% } %>
+    </div>
+
+  </div>
+  <% if (COPY.data.length > 1) { %>
+  <hr>
+  <% } %>
+</div>
+<% }) %>

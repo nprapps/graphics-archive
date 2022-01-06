@@ -1,0 +1,56 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.chart-label, .chart-label-title {
+    fill: #666;
+    font-style: italic;
+    font-size: 11px;
+    text-anchor: middle;
+    letter-spacing: .3px;
+    stroke: #fff;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-opacity: 0.7;
+    paint-order: stroke fill;
+    -webkit-font-smoothing: antialiased;
+  }
+
+    .chart-label-title {
+      font-style: normal;
+    letter-spacing: normal;
+  text-anchor: start;
+  fill: #555;
+  stroke-width: 7px;
+  // font-weight: bold;
+
+} 
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    // display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}

@@ -1,0 +1,76 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size:11px;
+  font-weight:bold;
+  fill: #999;
+}
+
+.axis-special {
+  font-size: 11px;
+  -webkit-font-smoothing: antialiased;
+  fill: #666;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}
+
+.china {
+  color:@orange3;
+}
+
+.us {
+  color:@red3;
+}
+
+
+.eu {
+  color:@orange2;
+}
+
+.small {
+   color:@blue4;
+}
+
+.africa {
+ 
+  color:@blue2;
+}
+
+
+.graphic {
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+}
+
+h1, h2, .key {
+  .mmedia-constrained-centered();
+}
+
+.footer, .footnotes {
+  .mmedia-constrained();
+}
+ 

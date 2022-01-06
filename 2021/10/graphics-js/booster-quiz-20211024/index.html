@@ -1,0 +1,77 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+
+<!-- QUIZ -->
+<div id="quiz" class="graphic">
+  <% COPY.quiz.forEach(function(row, idx) { %>
+  <div class="question-wrapper" data-question="<%= row.number %>" style="z-index: <%= ((COPY.quiz.length - idx) * 10) %>">
+    <%
+      var skipToAnswer = false;
+      if (row["option_1"] === "skipToAnswer") {
+        skipToAnswer = true;
+      }
+    %>
+    <div class="question <% if (skipToAnswer) { %>skip-to-answer<% } %>">
+      <!-- THE QUESTION -->
+      <div class="q">
+        <p><%= t.smarty(row.question) %></p>
+      </div>
+
+      <!-- POSSIBLE ANSWERS -->
+      <div class="a">
+        <ul>
+          <%
+            for (var i = 1; i <=3; i++) {
+              if (row["option_" + i] !== "None") {
+          %>
+
+          <li data-answer="<%= i %>" data-next="<%= row["next_" + i] %>" data-content="<%= row["option_" + i] %>" <% if (skipToAnswer) { %>class="selected"<% } %>>
+            <% if (!skipToAnswer) { %>
+              <strong><%= t.smarty(row["option_" + i]) %></strong>
+            <% } %>
+            <% if (row["answer_" + i]) { %>
+              <p class="answer">
+                <%= t.smarty(row["answer_" + i]) %>
+              </p>
+            <% } %>
+          </li>
+
+          <% }
+            }
+          %>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+</div>
+
+<div id="post-quiz">
+  <button class="reset">Start Over</button>
+</div>
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

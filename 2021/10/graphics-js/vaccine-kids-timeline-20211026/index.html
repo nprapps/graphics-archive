@@ -1,0 +1,60 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="flow-graphic">
+  <table role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader" class="step">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_step %></div>
+        </th>
+        <th role="columnheader" class="indicator">&nbsp;</th>
+        <th role="columnheader" class="pfizer vaccine">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_pfizer %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY.data.forEach(function(row) { %>
+      <tr role="row" class="<%= t.classify(row.step) %>">
+        <td role="cell" class="step" data-title="<%= COPY.labels.hdr_step %>">
+          <h4><%= row.step %></h4>
+          <p><%= t.smarty(row.step_desc) %></p>
+        </td>
+        <td role="cell" class="indicator <%= t.classify(row.pfizer_status) %>"><b></b></td>
+        <td role="cell" class="pfizer vaccine <%= t.classify(row.pfizer_status) %>" data-title="<%= COPY.labels.hdr_pfizer %>">
+          <span class="desc"><%= t.smarty(row.pfizer_desc) %></span>
+        </td>
+      </tr>
+    <% }); %>
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <p><strong>Note:</strong> <%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

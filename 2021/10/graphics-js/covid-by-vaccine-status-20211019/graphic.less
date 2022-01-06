@@ -1,0 +1,123 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+
+.graphic-wrapper.top-level {
+    width: 50%;
+    float: left;
+    /*margin-right: 2%;*/
+
+    &.one-liner {
+      width: 100%;
+    }
+}
+
+.key, h3 {
+  text-align: center;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+.key .key-item {
+  b {
+    display: inline-block;
+    width: 30px;
+    height: 3px;
+    margin-right: 6px;
+    float: left;
+    margin-top: 5px;
+    border: 2px solid black;
+    border-color: @teal4;
+  }
+  
+  &.elderly {
+    b {
+      border-color: @orange4;
+    }
+  }
+}
+
+.key .key-item label {
+  white-space: unset;
+}
+
+.label_unvaxxed b {
+  border-style: dashed !important;
+}
+
+.label_vaxxed b {
+  border-style: solid;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.line.unvaxxed, .line.unvaxxed_elderly {
+  stroke-dasharray: 10px 2px;
+}
+
+circle {
+  display: none;
+}
+
+circle:last-child {
+  display: block;
+}
+
+.value text {
+  .knockout();
+
+  fill: #333 !important;
+  font-weight: bold;
+  font-size: 14px;
+
+  &.unvaxxed, &.vaxxed { 
+    fill: @teal4 !important;
+  }
+
+  &.unvaxxed_elderly, &.vaxxed_elderly { 
+    fill: @orange4 !important;
+  }
+}
+
+.note-lines-inner {
+  stroke: #000;
+  fill: transparent;
+  stroke-width:1px;
+}
+
+
+.annote {
+  .knockout();
+
+  font-size: 13px;    
+  fill: #333;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 12px;
+  }
+
+  .graphic-wrapper.top-level {
+    width: 100%;  
+  }
+}
+
+@media screen and (min-width: 500px) {
+  
+}

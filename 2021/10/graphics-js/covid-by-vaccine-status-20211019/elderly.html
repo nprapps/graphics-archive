@@ -1,0 +1,60 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.elderly_headline) { %>
+<h1><%= t.smarty(COPY.labels.elderly_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.elderly_subhed) { %>
+<h2><%= t.smarty(COPY.labels.elderly_subhed) %></h2>
+<% } %>
+
+<ul class="key">
+  <li class="key-item label_vaxxed elderly">
+    <b></b>
+    <label><%= t.smarty(COPY.labels.elderly_label_vaxxed) %></label>
+  </li>
+  <li class="key-item label_unvaxxed elderly">
+    <b></b>
+    <label><%= t.smarty(COPY.labels.elderly_label_unvaxxed) %></label>
+  </li>
+  <li class="key-item label_vaxxed overall">
+    <b></b>
+    <label><%= t.smarty(COPY.labels.label_vaxxed) %></label>
+  </li>
+  <li class="key-item label_unvaxxed overall">
+    <b></b>
+    <label><%= t.smarty(COPY.labels.label_unvaxxed) %></label>
+  </li>
+</ul>
+
+<div class='graphic-wrapper top-level one-liner'>
+  <h3 class='graphic-title'><%= t.smarty(COPY.labels.elderly_chart) %></h3>
+  <div id="line-chart1" class="graphic" role="img"
+  <% if (COPY.labels.elderly_screenreader) { %>
+  aria-label="<%- COPY.labels.elderly_screenreader %>"
+  <% } %>
+  ></div>
+</div>
+
+<div class='clearfix'></div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.data_elderly) %>;
+  var LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>
+
+<script src="./graphic_elderly.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

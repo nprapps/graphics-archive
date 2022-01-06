@@ -1,0 +1,92 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+
+.graphic-wrapper.top-level {
+    width: 50%;
+    float: left;
+    /*margin-right: 2%;*/
+
+    &.one-liner {
+      width: 100%;
+    }
+}
+
+.key, h3 {
+  text-align: center;
+}
+
+.clearfix {
+  clear: both;
+}
+
+circle {
+  display: none;
+}
+
+circle:last-child {
+  display: block;
+}
+
+path.gas {
+  stroke: @orange3 !important;
+}
+
+.gas circle {
+  fill: @orange3 !important;
+}
+
+.value text {
+  // .knockout();
+
+  fill: #333 !important;
+  font-weight: bold;
+  font-size: 12px;
+
+  &.unvaxxed, &.vaxxed { 
+    fill: @teal4 !important;
+  }
+
+  &.unvaxxed_elderly, &.vaxxed_elderly { 
+    fill: @orange4 !important;
+  }
+}
+
+.note-lines-inner {
+  stroke: #000;
+  fill: transparent;
+  stroke-width:1px;
+}
+
+
+.annote {
+  .knockout();
+
+  font-size: 13px;    
+  fill: #333;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 12px;
+  }
+
+  .graphic-wrapper.top-level {
+    width: 100%;  
+  }
+}
+
+@media screen and (min-width: 500px) {
+  
+}

@@ -1,0 +1,79 @@
+@import "./lib/base";
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+.bars rect:first-child {
+
+}
+
+.labels li.overall {
+  //color: #808080;//black;
+  font-style: italic;
+}
+
+.value text {
+    fill: #fff;
+    font-size: 12px;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.moe.graphic {
+  // .black,.latino,.white {
+  //   fill: @teal4;
+  // }
+
+  .fell-behind-a-lot {
+    fill: @orange5;
+  }  
+
+  .fell-behind-a-little-bit {
+    fill: @orange5;
+  }
+
+  .didnt-fall-behind {  
+    fill: #BEBEBE;
+    //color: #BEBEBE;
+  }
+
+  rect.moe.inner {
+    fill: url(#inner-stripes);
+  }
+
+  rect.moe.outer {
+    fill: url(#outer-stripes);
+  }
+
+  line.moe {
+    stroke: currentColor;
+    stroke-width: 3px;
+  }
+
+    .value text {
+    font-size: 12px;
+    // font-weight: bold;    
+    fill:#666;    
+    text-anchor: left;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+
+  text.in {
+    fill: black;
+    stroke: #FFF8;
+    paint-order: stroke fill;
+  }
+
+  text.out {
+    fill: black;
+    stroke: white;
+    paint-order: stroke fill;
+  }
+}
