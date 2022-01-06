@@ -1,0 +1,169 @@
+<% if (COPY.labels.t_headline) { %>
+<h1><%= t.smarty(COPY.labels.t_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.t_subhed) { %>
+<h2><%= t.smarty(COPY.labels.t_subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th class="identifier county" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.t_county %></div>
+          <div class="header header-mobile"><%= COPY.labels.t_county %></div>
+        </th>
+        <th class="identifier state" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.t_state %></div>
+          <div class="header header-mobile"><%= COPY.labels.t_state %></div>
+        </th>
+
+        <th class="amt cases" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.t_cases %></div>
+          <div class="header header-mobile"><%= COPY.labels.t_cases %></div>
+        </th>
+        <th class="amt diff" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.t_diff %></div>
+          <div class="header header-mobile"><%= COPY.labels.t_diff %></div>
+        </th>
+        <th class="cat" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.t_status %></div>
+          <div class="header header-mobile"><%= COPY.labels.t_status %></div>
+        </th>
+        <th class="amt vax" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.t_vaccinated %></div>
+          <div class="header header-mobile"><%= COPY.labels.t_vaccinated %></div>
+        </th>
+
+      </tr>
+    </thead>
+
+    <%
+
+    var d3 = {
+      ...require("d3-axis/dist/d3-axis.min"),
+      ...require("d3-scale/dist/d3-scale.min"),
+      ...require("d3-selection/dist/d3-selection.min"),
+      ...require("d3-scale-chromatic/dist/d3-scale-chromatic.min"),
+    };
+
+    var { hotspotsColorScheme } = require("./util.js");
+
+    var scaleColorHotspot = d3
+      .scaleOrdinal()
+      .domain(["E", "H", "S"])
+      .range(hotspotsColorScheme);
+    var colorHotspot = function (d) {
+      return `color: ${scaleColorHotspot(d)}`;
+    };
+
+    // TODO: Replace what-who with original column
+    var vax = COPY.data_table.map(row => row.t_vaccinated).filter(d => !isNaN(d));
+    // var min = Math.min(...vaccinateds);
+    var max = Math.max(...vax);
+
+    var blues = ["#c2e1f4", "#84c3e8", "#5599c1", "#254f68"];
+    var scaleColorVaxx = d3
+      .scaleThreshold()
+      .domain([0.39, 0.46, 0.53])
+      .range(blues);
+
+    var color = function (vax) {
+      return isNaN(vax) ? `background-color: white` : `background-color: ${scaleColorVaxx(vax)}`;
+    };
+
+    var round = function(vax) {
+      return t.comma(Math.round(vax * 10000) / 100);
+    }
+
+    var dark = function (vax) {
+      return isNaN(vax) ? "default" : round(vax) >= 39 ? "light" : "dark";
+      // return vax > max / 2 ? "light" : "dark";
+    };
+
+    COPY.data_table.forEach(function(row, index) { %>
+    <tr class="" role="row">
+      <td class="identifier county" role="cell" data-sort="<%= row.t_county %>" data-title="<%= COPY.labels.t_county %>">
+        <%= row.t_county %>
+      </td>
+      <td class="identifier state" role="cell" data-sort="<%= row.t_state %>" data-title="<%= COPY.labels.t_state %>">
+        <%= row.t_state %>
+      </td>
+
+      <td
+        class="amt cases"
+        role="cell"
+        data-sort="<%= isNaN(row.t_cases) ? -1 : row.t_cases %>"
+        data-title="<%= COPY.labels.t_cases %>">
+        <% if (row.t_cases === "U") { %>
+          n/a
+        <% } else { %>
+          <%= Math.round(row.t_cases) %>
+        <% } %>
+      </td>
+
+      <td
+        class="amt diff"
+        role="cell"
+        data-sort="<%= isNaN(row.t_diff) ? -1 : row.t_diff %>"
+        data-title="<%= COPY.labels.t_cases %>"
+      >
+        <% if (row.t_diff === "U") { %>
+          n/a
+        <% } else { %>
+          <%= row.t_diff > 0 ? `+${round(row.t_diff)}%` : `${round(row.t_diff)}%`  %>
+          <span class="trend <%= row.t_trend %>">
+            <%= row.t_trend === "increasing" ? "▲" : "▼" %>
+          </span>
+        <% } %>
+      </td>
+
+      <td class="cat" role="cell" data-title="<%= COPY.labels.t_status %>">
+        <span
+          class="status"
+          style="<%= colorHotspot(row.t_status) %>"
+        >
+          <%= COPY.labels[row.t_status] %>
+        </span>
+      </td>
+      <td
+        class="amt vax <%= dark(row.t_vaccinated) %>"
+        role="cell"
+        data-sort="<%= isNaN(row.t_vaccinated) ? -1 : row.t_vaccinated %>"
+        data-title="<%= COPY.labels.t_vaccinated %>"
+        style="<%= color(row.t_vaccinated) %>">
+        <% if (row.t_vaccinated === "I") { %>
+          n/a
+        <% } else { %>
+          <%= `${round(row.t_vaccinated)}%` %>
+        <% } %>
+      </td>
+    </tr>
+    <% }) %>
+
+  </table>
+</div>
+<button class="toggle-table" data-more="<%= COPY.labels.toggle_more %>" data-less="<%= COPY.labels.toggle_less %>"><%= COPY.labels.toggle_more %></button>
+
+<% if (COPY.labels.t_footnote) { %>
+<div class="footnotes">
+  <p><strong>Notes: </strong><%= COPY.labels.t_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.t_source) { %>
+  <p>Source: <%= COPY.labels.t_source %></p>
+  <% } %>
+
+  <% if (COPY.labels.t_credit) { %>
+  <p>Credit: <%= COPY.labels.t_credit %></p>
+  <% } %>
+</div>

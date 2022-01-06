@@ -1,0 +1,39 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline_germany) { %>
+<h1><%= t.smarty(COPY.labels.headline_germany) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed_germany) { %>
+<h2><%= t.smarty(COPY.labels.subhed_germany) %></h2>
+<% } %>
+
+<div id="stacked-column-chart" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+</div>
+
+<% if (COPY.labels.footnote_germany) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote_germany %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = {
+    'germany': <%= JSON.stringify(COPY.data_germany) %>
+  };
+  var HEADERS = <%= JSON.stringify(COPY.headers) %>;
+</script>
+
+<script src="./single-country.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

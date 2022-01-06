@@ -1,0 +1,45 @@
+@import "./lib/base";
+
+.value text {
+    fill: #fff;
+
+    &.hidden {
+        display: none;
+    }
+
+    &.concept {
+        fill: #808080;
+        stroke: #fff;
+        stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-opacity: 0.7;
+  paint-order: stroke fill;
+  stroke-width: 3px;
+    }
+}
+
+li {
+    &.american,
+    &.european {
+        // margin: 0 0 15px 0;
+    font-family: 'Knockout 31 4r';
+    font-weight: normal;
+    text-transform: uppercase;
+    padding-top: 0;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    color: #333;
+    }
+}
+
+rect.concept {
+    fill: url(#inner-stripes) !important;
+}
+
+.key-item.concept {
+    b {
+        background: repeating-linear-gradient(-45deg, #c8c8c8,  #c8c8c8 4px, #fff 4px, #fff 8px);
+    }
+}

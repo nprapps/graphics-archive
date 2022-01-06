@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title><%= slug %></title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="robots" content="noindex" />
+  <base target="_blank">
+  <link rel="stylesheet" href="./tmp.css">
+  <script>window.GOOGLE_ANALYTICS_ID = "<%= config.analyticsID %>";</script>
+  <!-- start SYNC font -->
+  <script type="text/javascript" src="https://use.typekit.net/jqg7jec.js"></script>
+  <script type="text/javascript">try{Typekit.load({ async: true });}catch(e){}</script><style>
+  @font-face {
+    font-family: "PressuraLight";
+    src: url("/assets/GT-Pressura-Mono-Light-6eae597025e2787eee2470b786a35a9209399e6172d87f755955916347732113.woff") format("woff"),
+    url("/assets/GT-Pressura-Mono-Light-8e93667cd2005ccd7f119e8cb89b9674408d7f3abffeb67ca1c6fb28a936c425.ttf")  format("truetype"),
+    url("/assets/GT-Pressura-Mono-Light-da017fdefacab2c9e7f84ec68806f10f0f6c88c46fe9dda9afc0af6d07fde626.eot")  format("eot");
+  }
+  @font-face {
+    font-family: "GTPressuraMonoLight";
+    src: url("/assets/GT-Pressura-Mono-Light-6eae597025e2787eee2470b786a35a9209399e6172d87f755955916347732113.woff") format("woff"),
+    url("/assets/GT-Pressura-Mono-Light-8e93667cd2005ccd7f119e8cb89b9674408d7f3abffeb67ca1c6fb28a936c425.ttf")  format("truetype"),
+    url("/assets/GT-Pressura-Mono-Light-da017fdefacab2c9e7f84ec68806f10f0f6c88c46fe9dda9afc0af6d07fde626.eot")  format("eot");
+  }
+  @font-face {
+    font-family: "PressuraLightItalic";
+    src: url("/assets/GT-Pressura-Mono-Light-Italic-e5032d0bd6ed552c5b8a460ea86ff9bb11e512e161456beafccc1c3ad96d1ae1.woff") format("woff"),
+    url("/assets/GT-Pressura-Mono-Light-Italic-1cc437ec4e37fe08c9fc91a325fc80156fcea36c1f9961515d197f56469458bd.ttf")  format("truetype"),
+    url("/assets/GT-Pressura-Mono-Light-Italic-bad1ae66340796d8fde249ba9a36cfaa871e07fd26ba81093a8b28bc1eb41708.eot")  format("eot");
+  }
+  @font-face {
+    font-family: "Pressura";
+    src: url("/assets/GT-Pressura-Mono-Regular-ca5727edad1a1ecb36038fad8f519e263dc81704b476b6b4b0160d233c5f645a.woff") format("woff"),
+    url("/assets/GT-Pressura-Mono-Regular-27d81e03d069371c46a7ba28624099742300ddf5e90e3685c9818f721cd1313d.ttf") format("truetype"),
+    url("/assets/GT-Pressura-Mono-Regular-b99d76cc644ce2a7a6b20a0eaa802ed4f68704246d495524725e7f0bca429f6b.eot")  format("eot");
+  }
+  @font-face {
+    font-family: "GTPressuraMono";
+    src: url("/assets/GT-Pressura-Mono-Regular-ca5727edad1a1ecb36038fad8f519e263dc81704b476b6b4b0160d233c5f645a.woff") format("woff"),
+    url("/assets/GT-Pressura-Mono-Regular-27d81e03d069371c46a7ba28624099742300ddf5e90e3685c9818f721cd1313d.ttf") format("truetype"),
+    url("/assets/GT-Pressura-Mono-Regular-b99d76cc644ce2a7a6b20a0eaa802ed4f68704246d495524725e7f0bca429f6b.eot")  format("eot");
+  }
+  @font-face {
+    font-family: "PressuraItalic";
+    src: url("/assets/GT-Pressura-Mono-Regular-Italic-6c8f43e9ca4ffaf4194ca5d681f625cf36bbb22510db4acd8788c0df13707733.woff") format("woff"),
+    url("/assets/GT-Pressura-Mono-Regular-Italic-d3d1bd973ee4fabb1dca3f0fce0e62b1c28c35cc455243f7013659b60fa82816.ttf") format("truetype"),
+    url("/assets/GT-Pressura-Mono-Regular-Italic-0706effe10c9e1f323b14284d57cbc84b6518302fbb07a418b8418882a7fb07f.eot")  format("eot");
+  }
+  @font-face {
+    font-family: "PressuraBold";
+    src: url("/assets/GT-Pressura-Bold-699f37d8e889377cdcfaa63888f77fa15911fd8868bec66a97fd1597475f4619.woff") format("woff"),
+    url("/assets/GT-Pressura-Bold-2743619a739a6bde02256e1c71753699a9af8b3d1f1f7dc7d104ac373a2aa22a.woff2")  format("woff2"),
+    url("/assets/GT-Pressura-Bold-79932671f4cb20c29f9938d39d80165d2e87e734690f9de58f52cae97410f014.ttf")  format("truetype"),
+    url("/assets/GT-Pressura-Bold-05b0450a066afa278bade55ffb365cc74faceb14f3fef784d6ce79de90b085df.eot")  format("eot");
+  }
+  @font-face {
+    font-family: "Miller";
+    src: url("/assets/51c73f94-824c-4ef7-afa2-8b9f1573c336-3-84d3565b7df9015b88e7b5a85beabade61251a940a0411888620ce9c688a59ba.woff") format("woff"),
+    url("/assets/51c73f94-824c-4ef7-afa2-8b9f1573c336-1-3be303103baae901232e726a609b5346f594eace2a573d723836752e1890be40.ttf") format("truetype"),
+    url("/assets/51c73f94-824c-4ef7-afa2-8b9f1573c336-2-75642c5b71a6c91b8e29b9b89991c5bfaaea707df36618bfe2358b3f57a66f75.eot") format("eot");
+  }
+  @font-face {
+    font-family: "MillerBold";
+    src: url("/assets/e72a4c9d-ac2d-4477-9859-2fa8ecef8ee3-3-84cfb12bc44b55810b4d258e4c0ee7583186f9f796ffb7fd3fe503354e8f214c.woff") format("woff"),
+    url("/assets/e72a4c9d-ac2d-4477-9859-2fa8ecef8ee3-1-c9fcdb5bd1f3a7125dd0505a529523a7146a311c1765222490490ff66e179517.ttf") format("truetype"),
+    url("/assets/e72a4c9d-ac2d-4477-9859-2fa8ecef8ee3-2-6f5aa48193f13742c4634b890dd1749c3d236c74e4ba2400046cbcc1c32908d0.eot") format("eot");
+  }
+  @font-face {
+    font-family: "MillerItalic";
+    src: url("/assets/3ef8a749-0910-4ca2-ba14-c4a1070680aa-3-0568d1b549bca7fc91bff2edca163ab78eafe338d1d5d9ade400f189abf3599e.woff") format("woff"),
+    url("/assets/3ef8a749-0910-4ca2-ba14-c4a1070680aa-1-3311d932b2033df553be249860ac33f9eb2d2a08c03c664d312ac1cda2465ba9.ttf") format("truetype"),
+    url("/assets/3ef8a749-0910-4ca2-ba14-c4a1070680aa-2-a3e83ddfc63d6e940fcbd6f83592cd1fa9985290f747565482049e3d6b6f351f.eot") format("eot");
+  }
+  </style>
+  <!-- end SYNC font -->
+  <link rel="stylesheet" href="https://use.typekit.net/uol0rpy.css">
+</head>
+<body>

@@ -1,0 +1,106 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header main" ><%= COPY.labels.hdr_year %></div>
+          <div class="header main header-mobile" ><%= COPY.labels.hdr_year %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_winner %></div>
+          <div class="header header-mobile"><%= COPY.labels.hdr_winner %></div>
+        </th>
+        
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_pop_vote %></div>
+          <div class="header header-mobile"><%= COPY.labels.hdr_pop_vote %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_electoral_margin %></div>
+          <div class="header header-mobile"><%= COPY.labels.hdr_electoral_margin %></div>
+        </th>
+        
+      </tr>
+    </thead>
+
+    <%
+
+    var d3 = {
+      ...require("d3-axis/dist/d3-axis.min"),
+      ...require("d3-scale/dist/d3-scale.min"),
+      ...require("d3-selection/dist/d3-selection.min")
+    };
+
+    var scalePop = d3
+      .scaleLinear()
+      .domain([0, 10000000])
+      .range([0, 1]);
+
+    var scaleElectoral = d3
+      .scaleLinear()
+      .domain([0, 200])
+      .range([0, 1]);
+
+      var colorFunction = function(input, party, type) {
+        var baseColor = party == 'R' ? 'rgba(214, 31, 33' : 'rgba(35, 123, 189';
+        if (type == "pop_vote") {
+          return `background-color: ${baseColor}, ${scalePop(input)})`;
+        } else {
+          return `background-color: ${baseColor}, ${scaleElectoral(input)})`;
+        }
+      }
+
+      var darkFunction = function(input, type) {
+        if (type == 'pop_vote') return (input > 5000000) ? 'light' :'dark';
+        return (input > 100) ? 'light' :'dark';
+      }
+
+    COPY.data.forEach(function(row, index) { %>
+    <tr class="state-<%= t.classify(row.Winner) %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_year %>"><%= row.Year %></td>
+
+      <td  class="<%= 'amt party-' + row.Winner_party %> party" role="cell" data-title="<%= COPY.labels.hdr_winner %>" style="">
+          <%= row.Winner + ' (' + row.Winner_party + ')'%>    
+      </td>
+
+    <td  class="amt change <%= darkFunction(row.Pop_vote_margin, 'pop_vote') %>" role="cell" data-title="<%= COPY.labels.hdr_pop_vote %>" style=" <%= colorFunction(row.Pop_vote_margin, row.pop_vote_winner_party, 'pop_vote') %>">
+      <%= row.pop_vote_winner_party + ' +' + t.comma(row.Pop_vote_margin) %>    
+    </td>
+    <td  class="amt change <%= darkFunction(row.electoral_margin) %>" role="cell" data-title="<%= COPY.labels.hdr_electoral_margin %>" style=" <%= colorFunction(row.electoral_margin, row.Winner_party) %>">
+      <%= row.Winner_party + ' +' + row.electoral_margin %>    
+    </td>
+
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <p><strong>Notes: </strong><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

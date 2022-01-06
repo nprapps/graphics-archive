@@ -1,0 +1,93 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 2px;
+  stroke: #ccc;
+
+  .fire,
+  .all {
+    stroke-width: 4px;
+  }
+}
+
+.chart-label {
+  fill: #888;
+  font-style: italic;
+  font-size: 12px;
+
+  stroke: #fff;
+  stroke-width: 4px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-opacity: 0.7;
+  paint-order: stroke fill;
+  @media screen and (max-width: 500px) {
+    font-size: 10px;
+  }
+}
+
+.axis-special {
+  font-size: 11px;
+    -webkit-font-smoothing: antialiased;
+    fill: #555;
+}
+
+circle {
+  // fill: none;
+  // stroke-width: 1px;
+  stroke: #fff;
+  opacity: .8;
+}
+
+.line-nodata {
+  stroke-width: 1px;
+  stroke-dasharray: 6 2;
+  // stroke: #ccc;
+}
+
+.median-line {
+  stroke-width: 1px;
+  stroke: #aaa;
+  stroke-dasharray: 2;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  // fill: #999;
+
+  stroke: #fff;
+  stroke-width: 4px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-opacity: 0.7;
+  paint-order: stroke fill;
+
+  &.subtext {
+    // fill: #333;
+    font-weight: normal
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+
+  .key {
+    display: none;
+  }
+}

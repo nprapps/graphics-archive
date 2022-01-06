@@ -1,0 +1,43 @@
+<%= await t.include("lib/_head.html") %>
+
+
+<div id="" class="graphic">
+
+  <div class="initial">
+    <div class="header">
+      <% if (COPY.labels.headline) { %>
+      <h1><%= t.smarty(COPY.labels.headline) %></h1>
+      <% } %>
+
+      <% if (COPY.labels.subhed) { %>
+      <h2><%= t.smarty(COPY.labels.subhed) %></h2>
+      <% } %>
+    </div>
+
+    <div class="map">
+      <img src="synced/series-b.png" alt="">
+    </div>
+  </div>
+
+  <div class="grid">
+    <img src="synced/series-c.png" alt="">
+    <img src="synced/series-d.png" alt="">
+    <img src="synced/series-e.png" alt="">
+  </div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

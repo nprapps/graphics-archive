@@ -1,0 +1,61 @@
+@import "./lib/base";
+
+@nonmain: @orange3;
+@main: @teal4;
+
+.nonmain {
+  stroke: @nonmain;
+  fill: @nonmain;
+  b {
+    background-color: @nonmain;
+  }
+}
+
+.main {
+  stroke: @main;
+  fill: @main;
+  b {
+    background-color: @main;
+  }
+}
+
+.line {
+  path {
+    stroke-width: 3px;
+    fill: none;
+  }
+  circle {
+    stroke: #fff;
+  }
+}
+
+.label {
+  stroke: none;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+sup {
+  line-height: 0;
+}
+
+@media screen and (max-width: 500px) {
+  .line {
+    path {
+      stroke-width: 2px;
+    }
+  }
+
+  .label {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}

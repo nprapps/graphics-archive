@@ -1,0 +1,54 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+
+<% if (COPY.labels.subhed) { %>
+<h2 id="subhed"><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<% COPY.data_map.forEach(function(row) {
+    var state = COPY.fips.find(item => String(item.GEOID) == String(row.GEOID).slice(0,2)
+    );
+    var matchingDataState = COPY.counties.find(
+      item => (item.GEOID == row.GEOID && item.name == state.State)
+    );
+
+    row.state = state.ap;
+    row.state_abbr = state.Abbrv;
+    row.county = matchingDataState ? matchingDataState.NAMELSAD : "";
+});
+%>
+
+<div class="key-wrap" aria-hidden="true">
+    <div class="key"></div>
+</div>
+
+<div id="hotspots-wrapper" class="wrapper hotspots">
+  <div class="map-header"></div>
+
+  <div id="map-container" class="graphic" role="img" aria-label="Map of COVID hotposts as of July 1, 2021">
+    <div class="map">
+      <img src="fallback.png" class="fallback">
+    </div>
+  </div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+	var STATES = <%= JSON.stringify(COPY.states) %>;
+  var DATA = <%= JSON.stringify(COPY.data_map) %>;
+  var LABELS = <%= JSON.stringify(COPY.labels) %>;
+  var ANNOTATIONS = <%= JSON.stringify(COPY.map_annotations) %>;
+</script>

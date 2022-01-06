@@ -1,0 +1,121 @@
+@import "./lib/base";
+
+h1, h2 {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-bottom: 11px;
+}
+
+h2 {
+  margin-bottom: 22px;
+}
+
+.graphic {
+  max-width: 900px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.footer, .footnotes {
+  .mmedia-constrained();
+}
+
+.bars line {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #F5D1CA;
+}
+
+.dots circle {
+    stroke-width: 1px;
+    stroke: #fff;
+    /*fill: #D8472B;*/
+    opacity: .75;
+}
+
+.value text {
+    font-size: 11px;
+    fill: #999;
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}
+
+
+.xaxis-label {
+    text-align: center;
+    // .gotham();
+    color: #555;
+    font-size: 12px;
+}
+
+.yaxis-label {
+    text-anchor: end;
+    font-size: 11px;
+    fill: currentColor;
+}
+
+.text-labels text {
+    /*text-anchor: middle;*/
+    // .gotham();
+    fill: #333;
+    /*fill: white; */
+    font-size: 12px;
+    &.shadow {
+        display: none;
+
+        stroke: @orange2;
+        stroke-width: 3px;
+    }
+
+    @media @screen-mobile {
+      font-size: 11px;
+    }
+}
+
+circle {
+  &.south-asian {
+    fill: @teal4;
+  }
+
+  &.southeast-asian {
+    fill: @orange4;
+  }
+
+  &.east-asian {
+    fill: @red4;
+  }
+
+  &.pacific-islander {
+    fill: @blue4;
+  }
+}
+
+// .key {
+//   .mmedia-constrained-centered();
+//   margin-bottom: 11px;
+// }
+//
+// .southeast b {
+//   background: @orange5;
+// }
+//
+// .south b {
+//   background: @teal5;
+// }
+//
+// .east b {
+//   background: @red5;
+// }
+//
+// .pacific-islander b {
+//   background: @blue5;
+// }

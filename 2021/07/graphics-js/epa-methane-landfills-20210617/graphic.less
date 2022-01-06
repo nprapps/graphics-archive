@@ -1,0 +1,265 @@
+@import "./lib/base";
+
+body {
+  // CSS vars
+  --bar-height: 25px;
+  --padding-top: 5px;
+  --padding-sides: 5px;
+  --small: 0.8em;
+}
+
+h1,
+h2,
+.footnotes,
+.footer {
+  .mmedia-constrained();
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+.graphic {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  max-width: 900px;
+}
+
+// Base table styles
+table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+
+  tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+  }
+
+  td {
+    vertical-align: middle;
+
+    &.amt {
+      text-align: right;
+      position: relative;
+    }
+
+    .location {
+      font-size: var(--small);
+    }
+  }
+
+  .bar-wrapper {
+    position: absolute;
+    height: calc(var(--bar-height) + 2px);
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+
+    .bar {
+      display: block;
+      top: 0;
+      position: absolute;
+      width: 0%;
+      background-color: @teal3;
+      height: var(--bar-height);
+    }
+  }
+
+  .value {
+    font-size: 11px;
+  }
+}
+
+// Tablesorter styles
+table {
+  th {
+    &.sort-header {
+      cursor: pointer;
+
+      &::-moz-selection,
+      &::selection {
+        background: transparent;
+      }
+
+      .sorter {
+        border-top: 2px solid #404040;
+        visibility: hidden;
+
+        .icon {
+          content: "";
+          width: 1px;
+          margin: 3px auto 7px auto;
+          border-width: 0 4px 4px;
+          border-style: solid;
+          border-color: #404040 transparent;
+        }
+      }
+
+      &:hover .sorter {
+        visibility: visible;
+      }
+    }
+
+    &[aria-sort="descending"] .sorter,
+    &[aria-sort="ascending"] .sorter,
+    &[aria-sort="ascending"]:hover .sorter {
+      visibility: visible;
+      opacity: 0.4;
+    }
+
+    &[aria-sort="descending"] .sorter .icon {
+      border-bottom: none;
+      border-width: 4px 4px 0;
+    }
+  }
+}
+
+/*
+* larger-than-small-screen styles
+* ~ defining some desktop-only styles here to avoid
+* ~ writing extra mobile styles to undo them.
+*/
+@media @screen-mobile-above {
+  table {
+    th,
+    td {
+      padding: 10px;
+
+      // comment these two out if you want to highlight particular rows
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+
+      &.amt {
+        text-align: right;
+        width: clamp(25%, 30%, 35%);
+      }
+    }
+
+    th {
+      border-bottom: 2px solid #eee;
+      padding-top: 0;
+    }
+
+    td {
+      border-bottom: 1px solid #eee;
+
+      .location {
+        font-style: italic;
+      }
+    }
+
+    .bar-wrapper {
+      width: calc(100% - calc(var(--padding-sides) * 2));
+      top: calc(50% - calc(var(--bar-height) / 2 + 1px));
+    }
+
+    .value {
+      display: block;
+      position: absolute;
+      top: calc(50% - calc(var(--bar-height) / 2 - 6px));
+      padding-left: 10px;
+    }
+  }
+}
+
+/*
+* small-screen styles
+*/
+@media @screen-mobile {
+  /*
+  tbody {
+    display: block;
+    width: 100%;
+  }
+  */
+
+  table {
+    thead {
+      display: none;
+    }
+
+    tr,
+    th,
+    td {
+      display: block;
+      padding: 0;
+      white-space: normal;
+    }
+
+    tr {
+      border-bottom: 1px solid #eee;
+      padding: 20px 0;
+
+      &:first-child {
+        border-top: 1px solid #eee;
+        padding-top: 10px;
+      }
+
+      &:last-child {
+        margin-bottom: 15px;
+      }
+    }
+
+    td {
+      margin-bottom: 6px;
+
+      &:empty {
+        display: none;
+      }
+    }
+
+    tr td:first-child {
+      .knockout-header();
+      color: #333;
+      font-size: 14px;
+      margin-bottom: 6px;
+
+      &:before {
+        content: "";
+        display: none;
+      }
+    }
+
+    // th[data-title]:before,
+    td[data-title]:before {
+      content: attr(data-title) ":\00A0";
+      display: inline-block;
+      margin-right: 5px;
+      //width: 70%;
+    }
+
+    td.amt[data-title]:before {
+      display: flex;
+      text-align: left;
+    }
+
+    .bar-wrapper {
+      //position: absolute;
+      width: 100%;
+      margin: var(--padding-top) 0;
+    }
+
+    .value {
+      // display: block;
+      position: absolute;
+      top: calc(100% + 12px);
+      margin-left: 8px;
+    }
+  }
+}

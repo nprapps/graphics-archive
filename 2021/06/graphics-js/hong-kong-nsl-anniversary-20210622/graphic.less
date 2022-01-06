@@ -1,0 +1,45 @@
+@import "./lib/base";
+
+div#sankey-diagram {
+  .sankey-type {
+    .knockout-upper();
+    fill: #666;
+  }
+
+  .sankey-category {
+    .sans-serif();
+    fill: #444;
+  }
+
+  .sankey-category-small {
+    font-size: 10px;
+  }
+
+  .sankey-category-big {
+    font-weight: bold;
+  }
+}
+
+@media @screen-mobile-above {
+  div#sankey-diagram {
+    .sankey-type {
+      font-size: 14px;
+    }
+
+    .sankey-category-big {
+      font-size: 12px;
+    }
+  }
+}
+
+@media @screen-mobile {
+  div#sankey-diagram {
+    .sankey-type {
+      font-size: 12px;
+    }
+
+    .sankey-category-big {
+      font-size: 10px;
+    }
+  }
+}

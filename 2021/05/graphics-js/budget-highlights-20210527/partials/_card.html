@@ -1,0 +1,10 @@
+<div class="sector <%= t.classify(row.sector) %>">
+  <h3><%= t.smarty(COPY.labels.social_hed) %></h3>
+  <h4><%= row.sector %></h4>
+  <h5><%= row.amount %></h5>
+  <p class="description"><%= t.smarty(row.description) %></p>
+
+  <div class="logo">
+    <img src="logo-npr.svg" alt="NPR" />
+  </div>
+</div>

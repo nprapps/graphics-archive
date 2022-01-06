@@ -1,0 +1,99 @@
+<% if (COPY.labels.d_headline) { %>
+<h1><%= t.smarty(COPY.labels.d_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.d_subhed) { %>
+<h2><%= t.smarty(COPY.labels.d_subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th class="identifier" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.d_who %></div>
+          <div class="header header-mobile"><%= COPY.labels.d_who %></div>
+        </th>
+        
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.d_low %></div>
+          <div class="header header-mobile"><%= COPY.labels.d_low %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.d_high %></div>
+          <div class="header header-mobile"><%= COPY.labels.d_high %></div>
+        </th>
+        <th class="amt diff" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.d_diff %></div>
+          <div class="header header-mobile"><%= COPY.labels.d_diff %></div>
+        </th>
+        
+      </tr>
+    </thead>
+
+    <%
+
+    var d3 = {
+      ...require("d3-axis/dist/d3-axis.min"),
+      ...require("d3-scale/dist/d3-scale.min"),
+      ...require("d3-selection/dist/d3-selection.min")
+    };
+
+    // TODO: Replace what-who with original column
+    var diffs = COPY.data_denial.map(function (row) {
+      return row.d_diff;
+    });
+    // var min = Math.min(...diffs);
+    var max = Math.max(...diffs);
+    var scaleAlpha = d3
+      .scaleLinear()
+      .domain([0, max])
+      .range([0, 1]);
+    var baseColor = "rgba(222, 45, 38";
+    var color = function (diff) {
+      return `background-color: ${baseColor}, ${scaleAlpha(diff)})`;
+    };
+    var dark = function (diff) {
+      return scaleAlpha(diff) > 0.5 ? "light" : "dark";
+    };
+
+    COPY.data_denial.forEach(function(row, index) { %>
+    <tr class="" role="row">
+      <td class="identifier" role="cell" data-title="<%= COPY.labels.d_who %>"><%= row.d_who %></td>
+
+      <td class="amt" role="cell" data-title="<%= COPY.labels.d_low %>">
+        <%= `${row.d_low}%` %>
+      </td>
+
+      <td class="amt" role="cell" data-title="<%= COPY.labels.d_high %>">
+        <%= `${row.d_high}%` %>
+      </td>
+
+      <td class="amt diff <%= dark(row.d_diff) %>" role="cell" data-title="<%= COPY.labels.d_diff %>" style="<%= color(row.d_diff) %>">
+        <%= `${row.d_diff} pts.` %>
+      </td>
+    </tr>
+    <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.d_footnote) { %>
+<div class="footnotes">
+  <p><strong>Notes: </strong><%= COPY.labels.d_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.d_source) { %>
+  <p>Source: <%= COPY.labels.d_source %></p>
+  <% } %>
+
+  <% if (COPY.labels.d_credit) { %>
+  <p>Credit: <%= COPY.labels.d_credit %></p>
+  <% } %>
+</div>

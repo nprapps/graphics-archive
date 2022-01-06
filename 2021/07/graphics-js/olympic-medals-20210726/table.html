@@ -1,0 +1,89 @@
+
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline_table) { %>
+<h1><%= t.smarty(COPY.labels.headline_table) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed_table) { %>
+<h2><%= t.smarty(COPY.labels.subhed_table) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="best-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_bestcountries %></div>
+        </th>
+        <th role="columnheader" class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_bestpop %></div>
+        </th>
+        <th role="columnheader" class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_bestmedals %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY.best.forEach(function(row) { %>
+    <tr class="<%= t.classify(row.country) %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_bestcountries %>"><%= row.country %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_bestpop %>" class="amt"><%= row.pop %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_bestmedals %>" class="amt"><%= row.medals %></td>
+    </tr>
+  <% }) %>
+
+  </table>
+
+
+  <table id="worst-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_worstcountries %></div>
+        </th>
+        <th role="columnheader" class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_worstpop %></div>
+        </th>
+        <th role="columnheader" class="amt">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.hdr_worstmedals %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY.worst.forEach(function(row) { %>
+    <tr class="<%= t.classify(row.country) %>" role="row">
+      <td role="cell" data-title="<%= COPY.labels.hdr_worstcountries %>"><%= row.country %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_worstpop %>" class="amt"><%= row.pop %></td>
+      <td role="cell" data-title="<%= COPY.labels.hdr_worstmedals %>" class="amt"><%= row.medals %></td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote_table) { %>
+<div class="footnotes">
+  <p><strong>Note:</strong> <%= COPY.labels.footnote_table %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source_table) { %>
+  <p>Source: <%= COPY.labels.source_table %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./table.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

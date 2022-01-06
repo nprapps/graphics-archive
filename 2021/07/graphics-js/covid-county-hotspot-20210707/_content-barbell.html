@@ -1,0 +1,39 @@
+<% if (COPY.labels.b_headline) { %>
+<h1><%= t.smarty(COPY.labels.b_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.b_subhed) { %>
+<h2><%= t.smarty(COPY.labels.b_subhed) %></h2>
+<% } %>
+
+<div class="key-wrap" aria-hidden="true">
+  <div class="key"></div>
+</div>
+
+<div id="barbell-chart" class="graphic" role="img"
+  <% if (COPY.labels.b_screenreader) { %>
+  aria-label="<%- COPY.labels.b_screenreader %>"
+  <% } %>
+>
+</div>
+
+<% if (COPY.labels.b_footnote) { %>
+<div class="footnotes">
+  <h4>Notes:</h4>
+  <p><%= COPY.labels.b_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.b_source) { %><p>Source: <%= COPY.labels.b_source %></p><% } %>
+  <% if (COPY.labels.b_credit) { %><p>Credit: <%= COPY.labels.b_credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify({
+    data: COPY.data_barbell,
+    labels: COPY.labels})
+  %>;
+</script>
+
+<script src="./barbell.js"></script>

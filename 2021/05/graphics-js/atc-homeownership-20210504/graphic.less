@@ -1,0 +1,62 @@
+@import "./lib/base";
+
+h1, h2 {
+    text-align: center;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer, .footnotes {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  .mmedia-constrained();
+  max-width: 750px;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+  stroke-linecap: round;
+}
+
+.value text {
+  font-size: 12px;
+  fill: #666;
+  font-weight: 500;
+
+  &.black {
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}
+
+.recession-label {
+    fill: #999;
+    font-style: italic;
+    font-size: 12px;
+    text-anchor: middle;
+    letter-spacing: .3px;
+}

@@ -1,0 +1,51 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 2px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: normal;
+  fill: #999;
+  stroke: #fff;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-opacity: 0.8;
+  paint-order: stroke fill;
+  -webkit-font-smoothing: antialiased;
+}
+
+.value text.endLabel{
+  fill:#484848;//#666666;
+}
+
+.value text.boldLabel{
+  fill:#484848;//#666666;
+  font-weight:bold;//#666666;
+}
+
+.key {
+    display: none;
+  }
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 11px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}

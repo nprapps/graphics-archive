@@ -1,0 +1,62 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+
+
+<div class="controls" aria-hidden="true">
+
+    <input type="radio" name="map-mode" value="pre" id="mode-pre" checked="">
+    <label for="mode-pre" class="label-pre">
+      <b>Before<br>construction</b><br><span id="year">1956</span>
+    </label>
+
+    <input type="radio" name="map-mode" value="mid" id="mode-mid">
+    <label for="mode-mid" class="label-mid">
+     <b>During<br>construction</b><br><span id="year">1962</span>
+    </label>
+
+    <input type="radio" name="map-mode" value="post" id="mode-post">
+    <label for="mode-post" class="label-post">
+     <b>After<br>construction</b><br><span id="year">1965</span>
+    </label>
+</div>
+
+<!-- <div class="key-wrap">
+  <h3>HOLC Housing Grades</h3>
+  <ul class="key"></ul>
+</div> -->
+
+<div id="graphic" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+    <%= await t.include("_ai2html-graphic.html") %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

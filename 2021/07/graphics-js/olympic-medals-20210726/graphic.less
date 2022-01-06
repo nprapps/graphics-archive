@@ -1,0 +1,136 @@
+@import "./lib/base";
+
+h1 {
+  font-size: 18px;
+  margin-bottom: 22px;
+}
+
+.bar text {
+    fill: #fff;
+    font-size: 12px;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+@yellow3    : #e6ac00;
+@yellow2    : #b38600;
+.teal3     { color: @yellow2; }
+.teal5     { color: @yellow3; }
+.teal2     { color: @teal2; }
+.red4      { color: @teal4; }
+.red2      { color: @yellow2; }
+
+// #stacked-column-chart.graphic {
+//   margin-top: -25px;
+// }
+rect.ex-soviet-union {
+  fill: @teal4;
+}
+
+rect.soviet-union {
+  fill: @yellow2;
+}
+
+rect.east-germany {
+  fill: @yellow2;
+}
+
+rect.westgermany {
+  fill: @yellow3;
+}
+
+rect.us {
+  fill: @teal2;
+}
+
+rect.china { fill: @teal2; }
+
+rect.germany {
+  fill: @teal2;
+}
+
+rect.russia {
+  fill: @teal2;
+}
+
+h3 {
+  color:@teal2;
+}
+div.chart {
+  margin-bottom: 22px;
+}
+ul.key {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.ampersand { color: #999; }
+
+// Base table styles
+table {
+    border-collapse: collapse;
+    padding: 0;
+    width: 48%;
+    float: left;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 22px;
+
+    &#worst-table {
+        float: right;
+        color: @teal2;
+    }
+
+    &#best-table {
+        color: @yellow2;
+    }
+
+    tr.shadedrow {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+
+    th {
+        border-bottom: 2px solid #eee;
+        vertical-align: bottom;
+        font-family: 'Knockout 31 4r', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 0 10px 10px 10px;
+        padding-top: 0;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    th,
+    td {
+        &.amt {
+            text-align: right;
+        }
+    }
+}
+
+// Mobile styles
+@media screen and (max-width: 500px) {
+
+    table {
+        width: 100%;
+        float: left;
+
+        &:nth-child(even) {
+            margin-top: 33px;
+        }
+    }
+
+}

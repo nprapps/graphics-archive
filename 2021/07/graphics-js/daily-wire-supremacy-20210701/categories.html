@@ -1,0 +1,42 @@
+<%= await t.include("_head-categories.html") %>
+
+<% if (COPY.labels.cat_headline) { %>
+<h1><%= t.smarty(COPY.labels.cat_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.cat_subhed) { %>
+<h2><%= t.smarty(COPY.labels.cat_subhed) %></h2>
+<% } %>
+
+<h3><%= t.smarty(COPY.labels.cat_title) %></h3>
+
+<div id="line-chart-categories" class="graphic" role="img"
+<% if (COPY.labels.cat_screenreader) { %>
+  aria-label="<%- COPY.labels.cat_screenreader %>"
+<% } %>
+>
+  <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.cat_footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.cat_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.cat_source) { %><p>Source: <%= COPY.labels.cat_source %></p><% } %>
+  <% if (COPY.labels.cat_credit) { %><p>Credit: <%= COPY.labels.cat_credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify({
+    data: COPY.data_per_article_cat, 
+    labels: COPY.labels
+  }) %>;
+</script>
+
+<script src="./categories.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

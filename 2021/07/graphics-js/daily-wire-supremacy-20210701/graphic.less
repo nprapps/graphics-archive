@@ -1,0 +1,95 @@
+@import "./lib/base";
+
+@nonmain: @orange3;
+@main: @teal4;
+
+.nonmain {
+  stroke: @nonmain;
+  fill: @nonmain;
+  b {
+    background-color: @nonmain;
+  }
+}
+
+.main {
+  stroke: @main;
+  fill: @main;
+  b {
+    background-color: @main;
+  }
+}
+
+.muted {
+  stroke-opacity: 0.15;
+  fill-opacity: 0.15;
+  &.label {
+    visibility: hidden;
+  }
+}
+
+.line {
+  path {
+    stroke-width: 3px;
+    fill: none;
+  }
+  circle {
+    stroke: #fff;
+  }
+}
+
+.voronoi {
+  path {
+    fill-opacity: 0;
+  }
+}
+
+.label {
+  .name,
+  .value {
+    stroke: none;
+  }
+  .shadow {
+    fill: none;
+  }
+  font-size: 12px;
+  font-weight: bold;
+}
+
+sup {
+  line-height: 0;
+}
+
+@media screen and (max-width: 500px) {
+  span {
+    &#instructions:before {
+      content: "Tap ";
+    }
+  }
+
+  .line {
+    path {
+      stroke-width: 2px;
+    }
+  }
+
+  .label {
+    font-size: 10px;
+    tspan:not(.value) {
+      font-weight: normal;
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  span {
+    &#instructions:before {
+      content: "Hover ";
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}

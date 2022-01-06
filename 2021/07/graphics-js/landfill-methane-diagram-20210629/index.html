@@ -1,0 +1,58 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="graphic" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+    <%= await t.include("_ai2html-graphic.html") %>
+
+    <div class="category-text">
+      <div class="category-item">
+        <div class="category-hdr">
+          <span class="icon">1</span>
+          <span class="hdr"><%= COPY.labels.collection_hdr %></span>
+        </div>
+        <div class="text"><%= COPY.labels.collection_text %></div>
+      </div>
+
+      <div class="category-item">
+        <div class="category-hdr">
+          <span class="icon">2</span>
+          <span class="hdr"><%= COPY.labels.processing_hdr %></span>
+        </div>
+        <div class="text"><%= COPY.labels.processing_text %></div>
+      </div>
+
+      <div class="category-item">
+        <div class="category-hdr">
+          <span class="icon">3</span>
+          <span class="hdr"><%= COPY.labels.distribution_hdr %></span>
+        </div>
+        <div class="text"><%= COPY.labels.distribution_text %></div>
+      </div>
+  </div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <p>Notes: <%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

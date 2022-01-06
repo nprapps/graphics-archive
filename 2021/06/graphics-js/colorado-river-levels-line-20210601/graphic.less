@@ -1,0 +1,136 @@
+@import "./lib/base";
+
+h1, h2 {
+  .mmedia-constrained-centered();
+}
+
+.footer, .footnotes {
+ .mmedia-constrained(); 
+}
+
+.highlight {
+  background-color: rgba(170,170,170,0.15);
+  background-opacity: 0.15;
+  padding:3px;
+  stroke-width: 1px;
+  stroke: #aaa;
+  stroke-dasharray: 5 5;
+  border: 1px #aaa dashed;
+  white-space:nowrap;
+}
+
+.dots circle {
+  stroke: #fff;
+  stroke-width: 1px;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 2px;
+  stroke: #ccc;  
+  stroke-linejoin: round;
+}
+
+.line:last-child {
+    stroke-width: 3px;
+  }
+
+.benchmark-value, .value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #333;
+}
+
+.duration rect {
+  fill: #aaa;
+  fill-opacity: 0.15;
+  stroke-width: 1px;
+  stroke: #aaa;
+  stroke-dasharray: 5 5;
+
+  &:last-child {
+    // fill: @teal4;
+  }
+}
+
+.anno-line {
+  fill: none;
+  stroke: #333;
+}
+
+text.annotations, g.annotations text  {
+  text-anchor: middle;
+  font-style: italic;
+  font-size: 12px;
+  fill: #333;
+  // font-weight: bold;
+      stroke: #fff;
+  stroke-width: 6px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-opacity: 1;
+  paint-order: stroke fill;
+  -webkit-font-smoothing: antialiased;
+}
+
+text.annotations {
+  text-anchor: end;
+  stroke-opacity: 0.9;
+}
+
+.chart-label, .chart-label-title {
+    fill: #666;
+    font-style: italic;
+    font-size: 11px;
+    text-anchor: middle;
+    letter-spacing: .3px;
+    stroke: #fff;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-opacity: 0.7;
+    paint-order: stroke fill;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .chart-label-title {
+      font-style: normal;
+    letter-spacing: normal;
+  text-anchor: start;
+  fill: #555;
+  stroke-width: 7px;
+  // font-weight: bold;
+
+} 
+
+.benchmark-line {
+  stroke-width: 1px;
+  // stroke-dasharray: 5px 5px;
+  stroke: black;
+}
+
+@media screen and (max-width: 500px) {
+  .benchmark-value, .value text, g.annotations text {
+    font-size: 10px !important;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  // .key {
+  //   display: none;
+  // }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+
+  .line {
+    stroke-width: 2px;
+  }
+
+  .line:last-child {
+    stroke-width: 3px;
+  }
+}

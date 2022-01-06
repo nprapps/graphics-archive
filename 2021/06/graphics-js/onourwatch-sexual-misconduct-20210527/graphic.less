@@ -1,0 +1,93 @@
+@import "./lib/base";
+
+// @highlight: #495f9f;
+// @highlight-subset: lighten(@highlight, 10%);
+@highlight: @blue2;
+@highlight-subset: @blue4;
+@total: #ccc;
+
+h1 {
+  font-style: italic;
+  font-size: 16px;
+  margin-bottom: 22px;
+  line-height: 1.4;
+}
+
+.graphic {
+  margin-bottom: 22px;
+
+  p {
+    .gotham();
+    margin: 0 0 4px 0;
+    line-height: 1.35;
+  }
+}
+
+.header {
+  p {
+    font-weight: bold;
+    font-size: 16px;
+  }
+}
+.subhed + .header {
+  padding-top: 33px;
+}
+
+.transition {
+  padding: 10px 0 5px 20px;
+
+  p {
+    .gotham();
+    font-style: italic;
+    font-size: 12px;
+    color: #787878;
+  }
+}
+
+.subhed {
+  padding-left: 20px;
+
+  + .subhed {
+    padding-top: 6px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+}
+.header + .header {
+  padding-top: 30px;
+}
+.header + .subhed {
+  padding-top: 15px;
+}
+
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+
+  svg {
+    width: 13px;
+    margin: 0 1px;
+    color: @total;
+
+    @media @screen-mobile-above {
+      width: 16px;
+    }
+  }
+
+  .highlight-overall svg {
+    color: @highlight;
+  }
+  .highlight-subset svg {
+    color: @highlight-subset;
+    width: 11px;
+
+    @media @screen-mobile-above {
+      width: 13px;
+    }
+  }
+  // .total-subset svg {
+  //   color: @total;
+  // }
+}

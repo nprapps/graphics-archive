@@ -1,0 +1,93 @@
+@import "./lib/base";
+
+body {
+  font-family: "acumin-pro", sans-serif;
+}
+
+h1, h2 {
+  font-family: "acumin-pro", sans-serif;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer, .footnotes {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  .mmedia-constrained();
+  max-width: 750px;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+  stroke-linecap: round;
+}
+
+.value text {
+  font-size: 12px;
+  fill: #666;
+  font-weight: 500;
+
+  &.drugalcohol-intoxication {
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}
+
+.recession-label {
+    fill: #999;
+    font-style: italic;
+    font-size: 12px;
+    text-anchor: middle;
+    letter-spacing: .3px;
+}
+
+@drugs: #f97a69;
+@homicide: #7acbf2;
+@accident: #99d1ed;
+@suicide: #b7d8e7;
+@illness: #d5dee2;
+
+.drugalcohol-intoxication:is(path, b) {
+  stroke: @drugs;
+  background: @drugs;
+}
+.homicide:is(path, b) {
+  stroke: @homicide;
+  background: @homicide;
+}
+.accident:is(path, b) {
+  stroke: @accident;
+  background: @accident;
+}
+.suicide:is(path, b) {
+  stroke: @suicide;
+  background: @suicide;
+}
+.illness:is(path, b) {
+  stroke: @illness;
+  background: @illness;
+}

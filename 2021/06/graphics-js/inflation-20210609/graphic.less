@@ -1,0 +1,63 @@
+@import "./lib/base";
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+
+  .chart-0 & {
+    stroke: @red3;
+  }
+
+  .chart-1 & {
+    stroke: @orange3;
+  }
+}
+
+.recession rect {
+  fill: #ebebeb;
+}
+
+.chart-label {
+  fill: #666;
+  font-style: italic;
+  font-size: 12px;
+  text-anchor: middle;
+  letter-spacing: .3px;
+  stroke: #fff;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-opacity: 0.7;
+  paint-order: stroke fill;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+
+  .chart-0 & {
+    fill: @red3;
+  }
+  .chart-1 & {
+    fill: @orange3;
+  }
+}
+
+@media @screen-mobile {
+  .key.one-line {
+    display: none;
+  }
+
+  .chart.chart-0 {
+    margin-bottom: 22px;
+  }
+}
+
+@media @screen-mobile-above {
+  #line-chart {
+    display: flex;
+    justify-content: space-between;
+  }
+}

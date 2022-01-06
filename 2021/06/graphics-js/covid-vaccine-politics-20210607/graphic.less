@@ -1,0 +1,310 @@
+@import "./lib/base";
+
+@gop: #d61f21;
+@gopDim: #F8D6D4;
+@dem: #237bbd;
+@demDim: #D5E5F2;
+
+.key {
+  margin-bottom: 22px;
+  .biden b { background-color: @dem; }
+  .trump b { background-color: @gop; }
+}
+
+// BUBBLE STYLES
+.bubble-header {
+  .mmedia-constrained-centered();
+}
+
+#bubble-graphic, #bubble-graphic-key {
+  .tick text {
+    .gotham();
+  }
+}
+
+#bubble-graphic {
+  .state-circle {
+    cursor: pointer;
+  }
+}
+
+#bubble-graphic-key {
+  max-width: 500px;
+  margin: 0 auto;
+  // border: 1px solid #888;
+  margin-bottom: 25px;
+
+  .state-circle {
+    pointer-events: none;
+  }
+
+  h3 {
+    // margin: center auto
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: -27px;
+  }
+
+  .bracket-rect {
+    fill: #ccc;
+    opacity: 0.4;
+    // overflow: visible !important;
+
+    &.i1 {
+      fill: #fff;
+      stroke-width:2px;
+      stroke: #999;
+      opacity: 1;
+    }
+  }
+
+  svg {
+    width: 100%;
+    // border: 1px solid #ccc;
+    border-radius:5px;
+    overflow: visible;
+
+    .state-circle {
+      // fill: #888;
+      // stroke: #888;
+    }
+
+    &.one .state-circle {
+      // fill: @teal3;
+      // stroke: @teal2;
+    }
+  }
+
+  // .tick:first-child {
+  //   display: none;
+  // }
+}
+
+.state-text {
+  text-anchor: middle;
+  fill: white;
+  .knockout-header();
+  pointer-events: none;
+  cursor: pointer;
+}
+.bubble-tooltip {
+  position: absolute;
+  border: 1px solid #eee;
+  background-color: white;
+  padding: 8px;
+  display: none;
+  pointer-events: none;
+
+  &.show {
+    display: block;
+  }
+
+  h3 {
+    font-size: 11px;
+    margin: 0 0 3px 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 3px;
+  }
+
+  .tooltip-label {
+    .gotham();
+    font-size: 10px;
+    color: #666;
+    padding-top: 3px;
+  }
+
+  strong.D {
+    color: @dem;
+  }
+  strong.R {
+    color: @gop;
+  }
+}
+.chart-text {
+  text-anchor: start;
+  fill: #666;
+  font-size: 13px;
+  .knockout-header();
+
+  &.higher-text {
+    text-anchor: end;
+  }
+}
+
+// MAP STYLES
+
+h1, h2 {
+  text-align: center;
+}
+
+h2 {
+  font-style: italic;
+}
+
+
+
+#map-graphic, .footer, .footnotes {
+  .mmedia-constrained();
+}
+
+#tooltip {
+  padding: 5px;
+  border: 1px solid #999;
+  max-width: 200px;
+  width: 150px;
+  position: absolute;
+  z-index: 10;
+
+  .tooltip-label {
+    .gotham();
+    font-size: 10px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 3px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 3px;
+
+    &.second {
+      margin-top:5px;
+      font-weight:normal;
+      border-bottom:none;
+      margin-bottom:0px;
+    }
+  }
+}
+
+.state-label {
+  user-select: none;
+  pointer-events: none;
+  text-anchor: middle;
+  font-family: 'Knockout 31 4r';
+  font-size: 12px;
+  fill: white;
+  display: none;
+  -webkit-font-smoothing: antialiased;
+
+  @media @screen-mobile {
+    display: block;
+  }
+}
+.mobile-label {
+  user-select: none;
+  pointer-events: none;
+  display: block;
+
+  @media @screen-mobile {
+    display: none;
+  }
+  @media @screen-mobile-above {
+    font-size: 10px;
+  }
+  @media @screen-medium-above {
+    font-size: 8px;
+  }
+}
+
+#state-name {
+  background-color: #C5DFDF;
+  border-radius: 3px;
+  padding: 3px;
+}
+
+
+
+.key {
+  text-align: center;
+}
+.swatch {
+  width: 48px;
+  height: 12px;
+  display: inline-block;
+  margin-left: -3px;
+  color: #777 !important;
+
+  span {
+    font-size: 12px;
+    text-align: left;
+    display: block;
+    margin-top: 15px;
+    margin-left: -8px;
+  }
+}
+
+[data-winner="D"] {
+  fill: @dem;
+  background-color: @dem;
+  color: #eee;
+
+  &.state-circle {
+    stroke: darken(@dem, 8%);
+  }
+
+  &#dose {
+    color: white !important;
+  }
+}
+
+[data-winner="R"] {
+  fill: @gop;
+  background-color: @gop;
+  color: #eee;
+
+  &.state-circle {
+    stroke: darken(@gop, 8%);
+  }
+
+  &#dose {
+    color: white !important;
+  }
+}
+
+.state-circle {
+	&:hover {
+	  @media screen and (min-width: 499px) {
+	  	stroke: black !important;
+	  }
+	}
+}
+
+@media screen and (max-width: 499px){
+  .tooltip {
+    visibility: hidden;
+  }
+}
+
+.tooltip {
+  padding: 5px;
+  border: 1px solid #999;
+  max-width: 200px;
+  height: 100px;
+  position: absolute;
+  z-index: 10;
+  font-size: 10px;
+  width: 200px;
+  background: #ffffff;
+  display:none;
+
+  .tooltip-label {
+    .gotham();
+    font-size: 10px;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+
+    h3 {
+      margin-bottom: 5px;
+    }
+
+    &.number {
+      font-weight: normal;
+      border-bottom: none;
+      margin-bottom: 0px;
+      margin-top:0px;
+      line-height: 18px;
+    }
+  }
+
+}

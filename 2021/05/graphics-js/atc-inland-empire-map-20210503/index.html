@@ -1,0 +1,50 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="controls" aria-hidden="true">
+
+    <input type="radio" name="map-mode" value="black" id="mode-black" checked="">
+    <label for="mode-black" class="label-black">
+      Black population
+    </label>
+
+    <input type="radio" name="map-mode" value="overall" id="mode-overall">
+    <label for="mode-overall" class="label-overall">
+     Overall population
+    </label>
+</div>
+
+<div class="key-wrap numeric-scale">
+	<h3>Percentage Change, 1990-2010</h3>
+	<ul class="key"></ul>
+</div>
+
+<div id="graphic" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+    <%= await t.include("_ai2html-map.html") %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <p><strong>Note:</strong> <%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

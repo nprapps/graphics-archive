@@ -1,0 +1,152 @@
+<%= await t.include("lib/_head.html") %>
+
+<%
+  // Pull most recent day's data
+
+  var usTimeseries = COPY.data.filter(r => r.state =='US')
+  var historicalDoses = COPY.trend_data
+  //console.log(historicalDoses)
+  var historicalDates = [];
+  historicalDoses.forEach(r => historicalDates.push(r.Date));
+
+  var dates = [];
+  usTimeseries.forEach(r => dates.push(r.date));
+
+  dates.sort();
+  historicalDates.sort();
+
+  var lastHistoricalDate = historicalDates[historicalDates.length-1]
+
+  var lastNewDate = dates[dates.length-1]
+
+var Difference_In_Time = new Date(lastNewDate).getTime() - new Date(lastHistoricalDate).getTime();
+var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+
+
+  var offset = 5 - Difference_In_Days;
+
+  var historicalDates = historicalDates.slice(0,historicalDates.length-offset)
+
+  let newDates = dates.filter(x => !historicalDates.includes(x));
+  var finalNewDate = newDates[newDates.length-1];
+
+  var apMonths = [ "Jan.", "Feb.", "March", "April", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec." ];
+  var month = apMonths[parseInt(finalNewDate.split("-")[1]) - 1];
+  var day = parseInt(finalNewDate.split("-")[2]);
+
+  var turnoverDate = historicalDates[historicalDates.length-1]
+
+  // trim out duplicate dates you don't need
+  uniqNewDates = [...new Set(newDates)];
+  uniqHistoricalDates = [...new Set(historicalDates)];
+
+  var newData = [];
+
+  var rollingSevenDayAvg;
+
+  for (var i = 0; i < uniqHistoricalDates.length; i++) {
+    var currentHistoricalData = historicalDoses.filter(r => r.Date == uniqHistoricalDates[i])[0];
+
+    let reformattedData = {
+      "date": new Date(uniqHistoricalDates[i]).toLocaleString("en-US", {timeZone: "UTC"}),
+      "new_administered": currentHistoricalData["Administered_Daily"]
+    }
+
+
+    newData.push(reformattedData)
+  }
+
+  var historicalTotal = newData.reduce(function(prev, cur) {
+    return prev + cur.new_administered;
+  }, 0);
+
+  var turnoverData = usTimeseries.filter(r => r.date == turnoverDate)[0];
+  var turnoverTotal = turnoverData['administered']
+
+  var previous = turnoverTotal;
+
+
+  for (var i = 0; i < uniqNewDates.length; i++) {
+    var currentData = usTimeseries.filter(r => r.date == uniqNewDates[i])[0];
+
+    if (currentData["administered"]){
+      currentData["new_administered"] = currentData["administered"] - previous
+    };
+    currentData["date"] = new Date(uniqNewDates[i]).toLocaleString("en-US", {timeZone: "UTC"})
+
+    let reformattedData = {
+      "date": new Date(uniqNewDates[i]).toLocaleString("en-US", {timeZone: "UTC"}),
+      "new_administered": currentData["new_administered"]
+    }
+
+    newData.push(reformattedData)
+    if (currentData["administered"]){previous = currentData['administered']}
+  }
+
+  //console.log(newData)
+
+  var allDates = historicalDates.concat(newDates)
+
+
+  var lineData = [];
+
+
+
+  for (var i = 0; i < allDates.length; i++){
+
+    var j = i;
+    rollingSevenDayAvg = 0;
+
+    while ((j > (i-7)) && j > 0){
+      rollingSevenDayAvg += newData[j].new_administered;
+      j -= 1;
+    }
+
+    lineData.push({
+       "date": new Date(allDates[i]).toLocaleString("en-US", {timeZone: "UTC"}),
+       "amt":Math.round(rollingSevenDayAvg/7)
+    })
+  }
+
+  console.log((lineData[lineData.length-1].amt),"average daily doses over the past 7 days")
+
+%>
+
+<% if (COPY.dailyDosesLabels.headline) { %>
+<h1><%= t.smarty(COPY.dailyDosesLabels.headline) %></h1>
+<% } %>
+
+<% if (COPY.dailyDosesLabels.subhed) { %>
+<h2><%= t.smarty(COPY.dailyDosesLabels.subhed) %></h2>
+<% } %>
+
+<div id="column-chart" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.dailyDosesLabels.screenreader %>"
+<% } %>
+>
+</div>
+
+<% if (COPY.dailyDosesLabels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.dailyDosesLabels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.dailyDosesLabels.source) { %>
+  <p>Source: <%= COPY.dailyDosesLabels.source %> (as of <%= month %> <%= day %>)</p>
+  <% } %>
+    <% if (COPY.dailyDosesLabels.credit) { %><p>Credit: <%= COPY.dailyDosesLabels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(newData) %>;
+    var LINE_DATA = <%= JSON.stringify(lineData) %>;
+    var OFFSET  = <%= JSON.stringify(offset) %>;
+</script>
+
+<script src="./doses.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

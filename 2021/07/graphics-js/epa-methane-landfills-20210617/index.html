@@ -1,0 +1,106 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<% 
+  // Format bars
+  var sizeBar = function(val, valMax) {
+    return (val / valMax) * 100;
+  };
+
+  // Position values
+  var styleValue = function(val, valMax) {
+    var pos = (val / valMax) * 100;
+    var posDisplay = pos.toFixed(3) + "%";
+    var posAlign = "left";
+    var align = "left";
+    var color = "#454545";
+
+    if (pos > 70) {
+      posAlign = "right";
+      align = "right";
+      var color = "#f1f1f1";
+      posDisplay = "10px";
+    }
+
+    return `${ posAlign }: ${ posDisplay }; text-align: ${ align }; color: ${color};`;
+  }
+
+  var volumes = COPY.data.map(row => row.volume);
+  var volMax = Math.max(...volumes);
+%> 
+
+<div class="graphic" id="table-graphic">
+  <table id="landfill-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.name %></div>
+        </th>
+        <!--
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.location %></div>
+        </th>
+        -->
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.owner %></div>
+        </th>
+        <th class="amt" role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"><%= COPY.labels.volume_html %></div>
+        </th>
+      </tr>
+    </thead>
+
+    <% COPY.data.forEach(function(row) { %>
+    <tr role="row">
+      <td role="cell" data-title="<%= COPY.labels.name %>">
+        <%= row.name %>
+        <br>
+        <span class="location"><%= `${row.city}, ${row.state}` %></span>
+      </td>
+      <!--
+      <td role="cell" data-title="<%= COPY.labels.location %>"><%= `${row.city}, ${row.state}` %></td>
+      -->
+      <td role="cell" data-title="<%= COPY.labels.owner %>"><%= row.owner %></td>
+      <td role="cell" data-title="<%= COPY.labels.volume %>" class="amt">
+        <div class="bar-wrapper">
+          <span class="bar" aria-hidden="true" style="width: <%= sizeBar(row.volume, volMax) %>%;"></span>
+        </div>
+        <span class="value" style="<%= styleValue(row.volume, volMax) %>"><%= t.comma(row.volume) %></span>
+      </td>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

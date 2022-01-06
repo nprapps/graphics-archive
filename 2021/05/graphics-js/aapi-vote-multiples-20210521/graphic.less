@@ -1,0 +1,73 @@
+@import "./lib/base";
+
+.graphic-wrapper {
+  float: left;
+  width: 25%;
+  margin-bottom: 15px;
+
+  @media screen and (max-width: 500px) {
+    width: 50%;
+  }
+
+  &.asian {
+    .bars rect {
+      fill: @teal2;
+    }
+  }
+  .bars rect {
+    fill: @teal4;
+  }
+
+  .bars rect.bar-2006 {
+    display: none;
+  }
+}
+
+.domain {
+  display: none;
+}
+
+h5 {
+  font-weight: normal;
+  text-align: center;
+
+  margin-left: 20%;
+  margin-top: 5px;
+  color: @teal4;
+
+  &.asian {
+    margin-left: 0;
+    color: @teal2;
+  }
+
+  @media screen and (max-width: 500px) {
+    &.white {
+      margin-left: 0;
+    }
+  }
+}
+
+h3 {
+  text-align: center;
+  margin-left: 20%;
+  margin-bottom: 0;
+
+  &.asian {
+    margin-left: 0;
+  }
+
+  @media screen and (max-width: 500px) {
+    &.white {
+      margin-left: 0;
+    }
+  }
+}
+
+.value text.label-2006 {
+  display: none;
+}
+
+.midsection {
+  opacity: 0.5;
+  fill: #ccc;
+}

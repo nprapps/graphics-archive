@@ -1,0 +1,66 @@
+@import "./lib/base";
+
+
+.lines line {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #ccc;
+
+    &.aapi {
+      stroke: @red3;
+    }
+
+    &.white {
+      stroke: #808080;
+    }
+}
+
+.dots circle {
+    stroke-width: 1px;
+    stroke: #fff;
+    fill: #D8472B;
+}
+
+.value text {
+    font-size: 11px;
+    fill: #999;
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}
+
+h1, h2 {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-bottom: 11px;
+}
+
+h2 {
+  margin-bottom: 22px;
+}
+
+.footer, .footnotes {
+  .mmedia-constrained();
+}
+
+.graphic {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+img {
+  fill: greyscale(#E5B313);
+}
+
+.xaxis-label {
+  color: #555;
+  font-size: 12px;
+}

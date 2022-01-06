@@ -1,0 +1,62 @@
+<%= await t.include("lib/_head.html") %>
+<div class="bubble-header">
+  <% if (COPY.labels.bubbles_headline) { %>
+  <h1><%= t.smarty(COPY.labels.bubbles_headline) %></h1>
+  <% } %>
+
+  <% if (COPY.labels.bubbles_subhed) { %>
+  <h2><%= t.smarty(COPY.labels.bubbles_subhed) %></h2>
+  <% } %>
+</div>
+
+<ul class="key">
+  <li class="key-item biden">
+    <b></b>
+    <label>Biden won in 2020</label>
+  </li>
+  <li class="key-item trump">
+    <b></b>
+    <label>Trump won in 2020</label>
+  </li>
+</ul>
+
+<div class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>>
+  <div id="bubble-graphic-key">
+    <div>
+      <svg class="small"></svg>
+    </div>
+  </div>
+
+  <div  id="bubble-graphic">
+    <svg class="big"></svg>
+  </div>
+</div>
+
+<div class="bubble-tooltip"></div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <p><strong>Note:</strong> <%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.data) %>;
+  var KEY = <%= JSON.stringify(COPY.key) %>;
+</script>
+<script src="./bubbles.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

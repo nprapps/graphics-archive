@@ -1,0 +1,105 @@
+@import "./lib/base";
+
+.graphic-wrapper {
+  width: 50%;
+  float: left;
+  // margin: 0 10px;
+  @media screen and (max-width: 500px) {
+    width:100%;
+    // margin: 0;
+  }
+}
+
+h3 {
+  text-align: center;
+  margin: 20px 0 15px 0;
+}
+
+.lines {
+  fill: none;
+  stroke-width: 1px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.annotations .dots {
+    stroke: #fff;
+    stroke-width: 1px;
+}
+
+.annotations text {
+    font-size: 12px;
+    // fill: #999;
+}
+
+.key .key-item b {
+  border-radius: 50%;
+  max-height: 11px;
+  max-width: 11px;
+}
+
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 11px;
+  }
+  .annotations text { 
+    font-size: 11px; 
+  }
+}
+
+@media screen and (min-width: 500px) {
+  // .key {
+  //   display: none;
+  // }
+}
+
+.key {
+  // min-height: px;
+  text-align: center;
+}
+
+
+.chart-label {
+  fill: #888;
+  font-style: italic;
+  font-size: 12px;
+
+  stroke: #fff;
+  stroke-width: 4px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-opacity: 0.7;
+  paint-order: stroke fill;
+  @media screen and (max-width: 500px) {
+    font-size: 11px;
+  }
+}
+
+.median-line {
+  stroke-width: 1px;
+  stroke: #aaa;
+  stroke-dasharray: 2;
+}
+
+.midsection {
+  opacity: 0.5;
+  fill: #ccc;
+}
+
+h1,
+h2 {
+  .mmedia-constrained-centered();
+  max-width: 750px;
+}
+
+.footnotes, .footer {
+ .mmedia-constrained();
+ max-width: 750px;
+}
+

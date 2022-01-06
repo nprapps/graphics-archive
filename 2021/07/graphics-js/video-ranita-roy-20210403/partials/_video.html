@@ -1,0 +1,19 @@
+<% COPY.data.forEach(function(portrait, i) { %>
+
+  <div id="video" class="video-wrapper">
+    <video autoplay muted playsinline loop class="player"></video>
+  </div>
+
+  <div class="caption">
+      <% if (portrait.caption) { %>
+        <p><%= portrait.caption %></p>
+      <% } %>
+      <% if (COPY.labels.credit) { %>
+        <p class="credit">Credit: <%= COPY.labels.credit %> | <%= COPY.labels.toggle_prompt %></p><% } %>
+  </div>
+
+  <script type="text/javascript">
+    var VIDEO_SOURCE = "<%= portrait.video_url %>";
+  </script>
+
+<% }) %>

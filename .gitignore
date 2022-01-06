@@ -13,8 +13,10 @@ graphics.sublime-*
 **/assets/*
 **/*/assets/*
 !**/assets/assetsignore
+!**/graphics-js/*/assets/*
 **/css/graphic-header.css
 **/js/parent-header.js
 **/js/parent-footer.js
 **/js/graphic-header.js
 **/js/graphic-footer.js
+**/synced/*

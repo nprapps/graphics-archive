@@ -1,0 +1,65 @@
+@import "./lib/base";
+
+.graphic {
+  //max-width:600px;
+}
+
+.bar text {
+  fill: #808080;
+  font-size: 12px;
+  text-anchor: middle;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+g.column:last-of-type {
+  g.bar {
+    text {
+      fill: #6e6e6e;
+      tspan:first-of-type {
+        font-weight:bold;
+      }
+
+      tspan:last-of-type {
+        font-style:italic;
+      }
+      
+    }
+
+    rect {
+      fill: @teal3!important;
+    }
+  }
+}
+
+.key {
+  display:none;
+}
+
+.x.axis {
+  &.category {
+    text {
+      font-weight: bold;
+      fill: #454545;
+      text-anchor: middle;
+    }
+  }
+
+  &.bars {
+    line,
+    path {
+      display: none;
+    }
+  }
+}
+
+/*
+ * small-screen styles
+ */
+@media @screen-mobile {
+  .bar text {
+    font-size: 10px;
+  }
+}

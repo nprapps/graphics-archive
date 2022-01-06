@@ -1,0 +1,119 @@
+@import "./lib/base";
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+h1 {
+  font-size:18px;
+}
+
+.value text {
+    fill: #fff;
+    font-size: 10px;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.vax.graphic {
+
+  .key {
+    text-align: center;
+  }
+
+  rect {
+    //opacity: 0.7;
+  }
+
+  // rect.a-major-problem {
+  //   opacity:1;
+  // }
+
+  text.a-major-problem {
+    //font-weight: bold;
+  }
+
+  text.not-a-problem-at-all {
+    //font-weight: bold;
+  }
+
+  //font-weight: bold;
+
+  .total {
+    font-weight: bold;
+    rect {
+      opacity: 1;
+    }
+  }
+
+  .labels li {
+    //font-weight:bold;
+  }
+
+  li.total {
+    font-weight:bold;
+  }
+
+}
+
+.moe.graphic {
+  .approve {
+    fill: @teal3;
+    color: @teal3;
+  }
+
+  .disapprove {
+    fill: @orange3;
+    color: @orange3;
+  }
+
+  .unsure {
+    fill: #888;
+    color: #888;
+  }
+
+  rect.moe.inner {
+    fill: url(#inner-stripes);
+  }
+
+  rect.moe.outer {
+    fill: url(#outer-stripes);
+  }
+
+  line.moe {
+    stroke: currentColor;
+    stroke-width: 3px;
+  }
+
+  .value text {
+    font-size: 11px;
+    font-weight: bold;
+    stroke-width: 3px;
+    fill: black;
+    stroke: #FFF8;
+    paint-order: stroke fill;
+    text-anchor: middle;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  text.in {
+    fill: black;
+    stroke: #FFF8;
+    paint-order: stroke fill;
+  }
+
+  text.out {
+    fill: black;
+    stroke: white;
+    paint-order: stroke fill;
+  }
+
+  .labels li {
+    font-weight:bold;
+  }
+}

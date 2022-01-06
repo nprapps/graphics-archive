@@ -1,0 +1,103 @@
+<%
+ var audioIcon = '<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><g><rect fill="none" height="24" width="24"/></g><g><path d="M12,3c-4.97,0-9,4.03-9,9v7c0,1.1,0.9,2,2,2h4v-8H5v-1c0-3.87,3.13-7,7-7s7,3.13,7,7v1h-4v8h4c1.1,0,2-0.9,2-2v-7 C21,7.03,16.97,3,12,3z"/></g></svg>';
+
+ var videoIcon = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M21 3H3c-1.11 0-2 .89-2 2v12c0 1.1.89 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.11-.9-2-2-2zm0 14H3V5h18v12zm-5-6l-7 4V7z"/></svg>';
+%>
+
+<% COPY.data.forEach(function(portrait, i) { %>
+<div class="portrait-block <%= portrait.alignment || "" %>">
+
+  <div class="row <%= portrait.full ? "full-width" : "side-by-side" %>">
+    <% if (portrait.alignment == "dual-quote") { %>
+      <div class="caption">
+        <blockquote><%= t.smarty(portrait.quote_2) %></blockquote>
+        <cite>
+          <div class="name">
+            <%= t.smarty(portrait.name_2) %>
+          </div>
+          <% if (portrait.description_2) { %>
+          <div class="description"><%= t.smarty(portrait.description_2) %></div>
+          <% } %>
+        </cite>
+      </div>
+    <% } else { %>
+      <div class="image-container">
+        <% if (portrait.video) { %>
+          <div id="video" class="video-wrapper">
+            <video autoplay muted playsinline loop class="player"></video>
+          </div>
+
+          <script type="text/javascript">
+            var VIDEO_SOURCE = "./synced/<%= portrait.video %>";
+          </script>
+        <% } else { %>
+          <img src="./synced/<%= portrait.image %>" alt="">
+        <% } %>
+        <% if (portrait.photo_credit) { %>
+        <p class="credit"><%= t.smarty(portrait.photo_credit) %></p>
+        <% } %>
+      </div>
+    <% } %>
+
+    <div class="caption">
+      <blockquote><%= t.smarty(portrait.quote) %></blockquote>
+      <cite>
+        <div class="name">
+          <%= t.smarty(portrait.name) %>
+        </div>
+        <% if (portrait.description) { %>
+        <div class="description"><%= t.smarty(portrait.description) %></div>
+        <% } %>
+        <% if ((portrait.episode_prompt || portrait.video_prompt) && portrait.alignment != "dual-quote") { %>
+
+          <% if (portrait.video_prompt) { %>
+          <div class="episode video">
+            <% if (portrait.video_link) { %>
+              <p class="episode-link">
+                <a href="<%= portrait.video_link %>"><%= videoIcon %>Watch</a>
+                <span class="prompt"><%= t.smarty(portrait.video_prompt) %><span>
+              </p>
+            <% } else { %>
+              <p class="coming-soon">
+                <b><%= videoIcon %>Watch</b>
+                <span class="prompt"><%= t.smarty(portrait.video_prompt) %><span>
+              </p>
+            <% } %>
+          </div>
+          <% } %>
+
+        <% if (portrait.episode_prompt) { %>
+        <div class="episode podcast">
+          <% if (portrait.episode_link) { %>
+            <p class="episode-link">
+              <a href="<%= portrait.episode_link %>"><%= audioIcon %>Listen</a>
+              <span class="prompt"><%= t.smarty(portrait.episode_prompt) %></span>
+            </p>
+          <% } else { %>
+            <p class="coming-soon">
+              <b><%= audioIcon %>Listen</b>
+              <span class="prompt"><%= t.smarty(portrait.episode_prompt) %></span>
+            </p>
+          <% } %>
+        </div>
+        <% } %>
+
+        <% } %>
+      </cite>
+    </div>
+  </div>
+
+  <% if ((portrait.episode_link || portrait.episode_prompt) && portrait.alignment == "dual-quote") { %>
+  <div class="episode">
+    <% if (portrait.episode_link) { %>
+      <p class="episode-link">
+        <a href="<%= portrait.episode_link %>"><%= t.smarty(COPY.labels.episode_prompt) %></a>
+      </p>
+    <% } else if (portrait.episode_prompt) { %>
+      <p class="coming-soon"><%= t.smarty(portrait.episode_prompt) %></p>
+    <% } %>
+  </div>
+  <% } %>
+
+</div>
+<% }) %>

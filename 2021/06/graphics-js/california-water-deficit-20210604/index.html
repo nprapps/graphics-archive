@@ -1,0 +1,92 @@
+<%= await t.include("lib/_head.html") %>
+<div class="wrapper">
+  <header>
+    <% if (COPY.labels.headline) { %>
+    <h1><%= t.smarty(COPY.labels.headline) %></h1>
+    <% } %>
+
+    <% if (COPY.labels.subhed) { %>
+    <h2><%= t.smarty(COPY.labels.subhed) %></h2>
+    <% } %>    
+  </header>
+
+  <div class="graphic" id="table-graphic">
+    <table id="state-table" role="table">
+      <thead role="rowgroup">
+        <tr role="row">
+          <th role="columnheader">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.hdr_degree %></div>
+          </th>
+          <th class="" role="columnheader">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= COPY.labels.hdr_pct %></div>
+          </th>
+        </tr>
+      </thead>
+
+      <%
+
+      var d3 = {
+        ...require("d3-axis/dist/d3-axis.min"),
+        ...require("d3-scale/dist/d3-scale.min"),
+        ...require("d3-selection/dist/d3-selection.min")
+      };
+
+      var scale = d3
+        .scaleLinear()
+        .domain([0,-30])
+        .range([0, 0.75]);
+
+        var colorFunction = function(input) {
+          if (input == "N/A") {
+            return 'background-color: #ccc';
+          } else {
+            return 'background-color: rgba(227, 141, 44,' + scale(input) + ')';
+          }
+        }
+
+        var darkFunction = function(input) {
+          if (input > 1) {
+            return 'light';
+          } else {
+            return 'dark';
+          }
+        }
+
+        COPY.data.forEach(function(row) { %>
+      <tr class="row" role="row">
+        <td role="cell" data-title="<%= COPY.labels.hdr_degree %>"><%= `+${row.degree}º ` %><span class="temp"><%= `(+${row.far}ºF)` %></span></td>
+        <td role="cell" data-title="<%= COPY.labels.hdr_pct %>" class="amt" style=" <%= colorFunction(row.pct) %>"><%= `${row.pct}%` %></td>
+      </tr>
+    <% }) %>
+
+    </table>
+  </div>
+  <footer>
+    <% if (COPY.labels.footnote) { %>
+    <div class="footnotes">
+      <h4>Notes</h4>
+      <p><%= COPY.labels.footnote %></p>
+    </div>
+    <% } %>
+
+    <div class="footer">
+      <% if (COPY.labels.source) { %>
+      <p>Source: <%= COPY.labels.source %></p>
+      <% } %>
+
+      <% if (COPY.labels.credit) { %>
+      <p>Credit: <%= COPY.labels.credit %></p>
+      <% } %>
+    </div>
+  </footer>
+</div>
+
+
+
+
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

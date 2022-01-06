@@ -1,0 +1,52 @@
+<%= await t.include("lib/_head.html") %>
+
+<%
+ var icon = '<?xml version="1.0" encoding="utf-8"?><svg version="1.1" id="Layer_1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 77 85.2" style="enable-background:new 0 0 77 85.2;" xml:space="preserve"><g transform="translate(0,-952.36218)"><path fill="currentColor" d="M15.6,952.4L2.1,966.6c13,11.4-2.1,22.1-2.1,35.5c0,9.9,12.6,30.6,38.5,35.5c25.9-5,38.5-25.6,38.5-35.5 c0-13.4-15.1-24.1-2.1-35.5l-13.5-14.2c-6.1,3.7-14.2,6.1-22.9,6.1S21.7,956,15.6,952.4z M38.5,975.7l5.2,14.2h14.5L45.8,998 l5.2,14.2l-12.5-8.1l-12.5,8.1l5.2-14.2l-12.5-8.1h14.6L38.5,975.7z"/></g></svg>';
+%>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+
+  <% COPY.data.forEach((row, i) => { %>
+    <div class="grouping <%= row.prompt_class %>">
+      <p><%= t.smarty(row.prompt) %></p>
+      <div class="icons">
+        <% for (var n = 0; n < row.highlight; n++) { %>
+          <span class="<%= row.highlight_class %>"><%= icon %></span>
+        <% } %>
+
+        <% for (var n = 0; n < (row.total - row.highlight); n++) { %>
+          <span class="<%= row.total_class %>"><%= icon %></span>
+        <% } %>
+      </div>
+    </div>
+  <% }); %>
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= t.smarty(COPY.labels.footnote) %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

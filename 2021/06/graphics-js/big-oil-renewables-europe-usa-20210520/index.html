@@ -1,0 +1,86 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<svg class="defs" style="position: absolute; left: -1000px;">
+  <pattern id="inner-stripes"
+    class="stripes"
+    width="10" height="10"
+    patternUnits="userSpaceOnUse"
+    patternTransform="rotate(45)"
+  >
+    <path
+      d="M5,0L5,10"
+      stroke="rgba(200, 200, 200, 0.6)"
+      stroke-width="7"
+    ></path>
+  </pattern>
+  <pattern id="legend"
+    class="stripes"
+    width="10" height="10"
+    patternUnits="userSpaceOnUse"
+    patternTransform="rotate(45)"
+  >
+    <path
+      d="M5,0L5,10"
+      stroke="rgba(200, 200, 200, 1)"
+      stroke-width="1"
+    ></path>
+  </pattern>
+  <pattern id="outer-stripes"
+    class="stripes"
+    width="10" height="10"
+    patternUnits="userSpaceOnUse"
+    patternTransform="rotate(45)"
+  >
+    <path
+      d="M5,0L5,10"
+      stroke="rgba(200, 200, 200, 0.3)"
+      stroke-width="5"
+    ></path>
+    <path
+      d="M0,0L0,10"
+      stroke="rgba(200, 200, 200, 0.3)"
+      stroke-width="5"
+    ></path>
+    <path
+      d="M10,0L10,10"
+      stroke="rgba(200, 200, 200, 0.3)"
+      stroke-width="5"
+    ></path>
+  </pattern>
+</svg>
+
+<div id="stacked-bar-chart" class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+    <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    
+    <p><strong>Notes: </strong><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.data) %>;
+</script>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

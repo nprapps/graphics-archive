@@ -1,0 +1,83 @@
+@import "./lib/base";
+
+h1,
+h2 {
+  .mmedia-constrained-centered();
+}
+
+h1 {
+  margin-bottom: 11px;
+}
+
+.annotation {
+  text {
+    .sans-serif();
+    font-weight: bold;
+    font-size: 12px;
+    text-anchor: end;
+    @media @screen-mobile {
+      font-size: 11px;
+    }
+  }
+}
+
+.key-wrap {
+  .key {
+    margin: 0 0 20px 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+    display: block;
+
+    .key-item {
+      display: inline-block;
+      margin: 5px 12px 0 0;
+      padding: 0;
+      line-height: 15px;
+      margin-left: 10px;
+
+      &.b_type {
+        b {
+          background: @blue3;
+        }
+      }
+
+      &.b_type_nation {
+        b {
+          border: 2px solid @blue2;
+        }
+      }
+    }
+    .key-item b {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+      float: left;
+      border-radius: 8px;
+    }
+    .key-item label {
+      white-space: nowrap;
+      font-size: 12px;
+      color: #666;
+      font-weight: normal;
+      -fwebkit-font-smoothing: antialiased;
+    }
+    @media screen and (max-width: 499px) {
+      .key-item b {
+        //width: 16px;
+        //height: 16px;
+        //border-radius: 8px;
+      }
+      .key-item label {
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+.graphic,
+.footnotes,
+.footer {
+  .mmedia-constrained();
+}
