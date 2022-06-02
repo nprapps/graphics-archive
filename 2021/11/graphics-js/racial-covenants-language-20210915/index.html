@@ -1,0 +1,55 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="quote-grid" class="graphic grid">
+  <div class="grid-sizer"></div>
+  <%
+    var data = COPY.data.filter(function(item) {
+      return item.show == true;
+    })
+    data.forEach(function(row, i) {
+  %>
+  <div class="grid-item item-<%= i %>">
+    <figure>
+      <blockquote><%= t.smarty(row.excerpt) %></blockquote>
+      <figcaption>
+        <ul>
+          <% if (row.neighborhood) { %>
+            <li class="neighborhood"><%= row.neighborhood.trim() %>, <%= row.city.trim() %></li>
+          <% } %>
+          <% if (row.fmt_year_built) { %>
+            <li>House built: <%= row.fmt_year_built %></li>
+          <% } %>
+          <% if (row.fmt_year_restriction) { %>
+            <li>Restriction placed: <%= row.fmt_year_restriction %></li>
+          <% } %>
+        </ul>
+      </figcaption>
+    </figure>
+  </div>
+  <% }); %>
+</div>
+<button aria-hidden class="toggle-grid show-hide" data-more="<%= COPY.labels.toggle_more %>" data-less="<%= COPY.labels.toggle_less %>"><%= COPY.labels.toggle_more %></button>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>
