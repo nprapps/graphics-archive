@@ -1,0 +1,10 @@
+<%= await t.include("lib/_head.html") %>
+
+<div class="target">
+    <h1><span class="myth"><%= t.smarty(COPY.labels.myth) %></span></h1>
+    <h1 class="fact"><%= t.smarty(COPY.labels.fact) %></h1>
+</div> 
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

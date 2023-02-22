@@ -1,0 +1,127 @@
+@import "./lib/base";
+
+h1 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.graphic {
+  margin-bottom: 22px;
+}
+
+// Base table styles
+table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.45;
+
+  @media @screen-mobile-above {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  th, td {
+    &.step {
+      text-align: right;
+
+      h4 {
+        font-weight: bold;
+        color: #454545;
+        margin: 0;
+      }
+      p {
+        margin: 3px 0 0 0;
+        color: #787878;
+      }
+    }
+
+    &.indicator {
+      width: 10px;
+      padding: 0;
+      background: @teal6;
+    }
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+    // border-bottom: 2px solid #eee;
+    padding: 0 15px 10px 15px;
+
+    &:first-child { padding-left: 0; }
+    &:last-child { padding-right: 0; }
+
+    &.vaccine {
+      font-size: 15px;
+      color: @teal3;
+    }
+  }
+
+  td {
+    .gotham();
+    border-top: 1px solid #eee;
+    vertical-align: top;
+    padding: 10px 10px 10px 0;
+
+    @media @screen-mobile-above {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      padding-right: 25px;
+    }
+
+    &:first-child { padding-left: 0; }
+    &:last-child { padding-right: 0; }
+
+    &.vaccine {
+      width: 50%;
+      padding-top: 10px;
+
+      .desc {
+        padding: 5px 10px;
+        display: inline-block;
+        border: 1px solid transparent;
+        border-left: none;
+      }
+
+      &.done span {
+        background: #eee;
+        border-color: #eee;
+      }
+
+      &.tbd span {
+        font-style: italic;
+      }
+
+      &.working span {
+        background: @yellow6;
+        border-color: @yellow5;
+      }
+    }
+
+    &.indicator {
+      padding: 17px 0;
+
+      b {
+        display: block;
+        height: 15px;
+        border-radius: 10px;
+        background: #fff;
+        border: 1px solid #ccc;
+      }
+
+      &.done b {
+        background: @teal2;
+        border-color: @teal2;
+      }
+      &.working b {
+        border-color: @teal2;
+        background: #fff;
+      }
+    }
+  }
+}

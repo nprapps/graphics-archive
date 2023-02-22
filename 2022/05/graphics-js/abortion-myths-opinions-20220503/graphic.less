@@ -1,0 +1,70 @@
+@import "./lib/base";
+
+body {
+  .mmedia-constrained();
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}
+
+.target h1 {
+  margin-bottom: 22px;
+}
+
+.myth {
+  font-weight: 600;
+  color: #333;
+  font-size: 22px;
+  text-decoration: none;
+  background-image: linear-gradient(@red3, @red3);
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 1s;
+ }
+
+.fact {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.target.active {
+  
+ .myth {
+  background-size: 100% 2px;
+ }
+
+.fact {
+  opacity: 1;
+}
+
+
+  
+}

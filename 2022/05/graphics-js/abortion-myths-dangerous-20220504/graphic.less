@@ -1,0 +1,58 @@
+@import "./lib/base";
+
+body {
+	.mmedia-constrained();
+}
+
+.value text {
+  font-size: 11px;
+}
+
+.value text.out {
+    fill: #777;
+}
+
+rect.bar-0 {
+  fill: @teal3;
+}
+
+rect.bar-1 {
+  fill: @teal5;
+}
+
+.deaths-per-100000-induced-abortions {
+  font-weight: bold;
+}
+
+.target h1 {
+  margin-bottom: 22px;
+}
+
+.myth {
+  font-weight: 600;
+  color: #333;
+  font-size: 22px;
+  text-decoration: none;
+  background-image: linear-gradient(@red3, @red3);
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 1s;
+ }
+
+.fact {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.target.active {
+  
+ .myth {
+  background-size: 100% 2px;
+ }
+
+.fact {
+  opacity: 1;
+}
+
+}
