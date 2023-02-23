@@ -1,0 +1,13 @@
+<%
+data.sort((a,b) => a.district.localeCompare(b.district));
+
+data.forEach(function(row, i) { %>
+  <tr class="person-<%= (i + 1) %> <%= row.recent %>" role="row">
+    <td role="cell" data-title="Name" class="name">
+      <%= row.first %> <%= row.last %>
+    </td>
+    <td role="cell" data-title="District" class="place"><%= row.district %></td>
+    <td role="cell" data-title="Status"><%= row.status %></td>
+    <td role="cell" data-title="Elected" class="amt"><%= row.first_elected %> </td>
+  </tr>
+<% }); %>

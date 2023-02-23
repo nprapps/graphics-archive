@@ -1,0 +1,26 @@
+<% if (COPY.data[0].headline) { %>
+<h1><%= t.smarty(COPY.data[0].headline) %></h1>
+<% } %>
+
+<% if (COPY.data[0].subhed) { %>
+<h2><%= t.smarty(COPY.data[0].subhed) %></h2>
+<% } %>
+
+<div id="graphic" class="graphic">
+    <div class="top-wrapper">
+        <div id="image-toggle" class="image-toggle">
+            <button id="toggle-1" class="toggle-btn active">
+                <span class="btn-hed"><%= COPY.data[0].label_hed1 %></span>
+                <span class="btn-dek"><%= COPY.data[0].label_dek1 %></span>
+            </button>
+            <button id="toggle-2" class="toggle-btn">
+                <span class="btn-hed"><%= COPY.data[0].label_hed2 %></span>
+                <span class="btn-dek"><%= COPY.data[0].label_dek2 %></span>
+            </button>
+        </div>
+    </div>
+    <div class="img-wrapper">
+        <img class="flip-image image-1" src="synced/<%= COPY.data[0].image1 %>" alt="<% if (COPY.data[0].caption1) { %><%= COPY.data[0].caption1 %><% } %>">
+        <img class="flip-image image-2" src="synced/<%= COPY.data[0].image2 %>" alt="<% if (COPY.data[0].caption2) { %><%= COPY.data[0].caption2 %><% } %>">
+    </div>
+</div>

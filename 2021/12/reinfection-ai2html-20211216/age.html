@@ -1,0 +1,37 @@
+<%= await t.include("lib/_head.html") %>
+
+<h1 class="big"><%= t.smarty(COPY.labels.headline2) %></h1>
+
+<h1><%= t.smarty(COPY.labels.header2) %></h1>
+<div id="graphic" class="graphic panel2" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+    <%= await t.include("_age-graphic.html") %>
+</div>
+<h1><%= t.smarty(COPY.labels.header3) %></h1>
+<div id="graphic" class="graphic panel3" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+    <%= await t.include("_age-graphic.html") %>
+</div>
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./age.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

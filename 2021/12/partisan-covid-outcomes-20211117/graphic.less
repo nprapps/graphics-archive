@@ -1,0 +1,384 @@
+@import "./lib/base";
+
+@overall: #333;
+@biden: #3D7FA6;
+@trump: #D8472B;
+
+// .note, h2 {
+//     display: none;
+// }
+
+.graphic-container {
+  width: 50%;
+  float: left;
+
+  h1 {
+    .knockout-header();
+
+    margin-bottom: 0;
+    color: #454545;
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 600px) {
+    width:100%;
+  }
+}
+
+.clearer {
+  .clearfix()
+}
+
+.bold {
+  font-weight: bold;
+}
+
+h1, h2, .key, .search-bar {
+  .mmedia-constrained-centered();
+}
+
+.footnotes, .footer {
+  .mmedia-constrained();
+}
+
+.graphic-container {
+  h1 {
+    font-size: 16px;
+  }
+}
+
+svg {
+  overflow: visible;
+
+  @media screen and (max-width: 500px) {
+    overflow: hidden;
+  }
+}
+
+.key {
+  margin-bottom: 20px;
+  // display: flex;
+  // justify-content: center;
+}
+
+.key .key-item b {
+  // border-radius: 50%;
+  margin-top: -3px;
+  font-size: 29px;
+  margin-right: 10px;
+  font-weight: normal !important;
+} 
+
+.key-item.overall {
+  color: @overall;
+}
+
+.key-item.biden {
+  color: @biden;
+}
+
+.key-item.trump {
+  color: @trump;
+}
+
+.key-item label {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+// .key .key-item:nth-child(2) {
+//   order: 3
+// }
+
+.pointer-line, .tooltip-line {
+  stroke: #444;
+  stroke-width:1px;
+  shape-rendering: crispEdges;
+  pointer-events: none;
+}
+
+.connector-line {
+  stroke: #ccc;
+  stroke-width: 3px;
+  shape-rendering: crispEdges;
+  pointer-events: none; 
+}
+
+.tooltip, .tooltip-label, .area-label {
+  .knockout();
+  
+  fill: #333;
+  text-shadow: 0px 0px 5px #fff,
+  0px 0px 10px #fff;
+}
+
+.tooltip.overall {
+  font-weight: bold;
+}
+
+.tooltip-label {
+  font-size: 15px;
+  font-weight: bold;  
+  dominant-baseline: text-after-edge;
+}
+
+.axis-label {  
+  // .gotham();
+  fill: #555;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.note {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #333;
+  font-style: italic;
+  text-shadow: 0px 0px 5px #fff,
+  0px 0px 10px #fff;
+}
+@keyframes pulse {
+  0%   { 
+    stroke-width: 1px;
+  }
+  100% { 
+    stroke-width: 15px;
+    stroke-opacity:0;
+  }
+}
+
+@-webkit-keyframes pulse {
+  0%   { 
+    stroke-width: 1px;
+  }
+  100% { 
+    stroke-width: 15px;
+    stroke-opacity:0;
+  }
+}
+.dot {  
+  opacity: 0.25;
+
+  &.active {
+    opacity: 1 !important;
+    stroke-width: 1px;
+    // stroke: @teal2;
+    paint-order: stroke fill;
+    fill:#000;
+      animation: pulse 2s infinite;
+      -webkit-animation: pulse 2s infinite;
+
+    &.bigTrump {
+      stroke: @trump;
+    }    
+    &.bigBiden {
+      stroke: @biden;
+    }
+    &.middle {
+      stroke: #999;
+    }
+  }
+}
+
+
+
+.zero-line {
+  stroke-dasharray: 4;
+}
+
+.average-line {
+  // stroke: #fff;
+  // stroke-width:3;
+  font-size:29px;
+
+  &.upper {
+    fill: @red3;
+  }
+
+  &.lower {
+    fill: @blue2;
+  }
+
+  &.backdrop {
+    fill: #fff;
+    stroke:#fff;
+    stroke-width: 3;
+  }
+
+  &.old {
+    stroke:black;
+  }
+
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+.areas {
+  fill: #ddd;
+  fill: none;
+  stroke: #333;
+  stroke-width: 1px;
+  stroke-dasharray: 4;
+}
+
+.search-bar {
+  width: 100%;
+  // max-width: 300px;
+  align-content: center;
+  margin: 0 auto 15px auto;
+  text-align: center;
+  width: 100%;
+  background-color: #eee;
+  padding: 5px;
+
+/*  @media screen and (max-width: 495px) {
+    display: none;
+  }*/
+
+
+  .search-box {
+    width: 300px;
+    display: block;
+    margin: 10px auto 20px auto;
+  }
+
+  input[type=text] {
+    height: 21px;
+    width: 225px;
+  }
+
+  .search-header {
+    margin: 0 0 10px 0;
+    .knockout-header();
+    padding-top: 0;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    color: #333;
+  }
+
+
+}
+
+
+.pill {
+  padding:2px;
+  padding-right:4px;
+  border-radius:4px;
+  margin-left: 2px;
+  margin-right: 2px;
+  color: #fff;
+  font-weight: bold ;
+  background-color: #999;
+
+  &.lower {
+    // background-color: @orange3;
+  }
+  &.higher {
+    // background-color: @teal3;
+  }
+}
+
+#lookup {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+.lookupDetails {
+  display: none;
+  .trumpVote {
+    font-weight: normal;
+    color: #777;
+    font-size: 12px;
+    line-height: 1.6;
+    font-style: italic;
+    text-align: center;
+
+  }
+
+  table th:first-child, table td:first-child {
+      padding-left: 0;
+  }
+
+  table td span.title {
+    .gotham();
+    display: inline-block;
+    margin-right: 10px;
+    text-align: left;
+    font-weight: bold;
+    color: #666;
+    width: 140px;
+    // font-size: 16px;
+  }
+
+  table {
+    max-width: 500px;
+    margin: 0 auto;
+    // max-width: 500px;
+    text-align: left;
+    width: 100%;
+    border-collapse: collapse;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+    
+    tbody {
+      display: block;
+      width: 100%;
+      max-width: 650px;
+    }
+
+    tr, th, td, td.amt {
+      display: block;
+      padding: 0;
+      white-space: normal;
+    }
+
+    td {
+      min-width: 120px;
+      vertical-align: top;
+      margin-bottom: 0px;
+      vertical-align: top;
+      word-wrap: break-word;
+      // padding-top: 5px;
+      padding-bottom: 9px;
+      border-bottom: 1px solid #eee;
+      font-style: italic;
+
+    }
+
+    tr.main td {
+      border-bottom: none;
+      padding-bottom: 0;
+      padding-top: 9px;
+      font-style: normal;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+
+
+  .lookupDetails table td span.title {
+    display: inline;
+    margin-right: 0px;
+  }
+}

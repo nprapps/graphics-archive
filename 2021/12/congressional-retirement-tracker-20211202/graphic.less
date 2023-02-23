@@ -1,0 +1,336 @@
+@import "./lib/base";
+
+body {
+  max-width: 650px;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.footnotes {
+  .mmedia-constrained-centered();
+
+  &.table {
+    margin-left: none;
+    margin-right: none;
+    text-align: left;
+    margin-top: 10px;
+  }
+}
+
+.footnotes h4, .footnotes p {
+  display: inline;
+  vertical-align: top;
+  line-height: 13px;
+}
+
+.num-hed {
+  .gotham();
+  text-transform: uppercase;
+  color: #333;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.num-container { text-align: center; }
+
+.num {
+  display: inline-block;
+  text-align: center;
+  .gotham();
+  width: 150px;
+
+  &.num-gop {
+    border-left: 1px solid #eee;
+  }
+}
+
+.big-num {
+  font-size: 48px;
+  font-weight: bold;
+
+  &.dem { color: @blue3; }
+  &.gop { color: @red3; }
+}
+
+.bar-wrapper {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.divide-label {
+  font-size: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+hr {
+  position: absolute;
+  top: -10px;
+  right: 50%;
+  border: 1px solid #333;
+}
+
+.bar-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  // max-width: 500px;
+  height: 20px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+
+  @media @screen-mobile {
+    max-width: 80%;
+  }
+}
+
+.block {
+  display: flex;
+  justify-content: space-between;
+  height: 20px;
+  color: #fff;
+  float: left;
+
+  &.dem { background-color: @blue2; }
+  &.dem-change { background-color: @blue3; }
+  &.gop { background-color: @red2; }
+  &.gop-change { background-color: @red3; }
+}
+
+// .value {
+//   display: flex;
+//   font-size: 12px;
+//   align-items: center;
+//   justify-content: space-between;
+//
+//   &.dem {
+//     margin-left: 5px;
+//   }
+//
+//   &.gop {
+//     float: right;
+//     margin-right: 5px;
+//     margin-left: auto;
+//   }
+// }
+
+.bar-labels {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  // max-width: 500px;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: bold;
+  color: #787878;
+}
+
+.bar-hed, .update-hed {
+  .knockout();
+  text-transform: uppercase;
+  font-weight: normal;
+  text-align: center;
+  color: #787878;
+  margin-top: 20px;
+  margin-bottom: 6px;
+}
+
+.update {
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+
+.update-name {
+  font-weight: bold;
+
+  &.D { color: @blue3; }
+  &.R { color: @red3; }
+}
+
+td.cook {
+  color: white;
+
+  &.d-0 { background-color: @blue5; }
+  &.d-5 { background-color: @blue4; }
+  &.d-10 { background-color: @blue3; }
+  &.d-15 { background-color: @blue2; }
+  &.d-20, &.d-25, &.d-30, &.d-35, &.d-40 { background-color: @blue1; }
+
+  &.r-0 { background-color: @red5; }
+  &.r-5 { background-color: @red4; }
+  &.r-10 { background-color: @red3; }
+  &.r-15 { background-color: @red2; }
+  &.r-20, &.r-25, &.r-30 { background-color: @red1; }
+
+  &.even-0 { background-color: #c4c4c4; }
+
+  &.toss-up { background-color: #c4c4c4; }
+  &.lean-republican { background-color: @red5; }
+  &.solid-republican { background-color: @red3; }
+
+  &.lean-democrat { background-color: @blue5; }
+  &.solid-democrat { background-color: @blue3; }
+}
+
+.recent {
+  font-weight: bold;
+  color: #333;
+}
+
+// Base table styles
+table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+  font-size: 12px;
+  color: #666;
+
+  tr.shadedrow {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+  }
+
+  th {
+    .knockout-header();
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: bottom;
+  }
+
+  td { vertical-align: top; }
+}
+
+// Tablesorter styles
+table {
+  th {
+    &.sort-header {
+      cursor: pointer;
+
+      &::-moz-selection,
+      &::selection {
+        background: transparent;
+      }
+
+      .sorter {
+        border-top: 2px solid #404040;
+        visibility: hidden;
+
+        .icon {
+          content: '';
+          width: 1px;
+          margin: 3px auto 7px auto;
+          border-width: 0 4px 4px;
+          border-style: solid;
+          border-color: #404040 transparent;
+        }
+      }
+
+      &:hover .sorter {
+        visibility: visible;
+      }
+    }
+
+    &[aria-sort="descending"] .sorter,
+    &[aria-sort="ascending"] .sorter,
+    &[aria-sort="ascending"]:hover .sorter {
+      visibility: visible;
+      opacity: 0.4;
+    }
+
+    &[aria-sort="descending"] .sorter .icon {
+      border-bottom: none;
+      border-width: 4px 4px 0;
+    }
+  }
+}
+
+/*
+* larger-than-small-screen styles
+* ~ defining some desktop-only styles here to avoid
+* ~ writing extra mobile styles to undo them.
+*/
+@media @screen-mobile-above {
+  table {
+    th, td {
+      padding: 10px;
+
+      // comment these two out if you want to highlight particular rows
+      &:first-child { padding-left: 0; }
+      &:last-child { padding-right: 0; }
+
+      &.amt { text-align: right; }
+    }
+
+    th {
+      border-bottom: 2px solid #eee;
+      padding-top: 0;
+    }
+
+    td { border-bottom: 1px solid #eee; }
+
+    td.name {
+      width: 20%;
+    }
+
+    td.place {
+      width: 15%;
+    }
+  }
+}
+
+/*
+* small-screen styles
+*/
+@media @screen-mobile {
+  tbody {
+    display: block;
+    width: 100%;
+  }
+
+  table {
+    thead { display: none; }
+
+    tr, th, td {
+      display: block;
+      padding: 0;
+      white-space: normal;
+    }
+
+    tr {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+
+      &:first-child { border-top: 1px solid #eee; }
+    }
+
+    td {
+      margin-bottom: 6px;
+
+      &:empty { display: none; }
+    }
+
+    tr td:first-child {
+      .knockout-header();
+      color: #333;
+      font-size: 14px;
+      margin-bottom: 6px;
+
+      &:before {
+        content: '';
+        display: none;
+      }
+    }
+
+    th[data-title]:before,
+    td[data-title]:before {
+      content: attr(data-title) ":\00A0";
+      display: inline-block;
+      margin-right: 10px;
+      width: 70%;
+    }
+  }
+}

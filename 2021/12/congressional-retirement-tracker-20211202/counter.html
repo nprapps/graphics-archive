@@ -1,0 +1,28 @@
+<%= await t.include("lib/_head.html") %>
+
+<% var data = COPY.counter; %>
+
+<div class="graphic" id="counter-graphic">
+    <%= await t.include("./partials/_counter.html", { data }) %>
+</div>
+
+<% if (COPY.labels.counter_footnote) { %>
+<div class="footnotes">
+  <h4>Notes: </h4><p><%= COPY.labels.counter_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script>window.TYPE = "counter";</script>
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

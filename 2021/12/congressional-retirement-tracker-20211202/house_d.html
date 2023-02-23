@@ -1,0 +1,43 @@
+<%= await t.include("lib/_head.html") %>
+
+<% var labels = COPY.labels; %>
+<% var data = COPY.house_d; %>
+
+<% if (COPY.labels.headline_house_d) { %>
+<h1><%= t.smarty(COPY.labels.headline_house_d) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed_house_d) { %>
+<h2><%= t.smarty(COPY.labels.subhed_house_d) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="retire-table" role="table">
+    <%= await t.include("./partials/_thead_house.html", { labels }) %>
+    <tbody>
+      <%= await t.include("./partials/_table_house.html", { data }) %>
+    </tbody>
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script>window.TYPE = "house_d";</script>
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

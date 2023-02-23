@@ -1,0 +1,41 @@
+<%= await t.include("lib/_head.html") %>
+
+<h1 class="big"><%= t.smarty(COPY.labels.headline) %></h1>
+
+<h1><%= t.smarty(COPY.labels.header1) %></h1>
+<div id="graphic" class="graphic panel1" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+    <%= await t.include("_ai2html-graphic.html") %>
+</div>
+
+<h1><%= t.smarty(COPY.labels.header1_2) %></h1>
+<div id="graphic" class="graphic panel1_2" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+    <%= await t.include("_ai2html-graphic.html") %>
+</div>
+<h1><%= t.smarty(COPY.labels.header1_3) %></h1>
+
+
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

@@ -1,0 +1,142 @@
+@import "./lib/base";
+
+h1 {
+  .mmedia-constrained-centered();  
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+h1.big {
+  font-size: 24px;
+   // font-weight: bold;
+   margin-bottom: 33px;
+}
+
+.graphic .g-artboard {
+  display: none;
+
+}
+
+.graphic.panel1 {
+  #g-_ai2html-graphic-panel1 {
+    display: block;
+  }
+}
+
+.graphic.panel1_2 {
+  #g-_ai2html-graphic-panel1_0,  
+  #g-_ai2html-graphic-panel1_1,
+  #g-_ai2html-graphic-panel1_2,
+  #g-_ai2html-graphic-panel1_3,
+  #g-_ai2html-graphic-panel1_4, {
+    display: block;    
+  }
+  #g-_ai2html-graphic-panel1_0 {
+    position: relative;
+  }
+  
+  #g-_ai2html-graphic-panel1_1,
+  #g-_ai2html-graphic-panel1_2,
+  #g-_ai2html-graphic-panel1_3,
+  #g-_ai2html-graphic-panel1_4 {
+    position:absolute;
+    top: 0;  
+  }
+
+  img {
+    opacity: 0;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+  
+}
+
+.graphic.panel2 {
+  #g-_age-graphic-panel2_1 {
+    display: block;
+  }
+}
+
+.graphic.panel3 {
+  #g-_age-graphic-panel3_1 {
+    display: block;
+  }
+}
+
+
+
+
+
+#g-_ai2html-graphic-panel1,
+#g-_ai2html-graphic-panel1_3,
+#g-_age-graphic-panel2_1, 
+#g-_age-graphic-panel2_2,
+#g-_age-graphic-panel3_1,
+#g-_age-graphic-panel3_2 {
+  .g-labels p {
+    .gotham();
+    color: #333;
+
+    &.g-aiPstyle0, &.g-aiPstyle2 {
+      font-size: 16px;
+      line-height: 18px;
+      font-weight: bold;
+    }
+
+    &.g-aiPstyle1, &.g-aiPstyle3, &.g-aiPstyle4 {
+      font-size: 13px;
+      line-height: 15px;
+    }
+  }
+}
+
+
+.immune {
+  background-color: @teal6;
+  padding:1px 4px;
+  border-radius: 5px;
+  border: 2px solid @teal2;
+  white-space: nowrap;
+}
+
+.red {
+  border-bottom: 2px solid @red3;
+}
+
+// #g-_ai2html-graphic-panel1
+
+// ai2html artboard sizes
+@media screen and (min-width: 550px) {
+  // #g-_ai2html-graphic-small, #g-_ai2html-graphic-medium { display: none; }
+}
+
+@media screen and (max-width: 550px) {
+  // #g-_ai2html-graphic-medium, #g-_ai2html-graphic-wide { display: none; }
+
+  h1 {
+    font-size: 18px;
+    // line-height: 23px;
+  }
+
+  #g-_ai2html-graphic-panel1,
+  #g-_ai2html-graphic-panel1_3,
+  #g-_age-graphic-panel2_1, 
+  #g-_age-graphic-panel2_2,
+  #g-_age-graphic-panel3_1,
+  #g-_age-graphic-panel3_2 {
+    .g-labels p.g-aiPstyle0, .g-labels p.g-aiPstyle2 {
+        font-size: 14px;
+        line-height: 16px;      
+      }
+
+    .g-labels p.g-aiPstyle1 {
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+}
+
+// Add custom styles here

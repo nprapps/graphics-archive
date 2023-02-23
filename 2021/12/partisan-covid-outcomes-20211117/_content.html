@@ -1,0 +1,139 @@
+<!-- <% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %> -->
+
+<div class="explainer">
+<!--   <h1>
+    
+    People from counties that voted <span class="bold TrumpPct">heavily</span> for Donald Trump have...
+  </h1> -->
+  <h1><%= t.smarty(COPY.labels.headline) %></h1>
+  <!-- <h2><%= t.smarty(COPY.labels.subhed) %></h2> -->
+</div>
+
+<ul class="key">
+<li class="key-item key-1 overall">
+  <b>
+    +
+  </b>
+<label>Overall average</label>
+</li>
+<li class="key-item key-2 biden">
+  <b>
+    +
+  </b>
+<label>Average of heavily Biden counties</label>
+</li>
+<li class="key-item key-3 trump">
+  <b>
+    +
+  </b>
+<label>Average of heavily Trump counties</label>
+</li>
+</ul>
+
+<div class="graphic-container">
+  <!-- <h1>a <span class="bold">20 percentage points</span> lower vaccination rate than people from counties that voted heavily for Joe Biden</h1> -->
+  <h1>Vaccinations</h1>
+  <div id="scatter-plot2" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+    aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+  >
+    <img src="fallback.png" alt="" class="fallback" />
+  </div>
+</div>
+
+<div class="graphic-container">
+  <!-- <h1>died of COVID-19 at <span class="bold">2.7 times</span> the rate of people from counties that voted heavily for Joe Biden</h1> -->
+  <h1>Deaths</h1>
+  <div id="scatter-plot" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+    aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+  >
+    <img src="fallback.png" alt="" class="fallback" />
+  </div>  
+</div>
+
+<div class="clearer"></div>
+
+<div class="search-bar">
+  <div class="search-box">
+    <div class="search-header">Search by <b>County</b></div>
+    <div>
+      <autocomplete-input list="counties" name="counties" id="search" type="text"></autocomplete-input>
+      <datalist id="counties"></datalist>
+      <!-- <div class='no-data-msg'>No data found.</div> -->
+  </div>
+</div>
+</div>
+
+<!-- <div class="search-bar">
+  <div class="search-box">
+    <div class="search-header">Search by <b>County</b></div>
+    <div>
+      <input autocomplete="off" spellcheck="false" list="counties" name="counties" id="search" class='counties' type="text">
+        <datalist id="counties">
+        </datalist>
+      
+    </div>
+  </div>
+</div> -->
+  <div class="lookupDetails" id="lookup"> 
+    <div class="trumpVote"><span id="voteTrump" class="pill">TK%</span> voted for Donald Trump</div>
+    <table>
+      <tr class="main">
+        <td>
+          <span class="title">
+            Vaccination Rate: 
+          </span>        
+          <span id="vaxRate">TK%</span>
+        </td>
+      </tr>
+      <tr >
+        <td>
+          <span class="title"></span>        
+          <span id="vaxStat">45 pts <span>higher</span> than the national average.</span>
+        </td>
+      </tr>
+      <tr class="main">
+        <td>
+          <span class="title">
+            Death Rate: 
+          </span>
+          <span id="deathRate">
+            TK per 100,000 people since May 1
+          </span>
+        </td>
+      </tr>
+      <tr >
+        <td>
+          <span class="title"></span>        
+          <span id="deathStat">
+            20x <span>higher</span> than the national average. 
+          </span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA = <%= JSON.stringify(COPY.officialDf) %>;
+  var LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>

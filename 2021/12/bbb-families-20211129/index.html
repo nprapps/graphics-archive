@@ -1,0 +1,103 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="dropdown-container">
+	<h3 class="special">See estimated family benefits for...</h3>
+	<select id="dropdown" class="state-dropdown">
+		<option value="Select">Select a state...</option>
+		<% COPY.total.forEach(function(state) { %>
+	  	<option value="<%= t.classify(state['State']) %>"><%= state['State'] %></option>
+	  <% }); %>
+	</select>
+</div>
+
+<div id="bbb" class="graphic">
+
+<%
+  COPY.total.forEach(function(state) {
+    var thisState = state["State"];
+    var income = {
+      "married_median": state.married_median_income,
+      "married_50": state.married_50_income,
+      "married_150": state.married_150_income,
+      "single_median": state.single_median_income,
+      "single_50": state.single_50_income,
+      "single_150": state.single_150_income
+    }
+
+    var benefit = [];
+    benefit.total = {
+      "married_median": state.married_median_benefit,
+      "married_50": state.married_50_benefit,
+      "married_150": state.married_150_benefit,
+      "single_median": state.single_median_benefit,
+      "single_50": state.single_50_benefit,
+      "single_150": state.single_150_benefit
+    };
+
+    [ "child_tax", "child_care", "aca_medicaid" ].forEach(function(sheet) {
+      COPY[sheet].forEach(function(row) {
+        if (row["State"] == thisState) {
+          benefit[sheet] = {
+            "married_median": row.married_median_benefit,
+            "married_50": row.married_50_benefit,
+            "married_150": row.married_150_benefit,
+            "single_median": row.single_median_benefit,
+            "single_50": row.single_50_benefit,
+            "single_150": row.single_150_benefit
+          }
+        }
+      });
+    });
+%>
+  <article class="<%= t.classify(thisState) %>">
+
+    <% [ "married", "single" ].forEach(function(status) { %>
+      <h4 class="<%= status %>"><%= t.smarty(COPY.labels["hdr_" + status]) %> in <%= thisState %></h4>
+
+      <div class="status <%= status %>">
+      <%
+        [ "50", "median", "150" ].forEach(function(sector) {
+          var thisSector = status + "_" + sector;
+      %>
+        <div class="<%= t.classify(status + "-" + sector) %>">
+          <h5><%= COPY.labels[sector + "_income"] %> <i>($<%= t.comma(income[thisSector]) %>)</i></h5>
+          <ul>
+            <li><b><%= COPY.labels["hdr_child_tax"] %></b> <i>$<%= t.comma(benefit["child_tax"][thisSector]) %></i></li>
+            <li><b><%= COPY.labels["hdr_child_care"] %></b> <i>$<%= t.comma(benefit["child_care"][thisSector]) %></i></li>
+            <li><b><%= COPY.labels["hdr_aca_medicaid"] %></b> <i>$<%= t.comma(benefit["aca_medicaid"][thisSector]) %></i></li>
+            <li class="total"><b><%= COPY.labels["hdr_total"] %></b> <i>$<%= t.comma(benefit["total"][thisSector]) %></i></li>
+          </ul>
+        </div>
+      <% }); %>
+
+      </div>
+    <% }); %>
+
+  </article>
+<% }); %>
+
+</div>
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <p><strong>Note:</strong> <%= t.smarty(COPY.labels.footnote) %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= t.smarty(COPY.labels.source) %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

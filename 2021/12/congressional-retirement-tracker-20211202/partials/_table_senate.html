@@ -1,0 +1,17 @@
+<%
+data.sort((a,b) => a.state.localeCompare(b.state));
+
+data.forEach(function(row, i) { %>
+  <tr class="person-<%= (i + 1) %> <%= row.recent %>" role="row">
+    <td role="cell" data-title="Name" class="name">
+      <%= row.first %> <%= row.last %> (<%= row.party %>)
+    </td>
+    <td role="cell" data-title="State" class="place"><%= row.state %></td>
+    <td role="cell" data-title="Cook Race Ratings" class="cook <%= row.race_ratings_color %>">
+      <%= row.race_ratings %>
+    </td>
+    <td role="cell" data-title="Presidential Winner Margin"><%= row.president_winner_2020 %>: +<%= row.margin_2020 %> pts.</td>
+    <td role="cell" data-title="Status"><%= row.status %></td>
+    <td role="cell" data-title="Elected" class="amt"><%= row.first_elected %> </td>
+  </tr>
+<% }); %>

@@ -1,0 +1,57 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <div id="country-table" role="table">
+    
+
+
+    <div class="div-table header" role="rowgroup">
+      <div class="cell-group">
+        <div class="cell"><%= COPY.labels.hdr_country %></div>
+        <div class="cell amt"><%= COPY.labels.hdr_vaccination_rate %></div>
+      </div>
+    </div>
+
+    <div class="div-table body" role="rowgroup">
+        <% COPY.data.forEach(function(row) { %>
+        <div class="cell-group" role="row">
+          <div class="cell" role="cell" data-title="<%= COPY.labels.hdr_country %>"><%= row.country %></div>
+          <div class="cell amt" role="cell" data-title="<%= COPY.labels.hdr_vaccination_rate %>" class="amt">
+            <span style="padding: 0 3px 0 3px;"><%= Math.round(Number(row.vaccination_rate)*10)/10 + "%" %></span>
+            
+            </div>
+        </div>
+      <% }) %>
+    </div>
+
+  </div>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

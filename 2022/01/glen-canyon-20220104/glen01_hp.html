@@ -1,0 +1,7 @@
+<%= await t.include("lib/_head.html") %>
+
+<%= await t.include("partials/_video.html", { COPY: { ...COPY, data: [ COPY.data.glen01 ]}, mode: "hp"}) %>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

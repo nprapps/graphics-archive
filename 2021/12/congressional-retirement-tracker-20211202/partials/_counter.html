@@ -1,0 +1,57 @@
+<%
+
+data.forEach(function(row) {
+  row.announced = new Date(row.announced);
+ });
+
+data.sort((a,b) => a.announced - b.announced);
+
+%>
+
+ <h3 class="num-hed"> Departures from the House </h3>
+ <div class="num-container">
+   <div class="num num-dem">
+     <div class="big-num dem">
+       <%= data.filter(x => x.party == "D").length %>
+      </div>
+     Democrats
+   </div>
+   <div class="num num-gop">
+     <div class="big-num gop">
+       <%= data.filter(x => x.party == "R").length %>
+      </div>
+     Republicans
+   </div>
+ </div>
+
+ <h3 class="bar-hed">Current balance of power*</h3>
+ <div class="divide-label">218 for control of the House</div>
+ <div class="bar-wrapper">
+   <div class="bar-container">
+     <span class="block dem" title="Democrats" style="width: calc(100% / (435 / (221 - <%= data.filter(x => x.party == "D").length %>)));">
+     </span>
+     <span class="block dem-change" title="Democrats Leaving" style="width: calc(100% / (435 / <%= data.filter(x => x.party == "D").length %>));">
+     </span>
+     <span class="block gop-change" title="Republicans Leaving" style="width: calc(100% / (435 / <%= data.filter(x => x.party == "R").length %>));">
+     </span>
+     <span class="block gop" title="Republicans" style="width: calc(100% / (435 / (212 - <%= data.filter(x => x.party == "R").length %>)));">
+     </span>
+   </div>
+   <div class="bar-labels">
+     <span class="value dem">221 Democrats</span>
+     <span class="value gop">212 Republicans</span>
+   </div>
+   <hr width="1" size="30">
+  </div>
+
+ <h3 class="update-hed">Recent updates</h3>
+ <div class="updates-container">
+   <% data.slice(-3).reverse().forEach(function(row) { %>
+     <div class="update">
+       <strong><%= row.announced.toLocaleDateString("en-US", {month: "long", day: "numeric", timeZone: "UTC"}) %></strong>:
+       <span>
+         <span class="update-name <%= row.party %>"><%= row.first %> <%= row.last %></span>
+         (<%= row.party %>, <%= row.district %>) is <%= row.status.slice(0,1).toLowerCase().concat(row.status.slice(1)) %>.</span>
+     </div>
+   <% }); %>
+ </div>

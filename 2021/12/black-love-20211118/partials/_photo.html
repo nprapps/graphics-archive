@@ -1,0 +1,26 @@
+<% COPY.data.forEach(function(portrait, i) { %>
+<div class="portrait-block <%= portrait.alignment || "" %>">
+  <% if (i == 0 && COPY.data.length > 1) { %>
+    <hr>
+  <% } %>
+  <div class="row <%= portrait.full ? "full-width" : "side-by-side" %>">
+    <div class="image-container">
+      <img src="./synced/<%= portrait.image %>" alt="">
+      <% if (portrait.photo_credit) { %>
+      <p class="credit"><%= t.smarty(portrait.photo_credit) %></p>
+      <% } %>
+    </div>
+    <div class="caption">
+      <blockquote><%= t.smarty(portrait.quote) %></blockquote>
+      <cite>
+        <div class="name">
+          <%= t.smarty(portrait.name) %><% if (portrait.age) { %><span class="age">, <%= portrait.age %></span><% } %><% if (portrait.occupation) { %><span class="occupation">, <%= t.smarty(portrait.occupation) %></span><% } %>
+        </div>
+      </cite>
+    </div>
+  </div>
+  <% if (COPY.data.length > 1) { %>
+    <hr>
+  <% } %>
+</div>
+<% }) %>

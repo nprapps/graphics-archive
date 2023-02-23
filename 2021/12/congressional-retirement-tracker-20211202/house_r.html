@@ -1,0 +1,43 @@
+<%= await t.include("lib/_head.html") %>
+
+<% var labels = COPY.labels; %>
+<% var data = COPY.house_r; console.log(data);%>
+
+<% if (COPY.labels.headline_house_r) { %>
+<h1><%= t.smarty(COPY.labels.headline_house_r) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed_house_r) { %>
+<h2><%= t.smarty(COPY.labels.subhed_house_r) %></h2>
+<% } %>
+
+<div class="graphic" id="table-graphic">
+  <table id="retire-table" role="table">
+    <%= await t.include("./partials/_thead_house.html", { labels }) %>
+    <tbody>
+      <%= await t.include("./partials/_table_house.html", { data }) %>
+    </tbody>
+  </table>
+</div>
+
+<% if (COPY.labels.house_r_footnote) { %>
+<div class="footnotes table">
+  <h4>Notes:</h4>
+  <p><%= COPY.labels.house_r_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script>window.TYPE = "house_r";</script>
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>
