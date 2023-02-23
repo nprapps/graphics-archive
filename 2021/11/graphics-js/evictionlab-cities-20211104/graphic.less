@@ -1,0 +1,63 @@
+@import "./lib/base";
+
+h3 {
+  font-size: 13px;
+}
+
+.chart {
+  .bar rect { fill: @orange3; }
+
+  + .chart { margin-top: 22px; }
+}
+
+.bar text {
+  fill: #fff;
+  font-size: 11px;
+  text-anchor: middle;
+
+  &.hidden {
+    display: none;
+  }
+
+  &.out {
+    fill: #787878;
+  }
+}
+
+.x.axis {
+  &.category {
+    text {
+      .knockout-header();
+      font-size: 12px;
+      fill: #666;
+      text-anchor: middle;
+    }
+  }
+
+  &.bars {
+    line,
+    path {
+      display: none;
+    }
+  }
+}
+
+.annotation {
+  .zero-line {
+    stroke-dasharray: 2px;
+  }
+  text {
+    font-style: italic;
+    font-size: 11px;
+    fill: #666;
+  }
+}
+
+/*
+ * small-screen styles
+ */
+@media @screen-mobile {
+  .bar text {
+    font-size: 10px;
+  }
+}

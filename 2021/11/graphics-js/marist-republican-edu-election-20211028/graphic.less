@@ -1,0 +1,165 @@
+@import "./lib/base";
+
+@overall:        #666;
+@overall-stroke: #333;
+@college-graduates: #d62021;
+@not-college-graduates: @red5;
+
+//#d62021;
+
+h1 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-align: left;
+
+  strong { color: #333; }
+}
+
+h2 {
+  
+  text-align: left;
+}
+
+.graphic h4 {
+  .gotham();
+  color: #666;
+  font-size: 13px;
+  margin: 0 0 11px 0;
+  // text-align: center;
+}
+
+.chart + .chart {
+  margin-top: 33px;
+}
+
+.graphic-wrapper { position: relative;  }
+
+.key {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0;
+  margin-bottom: 15px;
+  justify-content: center;
+
+  @media @screen-mobile {
+    margin-bottom: 25px;
+  }
+
+  .key-item {
+    display: block;
+    margin: 0 11px 3px 11px;
+
+    @media @screen-mobile {
+      &.overall {
+        flex-basis: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+    }
+
+    b {
+      border-radius: 50px;
+      overflow: hidden;
+      width: 11px;
+      height: 11px;
+      //opacity: 0.7;
+      float: none;
+      display: inline-block;
+    }
+    &.overall {
+      b { background-color: @overall; }
+
+      label {
+        font-weight: bold;
+        color: #333;
+      }
+    }
+
+    &.not-college-graduates b { background: @not-college-graduates; }
+    &.college-graduates b { background: @college-graduates; }
+  }
+}
+
+sup {
+    color: #999;
+    line-height: 0;
+    padding-left: 2px;
+}
+
+.bars line {
+    fill: none;
+    stroke-width: 4px;
+    stroke: #ddd;
+}
+
+circle {
+
+
+  .overall & {
+    fill: @overall;
+
+  }
+
+  .not-college-graduates & {
+    fill: @not-college-graduates;
+
+  }
+
+
+  .college-graduates & {
+    fill: @college-graduates;
+
+  }
+
+}
+
+
+
+
+.value text {
+  fill: #666;
+  font-size: 11px;
+  text-anchor: middle;
+}
+
+.value {
+  font-style: italic;
+
+  .overall text {
+    fill: @overall;
+    text-anchor: middle;
+    font-style: normal;
+    font-weight: bold;
+  }
+  .not-college-graduates text { fill: darken(@not-college-graduates, 20%); }
+  .college-graduates text { fill: @college-graduates; }
+
+  text.hdr {
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    text-anchor: start;
+  }
+}
+
+.labels li {
+  font-size: 13px;
+
+  strong { color: #333; }
+}
+
+.promo {
+    h1 {
+        .knockout-header();
+    }
+    .labels li {
+        font-size: 14px;
+    }
+    .value text,
+    .shadow text {
+        font-size: 13px;
+
+        .hdr { font-size: 14px; }
+    }
+}

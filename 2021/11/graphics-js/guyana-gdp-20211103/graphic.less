@@ -1,0 +1,73 @@
+@import "./lib/base";
+
+path.projected {
+  stroke-dasharray: 5;
+}
+
+.projected-bg {
+  fill: #ebebeb;
+}
+
+.projected-label {
+  fill: #666;
+  font-style: italic;
+  font-size: 12px;
+  text-anchor: middle;
+  letter-spacing: .3px;
+  stroke: #fff;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-opacity: 0.7;
+  paint-order: stroke fill;
+}
+
+text.gdp {
+  display: none;
+}
+
+// mm styles
+.graphic {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+}
+
+h1, h2, .key {
+  .mmedia-constrained-centered();
+}
+
+.footer, .footnotes {
+  .mmedia-constrained();
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}
