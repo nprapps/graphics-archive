@@ -1,0 +1,127 @@
+<%= await t.include("lib/_head.html") %>
+<%
+  var reviewContent = COPY["Assign"];
+
+  var genres = [];
+  var networks = [];
+
+  reviewContent.forEach((row, i) => {
+    if (row["Where"]) {
+      var net = row["Where"].split("/");
+      net.forEach((item, i) => {
+        networks.push(item.trim());
+      });
+    }
+    if (row["Genre"]) {
+      var genre = row["Genre"].split("/");
+      genre.forEach((item, i) => {
+        genres.push(item.trim());
+      });
+    }
+  });
+
+  genres = [...new Set(genres)].sort();
+  networks = [...new Set(networks)].sort();
+
+  console.log(genres, networks);
+
+  var classifyGenresNetworks = function(prefix, input) {
+    var output = "";
+    var data = input.split("/");
+    data.forEach((item, i) => {
+      output += prefix + "_" + t.classify(item.trim()) + " ";
+    });
+    return output;
+  };
+%>
+
+<div id="filters">
+  <div class="genre">
+    <h3><%= t.smarty(COPY.labels.hed_genre) %></h3>
+
+    <input type="checkbox" value="genre_all" id="genre_all" checked>
+    <label for="genre_all"><%= t.smarty(COPY.labels.btn_show_all) %></label>
+
+    <% genres.forEach((genre, i) => { %>
+      <input type="checkbox" value="genre_<%= t.classify(genre) %>" id="genre_<%= t.classify(genre) %>">
+      <label for="genre_<%= t.classify(genre) %>"><%= t.smarty(genre) %></label>
+    <% }); %>
+  </div>
+
+  <div class="network">
+    <h3><%= t.smarty(COPY.labels.hed_network) %></h3>
+
+    <input type="checkbox" value="network_all" id="network_all" checked>
+    <label for="network_all"><%= t.smarty(COPY.labels.btn_show_all) %></label>
+
+    <% networks.forEach((network, i) => { %>
+      <input type="checkbox" value="network_<%= t.classify(network) %>" id="network_<%= t.classify(network) %>">
+      <label for="network_<%= t.classify(network) %>"><%= t.smarty(network) %></label>
+    <% }); %>
+
+  </div>
+
+  <div id="filterStatus"></div>
+</div>
+
+<div id="reviews" class="graphic">
+  <% reviewContent.forEach(function(row) { %>
+
+    <div class="review <%= t.classify(row["Show"].trim()) %> <%= classifyGenresNetworks("network", row["Where"]) %> <%= classifyGenresNetworks("genre", row["Genre"]) %>">
+      <h4><%= row["Type"] %></h4>
+      <h3><%= t.smarty(row["Show"]) %></h3>
+      <% if (row["Image name"]) { %>
+        <div class="photo">
+          <img src="synced/<%= row["Image name"] %>" alt="<% if (row["Caption"]) { %><%= row["Caption"] %><% } %>">
+          <% if (row["Image Credit"]) { %>
+            <p class="credit"><%= row["Image Credit"] %></p>
+          <% } %>
+        </div>
+      <% } %>
+
+      <% if (row["Write-up"]) { %>
+        <p class="desc">
+          <%= t.smarty(row["Write-up"]) %>
+          <cite>&mdash;&nbsp;<%= t.smarty(row["Critic"]) %></cite>
+        </p>
+      <% } %>
+
+      <% if (row["Related Stories"]) { %>
+        <ul class="related">
+        <%= t.smarty(row["Related Stories"]) %>
+        </ul>
+      <% } %>
+
+      <ul class="meta">
+        <% [ "Where", "Genre" ].forEach((meta, i) => { %>
+          <% if (row[meta]) { %>
+            <li class="<%= t.classify(meta) %>">
+              <%= meta %>: <%= row[meta] %>
+              <% if (meta == "Where" && row["Note"]) { %>
+                <%= row["Note"] %>
+              <% } %>
+            </li>
+          <% } %>
+        <% }); %>
+      </ul>
+
+    </div>
+
+  <% }); %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p><%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>
