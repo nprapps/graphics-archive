@@ -1,0 +1,31 @@
+<% COPY.data.forEach(function(portrait, i) { %>
+<div class="portrait-block <%= portrait.alignment || "" %>">
+  <% if (i == 0 && COPY.data.length > 1) { %>
+    <hr>
+  <% } %>
+  <div class="row <%= portrait.full ? "full-width" : "side-by-side" %>">
+    <div class="image-container">
+      <img src="./synced/<%= portrait.image %>" alt="">
+      <% if (portrait.photo_credit) { %>
+      <p class="credit"><%= t.smarty(portrait.photo_credit) %></p>
+      <% } %>
+    </div>
+    <div class="caption" data-name="<%= portrait.key %>">
+      <cite>
+        <div class="name">
+          <%= t.smarty(portrait.name) %>
+          <% if (portrait.year) { %><span class="age">(<%= portrait.year %>)</span><% } %>
+        </div>
+        <div class="description"><%= t.smarty(COPY.labels.about) %></div>
+      </cite>
+
+      <blockquote><%= t.smarty(portrait.quote) %></blockquote>
+    </div>
+
+    <button class="toggle-caption" data-more="<%= COPY.labels.toggle_more %>" data-less="<%= COPY.labels.toggle_less %>" data-name="<%= portrait.key %>"><%= COPY.labels.toggle_more %></button>
+  </div>
+  <% if (COPY.data.length > 1) { %>
+    <hr>
+  <% } %>
+</div>
+<% }) %>

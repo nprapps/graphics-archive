@@ -1,0 +1,34 @@
+@import "./lib/base";
+
+h1,h2 {
+    .mmedia-constrained-centered();
+}
+.graphic {
+    .mmedia-constrained-centered();
+}
+.footnotes,.footer {
+    .mmedia-constrained();
+}
+
+.label-top {
+    font-style: italic;
+    fill: #999;
+    font-size: 11px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.value text {
+    fill: #fff;
+    font-size: 12px;
+    font-family: 'Knockout 31 4r',Helvetica,Arial,sans-serif;
+    text-anchor: middle;
+    -webkit-font-smoothing: antialiased;
+}
+
+line.axis-0 {
+    stroke: #999;
+}
+
+@media screen and (max-width: 480px) {
+    .value text { font-size: 10px; }
+}

@@ -1,0 +1,104 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<!-- Quiz -->
+<div class="graphic">
+  <div id="quiz-intro">
+    <div class="slide slide--intro">
+      <div class="slide__label">
+        <h2>Attachment style quiz</h2>
+      </div>
+      <div class="slide__body">
+        <h1 class="title"><%= COPY.labels.intro %></h1>
+      </div>
+      <div class="slide__controls">
+        <button class="reset start">Start</button>
+      </div>
+    </div>
+  </div>
+  <div id="quiz">
+    <% COPY.quiz.forEach(function(row, idx) { %>
+      <div class="slide slide--question" data-category="<%= row.attachment_style %>" data-answered="false" data-agreed="false">
+        <div class="slide__label">
+          <h2>Question <%= idx + 1 %> of <%=  COPY.quiz.length %></h2>
+        </div>
+        <div class="slide__body">
+          <p class="question"><%= row.question %></p>
+        </div>
+        <div class="slide__controls">
+          <button class="answer" value="agree" data-checked="0">Agree</button>
+          <button class="answer" value="disagree" data-checked="0">Disagree</button>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+  <div id="quiz-outro">
+    <div class="slide slide--outro">
+      <div class="slide__body">
+        <div class="results">
+          <div class="results--box">
+            <h2>Your results</h2>
+            <% COPY.descriptions.forEach(function(row, idx) { %>
+              <div class="result" data-result="<%= row.attachment_style %>">
+                <p class="result--name"><%= row.attachment_style %></p>
+                <p class="result--score"></p>
+                <div class="result--bar-container">
+                  <div class="result--bar-fill"></div>
+                </div>
+              </div>
+            <% }) %>
+          </div>
+          <p class="results--footnote">
+            <%= COPY.labels.results_footnote %>
+          </p>
+        </div>
+        <% COPY.descriptions.forEach(function(row, idx) { %>
+        <div class="description">
+          <h4 class="description--head">
+            <%= row.attachment_style %>
+          </h4>
+          <p class="description--body">  
+            <%= row.description %>
+          </p>
+        </div>
+        <% }) %>
+        <div class="description">
+          <p class="description--body">
+            <%= COPY.labels.book_description %>
+          </p>
+        </div>
+      </div>
+      <div class="slide__controls">
+        <button class="reset">Start Over</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script>
+  window.CATEGORIES = <%= JSON.stringify(COPY.descriptions) %>;
+</script>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

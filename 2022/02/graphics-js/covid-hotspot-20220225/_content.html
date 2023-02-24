@@ -1,0 +1,104 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<h2><%= COPY.labels.subhed %></h2>
+
+<%
+var totalCounties = 0;
+var highCounties = 0;
+
+COPY.counties.forEach(function(row) {
+    var state = COPY.fips.find(item => String(item.GEOID) == String(row.fips_code).slice(0,2));
+    var matchingDataState = COPY.fips.find(
+      item => (item.GEOID == row.fips_code && item.name == state.State)
+    );
+
+    row.state = state.ap;
+    row.state_abbr = state.Abbrv;
+
+    if (row.community_transmission_level) {
+      totalCounties++;
+    }
+
+    if (row.community_transmission_level == "high") {
+      highCounties++;
+    }
+});
+
+var pctHigh = (highCounties / totalCounties) * 100;
+var altDesc = "Map of level of COVID-19 community transmission for each U.S. county, where " + pctHigh.toFixed(1) + "% of counties are experiencing high transmission levels.";
+
+%>
+
+<div class="key-wrap" aria-label="Map legend with 6 items">
+      <div class="key"></div>
+</div>
+
+<div class="controls" aria-hidden="true" style="display:none">
+  <% var controls = [
+    { label: "total", hosp: "data", checked: true},
+    { label: "per 1,000", hosp: "data_pop"},
+  ];%>
+  <% controls.forEach(function({ label, hosp, checked}) { %>
+  <input type="radio" name="map-mode" data-hosp="<%= hosp %>" value="<%= label %>"  <%= checked ? "checked" : "" %> id="mode-<%= hosp %>">
+  <label for="mode-<%= hosp %>" class="label-<%= label %>"><%= label %></label>
+  <% }) %>
+</div>
+
+
+<div id="hosp-wrapper" class="wrapper hosp">
+  <div class="map-header">
+  </div>
+
+  <div id="map-container" class="graphic" role="img" aria-label="<%= altDesc %>">
+    <img src="fallback.png" class="fallback">
+  </div>
+
+  <div class="search-bar">
+  <div class="search-box">
+    <div class="search-header">Search by <b>County</b></div>
+    <div>
+      <autocomplete-input list="counties" name="counties" id="search" type="text"></autocomplete-input>
+      <datalist id="counties"></datalist>
+      <div class='no-data-msg'>No data found.</div>
+      <div class="recommendations"></div>
+  </div>
+</div>
+</div>
+<div class="graphic spread" id="hosp-table">
+    <div id="table-note"></div>
+    <table id="state-table-hosp" role="table">
+            <thead role="rowgroup">
+              <tr class="toprow" role="row">
+                <th
+                  class=""
+                  role="columnheader"
+                >
+                  <%= COPY.labels.hdr_community_level %>
+                </th>
+              </tr>
+            </thead>
+            <tbody role="rowgroup" id="hosp-table-body"></tbody>
+          </table>
+      </div>
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <p><strong>Note:</strong> <%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+	var STATES = <%= JSON.stringify(COPY.states) %>;
+  var COUNTIES = <%= JSON.stringify(COPY.data) %>;
+  var HOSP = <%= JSON.stringify(COPY.counties) %>;
+  var LABELS = <%= JSON.stringify(COPY.labels) %>;
+</script>

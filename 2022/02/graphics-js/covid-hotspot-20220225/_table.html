@@ -1,0 +1,26 @@
+
+<% var {data, COPY} = data; %>
+<tr role="row">
+  <td data-title="<%= data.community_hdr %>">
+    <div class="td-wrapper">
+      <div class="td-meta">
+        <span class="td-title"><%= data.community_hdr %>:</span><br>
+      </div>
+      <div class="td-body">
+        <span class="<%= data.covid19_community_level.toLowerCase()  %>">
+        <%= data.community  %>
+        </span>
+      </div>
+    </div>
+  </td>
+  <td data-title="CDC recommendations">
+    <div class="td-wrapper">
+      <div class="td-meta">
+        <span class="td-title">The CDC recommends:</span><br>
+      </div>
+      <div class="td-body">
+        <%= data.recommendations[data.covid19_community_level.toLowerCase()] || data.recommendations['high']  %>
+      </div>
+    </div>
+  </td>
+</tr>

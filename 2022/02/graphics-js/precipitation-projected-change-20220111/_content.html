@@ -1,0 +1,48 @@
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div class="key-wrap numeric-scale">
+  <h3><%- COPY.labels.hed_scale %></h3>
+  <ul class="key"><li class="key-item"><b style="background: #fbface;"></b><label></label></li><li class="key-item"><b style="background: #c8e2b3;"></b><label>0</label></li><li class="key-item"><b style="background: #7fccbb;"></b><label>+10</label></li><li class="key-item"><b style="background: #3cb7bf;"></b><label>+20</label></li><li class="key-item"><b style="background: #1d92c7;"></b><label>+30</label></li><li class="key-item"><b style="background: #2060ab;"></b><label>+40%</label></li></ul>
+</div>
+
+<div id="chart" class="graphic" role="img" aria-label="<%- COPY.labels.screenreader %>">
+
+  <div class="map lower">
+    <h3><%- COPY.labels.hed_lower %></h3>
+    <% if (COPY.labels.subhed_lower) { %>
+    <h4><%- COPY.labels.subhed_lower %></h4>
+    <% } %>
+    <img src="img/map-lower.png" alt="<%- COPY.labels.alt_lower %>" />
+  </div>
+
+  <div class="map higher">
+    <h3><%- COPY.labels.hed_higher %></h3>
+    <% if (COPY.labels.subhed_higher) { %>
+    <h4><%- COPY.labels.subhed_higher %></h4>
+    <% } %>
+    <img src="img/map-higher.png" alt="<%- COPY.labels.alt_higher %>" />
+  </div>
+
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <p><strong>Note:</strong> <%= t.smarty(COPY.labels.footnote) %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

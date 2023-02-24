@@ -1,0 +1,164 @@
+@import "./lib/base";
+
+@spacer: 15px;
+@anxiousColor: rgba(252,230,126);
+@avoidantColor: rgba(122,204,209);
+@secureColor: rgba(147,239,138);
+@darkGray: #444;
+
+// Button styles
+button {
+  .gotham();
+  font-size: 14px;
+  padding: 15px 24px;
+  text-transform: uppercase;
+  border: 0px;
+  background-color: fade(@darkGray, 70%);
+  color: #fff;
+  transition: background 0.1s ease-in-out;
+}
+button:hover {
+  cursor: pointer;
+}
+button:hover,
+button:focus {
+  background-color: @darkGray;
+}
+
+// Slide styles
+.slide {
+  // Show only the current slide
+  &:not(.current) {
+    display: none;
+  }
+  // Base/shared slide styles
+  .gotham();
+  text-align: center;
+  min-height: 350px;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: @spacer * 3;
+  @media @screen-mobile {
+    padding: @spacer * 3 @spacer;
+  }
+  // Some resets
+  p, h1, h2, h3, h4 {
+    color: @darkGray;
+    line-height: auto;
+    margin: 0;
+    -webkit-font-smoothing: inherit;
+  }
+  // BG
+  position: relative;
+  &::before {
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url("bg.png");
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }
+  &__label {
+    text-transform: uppercase;
+    h2 {
+      color: fade(@darkGray, 70%);
+      margin-bottom: 10px;
+    }
+  }
+  &__body {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &__controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  // Slide-type-specific-styles
+  &--intro .title,
+  &--question .question {
+    margin-bottom: @spacer * 3;
+    @media @screen-mobile-above {
+      font-size: 24px;
+    }
+    @media @screen-mobile {
+      font-size: 18px;
+    }
+  }
+  // Results slide
+  &--outro {
+    text-align: left;
+    .slide__body {
+      .results {
+        margin-bottom: @spacer * 3;
+        &--box {
+          h2 {
+            text-transform: uppercase;
+            margin-bottom: @spacer;
+            font-weight: bold;
+            font-size: 16px;
+          }
+          background-color: rgba(255,255,255,0.8);
+          margin-bottom: @spacer;
+          padding: @spacer * 2;
+          @media @screen-mobile {
+            padding: @spacer;
+          }
+          .result {
+            position: relative;
+            &:not(:last-child) {
+              margin-bottom: @spacer;
+            }
+            &[data-result='anxious'] .result--bar-fill {
+              background-color: @anxiousColor;
+            }
+            &[data-result='avoidant'] .result--bar-fill {
+              background-color: @avoidantColor;
+            }
+            &[data-result='secure'] .result--bar-fill {
+              background-color: @secureColor;
+            }
+            &--name {
+              text-transform: uppercase;
+              margin-right: @spacer;
+              margin-bottom: @spacer / 3;
+            }
+            &--name, &--score {
+              display: inline-block;
+            }
+            &--score {
+              position: absolute;
+            }
+            &--bar-container {
+              height: 10px;
+              background-color: rgba(0,0,0,0.1);
+              width: 100%;
+            }
+            &--bar-fill {
+              height: 100%;
+            }
+          }
+        }
+        &--footnote {
+          font-size: 12px;
+        }
+      }
+      .description {
+        &--head {
+          text-transform: capitalize;
+          margin-bottom: @spacer;
+        }
+        margin-bottom: @spacer * 2;
+      }
+    }
+  }
+}
+

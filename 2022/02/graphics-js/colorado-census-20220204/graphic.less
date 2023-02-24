@@ -1,0 +1,49 @@
+@import "./lib/base";
+
+// ai2html artboard sizes
+@media screen and (min-width: 900px) {
+    #g-_ai2html-map-small, #g-_ai2html-map-medium, #g-_ai2html-map-wide { display: none; }
+}
+
+@media screen and (max-width: 899px) and (min-width: 730px) {
+    #g-_ai2html-map-small, #g-_ai2html-map-medium, #g-_ai2html-map-extra-wide { display: none; }
+}
+
+@media screen and (max-width: 729px) and (min-width: 400px) {
+    #g-_ai2html-map-small, #g-_ai2html-map-wide, #g-_ai2html-map-extra-wide { display: none; }
+}
+
+@media screen and (max-width: 399px) {
+    #g-_ai2html-map-medium, #g-_ai2html-map-wide, #g-_ai2html-map-extra-wide { display: none; }
+}
+
+// Add custom styles here
+
+.g-aiPstyle2,.g-aiPstyle0,.g-aiPstyle5,.g-aiPstyle6,.g-aiPstyle3, .g-aiPstyle3 {
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+}
+
+.key .key-item {
+    line-height: 10px;
+}
+
+.key li.key-item b {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+h1, h2, .key {
+    .mmedia-constrained-centered();
+}
+
+h2 {
+    max-width: 500px;
+}
+
+.key p {
+    font-size: 12px;
+    color: #666;
+    font-weight: normal;
+    margin-top: 0;
+}
