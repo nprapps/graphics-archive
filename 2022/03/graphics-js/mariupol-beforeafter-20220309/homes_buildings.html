@@ -1,0 +1,19 @@
+<%= await t.include("lib/_head.html") %>
+
+<%= await t.include("partials/_beforeafter.html", { COPY: { ...COPY, data: [ COPY.data.homes_buildings ]}}) %>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

@@ -1,0 +1,52 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.pennsylvania_headline) { %>
+<h1><%= t.smarty(COPY.labels.pennsylvania_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.pennsylvania_subhed) { %>
+<h2><%= t.smarty(COPY.labels.pennsylvania_subhed) %></h2>
+<% } %>
+
+<div class="graphic" role="img"
+<% if (COPY.labels.screenreader) { %>
+aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+>
+  <div class="legend-wrapper">
+    <ul class="key">
+        <li class="key-item key-1 complete">
+          <b style="background-color: rgb(17, 96, 94);"></b>
+          <label>Endorsement</label>
+        </li>
+        <li class="key-item key-2 def">
+          <b style="background-color: rgb(139, 192, 191);"></b>
+          <label>Exam</label>
+        </li>
+    </ul>
+  </div>
+
+  <div id="column-chart-1" class="sub-graphic"></div>
+    <!-- <img src="fallback.png" alt="" class="fallback" /> -->
+</div>
+
+<% if (COPY.labels.pennsylvania_footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.pennsylvania_footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.pennsylvania_source) { %><p>Source: <%= COPY.labels.pennsylvania_source %></p><% } %>
+    <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+    var DATA = <%= JSON.stringify(COPY.pennsylvania) %>;
+    var MEDIANS = <%= JSON.stringify(COPY.medians) %>;
+</script>
+
+<script src="./pennGraphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

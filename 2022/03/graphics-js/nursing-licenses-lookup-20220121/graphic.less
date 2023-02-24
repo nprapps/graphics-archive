@@ -1,0 +1,151 @@
+@import "./lib/base";
+
+// h1, h2, .state-wrapper, .key {
+//   .mmedia-constrained-centered();
+// }
+//
+// .footer, .footnotes {
+//   .mmedia-constrained();
+// }
+
+.footer {
+  margin-bottom: 20px;
+}
+
+// .graphic {
+//   max-width: 800px;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+
+.state-wrapper {
+  .knockout();
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: #333;
+  background-color: #ebebeb;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  label {
+    margin-right: 10px;
+  }
+}
+
+.bars line {
+    fill: none;
+    stroke-width: 10px;
+    stroke: #f8f8f8;
+}
+
+.dots circle {
+  stroke-width: 1px;
+  fill-opacity: .8;
+
+  .state-dots & {
+    stroke: #bababa;
+    stroke-opacity: .4;
+    fill: #bababa;
+    fill-opacity: .2;
+}
+
+  &.median {
+    stroke: @blue2;
+    fill: @blue3;
+  }
+}
+
+.value.median text {
+  color: @teal3;
+  fill: @teal3;
+}
+
+line.median {
+    stroke: @teal3;
+    stroke-width: 3px;
+}
+
+.state-dots text {
+    text-anchor: middle;
+    font-size: 9px;
+    fill: #999;
+    font-style: italic;
+
+    &.state-value {
+        fill: @orange3;
+        font-size: 10px;
+        font-style: normal;
+    }
+}
+
+.key {
+    margin-top: 0;
+    margin-bottom: 22px;
+
+    .key-item b {
+        display: inline-block;
+        margin-right: 6px;
+        float: left;
+        height: 12px;
+    }
+
+    .median b {
+        width: 3px;
+        background-color: @teal3;
+        margin-left: 6px;
+        margin-right: 12px;
+    }
+
+    .key-1 b,
+    .state b {
+        width: 12px;
+        border-radius: 15px;
+        opacity: .8;
+    }
+
+    .state b {
+        border: 1px solid #bababa;
+        background: rgba(186, 186, 186, .5);
+    }
+
+    .key-1 {
+        display: none;
+
+        &.active { display: inline-block; }
+        b {
+            border: 1px solid @orange2;;
+            background: @orange3;
+        }
+    }
+
+    @media @screen-mobile {
+      .key-item {
+        margin-bottom: 5px;
+
+        label {
+          white-space: normal;
+        }
+      }
+    }
+}
+
+.value text {
+    font-size: 11px;
+    fill: #999;
+}
+
+.shadow text {
+    font-size: 11px;
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5px;
+}
+
+.value.median {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}

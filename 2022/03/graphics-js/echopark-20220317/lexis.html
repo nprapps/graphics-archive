@@ -1,0 +1,11 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<%= await t.include("partials/_diptych.html", { COPY: { ...COPY, data: [ COPY.data.lexis ]}}) %>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

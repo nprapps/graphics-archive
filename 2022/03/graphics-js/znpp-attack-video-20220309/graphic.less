@@ -1,0 +1,171 @@
+@import "./lib/base";
+
+body {
+  padding: 0;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#walkway {
+  .mmedia-constrained();
+  max-width: 320px;
+
+  .video-wrapper {
+    max-width: 320px;
+  }
+}
+
+.video-wrapper {
+  padding-top: 10px;
+  margin: 0 0 10px 0;
+  position: relative;
+
+  video {
+    width: 100%;
+    height: auto;
+
+    &:hover { cursor: pointer; }
+  }
+
+  a {
+    display: block;
+  }
+}
+
+.minimap {
+  h4 {
+    display: none;
+    position: absolute;
+    text-align: right;
+    right: 0;
+    top: -12px;
+    font-style: italic;
+    font-size: 11px;
+    color: #999;
+    font-weight: normal;
+  }
+
+  img {
+    position: absolute;
+    border: 1px solid #fff;
+    // transform: rotate(90deg);
+    // top: -25px;
+    // right: 15px;
+    // width: 70px;
+    // transform: rotate(90deg);
+    top: 0;
+    right: 0;
+    width: 60px;
+
+    @media @screen-mobile-above {
+      transform: rotate(270deg);
+      top: -24px;
+      right: 21px;
+      width: 90px;
+      // top: -30px;
+      // right: 24px;
+      // width: 100px;
+    }
+  }
+}
+
+.video-wrapper.clip01 {
+  padding-top: 30px;
+
+  .minimap {
+    h4 { display: block; }
+    img {
+      top: 20px;
+
+      @media @screen-mobile-above {
+        top: -4px;
+      }
+    }
+  }
+}
+
+// via https://css-tricks.com/some-innocent-fun-with-html-video-and-progress/ and https://css-tricks.com/html5-progress-element/
+// @progress-bar-bg: #eee;
+// @progress-bar: #2C63ae;
+@progress-bar-bg: #ddd;
+@progress-bar: #111;
+
+progress[value] {
+  appearance: none;
+  border: none;
+  width: 100%;
+  border-radius: 0;
+  background-color: @progress-bar-bg;
+  color: @progress-bar;
+  height: 5px;
+  display: block;
+  margin-top: -4px;
+
+  /* WebKit styles */
+  &::-webkit-progress-bar {
+    background-color: @progress-bar-bg;
+  }
+  &::-webkit-progress-value {
+    background-color: @progress-bar;
+    transition: width .25s linear;
+  }
+
+  /* Firefox styles */
+  &::-moz-progress-bar {
+    background-color: @progress-bar;
+  }
+}
+
+.caption {
+  margin: 0 0 2px 0;
+  padding: 0;
+  font-size: 12px;
+  color: #777;
+  line-height: 20px;
+
+  blockquote {
+    .gotham();
+    color: #666;
+    font-size: 1.4rem;
+    margin: 0 0 1rem;
+    padding: 0;
+    line-height: 1.4;
+    position: relative;
+
+    &::before {
+      content: "“";
+      position: absolute;
+      margin-left: -10px;
+    }
+
+    &::after {
+      content: "”";
+    }
+  }
+
+  p {
+      margin: 0 0 2px 0;
+
+      &.credit {
+          color: #aaa;
+          line-height: 1.7;
+          font-size: 10px;
+          font-style: italic;
+          margin-bottom: 0;
+      }
+  }
+
+  .prompt {
+    // font-style: italic;
+  }
+
+  .hp-only { display: none; }
+
+  .hp & {
+    margin-top: 0;
+
+    .cutline { display: none; }
+    .hp-only { display: inline; }
+  }
+}

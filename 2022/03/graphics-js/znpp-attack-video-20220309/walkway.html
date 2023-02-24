@@ -1,0 +1,9 @@
+<%= await t.include("lib/_head.html") %>
+
+<div id="walkway">
+<%= await t.include("partials/_video.html", { "mode": "story", COPY: { ...COPY, data: [ COPY.data.walkway ]}}) %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

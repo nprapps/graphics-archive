@@ -1,0 +1,58 @@
+@import "./lib/base";
+
+.bar text {
+    fill: #fff;
+    font-size: 12px;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+// h1, h2, .key {
+//   .mmedia-constrained-centered();
+// }
+//
+// .footer, .footnotes {
+//   .mmedia-constrained();
+// }
+//
+// .graphic {
+//   max-width: 800px;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+
+#column-chart-1 {
+  margin-bottom: 20px;
+}
+
+.weeks-label {
+  font-size: 11px;
+  fill: #555;
+  font-style: italic;
+}
+
+.median-line {
+  stroke-width: 3px;
+
+  &.endorsement {
+    stroke: @teal2;
+  }
+
+  &.exam {
+    stroke: @teal4;
+  }
+}
+
+.median-label {
+  font-size: 11px;
+
+  &.endorsement {
+    fill: @teal2;
+  }
+
+  &.exam {
+    fill: @teal4;
+  }
+}

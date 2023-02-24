@@ -1,0 +1,53 @@
+<% COPY.data.forEach(function(portrait, i) { %>
+<div class="portrait-block">
+  <div class="row side-by-side">
+    <div class="image-container">
+      <% [ "visual1", "visual2" ].forEach(function(v) { %>
+        <% if (portrait[v + "_type"] == "photo") { %>
+          <div class="visual img">
+            <img src="./synced/<%= portrait[v + "_filename"] %>" alt="">
+          </div>
+        <% } %>
+        <% if (portrait[v + "_type"] == "video") { %>
+          <div class="visual vid">
+            <video preload="metadata" muted playsinline loop controlslist="nodownload" class="player player-<%= i %>" <% if (portrait[v + "_poster"]) { %>poster="./synced/<%= portrait[v + "_poster"] %>"<% } %>>
+              <source src="./synced/<%= portrait[v + "_filename"] %>" type="video/mp4">
+            </video>
+
+            <figcaption>
+              <progress class="progress" max="100" value="0">Progress</progress>
+            </figcaption>
+
+            <div class="controls">
+              <button class="pause" aria-label="Pause video" aria-pressed="false" data-player="<%= i %>">
+                <img class="pause" src="ico/pause_24dp.svg" alt="">
+                <img class="play" src="ico/play_arrow_24dp.svg" alt="">
+              </button>
+              <button class="mute" role="button" aria-label="Mute audio" aria-pressed="true" data-player="<%= i %>">
+                <img class="muted" src="ico/volume_off_24dp.svg" alt="">
+                <img class="unmuted" src="ico/volume_up_24dp.svg" alt="">
+              </button>
+            </div>
+          </div>
+        <% } %>
+      <% }); %>
+    </div>
+
+    <div class="caption">
+        <% if (portrait.caption) { %>
+          <p><%= t.smarty(portrait.caption) %></p>
+        <% } %>
+        <% if (portrait.credit) { %>
+          <p class="credit"><%= t.smarty(portrait.credit) %></p>
+        <% } %>
+        <% if (COPY.labels.toggle_prompt) { %>
+          <p class="prompt"><%= COPY.labels.toggle_prompt %></p>
+        <% } %>
+    </div>
+
+  </div>
+  <% if (COPY.data.length > 1) { %>
+  <hr>
+  <% } %>
+</div>
+<% }) %>

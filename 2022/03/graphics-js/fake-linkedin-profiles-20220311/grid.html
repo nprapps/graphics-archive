@@ -1,0 +1,40 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.grid_headline) { %>
+<h1><%= t.smarty(COPY.labels.grid_headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.grid_subhed) { %>
+<h2><%= t.smarty(COPY.labels.grid_subhed) %></h2>
+<% } %>
+
+<div class="grid-wrapper">
+  <img src="" id="image-1">
+  <img src="" id="image-2">
+  <img src="" id="image-3">
+  <img src="" id="image-4">
+  <img src="" id="image-5">
+  <img src="" id="image-6">
+  <img src="" id="image-7">
+  <img src="" id="image-8">
+  <img src="" id="image-9">
+  <img src="" id="image-10">
+  <img src="" id="image-11">
+  <img src="" id="image-12">
+  <img src="" id="image-13">
+  <img src="" id="image-14">
+  <img src="" id="image-15">
+  <img src="" id="image-16">
+  <img src="" id="image-17">
+  <img src="" id="image-18">
+</div>
+
+<div class="footer">
+  <div class="caption"><% if (COPY.labels.grid_caption) { %><p><%= COPY.labels.grid_caption %></p><% } %></div>
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script src="./grid.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

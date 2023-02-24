@@ -1,0 +1,216 @@
+@import "./lib/base";
+
+svg {
+  overflow: visible;
+  background-color: #fff;
+}
+
+.graphic {
+  margin-bottom: 50px;
+}
+
+.amy-coney-barrett {
+  // font-weight: bold;
+}
+
+h1 {
+  font-size: 18px;
+  margin-bottom: 22px;
+  text-align: center;
+
+  strong {
+    color: #333;
+  }
+}
+
+h3 {
+  margin-bottom: 5px;
+  // margin-left: 10px;
+  text-align: center;
+  // background-color: #D62021;
+  color: #333;
+  font-weight: normal;
+  // padding: 3px 8px;
+  padding-right: 5px;
+  // padding-left: 5px;
+  border-radius: 4px;
+  width: 100px;
+  text-align: left;
+}
+
+circle, rect, b {
+  opacity: 0.8;
+}
+
+circle {
+  &.announcement {
+    fill: @teal5;
+    stroke: @teal5;
+  }
+  &.hearings {
+    fill: @teal3;
+    stroke: @teal3;
+  }
+  &.final-senate-vote {
+    fill: @teal1;
+    stroke: @teal1;
+  }
+}
+
+.merrick-garland, .harriet-miers, .robert-bork {
+  circle {
+    fill: #fff;
+    // fill: rgba(260, 260, 260, 0);
+    stroke-width: 2px;
+  }
+}
+
+// .xgrid {
+//   z-index: -10;
+// }
+
+// .biden h3 {
+//   margin-top: 10px;
+//   margin-bottom: 0px;
+// }
+
+// .biden .graphic-wrapper {
+//   margin-top: 10px;
+// }
+
+.election-day, #b-3 {
+  .gotham();
+	font-style: italic;
+	font-size: 12px;
+  fill: #333;
+  margin-right: 0px;
+}
+
+@media @screen-mobile {
+  h3 {
+    width: 60px;
+  }
+
+  .election-day {
+    margin-left:80px;
+  }
+}
+
+@media @screen-mobile-above {
+  h3 {
+    width: 90px;
+    // margin-left: 315px;
+    // margin-right: 315px;
+  }
+
+  .election-day {
+    // margin-left:160px;
+  }
+}
+
+// .dem h3 {
+//   background-color: #237BBD;
+// }
+
+.chart {
+  margin-top: 30px;
+}
+
+.value text {
+    fill: #333;
+
+    .group.overall & { font-weight: bold; }
+
+    &.left {
+      text-anchor: start;
+
+      &.center { text-anchor: middle; }
+      &.out { text-anchor: end; }
+    }
+
+    &.right {
+      text-anchor: end;
+
+      &.center { text-anchor: middle; }
+      &.out { text-anchor: start; }
+    }
+    &.centered { text-anchor: middle; }
+    &.hidden { display: none; }
+
+    &.out { fill: #555; }
+}
+
+.labels li {
+  font-size: 12px;
+  text-align: left;
+
+  &.overall {
+    font-weight: bold;
+    color: #333;
+  }
+}
+
+.legend-title {
+  margin-top: 2px;
+  margin-bottom: 7px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.expected-line {
+	stroke: black;
+  stroke-width: 2px;
+}
+
+// .group rect {
+//   opacity: 0.9;
+//
+//   .overall& { opacity: 1; }
+// }
+
+.key {
+    display: webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+
+    @media @screen-mobile-above {
+        flex-wrap: nowrap;
+        margin-bottom: 33px;
+    }
+
+    .key-item {
+        .clearfix();
+        margin-bottom: 6px;
+        width: auto;
+        b {
+          border-radius: 20px;
+          width: 10px;
+          height: 10px;
+
+          &#b-0, &#b-1, &#b-2 { margin-top: 3px; }
+
+          &#b-3 { margin-right: 5px; }
+        }
+
+        @media @screen-mobile {
+          b { width: 8px; height: 8px; }
+          // width: calc(40% - 18px);
+        }
+
+        @media @screen-mobile-above { margin-bottom: 0; }
+
+        // &:nth-child(1) { order: 0; }
+        // &:nth-child(2) { order: 2; margin-right: 0;}
+        // &:nth-child(3) { order: 1; }
+
+        label {
+            @media @screen-mobile-above { font-size: 12px; }
+
+            white-space: normal;
+        }
+    }
+}

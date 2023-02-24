@@ -1,0 +1,38 @@
+<% COPY.data.forEach(function(portrait, i) { %>
+
+  <figure id="video" class="video-wrapper <%= portrait.key %>">
+    <% if (mode == "hp" && portrait.seamus) { %>
+      <a href="https://www.npr.org/<%= portrait.seamus %>">
+    <% } %>
+    <video autoplay muted playsinline loop class="player" <% if (portrait.poster) { %>poster="./synced/<%= portrait.poster %>"<% } %>></video>
+    <% if (mode == "hp" && portrait.seamus) { %>
+      </a>
+    <% } %>
+
+    <% if (portrait.minimap) { %>
+    <div class="minimap">
+      <h4><%= COPY.labels.label_location %></h4>
+      <img src="./synced/minimaps/<%= portrait.minimap %>" alt="">
+    </div>
+    <% } %>
+
+    <figcaption>
+      <progress class="progress" max="100" value="0">Progress</progress>
+    </figcaption>
+  </figure>
+
+  <div class="caption">
+    <% if (portrait.caption) { %>
+      <p><%= t.smarty(portrait.caption) %></p>
+    <% } %>
+    <% if (portrait.credit) { %>
+      <p class="credit">Credit: <%= portrait.credit %></p>
+    <% } %>
+  </div>
+
+  <script type="text/javascript">
+    var VIDEO_SOURCE = "<%= portrait.video_url %>";
+    var VIDEO_SOURCE_MOBILE = "<%= portrait.video_mobile_url %>";
+  </script>
+
+<% }) %>
