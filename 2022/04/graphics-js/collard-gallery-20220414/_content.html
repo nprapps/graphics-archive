@@ -1,0 +1,47 @@
+<div class="ttt">
+  <!-- <h1><%= COPY.labels.headline %></h1> -->
+
+  <!-- <% if (COPY.labels.subhed) { %>
+  <h2><%= t.smarty(COPY.labels.subhed) %></h2>
+  <% } %> -->
+
+  <div class="artist-grid">
+  <% COPY.collards.forEach(function(v,k) { %>
+    <div class="artist <%= t.classify(v.name) %>">
+      <div class="artist-img-wrap">        
+          <img src="synced/resized/<%= v.photo %>" alt="Photo of <%= v.name %>" />
+          <div class="artist-img-overlay"></div>
+      </div>
+      <div class="artist-info">
+        
+        <h4 class="promo-text"><%= v.name %></h4>
+        <p class="location-name"><%= v.location %></p>
+        <p class="from">Steward: <%= v.keeper%></p>      
+        <p class="age">Variety age: <%= v.age2 %></p>
+        
+      </div>
+    </div>
+  <% }) %>
+  </div>
+<!-- 
+  <div class="button-container">
+    <a href="https://heirloomcollards.org/the-collards/"><div class="button">See more collards from the collection</div></a>
+  </div> -->
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>

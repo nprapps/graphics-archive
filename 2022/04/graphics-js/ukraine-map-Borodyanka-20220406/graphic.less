@@ -1,0 +1,159 @@
+@import "./lib/base";
+.g-aiPstyle2 {
+    pointer-events: none;
+}
+
+.desktop {
+  @media @screen-mobile {
+    display: none;
+  }
+}
+
+.g-aiPstyle12 {
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+.show-for-mobile, .g-number-labels {
+    pointer-events: none;
+
+    font-weight: 400;
+    p {
+        font-size: 12px !important;
+        line-height:15px !important;
+    }
+
+    span.top {
+
+        // background-color: rgba(0,0,0,0.5);
+        // width: 5px !important;
+        padding-left:5px;
+        padding-right: 5px;
+        padding-top:3px;
+        padding-bottom: 3px;
+        margin-bottom: 2px;
+
+        border-radius: 5px;
+        display: inline-block;
+
+        text-shadow: none;
+    }
+    span.number {
+        // width: 5px !important;
+        padding-left:5px;
+        padding-right: 5px;
+        padding-top:3px;
+        padding-bottom: 3px;
+        // margin-bottom: 2px;
+
+        border-radius: 5px;
+        display: inline-block;
+
+        text-shadow: none !important;
+
+        background-color: rgba(255,255,255,1);
+        color: #fff;
+        font-weight: 700;
+        margin-right: 5px;
+        line-height: 12px;
+        // background-color: darken(#7dafff,20%);
+        background-color: @red3;
+    }
+}
+
+span.hide-for-mobile {
+    display: none;
+}
+
+    span.top {
+        background-color: transparent !important;
+    }
+
+
+
+    .show-for-mobile-text {
+        display: inline;
+    }
+
+    .show-for-mobile {
+        display: block;
+        padding-bottom: 20px;
+
+
+
+
+        span.hide-for-mobile {
+            display: inline;
+        }
+
+        .exception {
+            text-shadow: none !important;
+        }
+    }
+
+span.boat {
+    img {
+        width: 50px;
+        padding-right:5px;
+    }
+}
+
+@media @screen-mobile-above {
+
+        .show-for-mobile:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+
+
+        div.item {
+            float: left;
+            width: 50%;
+        }
+}
+
+// ai2html artboard sizes
+@media screen and (min-width: 730px) {
+    #g-_ai2html-map-small, #g-_ai2html-map-medium { display: none; }
+}
+
+@media screen and (max-width: 729px) and (min-width: 400px) {
+    #g-_ai2html-map-small, #g-_ai2html-map-wide { display: none; }
+}
+
+@media screen and (max-width: 399px) {
+    #g-_ai2html-map-medium, #g-_ai2html-map-wide { display: none; }
+}
+
+
+// ai2html artboard sizes
+@media screen and (min-width: 550px) {
+
+    .key-container {
+        position: absolute;
+        top: 20px;
+        left: 10px;
+        z-index: 1000;
+    }
+}
+
+@media screen and (max-width: 549px) {
+
+    .g-legend .container .inner{
+        font-size: 8px;
+    }
+
+    ul.key {
+        margin-bottom: 5px;
+    }
+
+    b.hide-for-mobile {
+        display: none;
+    }
+}
+
+// Add custom styles here
+
+
+

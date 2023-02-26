@@ -1,0 +1,263 @@
+@import "./lib/base";
+
+
+@music-orange: #f05b4e;
+@ttt-green: #1c322d;
+@ttt-green-medium: #9fca82;
+@ttt-orange: @music-orange;
+@ttt-white: #fffceb;
+@ttt-white-white: #fff;
+@muted-blue: #4b6ba0;
+
+@background: @ttt-white-white;
+
+@text: #333;
+
+@transition-duration: 1s;
+@highlight: @muted-blue;
+
+h1 {
+  .mmedia-constrained-centered();
+}
+
+body {
+  padding-top: 0;
+  padding-bottom:0px;
+}
+
+.ttt {
+  background-color: @background;
+  color: @text;
+  // margin-bottom: 11px;
+  padding: 12px;
+  padding-bottom: 5px;
+
+  h2 {
+    .gotham();
+    .mmedia-constrained-centered();
+    color: @ttt-white;
+    font-size: 14px;
+    font-weight: 100;
+    -webkit-font-smoothing: antialiased;
+    margin-top: 0;
+    margin-bottom: 44px;    
+  }
+
+  .logo {
+    max-width: 550px;
+    margin: 0 auto;
+
+    img { display: block; }
+  }
+
+  a, a:link, a:visited {
+    color: #F0F0F0;
+    // border-bottom: 1px solid @ttt-orange;
+  }
+  a:hover, a:focus {
+    color: lighten(#F0F0F0, 10%);
+    transition: color 0.2s linear, border-color 0.2s linear;
+  }
+}
+
+.artist {
+  position: relative;
+  margin: 5px;
+}
+
+// .button-container {
+//   width: 100%;
+
+//   .button {
+//     .gotham();
+
+//     background-color: rgb(130,166,136);
+//     border-radius: 10px;
+//     width: 300px;
+//     margin: 0 auto;
+//     padding:10px;
+//     padding-top: 12px;
+//     text-align: center;
+//   }
+// }
+
+
+
+.artist-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .artist {
+    text-align: center;
+    width: 46%;
+    // padding: 0 1% 33px 1%;
+
+      h4 {
+        font-size: 14px;
+      }
+
+      p {
+        font-size: 12px;
+        margin-bottom: 3px !important;
+      }
+
+    @media screen and (min-width: 950px) {
+      width: 15%;
+
+      h4 {
+        font-size: 14px;
+      }
+
+      p {
+        font-size: 12px;
+      }
+    }
+    @media screen and (max-width: 949px) and (min-width: 611px) {
+      width: 30%;
+
+      h4 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 12px;
+      }
+    }
+
+    h4 {
+      .gotham();
+      margin: 0 0 0px 0;
+      padding-bottom:0px;
+    }
+
+    p {
+      .gotham();
+      margin: 0;      
+
+      &.promo-text {
+        color: @text;
+      }
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      // margin-bottom: 11px;
+      border: 1px solid transparent;
+    }
+
+    a:hover, a:focus {
+      img { border-color: lighten(@ttt-green, 20%); }
+    }
+  }
+}
+
+.artist h4 {
+  // font-size:20px !important;
+  font-weight: bold !important;
+  color: pink;
+}
+
+p.from {
+  color:;
+}
+
+p.location-name {
+  color: @text !important;
+  font-style: italic;
+}
+
+
+.foonote,
+.footer {
+  .mmedia-constrained();
+}
+
+img {
+  border-radius: 5px;
+}
+
+.hide-woman {
+  display: none;
+}
+
+.artist-img-wrap {
+  // border-radius: 3px;
+
+  .artist-img-overlay {
+      border-radius: 5px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: @highlight;
+      mix-blend-mode: multiply;
+      opacity: 0;
+      transition: opacity @transition-duration ease;
+  }
+}
+
+.artist-info {
+  // position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  text-align: left;
+
+
+  @media screen and (min-width: 1400px) {
+    padding: 1em 2em 2em 2em;
+  }
+  @media screen and (max-width: 1399px) and (min-width: 501px) {
+    padding: .5em 1em 1em 1em;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: .25em .5em .5em .5em;
+  }
+
+  .promo-text {
+
+      font-size: 0.9em;
+      font-style: bold;
+      margin: 0 auto 1em;
+      color: @text;
+      padding: 5px 0;
+  }
+
+  .artist-name .location-name {
+      // .knockout-upper();
+      font-size: 1.4em;
+      line-height: 1;
+      margin: 0.3em 0;
+      color: @text !important;
+  }
+
+  // .artist-name {
+  //   font-style: italic;
+  // }
+}
+
+// @media screen and (min-width: @screen-mobile-above) {
+  .artist.highlighted {
+      .artist-img-wrap {
+          .artist-img-overlay {
+              opacity: 1;
+          }
+
+          img {
+              -webkit-filter: blur(5px);
+              filter: blur(5px);
+          }
+      }
+
+      .artist-info {
+          opacity: 1;
+      }
+  // }
+
+
+}
