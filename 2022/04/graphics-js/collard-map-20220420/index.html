@@ -1,0 +1,35 @@
+<%= await t.include("lib/_head.html") %>
+
+<!-- <div class="topper">
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+</div> -->
+
+<div id="graphic" class="graphic" role="img"
+  <% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+  <% } %>
+>
+    <%= await t.include("_ai2html-map.html") %>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>  
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>  
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

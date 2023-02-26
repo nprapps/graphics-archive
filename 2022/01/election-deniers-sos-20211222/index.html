@@ -1,0 +1,92 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+
+<div class="graphic" id="table-graphic">
+  <table id="sos-table" role="table">
+    <!-- <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="header"><%= COPY.labels.hdr_name %></div>
+        </th>
+        <th role="columnheader">
+          <div class="header"><%= COPY.labels.hdr_evidence %></div>
+        </th>
+        <th role="columnheader">
+          <div class="header"><%= COPY.labels.hdr_trump_endorsed %></div>
+        </th>
+      </tr>
+    </thead> -->
+
+
+  <%  
+      var unique = (value, index, self) => {
+        return self.indexOf(value) === index
+      }
+      var states = COPY.data.map(r=>r.state);
+      var uniqueStates = states.filter(unique);
+      uniqueStates.forEach(function(state) { %>
+      <tr role="row" class="shadedrow state">
+        <td role="cell" colspan="3"><%=state%>
+          <%//get 2020 margin
+            var stateResults = COPY.states.filter(r => r.name==state)[0];
+          %>
+          <span class="<%=stateResults.won%>" style="font-size: 12px; text-transform: none;"><%= `(${stateResults.won} +${stateResults.margin} pts. in 2020)`%></span>
+
+        </td>
+      </tr>
+
+      <% var currentRows = COPY.data.filter( row=> row.state == state);
+          currentRows.forEach(function(row) { %>
+              <tr role="row">
+                <td role="cell" class="name" data-title="<%= COPY.labels.hdr_name %>"><%= row.name %></td>
+                <td role="cell"><%= row.evidence %></td>
+                <%if(row.trump_endorsed){%>
+                <td role="cell" class="endorsed" data-title="<%= COPY.labels.hdr_trump_endorsed%>">
+                 
+                      <span class="endorsed"><%= COPY.labels.hdr_trump_endorsed %></span>
+  
+                  <% } %>
+                  
+                </td>
+              </tr>
+          <% }) %>
+
+  <% }) %>
+
+  </table>
+</div>
+
+
+
+
+
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4></h4>
+  <p><strong>Note:</strong> <%= t.smarty(COPY.labels.footnote) %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

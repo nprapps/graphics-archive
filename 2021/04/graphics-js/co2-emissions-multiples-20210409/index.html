@@ -1,0 +1,47 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="area-chart" class="graphic" role="img">
+<% if (COPY.labels.screenreader) { %>
+  aria-label="<%- COPY.labels.screenreader %>"
+<% } %>
+  <img src="fallback.png" alt="" class="fallback" />
+</div>
+
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div>
+
+<script type="text/javascript">
+  var DATA_OVERALL = <%= JSON.stringify(COPY.data_overall) %>;
+  var DATA_POWER = <%= JSON.stringify(COPY.data_power) %>;
+  var DATA_TRANSPORTATION = <%= JSON.stringify(COPY.data_transportation) %>;
+  var DATA_LULUCF = <%= JSON.stringify(COPY.data_lulucf) %>;
+
+  var DATA_BUILDINGS = <%= JSON.stringify(COPY.data_buildings) %>;
+  var DATA_OIL = <%= JSON.stringify(COPY.data_oil) %>;
+  var DATA_INDUSTRY = <%= JSON.stringify(COPY.data_industry) %>;
+  var DATA_AGRICULTURE = <%= JSON.stringify(COPY.data_agriculture) %>;
+  var DATA_OTHER = <%= JSON.stringify(COPY.data_other) %>;
+</script>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

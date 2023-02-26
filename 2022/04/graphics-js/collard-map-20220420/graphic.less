@@ -1,0 +1,88 @@
+@import "./lib/base";
+
+body {
+    padding:10px 0;
+}
+
+h2 {
+    margin-bottom: 0px;
+}
+
+.g-labels-2 p {
+    // .knockout();
+    font-size: 16px !important;
+    line-height: 18px !important;
+    text-shadow: -0.5px -0.5px 10px #ffffff;
+}
+
+.g-labels-1 p {    
+    // text-shadow: 0.5px 0.5px 1px #ffffff, -0.5px -0.5px 1px #ffffff;
+    text-align: left;
+    // font-style: italic;
+    text-shadow: -0.5px -0.5px 10px #ffffff;
+}
+
+.topper, .footer, .footnotes {
+    .mmedia-constrained();
+}
+
+.graphic {
+    .mmedia-constrained-centered();
+
+    max-width: 1000px;
+    
+    #g-_ai2html-map-box {
+        margin-left: 100px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .graphic {
+        .mmedia-constrained-centered();
+
+        max-width: 1000px;
+        
+        #g-_ai2html-map-box {
+            margin-left: 0px;
+        }
+    }
+}
+@media screen and (max-width: 820px) {
+    .g-labels-2 p {
+        font-size: 14px !important;
+        line-height: 16px !important;
+    }
+
+    .g-labels-1 p {
+        font-size: 12px !important;
+        line-height: 14px !important;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .g-labels-2 p {
+        // .knockout();
+        font-size: 12px !important;
+        line-height: 14px !important;
+        text-shadow: -0.5px -0.5px 10px #ffffff;
+    }
+
+    .g-labels-1 p {    
+        font-size: 11px;
+        line-height: 12px;
+        text-align: left !important;
+        text-shadow: -0.5px -0.5px 10px #ffffff;
+
+    }
+}
+
+// ai2html artboard sizes
+@media screen and (min-width: 550px) {
+    #g-_ai2html-map-small { display: none; }
+}
+
+@media screen and (max-width: 549px) {
+    #g-_ai2html-map-large { display: none; }
+}
+
+// Add custom styles here

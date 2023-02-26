@@ -1,0 +1,225 @@
+@import "./lib/base";
+
+h1, h2, .notes, .footer {
+	.mmedia-constrained();
+}
+
+#graphic {
+	max-width: 750px;
+	margin: 0 auto;
+}
+
+.notes {
+	padding-bottom: 10px;
+}
+
+.attack {
+	color: black;
+	font-weight:bold;
+	font-size: 20px;
+	line-height:22px;
+}
+
+// ai2html artboard sizes
+@media screen and (min-width: 601px){
+    #g-_ai2html-graphic-small,#g-_ai2html-graphic-sidebar { display: none; }
+    .hide-for-desktop {
+    	// display: none;
+    }
+}
+
+
+// Add custom styles here
+
+// #attack {
+// 	border-radius: 3px;
+// 	color: white;
+// 	font-weight:bold;
+// 	padding: 2px;
+// 	border: 1px solid #000;
+// 	background-color:#ff0000
+// }
+
+
+
+.closed-2021 {
+	border-bottom: 3px solid #444;
+	padding: 2px;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.closed-2017 {
+	border-bottom: 3px dashed #444;
+	padding: 2px;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.parade {
+	border-bottom: 3px solid #c494c2 ;
+	padding: 2px;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.g-labels p {
+	font-size: 14px !important;
+	line-height: 16px !important;
+	color: #808080 !important;
+	text-shadow: 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff;
+}
+
+.g-legend p {
+	font-size: 12px !important;
+	line-height: 12px !important;
+	color: #000 !important;
+	text-shadow: 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff;
+	// font-weight: 700 !important;
+	// text-shadow: 0px 0px 1px #fff, 0px 0px 1px #fff, 0px 0px 1px #fff, 0px 0px 1px #fff;
+}
+
+.g-places p, .g-places-2 p {
+	font-size: 16px !important;
+	line-height: 16px !important;
+	color: #808080 !important;
+	text-shadow: 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff;
+}
+
+.g-places-2 p {
+	letter-spacing: 12px !important;
+}
+
+	.hide-for-mobile {
+		display: none;
+	}
+
+		.entry .hide-for-mobile {
+		display: inline;
+	}
+	.entry .hide-for-desktop {
+		display: none;
+	}
+
+
+
+	
+	.hide-for-mobile {
+		display: none;
+	}
+
+	.entry {
+		// line-height: 
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+
+	.entry .bubble {
+		// width: 10px;
+		// padding: 10px;
+		padding-top: 2px;
+		padding-bottom: 2px;
+		padding-left: 6px;
+		padding-right: 6px;
+		border-radius: 50%;
+		line-height: 15px;
+		margin: 5px;
+		background-color: #ddd;
+		display: inline-block;
+	}
+
+	.g-labels .hide-for-desktop {
+		padding-top: 2px;
+		padding-bottom: 2px;
+		padding-left: 6px;
+		padding-right: 6px;
+		border-radius: 50%;	
+
+		&.id1 {
+			padding-left:7px;
+			padding-right:7px;
+		}
+	}
+
+	.hide-for-desktop.id1, .entry1 .bubble {
+		// background-color: #9E1F63 !important;
+		color: #fff;
+		text-shadow: none;
+	}
+	.hide-for-desktop.id2, .entry2 .bubble {
+		// background-color: #ED1C24 !important;
+		color: #fff;
+		text-shadow: none;
+	}
+	.hide-for-desktop.id3, .entry3 .bubble {
+		// background-color: #FBB040 !important;
+		color: #ff0000;
+		text-shadow: none;
+		background-color: #ff0000!important;
+	}
+	.hide-for-desktop.id4, .entry4 .bubble {
+		// background-color: #F15A29 !important;
+		color: #fff;
+		text-shadow: none;
+	}
+
+	.bubble, #g-_ai2html-graphic-large-graphic .hide-for-desktop, #g-_ai2html-graphic-small-graphic .hide-for-desktop {
+		background-color: #333 !important; 
+	}
+ 
+
+
+	.entry .hide-for-mobile {
+		display: inline;
+	}
+	.entry .hide-for-desktop {
+		display: none;
+	}
+
+	.g-places p{
+		font-size: 13px !important;
+		line-height: 13px !important;
+	}
+    // #g-_ai2html-graphic-medium, #g-_ai2html-graphic-wide { display: none; }
+
+@media screen and (max-width: 600px) and (min-width: 301px) {
+	#g-_ai2html-graphic-large,#g-_ai2html-graphic-sidebar  { display: none; }
+
+	.g-places-2 p {
+		font-style: 12px !important;
+		color: #999 !important;
+	}
+
+	.g-labels p {
+	font-size: 13px !important;
+	line-height: 15px !important;
+	text-shadow: 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff;
+	}
+
+	.attack {
+		font-size: 16px;
+		line-height:18px;
+	}
+}
+
+@media screen and (max-width: 300px){
+	#g-_ai2html-graphic-large,#g-_ai2html-graphic-small  { display: none; }
+
+	.g-places-2 p {
+		font-style: 10px !important;
+		letter-spacing: 2px !important;
+		color: #999 !important;
+	}
+
+	.g-labels p {
+		font-size: 10px !important;
+		line-height: 12px !important;
+		letter-spacing:0.5px!important;
+		text-shadow: 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff;
+	}
+
+	.attack {
+		font-size: 14px;
+		line-height:16px;
+	}
+}

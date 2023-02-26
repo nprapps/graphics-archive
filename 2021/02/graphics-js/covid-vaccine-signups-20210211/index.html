@@ -1,0 +1,130 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %>
+
+<div id="" class="graphic">
+
+<% 
+	// var data = COPY.data.slice(2, COPY.data.length).filter(r => !r.hide && !r.city);
+	// var [va] = data.filter(r => r.state == "Veterans Health");
+	// data = data.filter(r => r.state !== "Veterans Health").sort((a,b) => a.state > b.state ? 1 : -1); 
+	// data.unshift(va);
+	var data = COPY.data.slice(2, COPY.data.length).filter(r => !r.hide);
+	var cities = COPY.data.slice(2, COPY.data.length).filter(r => r.city);
+	var steps = COPY.data[0];
+	var blurbs = COPY.data[1];
+	var keys = Object.keys(steps);
+	keys = keys.slice(5, 9);
+
+	data.forEach(function(r) {
+		r.step_1 = r.step_1.replace(/(\s\d[a-z\d-]{6,16}|\s\d{3})/ig, `<strong><a href="tel:$1">$1</a></strong>`);
+		r.step_2 = r.step_2.replace(/(\s\d[a-z\d-]{6,16}|\s\d{3})/ig, `<strong><a href="tel:$1">$1</a></strong>`);
+		r.step_3 = r.step_3.replace(/(\s\d[a-z\d-]{6,16}|\s\d{3})/ig, `<strong><a href="tel:$1">$1</a></strong>`);
+		r.step_4 = r.step_4.replace(/(\s\d[a-z\d-]{6,16}|\s\d{3})/ig, `<strong><a href="tel:$1">$1</a></strong>`);
+	});
+%>
+
+<div class="dropdown-container">
+	<h1 class="hed"><%= COPY.labels.dropdown_label %></h1>
+	<select id="dropdown" class="state-dropdown">
+		<option value="Select">Select a state/jurisdiction</option>
+		<% data.forEach(function(r) { %>
+	  	<option value=<%= r.postal %>><%= r.city ? `&nbsp;&nbsp;&rdsh; ${r.state}` : r.state %></option>
+	  <% }); %>
+	</select>
+	<!-- <h2 class="last-updated">Last updated <%= COPY.labels.last_updated %></h2> -->
+</div>
+
+<div class="hidden state-container show select">
+	<h1 class="state-hed"></h1>
+
+	<% keys.slice(0,4).forEach(function(k) { %>
+			<div class="step-container">
+				<div class="big-num"><%= k.split("_")[1] %></div>
+				<div class="step">
+					<div class="step-hed"><%= steps[k] %></div>
+				</div>
+			</div>
+	<% }); %>
+</div>
+
+<% data.forEach(function(r) { %>
+	<% 
+		var cityList = [];
+		cities.forEach(function(c) {
+			if (c.city == r.state) {
+				cityList.push({
+					city: c.state,
+					postal: c.postal
+				});
+			}
+		}); 
+
+		var cityDisplay = cityList.map(c => `<span class="city-label" data-postal="${c.postal}">${c.city}</span>`).join(", ");
+
+		if (cityList.length > 1) {
+			var rest = cityDisplay.substring(0, cityDisplay.lastIndexOf(", ") + 1);
+			var last = cityDisplay.substring(cityDisplay.lastIndexOf(", ") + 1, cityDisplay.length);
+			rest = rest.slice(0,-1) + " or ";
+			last = last.slice(1,last.length);
+			cityDisplay = rest + last;
+		}
+	%>
+
+	<div class="hidden state-container <%= r.postal %>" tabindex="-1">
+
+		<% var theKey = ["District of Columbia", "Northern Mariana Islands", "U.S. Virgin Islands", "Indian Health Service"] %>
+		<h1 class="state-hed"><%= !r.fed ? COPY.labels.signups_state_hed : COPY.labels.signups_fed_hed %><%= theKey.indexOf(r.state) >= 0 ? " the" : "" %> <strong><%= r.state %></strong></h1>
+
+		<% if (cityDisplay) { %>
+			<h2>(<%= COPY.labels.cities_note %> <%= cityDisplay %>)</h2>
+		<% } %>
+		<% if (r.city) { %>
+			<h2>(<%= COPY.labels.state_note %> <span class="city-label" data-postal="<%= r.city_postal %>"><%= r.city %></span>)</h2>
+		<% } %>
+
+		<% keys.forEach(function(k) { %>
+			<% if (r[k]) { %>
+				<div class="step-container">
+					<div class="big-num"><%= k.split("_")[1] %></div>
+					<div class="step">
+						<div class="step-hed"><%= steps[k] %></div>
+						<div><%= r[k] %></div>
+						<% if (blurbs[k]) { %>
+							<div class="blurb"><%= blurbs[k] %></div>
+						<% } %>
+					</div>
+				</div>
+			<% }; %>
+		<% }); %>
+	</div>
+<% }) %>
+
+    <!-- <img src="fallback.png" alt="" class="fallback" /> -->
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+    <h4>Notes</h4>
+    <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+    <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+    <span class="credit"></span>
+</div>
+
+<script type="text/javascript">
+	window.LAST_UPDATED = <%= JSON.stringify(COPY.labels.last_updated) %>;
+	window.CREDIT = <%= JSON.stringify(COPY.labels.credit) %>;
+</script>
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

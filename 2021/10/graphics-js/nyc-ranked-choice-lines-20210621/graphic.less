@@ -1,0 +1,50 @@
+@import "./lib/base";
+
+.victory {
+  stroke: #888;
+  stroke-dasharray: 6 3;
+  stroke-width: 2px;
+}
+
+.threshold-label {
+  fill: #888;
+  font-style: italic;
+}
+
+.x-axis-sub {
+  text-anchor: middle;
+  font-size: 15px;
+  fill: #555;
+  font-style: italic;
+  .gotham();
+}
+
+.lines {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #ccc;
+}
+
+.value text {
+  font-size: 12px;
+  font-weight: bold;
+  // fill: #999;
+}
+
+@media screen and (max-width: 500px) {
+  .value text {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .key {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .key.one-line {
+    display: none;
+  }
+}
