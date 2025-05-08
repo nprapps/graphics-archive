@@ -40,33 +40,79 @@
 @blue6      : #D3EAF7;
 
 // Fonts
-.gotham() {
-  font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
+@sans: 'NPRSans', @sans-base;
+@serif: 'NPRSerif', @serif-base;
+@condensed: 'Source Sans Pro', @sans-base;
+
+@sans-base: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+@serif-base: Georgia, "Times New Roman", Times, serif;
+
+.sans() {
+  font-family: @sans;
   font-weight: normal;
-  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
-// Normal Knockout
-.knockout() {
-  font-family: 'Knockout 31 4r','Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+.serif() {
+  font-family: @serif;
   font-weight: normal;
+  font-kerning: normal;
+  letter-spacing: 0.02em;
 }
 
-// Knockout, uppercased
-.knockout-upper() {
-  .knockout();
+.condensed() {
+  font-family: @condensed;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+// small headings
+.sans-header() {
+  .sans();
   text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
 }
-
-// Knockout for headings
-.knockout-header() {
-  .knockout-upper();
+.condensed-header() {
+  .condensed();
+  text-transform: uppercase;
   letter-spacing: 0.05em;
   -webkit-font-smoothing: antialiased;
 }
 
+// shims for old fonts
+@lato: @sans;
+@sourceSansPro: @sans;
+@gotham: @sans;
+@knockout: @sans;
+
+.gotham() {
+  .sans();
+}
+.lato() {
+  .sans();
+}
+.knockout() {
+  .sans();
+}
+.sourceSansPro() {
+  .sans();
+}
+.sourceSansPro-header() {
+  .sans-header();
+}
+.sourceSansPro-upper() {
+  .sans-header();
+}
+.knockout-upper() {
+  .sans-header();
+}
+.knockout-header() {
+  .sans-header();
+}
 .sans-serif() {
-  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  .sans();
 }
 
 // Mixins
@@ -101,9 +147,10 @@
 html { -webkit-text-size-adjust: none; }
 
 body {
+  background-color: #fff;
   margin: 0;
   padding: 33px 0;
-  font: 14px/1.4 Helvetica, Arial, sans-serif;
+  font: 14px/1.4 @sans;
   color: #555;
   //remove 300ms click delay in Safari, AKA still the worst
   touch-action: manipulation;
@@ -114,33 +161,29 @@ img, svg {
 }
 
 h1 {
-  margin: 0 0 33px 0;
+  .sans();
+  margin: 0 0 22px 0;
   font-size: 20px;
-  color: #666;
-  font-family: 'Gotham SSm',Helvetica,Arial,sans-serif;
-  font-weight: normal;
+  color: #333;
+  font-weight: 600;
   line-height: 1.3;
-  font-weight: 400;
   -webkit-font-smoothing: antialiased;
 }
 
 h2 {
+  .sans();
   font-weight: normal;
-  color: #777;
-  font-size: 12px;
-  margin: -22px 0 22px 0;
+  color: #636363;
+  font-size: 14px;
+  margin: -11px 0 33px 0;
   line-height: 1.6;
 }
 
 h3 {
+  .sans-header();
   margin: 0 0 15px 0;
-  font-family: 'Knockout 31 4r';
-  font-weight: normal;
-  text-transform: uppercase;
   padding-top: 0;
   line-height: 1.2;
-  letter-spacing: 0.05em;
-  -webkit-font-smoothing: antialiased;
   font-size: 12px;
   color: #333;
 }
@@ -162,9 +205,9 @@ h3 {
 .footnotes p,
 .footer p {
   margin: 2px 0 0 0;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.7;
-  color: #999;
+  color: #808080;
 }
 
 .footer p { font-style: italic; }
@@ -226,6 +269,7 @@ a:hover, a:active { color: #bccae5; }
 svg { overflow: hidden; }
 
 .axis {
+  .sans();
   font-size: 11px;
   -webkit-font-smoothing: antialiased;
   fill: #999;
@@ -282,7 +326,7 @@ rect {
     position: absolute;
     text-align: right;
     font-size: 12px;
-    line-height: 1.3;
+    line-height: 1.4;
     color: #666;
     display: table;
     -webkit-font-smoothing: antialiased;
@@ -295,11 +339,11 @@ rect {
 }
 
 .value text {
-  font-size: 10px;
+  font-size: 11px;
   -webkit-font-smoothing: antialiased;
 
   &.in { fill: #fff; }
-  &.out { fill: #999; }
+  &.out { fill: #636363; }
 }
 
 // HOMEPAGE
